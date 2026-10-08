@@ -81,10 +81,10 @@ def test_sizing_and_costs():
     assert list(q) == [3, 0, 0]
     out = A.to_usd(tr, inst, q)
     assert len(out) == 1
-    assert out.pnl_usd.iloc[0] == pytest.approx(3 * (5 * 5 - 0.74))
+    # target exit -> only the entry side is slipped (1 tick = 0.25pt)
+    assert out.pnl_usd.iloc[0] == pytest.approx(3 * ((5 - 0.25) * 5 - 0.74))
     out2 = A.to_usd(tr, inst, q, cost_mult=2, slip_mult=3)
-    # target exit -> one slipped side; extra slip = 2 ticks * 0.25 = 0.5pt
-    assert out2.pnl_usd.iloc[0] == pytest.approx(3 * ((5 - 0.5) * 5 - 1.48))
+    assert out2.pnl_usd.iloc[0] == pytest.approx(3 * ((5 - 0.75) * 5 - 1.48))
 
 
 def test_daily_pnl_worst_includes_mae():

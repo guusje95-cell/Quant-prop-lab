@@ -23,18 +23,21 @@ def size_trades(tr: pd.DataFrame, inst: Instrument, risk_usd: float | None = Non
 
 
 def to_usd(tr: pd.DataFrame, inst: Instrument, qty: np.ndarray, cost_mult: float = 1.0, slip_mult: float = 1.0,
-           base_slip_ticks: float = 1.0) -> pd.DataFrame:
-    """Add USD columns. Engine prices already include base_slip_ticks of slippage on
-    market/stop fills; slip_mult scales it post-hoc (exits at limit targets carry none)."""
+           base_slip_ticks: float | None = None) -> pd.DataFrame:
+    """Add USD columns. The engine is run frictionless (slip_ticks=0); ALL slippage is applied
+    here: base_slip_ticks (default inst.slippage_ticks) * slip_mult ticks per slipped side.
+    Entries (market/stop) are always slipped; exits are slipped unless filled by a limit target."""
+    base = inst.slippage_ticks if base_slip_ticks is None else base_slip_ticks
     out = tr.copy()
     out["qty"] = qty
     pv = inst.point_value
-    # number of slipped sides: entry always (market/stop), exit unless target(limit)
     sides = 1 + (out["reason"].to_numpy() != 2).astype(float)
-    extra_slip_pts = (slip_mult - 1.0) * base_slip_ticks * inst.tick_size * sides
-    out["pnl_usd"] = qty * ((out["pnl_pts"] - extra_slip_pts) * pv - cost_mult * inst.commission_rt)
-    out["mae_usd"] = qty * (np.minimum(out["mae_pts"], 0) * pv - cost_mult * inst.commission_rt)
-    out["cost_usd"] = qty * (cost_mult * inst.commission_rt + (base_slip_ticks * slip_mult) * inst.tick_size * sides * pv)
+    slip_pts = slip_mult * base * inst.tick_size * sides
+    comm = cost_mult * inst.commission_rt
+    out["pnl_usd"] = qty * ((out["pnl_pts"] - slip_pts) * pv - comm)
+    # worst open P&L: MAE plus entry+exit slippage and commission (liquidation at the worst point)
+    out["mae_usd"] = qty * ((np.minimum(out["mae_pts"], 0) - slip_mult * base * inst.tick_size * 2) * pv - comm)
+    out["cost_usd"] = qty * (comm + slip_pts * pv)
     out = out[out["qty"] > 0].copy()
     return out
 

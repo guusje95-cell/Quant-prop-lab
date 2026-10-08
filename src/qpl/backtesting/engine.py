@@ -20,6 +20,7 @@ Execution model (documented assumptions, all deliberately conservative):
   range (the low may have printed before the entry - counted as a loss).
 * Trailing stops are updated with the bar's extreme only AFTER the bar has
   finished, so they never benefit from intrabar ordering.
+* exit_sig[t] (+1 exit longs / -1 exit shorts / 2 any) exits at open[t+1].
 * flat_bar[t] forces an exit at close[t] (minus slippage) - used to model the
   prop-firm "flat by 3:10 PM CT" rule; pending entries are cancelled from the
   flat bar onwards and at every session change.
@@ -233,7 +234,7 @@ def _simulate(o, h, l, c, sess, entry_dir, entry_type, entry_px, entry_px2, entr
             p_dir = 0
             continue
         # --- (d) signals at close of bar t -> orders for bar t+1
-        if pos != 0 and exit_sig[t]:
+        if pos != 0 and (exit_sig[t] == 2 or exit_sig[t] == pos):
             p_exit = True
         if pos == 0 and p_type == NONE and entry_dir[t] != 0 and trades_in_sess < max_trades_sess:
             p_dir = entry_dir[t]
@@ -271,7 +272,7 @@ class Orders:
         self.stop_dist = np.full(n, np.nan)
         self.tgt_dist = np.full(n, np.nan)
         self.trail_dist = np.full(n, np.nan)
-        self.exit_sig = np.zeros(n, np.bool_)
+        self.exit_sig = np.zeros(n, np.int64)   # 0 none, +1 exit longs, -1 exit shorts, 2 exit any
         self.flat_bar = np.zeros(n, np.bool_)
         self.max_trades_sess = 1_000_000
 

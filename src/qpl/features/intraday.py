@@ -11,6 +11,11 @@ from ..data.calendar import early_closes, holidays
 from ..data.sessions import RTH_CLOSE_MIN, RTH_OPEN_MIN, cme_trading_date, to_et
 
 
+def day_ordinal(dates) -> np.ndarray:
+    """Unit-safe integer day number (pandas 3 uses microsecond datetimes)."""
+    return np.asarray(dates).astype("datetime64[D]").astype(np.int64)
+
+
 def prepare(df: pd.DataFrame, bar_min: int) -> pd.DataFrame:
     """Add session columns. `date` = ET calendar date, `cme_date` = Globex trading date."""
     out = df.copy()
@@ -29,7 +34,7 @@ def prepare(df: pd.DataFrame, bar_min: int) -> pd.DataFrame:
     # RTH bar number within the day (0 = 09:30 bar)
     out["rth_bar"] = np.where(out["rth"], (m - RTH_OPEN_MIN) // bar_min, -1)
     out["last_rth_bar"] = out["rth"] & (m + bar_min == RTH_CLOSE_MIN)
-    out["sess"] = (out["date"].astype("int64") // 86_400_000_000_000).astype(np.int64)
+    out["sess"] = day_ordinal(out["date"].to_numpy())
     return out
 
 
@@ -43,26 +48,39 @@ def daily_rth_table(p: pd.DataFrame) -> pd.DataFrame:
     return t
 
 
+def asof_prior(day_values: pd.Series, dates) -> np.ndarray:
+    """For each date D return the value of `day_values` from the last day STRICTLY before D.
+    `day_values[d]` must be computable at the end of day d. Leakage-safe for any D, including
+    days whose own data is missing or incomplete."""
+    v = day_values.dropna()
+    keys = v.index.to_numpy().astype("datetime64[D]")
+    q = np.asarray(dates).astype("datetime64[D]")
+    pos = np.searchsorted(keys, q, side="left") - 1
+    out = np.full(len(q), np.nan)
+    ok = pos >= 0
+    out[ok] = v.to_numpy()[pos[ok]]
+    return out
+
+
 def add_prev_close(p: pd.DataFrame, bar_min: int) -> pd.DataFrame:
-    """prev_rth_close: close of the last RTH bar of the previous valid day (known before today's open)."""
+    """prev_rth_close: close of the most recent COMPLETE RTH day strictly before today.
+    rth_open: open of today's 09:30 bar, only visible from 09:30 onwards."""
     t = daily_rth_table(p)
     full = t[(t["first_min"] == RTH_OPEN_MIN) & (t["last_min"] + bar_min == RTH_CLOSE_MIN)]
-    prev_close = full["close"].shift(1)
-    # map each date to the previous complete day's close (dates without complete data -> NaN)
-    pc = pd.Series(prev_close.values, index=full.index)
     p = p.copy()
-    p["prev_rth_close"] = p["date"].map(pc)
+    p["prev_rth_close"] = asof_prior(full["close"], p["date"].to_numpy())
     day_open = t["open"].where(t["first_min"] == RTH_OPEN_MIN)
-    p["rth_open"] = p["date"].map(day_open)
-    p["complete_day"] = p["date"].isin(full.index)
+    ro = p["date"].map(day_open).to_numpy(dtype=float).copy()
+    ro[p["et_min"].to_numpy() < RTH_OPEN_MIN] = np.nan
+    p["rth_open"] = ro
     return p
 
 
-def atr_daily(t: pd.DataFrame, n: int = 14) -> pd.Series:
-    """Daily ATR from the RTH table, SHIFTED by one day (known before today's open)."""
+def atr_series(t: pd.DataFrame, n: int = 14) -> pd.Series:
+    """Daily ATR through day d (uses days <= d). Map with asof_prior for use on day d+1."""
     pc = t["close"].shift(1)
     tr = np.maximum(t["high"] - t["low"], np.maximum((t["high"] - pc).abs(), (t["low"] - pc).abs()))
-    return tr.rolling(n, min_periods=n).mean().shift(1)
+    return tr.rolling(n, min_periods=n).mean()
 
 
 def intraday_cum_from_open(p: pd.DataFrame) -> np.ndarray:

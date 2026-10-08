@@ -104,7 +104,7 @@ def test_mae_is_recorded():
 def test_signal_exit_next_open():
     df = bars([(100, 100, 100, 100), (100, 101, 99, 100), (101, 102, 100, 101), (103, 104, 102, 103)])
     o = E.Orders(4)
-    o.entry_dir[0] = 1; o.entry_type[0] = E.MARKET; o.exit_sig[2] = True
+    o.entry_dir[0] = 1; o.entry_type[0] = E.MARKET; o.exit_sig[2] = 2
     tr = E.run(df, o, np.zeros(4), tick=0.25, slip_ticks=0)
     assert tr.exit_i[0] == 3 and tr.exit_px[0] == pytest.approx(103.0) and tr.reason[0] == E.EX_SIGNAL
 
@@ -112,7 +112,15 @@ def test_signal_exit_next_open():
 def test_max_trades_per_session():
     df = bars([(100, 101, 99, 100)] * 8)
     o = E.Orders(8)
-    o.entry_dir[:] = 1; o.entry_type[:] = E.MARKET; o.exit_sig[:] = True
+    o.entry_dir[:] = 1; o.entry_type[:] = E.MARKET; o.exit_sig[:] = 2
     o.max_trades_sess = 2
     tr = E.run(df, o, np.zeros(8), tick=0.25, slip_ticks=0)
     assert len(tr) == 2
+
+
+def test_directional_exit_signal_only_applies_to_matching_side():
+    df = bars([(100, 100, 100, 100), (100, 101, 99, 100), (101, 102, 100, 101), (103, 104, 102, 103)])
+    o = E.Orders(4)
+    o.entry_dir[0] = 1; o.entry_type[0] = E.MARKET; o.exit_sig[1] = -1; o.exit_sig[2] = 1
+    tr = E.run(df, o, np.zeros(4), tick=0.25, slip_ticks=0)
+    assert tr.exit_i[0] == 3
