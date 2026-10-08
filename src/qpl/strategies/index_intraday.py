@@ -14,8 +14,8 @@ from ..backtesting.engine import MARKET, STOP, Orders
 from ..features.intraday import add_prev_close, asof_prior, atr_series, daily_rth_table, day_ordinal, prepare
 
 
-def build_context(df: pd.DataFrame, bar_min: int) -> pd.DataFrame:
-    p = prepare(df, bar_min)
+def build_context(df: pd.DataFrame, bar_min: int, open_min: int = 570, close_min: int = 960) -> pd.DataFrame:
+    p = prepare(df, bar_min, open_min, close_min)
     p = add_prev_close(p, bar_min)
     t = daily_rth_table(p)
     dates = p["date"].to_numpy()
@@ -165,9 +165,10 @@ def noise_area(ctx: pd.DataFrame, prm: dict) -> Orders:
     lb = prm.get("lookback", 14)
     mult = prm.get("mult", 1.0)
     check = prm.get("check_min", 30)
-    first_check = prm.get("first_check_min", 10 * 60)
+    om, cm = ctx.attrs.get("open_min", 570), ctx.attrs.get("close_min", 960)
+    first_check = prm.get("first_check_min", om + 30)
     trail = prm.get("trail", "band_mean")      # 'band' or 'band_mean'
-    last_entry = prm.get("last_entry_min", 15 * 60 + 30)
+    last_entry = prm.get("last_entry_min", cm - 30)
     rb = ctx["rth_bar"].to_numpy()
     rth = ctx["rth"].to_numpy() & ctx["valid_day"].to_numpy()
     C, H, L = ctx["close"].to_numpy(), ctx["high"].to_numpy(), ctx["low"].to_numpy()
@@ -308,3 +309,45 @@ STRATEGIES = {
     "overnight_drift": overnight_drift, "gap_fade": gap_fade,
 }
 SESSION_KIND = {"overnight_drift": "cme"}
+
+
+# --------------------------------------------------------------------------------------
+# H7: Midday mean reversion toward the session mean price (range-day reversion)
+# --------------------------------------------------------------------------------------
+def midday_reversion(ctx: pd.DataFrame, prm: dict) -> Orders:
+    """Between win_start and win_end (ET), if price deviates from the running session TWAP by more
+    than k x (time-of-day noise sigma x open), fade it: target = TWAP at signal, stop = entry +/- 1x the
+    deviation, time exit at exit_min. One trade per session."""
+    n = len(ctx)
+    o = Orders(n)
+    bar_min = ctx.attrs["bar_min"]
+    lb, k = prm.get("lookback", 14), prm.get("k", 1.5)
+    ws, we, xm = prm.get("win_start", 720), prm.get("win_end", 870), prm.get("exit_min", 930)
+    rb = ctx["rth_bar"].to_numpy()
+    rth = ctx["rth"].to_numpy() & ctx["valid_day"].to_numpy()
+    C, H, L = ctx["close"].to_numpy(), ctx["high"].to_numpy(), ctx["low"].to_numpy()
+    op = ctx["rth_open"].to_numpy()
+    et = ctx["et_min"].to_numpy()
+    date = ctx["date"].to_numpy()
+    mv = pd.DataFrame({"date": date[rth], "slot": rb[rth], "mv": np.abs(C[rth] / op[rth] - 1)})
+    piv = mv.pivot_table(index="date", columns="slot", values="mv", aggfunc="last")
+    s_arr = piv.rolling(lb, min_periods=lb).mean().shift(1).stack().reindex(pd.MultiIndex.from_arrays([date, rb])).to_numpy()
+    tp = (H + L + C) / 3.0
+    twap = pd.DataFrame({"d": date, "tp": np.where(rth, tp, np.nan)}).groupby("d")["tp"].transform(
+        lambda x: x.expanding().mean()).to_numpy()
+    band = op * s_arr
+    win = rth & (et + bar_min >= ws) & (et + bar_min <= we) & np.isfinite(band) & (band > 0)
+    dev = C - twap
+    sig = np.flatnonzero(win & (np.abs(dev) > k * band))
+    for t in sig:
+        d = -int(np.sign(dev[t]))
+        o.entry_dir[t] = d
+        o.entry_type[t] = MARKET
+        o.tgt_dist[t] = abs(dev[t])
+        o.stop_dist[t] = abs(dev[t])
+    o.flat_bar = ((et < xm) & (et + bar_min >= xm) & ctx["rth"].to_numpy()) | ctx["flat_rth"].to_numpy()
+    o.max_trades_sess = 1
+    return o
+
+
+STRATEGIES["midday_reversion"] = midday_reversion

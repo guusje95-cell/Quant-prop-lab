@@ -46,6 +46,10 @@ INSTRUMENTS: dict[str, Instrument] = {
     "SI": Instrument("SI", "Silver", 5000.0, 0.005, 3.10, proxy="XAGUSD"),
     "CL": Instrument("CL", "Crude Oil", 1000.0, 0.01, 3.00, proxy="BRENT"),
     "MCL": Instrument("MCL", "Micro Crude Oil", 100.0, 0.01, 1.00, proxy="BRENT"),
+    # CFDs for FTMO-style accounts: point_value per 'unit' of 0.1 index points-dollar; costs as spread.
+    # ASSUMPTION: FTMO US100.cash spread ~1.0-2.0 pts, modelled as 0.9 pt per side (1.8 pt round trip), no commission.
+    "US100CFD": Instrument("US100CFD", "Nasdaq-100 CFD (FTMO-style)", 0.1, 0.01, 0.0, slippage_ticks=90.0, proxy="US100"),
+    "US500CFD": Instrument("US500CFD", "S&P 500 CFD (FTMO-style)", 0.1, 0.01, 0.0, slippage_ticks=30.0, proxy="US500"),
     # FX futures
     "6E": Instrument("6E", "Euro FX", 125000.0, 0.00005, 3.00, proxy="EURUSD"),
     "M6E": Instrument("M6E", "E-Micro EUR/USD", 12500.0, 0.0001, 0.80, proxy="EURUSD"),

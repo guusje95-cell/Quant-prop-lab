@@ -1,0 +1,22 @@
+{
+  "_written": "2026-10-08, BEFORE any strategy was run on TopstepX futures data (data used so far only for structural validation and roll/gap checks).",
+  "candidate": {
+    "id": "H3_NOISE_NQ",
+    "strategy": "noise_area",
+    "params": {"lookback": 14, "mult": 1.25, "trail": "band_mean", "check_min": 60, "cat_stop_sd": 1.5, "max_trades": 6},
+    "market": "NQ / MNQ (CME E-mini / Micro E-mini Nasdaq-100)"
+  },
+  "test_A_exact": {
+    "data": "TopstepX NQ and MNQ 15-minute bars, 2026-01-20 -> 2026-04-15 (first ~14 sessions are look-back warm-up)",
+    "spec": "identical to the frozen research specification (09:30 open reference, hourly checks from 10:00, flat 16:00 ET)",
+    "costs": "baseline (1 tick slippage per side + commission) at actual prices (no normalization needed)",
+    "criterion": "Low statistical power (~45 tradable sessions). Reported; counts as FAIL only if total P&L is below the 5th percentile of the stationary-bootstrap distribution of dev+OOS daily P&L over the same number of sessions."
+  },
+  "test_B_hourly_approximation": {
+    "data": "TopstepX NQ and MNQ 1-hour bars, 2025-03-21 -> 2026-04-15 (~13 months)",
+    "spec": "1h bars are aligned to the clock hour, so the 09:30 open is not observable. Approximation: session reference open = open of the 09:00 ET bar; same hourly checks (10:00..15:00 closes), same parameters, flat at 16:00 ET.",
+    "calibration": "The same approximation is run first on Dukascopy US100 H1 bars (2013-2023) to establish its expected Sharpe; this uses only already-consumed development/OOS data.",
+    "criterion": "PASS requires: baseline-cost Sharpe > 0 AND total P&L > 0 on NQ; MNQ must agree in sign. FAIL otherwise -> candidate rejected."
+  },
+  "no_retuning": "No parameter, filter or rule may be changed after observing these results. If the test fails, the candidate is rejected and the final-test data is declared contaminated."
+}

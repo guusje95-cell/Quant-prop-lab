@@ -26,9 +26,10 @@ TF_MIN = {"M5": 5, "M15": 15, "M30": 30, "H1": 60, "5min": 5, "15min": 15, "1h":
 
 
 @lru_cache(maxsize=32)
-def context(source: str, symbol: str, tf: str) -> pd.DataFrame:
+def context(source: str, symbol: str, tf: str, open_min: int = 570, close_min: int = 960) -> pd.DataFrame:
+    """Prepared, cached context. (open_min, close_min) = primary session in ET minutes."""
     df = loaders.load(source, symbol, tf)
-    return SI.build_context(df, TF_MIN[tf])
+    return SI.build_context(df, TF_MIN[tf], open_min, close_min)
 
 
 def trading_days(ctx: pd.DataFrame) -> pd.DatetimeIndex:
@@ -50,7 +51,8 @@ def backtest(strategy: str, ctx: pd.DataFrame, prm: dict, inst: Instrument, slip
 # start of the untouched final-test window (2025-03-21), fixed ex-ante. Historical point P&L is
 # rescaled to this price level so that fixed tick costs carry today's relative weight.
 REF_PRICE = {"ES": 5700.0, "MES": 5700.0, "NQ": 19900.0, "MNQ": 19900.0, "YM": 42300.0, "MYM": 42300.0,
-             "GC": 3000.0, "MGC": 3000.0}
+             "GC": 3000.0, "MGC": 3000.0, "CL": 68.0, "MCL": 68.0, "6E": 1.08, "M6E": 1.08, "6B": 1.29,
+             "6J": 0.0067, "SI": 33.5, "US100CFD": 19900.0, "US500CFD": 5700.0}
 
 
 def normalize(tr: pd.DataFrame, ref: float) -> pd.DataFrame:

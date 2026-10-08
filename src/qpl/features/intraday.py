@@ -16,8 +16,8 @@ def day_ordinal(dates) -> np.ndarray:
     return np.asarray(dates).astype("datetime64[D]").astype(np.int64)
 
 
-def prepare(df: pd.DataFrame, bar_min: int) -> pd.DataFrame:
-    """Add session columns. `date` = ET calendar date, `cme_date` = Globex trading date."""
+def prepare(df: pd.DataFrame, bar_min: int, open_min: int = RTH_OPEN_MIN, close_min: int = RTH_CLOSE_MIN) -> pd.DataFrame:
+    """Add session columns (primary session = [open_min, close_min) ET; default US equity RTH). `date` = ET calendar date, `cme_date` = Globex trading date."""
     out = df.copy()
     e = to_et(out.index)
     m = (e.hour * 60 + e.minute).to_numpy()
@@ -29,11 +29,12 @@ def prepare(df: pd.DataFrame, bar_min: int) -> pd.DataFrame:
     ec = early_closes()
     out["holiday"] = out["date"].isin(hol).to_numpy()
     out["early_close"] = out["date"].isin(ec).to_numpy()
-    out["rth"] = (m >= RTH_OPEN_MIN) & (m + bar_min <= RTH_CLOSE_MIN)
+    out["rth"] = (m >= open_min) & (m + bar_min <= close_min)
     out["valid_day"] = (~out["holiday"]) & (~out["early_close"]) & (out["dow"] < 5)
     # RTH bar number within the day (0 = 09:30 bar)
-    out["rth_bar"] = np.where(out["rth"], (m - RTH_OPEN_MIN) // bar_min, -1)
-    out["last_rth_bar"] = out["rth"] & (m + bar_min == RTH_CLOSE_MIN)
+    out["rth_bar"] = np.where(out["rth"], (m - open_min) // bar_min, -1)
+    out["last_rth_bar"] = out["rth"] & (m + bar_min == close_min)
+    out.attrs["open_min"], out.attrs["close_min"] = open_min, close_min
     out["sess"] = day_ordinal(out["date"].to_numpy())
     return out
 
@@ -66,12 +67,13 @@ def add_prev_close(p: pd.DataFrame, bar_min: int) -> pd.DataFrame:
     """prev_rth_close: close of the most recent COMPLETE RTH day strictly before today.
     rth_open: open of today's 09:30 bar, only visible from 09:30 onwards."""
     t = daily_rth_table(p)
-    full = t[(t["first_min"] == RTH_OPEN_MIN) & (t["last_min"] + bar_min == RTH_CLOSE_MIN)]
+    om, cm = p.attrs.get("open_min", RTH_OPEN_MIN), p.attrs.get("close_min", RTH_CLOSE_MIN)
+    full = t[(t["first_min"] == om) & (t["last_min"] + bar_min == cm)]
     p = p.copy()
     p["prev_rth_close"] = asof_prior(full["close"], p["date"].to_numpy())
-    day_open = t["open"].where(t["first_min"] == RTH_OPEN_MIN)
+    day_open = t["open"].where(t["first_min"] == om)
     ro = p["date"].map(day_open).to_numpy(dtype=float).copy()
-    ro[p["et_min"].to_numpy() < RTH_OPEN_MIN] = np.nan
+    ro[p["et_min"].to_numpy() < om] = np.nan
     p["rth_open"] = ro
     return p
 
