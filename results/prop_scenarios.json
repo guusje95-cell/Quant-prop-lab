@@ -1,0 +1,175 @@
+{
+ "scenarios": {
+  "keep_100pct_edge": {
+   "Topstep 50K Combine": {
+    "p_pass": 0.76325,
+    "p_fail": 0.23675,
+    "p_timeout": 0.0,
+    "days_to_pass_p50": 138.0,
+    "days_to_pass_p95": 321.0,
+    "expected_cost_to_pass_usd": 610.8043454525603,
+    "implied_sharpe": 1.3568223471280487
+   },
+   "Topstep 150K Combine": {
+    "p_pass": 0.8715,
+    "p_fail": 0.094,
+    "p_timeout": 0.0345,
+    "days_to_pass_p50": 335.0,
+    "days_to_pass_p95": 628.75,
+    "expected_cost_to_pass_usd": 4076.6526104417667,
+    "implied_sharpe": 1.3699079811387767
+   },
+   "FTMO 2-Step 100K": {
+    "p_pass": 0.96075,
+    "p_fail": 0.03125,
+    "p_timeout": 0.008,
+    "days_to_pass_p50": 291.0,
+    "days_to_pass_p95": 639.0,
+    "expected_cost_to_pass_usd": 614.1035649232371,
+    "implied_sharpe": 1.3729987277904583
+   }
+  },
+  "keep_75pct_edge": {
+   "Topstep 50K Combine": {
+    "p_pass": 0.66025,
+    "p_fail": 0.3395,
+    "p_timeout": 0.00025,
+    "days_to_pass_p50": 154.0,
+    "days_to_pass_p95": 364.0,
+    "expected_cost_to_pass_usd": 735.6102486431907,
+    "implied_sharpe": 1.0198268924710128
+   },
+   "Topstep 150K Combine": {
+    "p_pass": 0.71725,
+    "p_fail": 0.1915,
+    "p_timeout": 0.09125,
+    "days_to_pass_p50": 382.0,
+    "days_to_pass_p95": 678.0,
+    "expected_cost_to_pass_usd": 5577.68459227539,
+    "implied_sharpe": 1.0297058261061949
+   },
+   "FTMO 2-Step 100K": {
+    "p_pass": 0.888,
+    "p_fail": 0.0765,
+    "p_timeout": 0.0355,
+    "days_to_pass_p50": 352.0,
+    "days_to_pass_p95": 744.0,
+    "expected_cost_to_pass_usd": 664.4144144144144,
+    "implied_sharpe": 1.0320393525329008
+   }
+  },
+  "keep_50pct_edge": {
+   "Topstep 50K Combine": {
+    "p_pass": 0.52375,
+    "p_fail": 0.4755,
+    "p_timeout": 0.00075,
+    "days_to_pass_p50": 166.0,
+    "days_to_pass_p95": 384.29999999999995,
+    "expected_cost_to_pass_usd": 920.66507557677,
+    "implied_sharpe": 0.6809429360680072
+   },
+   "Topstep 150K Combine": {
+    "p_pass": 0.511,
+    "p_fail": 0.35475,
+    "p_timeout": 0.13425,
+    "days_to_pass_p50": 419.0,
+    "days_to_pass_p95": 706.0,
+    "expected_cost_to_pass_usd": 8184.447907930295,
+    "implied_sharpe": 0.6875599963120477
+   },
+   "FTMO 2-Step 100K": {
+    "p_pass": 0.72575,
+    "p_fail": 0.185,
+    "p_timeout": 0.08925,
+    "days_to_pass_p50": 408.0,
+    "days_to_pass_p95": 840.0,
+    "expected_cost_to_pass_usd": 812.9521184981054,
+    "implied_sharpe": 0.689123115976115
+   }
+  },
+  "keep_25pct_edge": {
+   "Topstep 50K Combine": {
+    "p_pass": 0.375,
+    "p_fail": 0.6245,
+    "p_timeout": 0.0005,
+    "days_to_pass_p50": 171.0,
+    "days_to_pass_p95": 392.04999999999995,
+    "expected_cost_to_pass_usd": 1210.284,
+    "implied_sharpe": 0.34079015900190013
+   },
+   "Topstep 150K Combine": {
+    "p_pass": 0.28225,
+    "p_fail": 0.55575,
+    "p_timeout": 0.162,
+    "days_to_pass_p50": 436.0,
+    "days_to_pass_p95": 707.5999999999999,
+    "expected_cost_to_pass_usd": 14347.506052553883,
+    "implied_sharpe": 0.3441080793315269
+   },
+   "FTMO 2-Step 100K": {
+    "p_pass": 0.49125,
+    "p_fail": 0.36375,
+    "p_timeout": 0.145,
+    "days_to_pass_p50": 455.0,
+    "days_to_pass_p95": 893.8,
+    "expected_cost_to_pass_usd": 1201.0178117048347,
+    "implied_sharpe": 0.3448918840165963
+   }
+  },
+  "keep_0pct_edge": {
+   "Topstep 50K Combine": {
+    "p_pass": 0.24,
+    "p_fail": 0.7595,
+    "p_timeout": 0.0005,
+    "days_to_pass_p50": 165.5,
+    "days_to_pass_p95": 381.0999999999999,
+    "expected_cost_to_pass_usd": 1727.6944444444446,
+    "implied_sharpe": -3.7246481776675195e-16
+   },
+   "Topstep 150K Combine": {
+    "p_pass": 0.1335,
+    "p_fail": 0.75525,
+    "p_timeout": 0.11125,
+    "days_to_pass_p50": 436.0,
+    "days_to_pass_p95": 705.05,
+    "expected_cost_to_pass_usd": 26421.578384162654,
+    "implied_sharpe": 6.683786627336528e-17
+   },
+   "FTMO 2-Step 100K": {
+    "p_pass": 0.25725,
+    "p_fail": 0.584,
+    "p_timeout": 0.15875,
+    "days_to_pass_p50": 450.0,
+    "days_to_pass_p95": 918.7999999999997,
+    "expected_cost_to_pass_usd": 2293.488824101069,
+    "implied_sharpe": 2.1628263920158707e-17
+   }
+  }
+ },
+ "realised_2025_26": {
+  "Topstep 50K Combine": {
+   "p_pass": 0.293,
+   "p_fail": 0.7015,
+   "p_timeout": 0.0055,
+   "days_to_pass_p50": 203.0,
+   "expected_cost_to_pass_usd": 1929.0247440273038,
+   "hist_starts": {
+    "rules": "Topstep 50K Combine",
+    "p_pass": 0.0,
+    "p_fail": 1.0,
+    "p_fail_mll": 1.0,
+    "p_fail_dll": 0.0,
+    "p_timeout": 0.0,
+    "days_to_pass_mean": NaN,
+    "days_to_pass_p5": NaN,
+    "days_to_pass_p25": NaN,
+    "days_to_pass_p50": NaN,
+    "days_to_pass_p75": NaN,
+    "days_to_pass_p95": NaN,
+    "days_to_fail_p50": 126.5,
+    "days_to_fail_mean": 126.5,
+    "n_starts": 22
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "exp_trade_mean": 27.617044110603235,
+ "exp_trade_sd": 243.0023898536124,
+ "exp_daily_mean": 14.323641409951858,
+ "exp_daily_sd": 172.86319389096846,
+ "trades_per_year": 120.84112149532712,
+ "trades_per_week": 2.323867721063983,
+ "pct_days_traded": 0.42478941034897716,
+ "avg_hold_min": 137.30858468677494,
+ "median_hold_min": 105.0,
+ "win_rate": 0.46249033255993816,
+ "avg_win": 203.93225679366313,
+ "avg_loss": -124.09014608287852,
+ "max_trades_day": 3,
+ "avg_trades_traded_day": 1.2209631728045325,
+ "long_share": 0.5104408352668214
+}
