@@ -1,0 +1,119 @@
+{
+  "_meta": {
+    "compiled": "2026-10-08",
+    "method": "Official firm domains only (help centers / rule pages) queried through a web-search engine restricted to the firm's domain. Direct page fetches (WebFetch/curl) were blocked by the research environment's network policy, so every value comes from search extracts of the official pages. Third-party blogs were used only to detect conflicts, never as the source of a value.",
+    "status_legend": {
+      "VERIFIED": "Stated on the firm's official domain (help center / rules page).",
+      "UNCERTAIN": "Official sources conflict, are dated, or differ by product variant; conflict recorded.",
+      "NOT_FOUND": "No official statement located. Never assumed."
+    },
+    "primary_target": "topstep_50k_combine",
+    "selection_rationale": "Topstep explicitly permits automated strategies (TopstepX/ProjectX API) subject to platform rules; Apex's current rules prohibit all automation (rejected as a target for a systematic bot); FTMO permits EAs and is the spot-FX/CFD target. MyFundedFutures / Take Profit Trader automation policies could not be verified -> secondary only."
+  },
+  "firms": {
+    "topstep_50k_combine": {
+      "firm": "Topstep", "product": "Trading Combine 50K (Standard path)", "market_type": "CME futures",
+      "account_size": {"value": 50000, "status": "VERIFIED"},
+      "evaluation_cost": {"value": "$49/month Standard path ($95/month No-Activation-Fee path); reset = monthly price", "status": "VERIFIED", "conflict": "Marketing pages show $85/mo for NAF 50K; help-center table used.", "source": "https://help.topstep.com/en/articles/14289835-topstep-pricing-and-payment-questions"},
+      "activation_fee": {"value": "$149 one-time per XFA on Standard path", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/14289835-topstep-pricing-and-payment-questions"},
+      "profit_target": {"value": 3000, "status": "VERIFIED", "conflict": "Topstep Labs 'Phase 1'/static products list $4,000; standard 50K Combine lists $3,000.", "source": "https://help.topstep.com/en/articles/8284197-trading-combine-parameters"},
+      "max_loss_limit": {"value": 2000, "type": "EOD_TRAILING", "lock_at": "starting balance", "monitoring": "real-time, realized + unrealized", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/8284204-what-is-the-maximum-loss-limit"},
+      "daily_loss_limit": {"value": 1000, "mode": "optional at checkout; triggering pauses trading for the session (not a fail)", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/10490293-daily-loss-limit-in-the-trading-combine-and-express-funded-account"},
+      "consistency": {"value": "Best day must be <= 55% of total profit; otherwise target rises to best_day/0.55 (not a failure)", "status": "UNCERTAIN", "conflict": "Some official text phrases it as 55% of the Profit Target; older pages 50%. Simulator uses the stricter best_day <= 0.55 * total profit at pass time.", "source": "https://help.topstep.com/en/articles/8284208-consistency-at-topstep"},
+      "minimum_trading_days": {"value": "NOT_FOUND as a fixed number; consistency target implies >= 2 days", "status": "UNCERTAIN"},
+      "maximum_trading_days": {"value": "none (no time limit)", "status": "UNCERTAIN", "note": "Stated by multiple sources; subscription bills monthly."},
+      "position_limit": {"value": "5 contracts (50 micros); micros:minis 10:1", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/8284197-trading-combine-parameters"},
+      "trading_hours": {"value": "Trading day 5:00 PM CT -> 3:10 PM CT; must be flat by 3:10 PM CT; risk desk starts flattening at 3:08 PM CT", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/8284206-when-and-what-products-can-i-trade"},
+      "overnight": {"value": "Not allowed past 3:10 PM CT (day-trading only). Holding from 5 PM CT reopen to next-day session is inside one trading day.", "status": "VERIFIED"},
+      "holidays": {"value": "Close 15 minutes before any early close", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/13350348-topstep-holiday-trading-hours"},
+      "news": {"value": "No requirement to flatten for economic releases; prohibited to trade full max position size directly into scheduled major news", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/8284211-economic-releases"},
+      "automation": {"value": "Allowed (incl. custom bots via TopstepX/ProjectX API); no HFT; no exceptions for bot malfunctions", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/11187768-topstepx-api-access"},
+      "prohibited": {"value": "Account stacking; software/AI/ultra-high-speed systems giving unfair advantage; orders outside best bid/offer; exploiting SIM fills; cross-account hedging; coordinated trading; VPNs; holding within 2% of price limit", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/10305426-prohibited-trading-strategies-at-topstep"},
+      "hedging": {"value": "Cross-account hedging prohibited", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/13747047-understanding-hedging"},
+      "copy_trading": {"value": "NOT_FOUND", "status": "NOT_FOUND"},
+      "payout": {"value": "XFA: Standard path no consistency requirement; Consistency path 40%", "status": "VERIFIED", "source": "https://help.topstep.com/en/articles/8284215-express-funded-account-parameters"},
+      "inactivity": {"value": "NOT_FOUND", "status": "NOT_FOUND"},
+      "fx_availability": {"value": "CME FX futures (6E, 6B, 6J, ...); no spot FX", "status": "VERIFIED"}
+    },
+    "topstep_100k_combine": {
+      "firm": "Topstep", "product": "Trading Combine 100K", "account_size": {"value": 100000, "status": "VERIFIED"},
+      "evaluation_cost": {"value": "$99/month Standard", "status": "VERIFIED"},
+      "profit_target": {"value": 6000, "status": "VERIFIED"},
+      "max_loss_limit": {"value": 3000, "type": "EOD_TRAILING", "status": "VERIFIED"},
+      "daily_loss_limit": {"value": 2000, "mode": "optional", "status": "VERIFIED"},
+      "position_limit": {"value": "10 contracts (100 micros)", "status": "VERIFIED"},
+      "consistency": {"value": "55%", "status": "UNCERTAIN"}
+    },
+    "topstep_150k_combine": {
+      "firm": "Topstep", "product": "Trading Combine 150K", "account_size": {"value": 150000, "status": "VERIFIED"},
+      "evaluation_cost": {"value": "$199/month Standard", "status": "VERIFIED"},
+      "profit_target": {"value": 9000, "status": "VERIFIED"},
+      "max_loss_limit": {"value": 4500, "type": "EOD_TRAILING", "status": "VERIFIED"},
+      "daily_loss_limit": {"value": 3000, "mode": "optional", "status": "VERIFIED"},
+      "position_limit": {"value": "15 contracts (150 micros)", "status": "VERIFIED"},
+      "consistency": {"value": "55%", "status": "UNCERTAIN"}
+    },
+    "apex_50k_eod": {
+      "firm": "Apex Trader Funding", "product": "50K EOD / Intraday evaluation", "market_type": "CME futures",
+      "profit_target": {"value": 3000, "status": "VERIFIED", "source": "https://apextraderfunding.com/help-center/evaluation-accounts-ea/intraday-trailing-drawdown-evaluations/"},
+      "max_loss_limit": {"value": 2000, "type": "INTRADAY_TRAILING (or EOD variant)", "status": "VERIFIED"},
+      "position_limit": {"value": "6 contracts (50K intraday)", "status": "VERIFIED"},
+      "consistency": {"value": "None in evaluation; 50% for payouts (new), 30% legacy", "status": "UNCERTAIN"},
+      "minimum_trading_days": {"value": "Conflict: none (intraday page) vs 7 (evaluation rules page)", "status": "UNCERTAIN"},
+      "trading_hours": {"value": "Flat by 4:59 PM ET (eval); 4:50 PM ET live", "status": "VERIFIED"},
+      "news": {"value": "Normal system allowed during news; news-specific strategies prohibited", "status": "VERIFIED"},
+      "automation": {"value": "PROHIBITED: AI, autobots, algorithms, fully automated systems, HFT; User Agreement prohibits any automation of order entry/modification", "status": "VERIFIED", "source": "https://apextraderfunding.com/help-center/getting-started/prohibited-activities/"},
+      "_verdict": "EXCLUDED as a target: an automated systematic strategy would violate the automation prohibition. Could only be traded manually from alerts, which this project does not assume."
+    },
+    "myfundedfutures_50k_core": {
+      "firm": "MyFundedFutures", "product": "50K (Core / Pro / Flex variants)", "market_type": "CME futures",
+      "profit_target": {"value": 3000, "status": "VERIFIED", "source": "https://help.myfundedfutures.com/en/articles/8528339-understanding-evaluation-parameters-at-myfundedfutures"},
+      "max_loss_limit": {"value": 2000, "type": "EOD_TRAILING", "status": "VERIFIED"},
+      "daily_loss_limit": {"value": "None on Core/Scale/Pro/Rapid; $1,000 soft pause on Builder", "status": "VERIFIED"},
+      "consistency": {"value": "50% of target (best day <= $1,500) during evaluation (Core)", "status": "UNCERTAIN", "conflict": "Rapid EOD lists 30% consistency and 4 days"},
+      "news": {"value": "Allowed on Flex/Builder; Tier-1 news not allowed on Rapid EOD", "status": "VERIFIED"},
+      "automation": {"value": "NOT_FOUND", "status": "NOT_FOUND"},
+      "_verdict": "Secondary target, simulated for comparison only; automation policy must be confirmed before use."
+    },
+    "takeprofittrader_50k": {
+      "firm": "Take Profit Trader", "product": "50K Test", "market_type": "CME futures",
+      "profit_target": {"value": 3000, "status": "VERIFIED (firm blog/marketing)"},
+      "max_loss_limit": {"value": 2000, "type": "EOD_TRAILING", "status": "VERIFIED (firm blog)"},
+      "daily_loss_limit": {"value": "Conflict: none vs $1,000-$1,100 (removed on newer accounts)", "status": "UNCERTAIN"},
+      "consistency": {"value": "50% (evaluation only)", "status": "VERIFIED (firm blog)"},
+      "minimum_trading_days": {"value": 3, "status": "VERIFIED (firm blog)"},
+      "automation": {"value": "Conflict: pricing page lists 'No trading bots'", "status": "UNCERTAIN"},
+      "_verdict": "Not a target: possible bot prohibition."
+    },
+    "ftmo_2step_100k": {
+      "firm": "FTMO", "product": "FTMO Challenge 2-Step (100K)", "market_type": "CFD / spot FX (MT4/MT5/cTrader/DXtrade)",
+      "evaluation_cost": {"value": "EUR 540 regular (EUR 439 promo); 10K EUR 89, 25K EUR 250, 50K EUR 345, 200K EUR 1,080; refunded with first reward", "status": "UNCERTAIN", "conflict": "Prices taken from FTMO promo pages", "source": "https://ftmo.com/en/2-step-challenge/"},
+      "profit_target": {"value": "10% Challenge, 5% Verification", "status": "VERIFIED", "source": "https://ftmo.com/en/trading-objectives/"},
+      "daily_loss_limit": {"value": "5% of initial capital, equity-based incl. floating P&L, reset at midnight CE(S)T from midnight balance", "status": "UNCERTAIN", "conflict": "Newer objective text mentions 3% Maximum Daily Loss Amount for some products; 5% used for 2-Step per trading-objectives page."},
+      "max_loss_limit": {"value": "10% of initial capital, static", "status": "VERIFIED"},
+      "minimum_trading_days": {"value": 4, "status": "VERIFIED"},
+      "maximum_trading_days": {"value": "unlimited", "status": "VERIFIED"},
+      "overnight": {"value": "Allowed during evaluation", "status": "VERIFIED"},
+      "news": {"value": "Free during evaluation; funded Standard account: no trades 2 min before/after selected news (Swing type exempt)", "status": "VERIFIED", "source": "https://ftmo.com/en/faq/can-i-trade-news/"},
+      "automation": {"value": "EAs allowed; third-party EA capital cap $400k per strategy; >2,000 server requests/day prohibited", "status": "VERIFIED", "source": "https://ftmo.com/en/forbidden-trading-practices/"},
+      "prohibited": {"value": "Gap trades around major news; splitting profit to game Best Day rule; excessive server load; exploiting errors", "status": "VERIFIED"}
+    },
+    "ftmo_1step_100k": {
+      "firm": "FTMO", "product": "FTMO Challenge 1-Step (100K)",
+      "evaluation_cost": {"value": "EUR 499 (not refunded)", "status": "UNCERTAIN"},
+      "profit_target": {"value": "10%", "status": "VERIFIED", "source": "https://ftmo.com/en/1-step-challenge/"},
+      "daily_loss_limit": {"value": "3%", "status": "VERIFIED"},
+      "max_loss_limit": {"value": "10% EOD trailing (locks per terms)", "status": "VERIFIED"},
+      "consistency": {"value": "Best Day <= 50% of positive days' profit (replaced by Consistency rule vs total profit for orders from 12 Oct 2026)", "status": "VERIFIED", "source": "https://ftmo.com/en/trading-updates/"}
+    },
+    "the5ers_high_stakes": {
+      "firm": "The5ers", "product": "High Stakes 2-step",
+      "profit_target": {"value": "Conflict: 10%/5% vs 8%/5%", "status": "UNCERTAIN"},
+      "daily_loss_limit": {"value": "Conflict: 5% vs 3% of prior close", "status": "UNCERTAIN"},
+      "max_loss_limit": {"value": "10% static", "status": "VERIFIED"},
+      "news": {"value": "Conflict between official page and blog", "status": "UNCERTAIN"},
+      "automation": {"value": "NOT_FOUND", "status": "NOT_FOUND"},
+      "_verdict": "Too many unresolved conflicts; not simulated as a target."
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_doc": "Pinned public data sources. Both are fetched with a partial git clone at a fixed commit so the research is reproducible. See docs in README 'Data'.",
+  "dukascopy_github": {
+    "repo": "https://github.com/TheSnowGuru/Stocks-Futures-Financial-Time-series-Tick-Bar-Data",
+    "commit": "5fa48d39fd20858d6591db25e6eeee5de45ce6fd",
+    "provider": "Dukascopy (CFD / spot FX bars, redistributed on GitHub)",
+    "timezone": "UTC (verified empirically from the US cash-open volatility spike: 14:30 UTC in winter, 13:30 UTC in summer)",
+    "format": "tab-separated: Time, Open, High, Low, Close, Volume (Volume for CFDs is a tick/bar count, not exchange volume)",
+    "role": "DEVELOPMENT data: train / validation / out-of-sample (2007/2013 -> 2023-09-11)",
+    "files": {
+      "US500": "indices/s&p500/USA500IDXUSD_{tf}.csv",
+      "US100": "indices/nasdaq100/USATECHIDXUSD_{tf}.csv",
+      "US30": "indices/dow30/USA30IDXUSD_{tf}.csv",
+      "DE40": "indices/dax30/DEUIDXEUR_{tf}.csv",
+      "XAUUSD": "commodities/gold/XAUUSD_{tf}.csv",
+      "XAGUSD": "commodities/silver/XAGUSD_{tf}.csv",
+      "BRENT": "commodities/brent/BRENTCMDUSD_{tf}.csv",
+      "EURUSD": "forex/eurusd/EURUSD_{tf}.csv",
+      "GBPUSD": "forex/gbpusd/GBPUSD_{tf}.csv",
+      "USDJPY": "forex/usdjpy/USDJPY_{tf}.csv",
+      "AUDUSD": "forex/audusd/AUDUSD_{tf}.csv",
+      "USDCAD": "forex/usdcad/USDCAD_{tf}.csv",
+      "USDCHF": "forex/usdchf/USDCHF_{tf}.csv"
+    },
+    "timeframes": ["M5", "M15", "M30", "H1", "D1"]
+  },
+  "topstepx_github": {
+    "repo": "https://github.com/axb0306/cme-futures-ohlc",
+    "commit": "60abd3fb6369c6ce0b6a4a65b0f2562fc96b1264",
+    "provider": "TopstepX / ProjectX Gateway API (CME Globex futures bars), redistributed on GitHub",
+    "timezone": "UTC (ISO timestamps; Globex Sunday reopen appears at 22:00 UTC in summer / 23:00 UTC in winter)",
+    "role": "FINAL UNTOUCHED TEST data: real exchange futures 2025-03-21 -> 2026-04-15 (1h) and 2026-01-20 -> 2026-04-15 (5m/15m). Never used for design or tuning.",
+    "symbols": ["ES", "NQ", "YM", "RTY", "MES", "MNQ", "GC", "SI", "CL", "6E", "6B", "6J"],
+    "timeframes": ["5min", "15min", "1h", "daily"]
+  }
+}
