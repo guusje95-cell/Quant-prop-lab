@@ -504,7 +504,7 @@ def build() -> str:
     # 21 repro
     a('<h2><span class="n">21</span>Reproducibility</h2>')
     a("<pre>pip install -r requirements.txt\n"
-      "bash scripts/run_tests.sh          # 40 tests incl. leakage and paper-parity\n"
+      "bash scripts/run_tests.sh          # 39 tests incl. leakage and paper-parity\n"
       "bash scripts/run_pipeline.sh       # fetch pinned data, validate, all research generations\n"
       "bash scripts/reproduce_final.sh    # frozen candidate: eval, falsification, prop sims, final test\n"
       "bash scripts/make_report.sh        # regenerates reports/research_report.html</pre>")

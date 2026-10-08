@@ -21,7 +21,7 @@ profit, an evaluation pass or a payout.
 ## Commands
 ```bash
 pip install -r requirements.txt
-bash scripts/run_tests.sh        # 40 tests (engine, prop rules, stats, look-ahead, paper parity)
+bash scripts/run_tests.sh        # 39 tests (engine, prop rules, stats, look-ahead, paper parity)
 bash scripts/run_pipeline.sh     # fetch pinned data + every research generation
 bash scripts/reproduce_final.sh  # final candidate analysis + final test
 bash scripts/make_report.sh      # reports/research_report.html
