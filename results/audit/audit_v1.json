@@ -1,0 +1,43 @@
+{
+ "nq_vs_mnq_dev": {
+  "NQ_total": 238552.85993954874,
+  "NQ_total_div10": 23855.285993954873,
+  "MNQ_total_exact": 23427.94599395487,
+  "NQ_maxdd_div10": 3371.475492863063,
+  "MNQ_maxdd_exact": 3428.5154928630545,
+  "NQ_sharpe": 1.2801648188094255,
+  "MNQ_sharpe": 1.257284413926728,
+  "cost_per_rt_NQ": 12.8,
+  "cost_per_rt_10MNQ": 17.4
+ },
+ "nq_vs_mnq_oos": {
+  "NQ_total": 124483.32041055115,
+  "NQ_total_div10": 12448.332041055115,
+  "MNQ_total_exact": 12280.892041055105,
+  "NQ_maxdd_div10": 2664.77350747292,
+  "MNQ_maxdd_exact": 2672.59350747292,
+  "NQ_sharpe": 1.4817783471113182,
+  "MNQ_sharpe": 1.4618253117278377,
+  "cost_per_rt_NQ": 12.8,
+  "cost_per_rt_10MNQ": 17.4
+ },
+ "experiment_counting": {
+  "ledger_rows_valid": 974,
+  "unique_variants_valid": 443,
+  "ledger_rows_all": 2203,
+  "note": "v1 headline counted ledger rows; several rows per variant (one per split/stage)"
+ },
+ "pass_prob_variants_topstep50k": {
+  "conservative_dev_2013_2020_h500": 0.76325,
+  "conservative_oos_2021_2023_h500": 0.73775,
+  "scenario_full_edge_2013_2023_h750": 0.76325,
+  "hist_starts_oos": 0.6117021276595744,
+  "realised_2025_26_mc": 0.293,
+  "realised_2025_26_hist_resolved_n": 22,
+  "mc_standard_error_at_p0.75_n4000": 0.006846531968814577
+ },
+ "hist_starts_unresolved_oos": {
+  "starts": 224,
+  "unresolved_dropped": 36
+ }
+}

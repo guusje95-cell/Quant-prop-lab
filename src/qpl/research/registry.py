@@ -68,6 +68,10 @@ def record(**kw) -> int:
     kw.setdefault("ts", time.strftime("%Y-%m-%dT%H:%M:%S"))
     kw.setdefault("code_version", code_version())
     kw.setdefault("data_version", data_version())
+    tag = __import__("os").environ.get("QPL_LEDGER_TAG")
+    if tag:
+        kw["reason"] = f"[{tag}] " + str(kw.get("reason", ""))
+        kw["stage"] = f"{tag}:" + str(kw.get("stage", ""))
     for k in ("params", "metrics", "stats"):
         if k in kw and not isinstance(kw[k], str):
             kw[k] = json.dumps(_clean(kw[k]), default=str)
@@ -109,3 +113,16 @@ def query(sql: str):
 
 def params_hash(p: dict) -> str:
     return hashlib.sha1(json.dumps(p, sort_keys=True).encode()).hexdigest()[:10]
+
+
+def unique_variants(before_ts: str | None = None, include_superseded: bool = True) -> int:
+    """Number of distinct (hypothesis, instrument, params) variants tried before `before_ts`.
+    Used as the PINNED trial count for multiple-testing corrections, so results do not drift as
+    the ledger grows. Superseded runs count by default (they were real trials of the search)."""
+    w = ["decision != 'invalid'", "stage not like 'audit%'"]
+    if not include_superseded:
+        w.append("decision not like '%superseded%'")
+    if before_ts:
+        w.append(f"ts < '{before_ts}'")
+    rows = query("select distinct hypothesis_id, instrument, params from experiments where " + " and ".join(w))
+    return len(rows)

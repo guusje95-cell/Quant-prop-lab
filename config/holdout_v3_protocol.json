@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-09, BEFORE running any strategy on TopstepX ES, YM or RTY bars (only structural validation and an ES reopen-gap statistic were ever computed on them)",
+  "test": "H3 noise-area, frozen v1 parameters (lookback 14, mult 1.25, band_mean trail, 60-min checks, 1.5 sd catastrophic stop), unchanged",
+  "data": {"B_hourly_approx": "TopstepX ES, YM, RTY 1h, 2025-03-21 -> 2026-04-15, session reference = 09:00 ET bar open (same approximation as v1)",
+           "A_exact_15m": "TopstepX ES, YM, RTY 15min, 2026-01-20 -> 2026-04-15"},
+  "prior_expectation": "CFD 2021-23 OOS: ES 1.17, YM 0.28 (weak); RTY never studied (no proxy).",
+  "criterion": "H3 cross-market support = pooled (equal-weight ES+YM+RTY, 1 contract each scaled to equal daily vol) B Sharpe > 0. Individual results reported. A failure (pooled B Sharpe <= 0) downgrades H3 to EXPLORATORY.",
+  "single_use": "Run exactly once; no parameter changes afterwards."
+}

@@ -216,6 +216,7 @@ def historical_starts(daily, rules: Rules, step: int = 1, max_days: int = 750) -
     worst = daily["worst"].to_numpy(np.float64)
     ntr = daily["ntrades"].to_numpy(np.int64)
     codes, days = [], []
+    n_unresolved = 0
     for s in range(0, len(pnl), step):
         code_tot, d_tot, ok = PASS, 0, True
         off = s
@@ -230,7 +231,14 @@ def historical_starts(daily, rules: Rules, step: int = 1, max_days: int = 750) -
                 code_tot = o
                 break
         if code_tot == TIMEOUT:
-            continue  # ran out of history: unresolved, excluded
+            n_unresolved += 1   # ran out of history; reported (audit fix A-P2), not silently dropped
+            continue
         codes.append(code_tot)
         days.append(d_tot)
-    return summarize_mc(np.array(codes, float), np.array(days, float), rules) | {"n_starts": len(codes)}
+    res = summarize_mc(np.array(codes, float), np.array(days, float), rules)
+    n_tot = len(codes) + n_unresolved
+    res.update({"n_starts": len(codes), "n_unresolved": n_unresolved,
+                "p_unresolved": n_unresolved / n_tot if n_tot else np.nan,
+                "p_pass_all_starts_lower_bound": float(np.sum(np.array(codes) == PASS)) / n_tot if n_tot else np.nan,
+                "note": "p_pass is among resolved starts; unresolved starts ran out of history (biased toward fast outcomes)"})
+    return res

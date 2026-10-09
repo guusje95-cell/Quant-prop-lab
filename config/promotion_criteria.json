@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-09, before any v3 experiment was run",
+  "_rationale": "Prop simulations (v1) show that with Topstep 50K mechanics a daily Sharpe-equivalent of ~0.34 gives ~38% pass probability (break-even vs fees ~ zero-edge 24%); below ~0.5 the evaluation economics are poor, so 0.5 net Sharpe is the minimum screening bar. Validation thresholds are lower (0.3) because a 2-year Sharpe has SE ~0.7; OOS requires both effect size and HAC significance.",
+  "REJECT": "any of: leakage/accounting defect; TRAIN net Sharpe < 0.5 for all pre-registered variants; gross edge vanishes at 2x costs; <100 TRAIN trades; result driven by a single year (>60% of P&L)",
+  "EXPLORATORY": "TRAIN pass but VALIDATION net Sharpe < 0.3, or <60% of neighbours positive",
+  "VALIDATION_CANDIDATE": "TRAIN pass AND frozen-spec VALIDATION net Sharpe >= 0.3 AND >=70% neighbours positive AND 2x-cost Sharpe > 0",
+  "PAPER_TRADING_CANDIDATE": "VALIDATION_CANDIDATE AND OOS net Sharpe >= 0.5 with Newey-West one-sided p < 0.05 AND walk-forward efficiency >= 0.3 AND 3x-cost Sharpe > 0 AND real-futures confirmation not negative AND PBO < 0.5 (where computed)",
+  "PROP_EVALUATION_CANDIDATE": "PAPER_TRADING_CANDIDATE AND >= 60 trading days (>= 40 trades) of genuinely forward paper trading with drift-monitor z > -1 AND operational checks passed AND prop rules re-verified on the official site AND conservative-sizing pass probability >= 50% under a 50% edge haircut. Cannot be met in this session: no forward time has elapsed."
+}

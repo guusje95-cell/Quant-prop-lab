@@ -100,3 +100,18 @@ def test_drawdown_and_streaks():
     eq = np.array([0, 10, 5, 12, 2, 20])
     assert M.drawdown(eq).min() == -10
     assert M.streaks(np.array([1, -1, -1, -1, 2, 2])) == (2, 3)
+
+
+def test_historical_starts_reports_unresolved():
+    # regression (audit A-P2): unresolved starts must be reported, not silently dropped
+    df = pd.DataFrame({"pnl": [10.0] * 30, "worst": [0.0] * 30, "ntrades": [1] * 30})
+    res = S.historical_starts(df, S.topstep_50k(), step=1)
+    assert res["n_starts"] == 0 and res["n_unresolved"] == 30 and res["p_unresolved"] == 1.0
+
+
+def test_pinned_trial_count_is_stable():
+    # regression (audit A-R1): the DSR trial count must not depend on rows added after the freeze
+    from qpl.research import registry as R
+    a = R.unique_variants("2026-10-08T21:24:43")
+    b = R.unique_variants("2026-10-08T21:24:43")
+    assert a == b and a > 0

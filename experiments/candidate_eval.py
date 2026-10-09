@@ -21,8 +21,10 @@ OOS = P.SPLITS["oos"]
 
 
 def evaluate(name: str, hid: str, strategy: str, frozen: dict, markets: dict, nb_grid: dict, wf_grid: list,
-             gen: int, tf: str = "M15", source: str = "dukascopy") -> dict:
-    res = {"frozen_spec": frozen, "markets": {}}
+             gen: int, tf: str = "M15", source: str = "dukascopy", freeze_ts: str | None = None) -> dict:
+    """freeze_ts pins the multiple-testing trial count (audit fix A-R1: DSR drifted with ledger size)."""
+    n_trials = R.unique_variants(freeze_ts)
+    res = {"frozen_spec": frozen, "markets": {}, "n_trials_pinned": n_trials, "freeze_ts": freeze_ts}
     dd, do = {}, {}
     for fut, proxy in markets.items():
         ctx = P.context(source, proxy, tf)
@@ -46,7 +48,7 @@ def evaluate(name: str, hid: str, strategy: str, frozen: dict, markets: dict, nb
         r["regimes_all"] = S.regimes(dly["pnl"].loc[DEV[0]:OOS[1]], rc)
         wf = S.walk_forward(strategy, ctx, wf_grid, inst, days, DEV[0], OOS[1], train_years=3)
         r["walk_forward"] = {k: v for k, v in wf.items() if k not in ("oos_daily", "all_variants_daily")}
-        r["stats_dev"] = S.stat_validation(dd[fut], R.count(), wf["all_variants_daily"].loc[DEV[0]:DEV[1]])
+        r["stats_dev"] = S.stat_validation(dd[fut], n_trials, wf["all_variants_daily"].loc[DEV[0]:DEV[1]])
         r["stats_oos"] = S.stat_validation(do[fut], 1)
         r["mc_dev"] = S.mc_paths(dd[fut].to_numpy(), horizon=252)
         res["markets"][fut] = r
@@ -87,5 +89,5 @@ if __name__ == "__main__":
         res = evaluate("h3", "H3_NOISE", "noise_area", frozen, {"NQ": "US100", "ES": "US500", "YM": "US30"},
                        {"lookback": [10, 14, 20], "mult": [1.0, 1.25, 1.5], "check_min": [30, 60]},
                        [dict(lookback=lb, mult=m, trail="band_mean", check_min=c) for lb in (10, 14, 20)
-                        for m in (0.75, 1.0, 1.25, 1.5) for c in (30, 60)], gen=3)
+                        for m in (0.75, 1.0, 1.25, 1.5) for c in (30, 60)], gen=3, freeze_ts="2026-10-08T21:24:43")
         report(res)
