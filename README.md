@@ -4,27 +4,29 @@ An autonomous research engine for systematic futures/FX strategies aimed at pass
 evaluations legitimately. It covers pinned data, validation, an event-ordered backtester, a
 prop-rule simulator, statistics, a permanent experiment database, a paper trader and a report.
 
-**Result:** one conditional candidate, noise-area intraday momentum on Nasdaq-100 futures
-(MNQ). See `reports/research_report.html` for the full dossier and strategy card.
+**Current status (v3, 2026-10-09): NO-GO.** No strategy qualifies as a paper-trading or prop-evaluation
+candidate. The v1 candidate (noise-area momentum on Nasdaq futures) failed a pre-registered test on untouched
+real ES/YM/RTY futures 2025-26 (pooled Sharpe -0.92) and is EXPLORATORY. See
+`reports/v3_research_report.html` and the independent audit `reports/audit_v1_report.html`.
+The original v1 report is preserved as `reports/research_report_v1_original.html`.
 
 | | |
 |---|---|
-| Hypothesis families tested | 10 (1 survivor) |
-| Valid recorded experiments | ~970 (`research_database/experiments.sqlite`) |
-| Out-of-sample 2021–23 (1 NQ, after costs) | Sharpe 1.48, NW p = 0.001 |
-| Final test, real CME futures 2025-03 → 2026-04 | Sharpe 0.13 (narrow pass; weak) |
-| Topstep 50K pass probability (ESTIMATE) | ~76% full edge · ~52% half edge · ~29% 2025-26 regime |
+| Hypothesis families tested | 22 (0 paper-trading candidates; 2 EXPLORATORY) |
+| Unique strategy variants | ~600 (SQLite registry + hash-chained `research_database/ledger.jsonl`) |
+| H3 on untouched ES/YM/RTY futures 2025-26 | Sharpe -0.86 / -0.88 / -0.48 |
+| Topstep 50K pass probability at 1 MNQ (ESTIMATE) | 75% if 2013-23 edge intact · 28% at 2025-26 edge · 24% no edge |
 
-Next step: paper trade first (see `paper_trading/README.md`). No result here guarantees
-profit, an evaluation pass or a payout.
+No result here guarantees profit, an evaluation pass or a payout.
 
 ## Commands
 ```bash
 pip install -r requirements.txt
-bash scripts/run_tests.sh        # 39 tests (engine, prop rules, stats, look-ahead, paper parity)
+bash scripts/run_tests.sh        # 59 tests (engine, prop rules, stats, look-ahead, ledger, clean-room paper parity)
+bash scripts/run_v3.sh           # all v3 experiments (re-runs tagged "repro" in the ledger)
 bash scripts/run_pipeline.sh     # fetch pinned data + every research generation
 bash scripts/reproduce_final.sh  # final candidate analysis + final test
-bash scripts/make_report.sh      # reports/research_report.html
+bash scripts/make_report.sh      # v1 report + audit_v1_report.html + v3_research_report.html
 ```
 
 ## Layout

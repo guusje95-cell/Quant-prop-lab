@@ -1,0 +1,77 @@
+<title>Quant Prop Lab Audit</title><style>
+:root{
+  /* Layout: single reading column (~72ch) with full-width tables/charts; dossier-style section index */
+  --bg:#f3f5f6; --panel:#ffffff; --ink:#15212b; --muted:#566573; --rule:#d5dde3;
+  --accent:#0b5f86; --accent2:#9a5b13; --good:#1f7a4d; --bad:#b0362f; --warn:#a36a00; --shade:rgba(11,95,134,.07);
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif; --body:"Source Serif 4", Georgia, serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f161c;--panel:#16212a;--ink:#e3e9ee;--muted:#9aa9b6;--rule:#2a3843;--accent:#5cb6df;--accent2:#e0a35a;--good:#5cc28d;--bad:#ef7a70;--warn:#e3b04f;--shade:rgba(92,182,223,.08);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f161c;--panel:#16212a;--ink:#e3e9ee;--muted:#9aa9b6;--rule:#2a3843;--accent:#5cb6df;--accent2:#e0a35a;--good:#5cc28d;--bad:#ef7a70;--warn:#e3b04f;--shade:rgba(92,182,223,.08);color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);padding-inline:16px;padding-block:24px 64px}
+main{max-width:980px;margin:0 auto;display:grid;gap:8px}
+main>*{min-width:0}
+td{overflow-wrap:anywhere}
+.col{max-width:72ch}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.45rem;font-weight:700;margin-top:40px;padding-top:14px;border-top:2px solid var(--ink);display:flex;gap:12px;align-items:baseline}
+h2 .n{font-family:var(--mono);font-size:.8rem;color:var(--muted);font-weight:500}
+h3{font-size:1.08rem;font-weight:700;margin-top:18px}
+p{margin:.4em 0}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.verdict{background:var(--panel);border:1px solid var(--rule);border-left:6px solid var(--warn);padding:16px 20px;margin:12px 0}
+.verdict strong{font-family:var(--display)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0}
+.kpi{background:var(--panel);border:1px solid var(--rule);padding:12px 14px}
+.kpi b{display:block;font-family:var(--mono);font-size:1.35rem;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.82rem;color:var(--muted);font-family:var(--display)}
+.tw{overflow-x:auto;margin:10px 0;border:1px solid var(--rule);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;font-family:var(--display)}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;background:var(--bg)}
+td{font-variant-numeric:tabular-nums}
+.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;padding:1px 6px;border:1px solid currentColor;border-radius:3px;white-space:nowrap}
+.t-fact{color:var(--good)}.t-assumption{color:var(--accent2)}.t-estimate{color:var(--accent)}.t-uncertainty{color:var(--bad)}
+.t-verified{color:var(--good)}.t-uncertain{color:var(--warn)}.t-not_found{color:var(--muted)}
+.pass{color:var(--good);font-weight:700}.fail{color:var(--bad);font-weight:700}.weak{color:var(--warn);font-weight:700}
+figure{margin:12px 0;background:var(--panel);border:1px solid var(--rule);padding:10px}
+figcaption{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--display);font-size:.8rem;color:var(--muted);padding:4px 6px}
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--rule);stroke-width:1}
+.chart .zero{stroke:var(--muted);stroke-width:1}
+.chart .ax{fill:var(--muted);font:11px var(--display)}
+.chart .shade{fill:var(--shade)}
+.chart .ln{stroke-width:1.8}.chart .ln0{stroke:var(--accent)}.chart .ln1{stroke:var(--accent2)}.chart .ln2{stroke:var(--good)}
+.chart .dot0{fill:var(--accent)}.chart .dot1{fill:var(--accent2)}.chart .dot2{fill:var(--good)}
+.chart .lab0{fill:var(--accent)}.chart .lab1{fill:var(--accent2)}.chart .lab2{fill:var(--good)}
+.chart .bar{fill:var(--accent)}.chart .bar-hl{fill:var(--accent2)}.chart .bar-neg{fill:var(--bad)}
+.lg{display:inline-flex;gap:6px;align-items:center}.sw{width:14px;height:3px;display:inline-block}
+.sw0{background:var(--accent)}.sw1{background:var(--accent2)}.sw2{background:var(--good)}
+code,pre{font-family:var(--mono);font-size:.84rem}
+pre{background:var(--panel);border:1px solid var(--rule);padding:12px;overflow-x:auto;line-height:1.45}
+.card{display:grid;grid-template-columns:minmax(150px,220px) 1fr;border:1px solid var(--rule);background:var(--panel)}
+.card div{padding:7px 12px;border-bottom:1px solid var(--rule);min-width:0}
+.card div:nth-child(odd){font-family:var(--display);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.toc{columns:2 260px;font-family:var(--display);font-size:.88rem;margin:10px 0;padding-left:1.2em}
+ul{padding-left:1.2em;margin:.4em 0}
+li{margin:.15em 0}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){body{font-size:16px}.card{grid-template-columns:1fr}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<main>
+<p class="eyebrow">Independent audit of the v1 report · 2026-10-09</p>
+<h1>Quant Prop Lab Audit</h1>
+<p class="col">An independent check of the first research report (<code>reports/research_report_v1_original.html</code>, preserved unchanged). Every major v1 number was re-run from scratch, the code paths and data boundaries were inspected, and each inconsistency was traced to a cause. Defects were fixed in code with regression tests; the original report was not rewritten.</p>
+<div class="verdict"><strong>Audit verdict.</strong> The v1 numbers reproduce and its final test was genuinely isolated. But the report overstated the evidence in four ways: experiment counts were inflated about 2.2×, rule statuses were labelled VERIFIED on search extracts alone, the paper-trading parity test was partly circular, and two statistics depended on mutable state. A pre-registered cross-market holdout run in v3 then contradicted the v1 candidate; see the v3 report.</div>
+<h2><span class="n">01</span>Reproducibility</h2>
+<p class="col"><span class="tag t-fact">FACT</span> Re-running <code>scripts/reproduce_final.sh</code> on a clean state reproduced every stored v1 number bit-for-bit (10 result files, 4,800+ numeric fields), except the Deflated Sharpe Ratio (NQ 0.492 → 0.487). Its trial count was read from the live ledger, which grows with every run. Fixed: the trial count is now pinned to the unique variants tested before the freeze (468 for H3).</p>
+<h2><span class="n">02</span>Findings</h2>
+<div class="tw"><table class=""><thead><tr><th>ID</th><th>Finding</th><th>Impact</th><th>Resolution</th></tr></thead><tbody><tr><td>A-R1</td><td>Deflated Sharpe drifted with ledger size</td><td>Statistic not reproducible</td><td>Fixed: pinned trial count (registry.unique_variants(freeze_ts)); regression test</td></tr><tr><td>A-C1</td><td>Headline '974 experiments' counted ledger rows (one per split/stage)</td><td>Unique variants were 443: overstated ~2.2×</td><td>Fixed in v3 reporting (unique variants reported)</td></tr><tr><td>A-P1</td><td>Paper-trading parity test imported the backtester's own signal code</td><td>Parity was partly circular</td><td>Fixed: clean-room paper trader v2; exact parity on 3 independent samples</td></tr><tr><td>A-P2</td><td>Historical-start prop simulation silently dropped unresolved starts</td><td>36 of 224 OOS starts (16%) dropped; biased toward fast outcomes. The 2025–26 '0/22 passes' figure used only resolved starts</td><td>Fixed: unresolved count and lower-bound pass rate reported; regression test</td></tr><tr><td>A-M1</td><td>MNQ figures shown as NQ ÷ 10</td><td>Round trip: 10 MNQ $17.40 vs 1 NQ $12.80. OOS total per MNQ $12,281 (exact) vs $12,448 (÷10); Sharpe 1.46 vs 1.48</td><td>Minor; v3 reports exact MNQ figures</td></tr><tr><td>A-S1</td><td>Pass probabilities quoted as 0.74–0.76 without stating sample/horizon</td><td>Dev h500 0.763, OOS h500 0.738, 2013–23 h750 0.763 (Monte Carlo SE ±0.007). Historical starts gave 0.61; v1 did not explain the gap</td><td>Explained: different samples; MC block bootstrap understates regime persistence</td></tr><tr><td>A-V1</td><td>Prop rules labelled VERIFIED from search-engine extracts</td><td>Official pages could not be read directly (DNS blocked)</td><td>Downgraded to UNCERTAIN in config/prop_firms_v3.json</td></tr><tr><td>A-B1</td><td>Backtester flattens on the 'last RTH bar present' (knows whether later bars exist)</td><td>Mild; a live system flattens on the clock</td><td>Documented; paper trader uses the clock; parity unaffected in tested samples</td></tr><tr><td>A-E1</td><td>Protective stop measured from the frictionless open, not the slipped fill</td><td>≤1 tick difference in stop placement</td><td>Documented convention shared by backtester and paper trader</td></tr><tr><td>A-L1 (v3)</td><td>Ledger verification re-canonicalized decoded events</td><td>False tamper alarm (int keys reordered)</td><td>Fixed: byte-level verification; regression test; no lines rewritten</td></tr><tr><td>A-T1 (v3)</td><td>New turn-of-month code inferred month-end from data availability</td><td>Look-ahead caught by the truncation test before use</td><td>Fixed: exchange calendar</td></tr><tr><td>A-D1 (v3)</td><td>A computed REJECT decision (V7) was not written to the registry</td><td>Status table briefly inconsistent</td><td>Recorded; ledger event</td></tr></tbody></table></div>
+<h2><span class="n">03</span>Was the v1 final test isolated?</h2>
+<div class="col"><p><span class="tag t-fact">FACT</span> Yes, with minor caveats. The protocol commit <code>30385b3</code> (21:46:58 UTC) precedes the only two strategy runs on TopstepX data in the ledger (ids 2183/2184, 21:47:00). No strategy code touched futures data earlier. Exposures before the protocol were descriptive: structural validation of every file, a listing of the largest 1-hour ES/NQ/GC/CL gaps and monthly volumes, ES/NQ Globex-reopen gap means for 2025–2026 (relevant to the overnight hypothesis H4, not H3), and the GC/CL contract-month check. The deployment-normalization price (NQ 19,900 at the final-test start) is a price level, not a return.</p><p><span class="tag t-uncertainty">UNCERTAINTY</span> The researcher saw the H3 monthly futures results in v1, so NQ 2025–26 data can no longer serve as an independent test of H3 or its variants. In v3 the untouched ES, YM and RTY futures series were used for a fresh pre-registered test.</p></div>
+<h2><span class="n">04</span>Other v1 claims checked</h2>
+<div class="tw"><table class=""><thead><tr><th>v1 claim</th><th>Check</th><th>Status</th></tr></thead><tbody><tr><td>OOS Sharpe 1.48 (NQ)</td><td>Reproduced: 1.48</td><td><span class="pass">holds</span></td></tr><tr><td>All 18 neighbours positive</td><td>Reproduced</td><td><span class="pass">holds</span></td></tr><tr><td>Sign-flip p 0.0002 / 0.006</td><td>Reproduced</td><td><span class="pass">holds</span></td></tr><tr><td>Paper trader reproduces all 22 trades</td><td>True, but circular (A-P1); v2 clean-room confirms</td><td><span class="weak">holds after fix</span></td></tr><tr><td>'Conditional candidate'</td><td>Contradicted by v3 pre-registered cross-market holdout (ES/YM/RTY futures pooled Sharpe −0.92)</td><td><span class="fail">downgraded to EXPLORATORY</span></td></tr><tr><td>Topstep 50K pass ≈76% with full edge</td><td>Reproduced (0.75–0.77 depending on sample); conditional on an edge v3 could not confirm</td><td><span class="weak">conditional</span></td></tr></tbody></table></div>
+</main>

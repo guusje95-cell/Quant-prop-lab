@@ -90,3 +90,12 @@ def test_ledger_hash_chain_detects_tampering(tmp_path, monkeypatch):
     (tmp_path / "l.jsonl").write_text("\n".join(lines) + "\n")
     ok, n = F.verify_ledger()
     assert not ok and n == 1
+
+
+def test_ledger_handles_int_keys(tmp_path, monkeypatch):
+    # regression (audit A-L1): int dict keys used to break re-canonicalization during verification
+    from qpl.research import factory as F
+    monkeypatch.setattr(F, "LEDGER", tmp_path / "l.jsonl")
+    F.append({"kind": "x", "pcts": {1: 0.1, 5: 0.5, 25: 2.5, 50: 5.0}})
+    F.append({"kind": "y"})
+    assert F.verify_ledger() == (True, 2)

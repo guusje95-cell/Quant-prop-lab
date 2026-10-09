@@ -49,9 +49,21 @@ def _last_hash() -> str:
     return json.loads(last)["hash"] if last else "GENESIS"
 
 
+_HASH_RE = __import__("re").compile(r',?"hash":"[0-9a-f]{64}"')
+
+
+def _line_hash(line: str) -> str:
+    """Hash of the exact written bytes minus the line's own hash member (byte-level verification).
+    Fix for audit A-L1: re-canonicalizing a decoded event can reorder keys (int keys become strings)."""
+    return hashlib.sha256(_HASH_RE.sub("", line, count=1).replace("{,", "{").encode()).hexdigest()
+
+
 def append(event: dict) -> str:
     LEDGER.parent.mkdir(parents=True, exist_ok=True)
-    ev = dict(event)
+    ev = json.loads(_canon(dict(event)))          # normalize to JSON-native types/keys BEFORE hashing
+    tag = __import__("os").environ.get("QPL_LEDGER_TAG")
+    if tag:
+        ev["repro_tag"] = tag                     # re-runs of single-use tests are labelled, never new looks
     ev.setdefault("ts", time.strftime("%Y-%m-%dT%H:%M:%S"))
     ev["prev"] = _last_hash()
     ev["hash"] = hashlib.sha256(_canon({k: v for k, v in ev.items() if k != "hash"}).encode()).hexdigest()
@@ -69,9 +81,9 @@ def verify_ledger() -> tuple[bool, int]:
         for line in f:
             if not line.strip():
                 continue
+            line = line.rstrip("\n")
             ev = json.loads(line)
-            h = hashlib.sha256(_canon({k: v for k, v in ev.items() if k != "hash"}).encode()).hexdigest()
-            if ev["prev"] != prev or ev["hash"] != h:
+            if ev["prev"] != prev or ev["hash"] != _line_hash(line):
                 return False, n
             prev = ev["hash"]
             n += 1
