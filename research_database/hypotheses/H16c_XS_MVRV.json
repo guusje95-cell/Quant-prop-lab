@@ -1,0 +1,13 @@
+{
+ "id": "H16c_XS_MVRV",
+ "family": "crypto/cross-section",
+ "statement": "MINUS log(CapMVRVCur) (cheap on-chain valuation = long)",
+ "mechanism": "MVRV (Mahmudov & Puell 2018); on-chain value hypothesis",
+ "falsification": "net Sharpe >= 0.5 AND >= 2/3 neighbours net > 0 (XS factors: long-short spread net of costs)",
+ "data_required": "Coin Metrics community",
+ "params_tested": "[\"z365\"]",
+ "baseline": "zero (dollar neutral)",
+ "promotion": "config/v6_gen16_protocol.json",
+ "sources": [],
+ "generation": 16
+}

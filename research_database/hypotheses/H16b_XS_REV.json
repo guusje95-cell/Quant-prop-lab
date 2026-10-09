@@ -1,0 +1,13 @@
+{
+ "id": "H16b_XS_REV",
+ "family": "crypto/cross-section",
+ "statement": "MINUS past 7-day return",
+ "mechanism": "short-term reversal (liquidity provision)",
+ "falsification": "net Sharpe >= 0.5 AND >= 2/3 neighbours net > 0 (XS factors: long-short spread net of costs)",
+ "data_required": "Coin Metrics community",
+ "params_tested": "[\"L3\", \"L14\"]",
+ "baseline": "zero (dollar neutral)",
+ "promotion": "config/v6_gen16_protocol.json",
+ "sources": [],
+ "generation": 16
+}

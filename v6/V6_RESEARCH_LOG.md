@@ -123,3 +123,20 @@ Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secon
 * **Adding CT1 at 1/3 of the risk:** Sharpe 0.63 → 1.09 and max DD −14% → −10% (2015–24). Bootstrap gain +0.46, 90% CI [0.23, 0.70].
 * **Caveat:** CT1's 2015–21 Sharpe (1.3–2.6 per year) drives most of that gain. Using CT1's post-2021 Sharpe of about 0.4, the expected gain at 1/3 risk is roughly +0.1. That is still positive because of the near-zero correlation, but modest.
 * **Learning:** the best use of CT1 is as a *small diversifying sleeve* next to a diversified futures trend+carry core, not as a standalone strategy. Allocation should follow conservative SR assumptions: about 0.4 for CT1 and 0.5–0.7 for the futures core.
+
+## 2026-10-09 · Entry 9 — New crypto data: Coin Metrics community (`experiments/v6_gen16_crypto_xs.py`; protocol 5373c4f)
+* **Data:** `coinmetrics/data` @f1a36afb (CC BY-NC 4.0, research use only). 139 assets with prices, including some dead coins (VTC, PPT, HUSD…), so survivorship is reduced but not eliminated. 81 assets remain after removing stablecoins, wrapped tokens and duplicate deployments. The universe is point-in-time: top 30 by market cap with a volume filter, rebalanced weekly with a 1-day lag and 30 bp costs.
+
+| Hypothesis | TRAIN 2017-07..2020 net (gross) | Neighbours | Verdict |
+|---|---|---|---|
+| H16a XS momentum 21d | 0.25 (0.61) | 7d 0.11, 63d −0.21 | REJECTED |
+| H16b XS reversal 7d | −1.27 (−0.69) | 3d −0.86, 14d −1.27 | REJECTED (sign opposite: weekly *continuation*) |
+| H16c XS on-chain value (−log MVRV) | −0.29 (−0.15) | z-score −0.21 | REJECTED |
+| H16d XS network growth (active addresses) | −0.26 (0.23) | 91d −0.07 | REJECTED |
+| H16e BTC MVRV timing | 0.48, residual vs B&H **−0.37** | scaled 0.89 / −0.40 | REJECTED (just a lower-beta BTC) |
+
+**Learning:**
+1. Within a curated top-30 alt universe, the published crypto cross-sectional factors (momentum, on-chain value, network adoption) do not survive realistic weekly costs in 2017–2020. Gross XS momentum of 0.6 is consumed by 1.5× weekly turnover at 30 bp.
+2. On-chain valuation (MVRV) is not a timing edge once BTC beta is removed.
+3. Weekly reversal comes out strongly negative, i.e. short-term continuation. That would be a *new* hypothesis built on TRAIN evidence, so it is logged as a backlog idea (needs lower-turnover construction), not rescued.
+4. The only crypto edge in the whole project remains time-series trend on the majors (CT1), and it behaves as conditional beta (Entry 2).

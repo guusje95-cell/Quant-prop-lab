@@ -1,0 +1,13 @@
+{
+ "id": "H16d_XS_NETGROWTH",
+ "family": "crypto/cross-section",
+ "statement": "28-day growth of 7-day-mean AdrActCnt",
+ "mechanism": "network-adoption factor (Liu & Tsyvinski 2021; Cong et al. 2022)",
+ "falsification": "net Sharpe >= 0.5 AND >= 2/3 neighbours net > 0 (XS factors: long-short spread net of costs)",
+ "data_required": "Coin Metrics community",
+ "params_tested": "[\"g91\"]",
+ "baseline": "zero (dollar neutral)",
+ "promotion": "config/v6_gen16_protocol.json",
+ "sources": [],
+ "generation": 16
+}

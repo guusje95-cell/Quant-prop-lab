@@ -1,0 +1,13 @@
+{
+ "id": "H16e_BTC_MVRV_TIMING",
+ "family": "crypto/on-chain valuation",
+ "statement": "BTC long when MVRV below its trailing 4-year median, flat otherwise (and the reverse-rank neighbour: scale = clip(2 - MVRV/median, 0, 1))",
+ "mechanism": "MVRV mean reversion",
+ "falsification": "TRAIN >= 0.5 with residual vs B&H >= 0.3; VALIDATION >= 0.3 & resid > 0; OOS >= 0.3 & resid > 0",
+ "data_required": "Coin Metrics btc",
+ "params_tested": "scale variant",
+ "baseline": "BTC buy&hold",
+ "promotion": "config/v6_gen16_protocol.json",
+ "sources": [],
+ "generation": 16
+}
