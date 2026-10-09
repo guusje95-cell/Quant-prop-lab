@@ -85,3 +85,20 @@ Long-only risk-parity benchmark, for reference, is reported in `results/v6_futur
   * The diversified futures book is implementable at about **$1M+**. At $250k it under-deploys risk (5.5% vol) with about 13 instruments.
   * Below about $250k, a different design is needed: a small, hand-picked, micro-contract universe. This becomes hypothesis G15-SMALL, which must be selected without performance data.
   * Futures prop firms (intraday-flat rules) remain incompatible with multi-day trend/carry.
+
+## 2026-10-09 · Entry 6 — Gen15 adaptive layers (`experiments/v6_gen15_regime.py`, `v6_gen15_ml.py`; protocol d8b1625)
+Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secondary.
+
+| Layer | WF OOS Sharpe | Baseline | Random p95 / bootstrap | 2014–24 (contaminated) | Verdict |
+|---|---|---|---|---|---|
+| B0 = 50/50 equal-risk TREND + CARRY sleeves | 1.34 | – | – | 0.90 | baseline |
+| H15a 2-state HMM regime weights (forward filter) | 1.37 | 1.34 | 1.39 | 0.88 | REJECTED |
+| H15b BOCPD de-risking | 1.37 | 1.34 | 1.38 | 1.00 | REJECTED |
+| H15c factor momentum (Ehsani–Linnainmaa) | 1.39 | 1.34 | 1.41 | 0.96 | REJECTED |
+| H15d ridge on 15 features | 0.99 | F7 1.09 | P(≤F7) 0.73 | 0.71 | REJECTED |
+| H15d LightGBM | 1.14 | F7 1.09 | P(≤F7) 0.38 | 0.69 | REJECTED |
+
+**Learning:**
+1. Regime, change-point and factor-timing layers add nothing beyond what random weight paths with the same distribution achieve. This is the third independent replication of that finding (v3 futures filters, V4 crypto funding filter, now here). Timing is not where the edge is.
+2. ML does not extract incremental information from trend/carry/vol/skew features beyond the simple equal-weight combination. LightGBM leans most on sigma, sig_ratio and skew, which are risk features, not direction. Ridge assigns alternating signs to correlated EWMAC speeds, a sign of collinearity, not of new information.
+3. **Construction matters more than timing.** Equal risk across *sleeves* (trend vs carry, correlation 0.44 OOS / 0.25 later) gives 1.34 OOS against 1.09 for signal-level averaging (F7, where trend gets 3/4 of the signal weight). Within the protocols this is an observation: B0 was a baseline, not a pre-registered candidate. It becomes candidate **F9_SLEEVE_RP** for prospective validation, with no further historical selection possible.
