@@ -1,0 +1,15 @@
+{
+  "_written": "2026-10-10, AFTER gen37 (E2 replicated on U2: 0.96; O3 replicated on ALT8 and U2 in every period, pooled p 0.030). BEFORE any gen38 number was computed.",
+  "candidate C*": "E2 MAJ10 + O3: frozen E2 long-only on the 10 Binance majors (BTC ETH BNB XRP ADA SOL DOGE AVAX DOT LINK), signal x O3 (USDT+USDC 30d cap growth > 0: 1.25 else 0.75, 1-day lag; neutral 1.0 when data missing, i.e. after 2026-05-24 in this dataset), Bybit route: 7.5 bp/turnover, 0 swap",
+  "reference": "E2 MAJ10 without O3; E2 LIQUID2(+O3)",
+  "report": "net/gross Sharpe, CAGR, vol, max DD, worst intraday day, profit factor by period (DEV 2018-21, VAL 22-23, TEST 2024-01..2026-10-08, FRESH 2026-05-24..10-08), by year, 2x cost + 1bp/8h funding, 1-day delay, bootstrap 95% CI of Sharpe, DSR with N = 136 trials, leave-one-coin-out",
+  "user target check (fixed risk v = 0.15 annual vol, scale set on 2018-2021)": {
+    "U1": "net Sharpe 2018-2026 >= 1.3",
+    "U2": "CAGR 2018-2026 >= 15%",
+    "U3": "TEST (2024-2026) net Sharpe >= 1.0 and CAGR >= 10%",
+    "U4": "2x-cost+funding net Sharpe 2018-2026 >= 1.0",
+    "U5": "DSR (N=136) >= 0.90"
+  },
+  "CFT application": "gen34 two-speed 1-Phase pipeline with challenge = C* at v_c = 0.15 and funded = LIQUID2+O3 at v_f = 0.06 (risk levels from gen34, not re-optimised); compared with gen34 policy on 2023-01..2024-10 starts and bootstrap",
+  "single_use": true
+}
