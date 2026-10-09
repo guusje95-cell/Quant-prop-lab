@@ -1,0 +1,94 @@
+{
+ "pooled_sharpe_1x": 0.6174302170680187,
+ "pooled_sharpe_2x": 0.47245260915561554,
+ "share_coins_positive": 0.6363636363636364,
+ "per_coin": {
+  "ETHUSDT": {
+   "trades": 147,
+   "exp_R": 0.214,
+   "long_R": 0.097,
+   "short_R": 0.385,
+   "start": "2017-08-17"
+  },
+  "ADAUSDT": {
+   "trades": 108,
+   "exp_R": 0.037,
+   "long_R": 0.093,
+   "short_R": -0.016,
+   "start": "2018-04-17"
+  },
+  "BNBUSDT": {
+   "trades": 132,
+   "exp_R": 0.181,
+   "long_R": 0.3,
+   "short_R": 0.03,
+   "start": "2017-11-06"
+  },
+  "DOGEUSDT": {
+   "trades": 68,
+   "exp_R": 2.366,
+   "long_R": 5.443,
+   "short_R": -0.37,
+   "start": "2019-07-05"
+  },
+  "ETCUSDT": {
+   "trades": 106,
+   "exp_R": 0.656,
+   "long_R": 1.705,
+   "short_R": -0.148,
+   "start": "2018-06-12"
+  },
+  "LINKUSDT": {
+   "trades": 93,
+   "exp_R": -0.13,
+   "long_R": 0.095,
+   "short_R": -0.471,
+   "start": "2019-01-16"
+  },
+  "LTCUSDT": {
+   "trades": 131,
+   "exp_R": -0.057,
+   "long_R": -0.057,
+   "short_R": -0.057,
+   "start": "2017-12-13"
+  },
+  "MATICUSDT": {
+   "trades": 86,
+   "exp_R": 0.223,
+   "long_R": 0.142,
+   "short_R": 0.353,
+   "start": "2019-04-26"
+  },
+  "SOLUSDT": {
+   "trades": 67,
+   "exp_R": -0.088,
+   "long_R": 0.0,
+   "short_R": -0.174,
+   "start": "2020-08-11"
+  },
+  "UNIUSDT": {
+   "trades": 63,
+   "exp_R": -0.326,
+   "long_R": -0.456,
+   "short_R": -0.229,
+   "start": "2020-09-17"
+  },
+  "XRPUSDT": {
+   "trades": 95,
+   "exp_R": 0.164,
+   "long_R": 0.412,
+   "short_R": -0.112,
+   "start": "2018-05-04"
+  }
+ },
+ "by_year_R": {
+  "2017": 5.87,
+  "2018": 51.33,
+  "2019": -21.66,
+  "2020": 38.44,
+  "2021": 182.32,
+  "2022": 8.62,
+  "2023": 13.6
+ },
+ "pass": true
+}

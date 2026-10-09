@@ -181,3 +181,17 @@ The research queue reachable with GitHub/PyPI-only data has been worked through.
 4. measured fills for cost calibration.
 
 The repository is clean and resumable (`v6/V6_NEXT_ACTIONS.md`). Report: `reports/v6_research_report.html`.
+
+## 2026-10-10 · Entry 14 — Master mission batch 1: HTF liquidity levels (Track A)
+* **Baseline re-established:** V6 F7 re-run reproduces 1.513 / 0.629 / 0.956 / 0.697 exactly. pysystemtrade `SpreadCost` is a **half-spread per trade** (`docs/production.md`), so V6 cost accounting is correct.
+* **gen19 (1-hour bars, previous day/week levels; 13 Dukascopy CFD/FX + BTC), protocol 701cd5b: 12/12 REJECTED at DEV.**
+  * Sweep and reclaim has a real but small **gross** edge (+0.06R, gross Sharpe 1.17 on 4,409 trades). Costs on tight hourly stops (~0.1R per trade) flip it to −0.69.
+  * Hourly breakouts lose even gross.
+* **gen20 (daily bars, previous week/month levels), protocol 09761e9.**
+  * CFD/FX: all REJECTED at DEV. Near misses: monthly sweep-reclaim 0.34 (MTM 0.55, 46% breadth) and monthly failed breakout 0.44.
+  * BTC weekly-level breakout passed DEV / VAL / TEST: 0.88 / 0.75 / 0.86 (MTM 0.89 / 0.72 / 1.21), 2× cost 0.77, shorts positive, beta to BTC ≈ 0, corr 0.36–0.55 with CT1. Status corrected from the code's ELIGIBLE to PROMISING (no fresh holdout; BTC path previously seen).
+* **Measurement fix:** `daily_series` booked a whole trade on its exit day. That is fine for sub-day holds but wrong for vol, beta and correlation of multi-day trades. `htf.core.daily_mtm` added, tested (sums exactly to trade R), and used for all daily-bar diagnostics. No gate decision changes.
+* **Cross-coin transfer (single use, protocol committed first):** 11 mirror coins 2017–2023, pooled 0.62, 2× cost 0.47, 64% of coins positive → **PASS**. Robustness: ex-DOGE 0.36, ex-2021 0.28; 2019 −0.42, 2022 0.11.
+* **Learning:**
+  1. "Liquidity sweep" reversals at HTF levels are real in gross terms at the 1-hour scale but too small for retail costs. On daily bars they are weak and not broad.
+  2. Breakouts of HTF levels only work where trends are strong (crypto). That is the same trend premium as CT1/F7, expressed through levels, not a separate liquidity edge.
