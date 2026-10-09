@@ -1,0 +1,63 @@
+{
+ "A_ETH": {
+  "sharpe": 0.9347297937863911,
+  "ann_ret": 0.3039905899982082,
+  "ann_vol": 0.32521761049982917,
+  "max_dd": -0.5647535861172481,
+  "worst_day": -0.07499172980991298,
+  "days": 2079,
+  "cvar5": -0.03885519917506868,
+  "residual_sharpe": 0.8547980679686389,
+  "beta": 0.15683498220915743,
+  "buyhold_vt_sharpe": 0.47290398531160194,
+  "by_year": {
+   "2018": 0.364,
+   "2019": 0.361,
+   "2020": 0.598,
+   "2021": 0.479,
+   "2022": 0.062,
+   "2023": -0.133
+  },
+  "pass": true
+ },
+ "B_PERPS": {
+  "n_symbols": 21,
+  "eval_start": "2025-12-25",
+  "sharpe": -0.019859357687714355,
+  "ann_ret": -0.004171304407185228,
+  "ann_vol": 0.21004226182832347,
+  "max_dd": -0.14956683991892916,
+  "worst_day": -0.06343539910019598,
+  "days": 270,
+  "cvar5": -0.02661579115091517,
+  "residual_sharpe": 0.09814006434138299,
+  "beta": -0.482497455087038,
+  "buyhold_vt_sharpe": 0.10979894429065591,
+  "per_symbol_sharpe_full": {
+   "APTUSDT": 0.31,
+   "ARBUSDT": 0.09,
+   "AVAXUSDT": 1.4,
+   "BNBUSDT": 1.07,
+   "BTCUSDT": 0.7,
+   "DOGEUSDT": 0.59,
+   "ETHUSDT": 0.86,
+   "INJUSDT": 0.84,
+   "LINKUSDT": 1.04,
+   "LTCUSDT": 1.01,
+   "NEARUSDT": -0.31,
+   "OPUSDT": 0.61,
+   "ORDIUSDT": -1.12,
+   "SEIUSDT": 1.3,
+   "SOLUSDT": 1.0,
+   "SUIUSDT": -0.12,
+   "TIAUSDT": -0.61,
+   "TONUSDT": -0.83,
+   "TRXUSDT": 1.29,
+   "WIFUSDT": -0.64,
+   "XRPUSDT": -0.59
+  },
+  "share_symbols_positive": 0.6666666666666666,
+  "pass": false,
+  "note": "warm-up truncation: TSMOM-120 needs 120 days; evaluation window is therefore ~8 months"
+ }
+}
