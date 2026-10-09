@@ -1,0 +1,37 @@
+{
+  "_written": "2026-10-10, BEFORE computing any return on the FTMO-mapped universe. Generation 22 (prop-firm track).",
+  "firm_rules (UNCERTAIN: ftmo.com search extracts, official pages not readable from this environment)": {
+    "account": "FTMO 2-Step, Swing type (overnight/weekend holding allowed), 100k USD",
+    "phase1_target": 0.10, "phase2_target": 0.05, "funded_target": null,
+    "max_daily_loss": "5% of initial balance; equity (open+closed) must stay above [balance at midnight CE(S)T] - 5% of initial",
+    "max_loss": "10% of initial balance, static, equity incl. open positions",
+    "min_trading_days": 4, "time_limit": "unlimited",
+    "payout_assumed": "funded: 80% profit split (up to 90% advertised), payout possible monthly; fee (~540 EUR for 100k) refunded with first payout - fee and split are UNCERTAIN"
+  },
+  "universe_map (FTMO CFD -> pysystemtrade proxy; list UNCERTAIN)": {
+    "indices": ["SP500", "NASDAQ", "DOW_mini", "RUSSELL_mini", "DAX", "FTSE100", "EUROSTX", "CAC", "IBEX", "NIKKEI", "SPI200", "HANG", "AEX"],
+    "fx": ["EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "NZD", "GBPEUR", "YENEUR", "EURCHF", "EURCAD", "GBPJPY", "EURAUD", "AUDJPY", "GBPCHF", "CHFJPY", "MXP", "ZAR", "NOK", "SEK", "PLN", "DX"],
+    "metals": ["GOLD", "SILVER", "PLAT", "PALLAD"], "energy": ["CRUDE_W", "BRENT_W", "GAS_US", "HEATOIL"],
+    "ags": ["CORN", "WHEAT", "SOYBEAN", "COFFEE", "COCOA", "SUGAR11", "COTTON2"],
+    "rule": "use each listed name if present in futures_panel.universe(); price proxy = futures return (CFD on the same underlying)"
+  },
+  "cfd_cost_model (ASSUMPTION)": {"base": "2x the futures spread+commission cost per unit turnover + 2.5% p.a. financing markup on gross notional held",
+                                  "stress": "4x spread cost + 5% p.a. markup", "note": "futures returns are excess returns, so CFD swap is modelled as the broker markup only; FTMO swap tables could not be read"},
+  "strategies": {
+    "P22a_TREND": "mean of F0 (CT1 transfer), F1 TSMOM(63,126,252), F2 EWMAC(4 speeds) signals; panel engine (sigma EWMA35, equal risk, 2-day lag); buffer b = 0.05; gross notional capped at 8x",
+    "P22b_TREND_CARRY": "F9 construction (equal risk TREND and CARRY sleeves) on the same universe, buffer 0.05, cap 8x"
+  },
+  "periods": {"DISCOVERY": ["1975-01-01", "2004-12-31"], "VALIDATION": ["2005-01-01", "2013-12-31"], "POST2014_CONTAMINATED": ["2014-01-01", "2024-03-28"]},
+  "contamination": "All periods were viewed for the full-universe trend/carry in V6 gen13. The new information here is (1) the restricted FTMO universe without bonds/STIR, (2) CFD costs, (3) the prop-rule overlay. Post-2014 is labelled contaminated.",
+  "prop_simulation": {
+    "returns": "strategy daily net return rescaled to an annual vol target v in {0.06, 0.08, 0.10, 0.12, 0.15} (linear scaling of the 10%-vol book)",
+    "starts": "historical start every 10 trading days; each start runs Phase 1 (+10%) then a fresh Phase 2 (+5%) then 12 months funded; evaluation unresolved after 36 months counts as not passed",
+    "daily_loss_proxy": {"optimistic": "balance = previous close equity; intraday loss = 1.5 x close-to-close loss", "conservative": "balance = highest close equity of the last 10 days (floating losses on held positions accrue against the midnight balance); same 1.5 x intraday factor"},
+    "funded": "monthly: withdraw 80% of profit above initial if positive and reset to initial; fail on the same loss rules",
+    "choice_of_v": "chosen ONLY from starts in 1990-2013 by maximising P(pass both phases within 24 months) subject to P(fail) <= 35%; post-2014 starts reported as contaminated-secondary",
+    "bootstrap": "stationary block bootstrap (20-day blocks) of 2010-2024 daily returns (the decayed regime), 3000 paths, as the forward-looking estimate"
+  },
+  "gates": {"conventional": "VALIDATION net Sharpe >= 0.4 at base CFD costs AND DISCOVERY >= 0.6 AND VALIDATION > 0 at stress costs",
+            "prop": "at the chosen v, conservative proxy, starts 1990-2013: P(pass both phases within 24 months) >= 0.50 AND P(fail before passing) <= 0.35"},
+  "single_use": true
+}
