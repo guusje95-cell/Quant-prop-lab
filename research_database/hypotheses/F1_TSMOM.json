@@ -1,0 +1,13 @@
+{
+ "id": "F1_TSMOM",
+ "family": "futures/trend/time-series momentum",
+ "statement": "mean of sign(ret over 63,126,252 days)",
+ "mechanism": "Moskowitz, Ooi & Pedersen (2012) Time series momentum, JFE",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"L21\", \"L63\", \"L126\", \"L252\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

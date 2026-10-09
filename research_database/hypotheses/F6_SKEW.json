@@ -1,0 +1,13 @@
+{
+ "id": "F6_SKEW",
+ "family": "futures/cross-sectional skewness",
+ "statement": "within asset class, rank MINUS 252-day skewness of daily returns; long low-skew third, short high-skew third",
+ "mechanism": "Fernandez-Perez, Frijns, Fuertes & Miffre (2018) The skewness of commodity futures returns, JBF",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"skew126\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

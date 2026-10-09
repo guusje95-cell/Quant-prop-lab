@@ -1,0 +1,13 @@
+{
+ "id": "F5_XS_VALUE",
+ "family": "futures/cross-sectional value (5y reversal)",
+ "statement": "within asset class, rank MINUS the return from t-1260 to t-252 days (5y reversal); long cheapest third, short dearest third",
+ "mechanism": "Asness, Moskowitz & Pedersen (2013)",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"w756\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

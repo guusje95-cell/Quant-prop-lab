@@ -1,0 +1,13 @@
+{
+ "id": "F7_COMBO",
+ "family": "futures/multi-factor",
+ "statement": "equal-risk combo of ['F0_CT1_TRANSFER', 'F1_TSMOM', 'F2_EWMAC', 'F3_CARRY']",
+ "mechanism": "diversification across premia",
+ "falsification": "single look: net Sharpe > 0 AND residual > 0 AND net > 0 at 2x costs",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "n/a",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

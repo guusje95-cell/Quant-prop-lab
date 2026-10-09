@@ -1,0 +1,703 @@
+{
+ "A1_cross_source": {
+  "SP500": {
+   "daily_corr": 0.631,
+   "weekly_corr": 0.944,
+   "vol_ratio": 0.921,
+   "n": 2452
+  },
+  "NASDAQ": {
+   "daily_corr": 0.808,
+   "weekly_corr": 0.952,
+   "vol_ratio": 0.936,
+   "n": 2456
+  },
+  "GOLD-mini": {
+   "daily_corr": 0.834,
+   "weekly_corr": 0.983,
+   "vol_ratio": 1.053,
+   "n": 2563
+  },
+  "EUR_mini": {
+   "daily_corr": 0.936,
+   "weekly_corr": 0.974,
+   "vol_ratio": 1.011,
+   "n": 2437
+  },
+  "DAX": {
+   "daily_corr": 0.475,
+   "weekly_corr": 0.894,
+   "vol_ratio": 0.999,
+   "n": 2462
+  },
+  "GBP_micro": {
+   "daily_corr": 0.849,
+   "weekly_corr": 0.985,
+   "vol_ratio": 1.037,
+   "n": 2561
+  },
+  "BRENT_W": {
+   "daily_corr": 0.165,
+   "weekly_corr": 0.831,
+   "vol_ratio": 0.91,
+   "n": 2502
+  },
+  "AUD": {
+   "daily_corr": 0.888,
+   "weekly_corr": 0.987,
+   "vol_ratio": 1.019,
+   "n": 2564
+  },
+  "DOW": {
+   "daily_corr": 0.325,
+   "weekly_corr": 0.979,
+   "vol_ratio": 0.978,
+   "n": 2705
+  }
+ },
+ "A2_by_year": {
+  "F1_TSMOM": {
+   "1990": 0.236,
+   "1991": 0.043,
+   "1992": -0.041,
+   "1993": 0.34,
+   "1994": -0.045,
+   "1995": 0.109,
+   "1996": 0.172,
+   "1997": 0.055,
+   "1998": 0.338,
+   "1999": 0.098,
+   "2000": 0.116,
+   "2001": 0.1,
+   "2002": 0.173,
+   "2003": 0.17,
+   "2004": 0.17,
+   "2005": 0.003,
+   "2006": 0.047,
+   "2007": 0.174,
+   "2008": 0.263,
+   "2009": 0.046,
+   "2010": 0.115,
+   "2011": 0.026,
+   "2012": -0.111,
+   "2013": -0.025,
+   "2014": 0.412,
+   "2015": 0.151,
+   "2016": 0.038,
+   "2017": 0.113,
+   "2018": 0.028,
+   "2019": 0.006,
+   "2020": 0.079,
+   "2021": 0.132,
+   "2022": 0.201,
+   "2023": -0.08,
+   "2024": 0.047
+  },
+  "F2_EWMAC": {
+   "1990": 0.251,
+   "1991": 0.078,
+   "1992": 0.021,
+   "1993": 0.345,
+   "1994": -0.031,
+   "1995": 0.248,
+   "1996": 0.164,
+   "1997": 0.034,
+   "1998": 0.335,
+   "1999": 0.051,
+   "2000": 0.153,
+   "2001": 0.137,
+   "2002": 0.179,
+   "2003": 0.182,
+   "2004": 0.151,
+   "2005": 0.012,
+   "2006": 0.118,
+   "2007": 0.138,
+   "2008": 0.281,
+   "2009": -0.028,
+   "2010": 0.175,
+   "2011": -0.017,
+   "2012": -0.035,
+   "2013": -0.014,
+   "2014": 0.439,
+   "2015": 0.185,
+   "2016": -0.024,
+   "2017": 0.139,
+   "2018": 0.001,
+   "2019": 0.047,
+   "2020": 0.153,
+   "2021": 0.111,
+   "2022": 0.199,
+   "2023": -0.086,
+   "2024": 0.053
+  },
+  "F3_CARRY": {
+   "1990": 0.372,
+   "1991": 0.156,
+   "1992": 0.117,
+   "1993": 0.219,
+   "1994": -0.195,
+   "1995": 0.177,
+   "1996": 0.194,
+   "1997": 0.058,
+   "1998": 0.332,
+   "1999": -0.029,
+   "2000": 0.257,
+   "2001": 0.192,
+   "2002": 0.34,
+   "2003": 0.225,
+   "2004": 0.12,
+   "2005": 0.154,
+   "2006": -0.093,
+   "2007": -0.079,
+   "2008": 0.144,
+   "2009": 0.044,
+   "2010": 0.244,
+   "2011": 0.157,
+   "2012": 0.127,
+   "2013": 0.127,
+   "2014": 0.329,
+   "2015": 0.0,
+   "2016": 0.051,
+   "2017": 0.133,
+   "2018": -0.006,
+   "2019": 0.111,
+   "2020": -0.029,
+   "2021": 0.035,
+   "2022": 0.012,
+   "2023": 0.132,
+   "2024": 0.116
+  },
+  "F7_COMBO": {
+   "1990": 0.289,
+   "1991": 0.092,
+   "1992": 0.03,
+   "1993": 0.322,
+   "1994": -0.085,
+   "1995": 0.2,
+   "1996": 0.16,
+   "1997": 0.064,
+   "1998": 0.327,
+   "1999": 0.055,
+   "2000": 0.181,
+   "2001": 0.129,
+   "2002": 0.215,
+   "2003": 0.186,
+   "2004": 0.153,
+   "2005": 0.018,
+   "2006": 0.044,
+   "2007": 0.162,
+   "2008": 0.326,
+   "2009": -0.001,
+   "2010": 0.153,
+   "2011": 0.011,
+   "2012": -0.064,
+   "2013": -0.001,
+   "2014": 0.435,
+   "2015": 0.116,
+   "2016": 0.014,
+   "2017": 0.109,
+   "2018": 0.061,
+   "2019": 0.038,
+   "2020": 0.126,
+   "2021": 0.107,
+   "2022": 0.208,
+   "2023": -0.065,
+   "2024": 0.056
+  }
+ },
+ "A3_concentration": {
+  "F1_TSMOM": {
+   "DISCOVERY": {
+    "ann_by_class": {
+     "Ags": 0.0609,
+     "Bond": 0.0278,
+     "Equity": 0.0099,
+     "FX": 0.0424,
+     "Metals": 0.0228,
+     "OilGas": 0.0114,
+     "Vol": 0.0
+    },
+    "top5_share": 0.24,
+    "top5": {
+     "CHF": 0.2728,
+     "PALLAD": 0.259,
+     "CAD": 0.2538,
+     "GBP": 0.2478,
+     "JPY": 0.2153
+    },
+    "share_instruments_positive": 0.44
+   },
+   "VALIDATION": {
+    "ann_by_class": {
+     "Ags": 0.0175,
+     "Bond": 0.0171,
+     "Equity": 0.0226,
+     "FX": 0.0025,
+     "Metals": 0.0135,
+     "OilGas": 0.0026,
+     "Vol": 0.0029
+    },
+    "top5_share": 0.22,
+    "top5": {
+     "FED": 0.039,
+     "FTSE250": 0.0361,
+     "COPPER": 0.035,
+     "BRE": 0.034,
+     "CANOLA": 0.033
+    },
+    "share_instruments_positive": 0.46
+   },
+   "TEST": {
+    "ann_by_class": {
+     "Ags": 0.0187,
+     "Bond": 0.0579,
+     "Equity": 0.0113,
+     "FX": 0.0263,
+     "Metals": 0.0051,
+     "OilGas": 0.0175,
+     "Vol": 0.0033
+    },
+    "top5_share": 0.26,
+    "top5": {
+     "EURCHF": 0.1232,
+     "OAT": 0.0433,
+     "EURIBOR": 0.0333,
+     "EURIBOR-ICE": 0.0333,
+     "BTP": 0.0313
+    },
+    "share_instruments_positive": 0.55
+   },
+   "HOLDOUT": {
+    "ann_by_class": {
+     "Ags": 0.0318,
+     "Bond": 0.0314,
+     "Equity": 0.0081,
+     "FX": -0.0019,
+     "Metals": -0.0012,
+     "OilGas": 0.0246,
+     "Vol": 0.0003
+    },
+    "top5_share": 0.21,
+    "top5": {
+     "FED": 0.0288,
+     "CANOLA": 0.0251,
+     "US2": 0.0211,
+     "CNH": 0.0199,
+     "MILLWHEAT": 0.0189
+    },
+    "share_instruments_positive": 0.65
+   }
+  },
+  "F2_EWMAC": {
+   "DISCOVERY": {
+    "ann_by_class": {
+     "Ags": 0.0606,
+     "Bond": 0.0296,
+     "Equity": 0.0065,
+     "FX": 0.0372,
+     "Metals": 0.0208,
+     "OilGas": 0.0112,
+     "Vol": 0.0
+    },
+    "top5_share": 0.23,
+    "top5": {
+     "CAD": 0.3179,
+     "CHF": 0.2546,
+     "PALLAD": 0.2358,
+     "SUGAR11": 0.1721,
+     "EURIBOR-ICE": 0.1654
+    },
+    "share_instruments_positive": 0.41
+   },
+   "VALIDATION": {
+    "ann_by_class": {
+     "Ags": 0.0219,
+     "Bond": 0.0157,
+     "Equity": 0.0158,
+     "FX": 0.0004,
+     "Metals": 0.0125,
+     "OilGas": 0.0067,
+     "Vol": 0.002
+    },
+    "top5_share": 0.22,
+    "top5": {
+     "SUGAR11": 0.0392,
+     "COPPER": 0.036,
+     "COPPER-mini": 0.0332,
+     "CANOLA": 0.0298,
+     "MILLWHEAT": 0.029
+    },
+    "share_instruments_positive": 0.46
+   },
+   "TEST": {
+    "ann_by_class": {
+     "Ags": 0.0187,
+     "Bond": 0.059,
+     "Equity": 0.0024,
+     "FX": 0.0269,
+     "Metals": 0.0009,
+     "OilGas": 0.017,
+     "Vol": 0.0032
+    },
+    "top5_share": 0.3,
+    "top5": {
+     "EURCHF": 0.1327,
+     "OAT": 0.0415,
+     "BUND": 0.0374,
+     "CHEESE": 0.0366,
+     "BTP": 0.0358
+    },
+    "share_instruments_positive": 0.49
+   },
+   "HOLDOUT": {
+    "ann_by_class": {
+     "Ags": 0.0317,
+     "Bond": 0.0284,
+     "Equity": 0.0033,
+     "FX": -0.0025,
+     "Metals": -0.0004,
+     "OilGas": 0.0265,
+     "Vol": 0.0005
+    },
+    "top5_share": 0.22,
+    "top5": {
+     "CANOLA": 0.0276,
+     "GASOIL": 0.0218,
+     "HEATOIL-ICE": 0.0216,
+     "HEATOIL": 0.0203,
+     "FED": 0.0183
+    },
+    "share_instruments_positive": 0.59
+   }
+  },
+  "F3_CARRY": {
+   "DISCOVERY": {
+    "ann_by_class": {
+     "Ags": 0.0258,
+     "Bond": 0.032,
+     "Equity": 0.0011,
+     "FX": 0.0488,
+     "Metals": 0.0149,
+     "OilGas": 0.0097,
+     "Vol": 0.0
+    },
+    "top5_share": 0.33,
+    "top5": {
+     "GBP": 0.3692,
+     "CHF": 0.2697,
+     "COCOA": 0.2428,
+     "PALLAD": 0.2323,
+     "SOFR": 0.2005
+    },
+    "share_instruments_positive": 0.37
+   },
+   "VALIDATION": {
+    "ann_by_class": {
+     "Ags": 0.0008,
+     "Bond": 0.0553,
+     "Equity": 0.0163,
+     "FX": 0.0027,
+     "Metals": 0.002,
+     "OilGas": 0.0121,
+     "Vol": 0.0058
+    },
+    "top5_share": 0.29,
+    "top5": {
+     "EURIBOR-ICE": 0.0629,
+     "VIX": 0.0591,
+     "EURIBOR": 0.0573,
+     "LEANHOG": 0.0542,
+     "COPPER-mini": 0.0526
+    },
+    "share_instruments_positive": 0.39
+   },
+   "TEST": {
+    "ann_by_class": {
+     "Ags": 0.013,
+     "Bond": 0.0534,
+     "Equity": 0.0272,
+     "FX": -0.011,
+     "Metals": 0.0039,
+     "OilGas": 0.0227,
+     "Vol": 0.0024
+    },
+    "top5_share": 0.33,
+    "top5": {
+     "GASOIL": 0.0599,
+     "BUND": 0.0575,
+     "EURIBOR-ICE": 0.0516,
+     "SGX": 0.0511,
+     "EURIBOR": 0.0494
+    },
+    "share_instruments_positive": 0.45
+   },
+   "HOLDOUT": {
+    "ann_by_class": {
+     "Ags": 0.027,
+     "Bond": -0.0194,
+     "Equity": 0.0047,
+     "FX": 0.0264,
+     "Metals": 0.0102,
+     "OilGas": 0.0131,
+     "Vol": 0.0039
+    },
+    "top5_share": 0.53,
+    "top5": {
+     "IRON": 0.052,
+     "SOYBEAN": 0.0513,
+     "CNH": 0.0418,
+     "JPY": 0.0306,
+     "AUD": 0.0274
+    },
+    "share_instruments_positive": 0.52
+   }
+  },
+  "F7_COMBO": {
+   "DISCOVERY": {
+    "ann_by_class": {
+     "Ags": 0.0616,
+     "Bond": 0.0335,
+     "Equity": 0.0074,
+     "FX": 0.0486,
+     "Metals": 0.0251,
+     "OilGas": 0.0122,
+     "Vol": 0.0
+    },
+    "top5_share": 0.25,
+    "top5": {
+     "CHF": 0.31,
+     "CAD": 0.3029,
+     "PALLAD": 0.3008,
+     "GBP": 0.284,
+     "JPY": 0.2433
+    },
+    "share_instruments_positive": 0.45
+   },
+   "VALIDATION": {
+    "ann_by_class": {
+     "Ags": 0.0209,
+     "Bond": 0.0235,
+     "Equity": 0.0165,
+     "FX": 0.0037,
+     "Metals": 0.0123,
+     "OilGas": 0.0068,
+     "Vol": 0.0032
+    },
+    "top5_share": 0.22,
+    "top5": {
+     "COPPER-mini": 0.043,
+     "COPPER": 0.0427,
+     "EURIBOR-ICE": 0.0369,
+     "FED": 0.0366,
+     "MILK": 0.036
+    },
+    "share_instruments_positive": 0.46
+   },
+   "TEST": {
+    "ann_by_class": {
+     "Ags": 0.0225,
+     "Bond": 0.062,
+     "Equity": 0.0083,
+     "FX": 0.0196,
+     "Metals": 0.004,
+     "OilGas": 0.0221,
+     "Vol": 0.0037
+    },
+    "top5_share": 0.23,
+    "top5": {
+     "EURCHF": 0.087,
+     "OAT": 0.0405,
+     "CHEESE": 0.0394,
+     "BRENT_W": 0.0379,
+     "EURIBOR-ICE": 0.0368
+    },
+    "share_instruments_positive": 0.54
+   },
+   "HOLDOUT": {
+    "ann_by_class": {
+     "Ags": 0.0355,
+     "Bond": 0.0298,
+     "Equity": 0.0043,
+     "FX": 0.0037,
+     "Metals": -0.0006,
+     "OilGas": 0.0265,
+     "Vol": 0.0009
+    },
+    "top5_share": 0.2,
+    "top5": {
+     "CANOLA": 0.0277,
+     "CNH": 0.0247,
+     "GASOIL": 0.022,
+     "HEATOIL-ICE": 0.0202,
+     "HEATOIL": 0.0196
+    },
+    "share_instruments_positive": 0.64
+   }
+  }
+ },
+ "A4_lag_cost": {
+  "F1_TSMOM": {
+   "lag1": {
+    "DISCOVERY": 1.4,
+    "VALIDATION": 0.64,
+    "TEST": 0.9,
+    "HOLDOUT": 0.67
+   },
+   "lag2": {
+    "DISCOVERY": 1.35,
+    "VALIDATION": 0.52,
+    "TEST": 0.9,
+    "HOLDOUT": 0.61
+   },
+   "lag3": {
+    "DISCOVERY": 1.41,
+    "VALIDATION": 0.54,
+    "TEST": 0.83,
+    "HOLDOUT": 0.56
+   },
+   "lag5": {
+    "DISCOVERY": 1.36,
+    "VALIDATION": 0.52,
+    "TEST": 0.68,
+    "HOLDOUT": 0.59
+   },
+   "cost2x": {
+    "DISCOVERY": 0.97,
+    "VALIDATION": 0.27,
+    "TEST": 0.56,
+    "HOLDOUT": 0.35
+   },
+   "cost3x": {
+    "DISCOVERY": 0.59,
+    "VALIDATION": 0.01,
+    "TEST": 0.23,
+    "HOLDOUT": 0.09
+   },
+   "cost5x": {
+    "DISCOVERY": -0.16,
+    "VALIDATION": -0.5,
+    "TEST": -0.44,
+    "HOLDOUT": -0.43
+   }
+  },
+  "F3_CARRY": {
+   "lag1": {
+    "DISCOVERY": 1.18,
+    "VALIDATION": 0.88,
+    "TEST": 0.83,
+    "HOLDOUT": 0.31
+   },
+   "lag2": {
+    "DISCOVERY": 1.15,
+    "VALIDATION": 0.8,
+    "TEST": 0.82,
+    "HOLDOUT": 0.44
+   },
+   "lag3": {
+    "DISCOVERY": 1.1,
+    "VALIDATION": 0.77,
+    "TEST": 0.77,
+    "HOLDOUT": 0.38
+   },
+   "lag5": {
+    "DISCOVERY": 1.04,
+    "VALIDATION": 0.73,
+    "TEST": 0.77,
+    "HOLDOUT": 0.34
+   },
+   "cost2x": {
+    "DISCOVERY": 0.99,
+    "VALIDATION": 0.66,
+    "TEST": 0.55,
+    "HOLDOUT": 0.25
+   },
+   "cost3x": {
+    "DISCOVERY": 0.83,
+    "VALIDATION": 0.52,
+    "TEST": 0.29,
+    "HOLDOUT": 0.06
+   },
+   "cost5x": {
+    "DISCOVERY": 0.51,
+    "VALIDATION": 0.23,
+    "TEST": -0.24,
+    "HOLDOUT": -0.32
+   }
+  },
+  "F7_COMBO": {
+   "lag1": {
+    "DISCOVERY": 1.63,
+    "VALIDATION": 0.74,
+    "TEST": 1.02,
+    "HOLDOUT": 0.73
+   },
+   "lag2": {
+    "DISCOVERY": 1.51,
+    "VALIDATION": 0.63,
+    "TEST": 0.96,
+    "HOLDOUT": 0.7
+   },
+   "lag3": {
+    "DISCOVERY": 1.52,
+    "VALIDATION": 0.62,
+    "TEST": 0.87,
+    "HOLDOUT": 0.63
+   },
+   "lag5": {
+    "DISCOVERY": 1.48,
+    "VALIDATION": 0.56,
+    "TEST": 0.71,
+    "HOLDOUT": 0.65
+   },
+   "cost2x": {
+    "DISCOVERY": 1.18,
+    "VALIDATION": 0.39,
+    "TEST": 0.62,
+    "HOLDOUT": 0.46
+   },
+   "cost3x": {
+    "DISCOVERY": 0.85,
+    "VALIDATION": 0.16,
+    "TEST": 0.29,
+    "HOLDOUT": 0.21
+   },
+   "cost5x": {
+    "DISCOVERY": 0.18,
+    "VALIDATION": -0.31,
+    "TEST": -0.38,
+    "HOLDOUT": -0.27
+   }
+  }
+ },
+ "A5_half_universe_tsmom": {
+  "median": {
+   "VALIDATION": 0.46,
+   "TEST": 0.8,
+   "HOLDOUT": 0.61
+  },
+  "min": {
+   "VALIDATION": 0.3,
+   "TEST": 0.5,
+   "HOLDOUT": 0.26
+  },
+  "max": {
+   "VALIDATION": 0.66,
+   "TEST": 0.98,
+   "HOLDOUT": 0.99
+  }
+ },
+ "A6_stitching": {
+  "2005-2012": {
+   "median_lag1_autocorr": 0.0,
+   "median_ann_vol": 0.208
+  },
+  "2014-2019": {
+   "median_lag1_autocorr": -0.029,
+   "median_ann_vol": 0.152
+  },
+  "2020-2024": {
+   "median_lag1_autocorr": -0.008,
+   "median_ann_vol": 0.185
+  }
+ }
+}

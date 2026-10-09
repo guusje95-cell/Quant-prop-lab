@@ -1,0 +1,13 @@
+{
+ "id": "F0_CT1_TRANSFER",
+ "family": "futures/trend/crypto-transfer",
+ "statement": "CT1 legs per instrument: mean of sign(ret over 20,60,120 days) and Donchian(20,55) states; same Donchian entry/exit as V4; no leverage cap (equal-risk legs)",
+ "mechanism": "see protocol",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"leg_t20\", \"leg_t60\", \"leg_t120\", \"leg_d20\", \"leg_d55\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

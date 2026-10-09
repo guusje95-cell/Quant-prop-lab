@@ -1,0 +1,13 @@
+{
+ "id": "F4_XS_MOM",
+ "family": "futures/cross-sectional momentum",
+ "statement": "within asset class, rank 252-day minus last-21-day return / sigma; long top third, short bottom third (s = +-1), classes with >= 4 eligible members",
+ "mechanism": "Asness, Moskowitz & Pedersen (2013) Value and momentum everywhere, JF",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"lb126\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}

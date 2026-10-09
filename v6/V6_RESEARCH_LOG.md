@@ -28,3 +28,39 @@ Seven competing explanations were checked on already-USED BTC data, so this is d
 1. A long/flat variant is the economically honest form. It cannot be validated on BTC because the data is used, so it is registered for the *prospective* paper trial only, as CT1-LF next to CT1 with the same signals and no re-tuning.
 2. Whether trend is a cross-market premium must be answered on untouched data, which is the futures panel (Entry 3+).
 3. Expect any crypto trend edge to stay small. Size the paper trial on the post-2021 distribution (already done: 0.30× book).
+
+## 2026-10-09 · Entry 3 — Futures panel built (`src/qpl/data/futures_panel.py`)
+* **Panel:** 252 instruments → 227 after de-duplication (mini/micro/duplicate venues collapsed by return correlation > 0.97, keeping the cheapest member) → **155 in the pre-registered universe**: 38 equity, 33 FX, 30 bond, 26 ags, 13 metals, 13 energy, 2 vol.
+* **Exclusions:** sector and single-stock contracts; crypto (to keep the test independent of V4); and any instrument with cost/vol > 0.01, broken vol or stale data. Coverage grows from 16 instruments (1975) to 154 (2023).
+* **Data defects found:** decimal-shift bad ticks (SUGAR_WHITE 1989, MSCIEAFA 2010 showed +900% days). Repaired with a spike filter (≥2.5× jump reverting next day). The repair uses t+1 and is documented. SUGAR_WHITE stays broken and is excluded by rule.
+* **Return convention:** ΔADJ / PRICE(t−1), using the actual contract price because back-adjusted levels can be negative. Carry comes from the carry-contract spread.
+
+## 2026-10-09 · Entry 4 — Generation 13 futures factors (`experiments/v6_futures_gen13.py`; protocol committed bb24d93 BEFORE any return)
+
+| Family | DISCOVERY 1975–2004 | VALIDATION 2005–13 | TEST 2014–19 (1 look) | HOLDOUT 2020–24Q1 (1 look) | Status |
+|---|---|---|---|---|---|
+| F0 CT1 transfer (frozen crypto idea) | 1.16 | 0.34 | 0.60 | 0.51 | ELIGIBLE |
+| F1 TSMOM 63/126/252 | 1.35 | 0.52 | 0.90 | 0.61 | ELIGIBLE |
+| F2 EWMAC 4 speeds | 1.43 | 0.61 | 0.90 | 0.70 | ELIGIBLE |
+| F3 Carry | 1.15 | 0.80 | 0.82 | 0.44 | ELIGIBLE |
+| F4 XS momentum | 0.48 (0/1 neighbours positive) | – | – | – | REJECTED |
+| F5 XS value | 0.19 | – | – | – | REJECTED |
+| F6 Skew | −0.15 | – | – | – | REJECTED |
+| F7 Combo (F0–F3, equal risk) | 1.51 | 0.63 | 0.96 | 0.70 | ELIGIBLE |
+
+Long-only risk-parity benchmark, for reference, is reported in `results/v6_futures_gen13.json`. Residual Sharpe vs that benchmark ≈ net Sharpe, since betas are −0.2…0.3.
+
+**Falsification audit** (`experiments/v6_futures_audit.py`):
+* A1: pysystemtrade weekly returns correlate 0.89–0.99 with independent Dukascopy CFD/FX data. The data is real and correctly stitched.
+* A2: the year pattern matches known trend-industry history (2008 +, 2011–13 ≈ 0/−, 2014 strongly +, 2022 +, 2023 −).
+* A4: robust to execution lag 1–5 days.
+* **Costs are the weak point.** At 3× the assumed costs, trend VALIDATION ≈ 0 and TEST ≈ 0.2; at 5×, all negative. Carry is the most cost-robust (3×: 0.52 / 0.29). EWMAC has the lowest trend turnover.
+* A5: a random half of the universe still gives TEST 0.50–0.98, so the result doesn't depend on instrument choice.
+* A3: P&L is broad (55–65% of instruments positive; top 5 = 20–30% of P&L). Bonds contributed most in 2014–19 and ags/energy in 2020–24.
+* Gross notional leverage rises from 3–4× (pre-2004) to 7–17× (2014+) and turnover from 100 to 300× a year. Equal-risk sizing across many low-vol instruments, plus the book vol target, puts a lot of notional through costs.
+
+**Learning statements:**
+1. Trend and carry in diversified futures **replicate** in this untouched dataset, through two single-use looks. This is confirmation of well-published effects, not discovery (knowledge caveat in the protocol).
+2. The frozen crypto CT1 idea transfers out of domain (0.60 / 0.51 net on TEST / HOLDOUT). Trend persistence is a cross-market effect, which makes the BTC result more credible, but the BTC-specific decay (Entry 2) still stands.
+3. Cross-sectional momentum, value and skew did **not** survive costs in futures. XS momentum's gross 1.05 was eaten by 5.7% annual costs.
+4. The binding constraints are now **costs/turnover and implementability**: contract granularity, capital, and leverage of 7–17× notional. The futures TEST/HOLDOUT periods are now USED. Further confirmation must be prospective, or must come from cost/implementation realism checks that don't re-select signals.

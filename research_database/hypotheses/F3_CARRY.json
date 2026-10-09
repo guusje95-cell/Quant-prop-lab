@@ -1,0 +1,13 @@
+{
+ "id": "F3_CARRY",
+ "family": "futures/carry",
+ "statement": "carry_yield / sigma, 21-day mean, scaled by its trailing-5y mean |.|, capped +-2, /2",
+ "mechanism": "Koijen, Moskowitz, Pedersen & Vrugt (2018) Carry, JFE",
+ "falsification": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+ "data_required": "pysystemtrade futures panel",
+ "params_tested": "[\"smooth1\", \"smooth63\"]",
+ "baseline": "LONG_RP",
+ "promotion": "config/v6_futures_protocol.json",
+ "sources": [],
+ "generation": 13
+}
