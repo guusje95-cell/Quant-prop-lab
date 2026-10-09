@@ -1,0 +1,44 @@
+{
+  "_written": "2026-10-10, BEFORE any zoo return was computed. Generation 26: broad screen of published/popular crypto strategies.",
+  "prop_target": {"firm": "Crypto Fund Trader (rules UNCERTAIN: cryptofundtrader.com search extracts + user message)",
+    "2PHASE": {"targets": [0.08, 0.05], "daily_loss": 0.05, "max_loss": "0.10 static of initial", "basis": "equity; daily vs balance at 00:05 UTC"},
+    "1PHASE": {"target": 0.10, "daily_loss": 0.04, "max_loss": "0.06 trailing from peak balance, stops at initial balance", "basis": "equity"},
+    "funded": "80% split", "holding": "overnight and weekend allowed"},
+  "costs": {"base": "7.5 bp per unit turnover (Bybit taker 5.5 bp + 2 bp slippage per side); funding: actual Binance BTC/ETH 2020-2023 & 2025-26 where available, else 1 bp per 8h paid by longs / received by shorts",
+            "stress": "2x and 3x turnover costs; funding 2x"},
+  "datasets": {
+    "BTC_OHLC": "Bitstamp BTCUSD daily/4h/1h (2015-2026). DEV 2015-01..2019-12, VAL 2020-01..2021-12, TEST 2022-01..2023-12, 2024-01..2026-10 USED (reported as contaminated)",
+    "MULTI_CLOSE": "Coin Metrics community PriceUSD + CapMrktCurUSD, point-in-time top-10 non-stablecoin assets by market cap (>= 200 days history), close-only, equal risk. DEV 2017-07..2020-12, VAL 2021-01..2022-12, TEST 2023-01..2026-05 (time-series strategies never run on alts in TEST; BTC/ETH paths previously seen)"},
+  "sizing": "each asset: signal in [-1,1] x (0.40 / 30-day realised vol), capped at 1x; multi-asset: average over universe members; decided at close t, earns close t -> t+1",
+  "zoo (all configurations count as trials)": {
+    "Z01_SMA_CROSS": {"params": [[10, 50], [20, 100], [50, 200]], "modes": ["LS", "LO"]},
+    "Z02_EMA_CROSS": {"params": [[12, 26], [21, 55]], "modes": ["LS", "LO"]},
+    "Z03_PRICE_ABOVE_SMA": {"params": [50, 100, 200], "modes": ["LS", "LO"]},
+    "Z04_TSMOM": {"params": [14, 30, 90, 180], "modes": ["LS", "LO"]},
+    "Z05_DONCHIAN_CLOSE": {"params": [20, 50], "modes": ["LS", "LO"], "note": "turtle-style: exit at n/2 channel"},
+    "Z06_BOLLINGER_BREAKOUT": {"params": [[20, 2.0]], "modes": ["LS", "LO"], "note": "enter outside band, exit at middle"},
+    "Z07_BOLLINGER_REVERSION": {"params": [[20, 2.0]], "modes": ["LS", "LO"], "note": "fade outside band, exit at middle"},
+    "Z08_RSI_REVERSION": {"params": [[14, 30, 70], [2, 10, 90]], "modes": ["LS", "LO"], "note": "RSI2 variant requires close > SMA200 for longs (Connors)"},
+    "Z09_RSI_MOMENTUM": {"params": [[14, 55, 45]], "modes": ["LS", "LO"]},
+    "Z10_MACD": {"params": [[12, 26, 9]], "modes": ["LS", "LO"]},
+    "Z11_ZSCORE_REVERSION": {"params": [[5, 1.5]], "modes": ["LS", "LO"], "note": "fade 5-day return z-score beyond 1.5, hold 3 days"},
+    "Z12_SHORT_BREAKOUT": {"params": [[7, 2]], "modes": ["LS", "LO"], "note": "close above 7-day high -> long 2 days"},
+    "Z13_VOL_MANAGED_LONG": {"params": [30], "modes": ["LO"], "note": "Moreira-Muir: weight ~ target/var, capped"},
+    "Z14_CT1_ENSEMBLE": {"params": ["frozen V4"], "modes": ["LS", "LO"]},
+    "Z15_DUAL_MOMENTUM_ROTATION": {"params": [30, 90], "modes": ["LO"], "note": "MULTI only: hold the top-3 30/90-day performers if their momentum > 0, else cash"},
+    "Z16_SUPERTREND": {"params": [[10, 3.0]], "modes": ["LS", "LO"], "dataset": "BTC_OHLC only"},
+    "Z17_ICHIMOKU": {"params": [[9, 26, 52]], "modes": ["LS", "LO"], "dataset": "BTC_OHLC only (price above/below cloud, tenkan>kijun)"},
+    "Z18_HEIKIN_ASHI": {"params": [3], "modes": ["LS", "LO"], "dataset": "BTC_OHLC only (3 same-colour HA candles)"},
+    "Z19_ORB_UTC": {"params": [[4, 24]], "modes": ["LS"], "dataset": "BTC 1h only: break of the 00:00-04:00 UTC range, exit at 24:00 UTC"},
+    "Z20_WEEKLY_LEVEL_BREAKOUT": {"params": ["HTFD_A2_BO_PW frozen"], "modes": ["LS"], "dataset": "BTC_OHLC only (previous candidate, included for comparison)"}
+  },
+  "gates (all required for 'edge found')": {
+    "DEV": "net Sharpe >= 1.0 AND residual Sharpe vs buy&hold-VT >= 0.5 AND >= 2/3 of the same strategy's other configs with DEV net Sharpe > 0",
+    "VAL": "net Sharpe >= 0.8 AND residual > 0.3",
+    "TEST": "net Sharpe >= 0.6 AND net Sharpe >= 0.4 at 2x costs",
+    "selection_bias": "Deflated Sharpe Ratio on DEV+VAL with N = total zoo configurations >= 0.90; CSCV PBO over all configs on DEV+VAL reported",
+    "prop": "Crypto Fund Trader 2-Phase simulated pass (both phases) >= 60% with daily-loss breaches <= 10%, risk level chosen on DEV+VAL only"
+  },
+  "statuses": "'EDGE FOUND' only if every gate passes; otherwise the strongest configuration is reported with the gates it failed",
+  "single_use": true
+}
