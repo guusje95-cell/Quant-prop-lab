@@ -1,0 +1,65 @@
+{
+ "A3_lag_canary_sharpe_2005_2024": {
+  "lag0": 5.958,
+  "lag1": 0.735,
+  "lag2": 0.669
+ },
+ "A4_roll_denominator": [
+  {
+   "inst": "SP500",
+   "roll_days": 166,
+   "median_abs_err_bp": 0.245,
+   "max_abs_err_bp": 3.36,
+   "sum_err_share_of_total_abs_ret": 0.0001
+  },
+  {
+   "inst": "US10",
+   "roll_days": 166,
+   "median_abs_err_bp": 0.116,
+   "max_abs_err_bp": 5.99,
+   "sum_err_share_of_total_abs_ret": 0.00013
+  },
+  {
+   "inst": "GOLD",
+   "roll_days": 294,
+   "median_abs_err_bp": 0.296,
+   "max_abs_err_bp": 11.89,
+   "sum_err_share_of_total_abs_ret": 0.00022
+  },
+  {
+   "inst": "CRUDE_W",
+   "roll_days": 33,
+   "median_abs_err_bp": 2.724,
+   "max_abs_err_bp": 54.93,
+   "sum_err_share_of_total_abs_ret": 0.00024
+  },
+  {
+   "inst": "EUR",
+   "roll_days": 99,
+   "median_abs_err_bp": 0.09,
+   "max_abs_err_bp": 0.79,
+   "sum_err_share_of_total_abs_ret": 5e-05
+  },
+  {
+   "inst": "CORN",
+   "roll_days": 51,
+   "median_abs_err_bp": 3.195,
+   "max_abs_err_bp": 55.13,
+   "sum_err_share_of_total_abs_ret": 0.00023
+  },
+  {
+   "inst": "BUND",
+   "roll_days": 69,
+   "median_abs_err_bp": 0.176,
+   "max_abs_err_bp": 2.93,
+   "sum_err_share_of_total_abs_ret": 0.00016
+  },
+  {
+   "inst": "COPPER",
+   "roll_days": 114,
+   "median_abs_err_bp": 0.454,
+   "max_abs_err_bp": 27.4,
+   "sum_err_share_of_total_abs_ret": 0.0002
+  }
+ ]
+}
