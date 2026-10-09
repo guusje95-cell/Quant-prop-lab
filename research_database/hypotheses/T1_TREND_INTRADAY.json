@@ -1,0 +1,13 @@
+{
+ "id": "T1_TREND_INTRADAY",
+ "family": "prop/topstep-intraday-trend",
+ "statement": "T1_TREND_INTRADAY: the multi-day trend premium partly accrues during the US day session; holding the daily trend direction only from 09:00 CT to 15:00 CT (Topstep-compatible: flat before 3:10 PM CT) keeps a positive net edge.",
+ "mechanism": "trend premium accrual during the day session",
+ "falsification": "{\"DEV\": \"pooled net Sharpe >= 0.5 AND >= 60% instruments with positive net mean\", \"VAL\": \"pooled net Sharpe >= 0.3\", \"TEST\": \"net Sharpe > 0 at 1x and >= 0 at 2x\", \"FRESH\": \"pooled net mean > 0\"}",
+ "data_required": "Dukascopy H1 + TopstepX 1h",
+ "params_tested": "single spec",
+ "baseline": "zero",
+ "promotion": "config/topstep_t1_protocol.json",
+ "sources": [],
+ "generation": 23
+}
