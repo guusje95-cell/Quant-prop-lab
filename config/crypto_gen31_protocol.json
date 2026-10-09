@@ -1,0 +1,15 @@
+{
+  "_written": "2026-10-10, AFTER gen30 (E2 on 10 majors: chosen-risk TEST EV slightly negative; daily-loss breaches from alt wicks on 2024-03-05 / 2025-10-10). BEFORE any gen31 number was computed.",
+  "hypothesis": "The CFT-applicable version of E2 is the LIQUID2 universe (BTC, ETH only): smaller crash wicks (since 2022 BTC <= 17%, ETH <= 26% vs alts up to 55-84%) should cut equity-based daily-loss breaches more than the lost diversification costs.",
+  "strategy": "E2_TREND_BREAKOUT_LO frozen signal (src/qpl/strategies/cft_e2.py), universe {BTC, ETH} only, N = 2; otherwise the gen30 engine/costs (7.5 bp/turnover, 0 swap; stress 2x + 1bp/8h)",
+  "data_fix": "static_klines bad-tick rule (LINK 2020-03-12 low 0.0001) - does not touch BTC/ETH",
+  "selection_and_economics": "identical to config/crypto_gen30_protocol.json (risk grid 0.04..0.12 chosen by EV on 2018-2020 starts truncated at 2022-12-31; fees 0.9%/0.8%, stress 1.5%; 80% split, 5% payout fee)",
+  "gates ('APPLICABLE' per program, all required)": {
+    "G1": "LIQUID2 strategy net Sharpe 2023-01-01..2026-10-08 >= 0.8",
+    "G2": "same with 2x costs + 1bp/8h funding >= 0.5",
+    "G3": "TEST (starts 2023-01..2024-06) EV at fee 1.5% > 0 AND P_pass >= 0.50",
+    "G4": "TEST P_fail_daily <= 0.10"
+  },
+  "trials": "1 new alpha variant (cumulative crypto alpha trials 112) x 6 risk levels x 2 programs",
+  "single_use": true
+}

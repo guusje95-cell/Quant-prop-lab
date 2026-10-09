@@ -36,7 +36,13 @@ def ingest(cache: Path, rule: str) -> pd.DataFrame:
 def load(rule: str = "1d") -> dict[str, pd.DataFrame]:
     """Returns {'open': DataFrame[date x symbol], 'high': ..., 'low': ..., 'close': ..., 'volume': ...}."""
     df = pd.read_parquet(PROC / f"binance_spot_majors_{rule}.parquet")
-    return {k: df.xs(k, axis=1, level=1) for k in COLS}
+    out = {k: df.xs(k, axis=1, level=1) for k in COLS}
+    # bad-tick rule (added after gen30; affects only LINK 2020-03-12, low 0.0001 vs open 3.82): a low below 10% of
+    # min(open, close) is replaced by 50% of min(open, close) (a conservative 50% wick)
+    body = pd.concat({"o": out["open"], "c": out["close"]}).groupby(level=1).min().reindex(out["low"].index)
+    bad = out["low"] < 0.10 * body
+    out["low"] = out["low"].mask(bad, 0.5 * body)
+    return out
 
 
 if __name__ == "__main__":
