@@ -1,0 +1,100 @@
+{
+ "100000": {
+  "K": 5,
+  "instruments": {
+   "SGX": "Equity",
+   "SHATZ": "Bond",
+   "CAD_micro": "FX",
+   "CORN_mini": "Ags",
+   "EURIBOR": "Bond"
+  },
+  "integer": {
+   "DISC_1990_2004": {
+    "sharpe": 0.609,
+    "vol": 0.087,
+    "max_dd": -0.187
+   },
+   "VALIDATION": {
+    "sharpe": 0.557,
+    "vol": 0.1,
+    "max_dd": -0.227
+   },
+   "2014_2024_contaminated": {
+    "sharpe": 0.608,
+    "vol": 0.104,
+    "max_dd": -0.221
+   }
+  },
+  "continuous": {
+   "DISC_1990_2004": {
+    "sharpe": 1.047,
+    "vol": 0.105,
+    "max_dd": -0.193
+   },
+   "VALIDATION": {
+    "sharpe": 0.594,
+    "vol": 0.101,
+    "max_dd": -0.242
+   },
+   "2014_2024_contaminated": {
+    "sharpe": 0.512,
+    "vol": 0.106,
+    "max_dd": -0.225
+   }
+  },
+  "n_present_2005": 4,
+  "verdict": "PROMISING_BUT_UNVALIDATED"
+ },
+ "250000": {
+  "K": 11,
+  "instruments": {
+   "SGX": "Equity",
+   "SHATZ": "Bond",
+   "CAD_micro": "FX",
+   "CORN_mini": "Ags",
+   "EURIBOR": "Bond",
+   "AUD_micro": "FX",
+   "EURIBOR-ICE": "Bond",
+   "GBP_micro": "FX",
+   "CHF_micro": "FX",
+   "EUR_micro": "FX",
+   "SGD_mini": "FX"
+  },
+  "integer": {
+   "DISC_1990_2004": {
+    "sharpe": 0.916,
+    "vol": 0.085,
+    "max_dd": -0.18
+   },
+   "VALIDATION": {
+    "sharpe": 0.33,
+    "vol": 0.101,
+    "max_dd": -0.334
+   },
+   "2014_2024_contaminated": {
+    "sharpe": 0.379,
+    "vol": 0.109,
+    "max_dd": -0.255
+   }
+  },
+  "continuous": {
+   "DISC_1990_2004": {
+    "sharpe": 1.342,
+    "vol": 0.103,
+    "max_dd": -0.185
+   },
+   "VALIDATION": {
+    "sharpe": 0.316,
+    "vol": 0.102,
+    "max_dd": -0.348
+   },
+   "2014_2024_contaminated": {
+    "sharpe": 0.331,
+    "vol": 0.112,
+    "max_dd": -0.289
+   }
+  },
+  "n_present_2005": 9,
+  "verdict": "REJECTED"
+ }
+}

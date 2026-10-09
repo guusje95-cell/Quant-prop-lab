@@ -1,0 +1,13 @@
+{
+ "id": "G17_SMALL_250K",
+ "family": "futures/small-account implementation",
+ "statement": "F9 on 11 affordable instruments at $250,000",
+ "mechanism": "diversified trend+carry with contract granularity",
+ "falsification": "integer-contract VALIDATION net Sharpe >= 0.4 AND realised vol >= 6% AND DISCOVERY 1990-2004 net Sharpe >= 0.4 -> PROMISING_BUT_UNVALIDATED small-account variant; else REJECTED for that capital",
+ "data_required": "pysystemtrade",
+ "params_tested": "rule-based selection",
+ "baseline": "continuous F9",
+ "promotion": "config/v6_gen17_small_protocol.json",
+ "sources": [],
+ "generation": 17
+}

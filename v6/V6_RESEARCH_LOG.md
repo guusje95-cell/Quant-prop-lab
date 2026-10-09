@@ -140,3 +140,12 @@ Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secon
 2. On-chain valuation (MVRV) is not a timing edge once BTC beta is removed.
 3. Weekly reversal comes out strongly negative, i.e. short-term continuation. That would be a *new* hypothesis built on TRAIN evidence, so it is logged as a backlog idea (needs lower-turnover construction), not rescued.
 4. The only crypto edge in the whole project remains time-series trend on the majors (CT1), and it behaves as conditional beta (Entry 2).
+
+## 2026-10-09 · Entry 10 — Small accounts (`experiments/v6_gen17_small.py`, protocol committed before the run)
+* **Selection:** a non-performance Carver-style minimum-capital rule. Risk per contract (notional × vol) must be ≤ capital × 5% / K, filled round-robin across six classes.
+* **$100k → K = 5** (SGX Nikkei, Schatz, CAD micro, Corn mini, Euribor). Integer VALIDATION 0.56, DISCOVERY 0.61, 2014–24 0.61 (contaminated). **Passes the gate**, but only 4 instruments existed in 2005.
+* **$250k → K = 11**, six of them FX micro-contracts. Integer VALIDATION 0.33 → **REJECTED**; continuous 0.32, so the failure is not caused by rounding.
+* **Learning:** at small capital, the affordable set is dominated by low-risk-per-contract short-rate, bond and FX micro-contracts. Diversification collapses and results become noise-dominated: the "better" $100k result next to a failing $250k result is the signature of noise. **A faithful trend+carry book needs about $1M.** Below that, the honest options are:
+  1. accept a concentrated, noisy book;
+  2. use the crypto CT1 sleeve, which is divisible;
+  3. wait. A ledger note records that G17_SMALL_100K is not recommended despite passing the gate.
