@@ -1,0 +1,21 @@
+{
+  "_written": "2026-10-09, BEFORE computing any return from the Coin Metrics data (only coverage was inspected: data/metadata/coinmetrics_coverage.csv).",
+  "data": "coinmetrics/data @f1a36afb (community CSVs, CC BY-NC 4.0 - research use only; commercial use would need a licence). 139 assets with PriceUSD; includes some dead assets (survivorship REDUCED, not removed: the community set is curated by Coin Metrics).",
+  "universe": "point-in-time at each weekly rebalance (Wednesday close, UTC daily data): non-stablecoin, non-wrapped, non-duplicate-deployment assets (exclusion list in code, by name, set before results) with >= 90 days of price and market cap; top 30 by CapMrktCurUSD; reported spot volume >= $1M (30-day median) when volume is available",
+  "execution": "weights set with data through day t (UTC close), held from close t+1 (one-day lag) for 7 days",
+  "costs": "30 bps per unit turnover (alt spot/perp taker + spread, ASSUMPTION); stress 60 bps",
+  "periods": {"TRAIN": ["2017-07-01", "2020-12-31"], "VALIDATION": ["2021-01-01", "2022-12-31"], "TEST": ["2023-01-01", "2026-05-24"]},
+  "contamination_note": "TEST overlaps data already viewed for BTC/ETH (CT1) and 21 perps 2025-26 (CT1 transfer) and the researcher's general knowledge of the 2023-25 crypto market; cross-sectional signals on alts are a different object, but TEST is labelled PARTIALLY CONTAMINATED.",
+  "hypotheses": {
+    "H16a_XS_MOM": {"signal": "past 21-day return (skip 0)", "portfolio": "long top third / short bottom third, equal weight, dollar neutral", "neighbours": "lookback 7, 63 days", "source": "Liu, Tsyvinski & Wu (2022) Common risk factors in cryptocurrency, JF"},
+    "H16b_XS_REV": {"signal": "MINUS past 7-day return", "portfolio": "as above", "neighbours": "3, 14 days", "source": "short-term reversal (liquidity provision)"},
+    "H16c_XS_MVRV": {"signal": "MINUS log(CapMVRVCur) (cheap on-chain valuation = long)", "portfolio": "as above, assets with MVRV only", "neighbours": "MVRV z-score vs own 365d history", "source": "MVRV (Mahmudov & Puell 2018); on-chain value hypothesis"},
+    "H16d_XS_NETGROWTH": {"signal": "28-day growth of 7-day-mean AdrActCnt", "portfolio": "as above, assets with addresses only", "neighbours": "91-day growth", "source": "network-adoption factor (Liu & Tsyvinski 2021; Cong et al. 2022)"},
+    "H16e_BTC_MVRV_TIMING": {"signal": "BTC long when MVRV below its trailing 4-year median, flat otherwise (and the reverse-rank neighbour: scale = clip(2 - MVRV/median, 0, 1))", "periods": "TRAIN 2013-2019, VALIDATION 2020-21, OOS 2022-23; 2024-26 BTC is USED (reported only as contaminated)", "benchmark": "BTC buy&hold, residual Sharpe"}
+  },
+  "gates": {"TRAIN": "net Sharpe >= 0.5 AND >= 2/3 neighbours net > 0 (XS factors: long-short spread net of costs)",
+            "VALIDATION": "net Sharpe >= 0.3", "TEST": "single look: net Sharpe > 0 at 30 bps AND > 0 at 60 bps",
+            "H16e": "TRAIN >= 0.5 with residual vs B&H >= 0.3; VALIDATION >= 0.3 & resid > 0; OOS >= 0.3 & resid > 0"},
+  "status_ceiling": "Crypto XS factors are capped at PROMISING_BUT_UNVALIDATED because of curated-universe survivorship and partial TEST contamination.",
+  "single_use": true
+}
