@@ -1,0 +1,83 @@
+{
+ "MX": {
+  "DEV": {
+   "sharpe": 0.209,
+   "cagr": 0.0062,
+   "vol": 0.032,
+   "max_dd": -0.0956
+  },
+  "VAL": {
+   "sharpe": -0.413,
+   "cagr": -0.0145,
+   "vol": 0.0339,
+   "max_dd": -0.149
+  },
+  "TEST": {
+   "sharpe": -0.603,
+   "cagr": -0.0209,
+   "vol": 0.034,
+   "max_dd": -0.2126
+  },
+  "by_asset_TEST_sharpe": {
+   "EURUSD": -0.06,
+   "GBPUSD": 0.26,
+   "AUDUSD": -0.44,
+   "NZDUSD": -0.44,
+   "USDJPY": -0.04,
+   "USDCAD": -0.09,
+   "USDCHF": -0.14,
+   "WTI": 0.16,
+   "BRENT": 0.22,
+   "SPX": 0.35
+  }
+ },
+ "CX_mt5": {
+  "DEV": {
+   "sharpe": 1.641,
+   "cagr": 0.3701,
+   "vol": 0.2046,
+   "max_dd": -0.1648
+  },
+  "VAL": {
+   "sharpe": 0.361,
+   "cagr": 0.0458,
+   "vol": 0.1588,
+   "max_dd": -0.1713
+  },
+  "TEST": {
+   "sharpe": 0.785,
+   "cagr": 0.1277,
+   "vol": 0.1717,
+   "max_dd": -0.2004
+  }
+ },
+ "corr_MX_CX_2018_2026": 0.06,
+ "risk_grid_DEV": {
+  "0.08": {
+   "worst": -0.0478,
+   "maxdd": -0.0974,
+   "ok": false
+  },
+  "0.1": {
+   "worst": -0.0598,
+   "maxdd": -0.1207,
+   "ok": false
+  },
+  "0.12": {
+   "worst": -0.0717,
+   "maxdd": -0.1435,
+   "ok": false
+  },
+  "0.14": {
+   "worst": -0.0837,
+   "maxdd": -0.166,
+   "ok": false
+  },
+  "0.16": {
+   "worst": -0.0957,
+   "maxdd": -0.188,
+   "ok": false
+  }
+ },
+ "chosen_v": null
+}
