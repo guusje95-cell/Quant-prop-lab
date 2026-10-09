@@ -1,0 +1,29 @@
+{
+  "_written": "2026-10-10, BEFORE any gen27 return was computed. Generation 27: (A) independent replication of the 4 frozen gen26 finalists on an untouched universe; (B) CFT execution layer with a real hourly daily-loss circuit breaker for BTC.",
+  "context": "Gen26 finalists passed DEV/VAL/TEST/2x-cost but FAILED the DSR (N=104) and CFT prop gates. Those failures stand. Gen27 is a new, separately counted test; it cannot turn gen26 into a pass, it can only add independent evidence.",
+  "frozen_rules (no parameter changes)": {
+    "R1": "short_breakout(7, hold 2), long-only",
+    "R2": "rsi_momentum(14, 55, 45), long-only",
+    "R3": "tsmom(30), long/short",
+    "R4": "tsmom(30), long-only"
+  },
+  "A_replication": {
+    "universe_U2": "Coin Metrics point-in-time market-cap ranks 11-30 (non-stablecoin, >= 200 days history); duplicate chain entries avaxp/avaxx dropped (avaxc kept). These coins were never members of gen26 MULTI (ranks 1-10 only) at the same dates; some were seen in earlier V4 tests with other rules (CT1, HTFD_A2) - noted",
+    "period": "2018-01-01 .. 2026-05-23 (all fresh for these rules on U2)",
+    "engine": "identical to gen26 MULTI (signal x 0.40/sigma30 capped 1, equal average over members, close-to-close next day)",
+    "costs": "15 bp per unit turnover (smaller alts: wider spreads), funding 1 bp/8h paid by longs; stress 2x costs",
+    "gate_per_rule": "net Sharpe >= 0.5 AND 2x-cost net Sharpe >= 0.3 AND >= 5 of the 8 full calendar years 2018-2025 positive AND residual Sharpe vs U2 buy&hold-VT >= 0.3 AND Holm-adjusted one-sided stationary-bootstrap p < 0.05 across the 4 rules",
+    "trials": 4
+  },
+  "B_cft_btc_breaker": {
+    "applies_to": "R3, R4 on BTC (Bitstamp) only, and only if the rule passed A",
+    "execution": "daily signal and vol-target weight from gen26 BTC engine, held on 1h Bitstamp bars; costs 7.5 bp/turnover + actual funding (as gen26)",
+    "breaker": "flatten when hourly LOW-based equity <= B - s, B = balance at 00:00 UTC; fill at that hour's close minus 2x slippage (15 bp); re-enter at next 00:00 UTC. s in {0.020, 0.030}",
+    "balance_model": "B = max(equity at 00:00 UTC, realized balance) where realized balance updates only when position is closed or flips sign (conservative)",
+    "risk_grid": "target vol in {0.10, 0.15, 0.20, 0.25, 0.30}; (vol, s) chosen on DEV+VAL (2015-2021) starts only: max 2-Phase P_pass subject to P_fail_daily <= 0.10",
+    "gate": "CFT 2-Phase simulated pass >= 60% with daily-loss breaches <= 10% on DEV+VAL at the chosen (vol, s); TEST 2022-2023 and USED 2024-26 starts reported",
+    "trials": "2 rules x 5 vols x 2 s = 20 prop-layer variants (risk/execution, not alpha)"
+  },
+  "status_rule": "'REPLICATED' only if A passes; 'PROP-VIABLE' only if B also passes. Neither label means 'guaranteed'. Gen26 DSR failure is always reported alongside.",
+  "single_use": true
+}
