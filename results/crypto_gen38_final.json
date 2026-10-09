@@ -1,0 +1,300 @@
+{
+ "scale_k_v015": 0.7916285804737809,
+ "Cstar_v015": {
+  "DEV": {
+   "net_sharpe": 2.138,
+   "cagr": 0.3627,
+   "vol": 0.15,
+   "max_dd": -0.0959,
+   "worst_day": -0.0759,
+   "pf_days": 1.565,
+   "hit_days": 0.439
+  },
+  "VAL": {
+   "net_sharpe": 1.262,
+   "cagr": 0.1315,
+   "vol": 0.102,
+   "max_dd": -0.0805,
+   "worst_day": -0.0485,
+   "pf_days": 1.304,
+   "hit_days": 0.41
+  },
+  "TEST": {
+   "net_sharpe": 1.185,
+   "cagr": 0.1596,
+   "vol": 0.1323,
+   "max_dd": -0.1407,
+   "worst_day": -0.123,
+   "pf_days": 1.277,
+   "hit_days": 0.42
+  },
+  "FRESH": {
+   "net_sharpe": 2.008,
+   "cagr": 0.2559,
+   "vol": 0.1169,
+   "max_dd": -0.0265,
+   "worst_day": -0.0263,
+   "pf_days": 1.543,
+   "hit_days": 0.449
+  },
+  "ALL": {
+   "net_sharpe": 1.67,
+   "cagr": 0.2412,
+   "vol": 0.1348,
+   "max_dd": -0.1407,
+   "worst_day": -0.123,
+   "pf_days": 1.422,
+   "hit_days": 0.426
+  },
+  "gross_sharpe_ALL": 1.767,
+  "by_year_return": {
+   "2018": -0.0435,
+   "2019": 0.2865,
+   "2020": 0.5883,
+   "2021": 0.7658,
+   "2022": -0.0529,
+   "2023": 0.3517,
+   "2024": 0.4215,
+   "2025": 0.0046,
+   "2026": 0.0559
+  },
+  "by_year_sharpe": {
+   "2018": -0.82,
+   "2019": 1.69,
+   "2020": 2.51,
+   "2021": 3.62,
+   "2022": -0.91,
+   "2023": 2.36,
+   "2024": 2.29,
+   "2025": 0.1,
+   "2026": 0.77
+  },
+  "avg_gross_exposure": 0.13,
+  "max_gross_exposure": 0.799
+ },
+ "E2_MAJ10_noO3_v015": {
+  "DEV": {
+   "net_sharpe": 2.044,
+   "cagr": 0.3436,
+   "vol": 0.15,
+   "max_dd": -0.1382,
+   "worst_day": -0.0727,
+   "pf_days": 1.526,
+   "hit_days": 0.439
+  },
+  "VAL": {
+   "net_sharpe": 0.901,
+   "cagr": 0.1009,
+   "vol": 0.1139,
+   "max_dd": -0.1024,
+   "worst_day": -0.0465,
+   "pf_days": 1.196,
+   "hit_days": 0.41
+  },
+  "TEST": {
+   "net_sharpe": 1.19,
+   "cagr": 0.1597,
+   "vol": 0.1317,
+   "max_dd": -0.1425,
+   "worst_day": -0.1177,
+   "pf_days": 1.275,
+   "hit_days": 0.42
+  },
+  "FRESH": {
+   "net_sharpe": 2.005,
+   "cagr": 0.311,
+   "vol": 0.1399,
+   "max_dd": -0.0317,
+   "worst_day": -0.0314,
+   "pf_days": 1.542,
+   "hit_days": 0.449
+  },
+  "ALL": {
+   "net_sharpe": 1.556,
+   "cagr": 0.2256,
+   "vol": 0.1368,
+   "max_dd": -0.1425,
+   "worst_day": -0.1177,
+   "pf_days": 1.376,
+   "hit_days": 0.426
+  }
+ },
+ "stress_2x_cost_funding": {
+  "ALL": {
+   "net_sharpe": 1.469,
+   "cagr": 0.2078,
+   "vol": 0.1346,
+   "max_dd": -0.1639,
+   "worst_day": -0.123,
+   "pf_days": 1.362,
+   "hit_days": 0.417
+  },
+  "TEST": {
+   "net_sharpe": 0.945,
+   "cagr": 0.1232,
+   "vol": 0.1321,
+   "max_dd": -0.1639,
+   "worst_day": -0.123,
+   "pf_days": 1.215,
+   "hit_days": 0.409
+  }
+ },
+ "delay_1d": {
+  "ALL": {
+   "net_sharpe": 1.593,
+   "cagr": 0.2335,
+   "vol": 0.1377,
+   "max_dd": -0.1764,
+   "worst_day": -0.1256,
+   "pf_days": 1.401,
+   "hit_days": 0.434
+  },
+  "TEST": {
+   "net_sharpe": 0.718,
+   "cagr": 0.0909,
+   "vol": 0.1334,
+   "max_dd": -0.1764,
+   "worst_day": -0.1256,
+   "pf_days": 1.16,
+   "hit_days": 0.42
+  }
+ },
+ "bootstrap_sharpe_CI95": [
+  0.873,
+  2.392
+ ],
+ "DSR_N136": 0.9921,
+ "NW_t": 4.07,
+ "leave_one_coin_out_ALL_sharpe": {
+  "BTC": 1.589,
+  "ETH": 1.634,
+  "BNB": 1.59,
+  "XRP": 1.719,
+  "ADA": 1.673,
+  "SOL": 1.598,
+  "DOGE": 1.618,
+  "AVAX": 1.634,
+  "DOT": 1.728,
+  "LINK": 1.729
+ },
+ "user_target": {
+  "U1": true,
+  "U2": true,
+  "U3": true,
+  "U4": true,
+  "U5": true
+ },
+ "TARGET_MET": true,
+ "CFT_pipeline_1PHASE": {
+  "Cstar_two_speed": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0563,
+    "median_net": 0.0382,
+    "p10_net": -0.0062,
+    "P_net_pos": 0.806,
+    "mean_attempts": 3.02,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 3.9,
+    "P_funded_within_90d": 0.403,
+    "P_funded_within_180d": 0.69,
+    "mean_paid": 0.0804
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.1039,
+    "median_net": 0.0792,
+    "p10_net": -0.0017,
+    "P_net_pos": 0.895,
+    "mean_attempts": 3.01,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.3,
+    "P_funded_within_90d": 0.374,
+    "P_funded_within_180d": 0.612,
+    "mean_paid": 0.128
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.079,
+    "median_net": 0.073,
+    "p10_net": -0.0298,
+    "P_net_pos": 0.813,
+    "mean_attempts": 3.74,
+    "P_funded_ever": 0.979,
+    "median_months_to_funded": 4.3,
+    "P_funded_within_90d": 0.348,
+    "P_funded_within_180d": 0.609,
+    "mean_paid": 0.109
+   },
+   "challenge_attempt_TEST": {
+    "n": 274,
+    "P_pass": 0.482,
+    "P_fail_daily": 0.259,
+    "P_fail_max": 0.259,
+    "P_unresolved": 0.0,
+    "median_days_to_pass": 64.0,
+    "p25_p75_days_to_pass": [
+     27.75,
+     133.5
+    ],
+    "funded_survive_12m": 0.0,
+    "E_payout_frac_12m_per_attempt": 0.0
+   }
+  },
+  "gen34_two_speed": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0761,
+    "median_net": 0.0806,
+    "p10_net": 0.0358,
+    "P_net_pos": 0.984,
+    "mean_attempts": 2.12,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.0,
+    "P_funded_within_90d": 0.395,
+    "P_funded_within_180d": 0.682,
+    "mean_paid": 0.0931
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.1095,
+    "median_net": 0.0891,
+    "p10_net": 0.0071,
+    "P_net_pos": 0.917,
+    "mean_attempts": 2.78,
+    "P_funded_ever": 0.97,
+    "median_months_to_funded": 4.3,
+    "P_funded_within_90d": 0.374,
+    "P_funded_within_180d": 0.582,
+    "mean_paid": 0.1318
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0826,
+    "median_net": 0.077,
+    "p10_net": -0.024,
+    "P_net_pos": 0.837,
+    "mean_attempts": 3.5,
+    "P_funded_ever": 0.982,
+    "median_months_to_funded": 4.1,
+    "P_funded_within_90d": 0.356,
+    "P_funded_within_180d": 0.623,
+    "mean_paid": 0.1106
+   },
+   "challenge_attempt_TEST": {
+    "n": 274,
+    "P_pass": 0.332,
+    "P_fail_daily": 0.219,
+    "P_fail_max": 0.449,
+    "P_unresolved": 0.0,
+    "median_days_to_pass": 38.0,
+    "p25_p75_days_to_pass": [
+     19.5,
+     67.5
+    ],
+    "funded_survive_12m": 0.0,
+    "E_payout_frac_12m_per_attempt": 0.0072
+   }
+  }
+ }
+}

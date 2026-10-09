@@ -50,3 +50,12 @@ def capped_weights(close, low, L: float, b: float | None) -> pd.DataFrame:
     load = (w.clip(lower=0) * stress(close, low)).sum(axis=1)
     scale = (b / load).where(load > b, 1.0).fillna(1.0)
     return w.mul(scale, axis=0)
+
+
+def stable_overlay(stable_cap: pd.Series, index: pd.DatetimeIndex) -> pd.Series:
+    """O3 (gen36/37): USDT+USDC total market cap 30-day log change > 0 -> 1.25, <= 0 -> 0.75, unknown -> 1.0.
+    stable_cap is indexed by UTC day (value for that day); applied with a 1-day publication lag."""
+    s = stable_cap.reindex(index)
+    g = np.log(s.where(s > 0)).diff(30)
+    f = pd.Series(np.where(g > 0, 1.25, np.where(g <= 0, 0.75, 1.0)), index=index)
+    return f.shift(1).fillna(1.0)
