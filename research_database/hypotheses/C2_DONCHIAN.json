@@ -1,0 +1,13 @@
+{
+ "id": "C2_DONCHIAN",
+ "family": "crypto/breakout",
+ "statement": "Breakouts of N-day channels continue in BTC.",
+ "mechanism": "Trend-following flows and stop cascades.",
+ "falsification": "Same as C1.",
+ "data_required": "Bitstamp BTCUSD daily",
+ "params_tested": "n {20,55} x long/short vs long-only",
+ "baseline": "vol-targeted buy & hold",
+ "promotion": "config/promotion_criteria_crypto.json",
+ "sources": [],
+ "generation": 10
+}

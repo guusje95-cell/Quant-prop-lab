@@ -49,7 +49,7 @@ def btc_bars(rule: str = "1h") -> pd.DataFrame:
 
 def validate_1m(df: pd.DataFrame) -> dict:
     idx = df.index
-    dt = np.diff(idx.asi8) / 60e6 if idx.dtype.unit == "us" else np.diff(idx.asi8) / 60e9
+    dt = np.diff(idx.as_unit("ns").asi8) / 60e9
     gaps = dt[dt > 1]
     o, h, l, c, v = (df[k].to_numpy() for k in ("open", "high", "low", "close", "volume"))
     yr = idx.year

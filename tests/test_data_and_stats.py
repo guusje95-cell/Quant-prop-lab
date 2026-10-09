@@ -99,3 +99,12 @@ def test_ledger_handles_int_keys(tmp_path, monkeypatch):
     F.append({"kind": "x", "pcts": {1: 0.1, 5: 0.5, 25: 2.5, 50: 5.0}})
     F.append({"kind": "y"})
     assert F.verify_ledger() == (True, 2)
+
+
+def test_validate_detects_gaps_with_microsecond_index():
+    # regression V4-A1: gap detection silently failed for microsecond-unit indexes (pandas 3 default)
+    from qpl.data.validate import validate_frame
+    idx = pd.DatetimeIndex(["2024-01-02 14:30", "2024-01-02 14:45", "2024-01-03 02:00", "2024-01-03 02:15"], tz="UTC").as_unit("us")
+    df = pd.DataFrame({"open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0, "volume": 0.0}, index=idx)
+    rep = validate_frame(df, "M15")
+    assert rep["gaps_total"] == 1 and rep["intra_week_gaps_gt_6h"] == 1

@@ -1,0 +1,13 @@
+{
+ "id": "C3_REVERSAL",
+ "family": "crypto/mean reversion",
+ "statement": "Extreme 1-hour BTC moves partially reverse over the next 4-12 hours.",
+ "mechanism": "Liquidity-driven overshoots (forced liquidations, thin books) revert as liquidity returns.",
+ "falsification": "TRAIN net Sharpe < 0.5 for all variants.",
+ "data_required": "Bitstamp BTCUSD hourly",
+ "params_tested": "k {3,4} sigma x hold {4,12} h",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria_crypto.json",
+ "sources": [],
+ "generation": 10
+}

@@ -1,0 +1,13 @@
+{
+ "id": "CT1_TREND_ENSEMBLE",
+ "family": "crypto/trend",
+ "statement": "Pre-specified ensemble of C1/C2 trend rules on BTC.",
+ "mechanism": "as C1/C2",
+ "falsification": "fails promotion_criteria_crypto",
+ "data_required": "Bitstamp BTCUSD daily",
+ "params_tested": "fixed ensemble; long/short; 40% vol target",
+ "baseline": "vol-targeted buy & hold",
+ "promotion": "config/promotion_criteria_crypto.json",
+ "sources": [],
+ "generation": 10
+}

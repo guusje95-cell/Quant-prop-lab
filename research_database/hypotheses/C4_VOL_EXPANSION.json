@@ -1,0 +1,13 @@
+{
+ "id": "C4_VOL_EXPANSION",
+ "family": "crypto/volatility",
+ "statement": "A daily range-expansion bar closing at its extreme predicts continuation over the next 1-5 days.",
+ "mechanism": "Volatility clustering plus information arrival; expansion bars mark regime transitions.",
+ "falsification": "Same as C1.",
+ "data_required": "Bitstamp BTCUSD daily",
+ "params_tested": "x {1.5,2.0} x hold {1,5} days",
+ "baseline": "vol-targeted buy & hold",
+ "promotion": "config/promotion_criteria_crypto.json",
+ "sources": [],
+ "generation": 10
+}

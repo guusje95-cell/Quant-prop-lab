@@ -1,0 +1,10 @@
+{
+  "_written": "2026-10-09, before any crypto experiment",
+  "_rationale": "BTC has a strong positive drift 2015-2026, so any long-biased rule looks good. Every gate therefore requires alpha beyond a volatility-targeted buy-and-hold (residual Sharpe after regressing on it), not just a positive Sharpe.",
+  "REJECT": "TRAIN (2015-19) net Sharpe < 0.5 OR residual Sharpe vs buy&hold-VT < 0.3 for every variant; or validation (2020-21) net < 0 for the frozen spec",
+  "EXPLORATORY": "passes TRAIN but VALIDATION net Sharpe < 0.3 or residual < 0.2, or < 70% of neighbours positive",
+  "VALIDATION_CANDIDATE": "TRAIN pass AND VALIDATION net >= 0.3 and residual >= 0.2 AND >= 70% neighbours positive in TRAIN AND net > 0 at 2x costs",
+  "PAPER_TRADING_CANDIDATE": "VALIDATION_CANDIDATE AND OOS 2022-23 net Sharpe >= 0.5 with residual > 0 AND PROTECTED HOLDOUT 2024-01..2026-10 (single pre-registered look) net Sharpe > 0 and residual > 0 at baseline costs",
+  "PERSONAL_ACCOUNT_RESEARCH_CANDIDATE": "PAPER_TRADING_CANDIDATE that is not prop-compatible (e.g. needs weekend/overnight crypto holding). Not an authorization to deploy.",
+  "funding_hypotheses": "TRAIN 2020-2021, OOS 2022-2023, PROTECTED HOLDOUT 2025-08..2026-09 (Binance mark price, 22 perps); same thresholds"
+}

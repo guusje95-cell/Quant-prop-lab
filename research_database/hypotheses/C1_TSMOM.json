@@ -1,0 +1,21 @@
+{
+ "id": "C1_TSMOM",
+ "family": "crypto/trend",
+ "statement": "BTC returns are positively autocorrelated over 1-4 month horizons (time-series momentum).",
+ "mechanism": "Slow diffusion of information, herding and leverage cycles in a retail-heavy market (Liu & Tsyvinski 2021 'Risks and Returns of Cryptocurrency').",
+ "falsification": "TRAIN net Sharpe < 0.5 or residual vs buy&hold-VT < 0.3 for all variants.",
+ "data_required": "Bitstamp BTCUSD daily",
+ "params_tested": "lookback {20,60,120} x long/short vs long/flat",
+ "baseline": "vol-targeted buy & hold",
+ "promotion": "config/promotion_criteria_crypto.json",
+ "sources": [
+  {
+   "title": "Liu & Tsyvinski (2021) Risks and Returns of Cryptocurrency, RFS",
+   "url": "https://doi.org/10.1093/rfs/hhaa113",
+   "published": "2021",
+   "sample": "2011-2018",
+   "limitations": "weekly data; pre-2019"
+  }
+ ],
+ "generation": 10
+}

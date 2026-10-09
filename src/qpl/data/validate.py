@@ -35,7 +35,7 @@ def validate_frame(df: pd.DataFrame, tf: str) -> dict:
         {"ts": str(df.index[i + 1]), "logret": float(r[i])} for i in big[np.argsort(-np.abs(r[big]))][:8]
     ]
     # Gaps: consecutive timestamps further apart than one bar, excluding weekends.
-    dt = np.diff(df.index.asi8) / 1e9 / 60.0
+    dt = np.diff(df.index.as_unit("ns").asi8) / 1e9 / 60.0   # audit V4-A1: unit-safe (index may be us)
     gaps = np.where(dt > TF_MIN[tf] * 1.01)[0]
     if tf not in ("D1", "daily"):
         e = to_et(df.index)

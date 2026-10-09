@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-09, after TRAIN/VALIDATION only; BEFORE any look at 2022+ BTC data in this project",
+  "candidate": "CT1_TREND_ENSEMBLE: equal-weight mean of TSMOM(20,60,120) and Donchian(20,55) on Bitstamp BTCUSD daily closes, long/short, each leg vol-targeted to 40% annualized (30-day realized vol), positions decided at the daily close (UTC), executed at the next daily open",
+  "costs": "7 bps per unit turnover (perp taker + slippage, ASSUMPTION); perp funding: actual Binance BTCUSDT where available, else 0.01%/8h baseline (ASSUMPTION)",
+  "look_1_OOS": {"period": "2022-01-01..2023-12-31", "pass": "net Sharpe >= 0.5 AND residual Sharpe vs buy&hold-VT > 0"},
+  "look_2_HOLDOUT": {"period": "2024-01-01..2026-10-09", "run_only_if": "look_1 passes", "pass": "net Sharpe > 0 AND residual Sharpe > 0 at 7 bps; also reported at 15 and 21 bps",
+                     "knowledge_caveat": "the researcher has background knowledge of the general BTC path to its training cutoff; long/short design and residual-vs-beta criterion mitigate but do not remove this"},
+  "secondary_reported_not_decisive": "long-only variant"
+}
