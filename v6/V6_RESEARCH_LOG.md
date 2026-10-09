@@ -64,3 +64,24 @@ Long-only risk-parity benchmark, for reference, is reported in `results/v6_futur
 2. The frozen crypto CT1 idea transfers out of domain (0.60 / 0.51 net on TEST / HOLDOUT). Trend persistence is a cross-market effect, which makes the BTC result more credible, but the BTC-specific decay (Entry 2) still stands.
 3. Cross-sectional momentum, value and skew did **not** survive costs in futures. XS momentum's gross 1.05 was eaten by 5.7% annual costs.
 4. The binding constraints are now **costs/turnover and implementability**: contract granularity, capital, and leverage of 7–17× notional. The futures TEST/HOLDOUT periods are now USED. Further confirmation must be prospective, or must come from cost/implementation realism checks that don't re-select signals.
+
+## 2026-10-09 · Entry 5 — Gen14 implementation research (`experiments/v6_futures_gen14.py`, protocol `config/v6_gen14_protocol.json`)
+* **Buffering (G14a).** Carver-style no-trade bands cut turnover 185 → 60 (F7) and roughly halve cost sensitivity. F7 VALIDATION at 3× costs goes 0.16 → 0.28 (b = 0.05) and → 0.62 (b = 0.4). The pre-registered smallest-b rule adopted **b = 0.05 for F7** and **b = 0.10 for F2 EWMAC**. Larger b looked better still, but adoption followed the rule.
+* **Leverage caps (G14b).** Capping gross notional at 6–8× costs about 0.0–0.3 Sharpe in 2014–24 (contaminated-secondary) and binds on 43–64% of days. The low-vol bond/STIR legs drive the leverage.
+* **Capital (G14c), integer contracts with the smallest available contract.**
+
+  | Capital | Instruments held (2020–24) | VALIDATION Sharpe | 2014–24 Sharpe (contaminated) | Realized vol |
+  |---|---|---|---|---|
+  | $100k | 2 | 0.05 | 0.50 | 2.6% |
+  | $250k | 13 | 0.53 | 0.60 | 5.5% |
+  | $1M | 52 | 0.77 | 0.84 | 8.8% |
+  | $5M | 105 | 0.57 | 0.89 | 10.7% |
+
+  The continuous-weight book is 0.60 / 0.83.
+* **Audit V6-B1 (two bugs in G14c, both fixed and logged; the superseded numbers are kept in the JSON):**
+  1. The band was coded as max(0.5, 10%) instead of the protocol's 0.5 + 10%.
+  2. **Exchange holidays left NaN contract notional**, which zeroed the target and forced round trips. This made the first run show Sharpe < 0 even at $5M. The main engine was checked and is unaffected (4 dropout cells in total).
+* **Learning:**
+  * The diversified futures book is implementable at about **$1M+**. At $250k it under-deploys risk (5.5% vol) with about 13 instruments.
+  * Below about $250k, a different design is needed: a small, hand-picked, micro-contract universe. This becomes hypothesis G15-SMALL, which must be selected without performance data.
+  * Futures prop firms (intraday-flat rules) remain incompatible with multi-day trend/carry.

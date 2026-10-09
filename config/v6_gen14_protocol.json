@@ -1,0 +1,12 @@
+{
+  "_written": "2026-10-09, before running gen14. Implementation research on the gen13 survivors (F2_EWMAC, F7_COMBO). Signals are NOT changed or re-selected.",
+  "period_use": "Decisions use DISCOVERY+VALIDATION only. TEST/HOLDOUT were looked at once in gen13 and are reported here as CONTAMINATED-SECONDARY (cost/implementation effect only, never used to choose).",
+  "G14a_BUFFER": {"rule": "per instrument, keep the previous weight unless the target leaves [held - b*m, held + b*m], m = trailing-252d mean |target weight|; then trade to the nearer band edge (Carver-style buffering)",
+                  "grid": "b in {0.05, 0.10, 0.20, 0.40}",
+                  "adopt_if": "on BOTH DISCOVERY and VALIDATION: net Sharpe at 3x costs improves by >= 0.10 vs unbuffered AND net Sharpe at 1x costs falls by <= 0.05; choose the smallest b that satisfies this (stable-region rule)"},
+  "G14b_LEVERAGE_CAP": {"rule": "scale the whole book down when gross notional > L", "grid": "L in {4, 6, 8}", "use": "reported (feasibility), not a gate"},
+  "G14c_CAPITAL": {"rule": "integer contracts; for each underlying choose the member with the smallest median contract notional 2015-2024 whose cost/vol <= 0.02; contracts = round(W*C/notional) with a 0.5-contract + 10% no-trade band; FX via pysystemtrade fx_prices_csv",
+                   "capital_usd": [100000, 250000, 1000000, 5000000],
+                   "metric": "net Sharpe and tracking correlation vs the continuous-weight book, VALIDATION and 2014-2024 (contaminated-secondary)",
+                   "use": "determines minimum capital for an implementable version; not a signal gate"}
+}
