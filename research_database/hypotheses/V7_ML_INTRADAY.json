@@ -1,0 +1,13 @@
+{
+ "id": "V7_ML_INTRADAY",
+ "family": "adaptive/statistical model",
+ "statement": "A regularized model of interpretable intraday state (noise-normalized move, gap, trend efficiency, vol ratio, relative strength, time) predicts the sign of the rest-of-session return better than simple momentum.",
+ "mechanism": "Combines momentum/reversal/regime information; tests whether conditioning adds value over H3.",
+ "falsification": "Walk-forward net Sharpe below the pure-momentum baseline (sign of noise-normalized move) or < 0.5.",
+ "data_required": "15m US100 + US500 bars",
+ "params_tested": "logistic C {0.1}, GBM depth 2/200 trees; threshold {0.03,0.06}; expanding yearly walk-forward with whole-day embargo",
+ "baseline": "sign(move from open / noise sigma) at the same decision points",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

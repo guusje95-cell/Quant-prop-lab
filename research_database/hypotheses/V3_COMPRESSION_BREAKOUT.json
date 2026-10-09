@@ -1,0 +1,13 @@
+{
+ "id": "V3_COMPRESSION_BREAKOUT",
+ "family": "volatility/compression-expansion",
+ "statement": "After a compressed day (prior range <= 0.6-0.8 of its 20-day average), the opening-range breakout is more likely to follow through.",
+ "mechanism": "Volatility clustering and range expansion after contraction (Crabel; vol mean-reversion).",
+ "falsification": "Compressed-day breakout no better than the same breakout on non-compressed days (baseline) or TRAIN Sharpe < 0.5.",
+ "data_required": "15m bars, prior-day range",
+ "params_tested": "range_ratio_max {0.6,0.8} x tgt_R {nan,2}",
+ "baseline": "invert=True (non-compressed days)",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

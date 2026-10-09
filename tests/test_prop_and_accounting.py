@@ -115,3 +115,21 @@ def test_pinned_trial_count_is_stable():
     a = R.unique_variants("2026-10-08T21:24:43")
     b = R.unique_variants("2026-10-08T21:24:43")
     assert a == b and a > 0
+
+
+def test_policy_sim_basic_paths():
+    from qpl.prop_simulation import policy_sim as PS
+    win = [[(1000.0, -10.0)]] * 10
+    c, d = PS.run(win, PS.fixed(1))
+    assert c == 1 and d == 3            # day 3: 3000 >= max(3000, best 1000 / 0.55)
+    lose = [[(-500.0, -500.0)]] * 10
+    c, d = PS.run(lose, PS.fixed(1))
+    assert c == -1 and d == 4
+    # intraday MAE breach even though the trade closes flat
+    c, d = PS.run([[(0.0, -2001.0)]], PS.fixed(1))
+    assert c == -1
+    # daily stop prevents the second losing trade
+    c, d = PS.run([[(-300.0, -300.0), (-1800.0, -1800.0)]], PS.daily_stop(PS.fixed(1), 300.0))
+    assert c == 0
+    # Kelly with non-positive lower bound never trades
+    assert PS.kelly_uncertainty(-1.0, 1e4)(PS.State(50000, 48000, 50000), None) == 0

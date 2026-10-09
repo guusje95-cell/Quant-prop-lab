@@ -1,0 +1,13 @@
+{
+ "id": "V9_GAP_CONTINUATION",
+ "family": "session/gap",
+ "statement": "EXPLORATORY sign-reversal of rejected H5: moderate opening gaps continue intraday.",
+ "mechanism": "Overnight information keeps being incorporated after the open.",
+ "falsification": "TRAIN net Sharpe < 0.5. Penalized: hypothesis formed after observing H5.",
+ "data_required": "15m bars",
+ "params_tested": "gap_min {0.2,0.4}",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

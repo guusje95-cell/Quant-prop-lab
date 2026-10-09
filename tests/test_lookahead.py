@@ -5,6 +5,7 @@ import pytest
 
 from qpl.data import loaders
 from qpl.strategies import index_intraday as SI
+from qpl.strategies import v3_intraday  # noqa: F401  (registers v3 strategies)
 
 NAN = float("nan")
 CASES = [
@@ -14,6 +15,14 @@ CASES = [
     ("noise_area", dict(lookback=14, mult=1.25, trail="band_mean", check_min=60)),
     ("overnight_drift", dict(entry_min=1140, exit_min=180, stop_atr=1.0)),
     ("gap_fade", dict()),
+    ("failed_breakout", dict(back_bars=2)),
+    ("extreme_reversion", dict(k=2.5, hold_bars=4)),
+    ("compression_breakout", dict(or_bars=2, range_ratio_max=0.8)),
+    ("turn_of_month", dict()),
+    ("noise_pullback", dict(lookback=14, mult=1.25, trail="band_mean", check_min=60)),
+    ("gap_continuation", dict()),
+    ("asian_breakout", dict()),
+    ("asian_reversion", dict()),
 ]
 FIELDS = ["entry_dir", "entry_type", "entry_px", "entry_px2", "stop_px", "stop_dist", "tgt_dist", "trail_dist",
           "exit_sig", "risk_ref"]

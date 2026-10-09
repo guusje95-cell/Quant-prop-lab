@@ -1,0 +1,13 @@
+{
+ "id": "V12_ASIAN_REVERSION",
+ "family": "mean reversion/session",
+ "statement": "During the quiet Asian session, deviations of EUR/GBP/gold from the 19:00 ET price revert by 02:00 ET.",
+ "mechanism": "Thin, range-bound liquidity provision outside major sessions.",
+ "falsification": "TRAIN net Sharpe < 0.5.",
+ "data_required": "M15 FX/gold",
+ "params_tested": "k {1.0,1.5} (in 0.25 ATR units)",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

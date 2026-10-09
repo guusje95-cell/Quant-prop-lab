@@ -1,0 +1,13 @@
+{
+ "id": "V1_FAILED_BREAKOUT",
+ "family": "mean reversion/failed breakout",
+ "statement": "A push through the prior-day RTH high (low) that closes back inside within 1-2 bars reverts toward the session mean.",
+ "mechanism": "Stop-runs above obvious reference levels exhaust liquidity-taking flow; trapped breakout traders exit.",
+ "falsification": "TRAIN net Sharpe < 0.5 in every market/variant, or no better than the opposite (breakout-continuation) direction.",
+ "data_required": "15m index bars + prior-day RTH high/low",
+ "params_tested": "back_bars {1,2} x max_trades {1,2}",
+ "baseline": "zero (flat) and H3 momentum",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

@@ -1,0 +1,21 @@
+{
+ "id": "V4_TURN_OF_MONTH",
+ "family": "calendar",
+ "statement": "US index futures earn higher RTH returns on the last trading day and first 3 trading days of the month.",
+ "mechanism": "Month-end pension/payroll flows and portfolio rebalancing (Lakonishok & Smidt 1988; Ariel 1987; McConnell & Xu 2008).",
+ "falsification": "TOM RTH long not better than non-TOM RTH long (baseline) or TRAIN Sharpe < 0.5.",
+ "data_required": "15m bars + exchange calendar",
+ "params_tested": "window (-1,3); invert baseline",
+ "baseline": "invert=True (non-TOM days)",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [
+  {
+   "title": "McConnell & Xu (2008) Equity Returns at the Turn of the Month",
+   "url": "https://doi.org/10.2469/faj.v64.n2.11",
+   "published": "2008",
+   "sample": "US 1926-2005",
+   "limitations": "close-to-close, not intraday; pre-2006 sample"
+  }
+ ],
+ "generation": 7
+}

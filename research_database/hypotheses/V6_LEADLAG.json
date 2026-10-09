@@ -1,0 +1,13 @@
+{
+ "id": "V6_LEADLAG",
+ "family": "cross-market/lead-lag",
+ "statement": "The 15-minute return of one index future predicts the next 15-minute return of the other after a one-bar delay.",
+ "mechanism": "Information diffusion across related contracts (Hou 2007, lead-lag literature); index arbitrage keeps it short-lived.",
+ "falsification": "Slope t-stat < 2 on TRAIN or net trading rule Sharpe < 0.5.",
+ "data_required": "Synchronized 15m bars US500/US100",
+ "params_tested": "k {1,2} sigma divergence",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

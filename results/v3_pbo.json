@@ -1,0 +1,21 @@
+{
+ "h3_grid": {
+  "pbo": 0.37156177156177156,
+  "n_combinations": 12870,
+  "N_variants": 24,
+  "T_days": 2493,
+  "median_oos_sharpe_of_is_winner": 1.2859984049083173,
+  "p_oos_loss_of_is_winner": 0.0,
+  "is_oos_degradation_slope": -1.0546805933495076
+ },
+ "nq_search_universe": {
+  "pbo": 0.08811188811188811,
+  "n_combinations": 12870,
+  "N_variants": 90,
+  "T_days": 2493,
+  "median_oos_sharpe_of_is_winner": 1.1718401866639039,
+  "p_oos_loss_of_is_winner": 0.006682206682206682,
+  "is_oos_degradation_slope": -0.5971755934544217,
+  "note": "gen-1/2 grids (ORB, IM, noise-area, overnight, gap-fade) + H3 neighbourhood on the NQ proxy"
+ }
+}

@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-09, after TRAIN/VALIDATION neighbourhood, BEFORE any OOS or pre-sample look",
+  "frozen": {"strategy": "asian_breakout", "instrument": "MGC (gold), proxy XAUUSD", "asia_start": "19:00 ET", "asia_end": "03:00 ET",
+             "entry": "OCO stop orders at the Asian-session high and low, placed at 03:00 ET, valid until 10:00 ET",
+             "stop": "opposite side of the Asian range", "exit": "flat at 11:00 ET", "costs": "1 tick/side + $1.00 RT per MGC, normalized to gold 3000"},
+  "check_1_oos": "M15 2021-01-01..2023-09-11: PAPER_TRADING_CANDIDATE needs net Sharpe >= 0.5 with NW one-sided p < 0.05 and 3x-cost Sharpe > 0",
+  "check_2_presample": "M30 2007-02..2014-12 (never used for this hypothesis): net Sharpe > 0 required; reported with by-year",
+  "single_use": true
+}

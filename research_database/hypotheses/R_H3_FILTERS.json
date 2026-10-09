@@ -1,0 +1,13 @@
+{
+ "id": "R_H3_FILTERS",
+ "family": "regime/no-trade",
+ "statement": "Ex-ante regime features identify days on which H3 has negative expectancy.",
+ "mechanism": "Momentum needs trending, active markets; it fails in quiet mean-reverting tapes and after huge gaps.",
+ "falsification": "No filter improves VALIDATION net expectancy per day AND reduces drawdown vs unfiltered after Holm over 5 filters; or random removal does as well.",
+ "data_required": "15m NQ proxy",
+ "params_tested": "5 filters, direction fitted on TRAIN median split",
+ "baseline": "unfiltered H3; random removal; half-size",
+ "promotion": "VALIDATION Sharpe improvement > 0.2 and better than 95th pct of random removal",
+ "sources": [],
+ "generation": 7
+}

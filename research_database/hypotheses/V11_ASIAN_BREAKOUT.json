@@ -1,0 +1,13 @@
+{
+ "id": "V11_ASIAN_BREAKOUT",
+ "family": "session transition/breakout",
+ "statement": "A breakout of the Asian-session range at the London open (03:00 ET) continues into the London/NY morning.",
+ "mechanism": "Liquidity and information arrive with European participants; Asian ranges reflect low-liquidity price discovery.",
+ "falsification": "TRAIN net Sharpe < 0.5 in all markets/variants.",
+ "data_required": "M15 FX/gold, 19:00-03:00 ET range",
+ "params_tested": "stop {opposite side, 0.5 range} x exit {08:00, 11:00}",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

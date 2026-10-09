@@ -1,0 +1,266 @@
+{
+ "per_trade_stats": {
+  "mu": 27.617044110603235,
+  "sd": 243.0023898536124,
+  "n": 1293,
+  "mu_lo90_hist": 18.956129016760308,
+  "mu_recent": 2.8787726231960673,
+  "mu_lo90_recent": -26.88866608681399,
+  "n_recent": 109,
+  "full_kelly_contracts_at_2000_cushion_hist": 0.6420347901986596
+ },
+ "results": {
+  "historical_full_edge|fixed_1": {
+   "p_pass": 0.752,
+   "p_fail": 0.248,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 143.0,
+   "days_to_pass_p90": 289.70000000000005
+  },
+  "historical_full_edge|fixed_2": {
+   "p_pass": 0.554,
+   "p_fail": 0.446,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 52.0,
+   "days_to_pass_p90": 108.0
+  },
+  "historical_full_edge|fixed_3": {
+   "p_pass": 0.458,
+   "p_fail": 0.542,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 33.0,
+   "days_to_pass_p90": 74.5
+  },
+  "historical_full_edge|dd_aware_2to1": {
+   "p_pass": 0.561,
+   "p_fail": 0.439,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 54.0,
+   "days_to_pass_p90": 131.0
+  },
+  "historical_full_edge|daily_stop300_fixed1": {
+   "p_pass": 0.7365,
+   "p_fail": 0.2635,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 148.0,
+   "days_to_pass_p90": 298.0
+  },
+  "historical_full_edge|daily_stop300_fixed2": {
+   "p_pass": 0.5595,
+   "p_fail": 0.4405,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 53.0,
+   "days_to_pass_p90": 109.20000000000005
+  },
+  "historical_full_edge|kelly_q_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "historical_full_edge|kelly_full_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "historical_full_edge|kelly_q_lowerbound_recent": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "half_edge|fixed_1": {
+   "p_pass": 0.493,
+   "p_fail": 0.5055,
+   "p_unresolved": 0.0015,
+   "days_to_pass_p50": 161.0,
+   "days_to_pass_p90": 341.5
+  },
+  "half_edge|fixed_2": {
+   "p_pass": 0.3815,
+   "p_fail": 0.6185,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 52.0,
+   "days_to_pass_p90": 112.80000000000007
+  },
+  "half_edge|fixed_3": {
+   "p_pass": 0.324,
+   "p_fail": 0.676,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 32.0,
+   "days_to_pass_p90": 75.0
+  },
+  "half_edge|dd_aware_2to1": {
+   "p_pass": 0.38,
+   "p_fail": 0.62,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 55.0,
+   "days_to_pass_p90": 133.0
+  },
+  "half_edge|daily_stop300_fixed1": {
+   "p_pass": 0.476,
+   "p_fail": 0.522,
+   "p_unresolved": 0.002,
+   "days_to_pass_p50": 166.0,
+   "days_to_pass_p90": 347.79999999999995
+  },
+  "half_edge|daily_stop300_fixed2": {
+   "p_pass": 0.3875,
+   "p_fail": 0.6125,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 54.0,
+   "days_to_pass_p90": 116.0
+  },
+  "half_edge|kelly_q_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "half_edge|kelly_full_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "half_edge|kelly_q_lowerbound_recent": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "zero_edge|fixed_1": {
+   "p_pass": 0.239,
+   "p_fail": 0.761,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 175.0,
+   "days_to_pass_p90": 373.90000000000003
+  },
+  "zero_edge|fixed_2": {
+   "p_pass": 0.2325,
+   "p_fail": 0.7675,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 49.0,
+   "days_to_pass_p90": 108.20000000000005
+  },
+  "zero_edge|fixed_3": {
+   "p_pass": 0.2135,
+   "p_fail": 0.7865,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 31.0,
+   "days_to_pass_p90": 71.40000000000003
+  },
+  "zero_edge|dd_aware_2to1": {
+   "p_pass": 0.2225,
+   "p_fail": 0.7775,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 51.0,
+   "days_to_pass_p90": 127.60000000000002
+  },
+  "zero_edge|daily_stop300_fixed1": {
+   "p_pass": 0.2215,
+   "p_fail": 0.7785,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 170.0,
+   "days_to_pass_p90": 352.8
+  },
+  "zero_edge|daily_stop300_fixed2": {
+   "p_pass": 0.237,
+   "p_fail": 0.763,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 52.5,
+   "days_to_pass_p90": 111.0
+  },
+  "zero_edge|kelly_q_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "zero_edge|kelly_full_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "zero_edge|kelly_q_lowerbound_recent": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "realised_2025_26|fixed_1": {
+   "p_pass": 0.2765,
+   "p_fail": 0.72,
+   "p_unresolved": 0.0035,
+   "days_to_pass_p50": 202.0,
+   "days_to_pass_p90": 416.8
+  },
+  "realised_2025_26|fixed_2": {
+   "p_pass": 0.1585,
+   "p_fail": 0.841,
+   "p_unresolved": 0.0005,
+   "days_to_pass_p50": 99.0,
+   "days_to_pass_p90": 245.2000000000001
+  },
+  "realised_2025_26|fixed_3": {
+   "p_pass": 0.157,
+   "p_fail": 0.843,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 53.5,
+   "days_to_pass_p90": 183.09999999999997
+  },
+  "realised_2025_26|dd_aware_2to1": {
+   "p_pass": 0.1855,
+   "p_fail": 0.814,
+   "p_unresolved": 0.0005,
+   "days_to_pass_p50": 112.0,
+   "days_to_pass_p90": 257.0
+  },
+  "realised_2025_26|daily_stop300_fixed1": {
+   "p_pass": 0.2325,
+   "p_fail": 0.766,
+   "p_unresolved": 0.0015,
+   "days_to_pass_p50": 195.0,
+   "days_to_pass_p90": 385.20000000000005
+  },
+  "realised_2025_26|daily_stop300_fixed2": {
+   "p_pass": 0.1805,
+   "p_fail": 0.8195,
+   "p_unresolved": 0.0,
+   "days_to_pass_p50": 113.0,
+   "days_to_pass_p90": 286.0
+  },
+  "realised_2025_26|kelly_q_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "realised_2025_26|kelly_full_lowerbound_hist": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  },
+  "realised_2025_26|kelly_q_lowerbound_recent": {
+   "p_pass": 0.0,
+   "p_fail": 0.0,
+   "p_unresolved": 1.0,
+   "days_to_pass_p50": null,
+   "days_to_pass_p90": null
+  }
+ }
+}

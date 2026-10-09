@@ -1,0 +1,181 @@
+{
+ "unfiltered": {
+  "train": {
+   "sharpe": 1.6446913025762664,
+   "maxdd": 12529.352616595235,
+   "trades": 684
+  },
+  "validation": {
+   "sharpe": 0.41112686112254054,
+   "maxdd": 33714.75492863057,
+   "trades": 245
+  },
+  "oos": {
+   "sharpe": 1.4817783471113182,
+   "maxdd": 26647.7350747292,
+   "trades": 364
+  }
+ },
+ "filters": {
+  "rv20": {
+   "direction": "above",
+   "train_median": 0.007973487412270054,
+   "share_kept_train": 0.49707602339181284,
+   "train": {
+    "sharpe_filtered": 0.9996845934210012,
+    "sharpe_half_size": 1.4023745929877753,
+    "maxdd_filtered": 16330.817352698054,
+    "trades": 340,
+    "random_removal_p95": 1.59294531751683,
+    "random_removal_median": 1.1259642198487816,
+    "worst_day_filtered": -7425.619200714308
+   },
+   "validation": {
+    "sharpe_filtered": 0.5560659286235238,
+    "sharpe_half_size": 0.4880050798710175,
+    "maxdd_filtered": 29768.150819880557,
+    "trades": 183,
+    "random_removal_p95": 0.9660032188974824,
+    "random_removal_median": 0.340870370771698,
+    "worst_day_filtered": -13998.78322737759
+   },
+   "oos": {
+    "sharpe_filtered": 1.418163380569332,
+    "sharpe_half_size": 1.454406871721168,
+    "maxdd_filtered": 26647.7350747292,
+    "trades": 320,
+    "random_removal_p95": 1.7054875429604537,
+    "random_removal_median": 1.3809265941944426,
+    "worst_day_filtered": -10339.051840867694
+   }
+  },
+  "eff10": {
+   "direction": "below",
+   "train_median": 0.28267001474785114,
+   "share_kept_train": 0.5,
+   "train": {
+    "sharpe_filtered": 1.4945437059097881,
+    "sharpe_half_size": 1.7288663284998844,
+    "maxdd_filtered": 12104.998051289513,
+    "trades": 342,
+    "random_removal_p95": 1.6235896873463875,
+    "random_removal_median": 1.155108567547583,
+    "worst_day_filtered": -6594.224182775003
+   },
+   "validation": {
+    "sharpe_filtered": -0.051156250651439264,
+    "sharpe_half_size": 0.2615031583776882,
+    "maxdd_filtered": 14627.207373033909,
+    "trades": 114,
+    "random_removal_p95": 1.1041742014006193,
+    "random_removal_median": 0.2478699281777656,
+    "worst_day_filtered": -7998.118036848147
+   },
+   "oos": {
+    "sharpe_filtered": 1.837669673432544,
+    "sharpe_half_size": 1.7615376287871085,
+    "maxdd_filtered": 10481.784068987497,
+    "trades": 157,
+    "random_removal_p95": 1.7057822797830784,
+    "random_removal_median": 1.0342313277378636,
+    "worst_day_filtered": -9238.838465237304
+   }
+  },
+  "gap": {
+   "direction": "above",
+   "train_median": 0.2196677645737027,
+   "share_kept_train": 0.5,
+   "train": {
+    "sharpe_filtered": 1.6767154481435096,
+    "sharpe_half_size": 1.7806804683513944,
+    "maxdd_filtered": 10740.666900443743,
+    "trades": 342,
+    "random_removal_p95": 1.590758032304952,
+    "random_removal_median": 1.160802563571817,
+    "worst_day_filtered": -7425.619200714308
+   },
+   "validation": {
+    "sharpe_filtered": 0.46851622744992283,
+    "sharpe_half_size": 0.45783704142097964,
+    "maxdd_filtered": 21996.901264225737,
+    "trades": 143,
+    "random_removal_p95": 1.0633759377246959,
+    "random_removal_median": 0.29950472737606537,
+    "worst_day_filtered": -13998.78322737759
+   },
+   "oos": {
+    "sharpe_filtered": 1.1588277010338444,
+    "sharpe_half_size": 1.4585330012414646,
+    "maxdd_filtered": 18119.189459340327,
+    "trades": 192,
+    "random_removal_p95": 1.719614841285541,
+    "random_removal_median": 1.0411880058911178,
+    "worst_day_filtered": -10339.051840867694
+   }
+  },
+  "rng_atr": {
+   "direction": "above",
+   "train_median": 0.731276107215638,
+   "share_kept_train": 0.5,
+   "train": {
+    "sharpe_filtered": 1.5769253025621142,
+    "sharpe_half_size": 1.695412392941177,
+    "maxdd_filtered": 15597.01991744138,
+    "trades": 342,
+    "random_removal_p95": 1.5813831023971137,
+    "random_removal_median": 1.1237749430023865,
+    "worst_day_filtered": -6829.981362282803
+   },
+   "validation": {
+    "sharpe_filtered": 0.02001071950662264,
+    "sharpe_half_size": 0.26672367590016016,
+    "maxdd_filtered": 19884.105449938987,
+    "trades": 119,
+    "random_removal_p95": 1.0942991054642643,
+    "random_removal_median": 0.26877242733805795,
+    "worst_day_filtered": -7998.118036848147
+   },
+   "oos": {
+    "sharpe_filtered": 1.2337610836276287,
+    "sharpe_half_size": 1.5006758006543404,
+    "maxdd_filtered": 15005.04211168299,
+    "trades": 148,
+    "random_removal_p95": 1.6496564156934128,
+    "random_removal_median": 0.908968971999448,
+    "worst_day_filtered": -10339.051840867694
+   }
+  },
+  "trend_align": {
+   "direction": "aligned",
+   "train_median": null,
+   "share_kept_train": 0.45614035087719296,
+   "train": {
+    "sharpe_filtered": 1.233892938304559,
+    "sharpe_half_size": 1.5476946016354955,
+    "maxdd_filtered": 17740.84759321918,
+    "trades": 312,
+    "random_removal_p95": 1.5500928932607803,
+    "random_removal_median": 1.0688642294190793,
+    "worst_day_filtered": -10007.96355963657
+   },
+   "validation": {
+    "sharpe_filtered": 0.2460155104694778,
+    "sharpe_half_size": 0.37246779056962953,
+    "maxdd_filtered": 21996.901264225737,
+    "trades": 117,
+    "random_removal_p95": 0.9885902156015909,
+    "random_removal_median": 0.20974342896415735,
+    "worst_day_filtered": -13998.78322737759
+   },
+   "oos": {
+    "sharpe_filtered": 0.600540285396123,
+    "sharpe_half_size": 1.1642863314038965,
+    "maxdd_filtered": 26846.340245803603,
+    "trades": 195,
+    "random_removal_p95": 1.736282954670247,
+    "random_removal_median": 1.1341851443287658,
+    "worst_day_filtered": -10339.051840867694
+   }
+  }
+ }
+}

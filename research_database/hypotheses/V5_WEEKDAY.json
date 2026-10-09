@@ -1,0 +1,13 @@
+{
+ "id": "V5_WEEKDAY",
+ "family": "calendar/weekday",
+ "statement": "Mean RTH open-to-close return differs by weekday in US index futures.",
+ "mechanism": "Weekly flow patterns (weekend risk, Monday effect literature).",
+ "falsification": "No weekday significant after Holm correction on TRAIN.",
+ "data_required": "15m bars",
+ "params_tested": "5 weekdays x 3 markets = 15 tests",
+ "baseline": "zero mean",
+ "promotion": "Holm-adjusted p < 0.05 AND same sign in VALIDATION",
+ "sources": [],
+ "generation": 7
+}

@@ -1,0 +1,9 @@
+{
+ "always_long_10to16:wf16_20": 0.3845681204072574,
+ "v7:wf16_20": 0.5496710350703848,
+ "always_long_10to16:wf21_23": 0.3619901643039285,
+ "v7:wf21_23": 0.7441608464865446,
+ "random_long_days_same_count_wf16_20_p95": 0.7396862009608868,
+ "random_long_days_median": 0.2279625547911211,
+ "p_value_v7_vs_random_long": 0.156
+}

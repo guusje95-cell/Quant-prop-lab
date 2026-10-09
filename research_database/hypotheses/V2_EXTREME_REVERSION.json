@@ -1,0 +1,13 @@
+{
+ "id": "V2_EXTREME_REVERSION",
+ "family": "mean reversion/extreme move",
+ "statement": "A 15-minute return beyond k time-of-day sigmas partially reverses over the next hour.",
+ "mechanism": "Liquidity shocks (large market orders) overshoot; liquidity providers are compensated for absorbing them.",
+ "falsification": "TRAIN net Sharpe < 0.5 for all k/hold variants.",
+ "data_required": "15m index bars",
+ "params_tested": "k {2.5,3.5} x hold {2,4} bars",
+ "baseline": "zero",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}

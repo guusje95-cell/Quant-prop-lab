@@ -1,0 +1,13 @@
+{
+ "id": "V10_NOISE_PULLBACK",
+ "family": "momentum/pullback entry (H3 refinement)",
+ "statement": "Entering H3 breakouts on a pullback to the session TWAP (limit order) improves net expectancy vs market entry.",
+ "mechanism": "Better entry price and fewer false breakouts (unfilled limit = filtered signal).",
+ "falsification": "Net Sharpe not above H3 baseline on TRAIN+VALIDATION.",
+ "data_required": "15m bars",
+ "params_tested": "wait_bars {4,8}",
+ "baseline": "H3 frozen spec",
+ "promotion": "config/promotion_criteria.json",
+ "sources": [],
+ "generation": 7
+}
