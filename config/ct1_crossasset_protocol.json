@@ -1,0 +1,10 @@
+{
+  "_written": "2026-10-09, after the CT1 BTC holdout, BEFORE running CT1 on any ETH or alt-coin data",
+  "rule": "CT1 frozen exactly (TSMOM 20/60/120 + Donchian 20/55, long/short, 40% vol target per asset, 7 bps, funding modelled)",
+  "test_A_ETH": {"data": "mirror ETHUSDT daily 2018-01-01..2023-09-10 (venue undocumented; EXPLORATORY-grade data)", "funding": "actual Binance ETHUSDT 2020-2023, baseline elsewhere",
+                 "pass": "net Sharpe > 0.3 and residual vs ETH buy&hold-VT > 0"},
+  "test_B_PERPS_2025_26": {"data": "Binance USDT-perp mark prices at 00:00 UTC settlements, 2025-08-21..2026-09-20 (all USDT symbols in the dataset; USDC duplicates excluded)",
+                           "construction": "daily close = 00:00 UTC mark; next-day close used as execution proxy (no intraday open available) -> one-day execution lag added; actual funding from the same file",
+                           "portfolio": "equal-risk average across symbols", "pass": "portfolio net Sharpe > 0 and residual vs equal-weight buy&hold-VT > 0"},
+  "single_use": true
+}
