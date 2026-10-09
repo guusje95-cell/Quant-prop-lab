@@ -1,0 +1,13 @@
+{
+ "id": "C9_FUNDING_FILTER_CT1",
+ "family": "crypto/regime",
+ "statement": "Skip CT1 longs when funding is extreme.",
+ "mechanism": "Crowded longs are fragile.",
+ "falsification": "filter does not beat unfiltered and random skip",
+ "data_required": "Bitstamp daily + funding",
+ "params_tested": "single rule",
+ "baseline": "unfiltered, random skip, halve, cash",
+ "promotion": "config/gen11_protocol.json",
+ "sources": [],
+ "generation": 11
+}

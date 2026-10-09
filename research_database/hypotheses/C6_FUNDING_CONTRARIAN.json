@@ -1,0 +1,13 @@
+{
+ "id": "C6_FUNDING_CONTRARIAN",
+ "family": "crypto/funding",
+ "statement": "Extreme funding prints predict reversal over 24-72h.",
+ "mechanism": "Crowded leveraged positioning (high funding) unwinds; liquidation cascades.",
+ "falsification": "see protocol",
+ "data_required": "Bitstamp 1h + Binance funding",
+ "params_tested": "q {0.9,0.95} x hold {24,72}h",
+ "baseline": "BTC buy&hold-VT",
+ "promotion": "config/gen11_protocol.json",
+ "sources": [],
+ "generation": 11
+}

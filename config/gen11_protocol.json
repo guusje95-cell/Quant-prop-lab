@@ -1,0 +1,45 @@
+{
+  "_written": "2026-10-09, BEFORE running any gen11 experiment. Thresholds from config/promotion_criteria_crypto.json unless stated.",
+  "data_note": "Binance funding 2020-01..2023-12 (BTC, ETH); Binance USDT-perp mark prices + funding 2025-08-21..2026-09-20 (21 symbols). index_price is EMPTY in the recent file, so perp-vs-spot basis cannot be measured anywhere: every carry P&L below EXCLUDES basis risk.",
+  "C6_FUNDING_CONTRARIAN": {
+    "statement": "When the latest BTC funding print is in the top (bottom) q of its trailing 90-day distribution, BTC under-(out-)performs over the next h hours (crowded leverage unwinds).",
+    "data": "Bitstamp BTCUSD 1h bars + Binance BTCUSDT funding",
+    "grid": "q in {0.90, 0.95} x hold in {24, 72} hours; long/short; size 1.0",
+    "TRAIN": "2020-07-01..2021-12-31 (first 6 months used as funding-quantile warm-up)",
+    "OOS": "2022-01-01..2023-12-31 (only if TRAIN passes)",
+    "HOLDOUT": "2025-11-20..2026-09-20, 21 perps on 8h mark-price bars, equal-weight portfolio (only if OOS passes)",
+    "pass_train": "best-variant net Sharpe >= 0.5 AND residual vs BTC buy&hold-VT >= 0.3 AND >= 3/4 variants net > 0",
+    "pass_oos": "frozen best TRAIN variant net Sharpe >= 0.5 and residual > 0",
+    "pass_holdout": "portfolio net Sharpe > 0 and residual > 0"
+  },
+  "C7_FUNDING_CARRY": {
+    "statement": "A delta-neutral long-spot/short-perp position switched on when trailing 7-day mean funding > tau earns funding in excess of costs and a 4% cash hurdle.",
+    "grid": "tau in {0, 0.00005} per 8h; BTC and ETH",
+    "costs": "each switch = spot leg 15 bps + perp leg 7 bps (22 bps per unit turnover); capital = 2x notional (spot fully paid + perp margin held at 1x for liquidation safety)",
+    "metric": "annual net return on CAPITAL; basis P&L NOT modelled",
+    "TRAIN": "2020-01..2021-12", "OOS": "2022-01..2023-12", "HOLDOUT": "2025-08-21..2026-09-20, 21 perps equal-weight",
+    "pass": "net return on capital > 4% p.a. (cash hurdle) in TRAIN, OOS and HOLDOUT separately, and tau-rule beats always-on in at least OOS",
+    "ceiling": "cannot exceed EXPLORATORY because basis/exchange/counterparty risk is unmodelled"
+  },
+  "C8_CALENDAR": {
+    "statement": "BTC returns differ systematically by UTC hour-of-day or weekday.",
+    "tests": "24 hour-of-day + 7 weekday mean-return tests on Bitstamp 1h log returns in TRAIN 2015-2019; Newey-West t (lag 24 for hours / 5 for days on daily series); Holm across 31 tests at alpha 0.05",
+    "survivors": "each Holm survivor becomes a rule: long (or short) during that hour/day only, 7 bps per entry/exit; must have net Sharpe > 0.3 in VALIDATION 2020-21 and > 0 in OOS 2022-23",
+    "no_survivors": "REJECT the family"
+  },
+  "C9_FUNDING_REGIME_FILTER_FOR_CT1": {
+    "statement": "Zeroing CT1 long exposure when BTC funding is above its trailing 90-day 90th percentile improves CT1 risk-adjusted return.",
+    "period": "2020-07..2023-12 for development (CT1 OOS already viewed - classified as REGIME ANALYSIS, not new alpha); then 2025-08-21..2026-09-20 BTC as confirmation",
+    "baselines": ["unfiltered CT1", "random skip with matched skip rate (500 draws, report percentile)", "risk-reduction: halve position instead of zero", "no-trade (cash)"],
+    "pass": "filtered Sharpe exceeds unfiltered AND exceeds the 95th percentile of random-skip in dev AND improves in confirmation"
+  },
+  "C10_XS_ALT_MOMENTUM": {
+    "statement": "Among the 12 mirror alt/major coins, those with the highest trailing 30-day return outperform over the next week (cross-sectional momentum).",
+    "data": "mirror daily closes 2018-2023 (SURVIVORSHIP-BIASED universe chosen ex-post; venue undocumented)",
+    "rule": "weekly rebalance, long top-3 short bottom-3 equal weight, 15 bps",
+    "ceiling": "EXPLORATORY at most (survivorship + data provenance)",
+    "TRAIN": "2018-07..2020-12", "OOS": "2021-01..2023-09",
+    "pass": "TRAIN net Sharpe >= 0.5 and OOS > 0"
+  },
+  "single_use_holdouts": true
+}

@@ -1,0 +1,13 @@
+{
+ "id": "C7_FUNDING_CARRY",
+ "family": "crypto/carry",
+ "statement": "Delta-neutral spot-long/perp-short earns funding above costs and cash.",
+ "mechanism": "Structural demand for leveraged long exposure pays a premium to liquidity providers (basis trade).",
+ "falsification": "net return on capital <= 4% in any period",
+ "data_required": "Binance funding",
+ "params_tested": "tau {0, 5e-5}",
+ "baseline": "always-on carry and 4% cash",
+ "promotion": "config/gen11_protocol.json",
+ "sources": [],
+ "generation": 11
+}

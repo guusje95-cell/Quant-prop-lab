@@ -1,0 +1,13 @@
+{
+ "id": "C10_XS_ALT_MOMENTUM",
+ "family": "crypto/cross-sectional",
+ "statement": "30d winners beat losers over the next week among 12 coins.",
+ "mechanism": "Attention/flow momentum (Liu, Tsyvinski & Wu 2022 'Common Risk Factors in Cryptocurrency').",
+ "falsification": "see protocol",
+ "data_required": "mirror daily 2018-2023 (survivorship biased)",
+ "params_tested": "single rule",
+ "baseline": "equal-weight long all",
+ "promotion": "config/gen11_protocol.json",
+ "sources": [],
+ "generation": 11
+}

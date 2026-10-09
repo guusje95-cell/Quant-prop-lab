@@ -1,0 +1,13 @@
+{
+ "id": "C8_CALENDAR",
+ "family": "crypto/calendar",
+ "statement": "BTC mean returns differ by UTC hour or weekday.",
+ "mechanism": "Session overlaps, funding times, weekend liquidity.",
+ "falsification": "no Holm survivor in TRAIN",
+ "data_required": "Bitstamp 1h",
+ "params_tested": "31 tests",
+ "baseline": "zero",
+ "promotion": "config/gen11_protocol.json",
+ "sources": [],
+ "generation": 11
+}
