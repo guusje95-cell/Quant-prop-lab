@@ -1,0 +1,2360 @@
+{
+ "n_configs": 104,
+ "dev_table": [
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "10/50",
+   "mode": "LS",
+   "dev_net": 1.399,
+   "dev_gross": 1.462,
+   "dev_resid": 1.177,
+   "dev_beta": 0.222,
+   "dev_turnover_pa": 16.051,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "10/50",
+   "mode": "LO",
+   "dev_net": 1.622,
+   "dev_gross": 1.768,
+   "dev_resid": 1.185,
+   "dev_beta": 0.611,
+   "dev_turnover_pa": 8.344,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "20/100",
+   "mode": "LS",
+   "dev_net": 1.339,
+   "dev_gross": 1.377,
+   "dev_resid": 1.042,
+   "dev_beta": 0.308,
+   "dev_turnover_pa": 11.142,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "20/100",
+   "mode": "LO",
+   "dev_net": 1.531,
+   "dev_gross": 1.656,
+   "dev_resid": 1.05,
+   "dev_beta": 0.654,
+   "dev_turnover_pa": 5.966,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "50/200",
+   "mode": "LS",
+   "dev_net": 1.117,
+   "dev_gross": 1.161,
+   "dev_resid": 0.81,
+   "dev_beta": 0.307,
+   "dev_turnover_pa": 6.947,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z01_SMA_CROSS",
+   "label": "50/200",
+   "mode": "LO",
+   "dev_net": 1.394,
+   "dev_gross": 1.523,
+   "dev_resid": 0.817,
+   "dev_beta": 0.654,
+   "dev_turnover_pa": 4.072,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z02_EMA_CROSS",
+   "label": "12/26",
+   "mode": "LS",
+   "dev_net": 1.425,
+   "dev_gross": 1.486,
+   "dev_resid": 1.235,
+   "dev_beta": 0.188,
+   "dev_turnover_pa": 16.333,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z02_EMA_CROSS",
+   "label": "12/26",
+   "mode": "LO",
+   "dev_net": 1.662,
+   "dev_gross": 1.808,
+   "dev_resid": 1.243,
+   "dev_beta": 0.594,
+   "dev_turnover_pa": 8.453,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z02_EMA_CROSS",
+   "label": "21/55",
+   "mode": "LS",
+   "dev_net": 1.45,
+   "dev_gross": 1.499,
+   "dev_resid": 1.153,
+   "dev_beta": 0.315,
+   "dev_turnover_pa": 11.678,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z02_EMA_CROSS",
+   "label": "21/55",
+   "mode": "LO",
+   "dev_net": 1.595,
+   "dev_gross": 1.727,
+   "dev_resid": 1.161,
+   "dev_beta": 0.657,
+   "dev_turnover_pa": 6.264,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "50",
+   "mode": "LS",
+   "dev_net": 1.337,
+   "dev_gross": 1.419,
+   "dev_resid": 1.139,
+   "dev_beta": 0.195,
+   "dev_turnover_pa": 26.479,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "50",
+   "mode": "LO",
+   "dev_net": 1.6,
+   "dev_gross": 1.76,
+   "dev_resid": 1.147,
+   "dev_beta": 0.598,
+   "dev_turnover_pa": 13.488,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "100",
+   "mode": "LS",
+   "dev_net": 1.144,
+   "dev_gross": 1.205,
+   "dev_resid": 0.833,
+   "dev_beta": 0.313,
+   "dev_turnover_pa": 22.186,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "100",
+   "mode": "LO",
+   "dev_net": 1.407,
+   "dev_gross": 1.547,
+   "dev_resid": 0.84,
+   "dev_beta": 0.656,
+   "dev_turnover_pa": 11.651,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "200",
+   "mode": "LS",
+   "dev_net": 1.32,
+   "dev_gross": 1.369,
+   "dev_resid": 1.05,
+   "dev_beta": 0.274,
+   "dev_turnover_pa": 8.871,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "200",
+   "mode": "LO",
+   "dev_net": 1.539,
+   "dev_gross": 1.673,
+   "dev_resid": 1.059,
+   "dev_beta": 0.637,
+   "dev_turnover_pa": 4.855,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "14",
+   "mode": "LS",
+   "dev_net": 1.434,
+   "dev_gross": 1.563,
+   "dev_resid": 1.322,
+   "dev_beta": 0.105,
+   "dev_turnover_pa": 56.856,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "14",
+   "mode": "LO",
+   "dev_net": 1.729,
+   "dev_gross": 1.926,
+   "dev_resid": 1.33,
+   "dev_beta": 0.553,
+   "dev_turnover_pa": 28.728,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "30",
+   "mode": "LS",
+   "dev_net": 1.229,
+   "dev_gross": 1.332,
+   "dev_resid": 1.015,
+   "dev_beta": 0.209,
+   "dev_turnover_pa": 37.348,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "30",
+   "mode": "LO",
+   "dev_net": 1.521,
+   "dev_gross": 1.693,
+   "dev_resid": 1.023,
+   "dev_beta": 0.605,
+   "dev_turnover_pa": 19.1,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "90",
+   "mode": "LS",
+   "dev_net": 1.425,
+   "dev_gross": 1.493,
+   "dev_resid": 1.122,
+   "dev_beta": 0.321,
+   "dev_turnover_pa": 25.808,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "90",
+   "mode": "LO",
+   "dev_net": 1.575,
+   "dev_gross": 1.72,
+   "dev_resid": 1.129,
+   "dev_beta": 0.66,
+   "dev_turnover_pa": 13.581,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "180",
+   "mode": "LS",
+   "dev_net": 1.048,
+   "dev_gross": 1.103,
+   "dev_resid": 0.719,
+   "dev_beta": 0.326,
+   "dev_turnover_pa": 7.647,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z04_TSMOM",
+   "label": "180",
+   "mode": "LO",
+   "dev_net": 1.341,
+   "dev_gross": 1.476,
+   "dev_resid": 0.726,
+   "dev_beta": 0.663,
+   "dev_turnover_pa": 4.407,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "20",
+   "mode": "LS",
+   "dev_net": 1.613,
+   "dev_gross": 1.683,
+   "dev_resid": 1.471,
+   "dev_beta": 0.125,
+   "dev_turnover_pa": 18.755,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "20",
+   "mode": "LO",
+   "dev_net": 1.972,
+   "dev_gross": 2.105,
+   "dev_resid": 1.648,
+   "dev_beta": 0.475,
+   "dev_turnover_pa": 9.999,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "50",
+   "mode": "LS",
+   "dev_net": 1.063,
+   "dev_gross": 1.118,
+   "dev_resid": 0.749,
+   "dev_beta": 0.274,
+   "dev_turnover_pa": 10.467,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "50",
+   "mode": "LO",
+   "dev_net": 1.513,
+   "dev_gross": 1.622,
+   "dev_resid": 1.008,
+   "dev_beta": 0.523,
+   "dev_turnover_pa": 5.879,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z06_BOLLINGER_BREAKOUT",
+   "label": "20/2",
+   "mode": "LS",
+   "dev_net": 1.51,
+   "dev_gross": 1.578,
+   "dev_resid": 1.343,
+   "dev_beta": 0.141,
+   "dev_turnover_pa": 16.992,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z06_BOLLINGER_BREAKOUT",
+   "label": "20/2",
+   "mode": "LO",
+   "dev_net": 1.866,
+   "dev_gross": 1.984,
+   "dev_resid": 1.494,
+   "dev_beta": 0.445,
+   "dev_turnover_pa": 9.431,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z07_BOLLINGER_REVERSION",
+   "label": "20/2",
+   "mode": "LS",
+   "dev_net": -1.576,
+   "dev_gross": -1.578,
+   "dev_resid": -1.411,
+   "dev_beta": -0.141,
+   "dev_turnover_pa": 16.992,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z07_BOLLINGER_REVERSION",
+   "label": "20/2",
+   "mode": "LO",
+   "dev_net": -0.158,
+   "dev_gross": -0.075,
+   "dev_resid": -0.936,
+   "dev_beta": 0.304,
+   "dev_turnover_pa": 7.56,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "14/30/70",
+   "mode": "LS",
+   "dev_net": -1.098,
+   "dev_gross": -1.118,
+   "dev_resid": -0.865,
+   "dev_beta": -0.17,
+   "dev_turnover_pa": 9.737,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "14/30/70",
+   "mode": "LO",
+   "dev_net": 0.302,
+   "dev_gross": 0.364,
+   "dev_resid": -0.225,
+   "dev_beta": 0.199,
+   "dev_turnover_pa": 3.556,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "2/10/90",
+   "mode": "LS",
+   "dev_net": -0.438,
+   "dev_gross": -0.392,
+   "dev_resid": -0.472,
+   "dev_beta": 0.017,
+   "dev_turnover_pa": 20.059,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "2/10/90",
+   "mode": "LO",
+   "dev_net": 0.142,
+   "dev_gross": 0.226,
+   "dev_resid": -0.367,
+   "dev_beta": 0.177,
+   "dev_turnover_pa": 10.78,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z09_RSI_MOMENTUM",
+   "label": "14/55/45",
+   "mode": "LS",
+   "dev_net": 1.571,
+   "dev_gross": 1.647,
+   "dev_resid": 1.429,
+   "dev_beta": 0.13,
+   "dev_turnover_pa": 22.436,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z09_RSI_MOMENTUM",
+   "label": "14/55/45",
+   "mode": "LO",
+   "dev_net": 1.877,
+   "dev_gross": 2.023,
+   "dev_resid": 1.53,
+   "dev_beta": 0.512,
+   "dev_turnover_pa": 12.142,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z10_MACD",
+   "label": "12/26/9",
+   "mode": "LS",
+   "dev_net": 1.444,
+   "dev_gross": 1.532,
+   "dev_resid": 1.371,
+   "dev_beta": 0.067,
+   "dev_turnover_pa": 37.51,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z10_MACD",
+   "label": "12/26/9",
+   "mode": "LO",
+   "dev_net": 1.767,
+   "dev_gross": 1.939,
+   "dev_resid": 1.38,
+   "dev_beta": 0.534,
+   "dev_turnover_pa": 18.93,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z11_ZSCORE_REVERSION",
+   "label": "5/1.5",
+   "mode": "LS",
+   "dev_net": -0.252,
+   "dev_gross": -0.206,
+   "dev_resid": -0.215,
+   "dev_beta": -0.019,
+   "dev_turnover_pa": 18.328,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z11_ZSCORE_REVERSION",
+   "label": "5/1.5",
+   "mode": "LO",
+   "dev_net": 0.419,
+   "dev_gross": 0.48,
+   "dev_resid": -0.032,
+   "dev_beta": 0.158,
+   "dev_turnover_pa": 6.943,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.5,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z12_SHORT_BREAKOUT",
+   "label": "7/2",
+   "mode": "LS",
+   "dev_net": 1.285,
+   "dev_gross": 1.458,
+   "dev_resid": 1.2,
+   "dev_beta": 0.065,
+   "dev_turnover_pa": 70.433,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z12_SHORT_BREAKOUT",
+   "label": "7/2",
+   "mode": "LO",
+   "dev_net": 1.639,
+   "dev_gross": 1.835,
+   "dev_resid": 1.199,
+   "dev_beta": 0.371,
+   "dev_turnover_pa": 37.945,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z13_VOL_MANAGED_LONG",
+   "label": "30",
+   "mode": "LO",
+   "dev_net": 0.99,
+   "dev_gross": 1.167,
+   "dev_resid": -0.011,
+   "dev_beta": 0.603,
+   "dev_turnover_pa": 8.29,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z14_CT1_ENSEMBLE",
+   "label": "frozen",
+   "mode": "LS",
+   "dev_net": 1.433,
+   "dev_gross": 1.536,
+   "dev_resid": 1.113,
+   "dev_beta": 0.3,
+   "dev_turnover_pa": 25.183,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z14_CT1_ENSEMBLE",
+   "label": "frozen",
+   "mode": "LO",
+   "dev_net": 1.361,
+   "dev_gross": 1.538,
+   "dev_resid": 0.768,
+   "dev_beta": 0.699,
+   "dev_turnover_pa": 13.669,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z16_SUPERTREND",
+   "label": "10/3",
+   "mode": "LS",
+   "dev_net": 1.236,
+   "dev_gross": 1.278,
+   "dev_resid": 1.146,
+   "dev_beta": 0.082,
+   "dev_turnover_pa": 14.334,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z16_SUPERTREND",
+   "label": "10/3",
+   "mode": "LO",
+   "dev_net": 1.613,
+   "dev_gross": 1.753,
+   "dev_resid": 1.156,
+   "dev_beta": 0.541,
+   "dev_turnover_pa": 7.207,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z17_ICHIMOKU",
+   "label": "9/26/52",
+   "mode": "LS",
+   "dev_net": 1.484,
+   "dev_gross": 1.563,
+   "dev_resid": 1.251,
+   "dev_beta": 0.211,
+   "dev_turnover_pa": 22.05,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z17_ICHIMOKU",
+   "label": "9/26/52",
+   "mode": "LO",
+   "dev_net": 1.713,
+   "dev_gross": 1.847,
+   "dev_resid": 1.294,
+   "dev_beta": 0.5,
+   "dev_turnover_pa": 12.399,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z18_HEIKIN_ASHI",
+   "label": "3",
+   "mode": "LS",
+   "dev_net": 0.757,
+   "dev_gross": 0.87,
+   "dev_resid": 0.68,
+   "dev_beta": 0.069,
+   "dev_turnover_pa": 54.217,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z18_HEIKIN_ASHI",
+   "label": "3",
+   "mode": "LO",
+   "dev_net": 1.296,
+   "dev_gross": 1.485,
+   "dev_resid": 0.689,
+   "dev_beta": 0.535,
+   "dev_turnover_pa": 27.116,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z20_WEEKLY_LEVEL_BREAKOUT",
+   "label": "frozen",
+   "mode": "LS",
+   "dev_net": 0.879,
+   "dev_gross": 0.987,
+   "dev_resid": 0.801,
+   "dev_beta": 3.02,
+   "dev_turnover_pa": 0.0,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "BTC",
+   "sid": "Z19_ORB_UTC",
+   "label": "4/24",
+   "mode": "LS",
+   "dev_net": -0.209,
+   "dev_gross": 0.643,
+   "dev_resid": -0.219,
+   "dev_beta": 0.013,
+   "dev_turnover_pa": 0.0,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "10/50",
+   "mode": "LS",
+   "dev_net": 1.314,
+   "dev_gross": 1.345,
+   "dev_resid": 1.351,
+   "dev_beta": -0.041,
+   "dev_turnover_pa": 15.129,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "10/50",
+   "mode": "LO",
+   "dev_net": 1.36,
+   "dev_gross": 1.483,
+   "dev_resid": 1.37,
+   "dev_beta": 0.479,
+   "dev_turnover_pa": 7.667,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "20/100",
+   "mode": "LS",
+   "dev_net": 0.628,
+   "dev_gross": 0.641,
+   "dev_resid": 0.623,
+   "dev_beta": 0.006,
+   "dev_turnover_pa": 11.247,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "20/100",
+   "mode": "LO",
+   "dev_net": 0.909,
+   "dev_gross": 1.014,
+   "dev_resid": 0.642,
+   "dev_beta": 0.503,
+   "dev_turnover_pa": 5.362,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "50/200",
+   "mode": "LS",
+   "dev_net": 0.163,
+   "dev_gross": 0.179,
+   "dev_resid": 0.17,
+   "dev_beta": -0.008,
+   "dev_turnover_pa": 9.197,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z01_SMA_CROSS",
+   "label": "50/200",
+   "mode": "LO",
+   "dev_net": 0.624,
+   "dev_gross": 0.733,
+   "dev_resid": 0.189,
+   "dev_beta": 0.496,
+   "dev_turnover_pa": 4.413,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z02_EMA_CROSS",
+   "label": "12/26",
+   "mode": "LS",
+   "dev_net": 1.525,
+   "dev_gross": 1.558,
+   "dev_resid": 1.602,
+   "dev_beta": -0.08,
+   "dev_turnover_pa": 16.503,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z02_EMA_CROSS",
+   "label": "12/26",
+   "mode": "LO",
+   "dev_net": 1.532,
+   "dev_gross": 1.659,
+   "dev_resid": 1.621,
+   "dev_beta": 0.46,
+   "dev_turnover_pa": 8.365,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z02_EMA_CROSS",
+   "label": "21/55",
+   "mode": "LS",
+   "dev_net": 0.928,
+   "dev_gross": 0.942,
+   "dev_resid": 0.987,
+   "dev_beta": -0.065,
+   "dev_turnover_pa": 12.469,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z02_EMA_CROSS",
+   "label": "21/55",
+   "mode": "LO",
+   "dev_net": 1.138,
+   "dev_gross": 1.252,
+   "dev_resid": 1.007,
+   "dev_beta": 0.468,
+   "dev_turnover_pa": 6.11,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "50",
+   "mode": "LS",
+   "dev_net": 1.547,
+   "dev_gross": 1.604,
+   "dev_resid": 1.633,
+   "dev_beta": -0.091,
+   "dev_turnover_pa": 25.921,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "50",
+   "mode": "LO",
+   "dev_net": 1.575,
+   "dev_gross": 1.717,
+   "dev_resid": 1.65,
+   "dev_beta": 0.454,
+   "dev_turnover_pa": 13.057,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "100",
+   "mode": "LS",
+   "dev_net": 0.937,
+   "dev_gross": 0.979,
+   "dev_resid": 1.005,
+   "dev_beta": -0.076,
+   "dev_turnover_pa": 21.161,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "100",
+   "mode": "LO",
+   "dev_net": 1.155,
+   "dev_gross": 1.287,
+   "dev_resid": 1.025,
+   "dev_beta": 0.462,
+   "dev_turnover_pa": 10.504,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "200",
+   "mode": "LS",
+   "dev_net": 0.649,
+   "dev_gross": 0.681,
+   "dev_resid": 0.688,
+   "dev_beta": -0.044,
+   "dev_turnover_pa": 15.148,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z03_PRICE_ABOVE_SMA",
+   "label": "200",
+   "mode": "LO",
+   "dev_net": 0.95,
+   "dev_gross": 1.073,
+   "dev_resid": 0.707,
+   "dev_beta": 0.478,
+   "dev_turnover_pa": 7.543,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "14",
+   "mode": "LS",
+   "dev_net": 1.683,
+   "dev_gross": 1.795,
+   "dev_resid": 1.717,
+   "dev_beta": -0.039,
+   "dev_turnover_pa": 43.578,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "14",
+   "mode": "LO",
+   "dev_net": 1.599,
+   "dev_gross": 1.772,
+   "dev_resid": 1.735,
+   "dev_beta": 0.48,
+   "dev_turnover_pa": 21.986,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "30",
+   "mode": "LS",
+   "dev_net": 1.175,
+   "dev_gross": 1.255,
+   "dev_resid": 1.232,
+   "dev_beta": -0.064,
+   "dev_turnover_pa": 31.668,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "30",
+   "mode": "LO",
+   "dev_net": 1.298,
+   "dev_gross": 1.455,
+   "dev_resid": 1.249,
+   "dev_beta": 0.468,
+   "dev_turnover_pa": 16.194,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "90",
+   "mode": "LS",
+   "dev_net": 0.705,
+   "dev_gross": 0.754,
+   "dev_resid": 0.696,
+   "dev_beta": 0.011,
+   "dev_turnover_pa": 20.131,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "90",
+   "mode": "LO",
+   "dev_net": 0.95,
+   "dev_gross": 1.08,
+   "dev_resid": 0.714,
+   "dev_beta": 0.505,
+   "dev_turnover_pa": 10.105,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "180",
+   "mode": "LS",
+   "dev_net": 0.393,
+   "dev_gross": 0.445,
+   "dev_resid": 0.349,
+   "dev_beta": 0.053,
+   "dev_turnover_pa": 14.857,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z04_TSMOM",
+   "label": "180",
+   "mode": "LO",
+   "dev_net": 0.741,
+   "dev_gross": 0.869,
+   "dev_resid": 0.367,
+   "dev_beta": 0.527,
+   "dev_turnover_pa": 7.633,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "20",
+   "mode": "LS",
+   "dev_net": 1.709,
+   "dev_gross": 1.76,
+   "dev_resid": 1.748,
+   "dev_beta": -0.041,
+   "dev_turnover_pa": 18.03,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "20",
+   "mode": "LO",
+   "dev_net": 1.674,
+   "dev_gross": 1.8,
+   "dev_resid": 1.72,
+   "dev_beta": 0.375,
+   "dev_turnover_pa": 9.612,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "50",
+   "mode": "LS",
+   "dev_net": 0.956,
+   "dev_gross": 0.986,
+   "dev_resid": 0.962,
+   "dev_beta": -0.006,
+   "dev_turnover_pa": 10.411,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z05_DONCHIAN_CLOSE",
+   "label": "50",
+   "mode": "LO",
+   "dev_net": 1.411,
+   "dev_gross": 1.516,
+   "dev_resid": 1.331,
+   "dev_beta": 0.355,
+   "dev_turnover_pa": 5.164,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z06_BOLLINGER_BREAKOUT",
+   "label": "20/2",
+   "mode": "LS",
+   "dev_net": 1.64,
+   "dev_gross": 1.692,
+   "dev_resid": 1.633,
+   "dev_beta": 0.007,
+   "dev_turnover_pa": 14.841,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z06_BOLLINGER_BREAKOUT",
+   "label": "20/2",
+   "mode": "LO",
+   "dev_net": 1.771,
+   "dev_gross": 1.885,
+   "dev_resid": 1.792,
+   "dev_beta": 0.326,
+   "dev_turnover_pa": 8.359,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z07_BOLLINGER_REVERSION",
+   "label": "20/2",
+   "mode": "LS",
+   "dev_net": -1.729,
+   "dev_gross": -1.692,
+   "dev_resid": -1.722,
+   "dev_beta": -0.007,
+   "dev_turnover_pa": 14.841,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z07_BOLLINGER_REVERSION",
+   "label": "20/2",
+   "mode": "LO",
+   "dev_net": -0.508,
+   "dev_gross": -0.408,
+   "dev_resid": -1.292,
+   "dev_beta": 0.32,
+   "dev_turnover_pa": 6.482,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "14/30/70",
+   "mode": "LS",
+   "dev_net": -1.052,
+   "dev_gross": -1.035,
+   "dev_resid": -1.002,
+   "dev_beta": -0.042,
+   "dev_turnover_pa": 7.597,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.25,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "14/30/70",
+   "mode": "LO",
+   "dev_net": 0.281,
+   "dev_gross": 0.359,
+   "dev_resid": -0.071,
+   "dev_beta": 0.189,
+   "dev_turnover_pa": 3.174,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.25,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "2/10/90",
+   "mode": "LS",
+   "dev_net": -0.918,
+   "dev_gross": -0.856,
+   "dev_resid": -0.934,
+   "dev_beta": 0.01,
+   "dev_turnover_pa": 14.38,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.25,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z08_RSI_REVERSION",
+   "label": "2/10/90",
+   "mode": "LO",
+   "dev_net": -0.126,
+   "dev_gross": -0.031,
+   "dev_resid": -0.543,
+   "dev_beta": 0.152,
+   "dev_turnover_pa": 6.783,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.25,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z09_RSI_MOMENTUM",
+   "label": "14/55/45",
+   "mode": "LS",
+   "dev_net": 1.713,
+   "dev_gross": 1.764,
+   "dev_resid": 1.801,
+   "dev_beta": -0.09,
+   "dev_turnover_pa": 21.797,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z09_RSI_MOMENTUM",
+   "label": "14/55/45",
+   "mode": "LO",
+   "dev_net": 1.813,
+   "dev_gross": 1.948,
+   "dev_resid": 1.932,
+   "dev_beta": 0.393,
+   "dev_turnover_pa": 11.189,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z10_MACD",
+   "label": "12/26/9",
+   "mode": "LS",
+   "dev_net": 1.497,
+   "dev_gross": 1.585,
+   "dev_resid": 1.481,
+   "dev_beta": 0.02,
+   "dev_turnover_pa": 29.596,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z10_MACD",
+   "label": "12/26/9",
+   "mode": "LO",
+   "dev_net": 1.433,
+   "dev_gross": 1.587,
+   "dev_resid": 1.496,
+   "dev_beta": 0.51,
+   "dev_turnover_pa": 15.363,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z11_ZSCORE_REVERSION",
+   "label": "5/1.5",
+   "mode": "LS",
+   "dev_net": -0.845,
+   "dev_gross": -0.795,
+   "dev_resid": -0.92,
+   "dev_beta": 0.041,
+   "dev_turnover_pa": 10.809,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z11_ZSCORE_REVERSION",
+   "label": "5/1.5",
+   "mode": "LO",
+   "dev_net": -0.145,
+   "dev_gross": -0.086,
+   "dev_resid": -0.493,
+   "dev_beta": 0.142,
+   "dev_turnover_pa": 4.921,
+   "n_configs_total": 104,
+   "sib_pos_share": 0.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z12_SHORT_BREAKOUT",
+   "label": "7/2",
+   "mode": "LS",
+   "dev_net": 1.495,
+   "dev_gross": 1.65,
+   "dev_resid": 1.583,
+   "dev_beta": -0.078,
+   "dev_turnover_pa": 51.08,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z12_SHORT_BREAKOUT",
+   "label": "7/2",
+   "mode": "LO",
+   "dev_net": 1.518,
+   "dev_gross": 1.711,
+   "dev_resid": 1.433,
+   "dev_beta": 0.284,
+   "dev_turnover_pa": 25.669,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z13_VOL_MANAGED_LONG",
+   "label": "30",
+   "mode": "LO",
+   "dev_net": 0.492,
+   "dev_gross": 0.638,
+   "dev_resid": -0.339,
+   "dev_beta": 0.673,
+   "dev_turnover_pa": 8.827,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z14_CT1_ENSEMBLE",
+   "label": "frozen",
+   "mode": "LS",
+   "dev_net": 1.612,
+   "dev_gross": 1.676,
+   "dev_resid": 1.655,
+   "dev_beta": -0.02,
+   "dev_turnover_pa": 11.038,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z14_CT1_ENSEMBLE",
+   "label": "frozen",
+   "mode": "LO",
+   "dev_net": 1.554,
+   "dev_gross": 1.7,
+   "dev_resid": 1.66,
+   "dev_beta": 0.216,
+   "dev_turnover_pa": 6.257,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z15_DUAL_MOMENTUM_ROTATION",
+   "label": "30",
+   "mode": "LO",
+   "dev_net": 1.094,
+   "dev_gross": 1.245,
+   "dev_resid": 0.906,
+   "dev_beta": 0.47,
+   "dev_turnover_pa": 20.882,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": true
+  },
+  {
+   "dataset": "MULTI",
+   "sid": "Z15_DUAL_MOMENTUM_ROTATION",
+   "label": "90",
+   "mode": "LO",
+   "dev_net": 0.93,
+   "dev_gross": 1.052,
+   "dev_resid": 0.669,
+   "dev_beta": 0.491,
+   "dev_turnover_pa": 12.109,
+   "n_configs_total": 104,
+   "sib_pos_share": 1.0,
+   "dev_pass": false
+  }
+ ],
+ "stages": {
+  "BTC|Z01_SMA_CROSS|10/50|LS": {
+   "VAL": {
+    "net": 0.9965796564143632,
+    "gross": 1.1794269063649285,
+    "resid": 0.751198583226
+   },
+   "TEST": {
+    "net": 0.447329492378663,
+    "gross": 0.48868095314260585,
+    "resid": 0.4521533247497051
+   },
+   "val_pass": true
+  },
+  "BTC|Z01_SMA_CROSS|10/50|LO": {
+   "VAL": {
+    "net": 1.4809131165393608,
+    "gross": 1.7575062500130412,
+    "resid": 0.7576349205428707
+   },
+   "TEST": {
+    "net": 0.39962895724487146,
+    "gross": 0.5519413865997296,
+    "resid": 0.46137215851549
+   },
+   "val_pass": true
+  },
+  "BTC|Z01_SMA_CROSS|20/100|LS": {
+   "VAL": {
+    "net": 0.09031279724752413,
+    "gross": 0.3043168440664603,
+    "resid": -1.005764619749832
+   },
+   "TEST": {
+    "net": 0.40360523288353645,
+    "gross": 0.432652891674883,
+    "resid": 0.4421546375906765
+   },
+   "val_pass": false
+  },
+  "BTC|Z01_SMA_CROSS|20/100|LO": {
+   "VAL": {
+    "net": 0.7612717223756105,
+    "gross": 1.0155398136291003,
+    "resid": -1.0010198252429319
+   },
+   "TEST": {
+    "net": 0.4172938684935816,
+    "gross": 0.5780997685231909,
+    "resid": 0.45342911608828207
+   },
+   "val_pass": false
+  },
+  "BTC|Z01_SMA_CROSS|50/200|LS": {
+   "VAL": {
+    "net": -0.08845362725608612,
+    "gross": 0.04163833066110535,
+    "resid": -1.088964366647843
+   },
+   "TEST": {
+    "net": 0.1939335912026742,
+    "gross": 0.20748167004031426,
+    "resid": 0.23388790933859996
+   },
+   "val_pass": false
+  },
+  "BTC|Z01_SMA_CROSS|50/200|LO": {
+   "VAL": {
+    "net": 0.6745181920371144,
+    "gross": 0.8852502293695035,
+    "resid": -1.08294612221911
+   },
+   "TEST": {
+    "net": 0.2550450019191712,
+    "gross": 0.4079023676421029,
+    "resid": 0.2460137017619577
+   },
+   "val_pass": false
+  },
+  "BTC|Z02_EMA_CROSS|12/26|LS": {
+   "VAL": {
+    "net": 1.4018770347544094,
+    "gross": 1.5839987984243034,
+    "resid": 1.1506363151585126
+   },
+   "TEST": {
+    "net": 0.09816091799126231,
+    "gross": 0.15045656984136724,
+    "resid": 0.10045746549925905
+   },
+   "val_pass": true
+  },
+  "BTC|Z02_EMA_CROSS|12/26|LO": {
+   "VAL": {
+    "net": 1.7325978892999383,
+    "gross": 2.0070376166939248,
+    "resid": 1.1568821359693944
+   },
+   "TEST": {
+    "net": 0.14552819808722364,
+    "gross": 0.3037628595870435,
+    "resid": 0.10998578961920909
+   },
+   "val_pass": true
+  },
+  "BTC|Z02_EMA_CROSS|21/55|LS": {
+   "VAL": {
+    "net": 0.7841011740787779,
+    "gross": 1.0074794132973537,
+    "resid": 0.35015105516407824
+   },
+   "TEST": {
+    "net": 0.05536741971871202,
+    "gross": 0.09206910583844723,
+    "resid": 0.07053236837414642
+   },
+   "val_pass": false
+  },
+  "BTC|Z02_EMA_CROSS|21/55|LO": {
+   "VAL": {
+    "net": 1.2653862743410929,
+    "gross": 1.5518923200164072,
+    "resid": 0.3551804319023001
+   },
+   "TEST": {
+    "net": 0.12358804346488916,
+    "gross": 0.28073544193443095,
+    "resid": 0.08074030981814301
+   },
+   "val_pass": true
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|50|LS": {
+   "VAL": {
+    "net": 1.6605564799501313,
+    "gross": 1.8576959160078381,
+    "resid": 1.4279879026909321
+   },
+   "TEST": {
+    "net": 0.506206830765167,
+    "gross": 0.5823870600517189,
+    "resid": 0.5175011143036646
+   },
+   "val_pass": true
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|50|LO": {
+   "VAL": {
+    "net": 1.908370487770828,
+    "gross": 2.1935545843738047,
+    "resid": 1.4346574318579208
+   },
+   "TEST": {
+    "net": 0.45433515276178116,
+    "gross": 0.6361736885355908,
+    "resid": 0.5274277030632643
+   },
+   "val_pass": true
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|100|LS": {
+   "VAL": {
+    "net": 0.7315785342685306,
+    "gross": 0.9774203125224467,
+    "resid": 0.3182300493039434
+   },
+   "TEST": {
+    "net": 0.5702349939961026,
+    "gross": 0.6292704932714668,
+    "resid": 0.5973908684824931
+   },
+   "val_pass": false
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|100|LO": {
+   "VAL": {
+    "net": 1.2420141752113276,
+    "gross": 1.5444668383788138,
+    "resid": 0.32287758649771015
+   },
+   "TEST": {
+    "net": 0.5285111214231003,
+    "gross": 0.7053301954825939,
+    "resid": 0.6083128371124946
+   },
+   "val_pass": true
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|200|LS": {
+   "VAL": {
+    "net": -0.13164039970636307,
+    "gross": 0.09355011540713719,
+    "resid": -0.6027470806913215
+   },
+   "TEST": {
+    "net": 1.1682085711211532,
+    "gross": 1.1974835183145898,
+    "resid": 1.2210881438921606
+   },
+   "val_pass": false
+  },
+  "BTC|Z03_PRICE_ABOVE_SMA|200|LO": {
+   "VAL": {
+    "net": 0.7118459526051487,
+    "gross": 1.0013138584859238,
+    "resid": -0.5981613299204033
+   },
+   "TEST": {
+    "net": 1.0236237771458425,
+    "gross": 1.18086585706101,
+    "resid": 1.2330386970224954
+   },
+   "val_pass": false
+  },
+  "BTC|Z04_TSMOM|14|LS": {
+   "VAL": {
+    "net": 1.540200832546158,
+    "gross": 1.7488862122252984,
+    "resid": 1.4803305878652187
+   },
+   "TEST": {
+    "net": 0.4881397108355048,
+    "gross": 0.6546431620393691,
+    "resid": 0.49195269226051386
+   },
+   "val_pass": true
+  },
+  "BTC|Z04_TSMOM|14|LO": {
+   "VAL": {
+    "net": 1.9631625307839693,
+    "gross": 2.2746631236334403,
+    "resid": 1.4888089458359406
+   },
+   "TEST": {
+    "net": 0.42697568752964665,
+    "gross": 0.6688721765702245,
+    "resid": 0.5010041950676613
+   },
+   "val_pass": true
+  },
+  "BTC|Z04_TSMOM|30|LS": {
+   "VAL": {
+    "net": 1.7035837641114049,
+    "gross": 1.902279971806888,
+    "resid": 1.5488659817098875
+   },
+   "TEST": {
+    "net": 0.9012616913776974,
+    "gross": 1.0202208009609848,
+    "resid": 0.9072882950208982
+   },
+   "val_pass": true
+  },
+  "BTC|Z04_TSMOM|30|LO": {
+   "VAL": {
+    "net": 1.9975543281394517,
+    "gross": 2.2938663619542283,
+    "resid": 1.555294606698479
+   },
+   "TEST": {
+    "net": 0.7293543769656815,
+    "gross": 0.9383592959751927,
+    "resid": 0.9161250574341152
+   },
+   "val_pass": true
+  },
+  "BTC|Z04_TSMOM|90|LS": {
+   "VAL": {
+    "net": -0.20216001020313432,
+    "gross": 0.019560351856807563,
+    "resid": -1.2529810279866713
+   },
+   "TEST": {
+    "net": -0.08240614768352363,
+    "gross": 0.0017598788487454891,
+    "resid": -0.07063363387513448
+   },
+   "val_pass": false
+  },
+  "BTC|Z04_TSMOM|90|LO": {
+   "VAL": {
+    "net": 0.608858469129137,
+    "gross": 0.8709775452733621,
+    "resid": -1.2485400269742597
+   },
+   "TEST": {
+    "net": 0.018013377293833684,
+    "gross": 0.20890948197451847,
+    "resid": -0.06004708684847528
+   },
+   "val_pass": false
+  },
+  "BTC|Z04_TSMOM|180|LS": {
+   "VAL": {
+    "net": 0.6129529802855166,
+    "gross": 0.7646865546139876,
+    "resid": 0.24395228421988638
+   },
+   "TEST": {
+    "net": 0.04085485820452896,
+    "gross": 0.08331788237557344,
+    "resid": 0.0644198706763669
+   },
+   "val_pass": false
+  },
+  "BTC|Z04_TSMOM|180|LO": {
+   "VAL": {
+    "net": 1.1879784517844805,
+    "gross": 1.436088169354121,
+    "resid": 0.24960471466690445
+   },
+   "TEST": {
+    "net": 0.11921252826256634,
+    "gross": 0.2878145010325061,
+    "resid": 0.07629897353647172
+   },
+   "val_pass": false
+  },
+  "BTC|Z05_DONCHIAN_CLOSE|20|LS": {
+   "VAL": {
+    "net": 1.0987864323318572,
+    "gross": 1.2732512137027274,
+    "resid": 0.9599805282952849
+   },
+   "TEST": {
+    "net": 0.31667170861956284,
+    "gross": 0.41663836344523164,
+    "resid": 0.31787166370801956
+   },
+   "val_pass": true
+  },
+  "BTC|Z05_DONCHIAN_CLOSE|20|LO": {
+   "VAL": {
+    "net": 1.3997959374817137,
+    "gross": 1.6640265415460538,
+    "resid": 0.721089074491336
+   },
+   "TEST": {
+    "net": 0.2543359357464935,
+    "gross": 0.43491378704386674,
+    "resid": 0.2513544096367338
+   },
+   "val_pass": true
+  },
+  "BTC|Z05_DONCHIAN_CLOSE|50|LS": {
+   "VAL": {
+    "net": 1.2208946142295996,
+    "gross": 1.431690702911467,
+    "resid": 0.8952036166689724
+   },
+   "TEST": {
+    "net": 0.2761249510592748,
+    "gross": 0.3340983225935163,
+    "resid": 0.28098696130203954
+   },
+   "val_pass": true
+  },
+  "BTC|Z05_DONCHIAN_CLOSE|50|LO": {
+   "VAL": {
+    "net": 1.0951020942656307,
+    "gross": 1.3656014680017245,
+    "resid": 0.242991915570397
+   },
+   "TEST": {
+    "net": 0.39299290561407724,
+    "gross": 0.5406250569522447,
+    "resid": 0.4203877372325512
+   },
+   "val_pass": false
+  },
+  "BTC|Z06_BOLLINGER_BREAKOUT|20/2|LS": {
+   "VAL": {
+    "net": 1.0694413544587626,
+    "gross": 1.2468322796651048,
+    "resid": 0.9629571619509714
+   },
+   "TEST": {
+    "net": -0.043704887258168214,
+    "gross": 0.042181524715710135,
+    "resid": -0.03579812747214273
+   },
+   "val_pass": true
+  },
+  "BTC|Z06_BOLLINGER_BREAKOUT|20/2|LO": {
+   "VAL": {
+    "net": 1.2747314509778245,
+    "gross": 1.535773548377258,
+    "resid": 0.6050583828385069
+   },
+   "TEST": {
+    "net": 0.025179925944843206,
+    "gross": 0.17864078770882252,
+    "resid": -0.032030900433466215
+   },
+   "val_pass": true
+  },
+  "BTC|Z09_RSI_MOMENTUM|14/55/45|LS": {
+   "VAL": {
+    "net": 1.695946949066231,
+    "gross": 1.893217723606299,
+    "resid": 1.5270390612011833
+   },
+   "TEST": {
+    "net": 0.2763663033971877,
+    "gross": 0.3699517286784914,
+    "resid": 0.29080001320682325
+   },
+   "val_pass": true
+  },
+  "BTC|Z09_RSI_MOMENTUM|14/55/45|LO": {
+   "VAL": {
+    "net": 2.0470080474667154,
+    "gross": 2.3309878611180506,
+    "resid": 1.6076110865844508
+   },
+   "TEST": {
+    "net": 0.418890102145937,
+    "gross": 0.6059573564463085,
+    "resid": 0.4565254695766253
+   },
+   "val_pass": true
+  },
+  "BTC|Z10_MACD|12/26/9|LS": {
+   "VAL": {
+    "net": 1.1433917178590713,
+    "gross": 1.2550224159872279,
+    "resid": 1.260965236707436
+   },
+   "TEST": {
+    "net": 0.20955413461125239,
+    "gross": 0.2949152754829758,
+    "resid": 0.21884203155335272
+   },
+   "val_pass": true
+  },
+  "BTC|Z10_MACD|12/26/9|LO": {
+   "VAL": {
+    "net": 1.8102452488850165,
+    "gross": 2.0718189015204507,
+    "resid": 1.2704989860036204
+   },
+   "TEST": {
+    "net": 0.23326903007009717,
+    "gross": 0.4215373009188464,
+    "resid": 0.2287039874993045
+   },
+   "val_pass": true
+  },
+  "BTC|Z12_SHORT_BREAKOUT|7/2|LS": {
+   "VAL": {
+    "net": 0.22190244518703903,
+    "gross": 0.4745750263967319,
+    "resid": 0.13567994978508813
+   },
+   "TEST": {
+    "net": 0.6408606153968135,
+    "gross": 0.8773873524537936,
+    "resid": 0.663343950953386
+   },
+   "val_pass": false
+  },
+  "BTC|Z12_SHORT_BREAKOUT|7/2|LO": {
+   "VAL": {
+    "net": 0.9354317084493103,
+    "gross": 1.2520044296595103,
+    "resid": 0.14925244830441897
+   },
+   "TEST": {
+    "net": 0.5468985535393601,
+    "gross": 0.8269138296843925,
+    "resid": 0.5734275778162945
+   },
+   "val_pass": false
+  },
+  "BTC|Z14_CT1_ENSEMBLE|frozen|LS": {
+   "VAL": {
+    "net": 1.271121678427487,
+    "gross": 1.5268826432140996,
+    "resid": 0.8124333723836088
+   },
+   "TEST": {
+    "net": 0.46217858177716037,
+    "gross": 0.5657938928552787,
+    "resid": 0.4761124450410002
+   },
+   "val_pass": true
+  },
+  "BTC|Z14_CT1_ENSEMBLE|frozen|LO": {
+   "VAL": {
+    "net": 1.5507487932267634,
+    "gross": 1.844654181282834,
+    "resid": 0.8622756049671243
+   },
+   "TEST": {
+    "net": 0.3057743971580397,
+    "gross": 0.5097384777420781,
+    "resid": 0.3780220946367747
+   },
+   "val_pass": true
+  },
+  "BTC|Z16_SUPERTREND|10/3|LS": {
+   "VAL": {
+    "net": 1.149098467033797,
+    "gross": 1.3077289803897494,
+    "resid": 1.0254770365407024
+   },
+   "TEST": {
+    "net": 0.26671433188497873,
+    "gross": 0.3218826709287349,
+    "resid": 0.27428074729336693
+   },
+   "val_pass": true
+  },
+  "BTC|Z16_SUPERTREND|10/3|LO": {
+   "VAL": {
+    "net": 1.6516390724829455,
+    "gross": 1.9247954472508642,
+    "resid": 1.0326347403213594
+   },
+   "TEST": {
+    "net": 0.2733696396536261,
+    "gross": 0.4373530084353718,
+    "resid": 0.2844882654602757
+   },
+   "val_pass": true
+  },
+  "BTC|Z17_ICHIMOKU|9/26/52|LS": {
+   "VAL": {
+    "net": 1.5570377690294752,
+    "gross": 1.777664664777035,
+    "resid": 1.2388978522180358
+   },
+   "TEST": {
+    "net": 0.30034037123049784,
+    "gross": 0.39168156752584116,
+    "resid": 0.305545530414879
+   },
+   "val_pass": true
+  },
+  "BTC|Z17_ICHIMOKU|9/26/52|LO": {
+   "VAL": {
+    "net": 1.965613501431913,
+    "gross": 2.2365250166969974,
+    "resid": 1.4865611834583121
+   },
+   "TEST": {
+    "net": 0.25382397929920764,
+    "gross": 0.4142386655471715,
+    "resid": 0.2390093591775803
+   },
+   "val_pass": true
+  },
+  "BTC|Z18_HEIKIN_ASHI|3|LO": {
+   "VAL": {
+    "net": 1.3153762471411474,
+    "gross": 1.6095773933978685,
+    "resid": 0.5224787723664461
+   },
+   "TEST": {
+    "net": 0.37212731308628344,
+    "gross": 0.5710115243777306,
+    "resid": 0.41682361692528874
+   },
+   "val_pass": true
+  },
+  "MULTI|Z01_SMA_CROSS|10/50|LS": {
+   "VAL": {
+    "net": 0.6248587190993433,
+    "gross": 0.6365373935028551,
+    "resid": 0.6241630699743352
+   },
+   "TEST": {
+    "net": 0.2666856841645877,
+    "gross": 0.3044716196702728,
+    "resid": 0.35014204600532767
+   },
+   "val_pass": false
+  },
+  "MULTI|Z01_SMA_CROSS|10/50|LO": {
+   "VAL": {
+    "net": 0.3854173266151305,
+    "gross": 0.4951265979019411,
+    "resid": 0.6422407485689466
+   },
+   "TEST": {
+    "net": 0.7033801283873272,
+    "gross": 0.8860144544321961,
+    "resid": 0.37535282876552334
+   },
+   "val_pass": false
+  },
+  "MULTI|Z02_EMA_CROSS|12/26|LS": {
+   "VAL": {
+    "net": 0.4145606769397121,
+    "gross": 0.4313529825118982,
+    "resid": 0.4139131071977379
+   },
+   "TEST": {
+    "net": 0.3322629979700428,
+    "gross": 0.3749476739019686,
+    "resid": 0.42756667352291405
+   },
+   "val_pass": false
+  },
+  "MULTI|Z02_EMA_CROSS|12/26|LO": {
+   "VAL": {
+    "net": 0.25977898730450094,
+    "gross": 0.3792861959351187,
+    "resid": 0.4333123638995477
+   },
+   "TEST": {
+    "net": 0.75236233962269,
+    "gross": 0.9401569007848947,
+    "resid": 0.45163421787139696
+   },
+   "val_pass": false
+  },
+  "MULTI|Z02_EMA_CROSS|21/55|LO": {
+   "VAL": {
+    "net": 0.5366698727433123,
+    "gross": 0.6405714712857229,
+    "resid": 0.8385443060849217
+   },
+   "TEST": {
+    "net": 0.4859055215008487,
+    "gross": 0.6559587899456433,
+    "resid": 0.04209472914825735
+   },
+   "val_pass": false
+  },
+  "MULTI|Z03_PRICE_ABOVE_SMA|50|LS": {
+   "VAL": {
+    "net": 0.7851790797943359,
+    "gross": 0.8248286301886719,
+    "resid": 0.7949146859523925
+   },
+   "TEST": {
+    "net": 0.4473050477069339,
+    "gross": 0.5346320918472901,
+    "resid": 0.5436686175589791
+   },
+   "val_pass": false
+  },
+  "MULTI|Z03_PRICE_ABOVE_SMA|50|LO": {
+   "VAL": {
+    "net": 0.5373696531787605,
+    "gross": 0.6767405509647177,
+    "resid": 0.8138779506632537
+   },
+   "TEST": {
+    "net": 0.8283570987109183,
+    "gross": 1.0464841758514847,
+    "resid": 0.566957485706377
+   },
+   "val_pass": false
+  },
+  "MULTI|Z03_PRICE_ABOVE_SMA|100|LO": {
+   "VAL": {
+    "net": 0.3515539452899602,
+    "gross": 0.47880079998826686,
+    "resid": 0.5480942884337394
+   },
+   "TEST": {
+    "net": 0.5051939466006896,
+    "gross": 0.7028466166399645,
+    "resid": 0.059843148608759014
+   },
+   "val_pass": false
+  },
+  "MULTI|Z04_TSMOM|14|LS": {
+   "VAL": {
+    "net": 1.1062346612640084,
+    "gross": 1.1964188356419412,
+    "resid": 1.1129288687682637
+   },
+   "TEST": {
+    "net": 0.569493681044894,
+    "gross": 0.7324283965097039,
+    "resid": 0.574247154808957
+   },
+   "val_pass": true
+  },
+  "MULTI|Z04_TSMOM|14|LO": {
+   "VAL": {
+    "net": 0.7331062479509124,
+    "gross": 0.9019730394727962,
+    "resid": 1.1314870347150514
+   },
+   "TEST": {
+    "net": 0.84393291323047,
+    "gross": 1.094151987312052,
+    "resid": 0.5955401988918382
+   },
+   "val_pass": false
+  },
+  "MULTI|Z04_TSMOM|30|LS": {
+   "VAL": {
+    "net": 1.0806987379433426,
+    "gross": 1.1508890012447277,
+    "resid": 1.0905011576509147
+   },
+   "TEST": {
+    "net": 0.2912353464118907,
+    "gross": 0.4100781013565696,
+    "resid": 0.34495071551808737
+   },
+   "val_pass": true
+  },
+  "MULTI|Z04_TSMOM|30|LO": {
+   "VAL": {
+    "net": 0.7029665213749215,
+    "gross": 0.8620941871730421,
+    "resid": 1.108482093715639
+   },
+   "TEST": {
+    "net": 0.7013164737437757,
+    "gross": 0.9326486340833469,
+    "resid": 0.36867274252086335
+   },
+   "val_pass": false
+  },
+  "MULTI|Z05_DONCHIAN_CLOSE|20|LS": {
+   "VAL": {
+    "net": 0.7007241005523743,
+    "gross": 0.7403403137470149,
+    "resid": 0.7037563930987557
+   },
+   "TEST": {
+    "net": 0.29090298257273844,
+    "gross": 0.3615154966025545,
+    "resid": 0.3585145393563144
+   },
+   "val_pass": false
+  },
+  "MULTI|Z05_DONCHIAN_CLOSE|20|LO": {
+   "VAL": {
+    "net": 0.5526517919974419,
+    "gross": 0.6784855308792468,
+    "resid": 0.8020337336387018
+   },
+   "TEST": {
+    "net": 1.0309105696762837,
+    "gross": 1.2183648245479282,
+    "resid": 0.8466018862159238
+   },
+   "val_pass": false
+  },
+  "MULTI|Z05_DONCHIAN_CLOSE|50|LO": {
+   "VAL": {
+    "net": 0.2317531370651555,
+    "gross": 0.3278286143016081,
+    "resid": 0.350393462920711
+   },
+   "TEST": {
+    "net": 0.7345772090312456,
+    "gross": 0.8945267201183027,
+    "resid": 0.43793744115244804
+   },
+   "val_pass": false
+  },
+  "MULTI|Z06_BOLLINGER_BREAKOUT|20/2|LS": {
+   "VAL": {
+    "net": 0.44344172866960635,
+    "gross": 0.48252670938491093,
+    "resid": 0.44234549457782485
+   },
+   "TEST": {
+    "net": 0.35976454718264905,
+    "gross": 0.4371616208414009,
+    "resid": 0.374188294078124
+   },
+   "val_pass": false
+  },
+  "MULTI|Z06_BOLLINGER_BREAKOUT|20/2|LO": {
+   "VAL": {
+    "net": 0.2891761560374089,
+    "gross": 0.40816593727968953,
+    "resid": 0.4023364404509123
+   },
+   "TEST": {
+    "net": 0.9706027505580721,
+    "gross": 1.139724500779377,
+    "resid": 0.7601868627200513
+   },
+   "val_pass": false
+  },
+  "MULTI|Z09_RSI_MOMENTUM|14/55/45|LS": {
+   "VAL": {
+    "net": 1.0057320945656851,
+    "gross": 1.0413971241485163,
+    "resid": 1.0269561138370533
+   },
+   "TEST": {
+    "net": 0.3899327966788662,
+    "gross": 0.4636180618618545,
+    "resid": 0.488164217803974
+   },
+   "val_pass": true
+  },
+  "MULTI|Z09_RSI_MOMENTUM|14/55/45|LO": {
+   "VAL": {
+    "net": 0.801730759034708,
+    "gross": 0.9372785194764792,
+    "resid": 1.1265738903150544
+   },
+   "TEST": {
+    "net": 0.9157134592611481,
+    "gross": 1.1188145036755475,
+    "resid": 0.6882297850569548
+   },
+   "val_pass": true
+  },
+  "MULTI|Z10_MACD|12/26/9|LS": {
+   "VAL": {
+    "net": 0.9530131365093211,
+    "gross": 1.0408196432055399,
+    "resid": 0.9534259470003429
+   },
+   "TEST": {
+    "net": 0.3786892961927145,
+    "gross": 0.5012077823371203,
+    "resid": 0.3952046858744147
+   },
+   "val_pass": true
+  },
+  "MULTI|Z10_MACD|12/26/9|LO": {
+   "VAL": {
+    "net": 0.5776875929257247,
+    "gross": 0.7413707991152563,
+    "resid": 0.9708107614239462
+   },
+   "TEST": {
+    "net": 0.7308097336734116,
+    "gross": 0.9581240039263436,
+    "resid": 0.4155901743171887
+   },
+   "val_pass": false
+  },
+  "MULTI|Z12_SHORT_BREAKOUT|7/2|LS": {
+   "VAL": {
+    "net": 0.9052755840083155,
+    "gross": 1.063299314418945,
+    "resid": 0.9393760152783402
+   },
+   "TEST": {
+    "net": 0.34322483562625633,
+    "gross": 0.5814298584929707,
+    "resid": 0.40552552577960455
+   },
+   "val_pass": true
+  },
+  "MULTI|Z12_SHORT_BREAKOUT|7/2|LO": {
+   "VAL": {
+    "net": 1.1494915022261187,
+    "gross": 1.374046431561143,
+    "resid": 1.4699863795468147
+   },
+   "TEST": {
+    "net": 1.0683014590835573,
+    "gross": 1.3605114281617408,
+    "resid": 0.8834026691246117
+   },
+   "val_pass": true
+  },
+  "MULTI|Z14_CT1_ENSEMBLE|frozen|LS": {
+   "VAL": {
+    "net": 0.7147917356100388,
+    "gross": 0.7533346572761814,
+    "resid": 0.7320820221496726
+   },
+   "TEST": {
+    "net": 0.4195143342973614,
+    "gross": 0.5164977530305191,
+    "resid": 0.47461247414711394
+   },
+   "val_pass": false
+  },
+  "MULTI|Z14_CT1_ENSEMBLE|frozen|LO": {
+   "VAL": {
+    "net": 0.10568163989368243,
+    "gross": 0.25708390601575465,
+    "resid": 0.21428600566476938
+   },
+   "TEST": {
+    "net": 0.9747238051805768,
+    "gross": 1.2062194910719042,
+    "resid": 0.8322195126062638
+   },
+   "val_pass": false
+  },
+  "MULTI|Z15_DUAL_MOMENTUM_ROTATION|30|LO": {
+   "VAL": {
+    "net": 0.26317728085416303,
+    "gross": 0.4344320782190488,
+    "resid": 0.4318326556709983
+   },
+   "TEST": {
+    "net": 0.49810966528516754,
+    "gross": 0.7180916507957664,
+    "resid": 0.09616196099229038
+   },
+   "val_pass": false
+  }
+ }
+}

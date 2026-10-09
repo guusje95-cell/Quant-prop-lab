@@ -1,0 +1,23 @@
+import numpy as np
+from qpl.prop_simulation import cft_daily as C
+
+
+def test_two_phase_pass_and_days():
+    r = np.full(400, 0.01)
+    o = C.simulate_start(r, 0, "2PHASE", mode="optimistic")
+    assert o["result"] == C.PASS and o["p1"] == C.PASS and o["p2"] == C.PASS and o["days"] == 8 + 5
+
+
+def test_one_phase_trailing_locks_at_initial():
+    r = np.zeros(200); r[:5] = 0.02; r[5:15] = -0.007          # +10.4% then drawdown: floor = min(peak-6%, 1.0) = 1.0
+    o = C.simulate_start(r, 0, "1PHASE", k=1.0, mode="optimistic")
+    assert o["result"] == C.PASS                                 # target reached on day 5 before the drawdown
+    r = np.zeros(200); r[:3] = 0.03; r[3:12] = -0.012           # peak ~1.093 -> floor 1.0 (locked): fails when equity < 1.0
+    o = C.simulate_start(r, 0, "1PHASE", k=1.0, mode="optimistic")
+    assert o["result"] == C.FAIL_MAX
+
+
+def test_daily_loss_conservative_vs_optimistic():
+    r = np.zeros(100); r[1:4] = -0.02
+    assert C.simulate_start(r, 0, "1PHASE", k=1.0, mode="optimistic")["result"] != C.FAIL_DAILY
+    assert C.simulate_start(r, 0, "1PHASE", k=1.0, mode="conservative")["result"] == C.FAIL_DAILY
