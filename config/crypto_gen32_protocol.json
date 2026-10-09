@@ -1,0 +1,18 @@
+{
+  "_written": "2026-10-10, BEFORE any gen32 number was computed. Goal (user): a FASTER CFT strategy, without overfitting.",
+  "baseline": "B0 = E2 LIQUID2 (gen31): BTC+ETH, daily, Binance spot OHLC, 7.5 bp/turnover, 0 swap",
+  "logic": "Speed = return per unit of ALLOWED risk. Allowed risk is bounded by the equity-based daily loss on crash wicks. So improve (i) Sharpe and/or (ii) the worst-intraday-day / volatility ratio.",
+  "modifications (a-priori, each one trial)": {
+    "M1_RANGE_VOL": "size by a wick-aware vol: sigma = max(close-to-close 30d vol, Parkinson 30d vol from ln(H/L)) instead of close-to-close only",
+    "M2_FAMILY_ENSEMBLE": "signal = equal-weight mean of 9 long-only trend families: E2 breakout part, E2 tsmom part, sma_cross(20,100), ema_cross(21,55), donchian_close(20), donchian_close(50), macd(12,26,9), supertrend(10,3), price_above_sma(100)",
+    "M3_BREADTH": "multiply each coin's E2 signal by (0.5 + 0.5 * breadth_t), breadth_t = share of the 10 Binance majors (with >= 200 days) whose own E2 signal > 0 at close t",
+    "M4_4H_BTC": "BTC only (Bitstamp 4h bars 2015-2026): E2 with every lookback/hold in days x 6 bars, vol from 4h returns, rebalanced every 4h; compared with B0 logic on BTC-only daily Bitstamp (same data source)",
+    "M5_COMBO": "M1 + M2 + M3 together (only reported as a candidate if M1, M2, M3 each individually pass)"
+  },
+  "periods": {"DEV": "2018-01-01..2021-12-31", "VAL": "2022-01-01..2023-12-31", "TEST": "2024-01-01..2026-10-08"},
+  "acceptance per modification": "net Sharpe higher than its baseline in EACH of DEV, VAL, TEST, AND paired stationary-bootstrap (block 20, 5000) one-sided p < 0.05 Holm-adjusted over the 4 single modifications, on the 2018-2026 daily difference after scaling both to equal vol, AND worst-intraday-day/vol ratio not worse than baseline by > 10%",
+  "prop step": "the best accepted variant (or B0 if none) goes through the gen30/31 CFT EV selection (both programs). Report speed: median days to pass, P(pass within 90 / 180 days).",
+  "trials": "5 (cumulative crypto alpha trials 117)",
+  "caveat": "all periods except 2026-05-24..10-08 previously seen for BTC/ETH.",
+  "single_use": true
+}
