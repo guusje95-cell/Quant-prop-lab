@@ -1,0 +1,29 @@
+{
+  "_written": "2026-10-10, BEFORE any gen28 return was computed. Generation 28: an APPLICABLE Crypto Fund Trader strategy (user rules of 2026-10-10).",
+  "user_rules": {
+    "platform": "CFT Bybit route: raw Bybit maker/taker fees, no CFT markup, $0 swap; 550+ USDT perps",
+    "no_intraday_stops": "positions are only changed once per day at 00:00-00:05 UTC; no stop orders are modelled",
+    "2PHASE": "targets 8% then 5%; daily loss 5% vs equity at 00:05 UTC (equity-based, intraday wicks count); max loss 10% static",
+    "1PHASE": "target 10%; daily loss 4% (equity-based); max loss 6% trailing the highest real-time equity, locking at the initial balance once equity reaches +6%",
+    "time_limit": "UNCERTAIN - assumed none; simulations stop at 548 days and count unresolved as NOT passed"
+  },
+  "data": "Binance SPOT daily OHLC for BTC ETH BNB XRP ADA SOL DOGE AVAX DOT LINK (github.com/finom/static-klines mirror of Binance public data; validated: daily return corr 0.987-0.994 vs Coin Metrics). Proxy for Bybit USDT perps (basis/funding not modelled in base). 2026-05-24..2026-10-08 has never been seen by any test (reported separately, too short to gate).",
+  "engine": "signal s_i at close t (00:00 UTC); w_i = s_i * min(1, 0.40/sigma30_i) / N_t (N_t = coins with >= 200 days history); portfolio scaled by L; earns close t -> close t+1. Intraday worst return of day t+1 = sum_i w_i*(low_i/close_i,t - 1) for longs and w_i*(high_i/close_i,t - 1) for shorts (all worst points assumed simultaneous: conservative). Intraday best analogously (used for the 1-Phase trailing peak, updated BEFORE the low is checked: conservative)",
+  "costs": {"base": "7.5 bp per unit turnover (Bybit taker 5.5 bp + 2 bp slippage); funding/swap 0 (CFT Bybit route)",
+            "stress": "2x costs AND 1 bp per 8h paid by longs/received by shorts"},
+  "strategies (3 trials; cumulative crypto trials 104 + 4 + 3 = 111)": {
+    "E1_BREAKOUT_ENSEMBLE_LO": "mean over n in {5,7,10,14,20}, hold in {1,2,3} of short_breakout(n, hold), long-only (parameter averaging instead of selection; the 5-14 x 1-3 grid was seen in gen26 neighbours - disclosed)",
+    "E2_TREND_BREAKOUT_LO": "0.5 * E1 + 0.5 * mean over n in {14,30,60,90} of tsmom(n), long-only",
+    "E3_TREND_BREAKOUT_LS": "same as E2 with long/short signals (shorts hedge crash days)"
+  },
+  "selection": "the ONE strategy with the highest net Sharpe on 2018-01-01..2022-12-31 is the candidate; the others are reported",
+  "risk_selection": "L set so the candidate's 2018-2022 annualised vol equals v, v in {0.06, 0.08, 0.10, 0.12, 0.15, 0.20}; for each program choose v maximising P_pass on starts 2018-01..2022-12 (every 2 days, 548-day horizon) subject to P_fail_daily <= 0.05",
+  "gates ('APPLICABLE' requires all)": {
+    "G1": "candidate net Sharpe 2023-01-01..2026-10-08 >= 0.8",
+    "G2": "same period with 2x costs + funding stress >= 0.5",
+    "G3": "CFT 2-Phase at the chosen v on starts 2023-01-01..2025-04-08 (full 548-day horizon available): P_pass >= 0.60 AND P_fail_daily <= 0.05",
+    "G4": "max single-day intraday-worst loss at chosen v over 2018-2026 < 5% (no historical daily-loss breach)"
+  },
+  "caveat": "2023-2026 for these coins was previously seen in gen26 (MULTI TEST) with related rules; this is a CONFIRMATION on seen data plus 4.5 fresh months, not a clean holdout. Nothing here is a guarantee.",
+  "single_use": true
+}
