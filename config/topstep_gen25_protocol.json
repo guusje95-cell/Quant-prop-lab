@@ -1,0 +1,64 @@
+{
+ "_written": "2026-10-10, before any computation. Generation 25 (Topstep track).",
+ "P25a_NO_EDGE_BENCHMARK": {
+  "purpose": "pass probability of a strategy with ZERO gross edge under Topstep 50K Combine rules (config/prop_firms_v3.json) at the user's MNQ fee $1.22 RT + 1 tick ($0.50) slippage per side",
+  "model": "daily P&L ~ N(0 - costs, sigma) with intraday worst = min(0, pnl) * 1.3; sigma in {150,250,400,600} USD/day; trades per day 1-4 MNQ-equivalent; 5000 block-bootstrap paths; also a 'bold' variant with fat-tailed +R/-1R trade outcomes",
+  "use": "benchmark: a strategy only has a prop edge if its pass probability exceeds this at the same risk level"
+ },
+ "P25b_US_SESSION_MOMENTUM": {
+  "hypothesis": "In gold, crude and FX futures, the return from the previous day's 15:00 CT close to 09:00 CT (overnight + first US hour) predicts the 09:00-15:00 CT return (continuation).",
+  "rationale": "intraday momentum: late-informed / hedging flows trade in the direction of the early move (Gao, Han, Li & Zhou 2018 equities; Elaut, Froemmel & Lampaert 2018 FX; commodities literature). Never tested in this project on non-equity markets.",
+  "signal": "s = sign(c_0900CT / c_1500CT(prev) - 1) if |that return| > 0.25 * its trailing 60-day std, else no trade",
+  "execution": "enter at open of the 10:00 ET hourly bar (09:00 CT), exit at close of the 15:00 ET bar (15:00 CT); risk-normalised by 20-day std of the 09-15 CT return",
+  "competing": "P25c_US_SESSION_REVERSAL = the opposite sign (fade the early move); both evaluated, Holm across the two",
+  "markets_dev": {
+   "XAUUSD": "GC",
+   "XAGUSD": "SI",
+   "BRENT": "CL",
+   "EURUSD": "6E",
+   "GBPUSD": "6B",
+   "USDJPY": "6J"
+  },
+  "markets_fresh": [
+   "GC",
+   "CL",
+   "6E",
+   "6B",
+   "6J"
+  ],
+  "costs_bp_RT": {
+   "GC": 1.2,
+   "SI": 4.4,
+   "CL": 3.3,
+   "6E": 1.1,
+   "6B": 2.0,
+   "6J": 1.9
+  },
+  "periods": {
+   "DEV": [
+    "2013-06-01",
+    "2018-12-31"
+   ],
+   "VAL": [
+    "2019-01-01",
+    "2020-12-31"
+   ],
+   "TEST": [
+    "2021-01-01",
+    "2023-09-08"
+   ],
+   "FRESH": [
+    "2025-03-21",
+    "2026-04-15"
+   ]
+  },
+  "gates": {
+   "DEV": "pooled net Sharpe >= 0.5 AND >= 4/6 markets positive",
+   "VAL": "pooled net Sharpe >= 0.3",
+   "TEST": "net > 0 at 1x and >= 0 at 2x",
+   "FRESH": "pooled net mean > 0 (TopstepX real futures never used by any strategy)"
+  },
+  "prop": "if FRESH passes: Topstep 50K simulation with micro contracts (MGC, MCL, M6E, M6B; 6J mini) at user fees"
+ },
+ "single_use": true
+}

@@ -1,0 +1,14 @@
+{
+ "_written": "2026-10-10, user-supplied total round-turn fees",
+ "topstep": {
+  "NQ": 3.78,
+  "MNQ": 1.22
+ },
+ "lucid": {
+  "NQ": 3.5,
+  "ES": 3.5,
+  "MNQ": 1.0,
+  "MES": 1.0
+ },
+ "note": "exchange+commission all-in per round turn as supplied by the user; slippage modelled separately (1 tick per side for market/stop orders)"
+}
