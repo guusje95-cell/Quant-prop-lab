@@ -1,0 +1,14 @@
+{
+  "_written": "2026-10-10, AFTER gen28 (E2: strategy gates G1/G2 passed; prop gate failed on P_fail_daily) and gen29 (stress cap: no breaches but almost no passes). BEFORE any gen30 number was computed. NOTE: gen28's TEST prop grid for v in {0.06..0.20} was already printed (seen) - v is still chosen on SEL only.",
+  "rationale": "A hard 'P_fail_daily <= 5%' constraint is not the user's objective; a prop attempt is an option: lose the fee or earn payouts. Choose risk by expected net value per attempt.",
+  "strategy": "E2_TREND_BREAKOUT_LO frozen (src/qpl/strategies/cft_e2.py, no cap), gen28 engine, Binance spot daily OHLC, 7.5 bp/turnover, 0 swap; real daily lows, all simultaneous",
+  "economics (UNCERTAIN, third-party trackers 2026-10)": {"fee_2PHASE": 0.009, "fee_1PHASE": 0.008, "fee_stress": 0.015,
+     "split": 0.80, "payout_processing": 0.05, "payout_cycle": "30 days", "time_limit": "none assumed; 548-day cap, unresolved = no pass"},
+  "EV_per_attempt": "0.95 * E[sum of payouts in the first 12 funded months, fraction of account] - fee (fee not refunded; no reset purchases)",
+  "risk_grid": [0.04, 0.05, 0.06, 0.08, 0.10, 0.12],
+  "selection": "per program, v maximising EV on starts 2018-01-01..2020-12-31 (every 2 days), returns truncated at 2022-12-31",
+  "evaluation": "starts 2023-01-01..2024-06-30 on data to 2026-10-08 (late funded windows truncated by data end: conservative)",
+  "gate 'APPLICABLE' (per program)": "TEST EV at fee_stress > 0 AND TEST P_pass >= 0.50 AND gen28 strategy gates G1/G2 passed (TEST net 1.41, stress 1.15)",
+  "trials": "6 risk levels x 2 programs (risk layer); cumulative crypto alpha trials unchanged at 111 + 4 overlay",
+  "single_use": true
+}
