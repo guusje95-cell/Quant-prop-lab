@@ -1,10 +1,17 @@
 # Quant Prop Lab
 
-An autonomous research engine for systematic futures/FX strategies aimed at passing prop-firm
-evaluations legitimately. It covers pinned data, validation, an event-ordered backtester, a
+An autonomous research engine for systematic futures/FX and (since V4) crypto strategies, aimed at
+passing prop-firm evaluations legitimately or, where that does not fit, a personal-account paper trial. It covers pinned data, validation, an event-ordered backtester, a
 prop-rule simulator, statistics, a permanent experiment database, a paper trader and a report.
 
-**Current status (v3, 2026-10-09): NO-GO.** No strategy qualifies as a paper-trading or prop-evaluation
+**Current status (V4, 2026-10-09): one PAPER-TRADING / PERSONAL-ACCOUNT RESEARCH CANDIDATE, reduced confidence:**
+CT1, a BTC daily trend ensemble (TSMOM 20/60/120 + Donchian 20/55, long/short, vol-targeted). It passed pre-registered
+TRAIN 1.51, VALIDATION 1.28, OOS 2022-23 0.57 and a single protected-holdout look 2024-01..2026-10 at 0.34 (residual vs
+buy & hold 0.30). It also passed on ETH but failed on 21 perps in 2025-26 (-0.02). It is not compatible with the
+intraday-only futures prop firms, and the crypto prop rules (all UNCERTAIN) give low pass odds. The other 12 V4 crypto
+hypotheses were rejected or left exploratory. No prop-evaluation candidate exists. See `reports/v4_research_report.html`.
+
+**Previous status (v3): NO-GO.** No strategy qualifies as a paper-trading or prop-evaluation
 candidate. The v1 candidate (noise-area momentum on Nasdaq futures) failed a pre-registered test on untouched
 real ES/YM/RTY futures 2025-26 (pooled Sharpe -0.92) and is EXPLORATORY. See
 `reports/v3_research_report.html` and the independent audit `reports/audit_v1_report.html`.
@@ -22,7 +29,9 @@ No result here guarantees profit, an evaluation pass or a payout.
 ## Commands
 ```bash
 pip install -r requirements.txt
-bash scripts/run_tests.sh        # 59 tests (engine, prop rules, stats, look-ahead, ledger, clean-room paper parity)
+bash scripts/run_tests.sh        # 75 tests (engine, vector engine, prop rules, stats, look-ahead, ledger, clean-room paper parity)
+bash scripts/run_v4.sh           # all V4 crypto experiments + reports/v4_research_report.html
+python3 scripts/paper_crypto_step.py --bars bars.csv --account spot --start YYYY-MM-DD   # CT1 paper trader (simulation only)
 bash scripts/run_v3.sh           # all v3 experiments (re-runs tagged "repro" in the ledger)
 bash scripts/run_pipeline.sh     # fetch pinned data + every research generation
 bash scripts/reproduce_final.sh  # final candidate analysis + final test
