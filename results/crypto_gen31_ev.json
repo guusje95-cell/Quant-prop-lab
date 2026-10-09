@@ -1,0 +1,625 @@
+{
+ "L_unit": 0.18733683585732758,
+ "grid": {
+  "2PHASE|0.04|SEL": {
+   "n": 548,
+   "P_pass": 0.712,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.288,
+   "median_days_to_pass": 355.5,
+   "p25_p75_days_to_pass": [
+    243.25,
+    453.75
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0601,
+   "EV": 0.0481
+  },
+  "2PHASE|0.04|TEST": {
+   "n": 274,
+   "P_pass": 0.245,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.755,
+   "median_days_to_pass": 449.0,
+   "p25_p75_days_to_pass": [
+    421.0,
+    482.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0043,
+   "EV": -0.0049,
+   "EV_fee_stress": -0.0109
+  },
+  "2PHASE|0.05|SEL": {
+   "n": 548,
+   "P_pass": 0.794,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.206,
+   "median_days_to_pass": 244.0,
+   "p25_p75_days_to_pass": [
+    156.5,
+    369.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0698,
+   "EV": 0.0573
+  },
+  "2PHASE|0.05|TEST": {
+   "n": 274,
+   "P_pass": 0.609,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.391,
+   "median_days_to_pass": 289.0,
+   "p25_p75_days_to_pass": [
+    206.0,
+    374.5
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.012,
+   "EV": 0.0024,
+   "EV_fee_stress": -0.0036
+  },
+  "2PHASE|0.06|SEL": {
+   "n": 548,
+   "P_pass": 1.0,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 276.5,
+   "p25_p75_days_to_pass": [
+    146.75,
+    407.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0917,
+   "EV": 0.0781
+  },
+  "2PHASE|0.06|TEST": {
+   "n": 274,
+   "P_pass": 0.734,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.266,
+   "median_days_to_pass": 295.0,
+   "p25_p75_days_to_pass": [
+    206.0,
+    357.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0255,
+   "EV": 0.0152,
+   "EV_fee_stress": 0.0092
+  },
+  "2PHASE|0.08|SEL": {
+   "n": 548,
+   "P_pass": 1.0,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 234.0,
+   "p25_p75_days_to_pass": [
+    123.5,
+    400.25
+   ],
+   "funded_survive_12m": 0.838,
+   "E_payout_frac_12m_per_attempt": 0.1465,
+   "EV": 0.1302
+  },
+  "2PHASE|0.08|TEST": {
+   "n": 274,
+   "P_pass": 0.774,
+   "P_fail_daily": 0.004,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.223,
+   "median_days_to_pass": 225.0,
+   "p25_p75_days_to_pass": [
+    119.5,
+    320.5
+   ],
+   "funded_survive_12m": 0.363,
+   "E_payout_frac_12m_per_attempt": 0.0125,
+   "EV": 0.0029,
+   "EV_fee_stress": -0.0031
+  },
+  "2PHASE|0.1|SEL": {
+   "n": 548,
+   "P_pass": 0.701,
+   "P_fail_daily": 0.299,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 254.0,
+   "p25_p75_days_to_pass": [
+    77.5,
+    350.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0298,
+   "EV": 0.0193
+  },
+  "2PHASE|0.1|TEST": {
+   "n": 274,
+   "P_pass": 0.912,
+   "P_fail_daily": 0.047,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.04,
+   "median_days_to_pass": 255.0,
+   "p25_p75_days_to_pass": [
+    130.5,
+    368.75
+   ],
+   "funded_survive_12m": 0.192,
+   "E_payout_frac_12m_per_attempt": 0.0016,
+   "EV": -0.0075,
+   "EV_fee_stress": -0.0135
+  },
+  "2PHASE|0.12|SEL": {
+   "n": 548,
+   "P_pass": 0.571,
+   "P_fail_daily": 0.429,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 98.0,
+   "p25_p75_days_to_pass": [
+    44.0,
+    239.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0031,
+   "EV": -0.0061
+  },
+  "2PHASE|0.12|TEST": {
+   "n": 274,
+   "P_pass": 0.956,
+   "P_fail_daily": 0.036,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.007,
+   "median_days_to_pass": 208.0,
+   "p25_p75_days_to_pass": [
+    94.25,
+    378.5
+   ],
+   "funded_survive_12m": 0.008,
+   "E_payout_frac_12m_per_attempt": 0.0514,
+   "EV": 0.0398,
+   "EV_fee_stress": 0.0338
+  },
+  "1PHASE|0.04|SEL": {
+   "n": 548,
+   "P_pass": 1.0,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 287.0,
+   "p25_p75_days_to_pass": [
+    158.75,
+    412.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0609,
+   "EV": 0.0499
+  },
+  "1PHASE|0.04|TEST": {
+   "n": 274,
+   "P_pass": 0.675,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.325,
+   "median_days_to_pass": 301.0,
+   "p25_p75_days_to_pass": [
+    206.0,
+    359.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.014,
+   "EV": 0.0053,
+   "EV_fee_stress": -0.0017
+  },
+  "1PHASE|0.05|SEL": {
+   "n": 548,
+   "P_pass": 1.0,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 263.5,
+   "p25_p75_days_to_pass": [
+    127.0,
+    403.25
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.088,
+   "EV": 0.0756
+  },
+  "1PHASE|0.05|TEST": {
+   "n": 274,
+   "P_pass": 0.774,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.226,
+   "median_days_to_pass": 258.0,
+   "p25_p75_days_to_pass": [
+    151.5,
+    335.25
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.0289,
+   "EV": 0.0195,
+   "EV_fee_stress": 0.0125
+  },
+  "1PHASE|0.06|SEL": {
+   "n": 548,
+   "P_pass": 1.0,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 224.0,
+   "p25_p75_days_to_pass": [
+    121.5,
+    336.0
+   ],
+   "funded_survive_12m": 1.0,
+   "E_payout_frac_12m_per_attempt": 0.1134,
+   "EV": 0.0997
+  },
+  "1PHASE|0.06|TEST": {
+   "n": 274,
+   "P_pass": 0.781,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.219,
+   "median_days_to_pass": 221.5,
+   "p25_p75_days_to_pass": [
+    118.5,
+    322.5
+   ],
+   "funded_survive_12m": 0.991,
+   "E_payout_frac_12m_per_attempt": 0.047,
+   "EV": 0.0366,
+   "EV_fee_stress": 0.0296
+  },
+  "1PHASE|0.08|SEL": {
+   "n": 548,
+   "P_pass": 0.792,
+   "P_fail_daily": 0.091,
+   "P_fail_max": 0.117,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 151.0,
+   "p25_p75_days_to_pass": [
+    61.0,
+    274.75
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0299,
+   "EV": 0.0204
+  },
+  "1PHASE|0.08|TEST": {
+   "n": 274,
+   "P_pass": 0.748,
+   "P_fail_daily": 0.033,
+   "P_fail_max": 0.219,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 123.0,
+   "p25_p75_days_to_pass": [
+    80.0,
+    296.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0213,
+   "EV": 0.0122,
+   "EV_fee_stress": 0.0052
+  },
+  "1PHASE|0.1|SEL": {
+   "n": 548,
+   "P_pass": 0.573,
+   "P_fail_daily": 0.224,
+   "P_fail_max": 0.203,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 92.0,
+   "p25_p75_days_to_pass": [
+    33.25,
+    235.5
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0059,
+   "EV": -0.0024
+  },
+  "1PHASE|0.1|TEST": {
+   "n": 274,
+   "P_pass": 0.734,
+   "P_fail_daily": 0.015,
+   "P_fail_max": 0.252,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 109.0,
+   "p25_p75_days_to_pass": [
+    62.0,
+    206.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0358,
+   "EV": 0.026,
+   "EV_fee_stress": 0.019
+  },
+  "1PHASE|0.12|SEL": {
+   "n": 548,
+   "P_pass": 0.54,
+   "P_fail_daily": 0.192,
+   "P_fail_max": 0.268,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 60.5,
+   "p25_p75_days_to_pass": [
+    27.0,
+    159.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0004,
+   "EV": -0.0076
+  },
+  "1PHASE|0.12|TEST": {
+   "n": 274,
+   "P_pass": 0.412,
+   "P_fail_daily": 0.12,
+   "P_fail_max": 0.467,
+   "P_unresolved": 0.0,
+   "median_days_to_pass": 53.0,
+   "p25_p75_days_to_pass": [
+    29.0,
+    188.0
+   ],
+   "funded_survive_12m": 0.0,
+   "E_payout_frac_12m_per_attempt": 0.0041,
+   "EV": -0.0041,
+   "EV_fee_stress": -0.0111
+  }
+ },
+ "chosen": {
+  "2PHASE": 0.08,
+  "1PHASE": 0.06
+ },
+ "results": {
+  "2PHASE": {
+   "v": 0.08,
+   "L": 0.427,
+   "SEL_prop": {
+    "n": 548,
+    "P_pass": 1.0,
+    "P_fail_daily": 0.0,
+    "P_fail_max": 0.0,
+    "P_unresolved": 0.0,
+    "median_days_to_pass": 234.0,
+    "p25_p75_days_to_pass": [
+     123.5,
+     400.25
+    ],
+    "funded_survive_12m": 0.838,
+    "E_payout_frac_12m_per_attempt": 0.1465,
+    "EV": 0.1302
+   },
+   "TEST_prop": {
+    "n": 274,
+    "P_pass": 0.774,
+    "P_fail_daily": 0.004,
+    "P_fail_max": 0.0,
+    "P_unresolved": 0.223,
+    "median_days_to_pass": 225.0,
+    "p25_p75_days_to_pass": [
+     119.5,
+     320.5
+    ],
+    "funded_survive_12m": 0.363,
+    "E_payout_frac_12m_per_attempt": 0.0125,
+    "EV": 0.0029,
+    "EV_fee_stress": -0.0031
+   },
+   "strategy_ALL_2018_2026": {
+    "net_sharpe": 1.357,
+    "gross_sharpe": 1.458,
+    "cagr": 0.1098,
+    "ann_vol": 0.0791,
+    "max_dd": -0.089,
+    "worst_intraday_day": -0.0495,
+    "pf_days": 1.352,
+    "avg_gross_exposure": 0.087,
+    "max_gross_exposure": 0.427,
+    "turnover_per_yr": 10.66
+   },
+   "strategy_TEST": {
+    "net_sharpe": 1.237,
+    "gross_sharpe": 1.369,
+    "cagr": 0.0978,
+    "ann_vol": 0.0779,
+    "max_dd": -0.0777,
+    "worst_intraday_day": -0.0481,
+    "pf_days": 1.296,
+    "avg_gross_exposure": 0.112,
+    "max_gross_exposure": 0.427,
+    "turnover_per_yr": 13.66
+   },
+   "strategy_FRESH": {
+    "net_sharpe": 1.675,
+    "gross_sharpe": 1.793,
+    "cagr": 0.1441,
+    "ann_vol": 0.0824,
+    "max_dd": -0.0179,
+    "worst_intraday_day": -0.012,
+    "pf_days": 1.547,
+    "avg_gross_exposure": 0.103,
+    "max_gross_exposure": 0.388,
+    "turnover_per_yr": 13.05
+   },
+   "by_year_return": {
+    "2018": -0.0384,
+    "2019": 0.2174,
+    "2020": 0.3383,
+    "2021": 0.1887,
+    "2022": -0.0577,
+    "2023": 0.1519,
+    "2024": 0.1657,
+    "2025": 0.029,
+    "2026": 0.029
+   },
+   "worst_days": {
+    "2021-09-07": -0.0495,
+    "2024-03-05": -0.0481,
+    "2019-06-27": -0.0441,
+    "2020-08-02": -0.0427,
+    "2019-02-24": -0.0389,
+    "2021-01-11": -0.0342
+   },
+   "gates": {
+    "G1G2": true,
+    "G3": false,
+    "G4": true
+   },
+   "APPLICABLE": false
+  },
+  "1PHASE": {
+   "v": 0.06,
+   "L": 0.3203,
+   "SEL_prop": {
+    "n": 548,
+    "P_pass": 1.0,
+    "P_fail_daily": 0.0,
+    "P_fail_max": 0.0,
+    "P_unresolved": 0.0,
+    "median_days_to_pass": 224.0,
+    "p25_p75_days_to_pass": [
+     121.5,
+     336.0
+    ],
+    "funded_survive_12m": 1.0,
+    "E_payout_frac_12m_per_attempt": 0.1134,
+    "EV": 0.0997
+   },
+   "TEST_prop": {
+    "n": 274,
+    "P_pass": 0.781,
+    "P_fail_daily": 0.0,
+    "P_fail_max": 0.0,
+    "P_unresolved": 0.219,
+    "median_days_to_pass": 221.5,
+    "p25_p75_days_to_pass": [
+     118.5,
+     322.5
+    ],
+    "funded_survive_12m": 0.991,
+    "E_payout_frac_12m_per_attempt": 0.047,
+    "EV": 0.0366,
+    "EV_fee_stress": 0.0296
+   },
+   "strategy_ALL_2018_2026": {
+    "net_sharpe": 1.357,
+    "gross_sharpe": 1.458,
+    "cagr": 0.0819,
+    "ann_vol": 0.0593,
+    "max_dd": -0.0674,
+    "worst_intraday_day": -0.0371,
+    "pf_days": 1.352,
+    "avg_gross_exposure": 0.065,
+    "max_gross_exposure": 0.32,
+    "turnover_per_yr": 8.0
+   },
+   "strategy_TEST": {
+    "net_sharpe": 1.237,
+    "gross_sharpe": 1.369,
+    "cagr": 0.0731,
+    "ann_vol": 0.0584,
+    "max_dd": -0.0587,
+    "worst_intraday_day": -0.0361,
+    "pf_days": 1.296,
+    "avg_gross_exposure": 0.084,
+    "max_gross_exposure": 0.32,
+    "turnover_per_yr": 10.24
+   },
+   "strategy_FRESH": {
+    "net_sharpe": 1.675,
+    "gross_sharpe": 1.793,
+    "cagr": 0.1069,
+    "ann_vol": 0.0618,
+    "max_dd": -0.0134,
+    "worst_intraday_day": -0.009,
+    "pf_days": 1.547,
+    "avg_gross_exposure": 0.078,
+    "max_gross_exposure": 0.291,
+    "turnover_per_yr": 9.78
+   },
+   "by_year_return": {
+    "2018": -0.0289,
+    "2019": 0.1602,
+    "2020": 0.2455,
+    "2021": 0.1393,
+    "2022": -0.0435,
+    "2023": 0.1127,
+    "2024": 0.1227,
+    "2025": 0.0221,
+    "2026": 0.022
+   },
+   "worst_days": {
+    "2021-09-07": -0.0371,
+    "2024-03-05": -0.0361,
+    "2019-06-27": -0.033,
+    "2020-08-02": -0.032,
+    "2019-02-24": -0.0292,
+    "2021-01-11": -0.0256
+   },
+   "gates": {
+    "G1G2": true,
+    "G3": true,
+    "G4": true
+   },
+   "APPLICABLE": true
+  }
+ },
+ "strategy_unit": {
+  "SEL": {
+   "net_sharpe": 1.445,
+   "gross_sharpe": 1.523,
+   "cagr": 0.2882,
+   "ann_vol": 0.1873,
+   "max_dd": -0.1979,
+   "worst_intraday_day": -0.1159,
+   "pf_days": 1.399,
+   "avg_gross_exposure": 0.158,
+   "max_gross_exposure": 0.916,
+   "turnover_per_yr": 19.68
+  },
+  "TEST": {
+   "net_sharpe": 1.237,
+   "gross_sharpe": 1.369,
+   "cagr": 0.2326,
+   "ann_vol": 0.1823,
+   "max_dd": -0.1751,
+   "worst_intraday_day": -0.1126,
+   "pf_days": 1.296,
+   "avg_gross_exposure": 0.263,
+   "max_gross_exposure": 1.0,
+   "turnover_per_yr": 31.99
+  },
+  "FRESH": {
+   "net_sharpe": 1.675,
+   "gross_sharpe": 1.793,
+   "cagr": 0.3567,
+   "ann_vol": 0.1929,
+   "max_dd": -0.0416,
+   "worst_intraday_day": -0.0281,
+   "pf_days": 1.547,
+   "avg_gross_exposure": 0.242,
+   "max_gross_exposure": 0.908,
+   "turnover_per_yr": 30.55
+  },
+  "TEST_stress": 0.949,
+  "by_year": {
+   "2018": -1.36,
+   "2019": 1.96,
+   "2020": 2.86,
+   "2021": 1.93,
+   "2022": -1.66,
+   "2023": 1.63,
+   "2024": 1.76,
+   "2025": 0.5,
+   "2026": 0.6
+  }
+ }
+}

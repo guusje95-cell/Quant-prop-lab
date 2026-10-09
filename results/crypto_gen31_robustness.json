@@ -1,0 +1,98 @@
+{
+ "1PHASE": {
+  "TEST_prop_stress_costs": {
+   "P_pass": 0.609,
+   "P_fail_daily": 0.0,
+   "P_fail_max": 0.164,
+   "P_unresolved": 0.226,
+   "E_payout_frac_12m_per_attempt": 0.0237
+  },
+  "delay_1d_TEST_sharpe": 1.052,
+  "delay_1d_ALL_sharpe": 1.201,
+  "delay_1d_TEST_prop": {
+   "P_pass": 0.635,
+   "P_fail_daily": 0.139,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.226,
+   "E_payout_frac_12m_per_attempt": 0.0246
+  },
+  "ALL_starts_2018_2024": {
+   "n": 1187,
+   "P_pass": 0.703,
+   "P_fail_daily": 0.02,
+   "P_fail_max": 0.08,
+   "P_unresolved": 0.197,
+   "median_days_to_pass": 242.0,
+   "E_payout_frac_12m_per_attempt": 0.0689
+  },
+  "ALL_starts_EV": 0.0575,
+  "bootstrap_2000": {
+   "P_pass": 0.62,
+   "P_fail_daily": 0.011,
+   "P_fail_max": 0.182,
+   "P_unresolved": 0.186,
+   "median_days_to_pass": 246.0,
+   "p25_p75_days_to_pass": [
+    150.0,
+    360.0
+   ],
+   "funded_survive_12m": 0.868,
+   "E_payout_frac_12m_per_attempt": 0.0492
+  },
+  "bootstrap_EV": 0.0387,
+  "PSR_vs0_2018_2026": 1.0,
+  "DSR_N112_var1overT": 0.9347,
+  "NW_t": [
+   3.396,
+   0.0
+  ]
+ },
+ "2PHASE": {
+  "TEST_prop_stress_costs": {
+   "P_pass": 0.77,
+   "P_fail_daily": 0.004,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.226,
+   "E_payout_frac_12m_per_attempt": 0.0147
+  },
+  "delay_1d_TEST_sharpe": 1.052,
+  "delay_1d_ALL_sharpe": 1.201,
+  "delay_1d_TEST_prop": {
+   "P_pass": 0.624,
+   "P_fail_daily": 0.161,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.215,
+   "E_payout_frac_12m_per_attempt": 0.001
+  },
+  "ALL_starts_2018_2024": {
+   "n": 1187,
+   "P_pass": 0.701,
+   "P_fail_daily": 0.082,
+   "P_fail_max": 0.0,
+   "P_unresolved": 0.217,
+   "median_days_to_pass": 250.0,
+   "E_payout_frac_12m_per_attempt": 0.0757
+  },
+  "ALL_starts_EV": 0.0629,
+  "bootstrap_2000": {
+   "P_pass": 0.608,
+   "P_fail_daily": 0.086,
+   "P_fail_max": 0.021,
+   "P_unresolved": 0.285,
+   "median_days_to_pass": 270.0,
+   "p25_p75_days_to_pass": [
+    163.0,
+    392.0
+   ],
+   "funded_survive_12m": 0.855,
+   "E_payout_frac_12m_per_attempt": 0.0591
+  },
+  "bootstrap_EV": 0.0471,
+  "PSR_vs0_2018_2026": 1.0,
+  "DSR_N112_var1overT": 0.9347,
+  "NW_t": [
+   3.396,
+   0.0
+  ]
+ }
+}
