@@ -1,0 +1,27 @@
+{
+  "_written": "2026-10-09, V4 start. Classifies every dataset/period by how it has ALREADY influenced research (continuity map). Classes: USED (influenced selection), EXPLORATORY, VALIDATION, OOS, PROTECTED_HOLDOUT (single use, pre-registered), PROSPECTIVE (future paper data).",
+  "futures_fx_cfd": {
+    "dukascopy_index_cfd_2013_2018": {"class": "USED", "by": "v1 gen1-6, v3 gen7-9 TRAIN screens"},
+    "dukascopy_index_cfd_2019_2020": {"class": "USED", "by": "v1/v3 VALIDATION selection"},
+    "dukascopy_index_cfd_2021_2023_09": {"class": "USED", "by": "v1 H3/H4 OOS looks; v3 filters/portfolios (semi-independent at best)"},
+    "dukascopy_fx_gold_2007_2014": {"class": "USED", "by": "v3 V11 pre-sample check (single look)"},
+    "dukascopy_fx_gold_2015_2023": {"class": "USED", "by": "v1 H6/H9/H10, v3 V11/V12"},
+    "topstepx_NQ_MNQ_2025_03_2026_04": {"class": "USED", "by": "v1 H3 final test; v3 sizing/decay diagnostics"},
+    "topstepx_ES_YM_RTY_2025_03_2026_04": {"class": "USED", "by": "v3 H3 cross-market holdout (single use, failed)"},
+    "topstepx_GC_SI_CL_6E_6B_6J": {"class": "UNUSED by strategies (structural checks only); short and partly thin back-month contracts"},
+    "conclusion": "No clean historical holdout remains for futures/FX/CFD hypotheses. New confirmation can only come from new data or prospective paper trading."
+  },
+  "crypto": {
+    "bitstamp_btcusd_2012_2014": {"class": "EXCLUDED", "why": "illiquid (24-95% zero-volume minutes)"},
+    "bitstamp_btcusd_2015_2019": {"class": "TRAIN"},
+    "bitstamp_btcusd_2020_2021": {"class": "VALIDATION"},
+    "bitstamp_btcusd_2022_2023": {"class": "OOS (single look per frozen candidate)"},
+    "bitstamp_btcusd_2024_01_01_to_2026_10_09": {"class": "PROTECTED_HOLDOUT",
+        "caveat": "data-untouched in this project, but NOT knowledge-untouched: the researcher has general background knowledge of the BTC price path up to its training cutoff (e.g. the 2024 bull market). Directional strategies are therefore judged with symmetric long/short and beta controls."},
+    "binance_funding_BTC_ETH_2020_2021": {"class": "TRAIN/VALIDATION for funding hypotheses"},
+    "binance_funding_BTC_ETH_2022_2023": {"class": "OOS"},
+    "binance_perp_funding_mark_8h_2025_08_2026_09 (22 USDT perps)": {"class": "PROTECTED_HOLDOUT"},
+    "hyperliquid_funding_2025_08_2026_10": {"class": "PROTECTED_HOLDOUT (no prices)"},
+    "mirror_alt_spot_2018_2023": {"class": "EXPLORATORY ONLY", "why": "undocumented venue and survivorship bias (only coins alive in 2023)"}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_doc": "V4 additions (crypto). Exchange APIs (Binance, Bybit, OKX, Kraken, Coinbase, Deribit, Hyperliquid, CoinGecko, data.binance.vision) are all blocked by the environment's network policy (checked 2026-10-09); only GitHub/PyPI are reachable. All sources pinned to commits.",
+  "bitstamp_btcusd_1m": {
+    "repo": "https://github.com/ff137/bitstamp-btcusd-minute-data", "commit": "edbab5657de47107d6eb032de97a586cbb8efd2e",
+    "type": "REAL EXCHANGE SPOT (Bitstamp BTC/USD trades aggregated to 1-minute OHLCV)",
+    "coverage": "2012-01-01 -> 2026-10-09 (1-minute)", "timezone": "UTC, timestamp = bar open",
+    "license": "CC BY-SA 4.0 for rows <= 2025-01-07 (attribution: Zielak (mczielinski), Bitcoin Historical Data, Kaggle); repository terms for API-collected rows after",
+    "files": ["data/historical/btcusd_bitstamp_1min_2012-2025.csv.gz", "data/updates/btcusd_bitstamp_1min_latest.csv"],
+    "limitations": "single venue; no bid/ask; minutes without trades carry the last price with zero volume; known community gaps in early years"
+  },
+  "dukascopy_mirror_crypto": {
+    "repo": "https://github.com/TheSnowGuru/Stocks-Futures-Financial-Time-series-Tick-Bar-Data", "commit": "5fa48d39fd20858d6591db25e6eeee5de45ce6fd",
+    "type": "UNKNOWN VENUE (USDT pairs look like Binance spot; BTCUSD/ETHUSD rows look like a CFD/aggregator feed)", "coverage": "2017/2020 -> 2023-09-11 (H1/H4/D1)",
+    "limitations": "provenance undocumented; survivorship: only coins still listed in 2023; treated as EXPLORATORY-grade data only"
+  },
+  "binance_funding_2020_2024": {
+    "repo": "https://github.com/supervik/historical-funding-rates-fetcher", "commit": "66a085bc68147df2dd3360a25ac6e9f38e7077b5",
+    "type": "REAL EXCHANGE funding settlements (Binance/Bybit/others, BTC-USDT & ETH-USDT perps)", "coverage": "2020-01 -> 2024-01-01 (8h)",
+    "timezone": "file stamps are UTC+3 (settlements at 03/11/19); converted to UTC 00/08/16 by the loader (asserted)",
+    "limitations": "no prices in file"
+  },
+  "multi_venue_funding_2025_2026": {
+    "repo": "https://github.com/ZuShen168/funding_rate_data", "commit": "75c4a7351e20d0798a50e4ad52ec60327913d551",
+    "type": "REAL EXCHANGE funding settlements with mark price (Binance/Bybit 8h; Hyperliquid hourly)", "coverage": "2025-08-21 -> 2026-09-20 (Binance/Bybit), 2026-10-08 (Hyperliquid)",
+    "limitations": "mark price only at settlement times; fee config in the repo is a placeholder"
+  }
+}

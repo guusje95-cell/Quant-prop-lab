@@ -1,0 +1,72 @@
+{
+ "bitstamp_btcusd_1m": {
+  "rows": 7768988,
+  "start": "2012-01-01 00:01:00+00:00",
+  "end": "2026-10-09 03:08:00+00:00",
+  "duplicates": 0,
+  "monotonic": true,
+  "ohlc_violations": 0,
+  "nonpositive": 0,
+  "negative_volume": 0,
+  "missing_minutes_total": 0,
+  "gaps_over_60min": 0,
+  "largest_gaps_min": [],
+  "zero_volume_minute_share_by_year": {
+   "2012": 0.949,
+   "2013": 0.392,
+   "2014": 0.242,
+   "2015": 0.291,
+   "2016": 0.332,
+   "2017": 0.08,
+   "2018": 0.038,
+   "2019": 0.033,
+   "2020": 0.015,
+   "2021": 0.007,
+   "2022": 0.027,
+   "2023": 0.039,
+   "2024": 0.033,
+   "2025": 0.011,
+   "2026": 0.004
+  },
+  "abs_1m_logret_gt_10pct": 96
+ },
+ "binance_funding_BTC": {
+  "rows": 4383,
+  "start": "2020-01-01 00:00:00+00:00",
+  "end": "2023-12-31 16:00:00+00:00",
+  "mean_8h": 0.00013661596851471594,
+  "share_positive": 0.8653890029660051,
+  "max": 0.003,
+  "min": -0.003
+ },
+ "binance_funding_ETH": {
+  "rows": 4383,
+  "start": "2020-01-01 00:00:00+00:00",
+  "end": "2023-12-31 16:00:00+00:00",
+  "mean_8h": 0.00016900290896646134,
+  "share_positive": 0.8749714807209674,
+  "max": 0.00375,
+  "min": -0.00356332
+ },
+ "funding_recent_binance": {
+  "rows": 47125,
+  "symbols": 36,
+  "start": "2025-08-21 08:00:00+00:00",
+  "end": "2026-09-20 00:00:00+00:00",
+  "has_mark_price_share": 1.0
+ },
+ "funding_recent_bybit": {
+  "rows": 54241,
+  "symbols": 51,
+  "start": "2025-08-21 08:00:00+00:00",
+  "end": "2026-09-20 00:00:00+00:00",
+  "has_mark_price_share": 0.0
+ },
+ "funding_recent_hyperliquid": {
+  "rows": 169219,
+  "symbols": 18,
+  "start": "2025-08-21 05:00:00.055000+00:00",
+  "end": "2026-10-08 08:00:00.038000+00:00",
+  "has_mark_price_share": 0.0
+ }
+}
