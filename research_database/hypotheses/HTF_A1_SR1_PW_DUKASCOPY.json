@@ -1,0 +1,13 @@
+{
+ "id": "HTF_A1_SR1_PW_DUKASCOPY",
+ "family": "HTF liquidity levels",
+ "statement": "sweep and reclaim in one bar: high > L + delta and close < L (short at prior high); mirror at prior low (long). Stop = bar extreme +/- 0.05*ATRd.",
+ "mechanism": "stop-run/liquidity (A1/A3) or breakout continuation (A2) at HTF levels",
+ "falsification": "pooled net Sharpe >= 0.5 AND net expectancy > 0 AND >= 60% of instruments with positive net expectancy",
+ "data_required": "dukascopy",
+ "params_tested": "[\"hold3\", \"hold12\", \"tgt1.5R_hold12\"]",
+ "baseline": "zero (no position)",
+ "promotion": "config/htf_protocol.json",
+ "sources": [],
+ "generation": 19
+}

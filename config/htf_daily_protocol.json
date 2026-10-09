@@ -1,0 +1,14 @@
+{
+  "_written": "2026-10-10, after gen19 (1h) was rejected because costs (~0.1R/trade on tight 1h stops) exceeded a small gross edge (+0.06R). NEW generation gen20: same event definitions on DAILY bars with weekly/monthly levels, where risk per trade is large relative to spread. No daily-bar HTF result had been computed before this was written.",
+  "bars": "daily OHLC (Dukascopy D1, Bitstamp 1D); signal on the completed daily bar; entry at next day's open",
+  "levels": {"PW": "previous trading week high/low", "PM": "previous calendar month high/low"},
+  "strategies": "A1_SR1, A3_SR3 (reclaim within 3 bars), A2_BO exactly as config/htf_protocol.json, with ATRd = 20-day ATR from completed days",
+  "exits_primary": "stop (stop-first, gap fills at open) or time exit at the open 5 bars after entry",
+  "exit_neighbours": "hold 2, 10 bars; 1.5R target + 10-bar time exit",
+  "costs": "same round-trip price-unit costs as gen19; stress 2x",
+  "datasets_and_periods": {"DUKASCOPY_D1 (same 13 instruments)": {"DEV": ["2008-01-01", "2016-12-31"], "VAL": ["2017-01-01", "2020-12-31"], "TEST": ["2021-01-01", "2023-09-08"]},
+                           "BITSTAMP_BTC_1D": {"DEV": ["2015-01-01", "2019-12-31"], "VAL": ["2020-01-01", "2021-12-31"], "TEST": ["2022-01-01", "2026-10-08"]},
+                           "TOPSTEPX_DAILY": {"FRESH_HOLDOUT": ["2025-03-21", "2026-04-15"], "note": "only ~13 months: low power, reported but expectancy > 0 required"}},
+  "gates": "identical to config/htf_protocol.json (DEV Sharpe >= 0.5 & expectancy > 0 & >= 60% instruments positive; VAL Sharpe >= 0.3; TEST single look > 0 at 1x and >= 0 at 2x; FRESH expectancy > 0)",
+  "single_use": true
+}
