@@ -30,9 +30,11 @@ Done:
 
 Open questions / incomplete:
 1. **No prospective data.** The futures paper book needs user-supplied pysystemtrade-format data after 2024-03. Nothing can be fetched here.
-2. G15-SMALL (a small-account micro-contract universe) is not yet designed.
-3. Weekly continuation in alts (gen16 by-product) is logged only.
+2. G15-SMALL was done as gen17: $100k passes the gate but is noise-dominated (K = 5); $250k is REJECTED. Not recommended.
+3. Weekly continuation in alts was done as gen18: VALIDATION 0.53, TEST 0.01 → EXPLORATORY. Crypto XS is closed until survivorship-free data exists.
 4. CT1-LF (long/flat) is registered for the prospective trial only.
+5. 50-year decay study done: the trend+carry premium fell from ~1.5 to ~0.8 Sharpe after 2010 (slope −0.21/decade, t = −2.9).
+6. V6 report: reports/v6_research_report.html (published artifact).
 
 ## Highest-value next experiments (ranked by information gain ÷ cost)
 1. **Prospective F9 paper book (needs user data).** Each trading day after updating the data directory:
@@ -44,13 +46,22 @@ Open questions / incomplete:
    ```bash
    python scripts/paper_crypto_step.py --bars <daily csv> --account spot --start <date>
    ```
-3. **G15-SMALL design.** Choose about 12–20 micro/mini contracts by *non-performance* criteria: one per major underlying cluster, cost/vol ≤ 0.01, notional ≤ 5% of capital. Then evaluate on DISCOVERY+VALIDATION only, under a new pre-registered protocol, for $100k–$250k accounts. This is the only route for a smaller personal account.
+3. ~~G15-SMALL design~~ (done, gen17). Remaining small-account option: the divisible crypto CT1 sleeve. Choose about 12–20 micro/mini contracts by *non-performance* criteria: one per major underlying cluster, cost/vol ≤ 0.01, notional ≤ 5% of capital. Then evaluate on DISCOVERY+VALIDATION only, under a new pre-registered protocol, for $100k–$250k accounts. This is the only route for a smaller personal account.
 4. **Data acquisition** (`v6/V6_DATA_CATALOG.md` backlog). Binance public data with delisted symbols would unlock spot–perp basis, executable perp prices and a survivorship-free alt universe.
 5. **Cost realism.** If any real fill data becomes available, calibrate slippage per instrument and re-run gen13/14 at measured costs. The edge is cost-sensitive (3× ≈ break-even in VALIDATION without buffering).
 6. **Lower-priority research** that is still clean on available data:
    * futures carry *term-structure shape* (carry slope across contracts beyond the next one; needs per-contract data, not in the repo);
    * trend signal decay study across 50 years (structural-break test on the trend premium);
    * crypto weekly continuation with turnover control on Coin Metrics VALIDATION (2021–22), under a new protocol.
+
+## Stopping point (2026-10-09)
+Every remaining high-value experiment needs data or time this environment cannot provide:
+* prospective or post-2024 futures data;
+* Binance public data including delisted symbols;
+* order books, options and macro events;
+* measured fills.
+
+Resume by supplying any of these, or start the paper books.
 
 ## Do not repeat
 * Regime/timing filters on trend or carry: rejected 3× across asset classes.

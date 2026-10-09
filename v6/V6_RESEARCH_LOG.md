@@ -172,3 +172,12 @@ TSMOM by asset class and decade: FX trend collapsed (1.42 → 0.22 → −0.17);
   * TEST (single look): net **0.01** at 30 bp, −0.25 at 60 bp → **EXPLORATORY**.
   * For information, the same rule's TRAIN 2017–20 is −0.56.
 * **Learning:** the alt cross-sectional continuation effect flips sign across periods and is very sensitive to rebalance frequency. That is no edge after costs. Crypto cross-sectional research on this curated universe is closed until a survivorship-free, executable dataset exists (data backlog #2).
+
+## 2026-10-09 · Entry 13 — Stopping point for this session
+The research queue reachable with GitHub/PyPI-only data has been worked through. What remains needs one of:
+1. prospective or post-2024 futures data for the F9 paper book;
+2. Binance public data (survivorship-free universe, perp basis, executable prices);
+3. order-book, options or macro-event data;
+4. measured fills for cost calibration.
+
+The repository is clean and resumable (`v6/V6_NEXT_ACTIONS.md`). Report: `reports/v6_research_report.html`.
