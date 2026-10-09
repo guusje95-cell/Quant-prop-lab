@@ -1,0 +1,22 @@
+{
+  "_written": "2026-10-09. Official firm websites are NOT reachable from this environment (DNS blocked for ftmo.com, topstep.com, etc.). Every rule below is from search-result snippets or third-party/vendor pages => status UNCERTAIN. No rule is VERIFIED. Re-check on the official rulebook before any purchase (purchases are out of scope for this project).",
+  "firms": {
+    "Topstep (futures)": {"crypto_products": "CME Micro Bitcoin (MBT) and Micro Ether (MET) listed as permitted", "status": "UNCERTAIN",
+       "holding": "must be flat by 3:10 PM CT each trading day; no overnight/weekend holding", "status_holding": "UNCERTAIN (consistent with v3 rule audit)",
+       "sources": ["https://help.topstepbrokerage.com/en/articles/15033698-what-products-does-topstep-brokerage-permit", "https://topstepbrokerage.com/blog/new-permitted-products-offered-at-topstep"],
+       "CT1_compatibility": "INCOMPATIBLE - CT1 holds multi-day positions incl. weekends"},
+    "FTMO (CFD)": {"crypto_products": "crypto CFDs (symbol list not verified)", "status": "UNCERTAIN",
+       "account_types": "Standard: funded accounts must close before weekend/long breaks; Swing (2-Step only, ~1:30 leverage): overnight and weekend holding allowed",
+       "limits": "max daily loss 5%, max loss 10%, targets 10% / 5% (from v3 audit; UNCERTAIN)", "costs": "crypto CFD swap/financing rates NOT known - stress-tested at 10% and 20% p.a.",
+       "sources": ["https://tradingfunder.com/ftmo-rules/", "https://www.luxalgo.com/prop-firms/ftmo/"],
+       "CT1_compatibility": "STRUCTURALLY POSSIBLE on Swing account only (weekend holding); economics depend on unknown CFD financing"},
+    "HyroTrader (crypto perps)": {"limits": "4% daily, 6% max loss (vendor-published comparison)", "status": "UNCERTAIN", "other": "3% max loss per trade rule reported; bots allowed via API (vendor claim)",
+       "sources": ["https://www.hyrotrader.com/es/blog/hyrotrader-vs-breakout/", "https://fundedtrading.com/propfirm/hyrotrader/"],
+       "CT1_compatibility": "STRUCTURALLY POSSIBLE (weekend holding reported allowed); 6% max loss forces very small size"},
+    "Breakout (crypto, Kraken-owned)": {"limits": "static drawdown 6%/5%/3% by model, 3% daily loss (vendor-competitor page)", "status": "UNCERTAIN",
+       "transparency": "own disclosures reportedly say funded orders may not reach an exchange (simulated)",
+       "sources": ["https://www.hyrotrader.com/es/blog/hyrotrader-vs-breakout/", "https://cryptoslate.com/prop-firms/breakout-review/"],
+       "CT1_compatibility": "STRUCTURALLY POSSIBLE; tight static drawdown forces very small size"}
+  },
+  "policy": "Crypto is NOT assumed allowed at any futures prop firm; a firm is considered only for the products and holding rules listed, and all are UNCERTAIN."
+}

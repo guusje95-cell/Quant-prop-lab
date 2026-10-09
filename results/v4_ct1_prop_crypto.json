@@ -1,0 +1,229 @@
+{
+ "note": "CT1 vs generic crypto-allowed evaluation rules (UNCERTAIN parameters, config/prop_firms_v4_crypto.json).\nBootstrap of post-development CT1 daily returns (2022-2026, realized labels). Daily loss checked on close-to-close\ndaily P&L only (intraday excursions NOT modelled -> breach probabilities are LOWER BOUNDS).",
+ "results": {
+  "FTMO_swing_phase1|scale0.15|fin0.0": {
+   "pass": 0.07125,
+   "fail_max": 0.00325,
+   "fail_daily": 0.0,
+   "open": 0.9255,
+   "median_days_to_pass": 274.0
+  },
+  "FTMO_swing_phase1|scale0.15|fin0.1": {
+   "pass": 0.002,
+   "fail_max": 0.45025,
+   "fail_daily": 0.0,
+   "open": 0.54775,
+   "median_days_to_pass": 197.5
+  },
+  "FTMO_swing_phase1|scale0.15|fin0.2": {
+   "pass": 0.0,
+   "fail_max": 0.97075,
+   "fail_daily": 0.0,
+   "open": 0.02925,
+   "median_days_to_pass": null
+  },
+  "FTMO_swing_phase1|scale0.25|fin0.0": {
+   "pass": 0.28425,
+   "fail_max": 0.06675,
+   "fail_daily": 0.0,
+   "open": 0.649,
+   "median_days_to_pass": 207.0
+  },
+  "FTMO_swing_phase1|scale0.25|fin0.1": {
+   "pass": 0.06725,
+   "fail_max": 0.49825,
+   "fail_daily": 0.0,
+   "open": 0.4345,
+   "median_days_to_pass": 163.0
+  },
+  "FTMO_swing_phase1|scale0.25|fin0.2": {
+   "pass": 0.01625,
+   "fail_max": 0.888,
+   "fail_daily": 0.0,
+   "open": 0.09575,
+   "median_days_to_pass": 112.0
+  },
+  "FTMO_swing_phase1|scale0.4|fin0.0": {
+   "pass": 0.4905,
+   "fail_max": 0.224,
+   "fail_daily": 0.0,
+   "open": 0.2855,
+   "median_days_to_pass": 136.5
+  },
+  "FTMO_swing_phase1|scale0.4|fin0.1": {
+   "pass": 0.274,
+   "fail_max": 0.549,
+   "fail_daily": 0.0,
+   "open": 0.177,
+   "median_days_to_pass": 123.0
+  },
+  "FTMO_swing_phase1|scale0.4|fin0.2": {
+   "pass": 0.13625,
+   "fail_max": 0.78975,
+   "fail_daily": 0.0,
+   "open": 0.074,
+   "median_days_to_pass": 95.0
+  },
+  "FTMO_swing_phase1|scale0.6|fin0.0": {
+   "pass": 0.58325,
+   "fail_max": 0.36325,
+   "fail_daily": 0.0,
+   "open": 0.0535,
+   "median_days_to_pass": 86.0
+  },
+  "FTMO_swing_phase1|scale0.6|fin0.1": {
+   "pass": 0.42525,
+   "fail_max": 0.546,
+   "fail_daily": 0.0,
+   "open": 0.02875,
+   "median_days_to_pass": 73.0
+  },
+  "FTMO_swing_phase1|scale0.6|fin0.2": {
+   "pass": 0.30875,
+   "fail_max": 0.6785,
+   "fail_daily": 0.0,
+   "open": 0.01275,
+   "median_days_to_pass": 62.0
+  },
+  "FTMO_swing_phase2|scale0.15|fin0.0": {
+   "pass": 0.372,
+   "fail_max": 0.00325,
+   "fail_daily": 0.0,
+   "open": 0.62475,
+   "median_days_to_pass": 183.0
+  },
+  "FTMO_swing_phase2|scale0.15|fin0.1": {
+   "pass": 0.0455,
+   "fail_max": 0.45,
+   "fail_daily": 0.0,
+   "open": 0.5045,
+   "median_days_to_pass": 102.5
+  },
+  "FTMO_swing_phase2|scale0.15|fin0.2": {
+   "pass": 0.00625,
+   "fail_max": 0.968,
+   "fail_daily": 0.0,
+   "open": 0.02575,
+   "median_days_to_pass": 65.0
+  },
+  "FTMO_swing_phase2|scale0.25|fin0.0": {
+   "pass": 0.597,
+   "fail_max": 0.06625,
+   "fail_daily": 0.0,
+   "open": 0.33675,
+   "median_days_to_pass": 116.0
+  },
+  "FTMO_swing_phase2|scale0.25|fin0.1": {
+   "pass": 0.267,
+   "fail_max": 0.4795,
+   "fail_daily": 0.0,
+   "open": 0.2535,
+   "median_days_to_pass": 90.0
+  },
+  "FTMO_swing_phase2|scale0.25|fin0.2": {
+   "pass": 0.10675,
+   "fail_max": 0.8385,
+   "fail_daily": 0.0,
+   "open": 0.05475,
+   "median_days_to_pass": 46.0
+  },
+  "FTMO_swing_phase2|scale0.4|fin0.0": {
+   "pass": 0.70925,
+   "fail_max": 0.20075,
+   "fail_daily": 0.0,
+   "open": 0.09,
+   "median_days_to_pass": 73.0
+  },
+  "FTMO_swing_phase2|scale0.4|fin0.1": {
+   "pass": 0.49325,
+   "fail_max": 0.45925,
+   "fail_daily": 0.0,
+   "open": 0.0475,
+   "median_days_to_pass": 61.0
+  },
+  "FTMO_swing_phase2|scale0.4|fin0.2": {
+   "pass": 0.33175,
+   "fail_max": 0.65575,
+   "fail_daily": 0.0,
+   "open": 0.0125,
+   "median_days_to_pass": 46.0
+  },
+  "FTMO_swing_phase2|scale0.6|fin0.0": {
+   "pass": 0.7035,
+   "fail_max": 0.288,
+   "fail_daily": 0.0,
+   "open": 0.0085,
+   "median_days_to_pass": 43.0
+  },
+  "FTMO_swing_phase2|scale0.6|fin0.1": {
+   "pass": 0.57875,
+   "fail_max": 0.418,
+   "fail_daily": 0.0,
+   "open": 0.00325,
+   "median_days_to_pass": 38.0
+  },
+  "FTMO_swing_phase2|scale0.6|fin0.2": {
+   "pass": 0.4655,
+   "fail_max": 0.53375,
+   "fail_daily": 0.0,
+   "open": 0.00075,
+   "median_days_to_pass": 31.0
+  },
+  "HyroTrader_like|scale0.15|fin0.0": {
+   "pass": 0.07125,
+   "fail_max": 0.06675,
+   "fail_daily": 0.0,
+   "open": 0.862,
+   "median_days_to_pass": 274.0
+  },
+  "HyroTrader_like|scale0.25|fin0.0": {
+   "pass": 0.28025,
+   "fail_max": 0.24475,
+   "fail_daily": 0.0,
+   "open": 0.475,
+   "median_days_to_pass": 206.0
+  },
+  "HyroTrader_like|scale0.4|fin0.0": {
+   "pass": 0.43575,
+   "fail_max": 0.4375,
+   "fail_daily": 0.0,
+   "open": 0.12675,
+   "median_days_to_pass": 123.0
+  },
+  "HyroTrader_like|scale0.6|fin0.0": {
+   "pass": 0.407,
+   "fail_max": 0.362,
+   "fail_daily": 0.22675,
+   "open": 0.00425,
+   "median_days_to_pass": 60.5
+  },
+  "Breakout_like_6pct|scale0.15|fin0.0": {
+   "pass": 0.07125,
+   "fail_max": 0.06675,
+   "fail_daily": 0.0,
+   "open": 0.862,
+   "median_days_to_pass": 274.0
+  },
+  "Breakout_like_6pct|scale0.25|fin0.0": {
+   "pass": 0.28025,
+   "fail_max": 0.24475,
+   "fail_daily": 0.0,
+   "open": 0.475,
+   "median_days_to_pass": 206.0
+  },
+  "Breakout_like_6pct|scale0.4|fin0.0": {
+   "pass": 0.4035,
+   "fail_max": 0.331,
+   "fail_daily": 0.1785,
+   "open": 0.087,
+   "median_days_to_pass": 115.0
+  },
+  "Breakout_like_6pct|scale0.6|fin0.0": {
+   "pass": 0.32575,
+   "fail_max": 0.20075,
+   "fail_daily": 0.47325,
+   "open": 0.00025,
+   "median_days_to_pass": 49.0
+  }
+ }
+}
