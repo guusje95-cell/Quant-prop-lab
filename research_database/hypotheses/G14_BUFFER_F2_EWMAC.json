@@ -1,0 +1,13 @@
+{
+ "id": "G14_BUFFER_F2_EWMAC",
+ "family": "futures/implementation",
+ "statement": "see config/v6_gen14_protocol.json",
+ "mechanism": "see config/v6_gen14_protocol.json",
+ "falsification": "see config/v6_gen14_protocol.json",
+ "data_required": "pysystemtrade panel",
+ "params_tested": "see protocol",
+ "baseline": "see protocol",
+ "promotion": "config/v6_gen14_protocol.json",
+ "sources": [],
+ "generation": 14
+}

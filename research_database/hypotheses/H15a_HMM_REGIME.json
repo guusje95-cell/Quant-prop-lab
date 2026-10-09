@@ -1,0 +1,13 @@
+{
+ "id": "H15a_HMM_REGIME",
+ "family": "futures/regime-overlay or ml",
+ "statement": "see config/v6_gen15_protocol.json",
+ "mechanism": "see config/v6_gen15_protocol.json",
+ "falsification": "see config/v6_gen15_protocol.json",
+ "data_required": "pysystemtrade panel",
+ "params_tested": "see protocol",
+ "baseline": "see protocol",
+ "promotion": "config/v6_gen15_protocol.json",
+ "sources": [],
+ "generation": 15
+}
