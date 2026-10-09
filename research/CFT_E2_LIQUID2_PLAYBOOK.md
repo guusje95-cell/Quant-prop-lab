@@ -56,3 +56,51 @@ Nothing here is a guarantee. Protocols: `config/crypto_gen28..31_protocol.json`.
 - **Execution timing matters.** A 1-day execution delay turns crash days into daily-loss breaches (14%). Trade on time.
 - **Data.** Binance spot candles are a proxy for Bybit perps. Bybit wicks can be deeper.
 - **Paper trade first.** Before paying for a challenge, paper trade with `scripts/cft_e2_signal.py` for a few weeks.
+
+---
+# UPGRADE (gen34): TWO-SPEED 1-Phase pipeline — RECOMMENDED
+
+Status: **passes the pre-registered gen34 'BETTER' gate.**
+- Protocol: `config/crypto_gen34_protocol.json`.
+- Results: `results/crypto_gen34_twospeed.json` and `results/crypto_gen34_robustness.json`.
+- The signal is unchanged: the same frozen E2. What changes is the risk used in each stage.
+
+| Stage | Coins | Risk (multiplier L) | Command |
+|---|---|---|---|
+| Challenge (1-Phase) | 10 majors: BTC ETH BNB XRP ADA SOL DOGE AVAX DOT LINK | v = 15% (L = 1.0251) | `python scripts/cft_e2_signal.py --equity <E> --mode challenge` |
+| Funded | BTC + ETH | v = 6% (L = 0.3203) | `python scripts/cft_e2_signal.py --equity <E> --mode funded` |
+
+**Why it works:**
+- A failed challenge only costs the fee (about 0.8% of account size). So you trade the challenge fast, accept more failures and simply re-buy.
+- Once funded, the account is the asset, so you trade it slowly and safely.
+- If the funded account is ever breached, start a new challenge.
+
+**24-month pipeline results** (net = payouts − all fees, as a fraction of account size):
+
+| | Two-speed (new) | Single-speed (gen31) |
+|---|---|---|
+| Median months to funded, 2023–24 starts | **4.0** | 8.2 |
+| Funded within 90 days / 180 days | **40% / 68%** | 11% / 28% |
+| Mean net over 24 months, 2023–24 starts | **+7.6%** (P>0 98%) | +3.6% (P>0 65%) |
+| Mean net, all starts 2018–24 | **+11.0%** (P>0 92%) | +7.5% |
+| Mean net, bootstrap (1,000–2,000 paths) | **+7.7%** (P>0 83%) | +5.4% (P>0 68%) |
+| Challenges bought on average | 2.1–3.6 | 1.1–1.4 |
+
+**Robustness** (mean net over 24 months, two-speed):
+
+| Condition | 2023–24 starts | All starts 2018–24 | Bootstrap |
+|---|---|---|---|
+| Fee 1.5% | +6.1% | +9.0% | +5.3% (P>0 71%) |
+| 2× costs + funding | +5.8% | +9.3% | +5.9% |
+| 1-day execution delay | +1.9% (median −0.9%) | +8.3% | +6.1% |
+
+**2-Phase two-speed** (challenge BTC+ETH at v = 20%, funded at v = 8%):
+- Strong on bootstrap (+9.4%, P>0 81%) and on all starts (+11.3%).
+- Weak on 2023–24 starts (+1.7%, P>0 35%).
+- **1-Phase is preferred.**
+
+**Extra caveats:**
+- The challenge leg holds alts, which can wick −50% to −85% in a crash (2025-10-10). Expect challenge breaches; they are priced in.
+- Re-buying requires discipline. Budget for about 3–4 fees.
+- CFT funded rules, fees and the time limit are UNCERTAIN.
+- The 2-Phase funded risk (v = 8%) sits at the top of the grid that was searched.

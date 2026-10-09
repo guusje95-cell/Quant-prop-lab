@@ -1,0 +1,342 @@
+{
+ "L_live": {
+  "LIQUID2": 5.337978488980044,
+  "MAJ10": 6.833721769302137
+ },
+ "1PHASE": {
+  "L_challenge": 1.0251,
+  "L_funded": 0.3203,
+  "base": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0761,
+    "median_net": 0.0806,
+    "p10_net": 0.0358,
+    "P_net_pos": 0.984,
+    "mean_attempts": 2.12,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.0,
+    "P_funded_within_90d": 0.395,
+    "P_funded_within_180d": 0.682,
+    "mean_paid": 0.0931
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.1095,
+    "median_net": 0.0891,
+    "p10_net": 0.0071,
+    "P_net_pos": 0.917,
+    "mean_attempts": 2.78,
+    "P_funded_ever": 0.97,
+    "median_months_to_funded": 4.3,
+    "P_funded_within_90d": 0.374,
+    "P_funded_within_180d": 0.582,
+    "mean_paid": 0.1318
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0774,
+    "median_net": 0.0695,
+    "p10_net": -0.0271,
+    "P_net_pos": 0.831,
+    "mean_attempts": 3.55,
+    "P_funded_ever": 0.982,
+    "median_months_to_funded": 4.2,
+    "P_funded_within_90d": 0.377,
+    "P_funded_within_180d": 0.607,
+    "mean_paid": 0.1059
+   }
+  },
+  "fee_1.5pct": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0612,
+    "median_net": 0.0526,
+    "p10_net": 0.0158,
+    "P_net_pos": 0.969,
+    "mean_attempts": 2.12,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.0,
+    "P_funded_within_90d": 0.395,
+    "P_funded_within_180d": 0.682,
+    "mean_paid": 0.0931
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.0901,
+    "median_net": 0.0676,
+    "p10_net": -0.0074,
+    "P_net_pos": 0.883,
+    "mean_attempts": 2.78,
+    "P_funded_ever": 0.97,
+    "median_months_to_funded": 4.3,
+    "P_funded_within_90d": 0.374,
+    "P_funded_within_180d": 0.582,
+    "mean_paid": 0.1318
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0526,
+    "median_net": 0.0488,
+    "p10_net": -0.07,
+    "P_net_pos": 0.714,
+    "mean_attempts": 3.55,
+    "P_funded_ever": 0.982,
+    "median_months_to_funded": 4.2,
+    "P_funded_within_90d": 0.377,
+    "P_funded_within_180d": 0.607,
+    "mean_paid": 0.1059
+   }
+  },
+  "costs2x_funding": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0582,
+    "median_net": 0.0572,
+    "p10_net": 0.016,
+    "P_net_pos": 0.977,
+    "mean_attempts": 2.42,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.0,
+    "P_funded_within_90d": 0.38,
+    "P_funded_within_180d": 0.682,
+    "mean_paid": 0.0776
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.093,
+    "median_net": 0.0742,
+    "p10_net": -0.0007,
+    "P_net_pos": 0.887,
+    "mean_attempts": 3.31,
+    "P_funded_ever": 0.97,
+    "median_months_to_funded": 4.4,
+    "P_funded_within_90d": 0.362,
+    "P_funded_within_180d": 0.576,
+    "mean_paid": 0.1194
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0593,
+    "median_net": 0.0527,
+    "p10_net": -0.0409,
+    "P_net_pos": 0.756,
+    "mean_attempts": 4.09,
+    "P_funded_ever": 0.987,
+    "median_months_to_funded": 4.5,
+    "P_funded_within_90d": 0.356,
+    "P_funded_within_180d": 0.586,
+    "mean_paid": 0.0921
+   }
+  },
+  "delay_1d": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0192,
+    "median_net": -0.009,
+    "p10_net": -0.0188,
+    "P_net_pos": 0.38,
+    "mean_attempts": 4.47,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 3.8,
+    "P_funded_within_90d": 0.411,
+    "P_funded_within_180d": 0.698,
+    "mean_paid": 0.055
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.083,
+    "median_net": 0.051,
+    "p10_net": -0.0132,
+    "P_net_pos": 0.663,
+    "mean_attempts": 3.88,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 3.9,
+    "P_funded_within_90d": 0.404,
+    "P_funded_within_180d": 0.636,
+    "mean_paid": 0.1141
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0615,
+    "median_net": 0.0545,
+    "p10_net": -0.0343,
+    "P_net_pos": 0.776,
+    "mean_attempts": 4.11,
+    "P_funded_ever": 0.992,
+    "median_months_to_funded": 4.1,
+    "P_funded_within_90d": 0.38,
+    "P_funded_within_180d": 0.63,
+    "mean_paid": 0.0945
+   }
+  }
+ },
+ "2PHASE": {
+  "L_challenge": 1.0676,
+  "L_funded": 0.427,
+  "base": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0165,
+    "median_net": -0.0091,
+    "p10_net": -0.0271,
+    "P_net_pos": 0.349,
+    "mean_attempts": 3.46,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.7,
+    "P_funded_within_90d": 0.395,
+    "P_funded_within_180d": 0.566,
+    "mean_paid": 0.0476
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.1126,
+    "median_net": 0.0717,
+    "p10_net": -0.027,
+    "P_net_pos": 0.693,
+    "mean_attempts": 2.72,
+    "P_funded_ever": 0.947,
+    "median_months_to_funded": 5.0,
+    "P_funded_within_90d": 0.339,
+    "P_funded_within_180d": 0.545,
+    "mean_paid": 0.1371
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.094,
+    "median_net": 0.0806,
+    "p10_net": -0.027,
+    "P_net_pos": 0.813,
+    "mean_attempts": 2.81,
+    "P_funded_ever": 0.961,
+    "median_months_to_funded": 5.3,
+    "P_funded_within_90d": 0.31,
+    "P_funded_within_180d": 0.526,
+    "mean_paid": 0.1193
+   }
+  },
+  "fee_1.5pct": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": -0.0042,
+    "median_net": -0.0271,
+    "p10_net": -0.0583,
+    "P_net_pos": 0.326,
+    "mean_attempts": 3.46,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.7,
+    "P_funded_within_90d": 0.395,
+    "P_funded_within_180d": 0.566,
+    "mean_paid": 0.0476
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.0963,
+    "median_net": 0.0597,
+    "p10_net": -0.0484,
+    "P_net_pos": 0.683,
+    "mean_attempts": 2.72,
+    "P_funded_ever": 0.947,
+    "median_months_to_funded": 5.0,
+    "P_funded_within_90d": 0.339,
+    "P_funded_within_180d": 0.545,
+    "mean_paid": 0.1371
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0772,
+    "median_net": 0.0657,
+    "p10_net": -0.0556,
+    "P_net_pos": 0.737,
+    "mean_attempts": 2.81,
+    "P_funded_ever": 0.961,
+    "median_months_to_funded": 5.3,
+    "P_funded_within_90d": 0.31,
+    "P_funded_within_180d": 0.526,
+    "mean_paid": 0.1193
+   }
+  },
+  "costs2x_funding": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0003,
+    "median_net": -0.0153,
+    "p10_net": -0.0333,
+    "P_net_pos": 0.279,
+    "mean_attempts": 3.74,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 6.2,
+    "P_funded_within_90d": 0.349,
+    "P_funded_within_180d": 0.488,
+    "mean_paid": 0.0339
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.0924,
+    "median_net": 0.0165,
+    "p10_net": -0.021,
+    "P_net_pos": 0.642,
+    "mean_attempts": 2.97,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 5.6,
+    "P_funded_within_90d": 0.329,
+    "P_funded_within_180d": 0.529,
+    "mean_paid": 0.1191
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0744,
+    "median_net": 0.059,
+    "p10_net": -0.0408,
+    "P_net_pos": 0.757,
+    "mean_attempts": 3.07,
+    "P_funded_ever": 0.942,
+    "median_months_to_funded": 5.6,
+    "P_funded_within_90d": 0.284,
+    "P_funded_within_180d": 0.496,
+    "mean_paid": 0.102
+   }
+  },
+  "delay_1d": {
+   "TEST_starts": {
+    "n": 129,
+    "mean_net": 0.0057,
+    "median_net": 0.0029,
+    "p10_net": -0.0282,
+    "P_net_pos": 0.628,
+    "mean_attempts": 3.43,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.7,
+    "P_funded_within_90d": 0.349,
+    "P_funded_within_180d": 0.612,
+    "mean_paid": 0.0366
+   },
+   "ALL_starts": {
+    "n": 495,
+    "mean_net": 0.0654,
+    "median_net": 0.0421,
+    "p10_net": -0.0243,
+    "P_net_pos": 0.78,
+    "mean_attempts": 3.72,
+    "P_funded_ever": 1.0,
+    "median_months_to_funded": 4.8,
+    "P_funded_within_90d": 0.343,
+    "P_funded_within_180d": 0.598,
+    "mean_paid": 0.0988
+   },
+   "bootstrap": {
+    "n": 1000,
+    "mean_net": 0.0617,
+    "median_net": 0.0478,
+    "p10_net": -0.045,
+    "P_net_pos": 0.713,
+    "mean_attempts": 3.69,
+    "P_funded_ever": 0.966,
+    "median_months_to_funded": 5.4,
+    "P_funded_within_90d": 0.292,
+    "P_funded_within_180d": 0.517,
+    "mean_paid": 0.0949
+   }
+  }
+ }
+}
