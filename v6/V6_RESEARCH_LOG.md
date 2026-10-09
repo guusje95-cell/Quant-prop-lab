@@ -149,3 +149,18 @@ Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secon
   1. accept a concentrated, noisy book;
   2. use the crypto CT1 sleeve, which is divisible;
   3. wait. A ledger note records that G17_SMALL_100K is not recommended despite passing the gate.
+
+## 2026-10-09 · Entry 11 — Has the trend premium decayed? (`experiments/v6_trend_decay.py`; descriptive, all periods)
+
+| Sleeve | 1980s | 1990s | 2000s | 2010s | 2020s | Slope / decade (HAC t) | PELT break | pre-2010 → post-2010 |
+|---|---|---|---|---|---|---|---|---|
+| TREND | – | – | 1.16 | 0.48 | 0.60 | see JSON | 2004 | 1.24 → 0.57 |
+| CARRY | 1.07 | 1.26 | 1.23 | 1.05 | 0.21 | −0.20 (−1.9) | 2014 | 1.24 → 0.78 |
+| B0 (sleeve-RP) | 1.34 | 1.34 | 1.36 | 0.94 | 0.57 | **−0.21 (−2.9)** | 2004 | 1.48 → 0.84 |
+
+TSMOM by asset class and decade: FX trend collapsed (1.42 → 0.22 → −0.17); equity trend ≈ 0 since 2010; bonds held up (0.80 in the 2010s); ags and energy revived in the 2020s (0.94 / 0.87).
+
+**Learning:**
+1. **CT1's decay is part of an economy-wide decline in trend and carry premia since ~2005–2010.** That is consistent with post-publication decay and crowding (McLean & Pontiff 2016; the CTA industry's AUM growth). It is not only a crypto quirk.
+2. Forward expectations should be anchored on post-2010 levels: **SR ≈ 0.5–0.8 for diversified trend+carry, and possibly lower** if the slope continues. The F9 monitoring expectation (SR 0.5) is set accordingly.
+3. Diversification across asset classes is what keeps the book alive. No single class has been reliable in every decade. This argues against small, concentrated books (Entry 10).

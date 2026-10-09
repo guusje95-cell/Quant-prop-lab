@@ -1,0 +1,7 @@
+{
+  "_written": "2026-10-09, before running gen18. NEW hypothesis suggested by gen16 TRAIN evidence (7-day reversal was strongly negative = continuation). TRAIN 2017-2020 is therefore NOT independent evidence for it; decisions use VALIDATION 2021-2022 and TEST 2023-2026-05 only.",
+  "H18_XS_CONTINUATION_LOWTURN": {"signal": "past 7-day return (continuation), universe and data exactly as gen16", "portfolio": "long top third / short bottom third; REBALANCE EVERY 4 WEEKS (turnover control; the gen16 weekly version paid 1.5-2.7x weekly turnover)", "neighbours": "rebalance every 2 weeks; signal 14-day return"},
+  "costs": "30 bps per unit turnover; stress 60 bps",
+  "gates": {"VALIDATION": "net Sharpe >= 0.3 AND >= 1/2 neighbours > 0", "TEST": "single look, only if VALIDATION passes: net > 0 at 30 and 60 bps"},
+  "status_ceiling": "PROMISING_BUT_UNVALIDATED (curated universe, partial TEST contamination)"
+}
