@@ -1,0 +1,16 @@
+{
+  "_written": "2026-10-10, before computing any T1 return. Generation 23, prop target = Topstep 50K Combine (rules: config/prop_firms_v3.json, all UNCERTAIN).",
+  "hypothesis": "T1_TREND_INTRADAY: the multi-day trend premium partly accrues during the US day session; holding the daily trend direction only from 09:00 CT to 15:00 CT (Topstep-compatible: flat before 3:10 PM CT) keeps a positive net edge.",
+  "signal": "EWMAC mean of speeds (8,32),(16,64),(32,128) on daily closes (close = last hourly bar before 16:00 ET) through the PREVIOUS day; position sign = sign(forecast), size proportional to |forecast| capped at 1, scaled by 1/(20-day std of the 09-15 CT session return)",
+  "execution": "enter at the open of the 10:00 ET hourly bar (09:00 CT), exit at the open of the 16:00 ET bar (15:00 CT); no overnight exposure",
+  "instruments": {"dev_proxies (Dukascopy H1)": {"US500": "ES", "US100": "NQ", "US30": "YM", "XAUUSD": "GC", "XAGUSD": "SI", "BRENT": "CL", "EURUSD": "6E", "GBPUSD": "6B", "USDJPY": "6J"},
+                  "fresh (TopstepX 1h, real CME)": ["ES", "NQ", "RTY", "GC", "CL", "6E", "6B", "6J"]},
+  "costs_round_trip_bp_of_notional": {"ES": 1.2, "NQ": 0.5, "YM": 0.7, "RTY": 1.3, "GC": 1.2, "SI": 4.4, "CL": 3.3, "6E": 1.1, "6B": 2.0, "6J": 1.9,
+                                      "derivation": "qpl.instruments cost_per_rt (commission + 1 tick slippage per side) / (point value x typical price)", "stress": "2x, 3x"},
+  "periods": {"DEV": ["2013-06-01", "2018-12-31"], "VAL": ["2019-01-01", "2020-12-31"], "TEST": ["2021-01-01", "2023-09-08"], "FRESH": ["2025-03-21", "2026-04-15"]},
+  "contamination": "Dukascopy intraday 2013-2023 was used by earlier intraday hypotheses (v1/v3) -> DEV/VAL/TEST are partially contaminated for this data; TopstepX GC/CL/6E/6B/6J never used by any strategy, ES/NQ/RTY used by H3 only. FRESH evaluation starts after the 128-day signal warm-up.",
+  "gates": {"DEV": "pooled net Sharpe >= 0.5 AND >= 60% instruments with positive net mean", "VAL": "pooled net Sharpe >= 0.3", "TEST": "net Sharpe > 0 at 1x and >= 0 at 2x", "FRESH": "pooled net mean > 0"},
+  "diagnostic": "share of daily close-to-close trend P&L earned in the 09-15 CT window vs overnight (descriptive)",
+  "prop_sim": "if VAL passes: Topstep 50K Combine (target 3000, EOD-trailing MLL 2000 locked at start, consistency 55%, optional DLL 1000 pause) via qpl.prop_simulation.simulator.historical_starts on USD P&L of micro contracts sized to daily risk budgets {150, 250, 400} USD per instrument-day; worst = min intraday cumulative P&L from hourly bars",
+  "single_use": true
+}
