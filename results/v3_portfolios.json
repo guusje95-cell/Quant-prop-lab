@@ -1,0 +1,188 @@
+{
+ "corr_dev": {
+  "H3_MNQ": {
+   "H3_MNQ": 1.0,
+   "H3_MES": 0.623,
+   "H4_MNQ": -0.056,
+   "V11_MGC": 0.072
+  },
+  "H3_MES": {
+   "H3_MNQ": 0.623,
+   "H3_MES": 1.0,
+   "H4_MNQ": -0.008,
+   "V11_MGC": -0.012
+  },
+  "H4_MNQ": {
+   "H3_MNQ": -0.056,
+   "H3_MES": -0.008,
+   "H4_MNQ": 1.0,
+   "V11_MGC": -0.073
+  },
+  "V11_MGC": {
+   "H3_MNQ": 0.072,
+   "H3_MES": -0.012,
+   "H4_MNQ": -0.073,
+   "V11_MGC": 1.0
+  }
+ },
+ "corr_oos": {
+  "H3_MNQ": {
+   "H3_MNQ": 1.0,
+   "H3_MES": 0.702,
+   "H4_MNQ": 0.029,
+   "V11_MGC": -0.004
+  },
+  "H3_MES": {
+   "H3_MNQ": 0.702,
+   "H3_MES": 1.0,
+   "H4_MNQ": 0.062,
+   "V11_MGC": -0.04
+  },
+  "H4_MNQ": {
+   "H3_MNQ": 0.029,
+   "H3_MES": 0.062,
+   "H4_MNQ": 1.0,
+   "V11_MGC": -0.022
+  },
+  "V11_MGC": {
+   "H3_MNQ": -0.004,
+   "H3_MES": -0.04,
+   "H4_MNQ": -0.022,
+   "V11_MGC": 1.0
+  }
+ },
+ "tail_corr_dev_worst10pct": {
+  "H3_MNQ": {
+   "H3_MNQ": 1.0,
+   "H3_MES": 0.345,
+   "H4_MNQ": -0.515,
+   "V11_MGC": 0.118
+  },
+  "H3_MES": {
+   "H3_MNQ": 0.345,
+   "H3_MES": 1.0,
+   "H4_MNQ": -0.33,
+   "V11_MGC": -0.19
+  },
+  "H4_MNQ": {
+   "H3_MNQ": -0.515,
+   "H3_MES": -0.33,
+   "H4_MNQ": 1.0,
+   "V11_MGC": -0.521
+  },
+  "V11_MGC": {
+   "H3_MNQ": 0.118,
+   "H3_MES": -0.19,
+   "H4_MNQ": -0.521,
+   "V11_MGC": 1.0
+  }
+ },
+ "ranked": [
+  {
+   "portfolio": "H3_MNQ+H4_MNQ+V11_MGC",
+   "dev_2015_2020_sharpe": 1.687,
+   "dev_2015_2020_maxdd_units": 9.575,
+   "oos_2021_2023_sharpe": 0.986,
+   "oos_2021_2023_maxdd_units": 7.47
+  },
+  {
+   "portfolio": "H3_MNQ+H4_MNQ",
+   "dev_2015_2020_sharpe": 1.596,
+   "dev_2015_2020_maxdd_units": 13.289,
+   "oos_2021_2023_sharpe": 1.211,
+   "oos_2021_2023_maxdd_units": 12.047
+  },
+  {
+   "portfolio": "H3_MNQ+H3_MES+H4_MNQ+V11_MGC",
+   "dev_2015_2020_sharpe": 1.425,
+   "dev_2015_2020_maxdd_units": 10.154,
+   "oos_2021_2023_sharpe": 1.207,
+   "oos_2021_2023_maxdd_units": 9.875
+  },
+  {
+   "portfolio": "H4_MNQ+V11_MGC",
+   "dev_2015_2020_sharpe": 1.269,
+   "dev_2015_2020_maxdd_units": 10.245,
+   "oos_2021_2023_sharpe": 0.101,
+   "oos_2021_2023_maxdd_units": 15.573
+  },
+  {
+   "portfolio": "H3_MNQ+H3_MES+H4_MNQ",
+   "dev_2015_2020_sharpe": 1.253,
+   "dev_2015_2020_maxdd_units": 12.824,
+   "oos_2021_2023_sharpe": 1.326,
+   "oos_2021_2023_maxdd_units": 11.599
+  },
+  {
+   "portfolio": "H3_MES+H4_MNQ+V11_MGC",
+   "dev_2015_2020_sharpe": 1.238,
+   "dev_2015_2020_maxdd_units": 11.369,
+   "oos_2021_2023_sharpe": 0.752,
+   "oos_2021_2023_maxdd_units": 10.092
+  },
+  {
+   "portfolio": "H3_MNQ+V11_MGC",
+   "dev_2015_2020_sharpe": 1.236,
+   "dev_2015_2020_maxdd_units": 11.448,
+   "oos_2021_2023_sharpe": 1.056,
+   "oos_2021_2023_maxdd_units": 8.559
+  },
+  {
+   "portfolio": "H3_MNQ",
+   "dev_2015_2020_sharpe": 1.138,
+   "dev_2015_2020_maxdd_units": 20.008,
+   "oos_2021_2023_sharpe": 1.461,
+   "oos_2021_2023_maxdd_units": 15.597
+  },
+  {
+   "portfolio": "H4_MNQ",
+   "dev_2015_2020_sharpe": 1.056,
+   "dev_2015_2020_maxdd_units": 16.593,
+   "oos_2021_2023_sharpe": 0.163,
+   "oos_2021_2023_maxdd_units": 16.717
+  },
+  {
+   "portfolio": "H3_MNQ+H3_MES+V11_MGC",
+   "dev_2015_2020_sharpe": 1.034,
+   "dev_2015_2020_maxdd_units": 11.487,
+   "oos_2021_2023_sharpe": 1.254,
+   "oos_2021_2023_maxdd_units": 12.584
+  },
+  {
+   "portfolio": "H3_MES+H4_MNQ",
+   "dev_2015_2020_sharpe": 0.998,
+   "dev_2015_2020_maxdd_units": 14.618,
+   "oos_2021_2023_sharpe": 0.925,
+   "oos_2021_2023_maxdd_units": 12.191
+  },
+  {
+   "portfolio": "H3_MNQ+H3_MES",
+   "dev_2015_2020_sharpe": 0.826,
+   "dev_2015_2020_maxdd_units": 15.426,
+   "oos_2021_2023_sharpe": 1.414,
+   "oos_2021_2023_maxdd_units": 15.993
+  },
+  {
+   "portfolio": "H3_MES+V11_MGC",
+   "dev_2015_2020_sharpe": 0.727,
+   "dev_2015_2020_maxdd_units": 14.371,
+   "oos_2021_2023_sharpe": 0.8,
+   "oos_2021_2023_maxdd_units": 13.462
+  },
+  {
+   "portfolio": "V11_MGC",
+   "dev_2015_2020_sharpe": 0.672,
+   "dev_2015_2020_maxdd_units": 17.75,
+   "oos_2021_2023_sharpe": -0.011,
+   "oos_2021_2023_maxdd_units": 23.414
+  },
+  {
+   "portfolio": "H3_MES",
+   "dev_2015_2020_sharpe": 0.35,
+   "dev_2015_2020_maxdd_units": 20.982,
+   "oos_2021_2023_sharpe": 1.136,
+   "oos_2021_2023_maxdd_units": 21.158
+  }
+ ],
+ "note": "ranking by DEV Sharpe; OOS shown; components are not validated strategies"
+}

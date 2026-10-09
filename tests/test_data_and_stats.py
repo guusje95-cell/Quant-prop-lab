@@ -77,3 +77,16 @@ def test_reality_check_null():
     R[:, 0] += 0.3
     res = T.whites_reality_check(R, n_boot=300)
     assert res["rc_pvalue"] < 0.05 and res["best_idx"] == 0
+
+
+def test_ledger_hash_chain_detects_tampering(tmp_path, monkeypatch):
+    from qpl.research import factory as F
+    monkeypatch.setattr(F, "LEDGER", tmp_path / "l.jsonl")
+    for i in range(3):
+        F.append({"kind": "x", "i": i})
+    assert F.verify_ledger() == (True, 3)
+    lines = (tmp_path / "l.jsonl").read_text().splitlines()
+    lines[1] = lines[1].replace('"i":1', '"i":99')
+    (tmp_path / "l.jsonl").write_text("\n".join(lines) + "\n")
+    ok, n = F.verify_ledger()
+    assert not ok and n == 1

@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "date_checked": "2026-10-09",
+    "standard": "VERIFIED = official page read directly and quoted. UNCERTAIN = consistent statements in official-domain search extracts, page not directly readable from this environment (DNS blocked for help.topstep.com, ftmo.com etc.). UNVERIFIED = only third-party sources, conflicting official extracts, or not found.",
+    "result": "No rule is VERIFIED under this standard. Every rule below must be confirmed on the official page before any purchase.",
+    "supersedes_status_labels_of": "config/prop_firms.json (v1 labelled official-domain search extracts as VERIFIED; v3 downgrades them)"
+  },
+  "topstep_50k_combine": {
+    "sources": ["https://help.topstep.com/en/articles/8284197-trading-combine-parameters", "https://help.topstep.com/en/articles/8284204-what-is-the-maximum-loss-limit",
+                "https://help.topstep.com/en/articles/8284208-what-is-the-consistency-target", "https://help.topstep.com/en/articles/10490293-daily-loss-limit-in-the-trading-combine-and-express-funded-account",
+                "https://help.topstep.com/en/articles/11187768-topstepx-api-access", "https://help.topstep.com/en/articles/10305426-prohibited-trading-strategies-at-topstep",
+                "https://help.topstep.com/en/articles/8284206-when-and-what-products-can-i-trade", "https://help.topstep.com/en/articles/14289835-topstep-pricing-and-payment-questions"],
+    "profit_target": {"value": 3000, "status": "UNCERTAIN"},
+    "max_loss_limit": {"value": "2000, end-of-day trailing, monitored in real time incl. unrealized, locks at starting balance", "status": "UNCERTAIN"},
+    "daily_loss_limit": {"value": "optional $1,000 at checkout (pause for session, not a fail)", "status": "UNCERTAIN"},
+    "consistency": {"value": "best day <= 55% of profit (target becomes best_day/0.55); losses do not reset best day; example $1,800 -> $3,273", "status": "UNCERTAIN"},
+    "position_limit": {"value": "5 minis / 50 micros", "status": "UNCERTAIN"},
+    "hours": {"value": "flat by 3:10 PM CT; trading day starts 5:00 PM CT", "status": "UNCERTAIN"},
+    "news": {"value": "no forced flattening for releases; do not trade full max size into scheduled major news", "status": "UNCERTAIN"},
+    "automation": {"value": "custom bots allowed via TopstepX/ProjectX API; HFT prohibited; no exceptions for bot malfunctions", "status": "UNCERTAIN"},
+    "hosting": {"value": "VPS, VPNs and remote servers prohibited by Topstep Terms of Use (automation must run on the trader's own machine)", "status": "UNCERTAIN", "new_in_v3": true},
+    "fees": {"value": "$49/month Standard path, reset = monthly price, $149 XFA activation; NAF path $95/month", "status": "UNVERIFIED", "note": "marketing pages conflict with help-center table"},
+    "payout": {"value": "XFA Standard path: no consistency; Consistency path 40%", "status": "UNVERIFIED", "note": "source page ~245 days old"},
+    "variant_note": "Topstep Labs static 50K: $4,000 target, static $2,000 MLL, mandatory $1,000 DLL, 4 minis, $149 one-time; listed as a past limited drop (UNVERIFIED availability)"
+  },
+  "ftmo_2step_100k": {"sources": ["https://ftmo.com/en/trading-objectives/", "https://ftmo.com/en/forbidden-trading-practices/", "https://ftmo.com/en/faq/can-i-trade-news/"],
+                       "summary": "10%/5% targets, 5% daily (equity, midnight CE(S)T), 10% static max loss, 4 min days, EAs allowed", "status": "UNCERTAIN (not re-checked in v3)"},
+  "apex": {"status": "UNCERTAIN", "summary": "official extracts state automation of order entry is prohibited -> excluded"}
+}
