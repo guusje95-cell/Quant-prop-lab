@@ -1,0 +1,15 @@
+{
+  "_written": "2026-10-10, AFTER gen32/33 (no signal improvement accepted), BEFORE any gen34 number was computed.",
+  "idea": "TWO-SPEED pipeline. A failed challenge costs only the fee; a lost funded account costs the payout stream. So the challenge can be run at higher risk (faster, more failures, rebuy) and the funded account at lower risk. Objective = money per unit of time, not per attempt.",
+  "signals": "frozen E2 (src/qpl/strategies/cft_e2.py), no change. Challenge strategy S_c in {LIQUID2 (BTC+ETH), MAJ10 (10 Binance majors)}; funded strategy always LIQUID2.",
+  "risk grid": {"v_c (challenge)": [0.06, 0.08, 0.10, 0.12, 0.15, 0.20], "v_f (funded)": [0.04, 0.06, 0.08]},
+  "pipeline simulation": "from a start date, repeat for 730 days: buy a challenge (fee), trade it at (S_c, v_c) until pass or fail (no time limit); if failed buy the next one the next day; if passed run funded at (LIQUID2, v_f): every 30 days withdraw 0.80 x 0.95 x profit if equity > start and reset; on a funded breach go back to buying challenges. Equity-based daily loss on real daily lows (all simultaneous), same rules for funded as for the program.",
+  "programs": {"2PHASE": "fee 0.009", "1PHASE": "fee 0.008"},
+  "metrics": "net = payouts - fees over 24 months (fraction of account size); months to first funded; attempts used; P(net > 0)",
+  "selection": "per program: (S_c, v_c, v_f) maximising mean net on historical starts 2018-01-01..2020-12-31 (every 5 days) with returns truncated at 2022-12-31",
+  "evaluation": "historical starts 2023-01-01..2024-10-08 (to data end 2026-10-08) and block bootstrap (2000 paths of 730 days, mean block 20 days, joint rows of both strategies' daily (net, worst, best) at all risk levels from 2018-2026)",
+  "gate 'BETTER' (vs gen31 single-speed policy: S=LIQUID2, v_c=v_f=gen31 choice, simulated the same way)": "evaluation-period mean net higher AND median months to first funded lower AND bootstrap mean net higher AND bootstrap P(net > 0) >= 0.70",
+  "trials": "risk/policy layer only: 2 x 6 x 3 = 36 policies per program; signals unchanged (alpha trials stay 121)",
+  "caveats": "CFT fees/payout rules UNCERTAIN; assumes challenges can be re-bought immediately and funded rules equal challenge rules; parallel accounts not modelled",
+  "single_use": true
+}
