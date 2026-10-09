@@ -1,0 +1,21 @@
+{
+  "_written": "2026-10-10, BEFORE any gen36 number was computed. Big overlay batch: new information (on-chain, liquidity, macro risk-off) applied to the frozen E2 LIQUID2 signal.",
+  "base": "E2 LIQUID2 (BTC, ETH long-only), Binance spot daily, 7.5 bp/turnover, 0 swap (Bybit route)",
+  "overlay mechanics": "signal_i,t x f_t (f from data through day t-1: 1-day publication lag); weights then as E2; every comparison at equal 2018-2026 vol",
+  "overlays (each 1 trial; thresholds fixed a priori, standard values)": {
+    "O1_MVRV": "per coin CapMVRVCur: f = 1 if MVRV <= 2.0, linear down to 0.25 at MVRV >= 3.5",
+    "O2_EXCH_NETFLOW": "per coin 7d sum of (FlowInExUSD - FlowOutExUSD) / CapMrktCurUSD; z-score vs trailing 365d; f = 0.5 if z > 1.5 else 1",
+    "O3_STABLE_LIQUIDITY": "USDT+USDC market cap 30d log change: f = 1.25 if > 0 else 0.75",
+    "O4_ACTIVE_ADDR": "per coin AdrActCnt 30d mean vs 90d mean: f = 1.25 if above else 0.75",
+    "O5_HASH_RIBBON": "BTC HashRate 30d MA < 60d MA (miner capitulation): f = 0.75 for both coins, else 1",
+    "O6_VIX": "VIX close > 30: f = 0.5 else 1",
+    "O7_DOLLAR_TREND": "USD index proxy = mean log price of USD vs EUR GBP JPY CAD CHF AUD (FRED); 50d change > 0: f = 0.75 else 1.25",
+    "O8_SPX_TREND": "FRED SP500 > its 100d MA: f = 1.25 else 0.75 (neutral 1 when no data)",
+    "O9_EXCH_SUPPLY": "per coin SplyExNtv 30d change < 0 (coins leaving exchanges): f = 1.25 else 0.75"
+  },
+  "periods": {"DEV": "2018-01-01..2021-12-31", "VAL": "2022-01-01..2023-12-31", "TEST": "2024-01-01..2026-05-24 (on-chain data end)"},
+  "acceptance per overlay": "net Sharpe higher than base in EACH of DEV, VAL, TEST AND paired stationary-bootstrap one-sided p controlled by Benjamini-Hochberg FDR q < 0.10 over the 9 overlays AND tail ratio (worst intraday day / vol) not worse than base by > 10%",
+  "combination": "product of accepted overlays' f (if >= 2 accepted), reported with the same metrics; then the user target check: Sharpe > 1.3 and CAGR > 15% at a CFT-feasible risk (worst day > -5%) in each period",
+  "trials": "9 overlays (+1 combo); cumulative crypto alpha trials 133",
+  "single_use": true
+}
