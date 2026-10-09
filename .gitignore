@@ -6,3 +6,4 @@ data/processed/
 logs/*.log
 *.egg-info/
 .venv/
+results/v6_gen15_ml_preds.parquet
