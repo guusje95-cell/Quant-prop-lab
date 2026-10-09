@@ -1,0 +1,13 @@
+{
+ "id": "R2_ETHBTC_MOMENTUM",
+ "family": "crypto/relative value",
+ "statement": "ETH/BTC relative momentum persists",
+ "mechanism": "Rotation flows between the two largest coins; arbitrage capital limits (R1) or slow diffusion (R2).",
+ "falsification": "see protocol",
+ "data_required": "BTC+ETH daily",
+ "params_tested": "single rule",
+ "baseline": "zero (dollar-neutral)",
+ "promotion": "config/gen12_protocol.json",
+ "sources": [],
+ "generation": 12
+}

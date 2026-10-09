@@ -40,8 +40,15 @@ def run(bars: pd.DataFrame, w: pd.Series, cost_bps: float = 7.0, funding: pd.Ser
     return out
 
 
-def daily(res: pd.DataFrame) -> pd.DataFrame:
-    return res[["gross", "cost", "funding", "net", "turnover"]].resample("1D").sum()
+def daily(res: pd.DataFrame, at: str = "decision") -> pd.DataFrame:
+    """Aggregate to UTC days. at="decision" (historical default) books bar t's P&L on bar t's open time, although
+    it is earned over [open t+1, open t+2). at="realized" books it at open t+1 (start of the holding interval) -
+    required whenever series built on DIFFERENT bar sizes are compared or combined (audit V4-C1)."""
+    x = res[["gross", "cost", "funding", "net", "turnover"]]
+    if at == "realized":
+        x = x.copy()
+        x.index = res.index[1:].append(pd.DatetimeIndex([res.index[-1] + (res.index[-1] - res.index[-2])]))
+    return x.resample("1D").sum()
 
 
 def vol_target(signal: pd.Series, bars: pd.DataFrame, target_ann: float = 0.4, lookback_bars: int = 30,

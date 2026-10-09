@@ -1,0 +1,13 @@
+{
+ "id": "C11_TSMOM_4H",
+ "family": "crypto/trend",
+ "statement": "BTC trend on 4h bars (variant of C1)",
+ "mechanism": "as C1",
+ "falsification": "see protocol",
+ "data_required": "Bitstamp 4h",
+ "params_tested": "lookback {30,90,180} bars",
+ "baseline": "buy&hold-VT",
+ "promotion": "config/gen12_protocol.json",
+ "sources": [],
+ "generation": 12
+}

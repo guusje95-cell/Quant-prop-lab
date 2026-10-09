@@ -1,0 +1,13 @@
+{
+  "_written": "2026-10-09, BEFORE running any gen12 experiment",
+  "R1_ETHBTC_REVERSION": {"statement": "log(ETH/BTC) deviations from the 20-day mean beyond 1.5 sigma revert within 5 days",
+     "rule": "dollar-neutral pair (0.5 ETH, -0.5 BTC or reverse), entry when |z|>1.5, hold 5 days, 7 bps per leg turnover, funding modelled per leg",
+     "data": "Bitstamp BTCUSD daily + mirror ETHUSDT daily (EXPLORATORY-grade venue provenance) for 2018-2023-09; Binance BTCUSDT/ETHUSDT 00:00 mark prices for holdout",
+     "TRAIN": "2018-03-01..2020-12-31", "OOS": "2021-01-01..2023-09-09", "HOLDOUT": "2025-11-01..2026-09-20 (one look, only if OOS passes; +1 day execution lag as in CT1 perps test)",
+     "pass": "TRAIN net Sharpe >= 0.5; OOS net Sharpe > 0.3; HOLDOUT net Sharpe > 0"},
+  "R2_ETHBTC_MOMENTUM": {"statement": "60-day ETH/BTC relative performance persists", "rule": "long 60d winner / short loser, 0.5 each leg, rebalanced daily on sign change",
+     "periods": "same as R1", "pass": "same as R1"},
+  "C11_TSMOM_4H": {"statement": "BTC trend on 4h bars (lookbacks 30/90/180 bars = 5/15/30 days) - VARIANT of the C1 trend family, counted as a variant not a unique hypothesis",
+     "grid": "lookback {30,90,180} long/short, 40% vol target, 7 bps",
+     "pass": "crypto promotion criteria (TRAIN 2015-19 >=0.5 & resid >=0.3; VAL >=0.3); OOS/holdout NOT run: purpose is diversification analysis vs CT1 (correlation reported)"}
+}

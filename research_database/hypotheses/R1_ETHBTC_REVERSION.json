@@ -1,0 +1,13 @@
+{
+ "id": "R1_ETHBTC_REVERSION",
+ "family": "crypto/relative value",
+ "statement": "ETH/BTC ratio deviations revert",
+ "mechanism": "Rotation flows between the two largest coins; arbitrage capital limits (R1) or slow diffusion (R2).",
+ "falsification": "see protocol",
+ "data_required": "BTC+ETH daily",
+ "params_tested": "single rule",
+ "baseline": "zero (dollar-neutral)",
+ "promotion": "config/gen12_protocol.json",
+ "sources": [],
+ "generation": 12
+}

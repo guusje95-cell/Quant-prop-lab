@@ -41,9 +41,11 @@ def resample(df: pd.DataFrame, rule: str) -> pd.DataFrame:
 def btc_bars(rule: str = "1h") -> pd.DataFrame:
     p = PROC / f"bitstamp_btcusd_{rule}.parquet"
     if p.exists():
-        return pd.read_parquet(p)
-    out = resample(bitstamp_1m(), rule)
-    out.to_parquet(p)
+        out = pd.read_parquet(p)
+    else:
+        out = resample(bitstamp_1m(), rule)
+        out.to_parquet(p)
+    out.index = out.index.as_unit("ns")      # audit V4-C2: parquet round-trips as ms; mixed units break pandas alignment
     return out
 
 

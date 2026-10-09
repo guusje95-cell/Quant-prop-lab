@@ -53,3 +53,15 @@ def test_funding_with_mixed_datetime_units():
     f = pd.Series([0.001], index=pd.DatetimeIndex(["2024-01-01 01:30"], tz="UTC").as_unit("ns"))
     r = V.run(b, w, cost_bps=0, funding=f)
     assert r.funding.sum() == pytest.approx(-0.001)
+
+
+def test_daily_realized_labels_pnl_where_earned():
+    # regression V4-C1: w decided at the 23:00 (day 1) bar close is filled at 00:00 day 2 and earns 00:00 -> 01:00 day 2
+    idx = pd.date_range("2024-01-01 22:00", periods=5, freq="1h", tz="UTC")
+    b = pd.DataFrame({"open": [100, 100, 100, 110, 110.0]}, index=idx)
+    b["high"] = b["low"] = b["close"] = b["open"]
+    w = pd.Series([0, 1.0, 0, 0, 0], index=idx)
+    r = V.run(b, w, cost_bps=0)
+    assert r.gross.sum() == pytest.approx(0.10)
+    assert V.daily(r)["gross"].loc["2024-01-01"] == pytest.approx(0.10)              # legacy decision-time label
+    assert V.daily(r, at="realized")["gross"].loc["2024-01-02"] == pytest.approx(0.10)  # earned on day 2
