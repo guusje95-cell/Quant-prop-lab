@@ -1,0 +1,13 @@
+{
+ "id": "P25c_US_SESSION_REVERSAL",
+ "family": "prop/topstep-intraday",
+ "statement": "In gold, crude and FX futures, the return from the previous day's 15:00 CT close to 09:00 CT (overnight + first US hour) predicts the 09:00-15:00 CT return (continuation). (reversal variant)",
+ "mechanism": "intraday momentum: late-informed / hedging flows trade in the direction of the early move (Gao, Han, Li & Zhou 2018 equities; Elaut, Froemmel & Lampaert 2018 FX; commodities literature). Never tested in this project on non-equity markets.",
+ "falsification": "{\"DEV\": \"pooled net Sharpe >= 0.5 AND >= 4/6 markets positive\", \"VAL\": \"pooled net Sharpe >= 0.3\", \"TEST\": \"net > 0 at 1x and >= 0 at 2x\", \"FRESH\": \"pooled net mean > 0 (TopstepX real futures never used by any strategy)\"}",
+ "data_required": "Dukascopy H1 + TopstepX 1h",
+ "params_tested": "single spec",
+ "baseline": "zero",
+ "promotion": "config/topstep_gen25_protocol.json",
+ "sources": [],
+ "generation": 25
+}

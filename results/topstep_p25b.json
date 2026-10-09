@@ -1,0 +1,52 @@
+{
+ "P25b_US_SESSION_MOMENTUM": {
+  "DEV": {
+   "net_sharpe": -1.264,
+   "gross_sharpe": -0.247,
+   "trades": 6456,
+   "win_rate": 0.467,
+   "profit_factor": 0.862,
+   "share_mkts_pos": 0.167,
+   "per_mkt": {
+    "XAUUSD": -0.44,
+    "XAGUSD": -1.4,
+    "BRENT": 0.02,
+    "EURUSD": -0.83,
+    "GBPUSD": -1.29,
+    "USDJPY": -1.24
+   },
+   "nw_p": 0.9987
+  },
+  "DEV_2x": -2.277,
+  "DEV_3x": -3.285,
+  "dev_pass": false,
+  "verdict": "REJECTED"
+ },
+ "P25c_US_SESSION_REVERSAL": {
+  "DEV": {
+   "net_sharpe": -0.771,
+   "gross_sharpe": 0.247,
+   "trades": 6456,
+   "win_rate": 0.478,
+   "profit_factor": 0.913,
+   "share_mkts_pos": 0.0,
+   "per_mkt": {
+    "XAUUSD": -0.2,
+    "XAGUSD": -0.04,
+    "BRENT": -0.7,
+    "EURUSD": -0.26,
+    "GBPUSD": -0.78,
+    "USDJPY": -0.63
+   },
+   "nw_p": 0.9672
+  },
+  "DEV_2x": -1.787,
+  "DEV_3x": -2.799,
+  "dev_pass": false,
+  "verdict": "REJECTED"
+ },
+ "holm_DEV": {
+  "P25c_US_SESSION_REVERSAL": false,
+  "P25b_US_SESSION_MOMENTUM": false
+ }
+}

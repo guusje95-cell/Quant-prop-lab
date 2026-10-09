@@ -1,0 +1,98 @@
+{
+ "daily_sd_100": {
+  "hist_1990_2024": {
+   "p_pass": 0.603,
+   "p_fail": 0.397,
+   "days_to_pass_p50": 333.5,
+   "expected_cost_to_pass_usd": 1498.831,
+   "n_unresolved": 238
+  },
+  "hist_2010_2024": {
+   "p_pass": 0.391,
+   "p_fail": 0.609,
+   "days_to_pass_p50": 201.0,
+   "expected_cost_to_pass_usd": 1878.608,
+   "n_unresolved": 66
+  },
+  "bootstrap_2010_2024": {
+   "p_pass": 0.492,
+   "p_fail": 0.467,
+   "days_to_pass_p50": 298.0,
+   "expected_cost_to_pass_usd": 1667.148,
+   "n_unresolved": null
+  },
+  "annual_return_usd_2010_2024": 896.0
+ },
+ "daily_sd_150": {
+  "hist_1990_2024": {
+   "p_pass": 0.482,
+   "p_fail": 0.518,
+   "days_to_pass_p50": 165.0,
+   "expected_cost_to_pass_usd": 1134.105,
+   "n_unresolved": 30
+  },
+  "hist_2010_2024": {
+   "p_pass": 0.371,
+   "p_fail": 0.629,
+   "days_to_pass_p50": 110.5,
+   "expected_cost_to_pass_usd": 1070.105,
+   "n_unresolved": 27
+  },
+  "bootstrap_2010_2024": {
+   "p_pass": 0.436,
+   "p_fail": 0.564,
+   "days_to_pass_p50": 145.0,
+   "expected_cost_to_pass_usd": 1004.393,
+   "n_unresolved": null
+  },
+  "annual_return_usd_2010_2024": 1343.0
+ },
+ "daily_sd_200": {
+  "hist_1990_2024": {
+   "p_pass": 0.383,
+   "p_fail": 0.617,
+   "days_to_pass_p50": 95.0,
+   "expected_cost_to_pass_usd": 847.807,
+   "n_unresolved": 21
+  },
+  "hist_2010_2024": {
+   "p_pass": 0.317,
+   "p_fail": 0.683,
+   "days_to_pass_p50": 66.0,
+   "expected_cost_to_pass_usd": 821.224,
+   "n_unresolved": 22
+  },
+  "bootstrap_2010_2024": {
+   "p_pass": 0.383,
+   "p_fail": 0.617,
+   "days_to_pass_p50": 84.0,
+   "expected_cost_to_pass_usd": 745.573,
+   "n_unresolved": null
+  },
+  "annual_return_usd_2010_2024": 1791.0
+ },
+ "daily_sd_300": {
+  "hist_1990_2024": {
+   "p_pass": 0.384,
+   "p_fail": 0.616,
+   "days_to_pass_p50": 50.0,
+   "expected_cost_to_pass_usd": 534.072,
+   "n_unresolved": 12
+  },
+  "hist_2010_2024": {
+   "p_pass": 0.328,
+   "p_fail": 0.672,
+   "days_to_pass_p50": 41.5,
+   "expected_cost_to_pass_usd": 555.418,
+   "n_unresolved": 12
+  },
+  "bootstrap_2010_2024": {
+   "p_pass": 0.342,
+   "p_fail": 0.658,
+   "days_to_pass_p50": 40.0,
+   "expected_cost_to_pass_usd": 525.402,
+   "n_unresolved": null
+  },
+  "annual_return_usd_2010_2024": 2687.0
+ }
+}

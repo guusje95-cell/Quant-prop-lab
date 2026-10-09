@@ -219,3 +219,11 @@ The repository is clean and resumable (`v6/V6_NEXT_ACTIONS.md`). Report: `report
 * **T2 (gen24):** the same trend held 17:00 → 15:00 CT (inside the Topstep trading day). DEV net −0.99, gross −0.40, 0/9 positive → **REJECTED**.
 * **Context (descriptive):** close-to-close EWMAC on 17 Topstep-tradable CME markets earns 0.74 / 0.46 / 0.47 / 0.56 net (1990–04 / 05–12 / 13–18 / 19–24).
 * **Learning:** the trend edge needs multi-day (incl. weekend) holding *and* a broad market set including bonds and ags. Topstep's flat-by-3:10 PM CT rule plus a full round trip every day removes it on the testable markets. **Daily trend is not a Topstep strategy.** The only Topstep-compatible survivor in the project is still H3 (NQ intraday noise-area, EXPLORATORY), whose recorded 50K pass estimate at the 2025–26 edge (28%) is indistinguishable from no edge (24%).
+
+## 2026-10-10 · Entry 17 — Topstep: what edge is needed, and what we have
+* **Fees (user-supplied):** Topstep NQ $3.78 / MNQ $1.22 RT; Lucid NQ/ES $3.50 / MNQ/MES $1.00 RT (`config/prop_fees_user.json`).
+* **P25a no-edge benchmark** (Topstep 50K, MNQ fees + 1 tick slippage): pass 21–31% at any risk level; median 14–180 days; $350–1,400 expected fees per pass.
+* **P25b/c US-session momentum/reversal** (GC, SI, CL, 6E, 6B, 6J proxies, DEV 2013–18): net −1.26 / −0.77 (gross −0.25 / +0.25), 6,456 trades, 0–1/6 markets positive → **both REJECTED**.
+* **What-if** (trend book with overnight holding under Topstep-style rules, NOT any firm's verified rules): pass 32–49% (2010–24 starts/bootstrap) vs 21–31% no-edge; median 40–300 days.
+* **Edge requirement** (Gaussian, $150/day sd): annual net Sharpe 0 → 22% pass, 0.5 → 37%, 1.0 → 62%, 1.5 → 81%, 2.0 → 87%, 3.0 → 98%.
+* **Learning:** to pass Topstep 50K reliably (>60%), a strategy needs a net daily-return **Sharpe ≳ 1.0–1.5 at low daily risk**. The best established edge (diversified trend, ~0.5 post-2010) only lifts pass odds by about 10–15 points. Every intraday hypothesis tested so far (≈35 across v1–V6) failed costs out of sample. The bottleneck is a lack of a high-Sharpe, intraday-compatible edge with verifiable out-of-sample evidence, not engineering.

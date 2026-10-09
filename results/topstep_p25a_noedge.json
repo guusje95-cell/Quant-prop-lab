@@ -1,0 +1,150 @@
+{
+ "Topstep 50K Combine": {
+  "gauss_sigma150_tpd1": {
+   "p_pass": 0.314,
+   "p_fail": 0.675,
+   "days_to_pass_p50": 174.5,
+   "expected_cost_to_pass_usd": 1416.799
+  },
+  "gauss_sigma150_tpd4": {
+   "p_pass": 0.092,
+   "p_fail": 0.901,
+   "days_to_pass_p50": 178.5,
+   "expected_cost_to_pass_usd": 4021.642
+  },
+  "gauss_sigma250_tpd1": {
+   "p_pass": 0.225,
+   "p_fail": 0.775,
+   "days_to_pass_p50": 72.0,
+   "expected_cost_to_pass_usd": 947.057
+  },
+  "gauss_sigma250_tpd4": {
+   "p_pass": 0.212,
+   "p_fail": 0.788,
+   "days_to_pass_p50": 68.0,
+   "expected_cost_to_pass_usd": 969.08
+  },
+  "gauss_sigma400_tpd1": {
+   "p_pass": 0.261,
+   "p_fail": 0.74,
+   "days_to_pass_p50": 30.0,
+   "expected_cost_to_pass_usd": 519.321
+  },
+  "gauss_sigma400_tpd4": {
+   "p_pass": 0.237,
+   "p_fail": 0.763,
+   "days_to_pass_p50": 29.0,
+   "expected_cost_to_pass_usd": 550.909
+  },
+  "gauss_sigma600_tpd1": {
+   "p_pass": 0.232,
+   "p_fail": 0.768,
+   "days_to_pass_p50": 14.0,
+   "expected_cost_to_pass_usd": 433.36
+  },
+  "gauss_sigma600_tpd4": {
+   "p_pass": 0.22,
+   "p_fail": 0.78,
+   "days_to_pass_p50": 15.0,
+   "expected_cost_to_pass_usd": 452.249
+  },
+  "bold_R300_b2.0": {
+   "p_pass": 0.27,
+   "p_fail": 0.73,
+   "days_to_pass_p50": 25.0,
+   "expected_cost_to_pass_usd": 485.959
+  },
+  "bold_R500_b2.0": {
+   "p_pass": 0.234,
+   "p_fail": 0.766,
+   "days_to_pass_p50": 10.0,
+   "expected_cost_to_pass_usd": 403.318
+  },
+  "bold_R500_b3.0": {
+   "p_pass": 0.268,
+   "p_fail": 0.733,
+   "days_to_pass_p50": 8.0,
+   "expected_cost_to_pass_usd": 345.563
+  },
+  "bold_R800_b2.0": {
+   "p_pass": 0.226,
+   "p_fail": 0.774,
+   "days_to_pass_p50": 4.0,
+   "expected_cost_to_pass_usd": 356.359
+  }
+ },
+ "Topstep 50K Combine +DLL": {
+  "gauss_sigma150_tpd1": {
+   "p_pass": 0.204,
+   "p_fail": 0.785,
+   "days_to_pass_p50": 180.0,
+   "expected_cost_to_pass_usd": 2058.94
+  },
+  "gauss_sigma150_tpd4": {
+   "p_pass": 0.124,
+   "p_fail": 0.87,
+   "days_to_pass_p50": 179.0,
+   "expected_cost_to_pass_usd": 3087.586
+  },
+  "gauss_sigma250_tpd1": {
+   "p_pass": 0.234,
+   "p_fail": 0.766,
+   "days_to_pass_p50": 68.0,
+   "expected_cost_to_pass_usd": 904.143
+  },
+  "gauss_sigma250_tpd4": {
+   "p_pass": 0.112,
+   "p_fail": 0.888,
+   "days_to_pass_p50": 66.0,
+   "expected_cost_to_pass_usd": 1594.694
+  },
+  "gauss_sigma400_tpd1": {
+   "p_pass": 0.21,
+   "p_fail": 0.789,
+   "days_to_pass_p50": 27.0,
+   "expected_cost_to_pass_usd": 596.146
+  },
+  "gauss_sigma400_tpd4": {
+   "p_pass": 0.162,
+   "p_fail": 0.838,
+   "days_to_pass_p50": 29.0,
+   "expected_cost_to_pass_usd": 726.398
+  },
+  "gauss_sigma600_tpd1": {
+   "p_pass": 0.272,
+   "p_fail": 0.729,
+   "days_to_pass_p50": 15.0,
+   "expected_cost_to_pass_usd": 394.877
+  },
+  "gauss_sigma600_tpd4": {
+   "p_pass": 0.217,
+   "p_fail": 0.782,
+   "days_to_pass_p50": 14.0,
+   "expected_cost_to_pass_usd": 459.669
+  },
+  "bold_R300_b2.0": {
+   "p_pass": 0.279,
+   "p_fail": 0.722,
+   "days_to_pass_p50": 25.0,
+   "expected_cost_to_pass_usd": 474.035
+  },
+  "bold_R500_b2.0": {
+   "p_pass": 0.23,
+   "p_fail": 0.77,
+   "days_to_pass_p50": 11.0,
+   "expected_cost_to_pass_usd": 409.177
+  },
+  "bold_R500_b3.0": {
+   "p_pass": 0.227,
+   "p_fail": 0.773,
+   "days_to_pass_p50": 8.0,
+   "expected_cost_to_pass_usd": 389.539
+  },
+  "bold_R800_b2.0": {
+   "p_pass": 0.234,
+   "p_fail": 0.766,
+   "days_to_pass_p50": 4.0,
+   "expected_cost_to_pass_usd": 347.159
+  }
+ }
+}

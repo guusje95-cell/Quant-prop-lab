@@ -1,0 +1,92 @@
+{
+ "sd150_SR0.0": {
+  "p_pass": 0.215,
+  "days_to_pass_p50": 179.0,
+  "cost_to_pass": 2007.0
+ },
+ "sd150_SR0.5": {
+  "p_pass": 0.372,
+  "days_to_pass_p50": 181.0,
+  "cost_to_pass": 1291.0
+ },
+ "sd150_SR1.0": {
+  "p_pass": 0.624,
+  "days_to_pass_p50": 159.0,
+  "cost_to_pass": 800.0
+ },
+ "sd150_SR1.5": {
+  "p_pass": 0.807,
+  "days_to_pass_p50": 141.0,
+  "cost_to_pass": 599.0
+ },
+ "sd150_SR2.0": {
+  "p_pass": 0.873,
+  "days_to_pass_p50": 129.0,
+  "cost_to_pass": 527.0
+ },
+ "sd150_SR3.0": {
+  "p_pass": 0.975,
+  "days_to_pass_p50": 94.0,
+  "cost_to_pass": 398.0
+ },
+ "sd250_SR0.0": {
+  "p_pass": 0.269,
+  "days_to_pass_p50": 70.0,
+  "cost_to_pass": 812.0
+ },
+ "sd250_SR0.5": {
+  "p_pass": 0.376,
+  "days_to_pass_p50": 68.0,
+  "cost_to_pass": 637.0
+ },
+ "sd250_SR1.0": {
+  "p_pass": 0.488,
+  "days_to_pass_p50": 68.0,
+  "cost_to_pass": 515.0
+ },
+ "sd250_SR1.5": {
+  "p_pass": 0.607,
+  "days_to_pass_p50": 63.0,
+  "cost_to_pass": 430.0
+ },
+ "sd250_SR2.0": {
+  "p_pass": 0.698,
+  "days_to_pass_p50": 59.0,
+  "cost_to_pass": 378.0
+ },
+ "sd250_SR3.0": {
+  "p_pass": 0.866,
+  "days_to_pass_p50": 49.0,
+  "cost_to_pass": 302.0
+ },
+ "sd400_SR0.0": {
+  "p_pass": 0.277,
+  "days_to_pass_p50": 28.0,
+  "cost_to_pass": 497.0
+ },
+ "sd400_SR0.5": {
+  "p_pass": 0.33,
+  "days_to_pass_p50": 30.0,
+  "cost_to_pass": 444.0
+ },
+ "sd400_SR1.0": {
+  "p_pass": 0.397,
+  "days_to_pass_p50": 30.0,
+  "cost_to_pass": 388.0
+ },
+ "sd400_SR1.5": {
+  "p_pass": 0.474,
+  "days_to_pass_p50": 28.0,
+  "cost_to_pass": 342.0
+ },
+ "sd400_SR2.0": {
+  "p_pass": 0.579,
+  "days_to_pass_p50": 28.0,
+  "cost_to_pass": 299.0
+ },
+ "sd400_SR3.0": {
+  "p_pass": 0.691,
+  "days_to_pass_p50": 24.0,
+  "cost_to_pass": 260.0
+ }
+}
