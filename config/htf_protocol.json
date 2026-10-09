@@ -1,0 +1,37 @@
+{
+  "_written": "2026-10-10, BEFORE any HTF signal or return was computed. Track A (HTF liquidity levels), generation 19.",
+  "bars": "1-hour OHLC. Signals use a bar only after it has closed; entry at the NEXT bar's open.",
+  "trading_day": "futures/CFD/FX: day starts 17:00 America/New_York (key = date of ts_ET + 7h); crypto: UTC calendar day. Week = ISO week of the trading-day date.",
+  "levels": {
+    "PD": "previous trading day high/low (completed day only; available from the first bar of the next trading day; expires at the end of that day)",
+    "PW": "previous trading week high/low (completed week only; active for the whole current week)"
+  },
+  "scale": "ATRd = 20-day mean of daily true range from COMPLETED trading days (shifted one day)",
+  "event_rule": "per level and side, only the FIRST bar that trades through the level in its active period defines the event (no re-use of a level). Minimum penetration delta = 0.05 * ATRd beyond the level.",
+  "strategies": {
+    "A1_SR1": "sweep and reclaim in one bar: high > L + delta and close < L (short at prior high); mirror at prior low (long). Stop = bar extreme +/- 0.05*ATRd.",
+    "A3_SR3": "failed breakout: first through-bar closes beyond L; a close back inside L within the next 3 bars triggers the reversal trade. Stop = extreme since the cross +/- 0.05*ATRd.",
+    "A2_BO": "breakout continuation: first through-bar closes beyond L + delta; trade in the break direction. Stop = entry -/+ 0.5*ATRd."
+  },
+  "exits_primary": "stop (conservative: if the bar range touches the stop, fill at the worse of stop and the bar open; stop is assumed hit BEFORE any favourable move inside the same bar) or time exit at the open 6 bars after entry",
+  "exit_neighbours": "time exit 3 and 12 bars; 1.5R target + stop + 12-bar time exit (target only if bar opens/trades through it AFTER the stop check)",
+  "position": "one open trade per strategy x instrument x level family; new signals ignored while in a trade. Risk-normalised: every trade risks 1R = |entry - stop|; P&L reported in R and as daily R-sum.",
+  "costs_round_trip": {"dukascopy_cfd_fx": "qpl.instruments.SPOT_COST_PRICE_UNITS (spread+commission estimate)", "cme_futures": "Instrument.cost_per_rt (commission + 1 tick slippage per side) / point_value",
+                       "btc": "14 bp of price (taker 4 bp + 3 bp slippage per side)", "stress": "2x and 3x"},
+  "datasets_and_periods": {
+    "DUKASCOPY_H1 (13 instruments: US500 US100 US30 DE40 XAUUSD XAGUSD EURUSD GBPUSD USDJPY AUDUSD USDCAD USDCHF BRENT)":
+      {"DEV": ["2013-06-01", "2018-12-31"], "VAL": ["2019-01-01", "2020-12-31"], "TEST": ["2021-01-01", "2023-09-08"],
+       "note": "TEST years were previously observed by OTHER intraday hypotheses (v1/v3); labelled partially contaminated"},
+    "BITSTAMP_BTC_1H": {"DEV": ["2015-01-01", "2019-12-31"], "VAL": ["2020-01-01", "2021-12-31"], "TEST": ["2022-01-01", "2026-10-08"],
+                         "note": "price path previously observed through daily CT1 research; intraday HTF never tested"},
+    "TOPSTEPX_1H (ES NQ RTY GC CL 6E 6B 6J)": {"FRESH_HOLDOUT": ["2025-03-21", "2026-04-15"],
+                                               "note": "GC/CL/6E/6B/6J never used by any strategy; ES/NQ/RTY used only by the v3 H3 holdout. Single look, only for strategies that pass DEV+VAL on Dukascopy"}
+  },
+  "metric": "primary = net Sharpe of the pooled daily R-sum series (all trading days incl. zero days, sqrt(252) for Dukascopy/futures, sqrt(365) for BTC), equal risk per trade; also expectancy in R, profit factor, win rate",
+  "gates": {"DEV": "pooled net Sharpe >= 0.5 AND net expectancy > 0 AND >= 60% of instruments with positive net expectancy",
+            "VAL": "pooled net Sharpe >= 0.3 AND net expectancy > 0", "TEST": "single look: net Sharpe > 0 at 1x AND >= 0 at 2x costs",
+            "FRESH_HOLDOUT": "single look: net expectancy > 0 at 1x costs"},
+  "directions": "long and short reported separately; the gate applies to the combined strategy",
+  "multiple_testing": "6 primaries (3 strategies x 2 level families) per dataset; Holm across primaries on DEV Newey-West p-values reported",
+  "single_use": true
+}
