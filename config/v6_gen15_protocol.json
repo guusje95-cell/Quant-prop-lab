@@ -1,0 +1,20 @@
+{
+  "_written": "2026-10-09, before running gen15. Adaptive/regime/ML layers on the gen13 futures survivors.",
+  "evaluation": "expanding walk-forward, refit every January using data through Dec 31 of the prior year; out-of-sample decision window 1995-01-01..2013-12-31 (end of DISCOVERY + all VALIDATION). 2014-2024 reported as CONTAMINATED-SECONDARY (TEST/HOLDOUT already looked at in gen13). Status ceiling: PROMISING_BUT_UNVALIDATED.",
+  "sleeves": "TREND = mean of F0,F1,F2 signals; CARRY = F3 signal; each run through the panel engine with costs (book vol target 10%). Baseline B0 = 50/50 equal-risk mix of the two sleeve P&Ls (= F7-like).",
+  "overlays_weight_daily_pnl": "weights decided with information through day t multiply sleeve P&L from day t+1; reweighting costs ignored (stated limitation)",
+  "H15a_HMM_REGIME": {"model": "2-state Gaussian HMM (hmmlearn) on weekly [LONG_RP return, log 20d realised vol of LONG_RP]; state probabilities by the FORWARD filter only (no smoothing)",
+                       "rule": "in each training window estimate each sleeve's Sharpe per state (state assignment by filtered argmax); OOS weight of sleeve k in state s proportional to max(Sharpe_k,s, 0), equal if both <= 0"},
+  "H15b_BOCPD_DERISK": {"model": "Adams-MacKay Bayesian online change-point on B0 daily P&L, Normal-Gamma prior, hazard 1/250",
+                        "rule": "scale B0 to 0.5 when P(run length < 21 days) > 0.5, else 1.0"},
+  "H15c_FACTOR_MOMENTUM": {"rule": "weight sleeves by max(trailing-252d sleeve Sharpe, 0) (equal if both <= 0)", "source": "Ehsani & Linnainmaa (2022) Factor momentum and the momentum factor, JF"},
+  "H15d_ML": {"target": "sum of instrument returns over days t+2..t+21 divided by sigma_t",
+              "features": "sign tsmom 21/63/126/252; EWMAC raw 4 speeds; carry signal; sigma; sigma/sigma 252d-mean; 126d skew; distance to 252d high/low in sigma units; asset-class code",
+              "models": {"H15d_RIDGE": "ridge regression (alpha 10) on standardised features", "H15d_LGBM": "LightGBM regressor, 200 trees, num_leaves 15, learning_rate 0.03, min_data_in_leaf 500, feature_fraction 0.8, seed 0"},
+              "sampling": "train on every 5th day; purge the last 22 days before each refit",
+              "position": "clip(pred / mean|pred on training|, -1, 1) through the panel engine with costs",
+              "baseline": "F7_COMBO signal on the same OOS years"},
+  "adopt_if": {"overlays (a,b,c)": "OOS 1995-2013 net Sharpe >= B0 + 0.10 AND above the 95th percentile of 200 random overlays with the same distribution of weights (shuffled in blocks of 63 days)",
+               "ML (d)": "OOS 1995-2013 net Sharpe >= F7 + 0.10 AND block-bootstrap P(Sharpe_ML <= Sharpe_F7) < 0.10; LGBM must also beat RIDGE (complexity must earn its keep)"},
+  "single_use": true
+}
