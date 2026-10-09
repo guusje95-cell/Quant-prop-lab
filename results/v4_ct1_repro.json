@@ -1,0 +1,53 @@
+{
+ "dev": {
+  "train": {
+   "sharpe": 1.5131,
+   "residual_sharpe": 1.1815,
+   "max_dd": -0.3447
+  },
+  "validation": {
+   "sharpe": 1.2804,
+   "residual_sharpe": 0.8772,
+   "max_dd": -0.2084
+  }
+ },
+ "oos": {
+  "oos": {
+   "sharpe": 0.5697,
+   "residual_sharpe": 0.592,
+   "max_dd": -0.3
+  }
+ },
+ "7bps": {
+  "holdout": {
+   "sharpe": 0.336,
+   "residual_sharpe": 0.2985,
+   "max_dd": -0.4059
+  },
+  "matches_stored": true
+ },
+ "stress15": {
+  "holdout": {
+   "sharpe": 0.2509,
+   "residual_sharpe": 0.2139,
+   "max_dd": -0.4251
+  },
+  "matches_stored": true
+ },
+ "stress21": {
+  "holdout": {
+   "sharpe": 0.1871,
+   "residual_sharpe": 0.1504,
+   "max_dd": -0.4488
+  },
+  "matches_stored": true
+ },
+ "long_only_secondary": {
+  "holdout": {
+   "sharpe": 0.6838,
+   "residual_sharpe": 0.4306,
+   "max_dd": -0.2651
+  },
+  "matches_stored": true
+ }
+}
