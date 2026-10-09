@@ -203,3 +203,19 @@ The repository is clean and resumable (`v6/V6_NEXT_ACTIONS.md`). Report: `report
   1. A fresh-data test of the BTC breakout: none is reachable offline. Prospective paper, next to CT1.
   2. A daily HTF test on 50 years of futures is impossible: no high/low in pysystemtrade, only closes.
   3. HTF hourly sweeps need lower execution costs (limit-order entries). That requires quote data, which is unavailable.
+
+## 2026-10-10 · Entry 16 — Prop refocus: Topstep 50K Combine
+* **Rules in use:** `config/prop_firms_v3.json` `topstep_50k_combine`, all UNCERTAIN.
+  * $3,000 target.
+  * $2,000 max loss limit (MLL), end-of-day trailing, monitored intraday including unrealised P&L, locks at the starting balance.
+  * Optional $1,000 daily loss limit (DLL), which pauses trading rather than failing.
+  * 55% consistency.
+  * 5 minis / 50 micros.
+  * Flat by 3:10 PM CT; the trading day starts at 5:00 PM CT.
+  * Fees $49/month, $149 XFA activation (UNVERIFIED).
+* **Lucid Trading and Crypto Fund Trader:** no rule data exists in this repository or session. The user's dossier must be supplied.
+* **FTMO gen22:** the protocol (dbe5393) was pre-registered but **never run**, stopped at the user's instruction. No FTMO results exist.
+* **T1 (gen23):** daily EWMAC trend held 09:00–15:00 CT on 9 Dukascopy proxies. DEV net −1.20, gross −0.37, 0/9 markets positive, 2×/3× −2.03/−2.85 → **REJECTED**. Diagnostic: the gross trend P&L sits overnight in 8/9 markets.
+* **T2 (gen24):** the same trend held 17:00 → 15:00 CT (inside the Topstep trading day). DEV net −0.99, gross −0.40, 0/9 positive → **REJECTED**.
+* **Context (descriptive):** close-to-close EWMAC on 17 Topstep-tradable CME markets earns 0.74 / 0.46 / 0.47 / 0.56 net (1990–04 / 05–12 / 13–18 / 19–24).
+* **Learning:** the trend edge needs multi-day (incl. weekend) holding *and* a broad market set including bonds and ags. Topstep's flat-by-3:10 PM CT rule plus a full round trip every day removes it on the testable markets. **Daily trend is not a Topstep strategy.** The only Topstep-compatible survivor in the project is still H3 (NQ intraday noise-area, EXPLORATORY), whose recorded 50K pass estimate at the 2025–26 edge (28%) is indistinguishable from no edge (24%).

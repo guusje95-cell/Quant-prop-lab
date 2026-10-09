@@ -1,0 +1,13 @@
+{
+ "id": "T2_TREND_GLOBEX",
+ "family": "prop/topstep-intraday-trend",
+ "statement": "T2_TREND_GLOBEX: hold the daily trend direction from the Globex reopen (17:00 CT) to 15:00 CT next day - inside one Topstep trading day (starts 5:00 PM CT, flat by 3:10 PM CT); captures the overnight part where T1's diagnostic located the trend P&L. Weekend gap (Fri 15:00 CT -> Sun 17:00 CT) and 15:00-17:00 CT are not held.",
+ "mechanism": "trend premium accrual during the day session",
+ "falsification": "{\"DEV\": \"pooled net Sharpe >= 0.5 AND >= 60% instruments with positive net mean\", \"VAL\": \"pooled net Sharpe >= 0.3\", \"TEST\": \"net Sharpe > 0 at 1x and >= 0 at 2x\", \"FRESH\": \"pooled net mean > 0\"}",
+ "data_required": "Dukascopy H1 + TopstepX 1h",
+ "params_tested": "single spec",
+ "baseline": "zero",
+ "promotion": "config/topstep_t2_protocol.json",
+ "sources": [],
+ "generation": 24
+}

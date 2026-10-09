@@ -1,0 +1,75 @@
+{
+ "diagnostic_session_vs_overnight": {
+  "US500": {
+   "session_gross_sum": 0.05,
+   "overnight_gross_sum": 0.19
+  },
+  "US100": {
+   "session_gross_sum": 0.33,
+   "overnight_gross_sum": 0.39
+  },
+  "US30": {
+   "session_gross_sum": -0.38,
+   "overnight_gross_sum": -0.03
+  },
+  "XAUUSD": {
+   "session_gross_sum": 1.22,
+   "overnight_gross_sum": -0.5
+  },
+  "XAGUSD": {
+   "session_gross_sum": -1.57,
+   "overnight_gross_sum": 0.6
+  },
+  "BRENT": {
+   "session_gross_sum": 0.0,
+   "overnight_gross_sum": 0.0
+  },
+  "EURUSD": {
+   "session_gross_sum": 0.15,
+   "overnight_gross_sum": 0.15
+  },
+  "GBPUSD": {
+   "session_gross_sum": 0.14,
+   "overnight_gross_sum": 0.12
+  },
+  "USDJPY": {
+   "session_gross_sum": -0.13,
+   "overnight_gross_sum": 0.28
+  }
+ },
+ "T2": {
+  "DEV": {
+   "net_sharpe": -0.991,
+   "gross_sharpe": -0.401,
+   "instrument_days": 7285,
+   "win_rate": 0.481,
+   "profit_factor": 0.878,
+   "max_dd_units": -2.84,
+   "share_inst_positive": 0.0,
+   "per_inst_sharpe": {
+    "US500": -0.07,
+    "US100": -0.52,
+    "US30": -0.09,
+    "XAUUSD": -0.12,
+    "XAGUSD": -1.13,
+    "BRENT": 0,
+    "EURUSD": -0.35,
+    "GBPUSD": -0.43,
+    "USDJPY": -0.62
+   },
+   "nw_p": 0.9909,
+   "by_year_units": {
+    "2013": 0.17,
+    "2014": -0.51,
+    "2015": -0.68,
+    "2016": 0.0,
+    "2017": -1.28,
+    "2018": -0.33
+   }
+  },
+  "DEV_2x": -1.5798735267429058,
+  "DEV_3x": -2.168221265290105,
+  "dev_pass": false,
+  "verdict": "REJECTED"
+ }
+}
