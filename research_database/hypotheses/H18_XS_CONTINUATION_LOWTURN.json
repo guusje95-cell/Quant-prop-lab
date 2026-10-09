@@ -1,0 +1,13 @@
+{
+ "id": "H18_XS_CONTINUATION_LOWTURN",
+ "family": "crypto/cross-section",
+ "statement": "7-day XS continuation, 4-weekly rebalance",
+ "mechanism": "attention/flow persistence at weekly horizon",
+ "falsification": "VALIDATION net < 0.3",
+ "data_required": "Coin Metrics community",
+ "params_tested": "every 2/4 weeks; 7/14-day signal",
+ "baseline": "zero",
+ "promotion": "config/v6_gen18_protocol.json",
+ "sources": [],
+ "generation": 18
+}

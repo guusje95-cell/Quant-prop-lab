@@ -164,3 +164,11 @@ TSMOM by asset class and decade: FX trend collapsed (1.42 → 0.22 → −0.17);
 1. **CT1's decay is part of an economy-wide decline in trend and carry premia since ~2005–2010.** That is consistent with post-publication decay and crowding (McLean & Pontiff 2016; the CTA industry's AUM growth). It is not only a crypto quirk.
 2. Forward expectations should be anchored on post-2010 levels: **SR ≈ 0.5–0.8 for diversified trend+carry, and possibly lower** if the slope continues. The F9 monitoring expectation (SR 0.5) is set accordingly.
 3. Diversification across asset classes is what keeps the book alive. No single class has been reliable in every decade. This argues against small, concentrated books (Entry 10).
+
+## 2026-10-09 · Entry 12 — Gen18 crypto XS continuation with turnover control (`experiments/v6_gen18_crypto_cont.py`)
+* **Design:** a new hypothesis from gen16 evidence (7-day continuation), rebalanced every 4 weeks. Judged on VALIDATION 2021–22 and TEST 2023–26 only.
+* **Results:**
+  * VALIDATION: net **0.53** (gross 0.73). Neighbours: 14-day signal 0.43, 2-weekly rebalance −0.75. Passed the "≥ 1/2 neighbours" gate.
+  * TEST (single look): net **0.01** at 30 bp, −0.25 at 60 bp → **EXPLORATORY**.
+  * For information, the same rule's TRAIN 2017–20 is −0.56.
+* **Learning:** the alt cross-sectional continuation effect flips sign across periods and is very sensitive to rebalance frequency. That is no edge after costs. Crypto cross-sectional research on this curated universe is closed until a survivorship-free, executable dataset exists (data backlog #2).
