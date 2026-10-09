@@ -195,3 +195,11 @@ The repository is clean and resumable (`v6/V6_NEXT_ACTIONS.md`). Report: `report
 * **Learning:**
   1. "Liquidity sweep" reversals at HTF levels are real in gross terms at the 1-hour scale but too small for retail costs. On daily bars they are weak and not broad.
   2. Breakouts of HTF levels only work where trends are strong (crypto). That is the same trend premium as CT1/F7, expressed through levels, not a separate liquidity edge.
+
+## 2026-10-10 · Entry 15 — Track C pairs, and a portfolio of survivors
+* **C21 pairs stat-arb** (6 economically chosen pairs, rolling 252-day hedge, z = 2 entry; protocol committed first): DEV net −0.35 (gross 0.13), 2/6 pairs positive, all neighbours negative → **REJECTED**.
+* **Portfolio** (descriptive): F9 + BTC weekly breakout + CT1 at equal risk → Sharpe 1.46, max DD −7.7% (2015–24Q1, weekly). Driven by near-zero correlation between futures trend/carry and crypto trend.
+* **Next (by information value):**
+  1. A fresh-data test of the BTC breakout: none is reachable offline. Prospective paper, next to CT1.
+  2. A daily HTF test on 50 years of futures is impossible: no high/low in pysystemtrade, only closes.
+  3. HTF hourly sweeps need lower execution costs (limit-order entries). That requires quote data, which is unavailable.

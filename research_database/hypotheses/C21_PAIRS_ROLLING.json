@@ -1,0 +1,13 @@
+{
+ "id": "C21_PAIRS_ROLLING",
+ "family": "stat-arb/pairs",
+ "statement": "rolling-hedge z-score mean reversion on 6 economically related pairs",
+ "mechanism": "temporary relative mispricing reverts",
+ "falsification": "pooled net Sharpe >= 0.5 AND >= 4/6 pairs positive AND >= 2/3 neighbours positive",
+ "data_required": "Dukascopy D1",
+ "params_tested": "\"entry |z| 1.5 and 2.5; formation 126 and 504 days\"",
+ "baseline": "zero",
+ "promotion": "config/statarb_protocol.json",
+ "sources": [],
+ "generation": 21
+}
