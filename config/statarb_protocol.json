@@ -1,0 +1,16 @@
+{
+  "_written": "2026-10-10, before computing any pair-trading return. Track C gen21.",
+  "pairs": {"SPX_DOW": ["US500", "US30"], "SPX_NDX": ["US500", "US100"], "EUR_GBP": ["EURUSD", "GBPUSD"], "AUD_CAD": ["AUDUSD", "USDCAD_inv"],
+            "GOLD_SILVER": ["XAUUSD", "XAGUSD"], "EUR_CHF": ["EURUSD", "USDCHF_inv"]},
+  "pair_choice": "economic relatedness only (same asset class/region/commodity complex), fixed before any spread statistic was computed; no correlation screening",
+  "data": "Dukascopy D1 closes (same 00:00 UTC stamp for both legs); *_inv = 1/price",
+  "model": "beta_t = OLS slope of log A on log B over the trailing 252 days ending at t (formation strictly before trading); spread_t = logA - beta_t logB; z_t = (spread_t - mean_60) / std_60 using data through t",
+  "trading": "enter short spread at z > 2, long at z < -2; exit at |z| < 0.5, after 20 days, or stop at |z| > 4; decisions at close t, position held from close t+1",
+  "sizing": "1 unit of leg A notional and beta units of leg B per position, scaled by 1 / trailing-60d spread return vol (risk parity across pairs)",
+  "costs": "per unit turnover of each leg: qpl.instruments.SPOT_COST_PRICE_UNITS / price; stress 2x",
+  "neighbours": "entry |z| 1.5 and 2.5; formation 126 and 504 days",
+  "periods": {"DEV": ["2008-01-01", "2016-12-31"], "VAL": ["2017-01-01", "2020-12-31"], "TEST": ["2021-01-01", "2023-09-08"]},
+  "gates": {"DEV": "pooled net Sharpe >= 0.5 AND >= 4/6 pairs positive AND >= 2/3 neighbours positive", "VAL": "pooled net Sharpe >= 0.3", "TEST": "single look: net Sharpe > 0 at 1x and >= 0 at 2x"},
+  "known_prior": "v1 H8 (NQ/ES relative strength) and v3 V6 lead-lag were rejected on intraday data",
+  "single_use": true
+}
