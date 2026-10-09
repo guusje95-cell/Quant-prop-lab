@@ -1,0 +1,255 @@
+{
+ "post_dev_stats": {
+  "sharpe": 0.42024466319786047,
+  "ann_ret": 0.12563293399162093,
+  "ann_vol": 0.2989518844465852,
+  "max_dd": -0.4059087419815047,
+  "worst_day": -0.08221349192036233,
+  "days": 1743,
+  "cvar5": -0.03549041286984733
+ },
+ "dev_stats": {
+  "sharpe": 1.4583835757749055,
+  "ann_ret": 0.5232857274335817,
+  "ann_vol": 0.3588121370302296,
+  "max_dd": -0.3446936434956014,
+  "worst_day": -0.13744232919386995,
+  "days": 2557,
+  "cvar5": -0.04133780497786692
+ },
+ "selection": {
+  "n_crypto_variants_before_holdout": 23,
+  "PSR_dev": 0.9999742697736058,
+  "DSR_dev": 0.976780821970203,
+  "PSR_post": 0.8225988960882904,
+  "post_sharpe_ci95": [
+   -0.48646734556576,
+   1.3048112870262456
+  ]
+ },
+ "kelly": {
+  "full_kelly_multiple_of_book": 1.4057267575877987,
+  "half_kelly": 0.7028633787938994,
+  "kelly_at_mu_p25": 0.30716391005782623,
+  "kelly_at_mu_p05": 0.0,
+  "P(mu<=0)": 0.187,
+  "note": "multiple of the 40%-vol book: 1.0 = 40% annual vol. Values < 1 mean de-lever."
+ },
+ "sizing_paths": {
+  "vol10": {
+   "base": {
+    "median_1y": 0.025773743097102293,
+    "p05_1y": -0.08610339970944006,
+    "P(loss_1y)": 0.35825,
+    "P(maxDD<-10%)": 0.144,
+    "P(maxDD<-20%)": 0.001,
+    "P(maxDD<-30%)": 0.0,
+    "median_maxDD": -0.06664875249392911
+   },
+   "expectancy_-50%": {
+    "median_1y": 0.010069626348149688,
+    "p05_1y": -0.1018075164583926,
+    "P(loss_1y)": 0.44575,
+    "P(maxDD<-10%)": 0.20975,
+    "P(maxDD<-20%)": 0.001,
+    "P(maxDD<-30%)": 0.0,
+    "median_maxDD": -0.07320439560931886
+   },
+   "expectancy_-100%": {
+    "median_1y": -0.005634490400802943,
+    "p05_1y": -0.11751163320734527,
+    "P(loss_1y)": 0.52525,
+    "P(maxDD<-10%)": 0.298,
+    "P(maxDD<-20%)": 0.00225,
+    "P(maxDD<-30%)": 0.0,
+    "median_maxDD": -0.0806298912407955
+   }
+  },
+  "vol15": {
+   "base": {
+    "median_1y": 0.038660614645653374,
+    "p05_1y": -0.12915509956416013,
+    "P(loss_1y)": 0.35825,
+    "P(maxDD<-10%)": 0.4995,
+    "P(maxDD<-20%)": 0.02925,
+    "P(maxDD<-30%)": 0.001,
+    "median_maxDD": -0.09997312874089367
+   },
+   "expectancy_-50%": {
+    "median_1y": 0.015104439522224488,
+    "p05_1y": -0.15271127468758894,
+    "P(loss_1y)": 0.44575,
+    "P(maxDD<-10%)": 0.5875,
+    "P(maxDD<-20%)": 0.05475,
+    "P(maxDD<-30%)": 0.001,
+    "median_maxDD": -0.10980659341397853
+   },
+   "expectancy_-100%": {
+    "median_1y": -0.008451735601204425,
+    "p05_1y": -0.17626744981101794,
+    "P(loss_1y)": 0.52525,
+    "P(maxDD<-10%)": 0.68025,
+    "P(maxDD<-20%)": 0.09175,
+    "P(maxDD<-30%)": 0.00225,
+    "median_maxDD": -0.12094483686119328
+   }
+  },
+  "vol20": {
+   "base": {
+    "median_1y": 0.051547486194204586,
+    "p05_1y": -0.17220679941888012,
+    "P(loss_1y)": 0.35825,
+    "P(maxDD<-10%)": 0.77375,
+    "P(maxDD<-20%)": 0.144,
+    "P(maxDD<-30%)": 0.0125,
+    "median_maxDD": -0.13329750498785822
+   },
+   "expectancy_-50%": {
+    "median_1y": 0.020139252696299376,
+    "p05_1y": -0.2036150329167852,
+    "P(loss_1y)": 0.44575,
+    "P(maxDD<-10%)": 0.835,
+    "P(maxDD<-20%)": 0.20975,
+    "P(maxDD<-30%)": 0.0235,
+    "median_maxDD": -0.14640879121863773
+   },
+   "expectancy_-100%": {
+    "median_1y": -0.011268980801605885,
+    "p05_1y": -0.23502326641469054,
+    "P(loss_1y)": 0.52525,
+    "P(maxDD<-10%)": 0.88975,
+    "P(maxDD<-20%)": 0.298,
+    "P(maxDD<-30%)": 0.045,
+    "median_maxDD": -0.161259782481591
+   }
+  },
+  "vol30": {
+   "base": {
+    "median_1y": 0.07732122929130675,
+    "p05_1y": -0.25831019912832026,
+    "P(loss_1y)": 0.35825,
+    "P(maxDD<-10%)": 0.977,
+    "P(maxDD<-20%)": 0.4995,
+    "P(maxDD<-30%)": 0.144,
+    "median_maxDD": -0.19994625748178735
+   },
+   "expectancy_-50%": {
+    "median_1y": 0.030208879044448977,
+    "p05_1y": -0.3054225493751779,
+    "P(loss_1y)": 0.44575,
+    "P(maxDD<-10%)": 0.9875,
+    "P(maxDD<-20%)": 0.5875,
+    "P(maxDD<-30%)": 0.20975,
+    "median_maxDD": -0.21961318682795705
+   },
+   "expectancy_-100%": {
+    "median_1y": -0.01690347120240885,
+    "p05_1y": -0.3525348996220359,
+    "P(loss_1y)": 0.52525,
+    "P(maxDD<-10%)": 0.99325,
+    "P(maxDD<-20%)": 0.68025,
+    "P(maxDD<-30%)": 0.298,
+    "median_maxDD": -0.24188967372238657
+   }
+  },
+  "vol40": {
+   "base": {
+    "median_1y": 0.10309497238840917,
+    "p05_1y": -0.34441359883776024,
+    "P(loss_1y)": 0.35825,
+    "P(maxDD<-10%)": 0.99775,
+    "P(maxDD<-20%)": 0.77375,
+    "P(maxDD<-30%)": 0.373,
+    "median_maxDD": -0.26659500997571645
+   },
+   "expectancy_-50%": {
+    "median_1y": 0.04027850539259875,
+    "p05_1y": -0.4072300658335704,
+    "P(loss_1y)": 0.44575,
+    "P(maxDD<-10%)": 0.99975,
+    "P(maxDD<-20%)": 0.835,
+    "P(maxDD<-30%)": 0.4735,
+    "median_maxDD": -0.29281758243727546
+   },
+   "expectancy_-100%": {
+    "median_1y": -0.02253796160321177,
+    "p05_1y": -0.4700465328293811,
+    "P(loss_1y)": 0.52525,
+    "P(maxDD<-10%)": 0.99975,
+    "P(maxDD<-20%)": 0.88975,
+    "P(maxDD<-30%)": 0.5705,
+    "median_maxDD": -0.322519564963182
+   }
+  }
+ },
+ "stress": {
+  "base_7bps": {
+   "sharpe": 0.4202,
+   "ann_ret": 0.1256,
+   "max_dd": -0.4059,
+   "worst_day": -0.0822
+  },
+  "cost_14bps": {
+   "sharpe": 0.3518,
+   "ann_ret": 0.1052,
+   "max_dd": -0.4227,
+   "worst_day": -0.0822
+  },
+  "cost_21bps": {
+   "sharpe": 0.2833,
+   "ann_ret": 0.0847,
+   "max_dd": -0.4488,
+   "worst_day": -0.0822
+  },
+  "cost_30bps": {
+   "sharpe": 0.1952,
+   "ann_ret": 0.0583,
+   "max_dd": -0.5013,
+   "worst_day": -0.0822
+  },
+  "extra_1day_delay": {
+   "sharpe": 0.231,
+   "ann_ret": 0.0691,
+   "max_dd": -0.4406,
+   "worst_day": -0.1083
+  },
+  "funding_+2bp_per_8h": {
+   "sharpe": 0.3631,
+   "ann_ret": 0.1085,
+   "max_dd": -0.4492,
+   "worst_day": -0.0818
+  },
+  "spot_only_no_shorts_15bps": {
+   "sharpe": 0.8041,
+   "ann_ret": 0.1698,
+   "max_dd": -0.2392,
+   "worst_day": -0.0669
+  },
+  "outage_5pct_days_median_sharpe": 0.40358106034021,
+  "worst_btc_days": {
+   "2020-03-12": {
+    "btc_logret": -0.494,
+    "ct1_w_prev": -0.635
+   },
+   "2015-01-14": {
+    "btc_logret": -0.281,
+    "ct1_w_prev": -0.446
+   },
+   "2017-09-14": {
+    "btc_logret": -0.18,
+    "ct1_w_prev": 0.231
+   },
+   "2018-01-16": {
+    "btc_logret": -0.178,
+    "ct1_w_prev": 0.13
+   },
+   "2016-01-15": {
+    "btc_logret": -0.177,
+    "ct1_w_prev": 0.344
+   }
+  },
+  "max_abs_position": 1.0
+ },
+ "leverage_note": "Max |w| = 1.00 of equity. At 1x notional, fully collateralised (isolated margin = notional), a perp position cannot be liquidated by a single-day move < 100%. At 3x leverage, liquidation occurs near a 30% adverse move (minus maintenance margin); BTC fell ~40% intraday on 2020-03-12/13. Recommendation: <= 1x notional, no cross-margin with other positions.",
+ "recommendation": "Paper-trade at 10-15% annual vol target (0.25-0.375x the research book). Uncertainty-adjusted Kelly at the 25th-percentile mean is the relevant cap; full Kelly is not justified because P(mu<=0) in the post-development sample is material."
+}
