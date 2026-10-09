@@ -1,0 +1,33 @@
+{
+ "label": "historical replay through the paper-trading stack; not live and not elapsed paper time",
+ "perp": {
+  "final_equity": 10880.033671409177,
+  "paper_total_return": 0.08800336714091772,
+  "engine_total_return_additive": 0.09072666822692053,
+  "paper_sharpe": 0.3327453119221139,
+  "engine_sharpe": 0.35973598600164197,
+  "daily_corr_paper_vs_engine": 0.9992033033376522,
+  "max_dd_paper": -0.11626909727146395,
+  "n_fills": 927,
+  "fees_paid": 149.30240903758187,
+  "funding_paid": 170.8519020660401,
+  "risk_events": [],
+  "guard_events": [],
+  "killed": null
+ },
+ "spot": {
+  "final_equity": 11564.165596580899,
+  "paper_total_return": 0.15641655965808976,
+  "engine_total_return_additive": 0.14598098508932442,
+  "paper_sharpe": 0.7442882658036036,
+  "engine_sharpe": 0.7768482091770643,
+  "daily_corr_paper_vs_engine": 0.9986293079219812,
+  "max_dd_paper": -0.06971395683716197,
+  "n_fills": 546,
+  "fees_paid": 178.4179806946766,
+  "funding_paid": 0.0,
+  "risk_events": [],
+  "guard_events": [],
+  "killed": null
+ }
+}
