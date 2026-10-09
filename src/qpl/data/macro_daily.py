@@ -26,6 +26,8 @@ def ingest(root: Path) -> pd.DataFrame:
         cols[name] = s[s > 0]
     s = pd.read_csv(root / "s-and-p-500/archive/fred_sp500.csv", parse_dates=["observation_date"]).set_index("observation_date")["SP500"]
     cols["SPX"] = pd.to_numeric(s, errors="coerce").dropna()
+    v = pd.read_csv(root / "finance-vix/data/vix-daily.csv", parse_dates=["DATE"]).set_index("DATE")["CLOSE"]
+    cols["VIX"] = pd.to_numeric(v, errors="coerce").dropna()                  # datasets/finance-vix (CBOE), not tradable
     out = pd.DataFrame(cols).sort_index()
     out = out[~out.index.duplicated()]
     PROC.mkdir(parents=True, exist_ok=True)

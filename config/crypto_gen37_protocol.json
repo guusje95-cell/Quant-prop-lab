@@ -1,0 +1,16 @@
+{
+  "_written": "2026-10-10, AFTER gen36 (O3_STABLE_LIQUIDITY: q_BH 0.025, Sharpe 1.47 vs 1.34, but TEST 0.949 vs 0.962 -> not accepted under the all-period rule). BEFORE any gen37 number was computed.",
+  "purpose": "Independent replications on assets never used with these rules (no parameter changes).",
+  "A_E2_on_U2": {
+    "what": "frozen E2 long-only (signals, 0.40/sigma30 cap, equal weight over members) on U2 = Coin Metrics point-in-time market-cap ranks 11-30 (close-only, gen27 universe), 15 bp/turnover, 0 swap",
+    "periods": "DEV 2018-2021, VAL 2022-2023, TEST 2024-01..2026-05-24",
+    "gate": "net Sharpe 2018-2026 >= 0.8 AND >= 0.4 in each period AND 2x-cost net Sharpe >= 0.6"
+  },
+  "B_O3_replication": {
+    "what": "frozen O3 overlay (USDT+USDC 30d cap growth > 0: x1.25 else x0.75; 1-day lag) on (i) E2 ALT8 = the 8 Binance majors excluding BTC/ETH (daily OHLC, 7.5 bp) and (ii) E2 on U2 (as A)",
+    "gate": "on BOTH (i) and (ii): Sharpe at equal vol higher than without O3 in each of DEV/VAL/TEST, AND pooled paired bootstrap one-sided p < 0.05 (mean of the two daily difference series)"
+  },
+  "if B passes": "O3 becomes part of the candidate (E2 MAJ10 + O3); final report with full stats, personal-account and CFT views",
+  "trials": "3 (cumulative crypto alpha trials 136)",
+  "single_use": true
+}

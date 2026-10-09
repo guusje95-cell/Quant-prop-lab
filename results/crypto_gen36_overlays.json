@@ -1,0 +1,177 @@
+{
+ "base": {
+  "DEV": 1.819,
+  "VAL": 0.638,
+  "TEST": 0.962,
+  "ALL": 1.342,
+  "vol": 0.1848,
+  "worst_day": -0.1159,
+  "tail_ratio": 0.627,
+  "turnover_cost_pa": 0.0185
+ },
+ "overlays": {
+  "O1_MVRV": {
+   "stats": {
+    "DEV": 1.826,
+    "VAL": 0.639,
+    "TEST": 1.005,
+    "ALL": 1.351,
+    "vol": 0.1848,
+    "worst_day": -0.1061,
+    "tail_ratio": 0.574,
+    "turnover_cost_pa": 0.019
+   },
+   "beats_each_period": true,
+   "tail_ok": true,
+   "p_raw": 0.4746,
+   "share_f_ne_1": 0.165,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O2_EXCH_NETFLOW": {
+   "stats": {
+    "DEV": 1.763,
+    "VAL": 0.715,
+    "TEST": 1.058,
+    "ALL": 1.351,
+    "vol": 0.1848,
+    "worst_day": -0.1185,
+    "tail_ratio": 0.641,
+    "turnover_cost_pa": 0.0191
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.4434,
+   "share_f_ne_1": 0.06,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O3_STABLE_LIQUIDITY": {
+   "stats": {
+    "DEV": 1.925,
+    "VAL": 0.993,
+    "TEST": 0.949,
+    "ALL": 1.47,
+    "vol": 0.1848,
+    "worst_day": -0.1223,
+    "tail_ratio": 0.662,
+    "turnover_cost_pa": 0.0177
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.0028,
+   "share_f_ne_1": 1.0,
+   "q_bh": 0.0252,
+   "ACCEPTED": false
+  },
+  "O4_ACTIVE_ADDR": {
+   "stats": {
+    "DEV": 1.74,
+    "VAL": 0.621,
+    "TEST": 0.98,
+    "ALL": 1.315,
+    "vol": 0.1848,
+    "worst_day": -0.1261,
+    "tail_ratio": 0.682,
+    "turnover_cost_pa": 0.0171
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.6596,
+   "share_f_ne_1": 1.0,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O5_HASH_RIBBON": {
+   "stats": {
+    "DEV": 1.779,
+    "VAL": 0.576,
+    "TEST": 0.906,
+    "ALL": 1.294,
+    "vol": 0.1848,
+    "worst_day": -0.1199,
+    "tail_ratio": 0.649,
+    "turnover_cost_pa": 0.0182
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.8614,
+   "share_f_ne_1": 0.221,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O6_VIX": {
+   "stats": {
+    "DEV": 1.793,
+    "VAL": 0.657,
+    "TEST": 0.961,
+    "ALL": 1.33,
+    "vol": 0.1848,
+    "worst_day": -0.117,
+    "tail_ratio": 0.633,
+    "turnover_cost_pa": 0.0185
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.7052,
+   "share_f_ne_1": 0.071,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O7_DOLLAR_TREND": {
+   "stats": {
+    "DEV": 1.669,
+    "VAL": 0.728,
+    "TEST": 0.865,
+    "ALL": 1.264,
+    "vol": 0.1848,
+    "worst_day": -0.14,
+    "tail_ratio": 0.758,
+    "turnover_cost_pa": 0.0186
+   },
+   "beats_each_period": false,
+   "tail_ok": false,
+   "p_raw": 0.7738,
+   "share_f_ne_1": 1.0,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O8_SPX_TREND": {
+   "stats": {
+    "DEV": 1.798,
+    "VAL": 0.613,
+    "TEST": 0.934,
+    "ALL": 1.325,
+    "vol": 0.1848,
+    "worst_day": -0.1202,
+    "tail_ratio": 0.65,
+    "turnover_cost_pa": 0.018
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.6526,
+   "share_f_ne_1": 0.968,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  },
+  "O9_EXCH_SUPPLY": {
+   "stats": {
+    "DEV": 1.815,
+    "VAL": 0.543,
+    "TEST": 0.89,
+    "ALL": 1.301,
+    "vol": 0.1848,
+    "worst_day": -0.1326,
+    "tail_ratio": 0.718,
+    "turnover_cost_pa": 0.019
+   },
+   "beats_each_period": false,
+   "tail_ok": false,
+   "p_raw": 0.7104,
+   "share_f_ne_1": 1.0,
+   "q_bh": 0.8614,
+   "ACCEPTED": false
+  }
+ },
+ "accepted": []
+}
