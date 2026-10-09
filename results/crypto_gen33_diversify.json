@@ -1,0 +1,119 @@
+{
+ "B0": {
+  "DEV": 1.819,
+  "VAL": 0.638,
+  "TEST": 1.07,
+  "ALL": 1.357,
+  "vol": 0.1852,
+  "worst_day": -0.1159,
+  "tail_ratio": 0.626,
+  "turnover_cost_pa": 0.0187
+ },
+ "standalone": {
+  "C1_E2_LS": {
+   "DEV": 1.545,
+   "VAL": 0.551,
+   "TEST": 0.856,
+   "ALL": 1.114,
+   "vol": 0.2522,
+   "worst_day": -0.134,
+   "tail_ratio": 0.531,
+   "turnover_cost_pa": 0.0348,
+   "corr_with_B0": 0.684,
+   "worst_days": {
+    "2019-10-25": -0.134,
+    "2021-09-07": -0.1159,
+    "2024-03-05": -0.1126,
+    "2019-06-27": -0.1032
+   }
+  },
+  "C2_ETHBTC_RELTREND": {
+   "DEV": 1.264,
+   "VAL": -0.623,
+   "TEST": -0.247,
+   "ALL": 0.458,
+   "vol": 0.1241,
+   "worst_day": -0.1093,
+   "tail_ratio": 0.881,
+   "turnover_cost_pa": 0.0447,
+   "corr_with_B0": 0.094,
+   "worst_days": {
+    "2019-06-27": -0.1093,
+    "2025-05-08": -0.1038,
+    "2026-02-06": -0.0962,
+    "2018-11-24": -0.0906
+   }
+  }
+ },
+ "cands": {
+  "C1_E2_LS": {
+   "stats": {
+    "DEV": 1.545,
+    "VAL": 0.551,
+    "TEST": 0.856,
+    "ALL": 1.114,
+    "vol": 0.1852,
+    "worst_day": -0.0984,
+    "tail_ratio": 0.531,
+    "turnover_cost_pa": 0.0256
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.7986,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "C2_ETHBTC_RELTREND": {
+   "stats": {
+    "DEV": 1.264,
+    "VAL": -0.623,
+    "TEST": -0.247,
+    "ALL": 0.458,
+    "vol": 0.1852,
+    "worst_day": -0.163,
+    "tail_ratio": 0.88,
+    "turnover_cost_pa": 0.0667
+   },
+   "beats_each_period": false,
+   "tail_ok": false,
+   "p_raw": 0.946,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "C3_B0_PLUS_C2": {
+   "stats": {
+    "DEV": 2.023,
+    "VAL": 0.059,
+    "TEST": 0.571,
+    "ALL": 1.229,
+    "vol": 0.1852,
+    "worst_day": -0.1798,
+    "tail_ratio": 0.971,
+    "turnover_cost_pa": 0.0576
+   },
+   "beats_each_period": false,
+   "tail_ok": false,
+   "p_raw": 0.6882,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "C4_C1_PLUS_C2": {
+   "stats": {
+    "DEV": 1.808,
+    "VAL": 0.062,
+    "TEST": 0.422,
+    "ALL": 1.026,
+    "vol": 0.1852,
+    "worst_day": -0.1512,
+    "tail_ratio": 0.816,
+    "turnover_cost_pa": 0.0583
+   },
+   "beats_each_period": false,
+   "tail_ok": false,
+   "p_raw": 0.8124,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  }
+ },
+ "C2_scale_in_C3": 1.4799251379040885
+}
