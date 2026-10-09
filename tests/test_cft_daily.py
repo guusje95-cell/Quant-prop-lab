@@ -21,3 +21,14 @@ def test_daily_loss_conservative_vs_optimistic():
     r = np.zeros(100); r[1:4] = -0.02
     assert C.simulate_start(r, 0, "1PHASE", k=1.0, mode="optimistic")["result"] != C.FAIL_DAILY
     assert C.simulate_start(r, 0, "1PHASE", k=1.0, mode="conservative")["result"] == C.FAIL_DAILY
+
+
+def test_real_intraday_low_triggers_daily_breach():
+    import numpy as np
+    from qpl.prop_simulation import cft_daily as CFT
+    r = np.array([0.01, 0.0, 0.01]); lo = np.array([0.0, -0.06, 0.0]); hi = np.zeros(3)
+    out = CFT.simulate_start(r, 0, "2PHASE", mode="optimistic", lo=lo, hi=hi)
+    assert out["result"] == CFT.FAIL_DAILY and out["days"] == 2
+    # same closes without the wick: no breach
+    out2 = CFT.simulate_start(r, 0, "2PHASE", mode="optimistic", lo=np.zeros(3), hi=hi, max_days=3)
+    assert out2["result"] == CFT.OPEN

@@ -6,7 +6,8 @@
 Daily loss: equity must stay above B - d, B = balance at 00:05 UTC:
   optimistic   B = previous close equity (P&L effectively realised daily)
   conservative B = max close equity of the last 10 days (floating losses of positions held for days count against B)
-Intraday low proxy = E_{t-1} * (1 + k * min(r_t, 0)), k = 1.5. Funded: monthly withdrawal of split * profit, reset."""
+Intraday low proxy = E_{t-1} * (1 + k * min(r_t, 0)), k = 1.5, unless real intraday worst/best returns (lo, hi) are given;
+with hi, the trailing peak is raised by the intraday high BEFORE the low is checked (conservative). Funded: monthly withdrawal of split * profit, reset."""
 from __future__ import annotations
 
 import numpy as np
@@ -16,12 +17,14 @@ PROGRAMS = {"2PHASE": {"targets": [0.08, 0.05], "daily": 0.05, "max": 0.10, "tra
             "1PHASE": {"targets": [0.10], "daily": 0.04, "max": 0.06, "trailing": True}}
 
 
-def _run(r, s, target, daily, mx, trailing, k, mode, max_days, min_days=0):
+def _run(r, s, target, daily, mx, trailing, k, mode, max_days, min_days=0, lo=None, hi=None):
     E = 1.0; hist = [1.0]; peak = 1.0
     for j in range(s, min(len(r), s + max_days)):
         x = r[j] if np.isfinite(r[j]) else 0.0
         B = E if mode == "optimistic" else max(hist[-10:])
-        low = E * (1 + k * min(x, 0.0))
+        low = E * (1 + (lo[j] if lo is not None else k * min(x, 0.0)))
+        if hi is not None and trailing:
+            peak = max(peak, E * (1 + hi[j]))
         if low < B - daily:
             return FAIL_DAILY, j - s + 1
         floor = min(peak - mx, 1.0) if trailing else 1.0 - mx
@@ -33,10 +36,10 @@ def _run(r, s, target, daily, mx, trailing, k, mode, max_days, min_days=0):
     return OPEN, min(len(r) - s, max_days)
 
 
-def simulate_start(r, s, program="2PHASE", k=1.5, mode="conservative", max_days=730, funded_months=12, split=0.8):
+def simulate_start(r, s, program="2PHASE", k=1.5, mode="conservative", max_days=730, funded_months=12, split=0.8, lo=None, hi=None):
     P = PROGRAMS[program]; off = s; days = 0; out = {}
     for i, tgt in enumerate(P["targets"]):
-        code, d = _run(r, off, tgt, P["daily"], P["max"], P["trailing"], k, mode, max_days - days)
+        code, d = _run(r, off, tgt, P["daily"], P["max"], P["trailing"], k, mode, max_days - days, lo=lo, hi=hi)
         out[f"p{i + 1}"] = code; days += d; off += d
         if code != PASS:
             out["result"] = code; out["days"] = days; return out
@@ -49,7 +52,9 @@ def simulate_start(r, s, program="2PHASE", k=1.5, mode="conservative", max_days=
                 status = "data_end"; break
             x = r[j] if np.isfinite(r[j]) else 0.0
             B = E if mode == "optimistic" else max(hist[-10:])
-            low = E * (1 + k * min(x, 0.0))
+            low = E * (1 + (lo[j] if lo is not None else k * min(x, 0.0)))
+            if hi is not None and P["trailing"]:
+                peak = max(peak, E * (1 + hi[j]))
             floor = min(peak - P["max"], 1.0) if P["trailing"] else 1.0 - P["max"]
             if low < B - P["daily"] or low < floor:
                 status = "failed"; break

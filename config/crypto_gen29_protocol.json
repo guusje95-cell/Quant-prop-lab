@@ -1,0 +1,17 @@
+{
+  "_written": "2026-10-10, AFTER gen28 (E2 failed G3/G4: worst intraday day -6.8% at v=0.08 on 2024-03-05; 2025-10-10 alt wicks -55..-85%), BEFORE any gen29 return was computed.",
+  "change": "ONLY a risk overlay on the frozen gen28 candidate E2_TREND_BREAKOUT_LO (signals, coins, costs, engine unchanged). No signal parameter is touched.",
+  "overlay_STRESS_CAP": "after scaling by L, if sum_i w_i(long) * stress_i > b, scale all positions by b / that sum. stress_i = max(0.20, max over coin i's history up to day t-1 of (1 - low/previous close)) (point-in-time expanding worst wick; a new record wick enters only after it happened). Meaning: a simultaneous repeat of every held coin's worst-ever intraday drop loses at most b.",
+  "grid": {"2PHASE": {"b": [0.03, 0.04], "v": [0.06, 0.08, 0.10, 0.12, 0.15, 0.20]},
+           "1PHASE": {"b": [0.025, 0.03], "v": [0.06, 0.08, 0.10, 0.12, 0.15, 0.20]}},
+  "selection": "per program choose (v, b) maximising P_pass on starts 2018-01..2022-12 (returns truncated at 2022-12-31) subject to P_fail_daily <= 0.05",
+  "gates ('APPLICABLE' requires all)": {
+    "G1": "capped strategy at chosen 2-Phase (v,b): net Sharpe 2023-01-01..2026-10-08 >= 0.8",
+    "G2": "same with 2x costs + 1bp/8h funding >= 0.5",
+    "G3": "CFT 2-Phase on starts 2023-01-01..2025-04-08, 548-day horizon: P_pass >= 0.60 AND P_fail_daily <= 0.05",
+    "G4": "max intraday-worst day 2018-2026 at chosen (v,b) > -5%"
+  },
+  "trials": "4 overlay variants (cumulative crypto trials 115)",
+  "caveat": "2023-2026 previously seen; 2026-05-24..10-08 fresh. Equity-based daily loss with real Binance spot daily lows, all lows assumed simultaneous. Bybit perp wicks can differ from Binance spot. Not a guarantee.",
+  "single_use": true
+}
