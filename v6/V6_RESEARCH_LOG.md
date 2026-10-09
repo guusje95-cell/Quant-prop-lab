@@ -102,3 +102,15 @@ Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secon
 1. Regime, change-point and factor-timing layers add nothing beyond what random weight paths with the same distribution achieve. This is the third independent replication of that finding (v3 futures filters, V4 crypto funding filter, now here). Timing is not where the edge is.
 2. ML does not extract incremental information from trend/carry/vol/skew features beyond the simple equal-weight combination. LightGBM leans most on sigma, sig_ratio and skew, which are risk features, not direction. Ridge assigns alternating signs to correlated EWMAC speeds, a sign of collinearity, not of new information.
 3. **Construction matters more than timing.** Equal risk across *sleeves* (trend vs carry, correlation 0.44 OOS / 0.25 later) gives 1.34 OOS against 1.09 for signal-level averaging (F7, where trend gets 3/4 of the signal weight). Within the protocols this is an observation: B0 was a baseline, not a pre-registered candidate. It becomes candidate **F9_SLEEVE_RP** for prospective validation, with no further historical selection possible.
+
+## 2026-10-09 · Entry 7 — Statistical integrity of the futures survivors (`experiments/v6_futures_stats.py`)
+* **CSCV PBO = 0.017** over the full 26-config gen13 grid (1985–2013, 12,870 splits). The in-sample winner never lost out of sample; median OOS Sharpe of the IS winner is 1.08. Selection *within* the grid is not overfit, mostly because every trend/carry variant works.
+* **Honest futures trial count: 42.** That is the 26-config gen13 grid plus the gen14 and gen15 variants.
+  * Full-sample DSR (1985–2024): F7 0.79, F2 0.73, F3 0.72, sleeve-RP B0 0.96.
+  * Post-2014 only: 0.37 / 0.32 / 0.15 / 0.45.
+* **Per-window significance is weak.** Block-bootstrap 95% CIs of the HOLDOUT Sharpe span zero (F7 −0.22…1.56), Newey–West p is 0.08–0.18, and no family survives Holm in TEST or HOLDOUT alone. The pre-registered gates were sign-based (net > 0 and residual > 0), and they passed. Significance comes from the long sample (DISCOVERY CI 1.16–1.87), not from the recent windows.
+* **MinTRL** (Bailey & López de Prado) for rejecting SR ≤ 0 at 95% with the observed skew/kurtosis: SR 0.5 → **10.6 years**, SR 0.7 → 5.4 years, SR 1.0 → 2.6 years.
+
+**Learning:**
+* The "ELIGIBLE" status is honest about direction and robustness, but not about the post-2014 *size* of the edge. A realistic expectation for a costed diversified trend+carry book is **SR 0.5–0.8 with wide uncertainty**.
+* A prospective paper track cannot statistically confirm such an edge in under about 5–10 years. Prospective trading is therefore a *safety and implementation* check (does the live book behave like the backtest?), not a significance test. Decisions must rest on the 50-year cross-market evidence plus economic rationale, with sizing set by the lower part of the uncertainty band.
