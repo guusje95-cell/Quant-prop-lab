@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-10, after gen20 found HTFD_A2_BO_PW_BTC (weekly-level breakout on daily bars) passing DEV/VAL/TEST on BTC. BEFORE running it on any other coin.",
+  "rule": "frozen HTFD_A2_BO_PW exactly (first daily close beyond previous-week high/low + 0.05 ATRd; entry next open; stop entry -/+ 0.5 ATRd; time exit 5 bars; 14 bp round trip)",
+  "universe": "TheSnowGuru mirror D1 OHLC: ETHUSDT ADAUSDT BNBUSDT DOGEUSDT ETCUSDT LINKUSDT LTCUSDT MATICUSDT SOLUSDT UNIUSDT XRPUSDT (all with OHLC). Survivorship-biased (coins alive in 2023), venue undocumented; never used for breakout research. Cost 20 bp round trip for alts (wider spreads), 14 bp for ETH.",
+  "period": "each coin from its first date + 30 days warm-up to 2023-09-08",
+  "metric": "pooled daily mark-to-market R (equal risk per trade), sqrt(365)",
+  "pass": "pooled net Sharpe > 0.3 AND >= 60% of coins with positive net expectancy AND pooled net Sharpe > 0 at 2x costs",
+  "single_use": true
+}

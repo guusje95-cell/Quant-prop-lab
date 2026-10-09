@@ -1,0 +1,1183 @@
+{
+ "dukascopy": {
+  "A1_SR1_PW": {
+   "DEV": {
+    "trades": 1608,
+    "expectancy_R_net": 0.016752246360495063,
+    "expectancy_R_gross": 0.04996534478590697,
+    "win_rate": 0.30783582089552236,
+    "profit_factor_net": 1.0247408655535457,
+    "avg_win_R": 2.253995595893031,
+    "avg_loss_R": -0.9782481651566705,
+    "cost_share_of_gross": 0.047333120833083546,
+    "sharpe_net": 0.08434570040999567,
+    "cagr_at_0.25pct_risk": 0.003676453171609362,
+    "vol_at_0.25pct_risk": 0.08874805028674124,
+    "max_dd_at_0.25pct_risk": -0.25802842280178495,
+    "calmar": 0.01424824882347779,
+    "long_exp_R": -0.03219870971179381,
+    "short_exp_R": 0.06643930703537476,
+    "n_long": 810,
+    "stop_exits": 0.6318407960199005,
+    "sharpe_gross": 0.25113968578280277,
+    "ann_days": 313.1,
+    "nw_p": 0.3984188860191036,
+    "share_inst_positive": 0.46153846153846156,
+    "by_inst_exp_R": {
+     "AUDUSD": -0.142,
+     "BRENT": -0.051,
+     "DE40": 0.465,
+     "EURUSD": 0.315,
+     "GBPUSD": -0.092,
+     "US100": 0.204,
+     "US30": -0.187,
+     "US500": 0.054,
+     "USDCAD": 0.004,
+     "USDCHF": -0.041,
+     "USDJPY": -0.113,
+     "XAGUSD": -0.268,
+     "XAUUSD": 0.262
+    },
+    "by_year_R": {
+     "2008": -1.24,
+     "2009": -6.6,
+     "2010": -25.02,
+     "2011": 3.74,
+     "2012": 67.48,
+     "2013": -25.31,
+     "2014": -68.2,
+     "2015": 132.82,
+     "2016": -50.74
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.083,
+    "sharpe_gross": 0.251,
+    "expectancy_R_net": -0.016,
+    "trades": 1608,
+    "win_rate": 0.307,
+    "profit_factor_net": 0.977,
+    "share_inst_positive": 0.308
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.212,
+     "sharpe_gross": 0.051,
+     "expectancy_R_net": -0.027,
+     "trades": 1774,
+     "win_rate": 0.376,
+     "profit_factor_net": 0.951,
+     "share_inst_positive": 0.308
+    },
+    "hold10": {
+     "sharpe_net": -0.173,
+     "sharpe_gross": -0.039,
+     "expectancy_R_net": -0.04,
+     "trades": 1459,
+     "win_rate": 0.237,
+     "profit_factor_net": 0.949,
+     "share_inst_positive": 0.385
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.675,
+     "sharpe_gross": -0.341,
+     "expectancy_R_net": -0.066,
+     "trades": 1666,
+     "win_rate": 0.397,
+     "profit_factor_net": 0.893,
+     "share_inst_positive": 0.154
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A1_SR1_PM": {
+   "DEV": {
+    "trades": 415,
+    "expectancy_R_net": 0.20379834444117179,
+    "expectancy_R_gross": 0.24264746378736388,
+    "win_rate": 0.3397590361445783,
+    "profit_factor_net": 1.3093813911107466,
+    "avg_win_R": 2.5386428851807223,
+    "avg_loss_R": -0.9977092476912247,
+    "cost_share_of_gross": 0.04449499224779687,
+    "sharpe_net": 0.3440853753939083,
+    "cagr_at_0.25pct_risk": 0.02072177452713575,
+    "vol_at_0.25pct_risk": 0.06540864079431744,
+    "max_dd_at_0.25pct_risk": -0.08376397094796961,
+    "calmar": 0.24738290571261454,
+    "long_exp_R": 0.5260662291230928,
+    "short_exp_R": -0.08184818970871285,
+    "n_long": 195,
+    "stop_exits": 0.6096385542168675,
+    "sharpe_gross": 0.41032840509165924,
+    "ann_days": 313.1,
+    "nw_p": 0.15357756853137294,
+    "share_inst_positive": 0.46153846153846156,
+    "by_inst_exp_R": {
+     "AUDUSD": 0.297,
+     "BRENT": -0.188,
+     "DE40": -0.445,
+     "EURUSD": -0.371,
+     "GBPUSD": -0.014,
+     "US100": 1.119,
+     "US30": 2.37,
+     "US500": 0.67,
+     "USDCAD": -0.367,
+     "USDCHF": 0.824,
+     "USDJPY": -0.21,
+     "XAGUSD": -0.291,
+     "XAUUSD": 0.009
+    },
+    "by_year_R": {
+     "2008": 4.78,
+     "2009": -1.82,
+     "2010": -5.43,
+     "2011": 10.03,
+     "2012": 45.86,
+     "2013": -0.05,
+     "2014": 31.88,
+     "2015": 22.54,
+     "2016": -23.2
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": 0.277,
+    "sharpe_gross": 0.41,
+    "expectancy_R_net": 0.165,
+    "trades": 415,
+    "win_rate": 0.34,
+    "profit_factor_net": 1.24,
+    "share_inst_positive": 0.385
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": 0.227,
+     "sharpe_gross": 0.331,
+     "expectancy_R_net": 0.099,
+     "trades": 420,
+     "win_rate": 0.39,
+     "profit_factor_net": 1.201,
+     "share_inst_positive": 0.538
+    },
+    "hold10": {
+     "sharpe_net": 0.445,
+     "sharpe_gross": 0.501,
+     "expectancy_R_net": 0.31,
+     "trades": 404,
+     "win_rate": 0.277,
+     "profit_factor_net": 1.419,
+     "share_inst_positive": 0.538
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.086,
+     "sharpe_gross": 0.128,
+     "expectancy_R_net": -0.016,
+     "trades": 417,
+     "win_rate": 0.422,
+     "profit_factor_net": 0.974,
+     "share_inst_positive": 0.231
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A3_SR3_PW": {
+   "DEV": {
+    "trades": 1040,
+    "expectancy_R_net": 0.017213277209035135,
+    "expectancy_R_gross": 0.03349325634091113,
+    "win_rate": 0.4375,
+    "profit_factor_net": 1.0373046198496512,
+    "avg_win_R": 1.094029918693181,
+    "avg_loss_R": -0.8203107772786339,
+    "cost_share_of_gross": 0.033552988899795765,
+    "sharpe_net": 0.10739638990964495,
+    "cagr_at_0.25pct_risk": 0.0033278674697763133,
+    "vol_at_0.25pct_risk": 0.03739844003663314,
+    "max_dd_at_0.25pct_risk": -0.11254755073673683,
+    "calmar": 0.029568546343230716,
+    "long_exp_R": 0.0315256699062949,
+    "short_exp_R": 0.0034938650001740995,
+    "n_long": 509,
+    "stop_exits": 0.3923076923076923,
+    "sharpe_gross": 0.23227209560018766,
+    "ann_days": 313.1,
+    "nw_p": 0.3759497560755143,
+    "share_inst_positive": 0.6153846153846154,
+    "by_inst_exp_R": {
+     "AUDUSD": -0.165,
+     "BRENT": -0.313,
+     "DE40": 0.406,
+     "EURUSD": 0.057,
+     "GBPUSD": 0.029,
+     "US100": 0.03,
+     "US30": 0.102,
+     "US500": 0.26,
+     "USDCAD": 0.17,
+     "USDCHF": 0.176,
+     "USDJPY": -0.052,
+     "XAGUSD": -0.056,
+     "XAUUSD": -0.191
+    },
+    "by_year_R": {
+     "2008": 17.48,
+     "2009": -0.25,
+     "2010": -7.99,
+     "2011": 9.56,
+     "2012": -18.29,
+     "2013": -7.11,
+     "2014": 11.77,
+     "2015": 18.73,
+     "2016": -5.01,
+     "2017": -1.01
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.018,
+    "sharpe_gross": 0.232,
+    "expectancy_R_net": 0.001,
+    "trades": 1040,
+    "win_rate": 0.432,
+    "profit_factor_net": 1.002,
+    "share_inst_positive": 0.538
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.05,
+     "sharpe_gross": 0.138,
+     "expectancy_R_net": -0.001,
+     "trades": 1103,
+     "win_rate": 0.468,
+     "profit_factor_net": 0.998,
+     "share_inst_positive": 0.385
+    },
+    "hold10": {
+     "sharpe_net": -0.075,
+     "sharpe_gross": 0.028,
+     "expectancy_R_net": -0.009,
+     "trades": 968,
+     "win_rate": 0.369,
+     "profit_factor_net": 0.984,
+     "share_inst_positive": 0.538
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": 0.165,
+     "sharpe_gross": 0.309,
+     "expectancy_R_net": 0.021,
+     "trades": 1030,
+     "win_rate": 0.443,
+     "profit_factor_net": 1.042,
+     "share_inst_positive": 0.538
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A3_SR3_PM": {
+   "DEV": {
+    "trades": 256,
+    "expectancy_R_net": 0.1102121512297924,
+    "expectancy_R_gross": 0.1257834415952167,
+    "win_rate": 0.4609375,
+    "profit_factor_net": 1.261238663221854,
+    "avg_win_R": 1.1543759235856264,
+    "avg_loss_R": -0.7826235381759208,
+    "cost_share_of_gross": 0.02890025814599735,
+    "sharpe_net": 0.43576795535478613,
+    "cagr_at_0.25pct_risk": 0.007708620899078644,
+    "vol_at_0.25pct_risk": 0.017991891696200895,
+    "max_dd_at_0.25pct_risk": -0.025842082014342904,
+    "calmar": 0.29829720743089494,
+    "long_exp_R": -0.01841446001391557,
+    "short_exp_R": 0.24929621054209447,
+    "n_long": 133,
+    "stop_exits": 0.34765625,
+    "sharpe_gross": 0.49616884019206375,
+    "ann_days": 313.1,
+    "nw_p": 0.1010726573466244,
+    "share_inst_positive": 0.6923076923076923,
+    "by_inst_exp_R": {
+     "AUDUSD": 0.072,
+     "BRENT": -0.295,
+     "DE40": 0.351,
+     "EURUSD": -0.24,
+     "GBPUSD": -0.082,
+     "US100": 0.368,
+     "US30": 0.689,
+     "US500": 0.332,
+     "USDCAD": 0.142,
+     "USDCHF": 0.289,
+     "USDJPY": 0.177,
+     "XAGUSD": -0.202,
+     "XAUUSD": 0.188
+    },
+    "by_year_R": {
+     "2008": -4.75,
+     "2009": 4.39,
+     "2010": -3.67,
+     "2011": 4.7,
+     "2012": 0.09,
+     "2013": -0.8,
+     "2014": 5.22,
+     "2015": 20.3,
+     "2016": 2.74
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": 0.375,
+    "sharpe_gross": 0.496,
+    "expectancy_R_net": 0.095,
+    "trades": 256,
+    "win_rate": 0.461,
+    "profit_factor_net": 1.22,
+    "share_inst_positive": 0.692
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": 0.266,
+     "sharpe_gross": 0.354,
+     "expectancy_R_net": 0.047,
+     "trades": 257,
+     "win_rate": 0.51,
+     "profit_factor_net": 1.157,
+     "share_inst_positive": 0.385
+    },
+    "hold10": {
+     "sharpe_net": 0.288,
+     "sharpe_gross": 0.34,
+     "expectancy_R_net": 0.087,
+     "trades": 255,
+     "win_rate": 0.396,
+     "profit_factor_net": 1.162,
+     "share_inst_positive": 0.692
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": 0.295,
+     "sharpe_gross": 0.362,
+     "expectancy_R_net": 0.067,
+     "trades": 257,
+     "win_rate": 0.459,
+     "profit_factor_net": 1.139,
+     "share_inst_positive": 0.692
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A2_BO_PW": {
+   "DEV": {
+    "trades": 1985,
+    "expectancy_R_net": -0.04949384533300387,
+    "expectancy_R_gross": -0.016317139742963303,
+    "win_rate": 0.2508816120906801,
+    "profit_factor_net": 0.9355604652816264,
+    "avg_win_R": 2.864190041491522,
+    "avg_loss_R": -1.0252938289500946,
+    "cost_share_of_gross": 0.045651689305602566,
+    "sharpe_net": -0.29595958723029375,
+    "cagr_at_0.25pct_risk": -0.030379358759385577,
+    "vol_at_0.25pct_risk": 0.09057340056474134,
+    "max_dd_at_0.25pct_risk": -0.3631974068592507,
+    "calmar": -0.08364420611394519,
+    "long_exp_R": -0.011552946723636789,
+    "short_exp_R": -0.09024958594996244,
+    "n_long": 1028,
+    "stop_exits": 0.7294710327455919,
+    "sharpe_gross": -0.09438956471988612,
+    "ann_days": 313.1,
+    "nw_p": 0.7951827171971739,
+    "share_inst_positive": 0.15384615384615385,
+    "by_inst_exp_R": {
+     "AUDUSD": -0.067,
+     "BRENT": -0.008,
+     "DE40": 0.104,
+     "EURUSD": -0.06,
+     "GBPUSD": -0.057,
+     "US100": -0.104,
+     "US30": -0.011,
+     "US500": -0.152,
+     "USDCAD": -0.017,
+     "USDCHF": 0.135,
+     "USDJPY": -0.136,
+     "XAGUSD": -0.013,
+     "XAUUSD": -0.165
+    },
+    "by_year_R": {
+     "2008": 41.59,
+     "2009": -24.55,
+     "2010": -37.66,
+     "2011": -20.38,
+     "2012": -21.55,
+     "2013": 26.19,
+     "2014": -37.3,
+     "2015": -26.34,
+     "2016": 1.76
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.497,
+    "sharpe_gross": -0.094,
+    "expectancy_R_net": -0.083,
+    "trades": 1985,
+    "win_rate": 0.25,
+    "profit_factor_net": 0.896,
+    "share_inst_positive": 0.154
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.15,
+     "sharpe_gross": 0.105,
+     "expectancy_R_net": -0.02,
+     "trades": 2101,
+     "win_rate": 0.352,
+     "profit_factor_net": 0.968,
+     "share_inst_positive": 0.308
+    },
+    "hold10": {
+     "sharpe_net": 0.134,
+     "sharpe_gross": 0.286,
+     "expectancy_R_net": 0.028,
+     "trades": 1858,
+     "win_rate": 0.184,
+     "profit_factor_net": 1.033,
+     "share_inst_positive": 0.769
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.756,
+     "sharpe_gross": -0.413,
+     "expectancy_R_net": -0.072,
+     "trades": 2105,
+     "win_rate": 0.384,
+     "profit_factor_net": 0.888,
+     "share_inst_positive": 0.308
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A2_BO_PM": {
+   "DEV": {
+    "trades": 518,
+    "expectancy_R_net": 0.03206104559313279,
+    "expectancy_R_gross": 0.06801134152609031,
+    "win_rate": 0.2606177606177606,
+    "profit_factor_net": 1.042356668379626,
+    "avg_win_R": 3.027389004936297,
+    "avg_loss_R": -1.0237334048280868,
+    "cost_share_of_gross": 0.04505702047867186,
+    "sharpe_net": 0.10593519843064145,
+    "cagr_at_0.25pct_risk": 0.0036814287809805446,
+    "vol_at_0.25pct_risk": 0.04356420883010716,
+    "max_dd_at_0.25pct_risk": -0.15433932062542888,
+    "calmar": 0.023852824841150647,
+    "long_exp_R": 0.22739146754628428,
+    "short_exp_R": -0.17895856687834408,
+    "n_long": 269,
+    "stop_exits": 0.7200772200772201,
+    "sharpe_gross": 0.22491193695178968,
+    "ann_days": 313.1,
+    "nw_p": 0.38799822549483265,
+    "share_inst_positive": 0.5384615384615384,
+    "by_inst_exp_R": {
+     "AUDUSD": 0.299,
+     "BRENT": -0.222,
+     "DE40": 0.286,
+     "EURUSD": -0.01,
+     "GBPUSD": -0.208,
+     "US100": -0.397,
+     "US30": -0.339,
+     "US500": -0.198,
+     "USDCAD": 0.121,
+     "USDCHF": 0.031,
+     "USDJPY": 0.12,
+     "XAGUSD": 0.397,
+     "XAUUSD": 0.156
+    },
+    "by_year_R": {
+     "2008": 34.67,
+     "2009": -0.87,
+     "2010": -15.44,
+     "2011": -0.57,
+     "2012": 5.7,
+     "2013": -11.72,
+     "2014": -30.37,
+     "2015": -5.25,
+     "2016": 40.47
+    },
+    "sample": [
+     "2008-01-01",
+     "2016-12-30"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.013,
+    "sharpe_gross": 0.225,
+    "expectancy_R_net": -0.004,
+    "trades": 518,
+    "win_rate": 0.259,
+    "profit_factor_net": 0.995,
+    "share_inst_positive": 0.538
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.143,
+     "sharpe_gross": 0.016,
+     "expectancy_R_net": -0.032,
+     "trades": 518,
+     "win_rate": 0.361,
+     "profit_factor_net": 0.948,
+     "share_inst_positive": 0.462
+    },
+    "hold10": {
+     "sharpe_net": 0.356,
+     "sharpe_gross": 0.446,
+     "expectancy_R_net": 0.142,
+     "trades": 514,
+     "win_rate": 0.198,
+     "profit_factor_net": 1.171,
+     "share_inst_positive": 0.462
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.164,
+     "sharpe_gross": 0.036,
+     "expectancy_R_net": -0.029,
+     "trades": 518,
+     "win_rate": 0.402,
+     "profit_factor_net": 0.953,
+     "share_inst_positive": 0.385
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "holm_DEV": {
+   "HTFD_A3_SR3_PM_DUKASCOPY": false,
+   "HTFD_A1_SR1_PM_DUKASCOPY": false,
+   "HTFD_A3_SR3_PW_DUKASCOPY": false,
+   "HTFD_A2_BO_PM_DUKASCOPY": false,
+   "HTFD_A1_SR1_PW_DUKASCOPY": false,
+   "HTFD_A2_BO_PW_DUKASCOPY": false
+  }
+ },
+ "btc": {
+  "A1_SR1_PW": {
+   "DEV": {
+    "trades": 67,
+    "expectancy_R_net": 0.08636618566567877,
+    "expectancy_R_gross": 0.16549390362138347,
+    "win_rate": 0.3283582089552239,
+    "profit_factor_net": 1.1220697227979102,
+    "avg_win_R": 2.417729707618233,
+    "avg_loss_R": -1.0534115361777923,
+    "cost_share_of_gross": 0.09716608686808409,
+    "sharpe_net": 0.14876980027238726,
+    "cagr_at_0.25pct_risk": 0.0027111708168274795,
+    "vol_at_0.25pct_risk": 0.019461267706051995,
+    "max_dd_at_0.25pct_risk": -0.031147465001186703,
+    "calmar": 0.08704306487620053,
+    "long_exp_R": -0.5288950139505109,
+    "short_exp_R": 0.476531824446677,
+    "n_long": 26,
+    "stop_exits": 0.6268656716417911,
+    "sharpe_gross": 0.28450691017415,
+    "ann_days": 365.5,
+    "nw_p": 0.369696146692738,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.086
+    },
+    "by_year_R": {
+     "2015": -6.49,
+     "2016": 8.3,
+     "2017": -4.2,
+     "2018": 12.92,
+     "2019": -4.74
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": 0.012,
+    "sharpe_gross": 0.285,
+    "expectancy_R_net": 0.007,
+    "trades": 67,
+    "win_rate": 0.313,
+    "profit_factor_net": 1.009,
+    "share_inst_positive": 1.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.323,
+     "sharpe_gross": -0.087,
+     "expectancy_R_net": -0.109,
+     "trades": 69,
+     "win_rate": 0.406,
+     "profit_factor_net": 0.809,
+     "share_inst_positive": 0.0
+    },
+    "hold10": {
+     "sharpe_net": -0.248,
+     "sharpe_gross": -0.106,
+     "expectancy_R_net": -0.127,
+     "trades": 63,
+     "win_rate": 0.254,
+     "profit_factor_net": 0.837,
+     "share_inst_positive": 0.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.333,
+     "sharpe_gross": -0.087,
+     "expectancy_R_net": -0.094,
+     "trades": 66,
+     "win_rate": 0.424,
+     "profit_factor_net": 0.849,
+     "share_inst_positive": 0.0
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A1_SR1_PM": {
+   "DEV": {
+    "trades": 11,
+    "expectancy_R_net": -0.30226986622728275,
+    "expectancy_R_gross": -0.23602819189653357,
+    "win_rate": 0.2727272727272727,
+    "profit_factor_net": 0.5413907698714243,
+    "avg_win_R": 1.308381335847553,
+    "avg_loss_R": -0.9062640670053461,
+    "cost_share_of_gross": 0.18047199158359872,
+    "sharpe_net": -0.36532528050488716,
+    "cagr_at_0.25pct_risk": -0.001672573676551825,
+    "vol_at_0.25pct_risk": 0.004553812837160131,
+    "max_dd_at_0.25pct_risk": -0.012744643083540064,
+    "calmar": -0.13123738857088782,
+    "long_exp_R": 0.1419405348706019,
+    "short_exp_R": -1.0796380681485809,
+    "n_long": 7,
+    "stop_exits": 0.5454545454545454,
+    "sharpe_gross": -0.29216692440147923,
+    "ann_days": 365.5,
+    "nw_p": 0.7932027329409299,
+    "share_inst_positive": 0.0,
+    "by_inst_exp_R": {
+     "BTCUSD": -0.302
+    },
+    "by_year_R": {
+     "2016": -1.22,
+     "2017": -1.03,
+     "2018": -0.07,
+     "2019": -1.01
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.433,
+    "sharpe_gross": -0.292,
+    "expectancy_R_net": -0.369,
+    "trades": 11,
+    "win_rate": 0.273,
+    "profit_factor_net": 0.485,
+    "share_inst_positive": 0.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.211,
+     "sharpe_gross": -0.116,
+     "expectancy_R_net": -0.14,
+     "trades": 11,
+     "win_rate": 0.455,
+     "profit_factor_net": 0.727,
+     "share_inst_positive": 0.0
+    },
+    "hold10": {
+     "sharpe_net": -0.115,
+     "sharpe_gross": -0.043,
+     "expectancy_R_net": -0.105,
+     "trades": 11,
+     "win_rate": 0.455,
+     "profit_factor_net": 0.825,
+     "share_inst_positive": 0.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": 0.334,
+     "sharpe_gross": 0.416,
+     "expectancy_R_net": 0.264,
+     "trades": 11,
+     "win_rate": 0.636,
+     "profit_factor_net": 1.664,
+     "share_inst_positive": 1.0
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A3_SR3_PW": {
+   "DEV": {
+    "trades": 57,
+    "expectancy_R_net": 0.023821566107133665,
+    "expectancy_R_gross": 0.059927583713449854,
+    "win_rate": 0.45614035087719296,
+    "profit_factor_net": 1.0630011326051083,
+    "avg_win_R": 0.8811648971753618,
+    "avg_loss_R": -0.6952405825307352,
+    "cost_share_of_gross": 0.08692034002401926,
+    "sharpe_net": 0.08222161286461721,
+    "cagr_at_0.25pct_risk": 0.0006455204460507069,
+    "vol_at_0.25pct_risk": 0.008262786637319705,
+    "max_dd_at_0.25pct_risk": -0.017075405623137252,
+    "calmar": 0.03780410611013678,
+    "long_exp_R": 0.10485153321849669,
+    "short_exp_R": -0.044139051470138524,
+    "n_long": 26,
+    "stop_exits": 0.2982456140350877,
+    "sharpe_gross": 0.20793921784898814,
+    "ann_days": 365.5,
+    "nw_p": 0.4275960231553765,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.024
+    },
+    "by_year_R": {
+     "2015": 0.79,
+     "2016": -4.05,
+     "2017": -0.52,
+     "2018": 4.23,
+     "2019": 0.9
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.042,
+    "sharpe_gross": 0.208,
+    "expectancy_R_net": -0.012,
+    "trades": 57,
+    "win_rate": 0.456,
+    "profit_factor_net": 0.969,
+    "share_inst_positive": 0.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": 0.076,
+     "sharpe_gross": 0.227,
+     "expectancy_R_net": 0.018,
+     "trades": 57,
+     "win_rate": 0.439,
+     "profit_factor_net": 1.068,
+     "share_inst_positive": 1.0
+    },
+    "hold10": {
+     "sharpe_net": 0.619,
+     "sharpe_gross": 0.661,
+     "expectancy_R_net": 0.497,
+     "trades": 53,
+     "win_rate": 0.472,
+     "profit_factor_net": 2.097,
+     "share_inst_positive": 1.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": 0.097,
+     "sharpe_gross": 0.215,
+     "expectancy_R_net": 0.03,
+     "trades": 55,
+     "win_rate": 0.491,
+     "profit_factor_net": 1.069,
+     "share_inst_positive": 1.0
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A3_SR3_PM": {
+   "DEV": {
+    "trades": 14,
+    "expectancy_R_net": -0.46999512599417603,
+    "expectancy_R_gross": -0.4468859828114362,
+    "win_rate": 0.21428571428571427,
+    "profit_factor_net": 0.237587090173676,
+    "avg_win_R": 0.6834908928316586,
+    "avg_loss_R": -0.7845822220375854,
+    "cost_share_of_gross": 0.1546983235463825,
+    "sharpe_net": -0.9044327613604359,
+    "cagr_at_0.25pct_risk": -0.003293425559211305,
+    "vol_at_0.25pct_risk": 0.00364009291115918,
+    "max_dd_at_0.25pct_risk": -0.01634791280589154,
+    "calmar": -0.20145847352601515,
+    "long_exp_R": -0.3794581135776783,
+    "short_exp_R": -0.5378978853065494,
+    "n_long": 6,
+    "stop_exits": 0.5,
+    "sharpe_gross": -0.8787125315358538,
+    "ann_days": 365.5,
+    "nw_p": 0.9790074438704668,
+    "share_inst_positive": 0.0,
+    "by_inst_exp_R": {
+     "BTCUSD": -0.47
+    },
+    "by_year_R": {
+     "2015": -2.92,
+     "2016": -1.21,
+     "2017": 0.41,
+     "2018": -2.02,
+     "2019": -0.84
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": -0.929,
+    "sharpe_gross": -0.879,
+    "expectancy_R_net": -0.493,
+    "trades": 14,
+    "win_rate": 0.214,
+    "profit_factor_net": 0.225,
+    "share_inst_positive": 0.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": -0.827,
+     "sharpe_gross": -0.784,
+     "expectancy_R_net": -0.305,
+     "trades": 14,
+     "win_rate": 0.214,
+     "profit_factor_net": 0.259,
+     "share_inst_positive": 0.0
+    },
+    "hold10": {
+     "sharpe_net": -0.904,
+     "sharpe_gross": -0.88,
+     "expectancy_R_net": -0.501,
+     "trades": 14,
+     "win_rate": 0.214,
+     "profit_factor_net": 0.276,
+     "share_inst_positive": 0.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.737,
+     "sharpe_gross": -0.71,
+     "expectancy_R_net": -0.442,
+     "trades": 14,
+     "win_rate": 0.214,
+     "profit_factor_net": 0.361,
+     "share_inst_positive": 0.0
+    }
+   },
+   "dev_pass": false,
+   "verdict": "REJECTED"
+  },
+  "A2_BO_PW": {
+   "DEV": {
+    "trades": 121,
+    "expectancy_R_net": 0.6923286580680308,
+    "expectancy_R_gross": 0.7747049963164812,
+    "win_rate": 0.2892561983471074,
+    "profit_factor_net": 1.9132651742855928,
+    "avg_win_R": 5.014272183572924,
+    "avg_loss_R": -1.0666018464979141,
+    "cost_share_of_gross": 0.05581794823363217,
+    "sharpe_net": 0.8795044566905139,
+    "cagr_at_0.25pct_risk": 0.04164664540236629,
+    "vol_at_0.25pct_risk": 0.047657032839096676,
+    "max_dd_at_0.25pct_risk": -0.037278819087216974,
+    "calmar": 1.1171664345088403,
+    "long_exp_R": 0.9000715401377579,
+    "short_exp_R": 0.31549273245317766,
+    "n_long": 78,
+    "stop_exits": 0.6942148760330579,
+    "sharpe_gross": 0.9771880404498986,
+    "ann_days": 365.5,
+    "nw_p": 0.023797973829547958,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.692
+    },
+    "by_year_R": {
+     "2015": 19.35,
+     "2016": 18.84,
+     "2017": 16.07,
+     "2018": 7.12,
+     "2019": 22.4
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": 0.78,
+    "sharpe_gross": 0.977,
+    "expectancy_R_net": 0.61,
+    "trades": 121,
+    "win_rate": 0.289,
+    "profit_factor_net": 1.748,
+    "share_inst_positive": 1.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": 0.892,
+     "sharpe_gross": 1.008,
+     "expectancy_R_net": 0.592,
+     "trades": 126,
+     "win_rate": 0.389,
+     "profit_factor_net": 1.981,
+     "share_inst_positive": 1.0
+    },
+    "hold10": {
+     "sharpe_net": 0.77,
+     "sharpe_gross": 0.828,
+     "expectancy_R_net": 1.037,
+     "trades": 112,
+     "win_rate": 0.232,
+     "profit_factor_net": 2.262,
+     "share_inst_positive": 1.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.078,
+     "sharpe_gross": 0.257,
+     "expectancy_R_net": -0.019,
+     "trades": 127,
+     "win_rate": 0.425,
+     "profit_factor_net": 0.969,
+     "share_inst_positive": 0.0
+    }
+   },
+   "dev_pass": true,
+   "VAL": {
+    "trades": 50,
+    "expectancy_R_net": 0.45907677239983186,
+    "expectancy_R_gross": 0.5236204150847119,
+    "win_rate": 0.28,
+    "profit_factor_net": 1.599635714908053,
+    "avg_win_R": 4.373819820684747,
+    "avg_loss_R": -1.0633233019331905,
+    "cost_share_of_gross": 0.05189979345947252,
+    "sharpe_net": 0.7517304255623544,
+    "cagr_at_0.25pct_risk": 0.02838721162129798,
+    "vol_at_0.25pct_risk": 0.03819447711272712,
+    "max_dd_at_0.25pct_risk": -0.026902334001977612,
+    "calmar": 1.0551951224459266,
+    "long_exp_R": 0.5152693374167752,
+    "short_exp_R": 0.2598485873397603,
+    "n_long": 39,
+    "stop_exits": 0.72,
+    "sharpe_gross": 0.853898142260768,
+    "ann_days": 365.8,
+    "nw_p": 0.13795899645358145,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.459
+    },
+    "by_year_R": {
+     "2020": 29.27,
+     "2021": -6.31
+    },
+    "sample": [
+     "2020-01-01",
+     "2021-12-31"
+    ]
+   },
+   "val_pass": true,
+   "TEST": {
+    "trades": 111,
+    "expectancy_R_net": 0.8001834396618921,
+    "expectancy_R_gross": 0.8887372357241983,
+    "win_rate": 0.2702702702702703,
+    "profit_factor_net": 2.0334625364909322,
+    "avg_win_R": 5.8254934851066915,
+    "avg_loss_R": -1.0610425030954418,
+    "cost_share_of_gross": 0.05529240435470383,
+    "sharpe_net": 0.8559028183402301,
+    "cagr_at_0.25pct_risk": 0.04623435323093572,
+    "vol_at_0.25pct_risk": 0.05448771237283033,
+    "max_dd_at_0.25pct_risk": -0.06304049740383377,
+    "calmar": 0.7334071768939437,
+    "long_exp_R": 1.0715123310414527,
+    "short_exp_R": 0.43071431097483065,
+    "n_long": 64,
+    "stop_exits": 0.7117117117117117,
+    "sharpe_gross": 0.9437599950861465,
+    "ann_days": 365.5,
+    "nw_p": 0.029959582343831448,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.8
+    },
+    "by_year_R": {
+     "2022": 12.61,
+     "2023": 49.12,
+     "2024": -7.19,
+     "2025": 9.65,
+     "2026": 24.63
+    },
+    "sample": [
+     "2022-01-01",
+     "2026-10-08"
+    ]
+   },
+   "TEST_2x": {
+    "sharpe_net": 0.767,
+    "sharpe_gross": 0.944,
+    "expectancy_R_net": 0.712,
+    "trades": 111,
+    "win_rate": 0.27,
+    "profit_factor_net": 1.852,
+    "share_inst_positive": 1.0
+   },
+   "test_pass": true,
+   "verdict": "ELIGIBLE_FOR_INDEPENDENT_VALIDATION"
+  },
+  "A2_BO_PM": {
+   "DEV": {
+    "trades": 32,
+    "expectancy_R_net": 1.310454344626449,
+    "expectancy_R_gross": 1.410426150999482,
+    "win_rate": 0.3125,
+    "profit_factor_net": 2.7304060059962083,
+    "avg_win_R": 6.6168469610080125,
+    "avg_loss_R": -1.101542299183352,
+    "cost_share_of_gross": 0.04765268135172673,
+    "sharpe_net": 0.5888285810719825,
+    "cagr_at_0.25pct_risk": 0.02057396734236594,
+    "vol_at_0.25pct_risk": 0.035632833276075304,
+    "max_dd_at_0.25pct_risk": -0.02187397151693471,
+    "calmar": 0.9405684434780253,
+    "long_exp_R": 2.038676828984899,
+    "short_exp_R": -0.2916351209621412,
+    "n_long": 22,
+    "stop_exits": 0.6875,
+    "sharpe_gross": 0.629194042114631,
+    "ann_days": 365.5,
+    "nw_p": 0.090502363530373,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 1.31
+    },
+    "by_year_R": {
+     "2015": -8.83,
+     "2016": 21.14,
+     "2017": 7.93,
+     "2018": 2.46,
+     "2019": 19.24
+    },
+    "sample": [
+     "2015-01-01",
+     "2019-12-31"
+    ]
+   },
+   "DEV_2x_cost": {
+    "sharpe_net": 0.548,
+    "sharpe_gross": 0.629,
+    "expectancy_R_net": 1.21,
+    "trades": 32,
+    "win_rate": 0.312,
+    "profit_factor_net": 2.463,
+    "share_inst_positive": 1.0
+   },
+   "DEV_neighbours": {
+    "hold2": {
+     "sharpe_net": 0.626,
+     "sharpe_gross": 0.674,
+     "expectancy_R_net": 1.191,
+     "trades": 32,
+     "win_rate": 0.344,
+     "profit_factor_net": 2.703,
+     "share_inst_positive": 1.0
+    },
+    "hold10": {
+     "sharpe_net": 0.515,
+     "sharpe_gross": 0.543,
+     "expectancy_R_net": 1.694,
+     "trades": 31,
+     "win_rate": 0.194,
+     "profit_factor_net": 2.905,
+     "share_inst_positive": 1.0
+    },
+    "tgt1.5R_hold10": {
+     "sharpe_net": -0.335,
+     "sharpe_gross": -0.13,
+     "expectancy_R_net": -0.162,
+     "trades": 32,
+     "win_rate": 0.375,
+     "profit_factor_net": 0.764,
+     "share_inst_positive": 0.0
+    }
+   },
+   "dev_pass": true,
+   "VAL": {
+    "trades": 15,
+    "expectancy_R_net": 0.3073493033562007,
+    "expectancy_R_gross": 0.38026114439354425,
+    "win_rate": 0.2,
+    "profit_factor_net": 1.3589360902612622,
+    "avg_win_R": 5.8181396630161375,
+    "avg_loss_R": -1.0703482865587837,
+    "cost_share_of_gross": 0.061776024216071194,
+    "sharpe_net": 0.25308215657703376,
+    "cagr_at_0.25pct_risk": 0.005526643178086044,
+    "vol_at_0.25pct_risk": 0.022786065358488275,
+    "max_dd_at_0.25pct_risk": -0.018339429666565765,
+    "calmar": 0.3013530561510074,
+    "long_exp_R": -0.4395236532829863,
+    "short_exp_R": 5.162023521510917,
+    "n_long": 13,
+    "stop_exits": 0.8,
+    "sharpe_gross": 0.31262101886972293,
+    "ann_days": 365.8,
+    "nw_p": 0.3602698792248338,
+    "share_inst_positive": 1.0,
+    "by_inst_exp_R": {
+     "BTCUSD": 0.307
+    },
+    "by_year_R": {
+     "2020": 12.0,
+     "2021": -7.39
+    },
+    "sample": [
+     "2020-01-01",
+     "2021-12-31"
+    ]
+   },
+   "val_pass": false,
+   "verdict": "EXPLORATORY"
+  },
+  "holm_DEV": {
+   "HTFD_A2_BO_PW_BTC": false,
+   "HTFD_A2_BO_PM_BTC": false,
+   "HTFD_A1_SR1_PW_BTC": false,
+   "HTFD_A3_SR3_PW_BTC": false,
+   "HTFD_A1_SR1_PM_BTC": false,
+   "HTFD_A3_SR3_PM_BTC": false
+  }
+ }
+}

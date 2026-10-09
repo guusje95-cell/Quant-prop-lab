@@ -183,3 +183,22 @@ def summarize(trades: pd.DataFrame, daily: pd.Series, ann: float, daily_gross: p
     if daily_gross is not None and daily_gross.std() > 0:
         out["sharpe_gross"] = float(daily_gross.mean() / daily_gross.std() * np.sqrt(ann))
     return out
+
+
+def daily_mtm(df: pd.DataFrame, trades: pd.DataFrame, cost_fn) -> pd.Series:
+    """Mark-to-market P&L in R per bar for multi-bar trades (bar = day for daily data). Sums exactly to R_net per trade.
+    (daily_series books a trade's whole P&L on its exit bar - fine for sub-day trades, wrong for beta/correlation/vol of
+    multi-day holds.)"""
+    c = df.close.to_numpy(); pos = {t: i for i, t in enumerate(df.index)}
+    pnl = np.zeros(len(c))
+    for tr in trades.itertuples():
+        k0, ke = pos[tr.t_entry], pos[tr.t_exit]
+        d, unit = tr.dir, 1.0 / tr.risk
+        pnl[k0] -= cost_fn(tr.entry) * unit
+        if ke == k0:
+            pnl[k0] += d * (tr.exit - tr.entry) * unit; continue
+        pnl[k0] += d * (c[k0] - tr.entry) * unit
+        for k in range(k0 + 1, ke):
+            pnl[k] += d * (c[k] - c[k - 1]) * unit
+        pnl[ke] += d * (tr.exit - c[ke - 1]) * unit
+    return pd.Series(pnl, index=df.index)

@@ -57,3 +57,14 @@ def test_entry_is_next_open_and_costs_in_R():
     t = H.simulate(df, [H.Event(2, +1, 11.0, "A1_SR1", "PD", 0.0)], lambda p: 0.2, hold=3)
     r = t.iloc[0]
     assert r.entry == 13.0 and r.exit == 16.0 and r.R_net == pytest.approx((3 - 0.2) / 2.0)
+
+
+def test_daily_mtm_sums_to_trade_R():
+    df = bars(24 * 80, seed=9)
+    lv = H.htf_frame(df, "crypto")
+    ev = [e for e in H.detect_events(df, lv, "PD")]
+    cf = lambda p: 0.05
+    t = H.simulate(df, ev, cf, hold=6)
+    assert len(t) > 5
+    m = H.daily_mtm(df, t, cf)
+    assert m.sum() == pytest.approx(t.R_net.sum(), rel=1e-9)

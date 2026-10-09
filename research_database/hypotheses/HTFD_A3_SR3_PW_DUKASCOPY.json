@@ -1,0 +1,13 @@
+{
+ "id": "HTFD_A3_SR3_PW_DUKASCOPY",
+ "family": "HTF liquidity levels",
+ "statement": "failed breakout: first through-bar closes beyond L; a close back inside L within the next 3 bars triggers the reversal trade. Stop = extreme since the cross +/- 0.05*ATRd.",
+ "mechanism": "stop-run/liquidity (A1/A3) or breakout continuation (A2) at HTF levels",
+ "falsification": "identical to config/htf_protocol.json (DEV Sharpe >= 0.5 & expectancy > 0 & >= 60% instruments positive; VAL Sharpe >= 0.3; TEST single look > 0 at 1x and >= 0 at 2x; FRESH expectancy > 0)",
+ "data_required": "dukascopy",
+ "params_tested": "[\"hold2\", \"hold10\", \"tgt1.5R_hold10\"]",
+ "baseline": "zero (no position)",
+ "promotion": "config/htf_daily_protocol.json",
+ "sources": [],
+ "generation": 20
+}
