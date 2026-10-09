@@ -24,6 +24,13 @@ SRC = ROOT / "data" / "raw" / "ext" / "pysystemtrade" / "data" / "futures"
 PROC = ROOT / "data" / "processed" / "futures_panel"
 
 
+def set_source(src: str | Path, proc: str | Path | None = None) -> None:
+    """Point the loader at another pysystemtrade-format directory (e.g. user-maintained data for paper trading)."""
+    global SRC, PROC
+    SRC = Path(src)
+    PROC = Path(proc) if proc else ROOT / "data" / "processed" / ("futures_panel_" + Path(src).resolve().name)
+
+
 def _yyyymm_years(code: pd.Series) -> pd.Series:
     c = pd.to_numeric(code, errors="coerce")
     y, m = c // 10000, (c // 100) % 100
@@ -162,3 +169,36 @@ def universe(panel: dict[str, pd.DataFrame]) -> tuple[list[str], pd.DataFrame]:
         rows[n] = {"asset_class": ac, "cost_over_vol": cost_sr, "included": not reasons, "reasons": "; ".join(reasons)}
     t = pd.DataFrame(rows).T
     return t.index[t.included.astype(bool)].tolist(), t
+
+
+def fx_to_usd(index: pd.DatetimeIndex) -> dict[str, pd.Series]:
+    out = {"USD": pd.Series(1.0, index=index)}
+    for f in (SRC / "fx_prices_csv").glob("*USD.csv"):
+        s = pd.read_csv(f, parse_dates=["DATETIME"]).set_index("DATETIME")["PRICE"]
+        s.index = s.index.normalize(); s = s[~s.index.duplicated(keep="last")]
+        out[f.stem[:3]] = s.reindex(s.index.union(index)).ffill().reindex(index)
+    return out
+
+
+def contract_notional(panel: dict[str, pd.DataFrame], names: list[str]) -> pd.DataFrame:
+    """USD notional of one contract (|PRICE| x Pointsize x FX), forward-filled over exchange holidays (audit V6-B1b)."""
+    cfg = meta(); fx = fx_to_usd(panel["price"].index)
+    cols = {}
+    for m in names:
+        cur = cfg.loc[m, "Currency"]
+        cols[m] = panel["price"][m].abs() * cfg.loc[m, "Pointsize"] * (fx[cur] if cur in fx else np.nan)
+    return pd.DataFrame(cols).ffill()
+
+
+def smallest_members(panel: dict[str, pd.DataFrame], U: list[str], max_cost_over_vol: float = 0.02, window=("2015", "2024")) -> dict[str, str]:
+    """For each universe instrument, the duplicate-group member with the smallest median contract notional (G14c rule)."""
+    _, dropped = dedupe(panel)
+    q = quality(panel); cfg = meta()
+    members = {k: [k] + [d for d, kk in dropped.items() if kk == k] for k in U}
+    allm = [m for v in members.values() for m in v if m in cfg.index]
+    N = contract_notional(panel, allm).loc[window[0]:window[1]].median()
+    out = {}
+    for k, mem in members.items():
+        ok = [m for m in mem if m in N.index and np.isfinite(N[m]) and q.loc[m, "median_cost_bp"] / 1e4 / q.loc[m, "ann_vol"] <= max_cost_over_vol]
+        out[k] = min(ok, key=lambda m: N[m]) if ok else k
+    return out

@@ -1,0 +1,11 @@
+{
+  "_written": "2026-10-09, frozen for PROSPECTIVE paper trading. Construction follows gen15 baseline B0 (equal risk across sleeves) plus the gen14-adopted buffer. Historical numbers for this exact spec after 2013 are CONTAMINATED (periods already viewed) and are descriptive only.",
+  "id": "F9_SLEEVE_RP",
+  "universe": "qpl.data.futures_panel.universe() rules (UNIVERSE_RULES); for capital < $5M use the smallest-notional member of each underlying (G14c rule)",
+  "sleeves": {"TREND": "mean of F0 CT1-transfer, F1 TSMOM(63,126,252), F2 EWMAC(4 speeds) signals", "CARRY": "F3 carry (21-day smoothing)"},
+  "sizing": "each sleeve through qpl.backtesting.panel (sigma EWMA35, 0.40/sigma/N per instrument, sleeve book vol target 10%, cap 5); combined weights = 0.5*W_TREND + 0.5*W_CARRY; combined book rescaled to 10% vol (trailing 252d, cap 2)",
+  "buffer": "b = 0.05 of trailing mean |weight| per instrument (gen14 adopted value for F7-type books)",
+  "execution": "decide after the daily close; trade at the next close; integer contracts with 0.5 + 10% no-trade band",
+  "risk_limits": {"gross_notional_max": 10, "kill_drawdown": 0.25, "review_drawdown": 0.15, "drift_check": "after 252 days: stop and re-grade if cumulative return z-score vs expected (SR 0.5, 10% vol) < -2.0"},
+  "expectation_for_monitoring": {"sharpe": 0.5, "ann_vol": 0.10, "note": "conservative: lower part of the post-2014 uncertainty band, not the backtest point estimate"}
+}

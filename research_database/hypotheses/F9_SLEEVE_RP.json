@@ -1,0 +1,13 @@
+{
+ "id": "F9_SLEEVE_RP",
+ "family": "futures/multi-factor construction",
+ "statement": "equal risk across TREND and CARRY sleeves, buffered b=0.05, integer contracts",
+ "mechanism": "diversification across two premia with low correlation; construction chosen after gen15 showed B0 > F7 on 1995-2013",
+ "falsification": "prospective: drift z < -2 after 252 days, or 25% drawdown",
+ "data_required": "pysystemtrade panel / user-supplied data",
+ "params_tested": "frozen (config/f9_spec.json)",
+ "baseline": "LONG_RP; F7",
+ "promotion": "config/f9_spec.json",
+ "sources": [],
+ "generation": 17
+}
