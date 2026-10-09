@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-09, before running gen17. Small-account implementation of F9 (equal-risk trend/carry sleeves).",
+  "capital_usd": [100000, 250000],
+  "candidate_pool": "all pysystemtrade instruments in the F9 asset classes (incl. micro/mini members), deduplicated to the smallest-notional member per underlying with cost/vol <= 0.015",
+  "selection_rule (non-performance)": "risk_per_contract = median(notional_usd * ann_vol) over 2015-2023; an instrument is affordable with K instruments if risk_per_contract <= capital * 0.05 / K (Carver minimum-capital rule with 4-contract granularity, IDM 2, 10% book risk); choose the largest K for which K affordable instruments can be picked round-robin across asset classes (Equity, Bond, FX, Ags, Metals, OilGas), cheapest risk first within each class; K <= 30",
+  "evaluation": "F9 weights on the chosen set; integer contracts (0.5 + 10% band) at the given capital vs continuous weights. Decision on VALIDATION 2005-2013 (instruments present then) and DISCOVERY 1990-2004; 2014-2024 CONTAMINATED-SECONDARY",
+  "gate": "integer-contract VALIDATION net Sharpe >= 0.4 AND realised vol >= 6% AND DISCOVERY 1990-2004 net Sharpe >= 0.4 -> PROMISING_BUT_UNVALIDATED small-account variant; else REJECTED for that capital",
+  "single_use": true
+}
