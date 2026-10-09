@@ -77,3 +77,53 @@ def summarize(res):
             "p25_p75_days_to_pass": [float(np.percentile(days[ok], 25)), float(np.percentile(days[ok], 75))] if ok.any() else None,
             "funded_survive_12m": round(float(np.mean([x.get("funded_status") == "survived" for x in res if x["result"] == PASS])), 3) if ok.any() else None,
             "E_payout_frac_12m_per_attempt": round(float(pay.mean()), 4)}
+
+
+def pipeline(rc, loc, hic, rf, lof, hif, s, program="2PHASE", fee=0.009, horizon=730, split=0.8, proc=0.05):
+    """Gen34 two-speed pipeline from day s for `horizon` days: buy a challenge (fee), trade the challenge series
+    (rc, loc, hic) until pass/fail, re-buy after a fail; once funded trade the funded series (rf, lof, hif), withdraw
+    split*(1-proc)*profit every 30 days (reset), go back to buying challenges after a funded breach."""
+    P = PROGRAMS[program]; mx, daily, trailing = P["max"], P["daily"], P["trailing"]
+    end = min(len(rc), s + horizon); t = s; cash = 0.0; attempts = 0; first_funded = None; paid = 0.0; funded_days = 0
+    while t < end:
+        cash -= fee; attempts += 1; ok = True
+        for tgt in P["targets"]:
+            code, d = _run(rc, t, tgt, daily, mx, trailing, 1.5, "optimistic", end - t, lo=loc, hi=hic)
+            t += d
+            if code != PASS:
+                ok = False; break
+        if not ok:
+            continue
+        if first_funded is None:
+            first_funded = t - s
+        E = 1.0; peak = 1.0; alive = True
+        while t < end and alive:
+            stop = min(t + 30, end)
+            for j in range(t, stop):
+                x = rf[j] if np.isfinite(rf[j]) else 0.0
+                low = E * (1 + lof[j])
+                if trailing:
+                    peak = max(peak, E * (1 + hif[j]))
+                floor = min(peak - mx, 1.0) if trailing else 1.0 - mx
+                if low < E - daily or low < floor:
+                    alive = False; funded_days += j + 1 - t; t = j + 1; break
+                E *= 1 + x; peak = max(peak, E)
+            if alive:
+                funded_days += stop - t; t = stop
+                if E > 1.0:
+                    pay = split * (1 - proc) * (E - 1.0); cash += pay; paid += pay; E = 1.0; peak = 1.0
+    return {"net": cash, "paid": paid, "attempts": attempts, "first_funded_days": first_funded, "funded_days": funded_days,
+            "horizon_days": end - s}
+
+
+def summarize_pipeline(res):
+    net = np.array([x["net"] for x in res]); ff = [x["first_funded_days"] for x in res]
+    got = np.array([f is not None for f in ff]); ffd = np.array([f for f in ff if f is not None], float)
+    return {"n": len(res), "mean_net": round(float(net.mean()), 4), "median_net": round(float(np.median(net)), 4),
+            "p10_net": round(float(np.percentile(net, 10)), 4), "P_net_pos": round(float((net > 0).mean()), 3),
+            "mean_attempts": round(float(np.mean([x["attempts"] for x in res])), 2),
+            "P_funded_ever": round(float(got.mean()), 3),
+            "median_months_to_funded": round(float(np.median(ffd)) / 30.4, 1) if got.any() else None,
+            "P_funded_within_90d": round(float(np.mean([f is not None and f <= 90 for f in ff])), 3),
+            "P_funded_within_180d": round(float(np.mean([f is not None and f <= 180 for f in ff])), 3),
+            "mean_paid": round(float(np.mean([x["paid"] for x in res])), 4)}

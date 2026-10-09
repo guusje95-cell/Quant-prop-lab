@@ -32,3 +32,14 @@ def test_real_intraday_low_triggers_daily_breach():
     # same closes without the wick: no breach
     out2 = CFT.simulate_start(r, 0, "2PHASE", mode="optimistic", lo=np.zeros(3), hi=hi, max_days=3)
     assert out2["result"] == CFT.OPEN
+
+
+def test_pipeline_rebuys_after_fail_and_pays():
+    import numpy as np
+    from qpl.prop_simulation import cft_daily as CFT
+    n = 400
+    r = np.full(n, 0.004); lo = np.zeros(n); hi = np.zeros(n)
+    lo[5] = -0.06                                     # first attempt breaches the daily loss on day 6
+    out = CFT.pipeline(r, lo, hi, r, np.zeros(n), hi, 0, "2PHASE", fee=0.01, horizon=n)
+    assert out["attempts"] == 2 and out["first_funded_days"] is not None and out["paid"] > 0
+    assert abs(out["net"] - (out["paid"] - 0.02)) < 1e-12
