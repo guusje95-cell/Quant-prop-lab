@@ -114,3 +114,12 @@ Out-of-sample = annual walk-forward 1995–2013. 2014–24 is contaminated-secon
 **Learning:**
 * The "ELIGIBLE" status is honest about direction and robustness, but not about the post-2014 *size* of the edge. A realistic expectation for a costed diversified trend+carry book is **SR 0.5–0.8 with wide uncertainty**.
 * A prospective paper track cannot statistically confirm such an edge in under about 5–10 years. Prospective trading is therefore a *safety and implementation* check (does the live book behave like the backtest?), not a significance test. Decisions must rest on the 50-year cross-market evidence plus economic rationale, with sizing set by the lower part of the uncertainty band.
+
+## 2026-10-09 · Entry 8 — Crypto CT1 inside a futures trend+carry portfolio (`experiments/v6_portfolio.py`; descriptive, all data USED)
+* **Correlations (weekly, 2015–2024Q1):**
+  * CT1 vs B0 (futures sleeve-RP) 0.09; vs TREND 0.15; vs CARRY 0.00; vs long-only RP −0.02.
+  * In B0's worst 10% of weeks, the CT1/B0 correlation is −0.00 (no tail co-movement).
+  * In the long-only benchmark's worst 10% of weeks, TREND averages +0.32σ and CT1 +0.28σ (crisis-convex), while CARRY averages −0.14σ.
+* **Adding CT1 at 1/3 of the risk:** Sharpe 0.63 → 1.09 and max DD −14% → −10% (2015–24). Bootstrap gain +0.46, 90% CI [0.23, 0.70].
+* **Caveat:** CT1's 2015–21 Sharpe (1.3–2.6 per year) drives most of that gain. Using CT1's post-2021 Sharpe of about 0.4, the expected gain at 1/3 risk is roughly +0.1. That is still positive because of the near-zero correlation, but modest.
+* **Learning:** the best use of CT1 is as a *small diversifying sleeve* next to a diversified futures trend+carry core, not as a standalone strategy. Allocation should follow conservative SR assumptions: about 0.4 for CT1 and 0.5–0.7 for the futures core.
