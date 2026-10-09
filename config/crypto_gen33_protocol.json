@@ -1,0 +1,15 @@
+{
+  "_written": "2026-10-10, AFTER gen32 (no modification of E2 accepted), BEFORE any gen33 number was computed.",
+  "logic": "Allowed risk is capped by crash wicks (worst day ~0.63 x annual vol). Faster passing needs extra return streams whose bad days differ from long-BTC/ETH crash days.",
+  "candidates (BTC/ETH only, Bybit route)": {
+    "C1_E2_LS": "E2 signal without clipping (breakdowns / negative momentum -> short), same sizing",
+    "C2_ETHBTC_RELTREND": "E2 signal (long/short, unclipped) computed on the ETH/BTC price ratio; position +x ETH and -x BTC (dollar-neutral), x = s * min(1, 0.40 / vol of ratio) / 2",
+    "C3_B0_PLUS_C2": "B0 (E2 LIQUID2 long-only) and C2 each scaled to the same 2018-2021 vol, summed",
+    "C4_C1_PLUS_C2": "C1 and C2 each scaled to the same 2018-2021 vol, summed"
+  },
+  "acceptance (vs B0, both scaled to equal 2018-2026 vol)": "net Sharpe higher in EACH of DEV 2018-2021, VAL 2022-2023, TEST 2024-2026-10 AND paired bootstrap Holm p < 0.05 over the 4 candidates AND tail ratio (worst intraday day / annual vol) not worse than B0 by > 10%",
+  "standalone report": "C1, C2 alone: Sharpe by period, correlation with B0, worst days",
+  "prop step": "if accepted: gen30/31 EV selection on both programs + speed metrics",
+  "trials": "4 (cumulative crypto alpha trials 121)",
+  "single_use": true
+}

@@ -1,0 +1,97 @@
+{
+ "mods": {
+  "M1_RANGE_VOL": {
+   "stats": {
+    "DEV": 1.802,
+    "VAL": 0.667,
+    "TEST": 1.116,
+    "ALL": 1.363,
+    "vol": 0.1744,
+    "worst_day": -0.1159,
+    "tail_ratio": 0.665,
+    "turnover_cost_pa": 0.0178
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.4118,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "M2_FAMILY_ENSEMBLE": {
+   "stats": {
+    "DEV": 1.722,
+    "VAL": 0.414,
+    "TEST": 0.893,
+    "ALL": 1.206,
+    "vol": 0.2256,
+    "worst_day": -0.1303,
+    "tail_ratio": 0.578,
+    "turnover_cost_pa": 0.009
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.937,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "M3_BREADTH": {
+   "stats": {
+    "DEV": 1.713,
+    "VAL": 0.651,
+    "TEST": 1.007,
+    "ALL": 1.288,
+    "vol": 0.1772,
+    "worst_day": -0.1159,
+    "tail_ratio": 0.654,
+    "turnover_cost_pa": 0.018
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.961,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "M4_4H_BTC": {
+   "stats": {
+    "DEV": 1.34,
+    "VAL": 1.2,
+    "TEST": 0.974,
+    "ALL": 1.198,
+    "vol": 0.2162,
+    "worst_day": -0.1339,
+    "tail_ratio": 0.619,
+    "turnover_cost_pa": 0.0336
+   },
+   "beats_each_period": false,
+   "tail_ok": true,
+   "p_raw": 0.4652,
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  }
+ },
+ "B0": {
+  "DEV": 1.819,
+  "VAL": 0.638,
+  "TEST": 1.07,
+  "ALL": 1.357,
+  "vol": 0.1852,
+  "worst_day": -0.1159,
+  "tail_ratio": 0.626,
+  "turnover_cost_pa": 0.0187
+ },
+ "B0_BTC_daily_bitstamp": {
+  "DEV": 1.452,
+  "VAL": 0.878,
+  "TEST": 0.966,
+  "ALL": 1.192,
+  "vol": 0.2124,
+  "worst_day": -0.1296,
+  "tail_ratio": 0.61,
+  "turnover_cost_pa": 0.0208
+ },
+ "B4_extra_2015_2017": {
+  "daily": 2.652,
+  "4h": 2.846
+ },
+ "accepted": []
+}

@@ -18,10 +18,11 @@ BO = [(n, k) for n in (5, 7, 10, 14, 20) for k in (1, 2, 3)]
 TM = (14, 30, 60, 90)
 
 
-def signal_one(close: pd.Series) -> pd.Series:
+def signal_one(close: pd.Series, scale: int = 1) -> pd.Series:
+    """scale = bars per day (1 = daily bars; 6 = 4h bars with the same calendar horizons)."""
     s = close.dropna()
-    bo = sum(Z.short_breakout(s, n, k) for n, k in BO) / len(BO)
-    tm = sum(Z.tsmom(s, n) for n in TM) / len(TM)
+    bo = sum(Z.short_breakout(s, n * scale, k * scale) for n, k in BO) / len(BO)
+    tm = sum(Z.tsmom(s, n * scale) for n in TM) / len(TM)
     return (0.5 * bo.clip(lower=0) + 0.5 * tm.clip(lower=0))
 
 
