@@ -1,0 +1,23 @@
+{
+  "_written": "2026-10-10, BEFORE any gen35 return was computed. User target: net Sharpe > 1.3 AND CAGR > 15% in a strategy usable in a CFT account.",
+  "why": "E2 alone has Sharpe ~1.36 but crash-wick tails cap CFT-compatible risk at ~6-8% vol (CAGR ~8-11%). Hitting CAGR > 15% at a CFT-safe worst day needs a lower tail ratio, i.e. a diversifier whose bad days differ: macro trend on FX / oil / equity index, tradable with crypto CFDs on CFT's MT5 route.",
+  "data": "src/qpl/data/macro_daily.py: FRED H.10 FX (EURUSD GBPUSD AUDUSD NZDUSD USDJPY USDCAD USDCHF), EIA WTI and Brent spot, FRED SP500 (2016-02..2026-02-11; weight 0 after). NATGAS excluded a priori (Henry Hub spot spikes not representative of a CFD). Crypto: Binance spot daily OHLC (BTC, ETH).",
+  "macro_sleeve MX": "frozen E2 rules, long/short (unclipped: 0.5 * mean of 15 short_breakout(n,h) + 0.5 * mean of 4 tsmom(n)), per asset w = s * min(4, 0.10 / sigma30_ann) / N_t (N_t = assets with >= 200 obs and data that day), held close t -> close t+1 on the asset's own trading days",
+  "crypto_sleeve CX": "E2 LIQUID2 (BTC, ETH; long-only) as in gen31",
+  "costs (MT5 route, UNCERTAIN)": {"FX": "1 bp per unit turnover + 2%/yr on gross notional (swap/markup)", "WTI/BRENT/SPX": "3 bp per unit turnover + 3%/yr on gross notional",
+                                   "BTC/ETH CFD": "3.25 bp commission + 5 bp spread per unit turnover + 20%/yr swap on gross notional", "stress": "2x turnover costs, swaps x2"},
+  "intraday lows": "crypto: real Binance daily lows; macro (close-only data): adverse excursion = 2.0 x |close-to-close return| when that return is adverse, else 0.5 x daily sigma (k-proxy, conservative)",
+  "portfolio P": "CX and MX each scaled to 10% annual vol on 2018-01..2021-12 (DEV), summed, then scaled by a single factor to a target vol v",
+  "periods": {"MX standalone": "DEV 1990-2009, VAL 2010-2017, TEST 2018-2026-10", "P": "DEV 2018-2021, VAL 2022-2023, TEST 2024-01..2026-10-08"},
+  "risk choice": "v in {0.08, 0.10, 0.12, 0.14, 0.16}: the largest v whose DEV (2018-2021) worst intraday day > -4.0% and DEV max drawdown > -9%",
+  "gates ('TARGET MET' requires all)": {
+    "T1": "MX standalone net Sharpe >= 0.3 in VAL and in TEST",
+    "T2": "P net Sharpe >= 1.3 over 2018-2026-10 AND >= 1.0 in each of DEV, VAL, TEST (MT5 base costs)",
+    "T3": "P CAGR >= 15% over 2018-2026-10 AND >= 12% in TEST",
+    "T4": "P worst intraday day 2018-2026 > -5% and max drawdown > -10% (CFT 2-Phase compatible)",
+    "T5": "P with stressed costs: net Sharpe >= 1.0 over 2018-2026",
+    "T6": "CFT 2-Phase simulation on 2023-01..2024-06 starts: P_pass >= 0.60 AND P_fail_daily <= 0.10"
+  },
+  "trials": "1 portfolio construction (+1 sleeve); cumulative crypto/cross-asset alpha trials 123",
+  "single_use": true
+}
