@@ -1,0 +1,36 @@
+{
+  "_written": "2026-10-09, BEFORE computing any strategy return on the pysystemtrade futures panel. Only structure/quality/cost metadata had been inspected (data/metadata/futures_panel_quality.csv, futures_universe.csv).",
+  "data": "robcarver17/pysystemtrade @bbe29e19 data/futures (GPL-3); loader src/qpl/data/futures_panel.py; universe = futures_panel.universe() (155 instruments; rules in UNIVERSE_RULES)",
+  "periods": {"DISCOVERY": ["1975-01-01", "2004-12-31"], "VALIDATION": ["2005-01-01", "2013-12-31"], "TEST": ["2014-01-01", "2019-12-31"],
+              "HOLDOUT": ["2020-01-01", "2024-03-28"], "LATE_HOLDOUT": "TopstepX 1h GC/SI/CL/6E/6B/6J 2025-03..2026-04 (optional, single look)"},
+  "knowledge_caveat": "Trend/carry/XS-momentum/value in futures are published effects whose broad history (2008 crisis alpha, 2011-18 drought, strong 2022) is known to the researcher. Rules are therefore fixed from the literature BEFORE looking; TEST/HOLDOUT are confirmation of published effects in this data, not discovery.",
+  "engine": {
+    "returns": "r_t = dADJ_t / PRICE_{t-1}; daily (one obs per calendar date)",
+    "risk": "sigma_i,t = EWMA(span 35) std of r_i up to t, annualised x sqrt(256), floored at 5th pct of its own trailing 5y history (known at t)",
+    "position": "w_i,t = s_i,t * (0.40 / sigma_i,t) / N_t, s in [-1,1], N_t = instruments eligible at t (>= 256 days history)",
+    "portfolio_vol_target": "scale the whole book by 0.10 / trailing-252d realised vol of the UNscaled book (known at t), capped at 5x",
+    "execution": "w decided at close t is first held over day t+2 (one full day of extra lag: trade at the next close)",
+    "costs": "turnover_i * cost_i (fraction of notional, from spreadcosts + commission); stressed 2x and 3x",
+    "annualisation": "sqrt(256) for Sharpe on daily P&L"
+  },
+  "benchmark": "LONG_RP: s_i = +1 for every eligible instrument (same risk scaling, costs, lag). Every gate requires residual Sharpe vs LONG_RP (OLS beta on daily P&L within the period).",
+  "families": {
+    "F0_CT1_TRANSFER": {"primary": "CT1 legs per instrument: mean of sign(ret over 20,60,120 days) and Donchian(20,55) states; same Donchian entry/exit as V4; no leverage cap (equal-risk legs)", "neighbours": "single legs tsmom20/60/120, donch20/55", "purpose": "out-of-domain test of the frozen crypto idea"},
+    "F1_TSMOM": {"primary": "mean of sign(ret over 63,126,252 days)", "neighbours": "single lookbacks 21,63,126,252", "source": "Moskowitz, Ooi & Pedersen (2012) Time series momentum, JFE"},
+    "F2_EWMAC": {"primary": "mean of 4 crossovers (8/32,16/64,32/128,64/256): (EMA_f - EMA_s)/(sigma_price), scaled so mean |forecast| ~ 1, capped +-2, then /2", "neighbours": "each single speed", "source": "Carver (2015) Systematic Trading; Baltas & Kosowski (2013)"},
+    "F3_CARRY": {"primary": "carry_yield / sigma, 21-day mean, scaled by its trailing-5y mean |.|, capped +-2, /2", "neighbours": "smoothing 1, 63 days", "source": "Koijen, Moskowitz, Pedersen & Vrugt (2018) Carry, JFE"},
+    "F4_XS_MOM": {"primary": "within asset class, rank 252-day minus last-21-day return / sigma; long top third, short bottom third (s = +-1), classes with >= 4 eligible members", "neighbours": "lookback 126", "source": "Asness, Moskowitz & Pedersen (2013) Value and momentum everywhere, JF"},
+    "F5_XS_VALUE": {"primary": "within asset class, rank MINUS the return from t-1260 to t-252 days (5y reversal); long cheapest third, short dearest third", "neighbours": "window t-756..t-252", "source": "Asness, Moskowitz & Pedersen (2013)"},
+    "F6_SKEW": {"primary": "within asset class, rank MINUS 252-day skewness of daily returns; long low-skew third, short high-skew third", "neighbours": "126-day skewness", "source": "Fernandez-Perez, Frijns, Fuertes & Miffre (2018) The skewness of commodity futures returns, JBF"},
+    "F7_COMBO": {"primary": "equal-risk average of the surviving families' instrument signals (families passing VALIDATION), defined only after VALIDATION results, before TEST", "neighbours": "n/a"}
+  },
+  "gates": {
+    "DISCOVERY": "primary net Sharpe >= 0.4 AND residual vs LONG_RP >= 0.2 AND >= 70% of neighbours net > 0",
+    "VALIDATION": "primary net Sharpe >= 0.3 AND residual > 0",
+    "TEST": "single look: net Sharpe > 0 AND residual > 0 AND net > 0 at 2x costs",
+    "HOLDOUT": "single look, only after TEST pass: net Sharpe > 0 AND residual > 0 AND net > 0 at 2x costs"
+  },
+  "statuses": {"fail DISCOVERY": "REJECTED", "fail VALIDATION": "EXPLORATORY", "pass VALIDATION, TEST pending/failed": "PROMISING_BUT_UNVALIDATED", "pass HOLDOUT": "ELIGIBLE_FOR_INDEPENDENT_VALIDATION (published effect confirmed in this data; prospective paper next)"},
+  "multiple_testing": "report all primaries and neighbours; Holm across family primaries at each stage (t from Newey-West on daily P&L); PBO across the full grid on DISCOVERY+VALIDATION",
+  "single_use": true
+}
