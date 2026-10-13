@@ -39,6 +39,7 @@ EXEC.index = EXEC.index.floor("D")
 DCLOSE = P["close"][P["close"].index.hour == 23]; DCLOSE.index = DCLOSE.index.floor("D")
 DVOL = P["volQuote"].groupby(day).sum(min_count=1)
 days = EXEC.index
+DCLOSE = DCLOSE.reindex(days); DVOL = DVOL.reindex(days)
 hist = DCLOSE.notna().cumsum() >= 60
 liq = DVOL.rolling(30, min_periods=20).median() >= 20e6
 UNIV = (hist & liq).shift(1).fillna(False)                           # known at decision time (00:00 of day d)
