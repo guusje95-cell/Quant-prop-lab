@@ -1,0 +1,16 @@
+{
+  "_written": "2026-10-14, BEFORE any gen40 return was computed (Yahoo daily data downloaded, only coverage checked).",
+  "goal": "steadier monthly returns via diversification: a multi-asset daily trend book on MT5-tradable CFD markets (forex, index, metal, energy), alone and combined with crypto C*",
+  "universe CORE (28)": "FX: EURUSD GBPUSD USDJPY AUDUSD USDCAD USDCHF NZDUSD EURJPY GBPJPY EURGBP AUDJPY EURCHF; indices: US500 US100 US30 US2000 DE40 UK100 JP225 FR40 EU50 AU200 HK50; commodities (total-return ETFs as CFD proxies): GOLD(GLD) SILVER(SLV) WTI(USO) BRENT(BNO) COPPER(CPER). NATGAS (UNG roll decay) and AGRI excluded a priori. Variant CORE+BONDS adds UST10Y(IEF), UST20Y(TLT) - reported, not gated.",
+  "data": "Yahoo Finance daily OHLC (indices/FX close; ETFs adjusted close for returns, OHLC scaled by adj factor), 2000/2003-2026-10; Dukascopy CFD daily (downloading) used as a cross-check where available",
+  "signal TF1 (fixed a priori, Carver/AQR-style EWMAC)": "for each speed (8,32),(16,64),(32,128),(64,256): raw = (EMA_fast - EMA_slow) / (price * sigma_daily_36d); normalised by its own expanding mean |raw| (point-in-time, min 250 obs), capped +-2; forecast = mean of the 4 speeds, capped +-2; long/short",
+  "sizing": "w_i = forecast_i * (0.10 / sigma_i_ann(EWMA 36d)) / N_group / 3 groups (FX, indices, commodities equal risk budget); buffer: trade only if |w_target - w_held| > 0.1 * |w_target| (else hold)",
+  "costs (MT5 CFD, UNCERTAIN)": "per unit turnover: FX 1.0 bp, indices 2.0 bp, metals 3.0 bp, energy/copper 4.0 bp; financing on gross notional: FX 1.5%/yr, indices/commodities 3%/yr; stress 2x both",
+  "periods": {"DEV": "2004-01-01..2013-12-31", "VAL": "2014-01-01..2019-12-31", "TEST": "2020-01-01..2026-10-13"},
+  "gates TF1 (all)": "net Sharpe >= 0.4 DEV, >= 0.3 VAL, >= 0.3 TEST; 2x-stress TEST >= 0.2; corr with crypto C* (2018-2026) < 0.3; same-sign Sharpe in each asset group over 2004-2026",
+  "combination COMBO": "C* (gen38, crypto) + TF1, each scaled to 10% vol on 2018-2021, summed. Report 2018-2026: Sharpe, CAGR at 12% vol, share of positive months, worst month, longest losing streak; compared with C* alone",
+  "COMBO target ('BETTER CONSISTENCY')": "share of positive months >= 0.55 AND combined Sharpe >= C* Sharpe - 0.1 AND every calendar year 2018-2025 >= -5%",
+  "prop step": "TF1 alone on a generic MT5 2-Phase rule set (8%/5% targets, 5% equity daily loss vs start-of-day equity, 10% static max; also CFT MT5 = same numbers) at risk chosen on DEV+VAL (max pass, daily-breach <= 5%), evaluated on TEST starts",
+  "trials": "1 signal + 1 combination (bonds variant descriptive)",
+  "single_use": true
+}
