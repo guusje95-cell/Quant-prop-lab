@@ -1,0 +1,12 @@
+{
+  "_written": "2026-10-14, BEFORE running either strategy on any data. Implementations: src/qpl/lab/strategies_papers.py (IntradayMomentumGao, NoiseAreaMomentum), paper default parameters, no tuning.",
+  "strategies": {
+    "G47a": "Gao, Han, Li & Zhou (2018 JFE) market intraday momentum: sign(prev 16:00 close -> 10:00 ET) traded 15:30-16:00 ET",
+    "G47b": "Zarattini, Aziz & Barbon (2024 SSRN 4824172) noise-area breakout, 14-day band, 30-min checks, VWAP trailing stop, 2% daily vol target, max 4x"
+  },
+  "data": "Dukascopy index CFDs (US500, US100), 15-min bars 2013-08 -> 2023-09 (primary); 5-min 2020-09 -> 2023-09 (consistency check). UTC converted to New York time.",
+  "costs": "primary 1.0 bp per side (prop-firm CFD spread, US500 ~0.5 pt); sensitivity 0.3 bp (CME futures) and 2.0 bp",
+  "primary_test": "each strategy on US500 15-min at 1.0 bp, full sample after the 14-day warm-up",
+  "pass_rule": "net Sharpe >= 0.8 on the primary test AND net Sharpe > 0 in both halves (split 2018-09-01) AND positive on US100 15-min at 1.0 bp. Deflated Sharpe reported with the cumulative trial count.",
+  "trials": "2 strategies x 2 assets x 3 costs on 15-min + 2 x 2 at 1.0 bp on 5-min = 16 runs; all reported"
+}

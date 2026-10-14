@@ -135,3 +135,18 @@ def test_stop_loss_and_target_exits():
     a2 = np.array([1, 1, 0, 1, 1, 1, -1, -1.0]); c2 = np.array([100, 100.6, 100.6, 100, 100.2, 100.6, 100, 100.0])
     pos2 = SP._with_exits(a2, c2, tr, 0.003, 0.005, True)
     assert list(pos2) == [1, 0, 0, 1, 1, 0, -1, -1]                        # target, re-entry after neutral, target, short
+
+
+@pytest.mark.parametrize("cls", [SP.IntradayMomentumGao, SP.NoiseAreaMomentum])
+def test_intraday_momentum_no_lookahead_and_flat_overnight(cls):
+    rng = np.random.default_rng(11)
+    idx = pd.date_range("2022-01-03", periods=120 * 288, freq="5min")
+    c = pd.Series(4000 * np.exp(np.cumsum(rng.normal(0, 0.0008, len(idx)))), index=idx)
+    o = c.shift(1).fillna(c.iloc[0]); f = lambda s: s.to_frame("ES")
+    b = D.Bars("es", "5m", f(o), f(np.maximum(o, c) * 1.0003), f(np.minimum(o, c) * 0.9997), f(c), f(c * 0 + 10), D.periods_per_year(idx, "5m"))
+    st = cls(); full = st.signal(b, st.defaults())
+    assert (full["ES"] != 0).any()
+    ses = SP.ny_session(idx, "5m")
+    assert (full["ES"][~ses.insess | ses["last"]] == 0).all()                     # never held over 16:00 or outside the session
+    n = len(idx) * 3 // 4
+    pd.testing.assert_frame_equal(full.iloc[:n], st.signal(b.select(end=idx[n - 1]), st.defaults()), check_freq=False)

@@ -21,29 +21,7 @@ ROOT = Path(__file__).resolve().parents[3]
 USER_DIR = ROOT / "strategies_user"
 
 
-@dataclass
-class Param:
-    default: float | int | bool | str
-    min: float | None = None
-    max: float | None = None
-    step: float | None = None
-    help: str = ""
-    choices: tuple | None = None
-
-
-class Strategy:
-    name = "base"
-    description = ""
-    params: dict = {}
-    long_only = False
-    # 'engine' = engine applies vol-scaling and equal weights; 'raw' = signal values are already portfolio weights
-    sizing = "engine"
-
-    def signal(self, bars, p: dict) -> pd.DataFrame:  # pragma: no cover - interface
-        raise NotImplementedError
-
-    def defaults(self):
-        return {k: v.default for k, v in self.params.items()}
+from qpl.lab.strategy_base import Param, Strategy  # noqa: E402,F401  (re-exported for plug-ins)
 
 
 # ------------------------------------------------------------------ helpers (no look-ahead: only data up to t)
@@ -185,8 +163,8 @@ BUILTIN = [CStarTrend, BuyHold, SMACross, Donchian, TSMOM, RSIReversion]
 
 
 def _paper_strategies():
-    from qpl.lab.strategies_papers import KalmanPairs, MaxAIQLearning
-    return [KalmanPairs, MaxAIQLearning]
+    from qpl.lab.strategies_papers import IntradayMomentumGao, KalmanPairs, MaxAIQLearning, NoiseAreaMomentum
+    return [KalmanPairs, MaxAIQLearning, IntradayMomentumGao, NoiseAreaMomentum]
 
 
 BUILTIN += _paper_strategies()

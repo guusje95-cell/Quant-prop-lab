@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 from qpl.lab.data import BPD
-from qpl.lab.strategies import Param, Strategy
+from qpl.lab.strategy_base import Param, Strategy
 
 try:                                                   # optional speed-up; pure-python fallback below
     from numba import njit
@@ -442,3 +442,152 @@ def _with_exits(action, close, tradable, sl, pt, exit_on_neutral):
             cur, entry = a, close[t]
         pos[t] = cur
     return pos
+
+
+# =====================================================================================================================
+# Intraday momentum papers on US index futures / ETFs (US cash session, New York time)
+# =====================================================================================================================
+def ny_session(idx: pd.DatetimeIndex, freq: str) -> pd.DataFrame:
+    """Per bar (UTC-naive, labelled by open time): New York date, bar end in minutes after midnight, cash-session flag,
+    and whether it is the day's last session bar (a position must be flat after it)."""
+    bar_min = 1440 // BPD.get(freq, 24)
+    ny = idx.tz_localize("UTC").tz_convert("America/New_York")
+    start = ny.hour * 60 + ny.minute
+    end = start + bar_min
+    f = pd.DataFrame({"date": ny.date, "end": end, "insess": (start >= 570) & (end <= 960) & (ny.weekday < 5)}, index=idx)
+    s = f[f.insess]
+    last = s.groupby("date")["end"].transform("max") == s["end"]
+    f["last"] = False; f.loc[s.index, "last"] = last.to_numpy()
+    f["bar_min"] = bar_min
+    return f
+
+
+def _prev_session_close(c: pd.Series, f: pd.DataFrame) -> pd.Series:
+    """Per NY date: the previous trading day's last cash-session close (16:00)."""
+    s = f[f.insess]
+    close_by_day = c.loc[s.index][s["last"].to_numpy()].groupby(s["date"][s["last"]].to_numpy()).last()
+    return close_by_day.shift(1)
+
+
+class IntradayMomentumGao(Strategy):
+    name = "Paper: Market intraday momentum (Gao et al. 2018)"
+    description = ("Gao, Han, Li & Zhou (2018), 'Market Intraday Momentum', Journal of Financial Economics. The first half hour's "
+                   "return (yesterday's 16:00 close -> today 10:00 New York, so it includes the overnight move) predicts the "
+                   "last half hour. At 15:30 go long if that return was positive, short if negative; close at 16:00. Optional: "
+                   "only trade when the 15:00-15:30 return points the same way (the paper's second predictor). One trade per "
+                   "day of 30 minutes. Needs 5-, 15- or 30-minute bars of a US index (e.g. 'US500 CFD, Dukascopy (15-min)'). "
+                   "Paper: SPY 1993-2013, about 6.7% a year, Sharpe ~1.08 before costs; weaker after 2008 in later studies.")
+    sizing = "raw"
+    params = {
+        "mode": Param("first half hour", choices=("first half hour", "first + 12th half hour agree")),
+        "min_move_pct": Param(0.0, 0.0, 2.0, 0.05, "skip days when the first-half-hour move is smaller than this (%)"),
+        "allow_short": Param(True),
+    }
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols); info = []
+        if 30 % (1440 // BPD.get(bars.freq, 24)) != 0:
+            self.info = pd.DataFrame([{"note": "needs 5-, 15- or 30-minute bars"}]); return out
+        f = ny_session(bars.close.index, bars.freq)
+        for s in bars.symbols:
+            c = bars.close[s]
+            pc = _prev_session_close(c, f)
+            ses = f[f.insess]
+            at = lambda m: c.loc[ses.index][(ses["end"] == m).to_numpy()].groupby(ses["date"][ses["end"] == m].to_numpy()).last()
+            r1 = at(600) / pc.reindex(at(600).index) - 1
+            r12 = at(930) / at(900).reindex(at(930).index) - 1
+            sig = np.sign(r1).where(r1.abs() * 100 >= p["min_move_pct"], 0.0)
+            if p["mode"].startswith("first +"):
+                sig = sig.where(np.sign(r12.reindex(sig.index)) == sig, 0.0)
+            if not p["allow_short"]:
+                sig = sig.clip(lower=0)
+            hold = f.insess & (f["end"] >= 930) & ~f["last"]                 # decided at the 15:30 close, flat after 16:00
+            out.loc[hold, s] = pd.Series(f.loc[hold, "date"].map(sig).to_numpy(), index=f.index[hold]).fillna(0.0).to_numpy()
+            info.append({"asset": s, "days": int(sig.notna().sum()), "long_days": int((sig > 0).sum()), "short_days": int((sig < 0).sum()),
+                         "hit_rate_of_r1_sign": round(float((np.sign(r1) == np.sign(at(960) / at(930).reindex(at(960).index) - 1)
+                                                           .reindex(r1.index)).mean()), 3)})
+        self.info = pd.DataFrame(info)
+        return out / max(1, len(bars.symbols))
+
+
+class NoiseAreaMomentum(Strategy):
+    name = "Paper: Beat the Market noise-area breakout (Zarattini et al. 2024)"
+    description = ("Zarattini, Aziz & Barbon (2024), 'Beat the Market: An Effective Intraday Momentum Strategy for S&P500 ETF (SPY)', "
+                   "SSRN 4824172. Each day a 'noise area' is drawn around the open: for every time of day, the average absolute "
+                   "move from the open at that time over the last 14 days. Every 30 minutes from 10:00 New York: go long when "
+                   "price closes above the upper boundary, short below the lower one. Exit at the opposite trailing stop "
+                   "(boundary or VWAP, whichever is tighter) or at 16:00. Position size targets 2% daily volatility (max 4x). "
+                   "Paper: SPY 2007-2024, Sharpe 1.33 after costs. Use 5- or 15-minute bars of a US index "
+                   "(e.g. 'US500 CFD, Dukascopy (15-min)'). Leverage 1 in the sidebar = the paper's sizing.")
+    sizing = "raw"
+    params = {
+        "lookback_days": Param(14, 5, 60, 1, "days averaged for the noise area (paper: 14)"),
+        "band_mult": Param(1.0, 0.25, 3.0, 0.05, "noise-area width multiplier (paper: 1.0)"),
+        "check_minutes": Param(30, 5, 60, 5, "check for entries / exits every N minutes (paper: 30)"),
+        "vwap_stop": Param(True, help="trail the stop at VWAP when it is tighter than the boundary (paper: yes)"),
+        "vol_sizing": Param(True, help="size = 2% / daily volatility (14 days), capped (paper: yes); off = always 1x"),
+        "target_daily_vol_pct": Param(2.0, 0.25, 5.0, 0.25, "paper: 2%"),
+        "max_leverage": Param(4.0, 0.5, 10.0, 0.5, "paper: 4"),
+        "allow_short": Param(True),
+    }
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols); info = []
+        bm = 1440 // BPD.get(bars.freq, 24)
+        if bm > 30 or int(p["check_minutes"]) % bm:
+            self.info = pd.DataFrame([{"note": "needs bars of 30 minutes or less that divide the check interval"}]); return out
+        f = ny_session(bars.close.index, bars.freq)
+        for s in bars.symbols:
+            pos, n_tr = self._one(bars, s, f, p)
+            out[s] = pos
+            info.append({"asset": s, "trades": n_tr, "avg_abs_position": round(float(np.abs(pos[pos != 0]).mean()), 2) if (pos != 0).any() else 0})
+        self.info = pd.DataFrame(info)
+        return out / max(1, len(bars.symbols))
+
+    def _one(self, bars, s, f, p):
+        c, o, h, lo, v = (getattr(bars, k)[s] for k in ("close", "open", "high", "low", "volume"))
+        ses = f[f.insess & c.notna()]
+        idx = ses.index
+        cc = c.loc[idx].to_numpy(); date = ses["date"].to_numpy(); end = ses["end"].to_numpy(); bm = int(ses["bar_min"].iloc[0])
+        first = ses["end"] == 570 + bm
+        day_open = pd.Series(o.loc[idx][first.to_numpy()].to_numpy(), index=date[first.to_numpy()])
+        day_open = day_open[~day_open.index.duplicated()]
+        pc = _prev_session_close(c, f)
+        dopen = pd.Series(date).map(day_open).to_numpy(); dprev = pd.Series(date).map(pc).to_numpy()
+        # noise area: mean |close/open - 1| at the same time of day over the previous N days
+        move = pd.DataFrame({"d": date, "t": end, "m": np.abs(cc / dopen - 1)})
+        piv = move.pivot_table(index="d", columns="t", values="m", aggfunc="last")
+        sig = piv.rolling(int(p["lookback_days"]), min_periods=int(p["lookback_days"])).mean().shift(1)
+        sigma = sig.stack().reindex(pd.MultiIndex.from_arrays([date, end])).to_numpy()
+        ub = np.maximum(dopen, dprev) * (1 + p["band_mult"] * sigma)
+        lb = np.minimum(dopen, dprev) * (1 - p["band_mult"] * sigma)
+        # VWAP since the open (tick volume for CFDs; equal weights if no volume)
+        tp = ((h + lo + c) / 3).loc[idx].to_numpy()
+        vv = v.loc[idx].to_numpy(); vv = np.where(np.isfinite(vv) & (vv > 0), vv, 1.0)
+        g = pd.Series(date)
+        vwap = (pd.Series(tp * vv).groupby(g).cumsum() / pd.Series(vv).groupby(g).cumsum()).to_numpy()
+        # size: target daily vol / 14-day realised daily vol (session closes), known before the day starts
+        dclose = pd.Series(cc[ses["last"].to_numpy()], index=date[ses["last"].to_numpy()])
+        dvol = dclose.pct_change().rolling(14).std().shift(1)
+        lev = (p["target_daily_vol_pct"] / 100 / dvol).clip(upper=p["max_leverage"]) if p["vol_sizing"] else dvol * 0 + 1.0
+        dlev = pd.Series(date).map(lev).to_numpy()
+        last = ses["last"].to_numpy(); chk = ((end - 570) % int(p["check_minutes"]) == 0) & (end >= 600)
+        pos = np.zeros(len(idx)); cur = 0.0; trades = 0
+        for t in range(len(idx)):
+            if np.isnan(sigma[t]) or np.isnan(dprev[t]) or np.isnan(dlev[t]):
+                cur = 0.0
+            elif chk[t]:
+                up, dn = (max(ub[t], vwap[t]), min(lb[t], vwap[t])) if p["vwap_stop"] else (ub[t], lb[t])
+                if cur > 0 and cc[t] < up:
+                    cur = 0.0
+                elif cur < 0 and cc[t] > dn:
+                    cur = 0.0
+                if cur == 0:
+                    if cc[t] > ub[t]:
+                        cur = 1.0; trades += 1
+                    elif cc[t] < lb[t] and p["allow_short"]:
+                        cur = -1.0; trades += 1
+            if last[t]:
+                cur = 0.0
+            pos[t] = cur * (dlev[t] if np.isfinite(dlev[t]) else 0.0)
+        return pd.Series(pos, index=idx).reindex(bars.close.index).fillna(0.0), trades

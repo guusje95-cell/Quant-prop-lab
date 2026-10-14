@@ -141,6 +141,29 @@ Two strategies from the papers you supplied are built in. Neither can be copied 
 - **Cost per side:** set it to about 0.3 bp (NQ futures: $10 round trip on ~$300k notional). For prop-firm CFDs, use the firm's spread.
 - **Leverage:** 1 = $1 of index per $1 of equity. One NQ on the paper's $83k is ≈ 3.6×.
 
+### Intraday momentum papers (added after you asked for papers with fully published rules)
+
+**"Paper: Market intraday momentum (Gao et al. 2018)"**
+- At 15:30 New York, take the direction of the move from yesterday's close to 10:00.
+- Hold it until 16:00.
+
+**"Paper: Beat the Market noise-area breakout (Zarattini et al. 2024)"**
+- Draw a band around the day's open, sized from the last 14 days' typical moves at each time of day.
+- Every 30 minutes, enter when price closes outside the band.
+- Exit at a trailing stop (the boundary or VWAP) or at 16:00.
+- Positions are sized to 2% daily volatility, with a maximum of 4×.
+
+**Data and costs**
+- Both need 5- to 30-minute US index bars, e.g. "US500 CFD, Dukascopy (15-min)" (2013–2023).
+- Both are very sensitive to cost. Set "Cost per side" to your real cost: about 0.3–0.6 bp for CME futures, about 1–2 bp for a CFD spread.
+
+**Pre-registered results:** see `research/GEN47_INTRADAY_MOMENTUM.md`.
+- **Gao:** fails, with negative Sharpe everywhere.
+- **Noise-area breakout:** positive in most tests.
+  - Sharpe 0.36 (US500) to 0.71 (US100) at 1 bp.
+  - Sharpe 0.9–1.1 at futures costs.
+  - It did not pass the strict primary test.
+
 ### What the Lab found (pre-registered defaults, every run listed, nothing tuned)
 
 **MaxAI re-implementation on US100 5-min CFD data, cost 0.3 bp/side**

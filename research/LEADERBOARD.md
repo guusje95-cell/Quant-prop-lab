@@ -30,3 +30,11 @@ Sharpe = daily net returns; futures √256 (trading days), Dukascopy/HTF pooled 
 | Max DD | −12.6% | −11.8% | −8.6% | −8.7% | −7.5% | −7.7% |
 
 Correlations: F9–BO 0.02, F9–CT1 0.08, BO–CT1 0.37. The crypto sleeves' Sharpe is dominated by 2015–21. Forward, CT1 is ~0.4 (post-2021).
+
+
+## Gen47 (2026-10-14): intraday momentum papers on US index CFDs, 2013–2023, 15-min bars
+- **Gao et al. 2018 (half-hour momentum): REJECTED.** Sharpe −1.06 on US500 at 1 bp.
+- **Zarattini et al. 2024 (noise-area breakout): NOT PASSED.**
+  - Primary test: Sharpe 0.36 on US500 at 1 bp.
+  - US100: 0.71 at 1 bp, 1.12 at 0.3 bp. Positive in both halves.
+  - Futures-prop candidate only; it needs real ES/NQ data to confirm. See `research/GEN47_INTRADAY_MOMENTUM.md`.
