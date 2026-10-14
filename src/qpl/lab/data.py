@@ -142,6 +142,20 @@ def _dukascopy_github(sym: str, tf: str) -> Bars:
     return Bars(f"Dukascopy {sym} {freq}", freq, *(w[k] for k in FIELDS), periods_per_year=periods_per_year(df.index, freq))
 
 
+def _dukascopy_all(tf: str = "H1") -> Bars:
+    """All 13 Dukascopy CFDs in the research data (4 indices, gold, silver, Brent, 6 FX), one Bars."""
+    from qpl.data import loaders as L
+    fr = {}
+    for sym in L.CFG["dukascopy_github"]["files"]:
+        try:
+            x = L.raw_dukascopy(sym, tf); x.index = x.index.tz_localize(None); fr[sym] = x
+        except Exception:
+            pass
+    w = {k: pd.DataFrame({s: d[k] for s, d in fr.items()}).sort_index() for k in FIELDS}
+    freq = {"M15": "15m", "H1": "1h"}[tf]
+    return Bars(f"Dukascopy {len(fr)} CFDs {freq}", freq, *(w[k] for k in FIELDS), periods_per_year=periods_per_year(w["close"].index, freq))
+
+
 def futures_tr_index(ret: pd.DataFrame) -> pd.DataFrame:
     """Daily futures returns (back-adjusted P&L / contract price) -> total-return index starting at 100 (roll gaps removed)."""
     return 100 * (1 + ret.fillna(0)).cumprod().where(ret.notna().cumsum() > 0)
@@ -181,11 +195,19 @@ def list_sources() -> dict:
                     out[f"{sym} CFD, Dukascopy ({lab})"] = (lambda sym=sym, tf=tf: _dukascopy_github(sym, tf))
             except Exception:
                 pass
-    if (ROOT / "data/processed/futures_panel/ret.parquet").exists():
+    try:
+        from qpl.data import loaders as L
+        if (L.RAW / "dukascopy" / L.CFG["dukascopy_github"]["files"]["EURUSD"].format(tf="H1")).exists():
+            out["Dukascopy 13 CFDs: indices, gold, silver, Brent, FX (hourly, 2013-23)"] = lambda: _dukascopy_all("H1")
+    except Exception:
+        pass
+    from qpl.lab import futures_curve as FC
+    if FC.CACHE.exists() or FC.LOCAL.exists():
+        out["Commodity futures curve, 3 contracts (daily, to 2024-03)"] = FC.bars
         out["Futures daily, 250 markets (pysystemtrade, to 2024-03)"] = _futures_panel
     if LAB.exists():
         for f in sorted(LAB.glob("*.parquet")):
-            if f.stem == "stablecoins":
+            if f.stem in ("stablecoins", "futures_curve"):
                 continue
             out[f"Downloaded: {f.stem}"] = (lambda f=f: _lab_file(f))
     return out

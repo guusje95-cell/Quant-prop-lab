@@ -163,8 +163,10 @@ BUILTIN = [CStarTrend, BuyHold, SMACross, Donchian, TSMOM, RSIReversion]
 
 
 def _paper_strategies():
-    from qpl.lab.strategies_papers import IntradayMomentumGao, KalmanPairs, MaxAIQLearning, NoiseAreaMomentum
-    return [KalmanPairs, MaxAIQLearning, IntradayMomentumGao, NoiseAreaMomentum]
+    from qpl.lab.strategies_papers import (CurveMomentum, EuropeanOpen, IntradayMomentumGao, KalmanPairs, MaxAIQLearning,
+                                           NoiseAreaMomentum, SemivarianceTSMOM, VolatilityManaged)
+    return [KalmanPairs, MaxAIQLearning, IntradayMomentumGao, NoiseAreaMomentum, SemivarianceTSMOM, VolatilityManaged, EuropeanOpen,
+            CurveMomentum]
 
 
 BUILTIN += _paper_strategies()

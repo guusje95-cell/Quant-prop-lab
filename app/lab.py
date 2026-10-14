@@ -77,7 +77,8 @@ else:
 
 tf_opts = D.FREQS[D.FREQS.index(bars_all.freq):]
 tf = st.sidebar.selectbox("Timeframe", tf_opts, index=0, key=f"tf_{bars_key}")
-default_syms = [s for s in ("BTC", "ETH", "BNB", "XRP", "ADA", "SOL", "DOGE", "AVAX", "DOT", "LINK") if s in bars_all.symbols] or bars_all.symbols[:10]
+default_syms = ([s for s in ("BTC", "ETH", "BNB", "XRP", "ADA", "SOL", "DOGE", "AVAX", "DOT", "LINK") if s in bars_all.symbols]
+                or (bars_all.symbols if ("curve" in choice or len(bars_all.symbols) <= 15) else bars_all.symbols[:10]))
 syms = st.sidebar.multiselect("Assets", bars_all.symbols, default=default_syms, key=f"syms_{bars_key}")
 if not syms:
     st.warning("Choose at least one asset."); st.stop()
@@ -371,7 +372,9 @@ def scorecard_row(strat_name: str, setup_key: str, setup_t: tuple, n_trials: int
     if src is None:
         return None, f"data not found ({setup['sources'][-1]}); run python -m qpl.lab.setup_data"
     b = sources_[src]()
-    b = D.resample(b.select([s_ for s_ in setup["symbols"] if s_ in b.symbols] or b.symbols), setup["tf"])
+    sel = b.select([s_ for s_ in setup["symbols"] if s_ in b.symbols] or b.symbols)
+    sel.extra = {k_: (v_.reindex(columns=sel.symbols) if isinstance(v_, pd.DataFrame) else v_) for k_, v_ in b.extra.items()}
+    b = D.resample(sel, setup["tf"])
     reg_, _ = S.registry()
     out = SC.run(reg_[strat_name], b, setup)
     return out, src

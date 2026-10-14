@@ -219,6 +219,19 @@ Two strategies from the papers you supplied are built in. Neither can be copied 
   - Sharpe 0.9–1.1 at futures costs.
   - It did not pass the strict primary test.
 
+### Four more papers (Gen48)
+
+| Strategy in the app | Paper | Data set to use |
+|---|---|---|
+| Paper: TS momentum + realized semivariance | Liu et al. 2023, J. Empirical Finance | "Dukascopy 13 CFDs … (hourly)" or "OKX USDT perps (hourly)" |
+| Paper: Volatility-managed portfolio | Moreira & Muir 2017, J. Finance | "Futures daily, 250 markets" → SP500 (or any index) |
+| Paper: Long around the European open | Bondarenko & Muravyev 2021 | "US500 CFD, Dukascopy (15-min)" |
+| Paper: Commodity momentum along the curve | de Groot et al. 2014, J. Banking & Finance | "Commodity futures curve, 3 contracts" |
+
+**Results:** see `research/GEN48_FOUR_PAPERS.md`.
+- **Volatility-managed portfolios:** the only one that passed (S&P 500 Sharpe 0.49 → 0.63). It's an overlay, not a prop strategy by itself.
+- **The other three:** rejected or not passed.
+
 ### What the Lab found (pre-registered defaults, every run listed, nothing tuned)
 
 **MaxAI re-implementation on US100 5-min CFD data, cost 0.3 bp/side**

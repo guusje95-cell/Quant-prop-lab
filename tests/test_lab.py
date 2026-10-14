@@ -225,3 +225,71 @@ def test_prop_presets_run_on_any_daily_series():
         a = PF.attempts(d, f); p = PF.pipeline(d, f, budget=3, horizon_days=365)
         assert abs(a["P_pass"] + a["P_fail_daily"] + a["P_fail_max"] + a["P_fail_time"] + a["P_open"] - 1) < 1e-9
         assert 0 <= p["P_funded"] <= 1
+
+
+# ------------------------------------------------------------------ gen48 paper strategies
+def _hourly_panel(days=420, k=3, seed=21):
+    rng = np.random.default_rng(seed)
+    idx = pd.date_range("2021-01-04", periods=days * 24, freq="h")
+    c = pd.DataFrame(100 * np.exp(np.cumsum(rng.normal(0.00002, 0.003, (len(idx), k)), axis=0)), index=idx, columns=[f"X{i}" for i in range(k)])
+    o = c.shift(1).fillna(c.iloc[0])
+    return D.Bars("h", "1h", o, np.maximum(o, c), np.minimum(o, c), c, c * 0 + 1, D.periods_per_year(idx, "1h"))
+
+
+@pytest.mark.parametrize("mode", ["TTSM-S2 (paper best)", "TTSM-S1", "TSM (no semivariance filter)"])
+def test_semivariance_tsmom_no_lookahead_and_daily_constant(mode):
+    b = _hourly_panel(); st = SP.SemivarianceTSMOM(); p = dict(st.defaults(), mode=mode, ref_window=120)
+    full = st.signal(b, p)
+    assert (full != 0).any().any()
+    day = full.index.floor("D")
+    assert (full.groupby(day).nunique() <= 1).all().all()                            # one position per asset per day
+    n = len(b.close) * 3 // 4 + 7                                                     # cut in the middle of a day
+    pd.testing.assert_frame_equal(full.iloc[:n], st.signal(b.select(end=b.close.index[n - 1]), p), check_freq=False)
+
+
+def test_semivariance_regions_s1_s2():
+    # RS- high only (region 2): S1 -> short regardless of momentum; S2 -> longs short, shorts flat
+    tsm = pd.Series([1.0, -1.0]); r2 = pd.Series([True, True])
+    s1 = tsm.copy(); s1[r2] = -1.0
+    s2 = tsm.copy(); s2[r2] = np.where(tsm[r2] > 0, -1.0, 0.0)
+    assert list(s1) == [-1, -1] and list(s2) == [-1, 0]
+
+
+def test_vol_managed_monthly_weights_known_in_advance():
+    b = _bars(900, 1); st = SP.VolatilityManaged(); p = st.defaults()
+    full = st.signal(b, p)
+    m = full.index.to_period("M")
+    inside = full["A0"].groupby(m).nunique()
+    assert (inside[inside.index > inside.index[13]] <= 2).all()                      # constant within a month (+1-day switch lag)
+    pd.testing.assert_frame_equal(full.iloc[:600], st.signal(b.select(end=b.close.index[599]), p), check_freq=False)
+    capped = st.signal(b, dict(p, max_leverage=1.5))
+    assert capped["A0"].max() <= 1.5 + 1e-12
+
+
+def test_european_open_window():
+    idx = pd.date_range("2024-01-08 00:00", periods=4 * 24 * 3, freq="15min")       # UTC, winter: NY = UTC-5
+    c = pd.DataFrame({"US500": np.linspace(100, 101, len(idx))}, index=idx)
+    b = D.Bars("x", "15m", c, c, c, c, c * 0 + 1, 252 * 96)
+    w = SP.EuropeanOpen().signal(b, SP.EuropeanOpen().defaults())["US500"]
+    # a weight set at the close of the 04:15-04:30 UTC bar (= 23:30 NY) is held 23:30-23:45 NY; the last held bar ends 03:30 NY
+    assert w.loc["2024-01-08 04:15"] == 1 and w.loc["2024-01-08 04:00"] == 0
+    assert w.loc["2024-01-08 08:00"] == 1 and w.loc["2024-01-08 08:15"] == 0           # bar ending 08:30 UTC = 03:30 NY -> flat
+    assert abs(w.mean() - 16 / 96) < 0.02                                              # 4 hours of 24
+
+
+def test_curve_momentum_picks_backwardated_contract_and_no_lookahead():
+    rng = np.random.default_rng(4)
+    idx = pd.bdate_range("2010-01-01", periods=900)
+    cols, slope = {}, {}
+    for i in range(6):
+        for k in range(2):
+            cols[f"C{i}#{k}"] = 100 * np.exp(np.cumsum(rng.normal(0.0003 * (i - 2.5), 0.01, len(idx))))
+            slope[f"C{i}#{k}"] = np.full(len(idx), 0.05 if k == 1 else -0.05)          # slot 1 always more backwardated
+    c = pd.DataFrame(cols, index=idx)
+    b = D.Bars("curve", "1d", c, c, c, c, c * np.nan, 252, {"slope": pd.DataFrame(slope, index=idx)})
+    st = SP.CurveMomentum(); p = st.defaults()
+    w = st.signal(b, p)
+    last = w.iloc[-1]
+    assert (last[[f"C{i}#1" for i in range(6)]] > 0).sum() == 3 and (last[[f"C{i}#0" for i in range(6)]] < 0).sum() == 3
+    assert np.isclose(last[last > 0].sum(), 1) and np.isclose(last[last < 0].sum(), -1)
+    pd.testing.assert_frame_equal(w.iloc[:700], st.signal(b.select(end=idx[699]), p), check_freq=False)

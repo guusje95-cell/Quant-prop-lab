@@ -591,3 +591,232 @@ class NoiseAreaMomentum(Strategy):
                 cur = 0.0
             pos[t] = cur * (dlev[t] if np.isfinite(dlev[t]) else 0.0)
         return pd.Series(pos, index=idx).reindex(bars.close.index).fillna(0.0), trades
+
+
+# =====================================================================================================================
+# Gen48 papers
+# =====================================================================================================================
+def _prev_day_to_bars(w_daily: pd.DataFrame, index: pd.DatetimeIndex) -> pd.DataFrame:
+    """Daily weights (index = UTC days, computed with data up to the END of that day) -> per-bar weights that use only
+    COMPLETED days: every bar of day d carries the weight of the last completed day before d."""
+    day = index.floor("D")
+    w = w_daily.shift(1).reindex(w_daily.index.union(day.unique())).ffill()
+    return pd.DataFrame(w.reindex(day).to_numpy(), index=index, columns=w_daily.columns)
+
+
+def _daily_from_bars(bars):
+    """UTC-day closes; days with fewer than half the usual number of bars (e.g. the Sunday-evening FX open) are dropped."""
+    c = bars.close
+    if bars.freq == "1d":
+        return c
+    day = c.index.floor("D")
+    cnt = c.notna().groupby(day).sum()
+    dc = c.groupby(day).last()
+    med = cnt.where(cnt > 0).median()
+    return dc.where(cnt >= 0.5 * med)
+
+
+class SemivarianceTSMOM(Strategy):
+    name = "Paper: TS momentum + realized semivariance (Liu et al. 2023)"
+    description = ("Liu, Lu, Li & Wang (2023), Journal of Empirical Finance. Time-series momentum (sign of the 20-day return) "
+                   "tuned with intraday information: RS+ / RS- = sum of squared positive / negative intraday returns over the "
+                   "last 5 days, compared with their 80th percentiles over the last 250 days. Both high: stay flat. Only RS- "
+                   "high: longs flip to short (S2: shorts go flat). Only RS+ high: shorts flip to long (S2: longs go flat). Both "
+                   "low: plain momentum. Each asset sized to 40% volatility (EWMA 20 days), equal weight, rebalanced daily. "
+                   "Needs INTRADAY bars of several markets (e.g. 'Dukascopy 13 CFDs (hourly)' or 'OKX USDT perps (hourly)').")
+    sizing = "raw"
+    params = {
+        "mode": Param("TTSM-S2 (paper best)", choices=("TTSM-S2 (paper best)", "TTSM-S1", "TSM (no semivariance filter)")),
+        "lookback_days": Param(20, 5, 260, 1, "momentum lookback in days (paper: 20)"),
+        "rs_days": Param(5, 1, 20, 1, "days summed for RS+ / RS- (paper: 5)"),
+        "percentile": Param(0.80, 0.5, 0.99, 0.01, "reference point percentile (paper: 0.80)"),
+        "ref_window": Param(250, 60, 1000, 10, "days of history for the reference point (paper: 250)"),
+        "vol_target": Param(0.40, 0.05, 1.0, 0.05, "per-asset annual volatility target (paper: 40%)"),
+        "vol_span": Param(20, 5, 120, 1, "EWMA span of the volatility estimate, days (paper: = lookback)"),
+        "max_asset_leverage": Param(5.0, 0.5, 20.0, 0.5, "cap per asset before dividing by N (FX has low volatility)"),
+    }
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        if bars.freq == "1d":
+            self.info = pd.DataFrame([{"note": "needs intraday bars (realized semivariance comes from intraday returns)"}]); return out
+        lr = np.log(bars.close).diff()
+        day = lr.index.floor("D")
+        dc = _daily_from_bars(bars)
+        keep = dc.notna()
+        rsp = (lr.clip(lower=0) ** 2).groupby(day).sum().reindex(dc.index).where(keep)
+        rsm = (lr.clip(upper=0) ** 2).groupby(day).sum().reindex(dc.index).where(keep)
+        res = {}
+        for s in bars.symbols:
+            d = dc[s].dropna()
+            if len(d) < 60:
+                continue
+            RSp = rsp[s].reindex(d.index).rolling(int(p["rs_days"])).sum()
+            RSm = rsm[s].reindex(d.index).rolling(int(p["rs_days"])).sum()
+            W = int(p["ref_window"])
+            xp = RSp.rolling(W, min_periods=W // 2).quantile(p["percentile"]); xm = RSm.rolling(W, min_periods=W // 2).quantile(p["percentile"])
+            tsm = np.sign(np.log(d).diff(int(p["lookback_days"]))).fillna(0)
+            hp, hm = RSp > xp, RSm > xm
+            sig = tsm.copy()
+            if not p["mode"].startswith("TSM"):
+                r1, r2, r4 = hp & hm, hm & ~hp, hp & ~hm
+                sig[r1] = 0.0
+                if p["mode"].startswith("TTSM-S1"):
+                    sig[r2] = -1.0; sig[r4] = 1.0
+                else:
+                    sig[r2] = np.where(tsm[r2] > 0, -1.0, 0.0); sig[r4] = np.where(tsm[r4] < 0, 1.0, 0.0)
+                sig[xp.isna() | xm.isna()] = 0.0
+            ppy = D_ppy(d.index)
+            vol = d.pct_change().ewm(span=int(p["vol_span"]), min_periods=int(p["vol_span"])).std() * np.sqrt(ppy)
+            res[s] = (sig * (p["vol_target"] / vol).clip(upper=p["max_asset_leverage"])).fillna(0.0)
+        if not res:
+            self.info = pd.DataFrame(); return out
+        wd = pd.DataFrame(res).reindex(dc.index).ffill().fillna(0.0)
+        n_avail = dc.notna().sum(axis=1).clip(lower=1)                     # 1/N over assets with data that day (paper)
+        wd = wd.div(n_avail, axis=0)
+        self.info = pd.DataFrame({"asset": list(res), "days": [int(dc[s].notna().sum()) for s in res]})
+        return _prev_day_to_bars(wd, bars.close.index).reindex(columns=bars.symbols).fillna(0.0)
+
+
+def D_ppy(index):
+    """Days per year for annualising daily volatility: 365 if the market trades at weekends (crypto), else 252.
+    (Fixed values, so the scaling never depends on how much data follows.)"""
+    idx = pd.DatetimeIndex(index)
+    return 365.0 if len(idx) and (idx.dayofweek >= 5).mean() > 0.05 else 252.0
+
+
+class VolatilityManaged(Strategy):
+    name = "Paper: Volatility-managed portfolio (Moreira & Muir 2017)"
+    description = ("Moreira & Muir (2017), Journal of Finance. Hold the asset(s) but scale the position by 1 / last month's "
+                   "realized variance (sum of squared daily returns), rebalanced monthly: less risk after volatile months, more "
+                   "after calm ones. The scale is normalised by the average past variance, so the average position is about 1x. "
+                   "Optional leverage cap (paper also shows 1x and 1.5x caps). Works on any data; daily equity-index data is "
+                   "the paper's case (e.g. 'Futures daily, 250 markets': SP500).")
+    sizing = "raw"
+    params = {
+        "measure": Param("variance (paper)", choices=("variance (paper)", "volatility (1/σ)")),
+        "rebalance": Param("monthly (paper)", choices=("monthly (paper)", "daily (last 21 days)")),
+        "max_leverage": Param(0.0, 0.0, 10.0, 0.25, "cap on the position (0 = no cap, as in the paper's main results)"),
+        "min_months": Param(12, 3, 120, 1, "months of history before trading (to normalise the scale)"),
+        "long_only": Param(True, help="long the asset (paper); off = also short when the past-12-month return is negative"),
+    }
+
+    def signal(self, bars, p):
+        dc = _daily_from_bars(bars)
+        r = dc.pct_change()
+        res = {}
+        for s in bars.symbols:
+            x = r[s].dropna()
+            if len(x) < 60:
+                continue
+            if p["rebalance"].startswith("monthly"):
+                m = x.index.to_period("M")
+                rv = (x ** 2).groupby(m).sum()                          # realized variance per calendar month
+                norm = rv.expanding().mean()
+                w_m = (norm / rv) if p["measure"].startswith("variance") else np.sqrt(norm / rv)
+                w_m[np.arange(len(w_m)) < int(p["min_months"]) - 1] = np.nan
+                # weight for month m+1 is known at the end of month m -> applies from the first day of the next month
+                w = pd.Series(w_m.shift(1).reindex(m).to_numpy(), index=x.index)   # month m+1 uses month m's variance
+            else:
+                rv = (x ** 2).rolling(21).mean() * 21
+                norm = rv.expanding(min_periods=21 * int(p["min_months"])).mean()
+                w = (norm / rv) if p["measure"].startswith("variance") else np.sqrt(norm / rv)
+            if p["max_leverage"] > 0:
+                w = w.clip(upper=p["max_leverage"])
+            if not p["long_only"]:
+                w = w * np.sign(np.log(dc[s].reindex(x.index)).diff(252)).replace(0, 1)
+            res[s] = w
+        if not res:
+            self.info = pd.DataFrame(); return pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        wd = pd.DataFrame(res).reindex(dc.index)
+        wd = wd.ffill().fillna(0.0) / max(1, len(res))
+        self.info = pd.DataFrame({"asset": list(res), "avg_position": [float(pd.Series(v).mean()) for v in res.values()],
+                                  "max_position": [float(pd.Series(v).max()) for v in res.values()]})
+        return _prev_day_to_bars(wd, bars.close.index).reindex(columns=bars.symbols).fillna(0.0)
+
+
+class EuropeanOpen(Strategy):
+    name = "Paper: Long around the European open (Bondarenko & Muravyev 2021)"
+    description = ("Bondarenko & Muravyev (2021), 'Market Return Around the Clock: A Puzzle'. In E-mini S&P 500 futures 1998-2020 "
+                   "the whole average return was earned in the four hours around the European open, 23:30-03:30 New York time "
+                   "(Sharpe 1.6, positive every year). Strategy: long during that window every night, flat otherwise. Needs "
+                   "15- or 30-minute bars (or 5-min) of a US index (e.g. 'US500 CFD, Dukascopy (15-min)'). The window avoids "
+                   "the 17:00 New York CFD swap time.")
+    sizing = "raw"
+    params = {
+        "start_hhmm": Param(2330, 0, 2359, 5, "window start, New York time HHMM (paper: 2330)"),
+        "end_hhmm": Param(330, 0, 2359, 5, "window end, New York time HHMM (paper: 0330)"),
+        "direction": Param("long (paper)", choices=("long (paper)", "short")),
+    }
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        bm = 1440 // BPD.get(bars.freq, 24)
+        if bm > 60:
+            self.info = pd.DataFrame([{"note": "needs intraday bars"}]); return out
+        ny = bars.close.index.tz_localize("UTC").tz_convert("America/New_York")
+        end = ((ny.hour * 60 + ny.minute + bm) % 1440).to_numpy()            # bar END time of day; a weight decided then is held next
+        a = (int(p["start_hhmm"]) // 100) * 60 + int(p["start_hhmm"]) % 100
+        b = (int(p["end_hhmm"]) // 100) * 60 + int(p["end_hhmm"]) % 100
+        inwin = ((end >= a) | (end < b)) if a > b else ((end >= a) & (end < b))
+        side = 1.0 if p["direction"].startswith("long") else -1.0
+        for s in bars.symbols:
+            out[s] = np.where(inwin & bars.close[s].notna().to_numpy(), side, 0.0)
+        self.info = pd.DataFrame([{"window_NY": f"{int(p['start_hhmm']):04d}-{int(p['end_hhmm']):04d}", "bars_in_window_share": round(float(inwin.mean()), 3)}])
+        return out / max(1, len(bars.symbols))
+
+
+class CurveMomentum(Strategy):
+    name = "Paper: Commodity momentum along the curve (de Groot et al. 2014)"
+    description = ("de Groot, Karstanje & Zhou (2014), Journal of Banking & Finance. Each month: rank commodities by the 12-month "
+                   "return of their nearest contract; long the best half, short the worst half, equal weight. 'Optimal-roll' "
+                   "(paper) holds, for longs, the contract on the curve that is most backwardated and, for shorts, the most "
+                   "contangoed one; 'generic' holds the nearest contract. Needs the data set 'Commodity futures curve (3 contracts)'. "
+                   "Long and short books each weigh 1 (gross 2): use leverage 0.5 for a 1x book.")
+    sizing = "raw"
+    params = {
+        "mode": Param("optimal-roll (paper)", choices=("optimal-roll (paper)", "generic (nearest contract)")),
+        "lookback_months": Param(12, 1, 24, 1, "ranking period (paper: 12)"),
+        "fraction": Param(0.5, 0.1, 0.5, 0.05, "share of commodities in each of the long / short books (paper: 0.5)"),
+    }
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        cols = [c for c in bars.symbols if "#" in c]
+        slope = bars.extra.get("slope")
+        if not cols or slope is None:
+            self.info = pd.DataFrame([{"note": "choose the data set 'Commodity futures curve (3 contracts)'"}]); return out
+        comms = sorted({c.split("#")[0] for c in cols})
+        c0 = pd.DataFrame({k: bars.close[f"{k}#0"] for k in comms if f"{k}#0" in bars.close})
+        idx = bars.close.index
+        month = idx.to_period("M")
+        first = np.r_[True, month[1:] != month[:-1]]                        # first bar of each month = rebalance day
+        L = int(p["lookback_months"])
+        cur = pd.Series(0.0, index=bars.symbols); rows = []
+        W = np.zeros((len(idx), len(bars.symbols))); col = {c: i for i, c in enumerate(bars.symbols)}
+        for t in range(len(idx)):
+            if first[t]:
+                past = idx[t] - pd.DateOffset(months=L)
+                j = idx.searchsorted(past)
+                if j < t:
+                    mom = (c0.iloc[t] / c0.iloc[j] - 1).dropna()
+                    mom = mom[c0.iloc[:t + 1].notna().sum() > 21 * L]
+                    cur[:] = 0.0
+                    if len(mom) >= 4:
+                        k = max(1, int(round(len(mom) * p["fraction"])))
+                        r = mom.sort_values()
+                        longs, shorts = list(r.index[-k:]), list(r.index[:k])
+                        for side, names in ((1.0, longs), (-1.0, shorts)):
+                            for nm in names:
+                                pick = f"{nm}#0"
+                                if p["mode"].startswith("optimal"):
+                                    cand = [c for c in cols if c.startswith(nm + "#") and np.isfinite(slope.at[idx[t], c]) and np.isfinite(bars.close.at[idx[t], c])]
+                                    if cand:
+                                        sv = slope.loc[idx[t], cand]
+                                        pick = sv.idxmax() if side > 0 else sv.idxmin()
+                                cur[pick] += side / len(names)
+                        rows.append({"month": str(month[t]), "long": " ".join(c.replace("#", "#") for c in cur[cur > 0].index),
+                                     "short": " ".join(cur[cur < 0].index)})
+            W[t] = cur.to_numpy()
+        self.info = pd.DataFrame(rows[-24:])
+        return pd.DataFrame(W, index=idx, columns=bars.symbols)

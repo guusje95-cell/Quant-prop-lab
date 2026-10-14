@@ -38,3 +38,12 @@ Correlations: F9–BO 0.02, F9–CT1 0.08, BO–CT1 0.37. The crypto sleeves' Sh
   - Primary test: Sharpe 0.36 on US500 at 1 bp.
   - US100: 0.71 at 1 bp, 1.12 at 0.3 bp. Positive in both halves.
   - Futures-prop candidate only; it needs real ES/NQ data to confirm. See `research/GEN47_INTRADAY_MOMENTUM.md`.
+
+
+## Gen48 (2026-10-14): four user-supplied papers
+Details are in `research/GEN48_FOUR_PAPERS.md`.
+
+- **Semivariance-tuned momentum: REJECTED.** Sharpe −0.85 on 13 CFDs; costs dominate.
+- **Volatility-managed portfolios: PASSED.** S&P 500 Sharpe goes from 0.49 to 0.63, and it helps on 4 of the 6 other indices. It is an overlay, not a stand-alone edge.
+- **European-open long: REJECTED** at 1 bp (Sharpe −0.18). At futures cost it reaches 0.58.
+- **Curve momentum: NOT PASSED.** Sharpe 0.37 against 0.32 for the generic version; the effect has decayed since 2012.

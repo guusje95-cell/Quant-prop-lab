@@ -136,7 +136,8 @@ DUKA_FILES = {"US500": "indices/s&p500/USA500IDXUSD_{tf}.csv", "US100": "indices
               "US30": "indices/dow30/USA30IDXUSD_{tf}.csv", "DE40": "indices/dax30/DEUIDXEUR_{tf}.csv",
               "XAUUSD": "commodities/gold/XAUUSD_{tf}.csv", "XAGUSD": "commodities/silver/XAGUSD_{tf}.csv",
               "BRENT": "commodities/brent/BRENTCMDUSD_{tf}.csv", "EURUSD": "forex/eurusd/EURUSD_{tf}.csv",
-              "GBPUSD": "forex/gbpusd/GBPUSD_{tf}.csv", "USDJPY": "forex/usdjpy/USDJPY_{tf}.csv"}
+              "GBPUSD": "forex/gbpusd/GBPUSD_{tf}.csv", "USDJPY": "forex/usdjpy/USDJPY_{tf}.csv",
+              "AUDUSD": "forex/audusd/AUDUSD_{tf}.csv", "USDCAD": "forex/usdcad/USDCAD_{tf}.csv", "USDCHF": "forex/usdchf/USDCHF_{tf}.csv"}
 
 
 def dukascopy_github(symbol, interval="M5"):

@@ -1,0 +1,30 @@
+{
+  "_written": "2026-10-14, BEFORE running any of the four strategies. Implementations in src/qpl/lab/strategies_papers.py + src/qpl/lab/futures_curve.py; paper default parameters, no tuning.",
+  "G48a_semivariance_tsmom": {
+    "paper": "Liu, Lu, Li & Wang (2023, J. Empirical Finance) 'Time series momentum and reversal: intraday information from realized semivariance'",
+    "rules": "TSM sign of 20-day return; RS+/RS- = sums of squared positive/negative intraday returns over the last 5 days; reference point = 80th percentiles of RS+ and RS- over the last 250 days; Region1 (both high) flat, Region3 (both low) TSM, Region2 (RS- high only) S1: all short / S2: longs->short, shorts->flat; Region4 (RS+ high only) S1: all long / S2: shorts->long, longs->flat. Size 40%/EWMA(20d) vol, 1/N, daily.",
+    "deviation": "paper: 31 Chinese commodity futures, 5-min returns. Here: hourly returns (longest free intraday history).",
+    "data": "primary: 13 Dukascopy CFDs (4 indices, gold, silver, Brent, 6 FX) hourly 2013-06 -> 2023-09, cost 2 bp/side; secondary: OKX USDT perps hourly 2020+, cost 7.5 bp",
+    "pass_rule": "TTSM-S2 net Sharpe > TSM net Sharpe on the primary universe AND TTSM-S2 net Sharpe >= 0.5 AND > 0 in both halves (split 2018-07-01)"
+  },
+  "G48b_vol_managed": {
+    "paper": "Moreira & Muir (2017, J. Finance; NBER w22208) 'Volatility-Managed Portfolios'",
+    "rules": "hold the asset with weight c / RV(previous calendar month) (sum of squared daily returns), rebalanced monthly; c = expanding mean of past monthly RV (causal, average weight ~1). Uncapped (paper main) and capped at 1.5x (margin-constrained).",
+    "data": "primary: S&P 500 futures (pysystemtrade, roll-adjusted excess returns) 1990-2024; secondary: NASDAQ, DOW, DAX, EUROSTX, FTSE100, NIKKEI futures; BTC daily 2018+. Cost 1 bp/side (futures), 7.5 crypto.",
+    "pass_rule": "managed net Sharpe > buy-and-hold Sharpe on S&P 500 AND on >= 4 of the 6 other equity indices"
+  },
+  "G48c_european_open": {
+    "paper": "Bondarenko & Muravyev (2021) 'Market Return Around the Clock: A Puzzle' (SSRN 3596245)",
+    "rules": "long S&P 500 from 23:30 to 03:30 New York time every trading night, flat otherwise",
+    "data": "primary: US500 CFD 15-min 2013-08 -> 2023-09, cost 1 bp/side; secondary: US100, US30, DE40 CFD 15-min; real ES futures 15-min/1h (TopstepX 2025-26, short)",
+    "pass_rule": "primary net Sharpe >= 0.8 AND > 0 in both halves (split 2018-09-01) AND positive on at least 2 of US100/US30/DE40"
+  },
+  "G48d_curve_momentum": {
+    "paper": "de Groot, Karstanje & Zhou (2014, J. Banking & Finance) 'Exploiting commodity momentum along the futures curves'",
+    "rules": "month-end: rank commodities by 12-month return of the nearest available contract; long top 50%, short bottom 50%, equal weight. Generic: hold the nearest contract. Optimal-roll: longs hold the contract with the largest slope (most backwardated), shorts the smallest slope.",
+    "deviation": "paper: up to 12 contracts per curve. Here: the 2-3 contracts pysystemtrade stores (carry / price / forward), nearest = nearest of those.",
+    "data": "~25 commodities (energy, metals, grains, softs, livestock) pysystemtrade 1995-2024, cost 8 bp per trade (paper's standard estimate)",
+    "pass_rule": "optimal-roll net Sharpe > generic net Sharpe AND optimal-roll net Sharpe >= 0.4 over 2000-2024"
+  },
+  "trials": "about 30 runs in total, all reported in results/gen48_four_papers.csv"
+}

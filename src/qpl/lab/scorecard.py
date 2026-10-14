@@ -32,6 +32,19 @@ SETUPS = {
     "Paper: Beat the Market noise-area breakout (Zarattini et al. 2024)": dict(sources=["US100 CFD, Dukascopy (15-min)", "Downloaded: index_cfd_M15"],
                                                                               symbols=["US100"], tf="15m", cost=1.0, lev=1.0, start=None,
                                                                               market="Nasdaq-100 CFD, 15-min"),
+    "Paper: TS momentum + realized semivariance (Liu et al. 2023)": dict(
+        sources=["Dukascopy 13 CFDs: indices, gold, silver, Brent, FX (hourly, 2013-23)", "Downloaded: dukascopy13_1h"],
+        symbols=["US500", "US100", "US30", "DE40", "XAUUSD", "XAGUSD", "BRENT", "EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD", "USDCHF"],
+        tf="1h", cost=2.0, lev=0.25, start="2013-06-01", market="13 CFDs (indices, metals, oil, FX), hourly"),
+    "Paper: Volatility-managed portfolio (Moreira & Muir 2017)": dict(sources=["Futures daily, 250 markets (pysystemtrade, to 2024-03)", "Downloaded: futures_daily"],
+                                                                      symbols=["SP500"], tf="1d", cost=1.0, lev=1.0, start="1991-01-01",
+                                                                      market="S&P 500 futures, daily"),
+    "Paper: Long around the European open (Bondarenko & Muravyev 2021)": dict(sources=["US500 CFD, Dukascopy (15-min)", "Downloaded: index_cfd_M15"],
+                                                                               symbols=["US500"], tf="15m", cost=1.0, lev=1.0, start=None,
+                                                                               market="S&P 500 CFD, 15-min"),
+    "Paper: Commodity momentum along the curve (de Groot et al. 2014)": dict(sources=["Commodity futures curve, 3 contracts (daily, to 2024-03)"],
+                                                                             symbols=[], tf="1d", cost=8.0, lev=0.5, start="2000-01-01",
+                                                                             market="~28 commodity futures curves, daily"),
 }
 
 
