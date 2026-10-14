@@ -84,7 +84,7 @@ def papers():
         print("13 CFDs hourly not available:", e)
     try:
         from qpl.lab import futures_curve as FC
-        R, _ = FC.build(); print("commodity futures curves:", R.shape[1] // 3, "commodities ->", FC.CACHE)
+        R, _, _ = FC.build(); print("commodity futures curves:", R.shape[1] // 3, "commodities ->", FC.CACHE)
     except Exception as e:
         print("futures curves not available:", e)
     for tf in ("M5", "M15"):

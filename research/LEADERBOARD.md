@@ -47,3 +47,14 @@ Details are in `research/GEN48_FOUR_PAPERS.md`.
 - **Volatility-managed portfolios: PASSED.** S&P 500 Sharpe goes from 0.49 to 0.63, and it helps on 4 of the 6 other indices. It is an overlay, not a stand-alone edge.
 - **European-open long: REJECTED** at 1 bp (Sharpe −0.18). At futures cost it reaches 0.58.
 - **Curve momentum: NOT PASSED.** Sharpe 0.37 against 0.32 for the generic version; the effect has decayed since 2012.
+
+
+## Gen49–51 (2026-10-14): two more papers, then a search for something better than C*
+Details are in `research/GEN49_51_SEARCH.md`.
+
+- **Bianchi et al. 2023 (curve slope):** the data is unsuitable (stale prices). Rejected.
+- **Liu & Tse 2017 (overnight):** rejected; costs remove its +5.5% a year before costs.
+- **Baltussen et al. 2021:** rejected.
+- **Multi-strategy mixes and a C* + S&P regime filter:** do not beat C*.
+- **"Catching Crypto Trends" (Zarattini et al. 2025):** Sharpe 1.44 on the same coins. An independent confirmation of the crypto trend edge.
+- **Daily equity stop at −3% on C* in prop challenges:** pass rate up 6–7 points and no more daily-loss fails. The profit effect is uncertain on hourly data. Not passed.

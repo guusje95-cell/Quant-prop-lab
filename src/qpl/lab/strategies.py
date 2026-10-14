@@ -164,9 +164,9 @@ BUILTIN = [CStarTrend, BuyHold, SMACross, Donchian, TSMOM, RSIReversion]
 
 def _paper_strategies():
     from qpl.lab.strategies_papers import (CurveMomentum, EuropeanOpen, IntradayMomentumGao, KalmanPairs, MaxAIQLearning,
-                                           NoiseAreaMomentum, SemivarianceTSMOM, VolatilityManaged)
+                                           NoiseAreaMomentum, SemivarianceTSMOM, VolatilityManaged, CurveSlopeMomentum, OvernightIndex)
     return [KalmanPairs, MaxAIQLearning, IntradayMomentumGao, NoiseAreaMomentum, SemivarianceTSMOM, VolatilityManaged, EuropeanOpen,
-            CurveMomentum]
+            CurveMomentum, CurveSlopeMomentum, OvernightIndex]
 
 
 BUILTIN += _paper_strategies()
@@ -194,3 +194,35 @@ def load_user_strategies():
 def registry():
     user, errors = load_user_strategies()
     return {cls.name: cls for cls in BUILTIN + user}, errors
+
+
+class CryptoTrendEnsemble(Strategy):
+    name = "Paper: Catching Crypto Trends ensemble (Zarattini et al. 2025)"
+    description = ("Zarattini, Pagani & Barbon (2025, SSRN 5209907), as summarised publicly: equal-weight ensemble of channel "
+                   "trend models on daily closes with lookbacks 5, 10, 20, 30, 60, 90, 150, 250 and 360 days. Each model goes "
+                   "long on a new n-day closing high and exits when the close drops below the middle of the n-day channel. "
+                   "Long-only; the engine sizes each coin by its volatility. Lookbacks are in days (scale on intraday bars).")
+    params = {"long_only": Param(True, help="paper is long-only"),
+              "lookbacks": Param("5,10,20,30,60,90,150,250,360", choices=("5,10,20,30,60,90,150,250,360", "20,60,150,360", "5,10,20,30"))}
+
+    def signal(self, bars, p):
+        m = bars_per_day(bars); ns = [int(x) * m for x in p["lookbacks"].split(",")]
+
+        def one(c):
+            out = 0.0
+            for n in ns:
+                hi = c.rolling(n, min_periods=n).max(); lo = c.rolling(n, min_periods=n).min(); mid = (hi + lo) / 2
+                enter = (c >= hi).to_numpy(); exit_ = (c < mid).to_numpy()
+                st = np.zeros(len(c)); cur = 0.0
+                for t in range(len(c)):
+                    if cur == 0 and enter[t]:
+                        cur = 1.0
+                    elif cur == 1 and exit_[t]:
+                        cur = 0.0
+                    st[t] = cur
+                out = out + pd.Series(st, index=c.index)
+            return out / len(ns)
+        return per_asset(bars, one)
+
+
+BUILTIN.append(CryptoTrendEnsemble)

@@ -298,12 +298,20 @@ def firm_controls(prefix: str):
                              help="trailing_lock = trails the equity high but stops at the starting balance")
         ti = r4[2].checkbox("Trail from intraday highs", base.trailing_intraday, key=f"{prefix}_ti_{preset}", help="off = from end-of-day equity")
         pf_ = r4[3].number_input("Payout fee %", 0.0, 20.0, base.payout_fee * 100, 0.5, key=f"{prefix}_pf_{preset}")
+    with st.expander("Your own risk tools (not firm rules)"):
+        q = st.columns(2)
+        stopf = q[0].number_input("Daily equity stop, % of the daily loss limit (0 = off)", 0.0, 100.0, 0.0, 5.0, key=f"{prefix}_stop",
+                                  help="e.g. 75 = close everything for the day at -3% when the limit is -4%. Gen51: +6-7 points pass rate; "
+                                       "profit effect uncertain because real fills can be worse than the stop in fast markets.")
+        cush = q[1].checkbox("Smaller size near the max-loss floor (cushion scaling)", False, key=f"{prefix}_cush",
+                             help="size x (equity - floor) / max loss, at least 25%. Gen51: more passes but less profit.")
     try:
         targets = tuple(float(x) / 100 for x in tg.replace(";", ",").split(",") if x.strip())
     except ValueError:
         st.error("Profit targets: use numbers like '8, 5'"); targets = base.targets
     firm = PF.Firm(base.name, float(acc_), fee_, targets or base.targets, dl / 100, "initial" if dlb.startswith("% of initial") else "day_start",
-                   dli, ml / 100, mt, ti, int(mind), int(maxd), spl / 100, int(pe), pf_ / 100, refund, ffee, base.note, fee_m)
+                   dli, ml / 100, mt, ti, int(mind), int(maxd), spl / 100, int(pe), pf_ / 100, refund, ffee, base.note, fee_m,
+                   stopf / 100, 0.003, cush)
     c = st.columns(5)
     budget_ = c[0].number_input("Max. challenges you will buy", 1, 50, 5, 1, key=f"{prefix}_budget",
                                 help="re-buy after a failed challenge or a lost funded account, up to this many in total")

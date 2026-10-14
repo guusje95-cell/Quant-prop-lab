@@ -1,0 +1,37 @@
+{
+  "_written": "2026-10-14, BEFORE running any Gen49 test. Total project trials before Gen49: ~230 (deflated Sharpe uses 260).",
+  "G49a_ns_slope": {
+    "paper": "Bianchi, Fan, Miffre & Zhang (2023, J. Banking & Finance) 'Exploiting the dynamics of commodity futures curves' - S strategy",
+    "rules": "daily: if the curve slope rose yesterday (more backwardation) long the slope spread (long nearest, short further contract), else short it; equal weight over commodities; skip a commodity on days its contracts rolled",
+    "deviation": "paper: Nelson-Siegel slope on the nearest 4 contracts, spread front vs 4th. Here: slope between the 2 nearest stored contracts (pysystemtrade keeps 2-3).",
+    "data": "~28 commodities 2000-2024, cost 8 bp per leg per trade (paper-level costs)",
+    "pass_rule": "net Sharpe >= 0.5 and > 0 in both halves (split 2012-01-01)"
+  },
+  "G49b_overnight": {
+    "paper": "Liu & Tse (2017, Int. Review of Economics & Finance) 'Overnight returns of stock indexes: evidence from ETFs and futures'",
+    "rules": "(i) long from the 16:00 close to the 09:30 open (New York); (ii) first half hour: trade 09:30-10:00 AGAINST the overnight return sign; (iii) last half hour: trade 15:30-16:00 WITH the overnight return sign",
+    "data": "US500 CFD 15-min 2013-2023 (primary), US100, US30; cost 1 bp/side; overnight CFD financing 1 bp/day on (i) (CFD swap ~ rate + markup; futures embed it)",
+    "pass_rule": "(i) primary net Sharpe >= 0.8 and > 0 in both halves (split 2018-09-01) and positive on US100 and US30; (ii),(iii) same rule"
+  },
+  "G49c_rest_of_day_momentum": {
+    "paper": "Baltussen, Da, Lammers & Martens (2021, J. Financial Economics) 'Hedging demand and market intraday momentum'",
+    "rules": "at 15:30 trade in the direction of the return from the previous 16:00 close to 15:30, close at 16:00",
+    "data": "US500, US100 CFD 15-min 2013-2023, cost 1 bp/side",
+    "pass_rule": "net Sharpe >= 0.8 on US500 and positive on US100"
+  },
+  "G49d_noise_area_multi_index": {
+    "idea": "Zarattini noise-area breakout (gen47, positive but not passed) on US500+US100+US30 together, equal weight",
+    "data": "15-min 2013-2023, cost 1 bp/side",
+    "pass_rule": "net Sharpe >= 0.8 and > 0 in both halves (split 2018-09-01)"
+  },
+  "G49e_cstar_portfolio_vol": {
+    "idea": "C* (frozen E2+O3) with a portfolio-level Moreira-Muir overlay: scale the whole book by mean past monthly RV / last month's RV of C*'s own returns (cap 2x)",
+    "data": "crypto 10 majors daily 2018-2026, cost 7.5 bp",
+    "pass_rule": "net Sharpe > C* alone (1.69) by >= 0.1 AND max drawdown not worse"
+  },
+  "G49f_multi_strategy": {
+    "idea": "risk-parity portfolio of independent sleeves, each run with its pre-registered default settings: C* (crypto daily), noise-area US100 (CFD 15-min, 1 bp), vol-managed S&P 500, curve-momentum optimal-roll, plus any Gen49 sleeve that PASSES its own rule. Weights: inverse of trailing 12-month volatility of each sleeve's daily returns, rebalanced monthly, scaled to 15% annual volatility using trailing volatility.",
+    "data": "common window 2018-09-01 -> 2023-09-11 (where all sleeves have data); daily returns on UTC days, sleeves without weekend data contribute 0 on weekends",
+    "pass_rule": "net Sharpe > C* alone over the SAME window by >= 0.2 AND max drawdown <= C*'s; then report CFT 1-Phase and FTMO prop outcomes"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_written": "2026-10-14, BEFORE running any Gen51 test. Strategy fixed: C* (frozen E2+O3, crypto 10 majors daily, 7.5 bp, backtest leverage 0.79). Challenge at 1.0x backtest risk, funded at 0.4x (gen34 two-speed).",
+  "G51a_daily_equity_stop": "close all positions for the rest of the day when equity falls to 75% of the firm's daily loss limit below start-of-day equity (CFT 1-Phase: -3%); assume the exit fills 0.3% worse than the stop; positions resume next day",
+  "G51b_cushion_scaling": "each day, risk multiplier = clip(cushion, 0.25, 1) where cushion = (equity - max-loss floor) / max_loss; i.e. full size with the whole buffer, smaller near the floor",
+  "G51c_both": "G51a + G51b",
+  "evaluation": "prop engine (src/qpl/lab/propfirms.py), every historical start 2018-2026; firms CFT 1-Phase $100k (primary) and FTMO 2-Step $100k; budget 5, 1 account, 24 months",
+  "pass_rule": "on the primary firm: pass rate per attempt up by >= 5 percentage points AND average 24-month net profit higher than plain C*; also report FTMO",
+  "caveat": "daily worst/best come from daily candles with all coins at their lows together (conservative); the stop assumes it can be executed (Bybit stop orders / API)"
+}

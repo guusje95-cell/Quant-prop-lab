@@ -45,6 +45,11 @@ class Firm:
     funded_fee: float = 0.0                # one-off activation fee when funded
     note: str = ""
     fee_monthly: bool = False              # fee is a subscription: charged again every 30 days while in the challenge
+    # trader's own risk tools (not firm rules):
+    stop_frac: float = 0.0                 # daily equity stop as a fraction of the daily loss limit (0 = off), e.g. 0.75
+    stop_slip: float = 0.003               # extra loss when the stop fills
+    cushion_scale: bool = False            # size x clip((equity - floor) / max_loss, cushion_min, 1)
+    cushion_min: float = 0.25
 
 
 PRESETS = {
@@ -71,6 +76,25 @@ def _days(index) -> np.ndarray:
     return ((pd.DatetimeIndex(index) - pd.DatetimeIndex(index)[0]).days).to_numpy()
 
 
+def _floor(f: Firm, hwm: float) -> float:
+    return 1 - f.max_loss if f.max_type == "static" else (hwm - f.max_loss if f.max_type == "trailing" else min(hwm - f.max_loss, 1.0))
+
+
+def _day(f: Firm, D: float, hwm: float, r: float, lo: float, hi: float):
+    """One day for the trader: optional cushion scaling and daily equity stop. Returns (low, close, high) as multiples of
+    start-of-day equity D."""
+    m = 1.0
+    if f.cushion_scale and f.max_loss > 0:
+        m = min(1.0, max(f.cushion_min, (D - _floor(f, hwm)) / f.max_loss))
+    r, lo, hi = r * m, lo * m, hi * m
+    if f.stop_frac > 0 and f.daily_loss > 0:
+        stop = f.stop_frac * (f.daily_loss if f.daily_basis == "day_start" else f.daily_loss / D)   # as a return on D
+        if lo <= -stop:
+            out = -stop - f.stop_slip
+            return D * (1 + out), D * (1 + out), D * (1 + hi)          # the day's high may have come before the stop
+    return D * (1 + lo), D * (1 + r), D * (1 + hi)
+
+
 def _phase(r, lo, hi, cal, t, end, target, f: Firm):
     """Trade one evaluation phase from row t. Returns (result, next row)."""
     E = 1.0; hwm = 1.0; traded = 0; t0 = cal[t] if t < end else 0
@@ -78,9 +102,9 @@ def _phase(r, lo, hi, cal, t, end, target, f: Firm):
         if f.max_days and cal[j] - t0 >= f.max_days:
             return FAIL_TIME, j
         D = E
+        low, close, high = _day(f, D, hwm, r[j], lo[j], hi[j])
         if f.max_type != "static" and f.trailing_intraday:
-            hwm = max(hwm, D * (1 + hi[j]))
-        low, close = D * (1 + lo[j]), D * (1 + r[j])
+            hwm = max(hwm, high)
         if f.daily_loss > 0:
             lvl = D * (1 - f.daily_loss) if f.daily_basis == "day_start" else D - f.daily_loss
             if (low if f.daily_intraday else close) < lvl:
@@ -167,9 +191,9 @@ def _ledger(rc, loc, hic, rf, lof, hif, cal, s, end, f: Firm, budget: int):
         E = 1.0; hwm = 1.0; last = cal[t]; f_start = cal[t]
         while t < end:
             D = E
+            low, close, high = _day(f, D, hwm, rf[t], lof[t], hif[t])
             if f.max_type != "static" and f.trailing_intraday:
-                hwm = max(hwm, D * (1 + hif[t]))
-            low, close = D * (1 + lof[t]), D * (1 + rf[t])
+                hwm = max(hwm, high)
             lvl = (D * (1 - f.daily_loss) if f.daily_basis == "day_start" else D - f.daily_loss) if f.daily_loss > 0 else -np.inf
             floor = 1 - f.max_loss if f.max_type == "static" else (hwm - f.max_loss if f.max_type == "trailing" else min(hwm - f.max_loss, 1.0))
             if (low if f.daily_intraday else close) < lvl or low < floor:

@@ -1,0 +1,22 @@
+{
+  "_written": "2026-10-14, BEFORE running any Gen50 test. Project trials before Gen50: ~260 (deflated Sharpe uses 280).",
+  "G50a_cct_ensemble": {
+    "source": "Zarattini, Pagani & Barbon (2025, SSRN 5209907) 'Catching Crypto Trends' as summarised by CXO Advisory: equal-weight ensemble of Donchian-style models on closes with lookbacks 5,10,20,30,60,90,150,250,360 days; enter long on a new n-day closing high, exit when the close falls below the n-day channel midpoint; long-only; volatility-based sizing",
+    "deviation": "full paper not reachable; sizing = the Lab's per-coin 40%/30-day vol scaling (same as C*), universe = C*'s 10 majors, so only the signal design differs",
+    "data": "crypto 10 majors daily 2018-2026, cost 7.5 bp, leverage 0.79",
+    "report": "Sharpe, CAGR, MDD, correlation of daily returns with C*"
+  },
+  "G50b_cstar_plus_cct": {
+    "rule": "average of the C* signal and the CCT ensemble signal (50/50), same sizing/leverage",
+    "pass_rule": "net Sharpe >= C* + 0.10 AND max drawdown not worse than C*'s, 2018-2026"
+  },
+  "G50c_sharpe_weighted_multi": {
+    "rule": "sleeves C*, noise-area US100, vol-managed SP500, curve momentum; weight_i proportional to prior Sharpe_i / trailing-12m vol_i, priors fixed from earlier single pre-registered tests (1.67, 0.71, 0.63, 0.37), monthly, scaled to 15% vol by trailing vol (cap 3x)",
+    "window": "2018-09-01 -> 2023-09-11",
+    "pass_rule": "net Sharpe >= C* (same window) + 0.10 AND max drawdown not worse"
+  },
+  "G50d_cstar_equity_regime": {
+    "rule": "C* exposure x1 when S&P 500 futures close is above its 200-day average (yesterday), x0.5 otherwise",
+    "pass_rule": "net Sharpe >= C* + 0.10 AND max drawdown not worse, 2018-2026"
+  }
+}

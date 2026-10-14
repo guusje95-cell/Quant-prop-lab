@@ -293,3 +293,21 @@ def test_curve_momentum_picks_backwardated_contract_and_no_lookahead():
     assert (last[[f"C{i}#1" for i in range(6)]] > 0).sum() == 3 and (last[[f"C{i}#0" for i in range(6)]] < 0).sum() == 3
     assert np.isclose(last[last > 0].sum(), 1) and np.isclose(last[last < 0].sum(), -1)
     pd.testing.assert_frame_equal(w.iloc[:700], st.signal(b.select(end=idx[699]), p), check_freq=False)
+
+
+def test_daily_equity_stop_caps_the_day_and_avoids_daily_breach():
+    f = PF.Firm(targets=(0.5,), daily_loss=0.04, daily_basis="initial", max_loss=0.10, stop_frac=0.75, stop_slip=0.003)
+    d = _daily([0.0, -0.02], worst=[0.0, -0.06])                     # -6% intraday low, closes -2%
+    r, lo, hi = PF._arrays(d, 1.0)
+    res, _ = PF._phase(r, lo, hi, np.arange(2), 0, 2, 0.5, f)
+    assert res == PF.OPEN                                              # without the stop this day breaks the 4% limit
+    assert PF._phase(r, lo, hi, np.arange(2), 0, 2, 0.5, PF.replace(f, stop_frac=0.0))[0] == PF.FAIL_DAILY
+    low, close, high = PF._day(f, 1.0, 1.0, -0.02, -0.06, 0.0)
+    assert np.isclose(close, 1 - 0.033) and np.isclose(low, close)     # out at -3% minus 0.3% slippage
+
+
+def test_catching_crypto_trends_ensemble_no_lookahead():
+    b = _bars(500, 2); st = S.CryptoTrendEnsemble(); p = dict(st.defaults(), lookbacks="5,10,20,30")
+    full = st.signal(b, p)
+    assert full.max().max() <= 1 and full.min().min() >= 0 and (full > 0).any().any()
+    pd.testing.assert_frame_equal(full.iloc[:300], st.signal(b.select(end=b.close.index[299]), p), check_freq=False)

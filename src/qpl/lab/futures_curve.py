@@ -54,6 +54,7 @@ def build_one(sym: str, nslots: int = 3):
                 d[int(row[c])] = float(row[p])
         avail.append(d)
     n = len(dates); ret = np.full((n, nslots), np.nan); slope = np.full((n, nslots), np.nan)
+    roll = np.zeros((n, nslots), dtype=bool)
     held = [None] * nslots
     for t in range(n):
         codes = sorted(avail[t])
@@ -63,7 +64,9 @@ def build_one(sym: str, nslots: int = 3):
                 ret[t, k] = avail[t][c_prev] / avail[t - 1][c_prev] - 1
             elif t > 0 and c_prev is not None:
                 ret[t, k] = 0.0                          # contract left the file: no observable return that day
-            held[k] = codes[k] if k < len(codes) else None
+            new = codes[k] if k < len(codes) else None
+            roll[t, k] = t > 0 and new != held[k]
+            held[k] = new
         for k in range(1, min(nslots, len(codes))):
             f0, f1 = avail[t][codes[k - 1]], avail[t][codes[k]]
             dt = _tau(codes[k]) - _tau(codes[k - 1])
@@ -74,29 +77,33 @@ def build_one(sym: str, nslots: int = 3):
     r = pd.DataFrame(ret, index=dates, columns=cols)
     r = r.where(r.abs() < 0.5)                           # drop bad prints
     s = pd.DataFrame(slope, index=dates, columns=cols)
-    return r, s
+    return r, s, pd.DataFrame(roll, index=dates, columns=cols)
 
 
-def build(symbols=None, refresh=False) -> tuple[pd.DataFrame, pd.DataFrame]:
+def build(symbols=None, refresh=False) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """-> (daily returns per slot, slope per slot, roll flag per slot)."""
     if CACHE.exists() and not refresh and symbols is None:
         d = pd.read_parquet(CACHE)
-        return d.xs("ret", axis=1, level=0), d.xs("slope", axis=1, level=0)
-    R, S = [], []
+        if "roll" in d.columns.get_level_values(0):
+            return d.xs("ret", axis=1, level=0), d.xs("slope", axis=1, level=0), d.xs("roll", axis=1, level=0).astype(bool)
+    R, S, RL = [], [], []
     for sym in symbols or COMMODITIES:
         try:
-            r, s = build_one(sym); R.append(r); S.append(s)
+            r, s, rl = build_one(sym); R.append(r); S.append(s); RL.append(rl)
         except Exception as e:  # missing file etc.
             print("curve", sym, "skipped:", e)
     R = pd.concat(R, axis=1).sort_index(); S = pd.concat(S, axis=1).sort_index()
+    RL = pd.concat(RL, axis=1).sort_index().reindex(S.index).fillna(False).astype(bool)
     if symbols is None:
         CACHE.parent.mkdir(parents=True, exist_ok=True)
-        pd.concat({"ret": R, "slope": S}, axis=1).to_parquet(CACHE)
-    return R, S
+        pd.concat({"ret": R, "slope": S, "roll": RL.astype(float)}, axis=1).to_parquet(CACHE)
+    return R, S, RL
 
 
 def bars():
     from qpl.lab.data import Bars, PPY
-    R, S = build()
+    R, S, RL = build()
     c = 100 * (1 + R.fillna(0)).cumprod().where(R.notna().cumsum() > 0)
     nan = c * np.nan
-    return Bars("Commodity futures curve (3 contracts)", "1d", c, c, c, c, nan, PPY["1d_tradfi"], {"slope": S.reindex(c.index)})
+    return Bars("Commodity futures curve (3 contracts)", "1d", c, c, c, c, nan, PPY["1d_tradfi"],
+                {"slope": S.reindex(c.index), "roll": RL.reindex(c.index).fillna(False)})

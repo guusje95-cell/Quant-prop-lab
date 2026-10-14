@@ -232,6 +232,20 @@ Two strategies from the papers you supplied are built in. Neither can be copied 
 - **Volatility-managed portfolios:** the only one that passed (S&P 500 Sharpe 0.49 → 0.63). It's an overlay, not a prop strategy by itself.
 - **The other three:** rejected or not passed.
 
+### Gen49–51 additions
+
+**New strategies**
+- **"Paper: Commodity curve slope dynamics":** Bianchi et al. 2023.
+- **"Paper: Overnight returns of stock indexes":** Liu & Tse 2017.
+- **"Paper: Catching Crypto Trends ensemble":** Zarattini et al. 2025. Sharpe 1.44 on crypto majors, which independently confirms C*.
+- **Rest-of-day mode:** Baltussen et al. 2021, added to the Gao strategy.
+
+**New in the Prop firm tab:** "Your own risk tools"
+- **Daily equity stop:** close everything for the day before the firm's daily limit.
+- **Cushion scaling:** trade smaller near the max-loss floor.
+
+**Results:** see `research/GEN49_51_SEARCH.md`. C* stays the best strategy.
+
 ### What the Lab found (pre-registered defaults, every run listed, nothing tuned)
 
 **MaxAI re-implementation on US100 5-min CFD data, cost 0.3 bp/side**

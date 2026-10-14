@@ -479,7 +479,7 @@ class IntradayMomentumGao(Strategy):
                    "Paper: SPY 1993-2013, about 6.7% a year, Sharpe ~1.08 before costs; weaker after 2008 in later studies.")
     sizing = "raw"
     params = {
-        "mode": Param("first half hour", choices=("first half hour", "first + 12th half hour agree")),
+        "mode": Param("first half hour", choices=("first half hour", "first + 12th half hour agree", "rest of day (Baltussen et al. 2021)")),
         "min_move_pct": Param(0.0, 0.0, 2.0, 0.05, "skip days when the first-half-hour move is smaller than this (%)"),
         "allow_short": Param(True),
     }
@@ -496,6 +496,8 @@ class IntradayMomentumGao(Strategy):
             at = lambda m: c.loc[ses.index][(ses["end"] == m).to_numpy()].groupby(ses["date"][ses["end"] == m].to_numpy()).last()
             r1 = at(600) / pc.reindex(at(600).index) - 1
             r12 = at(930) / at(900).reindex(at(930).index) - 1
+            if p["mode"].startswith("rest of day"):                    # previous close -> 15:30 (Baltussen, Da, Lammers & Martens 2021)
+                r1 = at(930) / pc.reindex(at(930).index) - 1
             sig = np.sign(r1).where(r1.abs() * 100 >= p["min_move_pct"], 0.0)
             if p["mode"].startswith("first +"):
                 sig = sig.where(np.sign(r12.reindex(sig.index)) == sig, 0.0)
@@ -820,3 +822,84 @@ class CurveMomentum(Strategy):
             W[t] = cur.to_numpy()
         self.info = pd.DataFrame(rows[-24:])
         return pd.DataFrame(W, index=idx, columns=bars.symbols)
+
+
+# =====================================================================================================================
+# Gen49 papers
+# =====================================================================================================================
+class CurveSlopeMomentum(Strategy):
+    name = "Paper: Commodity curve slope dynamics (Bianchi et al. 2023)"
+    description = ("Bianchi, Fan, Miffre & Zhang (2023), Journal of Banking & Finance, 'S strategy'. Every day: if a commodity's "
+                   "futures curve became more backwardated yesterday (slope went up), hold a LONG slope spread (long the nearest "
+                   "contract, short a further one) for one day; if it became more contangoed, the reverse. Equal weight across "
+                   "commodities; days with a contract roll are skipped. The paper fits a Nelson-Siegel curve on 4 contracts; here "
+                   "the slope between the 2 nearest stored contracts is used. Data set: 'Commodity futures curve, 3 contracts'.")
+    sizing = "raw"
+    params = {"direction": Param("continuation (paper)", choices=("continuation (paper)", "reversal"))}
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        slope, roll = bars.extra.get("slope"), bars.extra.get("roll")
+        if slope is None or roll is None:
+            self.info = pd.DataFrame([{"note": "choose the data set 'Commodity futures curve, 3 contracts'"}]); return out
+        comms = sorted({c.split("#")[0] for c in bars.symbols if c.endswith("#1") and c.replace("#1", "#0") in bars.symbols})
+        idx = bars.close.index
+        sig = {}
+        for k in comms:
+            s1 = slope[f"{k}#1"].reindex(idx)
+            rl = (roll[f"{k}#0"] | roll[f"{k}#1"]).reindex(idx).fillna(True)
+            d = s1.diff()
+            ok = ~rl & ~rl.shift(1, fill_value=True) & d.notna() & bars.close[f"{k}#0"].notna() & bars.close[f"{k}#1"].notna()
+            sig[k] = np.sign(d).where(ok, 0.0)
+        S = pd.DataFrame(sig, index=idx).fillna(0.0)
+        if p["direction"] == "reversal":
+            S = -S
+        n = S.ne(0).sum(axis=1).replace(0, np.nan)
+        for k in comms:
+            out[f"{k}#0"] = (S[k] / n).fillna(0.0)
+            out[f"{k}#1"] = (-S[k] / n).fillna(0.0)
+        self.info = pd.DataFrame({"commodity": comms, "active_days": [int(S[k].ne(0).sum()) for k in comms]})
+        return out
+
+
+class OvernightIndex(Strategy):
+    name = "Paper: Overnight returns of stock indexes (Liu & Tse 2017)"
+    description = ("Liu & Tse (2017), International Review of Economics & Finance. Index returns are earned overnight (close to "
+                   "open) while trading hours are flat or negative. Modes: (i) hold long from the 16:00 close to the 09:30 open, "
+                   "New York; (ii) at the open trade the first half hour AGAINST the overnight move; (iii) trade the last half "
+                   "hour WITH the overnight move. CFD holders pay overnight financing in mode (i): set 'Funding / swap' in the "
+                   "sidebar (≈1 bp/day). Needs 5-, 15- or 30-minute US index bars.")
+    sizing = "raw"
+    params = {"mode": Param("hold overnight (paper)", choices=("hold overnight (paper)", "first half hour: fade overnight", "last half hour: follow overnight"))}
+
+    def signal(self, bars, p):
+        out = pd.DataFrame(0.0, index=bars.close.index, columns=bars.symbols)
+        bm = 1440 // BPD.get(bars.freq, 24)
+        if 30 % bm:
+            self.info = pd.DataFrame([{"note": "needs 5-, 15- or 30-minute bars"}]); return out
+        f = ny_session(bars.close.index, bars.freq)
+        ny = bars.close.index.tz_localize("UTC").tz_convert("America/New_York")
+        endm = ((ny.hour * 60 + ny.minute + bm) % 1440).to_numpy()
+        wk = (ny.weekday < 5) | ((ny.weekday == 6) & (endm >= 18 * 60))       # Sunday evening re-open counts as overnight
+        for s in bars.symbols:
+            c = bars.close[s]
+            if p["mode"].startswith("hold"):
+                hold = ((endm >= 960) | (endm < 570)) & wk & c.notna().to_numpy()   # weight set at 16:00 close, held until 09:30
+                out[s] = np.where(hold, 1.0, 0.0)
+                continue
+            pc = _prev_session_close(c, f)
+            ses = f[f.insess]
+            first = ses["end"] == 570 + bm
+            day_open = pd.Series(bars.open[s].loc[ses.index][first.to_numpy()].to_numpy(), index=ses["date"][first].to_numpy())
+            day_open = day_open[~day_open.index.duplicated()]
+            on = day_open / pc.reindex(day_open.index) - 1                    # overnight return (known at 09:30)
+            sgn = np.sign(on)
+            if p["mode"].startswith("first"):
+                win = f.insess & (f["end"] >= 570 + bm) & (f["end"] < 600)   # decided at the close of the first bar -> held to 10:00
+                # the first bar itself is lost (we only know the open price at 09:30, the engine trades at bar closes)
+                out.loc[win, s] = (-f.loc[win, "date"].map(sgn)).fillna(0.0).to_numpy()
+            else:
+                win = f.insess & (f["end"] >= 930) & ~f["last"]
+                out.loc[win, s] = f.loc[win, "date"].map(sgn).fillna(0.0).to_numpy()
+        self.info = pd.DataFrame([{"mode": p["mode"]}])
+        return out / max(1, len(bars.symbols))
