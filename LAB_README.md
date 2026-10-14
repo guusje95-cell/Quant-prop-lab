@@ -55,13 +55,42 @@ The tabs on the main page:
 
 | Tab | What it tells you |
 |---|---|
+| **Scorecard (all strategies)** | Every strategy on its own market (crypto daily, US100 intraday, futures …) in one table: Sharpe, CAGR, volatility, max drawdown, Calmar, Sortino, positive / avg / worst / best month, worst intraday day, trades per year, win rate, profit factor, deflated Sharpe. A second table shows each strategy's prop-firm result: pass chance, chance of getting funded, fees, payouts, net profit and chance of profit. CSV download. |
 | **Equity** | Growth vs buy-and-hold on the same assets, drawdowns, exposure and the full statistics table |
 | **Returns** | Monthly heatmap, yearly bars, distribution of months, rolling 1-year Sharpe |
 | **Edge check** | In-sample vs out-of-sample. Bootstrap 95% Sharpe range. Probability Sharpe > 0. **Deflated Sharpe** (luck-adjusted for your number of trials). Random-timing test. Parameter sweep: a real edge is a broad plateau, not one sharp peak |
-| **Assets & trades** | Contribution per asset, trade count, win rate, profit factor, average holding time, full trade list |
-| **Prop firm (CFT)** | Pass / fail chance per challenge attempt under CFT's 1-Phase or 2-Phase rules (equity-based daily loss on intraday lows), and the 2-year "buy up to N challenges" simulation with your account size and fee |
+| **Assets & trades** | Contribution per asset, trade count, win rate, profit factor, average holding time, full trade list, and what the strategy chose or learnt |
+| **Prop firm** | Pick a firm preset (Crypto Fund Trader 1-/2-Phase, FTMO 2-Step, Topstep 50k, Apex 50k) or Custom, and edit every rule. See below. |
 | **Compare strategies** | Several strategies on the same data, side by side |
 | **Export** | CSV downloads of results, daily results, positions and trades |
+
+### Prop-firm simulator
+
+**Rules you can edit**
+- **Targets:** profit target per phase, minimum trading days, maximum days.
+- **Daily loss:** % of the initial balance or % of start-of-day equity. Measured on intraday lows or on closed results.
+- **Max loss:** static, trailing, or trailing that stops at the starting balance. Trailing can follow intraday highs or end-of-day equity.
+- **Money:** fee (one-off or monthly), refund of the fee with the first payout, activation fee, profit split, payout interval, payout fee.
+
+**What you choose**
+- **Max. challenges you will buy:** your budget. You re-buy after a failed challenge or a lost funded account.
+- **Accounts in parallel:** identical accounts. They pass and fail together, so all money amounts simply multiply.
+- **Risk:** your risk in the challenge and when funded, as a multiple of the backtest.
+- **Horizon:** how many months to simulate.
+
+**What you get**
+- One attempt: pass / fail on daily loss / fail on max loss / time limit / not finished, and days to pass.
+- Your full budget, over the horizon:
+  - chance of getting funded, and of getting at least one payout;
+  - challenges bought, fees, payouts;
+  - net profit: average, typical, unlucky 10% and lucky 10%, plus per month;
+  - chance of profit, and a cash curve over time.
+- A "how many challenges should I budget for?" table.
+
+**How it's simulated**
+- Each historical start date is one simulated trader. With short data, choose **bootstrap** instead.
+- Presets approximate public rules. Check the firm's current rules before buying.
+- Not modelled: consistency rules, news bans and scaling plans.
 
 ## Better data on your PC
 

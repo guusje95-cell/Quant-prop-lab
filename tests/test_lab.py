@@ -169,3 +169,59 @@ def test_dukascopy_minute_decoder_and_price_scale(tmp_path, monkeypatch):
     df = DL.dukascopy("US100", start="2024-01-02", end="2024-01-02", pause=0)
     assert list(df["close"]) == [15001.0, 15002.0]                    # zero-volume minute dropped, scale 10^3 found
     assert df["time"].iloc[1] == pd.Timestamp("2024-01-02 00:01") and (df["high"] >= df["close"]).all()
+
+
+# ------------------------------------------------------------------ prop-firm engine
+from qpl.lab import propfirms as PF  # noqa: E402
+
+
+def _daily(net, worst=None, best=None, start="2024-01-01"):
+    idx = pd.date_range(start, periods=len(net), freq="D")
+    net = np.asarray(net, float)
+    return pd.DataFrame({"net": net, "worst": np.minimum(net, 0) if worst is None else worst,
+                         "best": np.maximum(net, 0) if best is None else best}, index=idx)
+
+
+def test_prop_pass_daily_loss_and_trailing_lock():
+    f = PF.Firm(targets=(0.10,), daily_loss=0.04, daily_basis="initial", max_loss=0.06, max_type="trailing_lock")
+    r, lo, hi = PF._arrays(_daily([0.01] * 30), 1.0)
+    cal = np.arange(30)
+    assert PF._phase(r, lo, hi, cal, 0, 30, 0.10, f) == (PF.PASS, 10)                  # 1.01^10 >= 1.10 on day 10
+    d = _daily([0.0, -0.01], worst=[0.0, -0.045]); r, lo, hi = PF._arrays(d, 1.0)
+    assert PF._phase(r, lo, hi, np.arange(2), 0, 2, 0.10, f)[0] == PF.FAIL_DAILY          # intraday -4.5% breaks the 4% limit
+    # up 8% (trailing floor 1.02 -> locked at 1.00), then two -3% days: the 2nd ends at ~1.016 * ... below the floor
+    d = _daily([0.04, 0.0385, -0.03, -0.035, -0.035]); r, lo, hi = PF._arrays(d, 1.0)
+    res, day = PF._phase(r, lo, hi, np.arange(5), 0, 5, 0.20, f)
+    assert res == PF.FAIL_MAX and day == 5
+    f2 = PF.replace(f, max_type="static")
+    assert PF._phase(r, lo, hi, np.arange(5), 0, 5, 0.20, f2)[0] == PF.OPEN             # static 6% floor (0.94) never hit
+
+
+def test_prop_min_days_and_two_phases():
+    f = PF.Firm(targets=(0.08, 0.05), daily_loss=0.05, max_loss=0.10, min_days=4)
+    d = _daily([0.10] + [0.0] * 3 + [0.001] * 3 + [0.06] + [0.001] * 3 + [0.0] * 3)
+    r, lo, hi = PF._arrays(d, 1.0)
+    res, t = PF._challenge(r, lo, hi, np.arange(len(d)), 0, len(d), f)
+    assert res == PF.PASS and t == 11        # each phase needs 4 TRADING days (flat days do not count): rows 0,4,5,6 then 7..10
+
+
+def test_prop_pipeline_fees_payouts_and_parallel_accounts():
+    f = PF.Firm(account=100_000, fee=500, targets=(0.05,), daily_loss=0.05, max_loss=0.10, split=0.8, payout_every=30, refund_fee=True)
+    d = _daily([0.001] * 900)
+    one = PF.pipeline(d, f, budget=3, accounts=1, scale_c=1.0, scale_f=1.0, horizon_days=730, step=30)
+    two = PF.pipeline(d, f, budget=3, accounts=2, scale_c=1.0, scale_f=1.0, horizon_days=730, step=30)
+    assert one["P_funded"] == 1.0 and one["bought"] == 1 and one["fees"] == 500
+    assert np.isclose(two["net_mean"], 2 * one["net_mean"]) and one["net_mean"] > 0
+    # funded income ~ 0.8 * (1.001^30 - 1) * 100k per 30 days, plus the refunded fee once
+    assert 0.8 * 0.0304 * 100_000 * 18 < one["paid"] < 0.8 * 0.0304 * 100_000 * 24 + 500
+    fm = PF.replace(f, fee_monthly=True, refund_fee=False)
+    slow = PF.pipeline(_daily([0.0005] * 900), fm, budget=1, accounts=1, horizon_days=730, step=30)
+    assert slow["fees"] > 500                                                   # subscription renewed while the target takes ~100 days
+
+
+def test_prop_presets_run_on_any_daily_series():
+    d = _daily(np.random.default_rng(0).normal(0.001, 0.01, 800))
+    for f in PF.PRESETS.values():
+        a = PF.attempts(d, f); p = PF.pipeline(d, f, budget=3, horizon_days=365)
+        assert abs(a["P_pass"] + a["P_fail_daily"] + a["P_fail_max"] + a["P_fail_time"] + a["P_open"] - 1) < 1e-9
+        assert 0 <= p["P_funded"] <= 1

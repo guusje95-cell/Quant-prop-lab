@@ -19,7 +19,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from qpl.lab import analysis as A, data as D, engine as EN, strategies as S  # noqa: E402
+from qpl.lab import analysis as A, data as D, engine as EN, propfirms as PF, scorecard as SC, strategies as S  # noqa: E402
 
 st.set_page_config(page_title="Backtest Lab", layout="wide")
 PCT = lambda v: "—" if v is None or (isinstance(v, float) and np.isnan(v)) else f"{v:.1%}"
@@ -158,10 +158,11 @@ for col, (lab, val, fmt) in zip(k, [("Sharpe", S_["Sharpe"], NUM), ("Return / ye
                                      ("Benchmark Sharpe", B_.get("Sharpe", np.nan), NUM)]):
     col.metric(lab, fmt(val))
 
-tabs = st.tabs(["Equity", "Returns", "Edge check", "Assets & trades", "Prop firm (CFT)", "Compare strategies", "Export"])
+TAB_NAMES = ["Scorecard", "Equity", "Returns", "Edge check", "Assets & trades", "Prop firm", "Compare strategies", "Export"]
+T = dict(zip(TAB_NAMES, st.tabs(["Scorecard (all strategies)"] + TAB_NAMES[1:])))
 
 # ------------------------------------------------------------------ Equity
-with tabs[0]:
+with T["Equity"]:
     eq = (1 + net.fillna(0)).cumprod(); beq = (1 + bh.fillna(0)).cumprod()
     fig = go.Figure()
     fig.add_scatter(x=eq.index, y=eq, name=sname, line=dict(width=2))
@@ -180,7 +181,7 @@ with tabs[0]:
         | {c: "{:.2f}" for c in ["Sharpe", "Sortino", "Calmar", "Skew", "Years"]}), width="stretch")
 
 # ------------------------------------------------------------------ Returns
-with tabs[1]:
+with T["Returns"]:
     mt = A.monthly_table(net)
     mt.columns = [pd.Timestamp(2000, c, 1).strftime("%b") if isinstance(c, (int, np.integer)) else c for c in mt.columns]
     st.subheader("Monthly returns")
@@ -196,7 +197,7 @@ with tabs[1]:
                     .add_hline(y=0, line_color="gray"), width="stretch")
 
 # ------------------------------------------------------------------ Edge check
-with tabs[2]:
+with T["Edge check"]:
     st.markdown("Is the edge real, or luck from testing many ideas? Tune only on **in-sample** data; the **out-of-sample** row is the honest one.")
     a, b = A.split_stats(net, ppy, pd.Timestamp(split))
     rows = {"In-sample (before split)": a, "Out-of-sample (after split)": b}
@@ -243,7 +244,7 @@ with tabs[2]:
         st.caption("This strategy has no numeric parameters.")
 
 # ------------------------------------------------------------------ Assets & trades
-with tabs[3]:
+with T["Assets & trades"]:
     info = res.get("info")
     if isinstance(info, pd.DataFrame) and len(info):
         with st.expander("Strategy details (what the strategy chose / learnt, per window)", expanded=True):
@@ -262,43 +263,168 @@ with tabs[3]:
         st.dataframe(tr.sort_values("entry", ascending=False).style.format({"pnl_contribution": "{:.3%}"}), width="stretch", height=320)
 
 # ------------------------------------------------------------------ Prop firm
-with tabs[4]:
-    st.markdown("Crypto Fund Trader rules on this strategy's **daily** results (equity-based daily loss from start-of-day equity, "
-                "intraday lows included). Rules from third-party trackers - check them at checkout.")
-    prog_name = st.selectbox("Program", list(A.PROGRAMS), key="prog")
-    prog = A.PROGRAMS[prog_name]
-    c1, c2, c3 = st.columns(3)
-    sc_c = c1.number_input("Risk multiplier in the challenge", 0.1, 5.0, 1.0, 0.1, key="scc", help="× the backtest's leverage")
-    st_mult_note = c1.caption("1.0 = trade the challenge exactly as backtested")
-    acc = c2.number_input("Account size (USD)", 5000, 400000, 100000, 5000, key="acc")
-    fee = c3.number_input("Challenge fee (USD)", 0, 5000, 798, 10, key="fee")
-    att = A.prop_attempts(dd_, prog, sc_c)
-    cc = st.columns(5)
-    cc[0].metric("Pass per attempt", PCT(att["P_pass"])); cc[1].metric("Fail: daily loss", PCT(att["P_fail_daily"]))
-    cc[2].metric("Fail: max loss", PCT(att["P_fail_max"])); cc[3].metric("Not decided in 18 months", PCT(att["P_unresolved"]))
-    cc[4].metric("Median days to pass", "—" if att["median_days_to_pass"] is None else f"{att['median_days_to_pass']:.0f}")
-    st.subheader("Buying challenges until funded (2-year pipeline)")
-    st.caption("Re-buy after a failed challenge; once funded, trade the funded account (often at lower risk), take payouts every "
-               "30 days (80% split, 5% payout fee), re-buy after a funded breach. Starts every 5 days across your date range.")
-    c1, c2, c3 = st.columns(3)
-    budget = c1.slider("Max. challenges you will buy", 1, 15, 5, key="budget")
-    sc_f = c2.number_input("Risk multiplier when funded", 0.05, 5.0, 0.4, 0.05, key="scf", help="research: funded at ~40% of challenge risk")
-    if c3.button("Run pipeline", key="pipe"):
-        pl = A.prop_pipeline(dd_, dd_, prog, sc_c, sc_f, acc, fee, budget)
-        m = st.columns(7)
-        m[0].metric("Get funded", PCT(pl["P_funded"])); m[1].metric("Challenges bought", f"{pl['bought']:.1f}")
-        m[2].metric("Fees (avg)", USD(pl["fees"])); m[3].metric("Payouts (avg)", USD(pl["paid"]))
-        m[4].metric("Net (average)", USD(pl["net_mean"])); m[5].metric("Net (typical)", USD(pl["net_p50"]))
-        m[6].metric("Chance of profit", PCT(pl["P_profit"]))
-        cv = pl["curve"]; x = np.arange(len(cv)) / 30.4
+def firm_controls(prefix: str):
+    """Prop-firm preset + every rule editable. Returns (Firm, budget, accounts, risk_challenge, risk_funded, horizon_days)."""
+    c1, c2 = st.columns([2, 1])
+    preset = c1.selectbox("Prop firm", list(PF.PRESETS), key=f"{prefix}_preset",
+                          help="Presets approximate public rules (check them on the firm's site). Edit any rule below.")
+    base = PF.PRESETS[preset]
+    acc_ = c2.number_input("Account size (USD)", 5_000, 1_000_000, int(base.account), 5_000, key=f"{prefix}_acc_{preset}")
+    if base.note:
+        st.caption(base.note)
+    with st.expander("Firm rules (edit)", expanded=preset == "Custom"):
+        r1 = st.columns(4)
+        fee_ = r1[0].number_input("Fee per challenge (USD)", 0.0, 10_000.0, float(base.fee), 10.0, key=f"{prefix}_fee_{preset}")
+        fee_m = r1[1].checkbox("Fee is monthly (subscription)", base.fee_monthly, key=f"{prefix}_feem_{preset}")
+        refund = r1[2].checkbox("Fee refunded with 1st payout", base.refund_fee, key=f"{prefix}_ref_{preset}")
+        ffee = r1[3].number_input("Activation fee when funded", 0.0, 5_000.0, float(base.funded_fee), 10.0, key=f"{prefix}_ffee_{preset}")
+        r2 = st.columns(4)
+        tg = r2[0].text_input("Profit target(s) per phase, %", ", ".join(f"{t * 100:g}" for t in base.targets), key=f"{prefix}_tg_{preset}",
+                              help="one number per phase, e.g. '8, 5' for a 2-phase challenge")
+        mind = r2[1].number_input("Min. trading days per phase", 0, 60, int(base.min_days), 1, key=f"{prefix}_mind_{preset}")
+        maxd = r2[2].number_input("Max. days per phase (0 = unlimited)", 0, 1000, int(base.max_days), 5, key=f"{prefix}_maxd_{preset}")
+        spl = r2[3].number_input("Profit split %", 0.0, 100.0, base.split * 100, 5.0, key=f"{prefix}_spl_{preset}")
+        r3 = st.columns(4)
+        dl = r3[0].number_input("Daily loss limit % (0 = none)", 0.0, 20.0, base.daily_loss * 100, 0.5, key=f"{prefix}_dl_{preset}")
+        dlb = r3[1].selectbox("Daily loss measured as", ["% of initial balance below start-of-day equity", "% of start-of-day equity"],
+                              index=0 if base.daily_basis == "initial" else 1, key=f"{prefix}_dlb_{preset}")
+        dli = r3[2].checkbox("Daily loss on intraday equity (lows)", base.daily_intraday, key=f"{prefix}_dli_{preset}")
+        pe = r3[3].number_input("Payout every (days)", 1, 120, int(base.payout_every), 1, key=f"{prefix}_pe_{preset}")
+        r4 = st.columns(4)
+        ml = r4[0].number_input("Max loss %", 0.5, 50.0, base.max_loss * 100, 0.5, key=f"{prefix}_ml_{preset}")
+        types = ["static", "trailing", "trailing_lock"]
+        mt = r4[1].selectbox("Max loss type", types, index=types.index(base.max_type), key=f"{prefix}_mt_{preset}",
+                             help="trailing_lock = trails the equity high but stops at the starting balance")
+        ti = r4[2].checkbox("Trail from intraday highs", base.trailing_intraday, key=f"{prefix}_ti_{preset}", help="off = from end-of-day equity")
+        pf_ = r4[3].number_input("Payout fee %", 0.0, 20.0, base.payout_fee * 100, 0.5, key=f"{prefix}_pf_{preset}")
+    try:
+        targets = tuple(float(x) / 100 for x in tg.replace(";", ",").split(",") if x.strip())
+    except ValueError:
+        st.error("Profit targets: use numbers like '8, 5'"); targets = base.targets
+    firm = PF.Firm(base.name, float(acc_), fee_, targets or base.targets, dl / 100, "initial" if dlb.startswith("% of initial") else "day_start",
+                   dli, ml / 100, mt, ti, int(mind), int(maxd), spl / 100, int(pe), pf_ / 100, refund, ffee, base.note, fee_m)
+    c = st.columns(5)
+    budget_ = c[0].number_input("Max. challenges you will buy", 1, 50, 5, 1, key=f"{prefix}_budget",
+                                help="re-buy after a failed challenge or a lost funded account, up to this many in total")
+    accounts_ = c[1].number_input("Accounts in parallel", 1, 20, 1, 1, key=f"{prefix}_accts",
+                                  help="identical accounts trading the same signals: they pass and fail together, money is multiplied")
+    sc_c_ = c[2].number_input("Risk in challenge (× backtest)", 0.1, 5.0, 1.0, 0.1, key=f"{prefix}_scc")
+    sc_f_ = c[3].number_input("Risk when funded (× backtest)", 0.05, 5.0, 0.4, 0.05, key=f"{prefix}_scf",
+                              help="research: funded at ~40% of challenge risk keeps the account alive longer")
+    hz = c[4].number_input("Horizon (months)", 3, 60, 24, 1, key=f"{prefix}_hz")
+    return firm, int(budget_), int(accounts_), sc_c_, sc_f_, int(hz * 30.4)
+
+
+with T["Prop firm"]:
+    st.markdown("How likely is this strategy to pass a prop-firm challenge, and what does it earn after fees? Uses the **daily** "
+                "results including intraday lows and highs (equity-based limits). Each start date in your range is one simulated trader.")
+    firm, budget, accounts, sc_c, sc_f, horizon = firm_controls("pf")
+    method = st.radio("Paths", ["every historical start date", "bootstrap 500 paths (for short data)"], horizontal=True, key="pf_method")
+    meth = "historical" if method.startswith("every") else "bootstrap"
+    att = PF.attempts(dd_, firm, sc_c, method=meth)
+    st.subheader("One challenge attempt")
+    cc = st.columns(6)
+    cc[0].metric("Pass", PCT(att["P_pass"])); cc[1].metric("Fail: daily loss", PCT(att["P_fail_daily"]))
+    cc[2].metric("Fail: max loss", PCT(att["P_fail_max"])); cc[3].metric("Fail: time limit", PCT(att["P_fail_time"]))
+    cc[4].metric("Not finished (18 months)", PCT(att["P_open"]))
+    cc[5].metric("Median days to pass", "—" if np.isnan(att["median_days_to_pass"]) else f"{att['median_days_to_pass']:.0f}")
+    st.subheader(f"Buying up to {budget} challenge(s), {accounts} account(s) in parallel, over {horizon // 30} months")
+    pl = PF.pipeline(dd_, firm, budget, accounts, sc_c, sc_f, horizon_days=horizon, method=meth)
+    if pl.get("n", 0) < 50 and meth == "historical":
+        st.info(f"Only {pl.get('n', 0)} start dates have {horizon // 30} months of data after them: using 500 bootstrapped paths instead.")
+        pl = PF.pipeline(dd_, firm, budget, accounts, sc_c, sc_f, horizon_days=horizon, method="bootstrap")
+    if not pl.get("n"):
+        st.warning("Not enough data for this horizon.")
+    else:
+        m = st.columns(6)
+        m[0].metric("Get funded", PCT(pl["P_funded"])); m[1].metric("Get at least one payout", PCT(pl["P_payout"]))
+        m[2].metric("Challenges bought (avg)", f"{pl['bought']:.1f}"); m[3].metric("Fees paid (avg)", USD(pl["fees"]))
+        m[4].metric("Payouts received (avg)", USD(pl["paid"])); m[5].metric("Chance of profit", PCT(pl["P_profit"]))
+        m = st.columns(6)
+        m[0].metric("Net (average)", USD(pl["net_mean"])); m[1].metric("Net (typical)", USD(pl["net_p50"]))
+        m[2].metric("Net (unlucky 10%)", USD(pl["net_p10"])); m[3].metric("Net (lucky 10%)", USD(pl["net_p90"]))
+        m[4].metric("Net per month (avg)", USD(pl["net_per_month"]))
+        m[5].metric("Median days to funded", "—" if np.isnan(pl["days_to_funded_median"]) else f"{pl['days_to_funded_median']:.0f}")
+        cv = pl["curve"]; x = np.arange(len(cv)) / pl["per_day"] / 30.4
         f = go.Figure([go.Scatter(x=x, y=cv.p90, line=dict(width=0), showlegend=False),
                        go.Scatter(x=x, y=cv.p10, fill="tonexty", line=dict(width=0), name="unlucky 10% … lucky 10%"),
                        go.Scatter(x=x, y=cv.p50, name="typical", line=dict(width=2)), go.Scatter(x=x, y=cv["mean"], name="average", line=dict(dash="dash"))])
-        st.plotly_chart(fig_layout(f, 360, "cash (USD)").update_xaxes(title="months"), width="stretch")
-        st.caption(f"{pl['n']} start dates. Several challenges bought at the SAME time trade the same signals and pass or fail together.")
+        st.plotly_chart(fig_layout(f, 340, "cash in your pocket (USD)").update_xaxes(title="months"), width="stretch")
+        st.caption(f"{pl['n']} simulated traders. Fees are paid when a challenge is bought, payouts every {firm.payout_every} days "
+                   f"({firm.split:.0%} split). Parallel accounts trade the same signals, so they do NOT spread the risk.")
+        with st.expander("How many challenges should I budget for?"):
+            rows = []
+            for bgt in (1, 2, 3, 5, 8, 12):
+                q = PF.pipeline(dd_, firm, bgt, accounts, sc_c, sc_f, horizon_days=horizon, method=meth)
+                rows.append({"Budget": bgt, "Get funded": q["P_funded"], "Fees (avg)": q["fees"], "Net (avg)": q["net_mean"],
+                             "Net (typical)": q["net_p50"], "Chance of profit": q["P_profit"]})
+            st.dataframe(pd.DataFrame(rows).set_index("Budget").style.format({"Get funded": "{:.0%}", "Fees (avg)": "${:,.0f}", "Net (avg)": "${:,.0f}",
+                                                                               "Net (typical)": "${:,.0f}", "Chance of profit": "{:.0%}"}), width="stretch")
+    st.caption("Not modelled: consistency rules, news-trading bans, weekend holding rules, scaling plans, rule changes. Check the firm's current rules.")
+
+
+# ------------------------------------------------------------------ Scorecard
+@st.cache_data(show_spinner=False)
+def scorecard_row(strat_name: str, setup_key: str, setup_t: tuple, n_trials: int):
+    sources_ = D.list_sources(); setup = dict(setup_t); setup["sources"] = list(setup["sources"]); setup["symbols"] = list(setup["symbols"])
+    src = SC.resolve(setup, sources_)
+    if src is None:
+        return None, f"data not found ({setup['sources'][-1]}); run python -m qpl.lab.setup_data"
+    b = sources_[src]()
+    b = D.resample(b.select([s_ for s_ in setup["symbols"] if s_ in b.symbols] or b.symbols), setup["tf"])
+    reg_, _ = S.registry()
+    out = SC.run(reg_[strat_name], b, setup)
+    return out, src
+
+
+with T["Scorecard"]:
+    st.markdown("**Every strategy on its own market**, with default settings: one row of statistics each, plus the prop-firm outcome "
+                "for the firm chosen below. Your own plug-ins run on the data selected in the sidebar.")
+    sc_firm, sc_budget, sc_accounts, sc_scc, sc_scf, sc_hz = firm_controls("sc")
+    pick = st.multiselect("Strategies", list(reg), default=list(reg), key="sc_pick")
+    if st.button("Build scorecard", key="sc_go", type="primary"):
+        rows, prop_rows, curves = {}, {}, go.Figure()
+        prog = st.progress(0.0)
+        for i, nme in enumerate(pick):
+            prog.progress((i + 0.5) / len(pick), text=f"{nme} ...")
+            setup = SC.SETUPS.get(nme)
+            try:
+                if setup is None:
+                    setup = dict(sources=[], symbols=list(syms), tf=tf, cost=cost, lev=lev, start=str(start), market=f"sidebar: {choice}")
+                    o = SC.run(reg[nme], bars, setup); src_ = choice
+                else:
+                    o, src_ = scorecard_row(nme, nme, tuple((k_, tuple(v) if isinstance(v, list) else v) for k_, v in setup.items()), int(n_trials))
+                if o is None:
+                    rows[nme] = {"Market": setup["market"], "Data": src_}; continue
+                rows[nme] = {"Market": setup["market"], "Cost bp": setup["cost"], "Leverage": setup["lev"], **SC.stats(o, int(n_trials))}
+                prop_rows[nme] = SC.prop(o, sc_firm, sc_budget, sc_accounts, sc_scc, sc_scf, sc_hz)
+                eq = (1 + o["daily"]["net"]).cumprod()
+                curves.add_scatter(x=eq.index, y=eq, name=nme)
+            except Exception as e:  # keep building the other rows
+                rows[nme] = {"Market": (setup or {}).get("market", ""), "Data": f"error: {e}"}
+        prog.empty()
+        st.session_state["scorecard"] = (pd.DataFrame(rows).T, pd.DataFrame(prop_rows).T, curves, sc_firm.name, sc_budget, sc_accounts)
+    if "scorecard" in st.session_state:
+        tbl, ptbl, curves, fname, bgt, nacc = st.session_state["scorecard"]
+        st.subheader("Performance (after costs)")
+        fmt = {k_: "{:.2f}" for k_ in ("Sharpe", "Calmar", "Sortino", "Profit factor", "Years", "Leverage", "Cost bp")}
+        fmt.update({k_: "{:.1%}" for k_ in ("CAGR", "Volatility", "Max drawdown", "Avg month", "Worst month", "Best month", "Worst day (intraday)")})
+        fmt.update({k_: "{:.0%}" for k_ in ("Positive months", "Win rate", "Prob. Sharpe > 0") + tuple(c_ for c_ in tbl.columns if c_.startswith("Deflated"))})
+        fmt["Trades / year"] = "{:.0f}"
+        st.dataframe(tbl.style.format({k_: v for k_, v in fmt.items() if k_ in tbl.columns}, na_rep="—"), width="stretch")
+        if len(ptbl):
+            st.subheader(f"Prop firm: {fname}, up to {bgt} challenge(s), {nacc} account(s)")
+            pf_fmt = {k_: "{:.0%}" for k_ in ptbl.columns if k_.startswith(("Pass", "Fail", "Funded", "Chance"))}
+            pf_fmt.update({k_: "${:,.0f}" for k_ in ptbl.columns if k_.startswith(("Fees", "Payouts", "Net"))})
+            pf_fmt.update({"Median days to pass": "{:.0f}", "Challenges bought (avg)": "{:.1f}"})
+            st.dataframe(ptbl.style.format({k_: v for k_, v in pf_fmt.items() if k_ in ptbl.columns}, na_rep="—"), width="stretch")
+        st.plotly_chart(fig_layout(curves, 420, "growth of 1 (log)", True), width="stretch")
+        st.download_button("Scorecard (CSV)", tbl.join(ptbl).to_csv().encode(), "scorecard.csv", "text/csv")
+        st.caption("Different strategies use different markets and periods, so compare Sharpe / drawdown / prop odds, not total return. "
+                   "Deflated Sharpe uses the trial count from the sidebar. Short data (e.g. 3 years) gives wide uncertainty.")
 
 # ------------------------------------------------------------------ Compare
-with tabs[5]:
+with T["Compare strategies"]:
     picks = st.multiselect("Strategies (default parameters, same data and costs)", list(reg), default=[n for n in list(reg)[:3]], key="cmp")
     if picks:
         rows, f = {}, go.Figure()
@@ -314,7 +440,7 @@ with tabs[5]:
         st.plotly_chart(fig_layout(f, 420, "growth of 1", True), width="stretch")
 
 # ------------------------------------------------------------------ Export
-with tabs[6]:
+with T["Export"]:
     out = res["bars"].loc[sl].copy(); out["equity"] = (1 + out["net"].fillna(0)).cumprod()
     st.download_button("Bar-by-bar results (CSV)", out.to_csv().encode(), "backtest_bars.csv", "text/csv")
     st.download_button("Daily results incl. intraday worst/best (CSV)", dd_.to_csv().encode(), "backtest_daily.csv", "text/csv")
