@@ -1,0 +1,12 @@
+{
+  "_written": "2026-10-14, AFTER gen40 ran and was found DATA-INVALID (Yahoo FX bad prints: EURUSD +17% 2008-12-08, EURGBP H-L 99% 2008-03-17, USDJPY +17.7% 2008-12-08; CPER 50% moves / 16% zero-range days). The gen40 run counts as a trial (its returns were seen).",
+  "change": "DATA ONLY; signal, sizing, costs, periods, gates identical to config/gen40_protocol.json",
+  "data rules (return-agnostic)": {
+    "FX": "FRED H.10 noon rates (src/qpl/data/macro_daily.py) for EURUSD GBPUSD USDJPY AUDUSD USDCAD USDCHF NZDUSD; crosses derived: EURJPY = EURUSD*USDJPY, GBPJPY = GBPUSD*USDJPY, EURGBP = EURUSD/GBPUSD, AUDJPY = AUDUSD*USDJPY, EURCHF = EURUSD*USDCHF; close-only -> intraday adverse proxy 2 x |close return| (adverse days), FX history to 2026-10-02",
+    "indices": "Yahoo cash indices unchanged (spot-checked extremes are real events)",
+    "commodities": "GOLD (GLD), SILVER (SLV), WTI (USO), BRENT (BNO); COPPER dropped (CPER zero-range days > 5%)",
+    "generic filter": "any Yahoo daily return > 40% in absolute value is set to NaN (none expected after the above)"
+  },
+  "trials": "gen40b = 1 additional trial (cumulative cross-asset trials incl. gen40 counted)",
+  "single_use": true
+}
