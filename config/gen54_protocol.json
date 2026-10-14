@@ -1,0 +1,5 @@
+{"_written": "2026-10-14 BEFORE running.",
+ "G54b_hour_of_day": {"source": "Quantpedia 'Are There Seasonal Intraday or Overnight Anomalies in Bitcoin?' (Gemini 2015-2022): best hours 21:00-23:00 UTC",
+   "rule": "long from 21:00 to 23:00 UTC every day; (i) BTC only, (ii) equal-weight 10 majors; OKX perps hourly",
+   "costs": "5.5 bp per side (Bybit taker) primary; 2 bp per side (maker) secondary",
+   "pass_rule": "net Sharpe >= 1.0 at 5.5 bp on 2023-01..2026-10 (out of their sample) AND positive 2020-2022"}}

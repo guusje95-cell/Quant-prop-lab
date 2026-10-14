@@ -328,3 +328,24 @@ def test_cstar_btc_leads_zeroes_alts_when_btc_is_flat():
     off = base["BTC"] <= 0
     assert (s.loc[off, ["ETH", "SOL"]] == 0).all().all() and s["BTC"].equals(base["BTC"])
     assert (s.loc[~off, ["ETH", "SOL"]] == base.loc[~off, ["ETH", "SOL"]]).all().all()
+
+
+def test_binance_vision_zip_parser_handles_header_and_microseconds(monkeypatch):
+    import io as _io, zipfile as _zf
+    from qpl.lab import binance_vision as BV
+    def mk(text):
+        b = _io.BytesIO()
+        with _zf.ZipFile(b, "w") as z:
+            z.writestr("x.csv", text)
+        return b.getvalue()
+    class R:
+        def __init__(self, c): self.status_code, self.content = 200, c
+        def raise_for_status(self): pass
+    hdr = "open_time,open,high,low,close,volume,close_time,quote_volume,count,taker_buy_volume,taker_buy_quote_volume,ignore\n"
+    row_ms = "1704067200000,1,2,0.5,1.5,10,1704067259999,15,3,4,6,0\n"
+    row_us = "1735689600000000,1,2,0.5,1.5,10,1735689659999999,15,3,4,6,0\n"
+    monkeypatch.setattr(BV.requests, "get", lambda *a, **k: R(mk(hdr + row_ms)))
+    d1 = BV._zip_csv("u"); assert list(d1.columns)[:2] == ["open_time", "open"] and len(d1) == 1
+    monkeypatch.setattr(BV.requests, "get", lambda *a, **k: R(mk(row_us)))
+    d2 = BV._zip_csv("u"); assert len(d2) == 1 and d2.shape[1] == 12
+    ts = pd.to_numeric(d2.iloc[:, 0]); assert pd.to_datetime(ts, unit="us" if ts.max() > 1e14 else "ms")[0] == pd.Timestamp("2025-01-01")
