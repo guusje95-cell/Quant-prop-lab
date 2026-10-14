@@ -1,0 +1,44 @@
+{
+ "BASE_TOP10": {
+  "DEV": 1.589,
+  "VAL": 0.703,
+  "TEST": 1.298,
+  "ALL": 1.332,
+  "pos_months": 0.465,
+  "median_month": -0.0032,
+  "worst_month": -0.0584,
+  "max_dd": -0.1621
+ },
+ "BROAD_TOP20": {
+  "DEV": 1.474,
+  "VAL": 0.719,
+  "TEST": 1.028,
+  "ALL": 1.2,
+  "pos_months": 0.416,
+  "median_month": -0.006,
+  "worst_month": -0.0632,
+  "max_dd": -0.1784,
+  "TEST_2x": 0.855,
+  "beats_each_period": false,
+  "pos_months_ge_base": false,
+  "p_raw": 0.8616,
+  "p_holm": 1.0,
+  "ACCEPTED": false
+ },
+ "BROAD_TOP30": {
+  "DEV": 1.514,
+  "VAL": 0.782,
+  "TEST": 0.968,
+  "ALL": 1.212,
+  "pos_months": 0.416,
+  "median_month": -0.0044,
+  "worst_month": -0.0647,
+  "max_dd": -0.1599,
+  "TEST_2x": 0.778,
+  "beats_each_period": false,
+  "pos_months_ge_base": false,
+  "p_raw": 0.7744,
+  "p_holm": 1.0,
+  "ACCEPTED": false
+ }
+}

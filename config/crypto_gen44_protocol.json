@@ -1,0 +1,12 @@
+{
+  "_written": "2026-10-14, BEFORE any gen44 number was computed (Deribit funding downloaded on 2026-10-13, only coverage checked).",
+  "idea": "market-neutral funding carry (long spot / short perpetual) for steady monthly income on an own exchange account (NOT a CFT strategy: CFT Bybit route has no funding); and as a stabiliser next to directional C*",
+  "data": "Deribit BTC-PERPETUAL / ETH-PERPETUAL hourly funding (interest_1h), 2019-05-01..2026-10-13",
+  "rule H_CARRY (fixed)": "per coin: in position when the trailing 7-day mean of interest_8h, annualised (x 3 x 365), is > 5%; exit when it is < 0; position = long spot + short perp of equal notional; hourly P&L = +interest_1h on notional while in position (funding paid by longs to shorts when positive); price P&L hedged (basis noise ignored except as stress)",
+  "costs": "entry + exit = 4 legs x (5.5 bp taker + 2 bp slippage) = 30 bp of notional per round trip; capital = 1.25 x notional (spot fully paid + 25% perp margin); stress: 2x costs and basis noise = daily N(0, 10 bp) on notional",
+  "periods": {"DEV": "2019-05-01..2021-12-31", "VAL": "2022-01-01..2023-12-31", "TEST": "2024-01-01..2026-10-13"},
+  "gates ('STEADY CARRY')": "TEST: share of positive months >= 0.75, net Sharpe >= 2.0, CAGR on capital >= 4%; stress TEST Sharpe >= 1.0",
+  "combination": "C* (gen38, 15% vol) + H_CARRY (both coins, 50/50) at equal capital weights: report share of positive months, worst month, Sharpe, CAGR 2019/2020..2026",
+  "trials": "1 (+1 combination)",
+  "single_use": true
+}
