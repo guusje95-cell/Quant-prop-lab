@@ -1,7 +1,7 @@
 """Dukascopy public datafeed (no account): yearly BID daily candles per instrument, 2003 -> today.
 File: https://datafeed.dukascopy.com/datafeed/{SYM}/{YYYY}/BID_candles_day_1.bi5 (LZMA; 24-byte big-endian records:
 uint32 seconds-from-year-start, int32 open, close, low, high (price * 10^digits), float32 volume).
-Politeness: sequential, >= 1.5 s between requests, exponential backoff on HTTP 429. Saved to data/raw/dukascopy_direct/."""
+Politeness: sequential, 8 s between requests, exponential backoff on HTTP 429. Saved to data/raw/dukascopy_direct/."""
 from __future__ import annotations
 
 import lzma
@@ -27,18 +27,18 @@ def _fetch(url, tries=8):
         try:
             r = requests.get(url, timeout=60)
             if r.status_code == 429:
-                time.sleep(5 * 2 ** k); continue
+                time.sleep(30 * (k + 1)); continue
             if r.status_code == 404:
                 return None
             r.raise_for_status()
             return r.content
         except requests.RequestException:
-            time.sleep(5 * 2 ** k)
+            time.sleep(30 * (k + 1))
     return None
 
 
 def year(sym, y):
-    b = _fetch(URL.format(s=sym, y=y)); time.sleep(1.5)
+    b = _fetch(URL.format(s=sym, y=y)); time.sleep(8.0)
     if not b:
         return None
     raw = lzma.decompress(b)
