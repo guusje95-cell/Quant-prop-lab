@@ -88,6 +88,12 @@ def papers():
         print("NQ futures 1h, last 2 years:", DL.save({"NQ": DL.yahoo("NQ=F", "2000-01-01", "1h")}, "nq_futures_1h_recent", "1h"))
     except Exception as e:
         print("Yahoo NQ intraday not available:", e)
+    for iv, syms in (("1min", ("ES", "NQ", "MES", "MNQ", "YM", "RTY", "GC", "CL")), ("5min", ("ES", "NQ", "MES", "MNQ", "YM", "RTY", "GC", "CL")),
+                     ("1h", ("ES", "NQ", "YM", "RTY", "GC", "SI", "CL", "NG", "ZN", "6E", "6J", "6B"))):
+        try:
+            print(f"CME futures {iv} (TopstepX):", DL.save({s: DL.topstepx(s, iv) for s in syms}, f"cme_futures_{iv}", DL.FREQ[iv]))
+        except Exception as e:
+            print(f"CME futures {iv} not available:", e)
     frames = {}
     for s in DL.FUTURES_PAIRS:
         try:

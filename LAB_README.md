@@ -82,6 +82,32 @@ python -m qpl.lab.download futures-github
 python -m qpl.lab.setup_data --papers
 ```
 
+### More and better intraday data (1-minute, real futures)
+
+Better data mainly helps intraday strategies. The daily crypto edge (C*) already has good data.
+
+| What | Cost | Where it runs | Command | History |
+|---|---|---|---|---|
+| **Index CFDs / FX / gold, 1-minute** (Dukascopy) | free, no account | your PC only | `python -m qpl.lab.download dukascopy --symbols US100 US500 --start 2013-01-01` | 2012+ |
+| **Real CME futures, 1-minute** (Databento) | free $125 credit for new accounts | your PC | see the steps below | 2010+ |
+| **Real CME futures** (TopstepX on GitHub) | free | anywhere (already done by `setup_data --papers`) | `python -m qpl.lab.download topstepx --symbols ES NQ --interval 1min` | 1min/5min: Jan–Apr 2026; 1h: Mar 2025–Apr 2026 |
+| **NQ / ES futures, recent** (Yahoo) | free | anywhere | `python -m qpl.lab.download yahoo --symbols NQ=F ES=F --interval 5m` | 5m: 60 days; 1h: 2 years |
+| **Your own export** (TradingView, NinjaTrader, broker, Kaggle) | free with your account | app | "Upload a CSV file" | whatever you export |
+
+**Dukascopy notes**
+- About 20 minutes per symbol per 10 years. Downloads are cached per month, so you can stop and resume.
+- The app can turn 1-minute bars into 5- or 15-minute bars: pick them in "Timeframe".
+- Other symbols: US30 US2000 DE40 UK100 JP225 XAUUSD XAGUSD WTI BRENT EURUSD GBPUSD USDJPY …
+
+**Databento steps (real CME futures, no money spent)**
+1. Create a free account at databento.com. New accounts get a $125 data credit. **Do not add a payment card.** The downloader refuses anything above `--max-usd` anyway.
+2. Copy your API key from the Databento portal. On Windows, run `setx DATABENTO_API_KEY your_key` in a terminal, then open a new terminal. Never paste the key into chat or into code.
+3. Run `pip install databento`.
+4. Run `python -m qpl.lab.download databento --symbols ES NQ --interval 1m --start 2015-01-01 --max-usd 20`.
+   - It prints the estimated cost first and stops if that cost is above `--max-usd`.
+   - Start with a short period (e.g. one year) to see the price.
+   - Prices are the front contract, not back-adjusted. There is a small jump on roll days, which is harmless for intraday strategies.
+
 - **Bybit** is the closest data to what CFT trades, because CFT's Bybit route uses Bybit USDT perpetuals. Bybit intervals: `D`, `240` (4h), `60` (1h).
 - **Stablecoins** is the USDT + USDC supply that C*'s stablecoin filter needs. Re-run it now and then to keep it current.
 - **Your own data** (broker exports, TradingView, etc.): use **Upload a CSV file** in the app.

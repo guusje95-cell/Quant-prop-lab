@@ -204,7 +204,9 @@ with tabs[2]:
                  .style.format({"Sharpe": "{:.2f}", "CAGR": "{:.1%}", "Max drawdown": "{:.1%}", "Positive months": "{:.0%}", "Years": "{:.1f}"}),
                  width="stretch")
     c1, c2, c3 = st.columns(3)
-    ci, boot = A.bootstrap_sharpe(net, ppy, n=1000)
+    # intraday data: bootstrap the daily results (same Sharpe estimate, 100x fewer points to resample)
+    bnet, bppy = (net, ppy) if bars.freq == "1d" else (dd_["net"], D.periods_per_year(dd_.index, "1d"))
+    ci, boot = A.bootstrap_sharpe(bnet, bppy, n=1000)
     c1.metric("Sharpe 95% range (bootstrap)", f"{ci[0]:.2f} … {ci[2]:.2f}")
     c2.metric("Probability Sharpe > 0 (PSR)", PCT(A.psr(net, ppy)))
     c3.metric(f"Deflated Sharpe ({int(n_trials)} trials)", PCT(A.dsr(net, ppy, int(n_trials))),

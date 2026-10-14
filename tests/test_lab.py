@@ -150,3 +150,22 @@ def test_intraday_momentum_no_lookahead_and_flat_overnight(cls):
     assert (full["ES"][~ses.insess | ses["last"]] == 0).all()                     # never held over 16:00 or outside the session
     n = len(idx) * 3 // 4
     pd.testing.assert_frame_equal(full.iloc[:n], st.signal(b.select(end=idx[n - 1]), st.defaults()), check_freq=False)
+
+
+def test_dukascopy_minute_decoder_and_price_scale(tmp_path, monkeypatch):
+    """Dukascopy minute files: LZMA, 24-byte big-endian records; the price scale must be inferred and range-checked."""
+    import lzma
+    from qpl.lab import download as DL
+    rec = np.zeros(3, dtype=[("t", ">u4"), ("o", ">i4"), ("c", ">i4"), ("l", ">i4"), ("h", ">i4"), ("v", ">f4")])
+    rec["t"] = [0, 60, 120]; rec["o"] = [15000_000, 15001_000, 15002_000]; rec["c"] = [15001_000, 15002_000, 15003_500]
+    rec["l"] = rec["o"] - 500; rec["h"] = rec["c"] + 500; rec["v"] = [1.5, 2.0, 0.0]
+    blob = lzma.compress(rec.tobytes(), format=lzma.FORMAT_ALONE)
+
+    class R:
+        status_code, content = 200, blob
+        def raise_for_status(self): pass
+    monkeypatch.setattr(DL.requests, "get", lambda *a, **k: R())
+    monkeypatch.setattr(DL, "LAB", tmp_path)
+    df = DL.dukascopy("US100", start="2024-01-02", end="2024-01-02", pause=0)
+    assert list(df["close"]) == [15001.0, 15002.0]                    # zero-volume minute dropped, scale 10^3 found
+    assert df["time"].iloc[1] == pd.Timestamp("2024-01-02 00:01") and (df["high"] >= df["close"]).all()
