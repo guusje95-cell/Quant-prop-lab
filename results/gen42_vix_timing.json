@@ -1,0 +1,175 @@
+{
+ "hyp": {
+  "B1_VIX_TS": {
+   "DEV": 0.337,
+   "VAL": 0.526,
+   "TEST": 0.693,
+   "ALL": 0.518,
+   "TEST_2x": 0.526,
+   "beats_B0_each_period": false,
+   "avg_exposure": 0.857,
+   "cagr": 0.0694,
+   "max_dd": -0.3954,
+   "worst_day": -0.0956,
+   "pos_months": 0.588,
+   "worst_month": -0.114,
+   "p_raw": 0.4732,
+   "replication_beats_B0": {
+    "US30": true,
+    "US2000": false,
+    "DE40": true,
+    "UK100": false
+   },
+   "replication_sharpes": {
+    "US30": [
+     0.29,
+     0.24
+    ],
+    "US2000": [
+     0.23,
+     0.26
+    ],
+    "DE40": [
+     0.21,
+     0.2
+    ],
+    "UK100": [
+     -0.02,
+     0.02
+    ]
+   },
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "B2_TREND200": {
+   "DEV": 0.363,
+   "VAL": 0.459,
+   "TEST": 0.815,
+   "ALL": 0.562,
+   "TEST_2x": 0.648,
+   "beats_B0_each_period": false,
+   "avg_exposure": 0.761,
+   "cagr": 0.0655,
+   "max_dd": -0.2137,
+   "worst_day": -0.0956,
+   "pos_months": 0.529,
+   "worst_month": -0.1108,
+   "p_raw": 0.3622,
+   "replication_beats_B0": {
+    "US30": true,
+    "US2000": false,
+    "DE40": true,
+    "UK100": false
+   },
+   "replication_sharpes": {
+    "US30": [
+     0.27,
+     0.24
+    ],
+    "US2000": [
+     0.16,
+     0.26
+    ],
+    "DE40": [
+     0.3,
+     0.2
+    ],
+    "UK100": [
+     -0.21,
+     0.02
+    ]
+   },
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "B3_VIX_TS_AND_TREND": {
+   "DEV": 0.264,
+   "VAL": 0.415,
+   "TEST": 0.859,
+   "ALL": 0.535,
+   "TEST_2x": 0.68,
+   "beats_B0_each_period": false,
+   "avg_exposure": 0.72,
+   "cagr": 0.0577,
+   "max_dd": -0.2226,
+   "worst_day": -0.0956,
+   "pos_months": 0.521,
+   "worst_month": -0.0853,
+   "p_raw": 0.444,
+   "replication_beats_B0": {
+    "US30": false,
+    "US2000": false,
+    "DE40": true,
+    "UK100": false
+   },
+   "replication_sharpes": {
+    "US30": [
+     0.21,
+     0.24
+    ],
+    "US2000": [
+     0.08,
+     0.26
+    ],
+    "DE40": [
+     0.28,
+     0.2
+    ],
+    "UK100": [
+     -0.17,
+     0.02
+    ]
+   },
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  },
+  "B4_VIX_TS_VOLMANAGED": {
+   "DEV": 0.381,
+   "VAL": 0.451,
+   "TEST": 0.718,
+   "ALL": 0.523,
+   "TEST_2x": 0.52,
+   "beats_B0_each_period": false,
+   "avg_exposure": 0.9,
+   "cagr": 0.0644,
+   "max_dd": -0.3141,
+   "worst_day": -0.0762,
+   "pos_months": 0.592,
+   "worst_month": -0.0986,
+   "p_raw": 0.4508,
+   "replication_beats_B0": {
+    "US30": true,
+    "US2000": false,
+    "DE40": false,
+    "UK100": false
+   },
+   "replication_sharpes": {
+    "US30": [
+     0.24,
+     0.24
+    ],
+    "US2000": [
+     0.07,
+     0.26
+    ],
+    "DE40": [
+     0.16,
+     0.2
+    ],
+    "UK100": [
+     -0.1,
+     0.02
+    ]
+   },
+   "p_holm": 1.0,
+   "ACCEPTED": false
+  }
+ },
+ "B0": {
+  "DEV": 0.287,
+  "VAL": 0.685,
+  "TEST": 0.678,
+  "ALL": 0.511
+ },
+ "accepted": []
+}
