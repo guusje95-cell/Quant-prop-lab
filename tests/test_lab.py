@@ -61,3 +61,77 @@ def test_user_strategy_template_loads(tmp_path, monkeypatch):
     b = _bars(); st = reg["My example: N-day high breakout"]()
     sig = st.signal(b, st.defaults())
     assert sig.shape == b.close.shape and set(np.unique(sig.values)) <= {0.0, 1.0}
+
+
+# ------------------------------------------------------------------ paper strategies
+from qpl.lab import strategies_papers as SP  # noqa: E402
+
+
+def _pairs_bars(n=900, seed=3):
+    """Two cointegrated assets (y = 1.5 x + mean-reverting noise) and one unrelated random walk."""
+    rng = np.random.default_rng(seed)
+    idx = pd.date_range("2018-01-01", periods=n, freq="D")
+    x = 100 * np.exp(np.cumsum(rng.normal(0, 0.01, n)))
+    u = np.zeros(n)
+    for t in range(1, n):
+        u[t] = 0.8 * u[t - 1] + rng.normal(0, 1.0)
+    y = 1.5 * x + u
+    z = 50 * np.exp(np.cumsum(rng.normal(0, 0.015, n)))
+    c = pd.DataFrame({"X": x, "Y": y, "Z": z}, index=idx)
+    return D.Bars("pairs", "1d", c, c, c, c, c * np.nan, 252)
+
+
+def test_engle_granger_matches_statsmodels():
+    from statsmodels.tsa.stattools import coint
+    b = _pairs_bars()
+    for a, c in (("Y", "X"), ("Z", "X")):
+        assert np.isclose(SP.engle_granger(b.close[a].to_numpy(), b.close[c].to_numpy()), coint(b.close[a], b.close[c])[1], atol=1e-8)
+
+
+def test_kalman_pairs_finds_the_cointegrated_pair_and_has_no_lookahead():
+    b = _pairs_bars(); st = SP.KalmanPairs(); p = dict(st.defaults(), formation_days=365, reselect_days=0)
+    full = st.signal(b, p)
+    assert set(st.info["pair"]) == {"Y / X"} and (full["Z"] == 0).all() and (full != 0).any().any()
+    assert np.allclose(full["Y"] * full["X"], -abs(full["Y"] * full["X"]))          # always opposite sides
+    cut = st.signal(b.select(end=b.close.index[699]), p)
+    pd.testing.assert_frame_equal(full.iloc[:700], cut, check_freq=False)
+
+
+def test_pair_position_rules():
+    z = np.array([0, -1.0, -1.5, -1.3, -1.2, -0.5, 0.0, 0.1, 0.5, 1.5, 1.2, 0.0, -0.1])
+    d = SP.pair_positions(z, 1.25, 0.08, True, 0.0)
+    assert list(d) == [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, -1, -1, 0]       # delayed entry: re-cross of -1.25 / +1.25
+    i = SP.pair_positions(z, 1.25, 0.08, False, 0.0)
+    assert i[2] == 1 and i[7] == 0 and i[9] == -1 and i[12] == 0
+
+
+def _intraday_bars(days=500, seed=5):
+    rng = np.random.default_rng(seed)
+    idx = pd.date_range("2021-01-04 13:00", periods=days * 96, freq="15min")
+    idx = idx[idx.dayofweek < 5]
+    c = pd.Series(15000 * np.exp(np.cumsum(rng.normal(0, 0.001, len(idx)))), index=idx)
+    o = c.shift(1).fillna(c.iloc[0]); h = np.maximum(o, c) * (1 + rng.uniform(0, 0.001, len(c))); lo = np.minimum(o, c) * (1 - rng.uniform(0, 0.001, len(c)))
+    f = lambda s: s.to_frame("NQ")
+    return D.Bars("nq", "15m", f(o), f(h), f(lo), f(c), f(c * 0 + 100), D.periods_per_year(idx, "15m"))
+
+
+def test_maxai_no_lookahead_session_only_and_trains_before_trading():
+    b = _intraday_bars(); st = SP.MaxAIQLearning(); p = dict(st.defaults(), train_days=120, retrain_days=60, min_visits=5)
+    full = st.signal(b, p)
+    assert (full.loc[: b.close.index[0] + pd.Timedelta(days=120)] == 0).all().all()
+    ny = full.index.tz_localize("UTC").tz_convert("America/New_York")
+    mins = ny.hour * 60 + ny.minute
+    assert (full["NQ"][(mins < 570) | (mins + 15 > 960)] == 0).all()                  # flat outside 9:30-16:00 ET
+    assert (full["NQ"] != 0).any()
+    n = len(b.close) * 2 // 3
+    cut = st.signal(b.select(end=b.close.index[n - 1]), p)
+    pd.testing.assert_frame_equal(full.iloc[:n], cut, check_freq=False)
+
+
+def test_stop_loss_and_target_exits():
+    a = np.ones(8); c = np.array([100, 100, 99.6, 99.6, 99.6, 100, 100, 100.0]); tr = np.ones(8, bool)
+    pos = SP._with_exits(a, c, tr, 0.003, 0.005, True)
+    assert list(pos) == [1, 1, 0, 0, 0, 0, 0, 0]                         # stopped out, waits for the policy to change
+    a2 = np.array([1, 1, 0, 1, 1, 1, -1, -1.0]); c2 = np.array([100, 100.6, 100.6, 100, 100.2, 100.6, 100, 100.0])
+    pos2 = SP._with_exits(a2, c2, tr, 0.003, 0.005, True)
+    assert list(pos2) == [1, 0, 0, 1, 1, 0, -1, -1]                        # target, re-entry after neutral, target, short

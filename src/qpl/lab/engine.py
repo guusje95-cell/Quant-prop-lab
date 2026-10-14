@@ -11,6 +11,8 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
+from qpl.lab.data import BPD
+
 
 @dataclass
 class Config:
@@ -27,7 +29,7 @@ def size(bars, sig: pd.DataFrame, cfg: Config, sizing="engine") -> pd.DataFrame:
     sig = sig.reindex(index=bars.close.index, columns=bars.symbols).fillna(0).clip(-2, 2)   # [-1,1] normal; up to 2 = conviction scaling
     if sizing == "raw":
         return sig * cfg.leverage
-    bpd = {"1h": 24, "4h": 6}.get(bars.freq, 1)
+    bpd = BPD.get(bars.freq, 1)
     ppy = bars.periods_per_year
     lr = np.log(bars.close).diff()
     n = cfg.vol_lookback_days * bpd
@@ -44,7 +46,7 @@ def run(bars, weights: pd.DataFrame, cfg: Config) -> dict:
     ret = c.pct_change(fill_method=None).fillna(0)
     wp = weights.shift(1).fillna(0)                                  # held during bar t
     turn = wp.diff().abs().fillna(wp.abs())
-    bpd = {"1h": 24, "4h": 6}.get(bars.freq, 1)
+    bpd = BPD.get(bars.freq, 1)
     cost = turn.sum(axis=1) * cfg.cost_bps / 1e4
     fund = (wp.sum(axis=1)) * cfg.funding_bps_day / 1e4 / bpd
     gross = (wp * ret).sum(axis=1)

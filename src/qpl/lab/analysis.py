@@ -44,13 +44,15 @@ def rolling_sharpe(net, ppy, window_days=365, bpd=1):
 
 # ------------------------------------------------------------------ edge diagnostics
 def bootstrap_sharpe(net, ppy, n=2000, block=20, seed=0):
+    """Stationary bootstrap (random block lengths, mean `block`) of the annualised Sharpe; vectorised over the series."""
     x = net.dropna().to_numpy(); T = len(x); rng = np.random.default_rng(seed)
-    p = 1.0 / block; out = np.empty(n)
+    p = 1.0 / block; out = np.empty(n); pos = np.arange(T)
     for k in range(n):
-        idx = np.empty(T, dtype=int); i = rng.integers(T)
-        for t in range(T):
-            idx[t] = i; i = rng.integers(T) if rng.random() < p else (i + 1) % T
-        y = x[idx]; out[k] = y.mean() / y.std() * np.sqrt(ppy) if y.std() > 0 else 0
+        new = rng.random(T) < p; new[0] = True                         # where a new block starts
+        starts = rng.integers(0, T, size=T)
+        first = np.maximum.accumulate(np.where(new, pos, 0))            # index where the current block began
+        idx = (starts[first] + pos - first) % T
+        y = x[idx]; sd = y.std(); out[k] = y.mean() / sd * np.sqrt(ppy) if sd > 0 else 0
     return np.percentile(out, [2.5, 50, 97.5]), out
 
 

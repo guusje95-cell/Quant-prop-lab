@@ -1,6 +1,7 @@
 """One-time data setup for the Backtest Lab on your own PC (all public data, no keys):
 
-    python -m qpl.lab.setup_data            # crypto majors daily + hourly, stablecoin supply, a Yahoo starter set
+    python -m qpl.lab.setup_data            # crypto majors daily + hourly, stablecoin supply, a Yahoo starter set,
+                                            # Nasdaq-100 / S&P 500 intraday (MaxAI strategy), US futures daily (pairs strategy)
     python -m qpl.lab.setup_data --quick    # daily crypto + stablecoins only
 
 Tries Binance spot first (history from 2017), then Bybit, then the GitHub mirror of Binance candles (works everywhere).
@@ -52,7 +53,10 @@ def crypto(interval):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--quick", action="store_true"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--quick", action="store_true")
+    ap.add_argument("--papers", action="store_true", help="only the data for the two paper strategies"); a = ap.parse_args()
+    if a.papers:
+        papers(); return
     crypto("1d")
     try:
         s = DL.stablecoins("2017-01-01"); print("stablecoin supply:", len(s), "days")
@@ -69,6 +73,29 @@ def main():
             print("yahoo", s, "failed:", e)
     if frames:
         print("yahoo:", DL.save(frames, "yahoo_starter_1d", "1d"))
+    papers()
+
+
+def papers():
+    """Data for the two paper strategies: index CFD intraday bars (MaxAI) and a daily futures panel (Kalman pairs)."""
+    for tf in ("M5", "M15"):
+        try:
+            print(f"Nasdaq-100 / S&P 500 {tf}:", DL.save({s: DL.dukascopy_github(s, tf) for s in ("US100", "US500")}, f"index_cfd_{tf}", DL.FREQ[tf]))
+        except Exception as e:
+            print(f"index CFD {tf} not available:", e)
+    try:
+        print("NQ futures 5m, last 60 days:", DL.save({"NQ": DL.yahoo("NQ=F", "2000-01-01", "5m")}, "nq_futures_5m_recent", "5m"))
+        print("NQ futures 1h, last 2 years:", DL.save({"NQ": DL.yahoo("NQ=F", "2000-01-01", "1h")}, "nq_futures_1h_recent", "1h"))
+    except Exception as e:
+        print("Yahoo NQ intraday not available:", e)
+    frames = {}
+    for s in DL.FUTURES_PAIRS:
+        try:
+            frames[s] = DL.futures_github(s)
+        except Exception as e:
+            print("futures", s, "failed:", e)
+    if frames:
+        print("US futures daily:", DL.save(frames, "futures_daily", "1d"))
 
 
 if __name__ == "__main__":

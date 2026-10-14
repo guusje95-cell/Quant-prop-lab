@@ -54,6 +54,7 @@ def backtest(_bars, bars_key, strat_name, params_t, cfg_t):
     sig = strat.signal(_bars, params)
     w = EN.size(_bars, sig, cfg, strat.sizing)
     r = EN.run(_bars, w, cfg)
+    r["info"] = getattr(strat, "info", None)          # optional strategy details (e.g. chosen pairs, training windows)
     return r, EN.to_daily(r["bars"], _bars.freq)
 
 
@@ -74,8 +75,8 @@ else:
     except Exception as e:
         st.error(f"Could not load '{choice}': {e}"); st.stop()
 
-tf_opts = {"1h": ["1h", "4h", "1d"], "4h": ["4h", "1d"], "1d": ["1d"]}[bars_all.freq]
-tf = st.sidebar.selectbox("Timeframe", tf_opts, index=len(tf_opts) - 1 if bars_all.freq == "1d" else 0, key=f"tf_{bars_key}")
+tf_opts = D.FREQS[D.FREQS.index(bars_all.freq):]
+tf = st.sidebar.selectbox("Timeframe", tf_opts, index=0, key=f"tf_{bars_key}")
 default_syms = [s for s in ("BTC", "ETH", "BNB", "XRP", "ADA", "SOL", "DOGE", "AVAX", "DOT", "LINK") if s in bars_all.symbols] or bars_all.symbols[:10]
 syms = st.sidebar.multiselect("Assets", bars_all.symbols, default=default_syms, key=f"syms_{bars_key}")
 if not syms:
@@ -96,6 +97,8 @@ for f, e in errs.items():
 sname = st.sidebar.selectbox("Strategy", list(reg), key="strategy")
 strat = reg[sname]()
 st.sidebar.caption(strat.description)
+if strat.sizing == "raw":
+    st.sidebar.caption("This strategy sizes its own positions: the volatility target and minimum-history settings below do not apply.")
 params = {}
 for k, p in strat.params.items():
     key = f"p_{sname}_{k}"
@@ -118,10 +121,16 @@ avt = st.sidebar.number_input("Per-asset volatility target (0 = off)", 0.0, 2.0,
 lev = st.sidebar.number_input("Leverage (whole book)", 0.05, 10.0, 0.79 if sname.startswith("C*") else 1.0, 0.05, key="lev",
                               help="0.79 = the research C* setting (~15% annual volatility)")
 minh = st.sidebar.number_input("Min. history before trading an asset (days)", 0, 400, 200, 10, key="minh")
+if "MaxAI" in sname and cost > 2:
+    st.sidebar.warning(f"{cost:g} bp per side is a crypto cost. MaxAI trades several times a day: NQ futures cost ≈ 0.3 bp per side, "
+                       "index CFDs at a prop firm ≈ the spread (US100 ~1 point ≈ 0.6 bp).")
 cfg = EN.Config(cost_bps=cost, funding_bps_day=fund, asset_vol_target=avt, leverage=lev, min_history_days=int(minh))
 
 st.sidebar.header("4 · Honesty checks")
-split = st.sidebar.date_input("Out-of-sample starts", value=pd.Timestamp("2024-01-01").date(), min_value=idx0, max_value=idx1, key=f"split_{bars_key}",
+split_default = pd.Timestamp("2024-01-01").date()
+if not idx0 < split_default < idx1:
+    split_default = (pd.Timestamp(idx0) + 0.7 * (pd.Timestamp(idx1) - pd.Timestamp(idx0))).date()
+split = st.sidebar.date_input("Out-of-sample starts", value=split_default, min_value=idx0, max_value=idx1, key=f"split_{bars_key}",
                               help="Tune only on data before this date; judge the strategy on data after it.")
 if "trials" not in st.session_state:
     st.session_state.trials = set()
@@ -135,7 +144,7 @@ res, daily = backtest(bars, (bars_key, tf, tuple(syms)), sname, tuple(sorted(par
 bh_res, bh_daily = backtest(bars, (bars_key, tf, tuple(syms)), "Buy & hold (benchmark)", tuple(), tuple(sorted(vars(cfg).items())))
 sl = slice(pd.Timestamp(start), pd.Timestamp(end) + pd.Timedelta(hours=23))
 net = res["bars"]["net"].loc[sl]; bh = bh_res["bars"]["net"].loc[sl]
-dd_ = daily.loc[sl]; ppy = bars.periods_per_year; bpd = {"1h": 24, "4h": 6}.get(bars.freq, 1)
+dd_ = daily.loc[sl]; ppy = bars.periods_per_year; bpd = D.BPD.get(bars.freq, 1)
 S_ = A.summary(net, ppy); B_ = A.summary(bh, ppy)
 if not S_:
     st.error("Not enough data in this range (or the strategy never traded)."); st.stop()
@@ -233,6 +242,10 @@ with tabs[2]:
 
 # ------------------------------------------------------------------ Assets & trades
 with tabs[3]:
+    info = res.get("info")
+    if isinstance(info, pd.DataFrame) and len(info):
+        with st.expander("Strategy details (what the strategy chose / learnt, per window)", expanded=True):
+            st.dataframe(info, width="stretch", height=min(400, 40 + 35 * len(info)))
     ap = res["asset_pnl"].loc[sl].sum().sort_values()
     st.plotly_chart(fig_layout(go.Figure(go.Bar(x=ap.values, y=ap.index, orientation="h")), 320, None)
                     .update_xaxes(tickformat=".0%", title="sum of daily contributions (after costs)"), width="stretch")

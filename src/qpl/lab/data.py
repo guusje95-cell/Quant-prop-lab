@@ -5,6 +5,8 @@ Sources
   builtin:binance_hourly  same, hourly (2022+)
   local:okx_hourly        OKX USDT-perp hourly candles saved by qpl.data.okx (data/raw/okx)
   local:yahoo_daily       Yahoo daily candles saved by qpl.data.yahoo (data/raw/yahoo)
+  local:dukascopy         US100 / US500 CFD 5-min, 15-min, hourly from the research data (data/raw/dukascopy)
+  local:futures_panel     ~250 futures, daily total-return index (data/processed/futures_panel)
   lab:<file>              anything saved by `python -m qpl.lab.download ...` (data/lab/*.parquet, long format)
   csv upload              columns: time, [symbol], open, high, low, close, [volume]
 All timestamps are tz-naive UTC. Bars are labelled by their OPEN time."""
@@ -21,12 +23,24 @@ ROOT = Path(__file__).resolve().parents[3]
 LAB = ROOT / "data/lab"
 FIELDS = ("open", "high", "low", "close", "volume")
 PPY = {"1h": 24 * 365, "4h": 6 * 365, "1d": 365, "1d_tradfi": 252}
+FREQS = ["1m", "5m", "15m", "30m", "1h", "4h", "1d"]                     # supported bar lengths, finest first
+BPD = {"1m": 1440, "5m": 288, "15m": 96, "30m": 48, "1h": 24, "4h": 6, "1d": 1}   # bars per 24h day
+RULE = {"5m": "5min", "15m": "15min", "30m": "30min", "1h": "1h", "4h": "4h", "1d": "1D"}
+
+
+def periods_per_year(index: pd.DatetimeIndex, freq: str) -> float:
+    """Bars per year as observed in the data (a futures market trading 23h x 5 days has fewer bars than crypto's 24/7)."""
+    if len(index) > 50:
+        span = (index[-1] - index[0]).days / 365.25
+        if span >= 0.04:
+            return float(len(index) / span)
+    return float(BPD.get(freq, 1) * 365)
 
 
 @dataclass
 class Bars:
     name: str
-    freq: str                                  # '1h', '4h' or '1d'
+    freq: str                                  # one of FREQS: '1m', '5m', '15m', '30m', '1h', '4h', '1d'
     open: pd.DataFrame
     high: pd.DataFrame
     low: pd.DataFrame
@@ -60,29 +74,28 @@ def from_long(df: pd.DataFrame, name: str, freq: str) -> Bars:
         df["volume"] = np.nan
     df = df.drop_duplicates(["time", "symbol"], keep="last")
     w = {k: df.pivot(index="time", columns="symbol", values=k).sort_index().astype(float) for k in FIELDS}
-    return Bars(name, freq, *(w[k] for k in FIELDS), periods_per_year=PPY.get(freq, 365.0))
+    return Bars(name, freq, *(w[k] for k in FIELDS), periods_per_year=periods_per_year(w["close"].index, freq))
 
 
 def infer_freq(index: pd.DatetimeIndex) -> str:
     if len(index) < 3:
         return "1d"
     step = pd.Series(index).diff().median()
-    if step <= pd.Timedelta("1h"):
-        return "1h"
-    if step <= pd.Timedelta("4h"):
-        return "4h"
+    for f in FREQS[:-1]:
+        if step <= pd.Timedelta(RULE.get(f, "1min")):
+            return f
     return "1d"
 
 
 def resample(b: Bars, freq: str) -> Bars:
-    """Aggregate to a coarser timeframe ('4h' or '1d', UTC boundaries)."""
+    """Aggregate to a coarser timeframe (one of FREQS, UTC boundaries)."""
     if freq == b.freq:
         return b
-    rule = {"4h": "4h", "1d": "1D"}[freq]
+    rule = RULE[freq]
     o = b.open.resample(rule).first(); h = b.high.resample(rule).max(); lo = b.low.resample(rule).min()
     c = b.close.resample(rule).last(); v = b.volume.resample(rule).sum(min_count=1)
     keep = c.notna().any(axis=1)
-    return Bars(b.name, freq, o[keep], h[keep], lo[keep], c[keep], v[keep], PPY[freq], dict(b.extra))
+    return Bars(b.name, freq, o[keep], h[keep], lo[keep], c[keep], v[keep], periods_per_year(c[keep].index, freq), dict(b.extra))
 
 
 # ---------------------------------------------------------------- sources
@@ -120,6 +133,28 @@ def _yahoo_local() -> Bars:
     return Bars("Yahoo daily", "1d", *(w[k] for k in FIELDS), periods_per_year=PPY["1d_tradfi"])
 
 
+def _dukascopy_github(sym: str, tf: str) -> Bars:
+    from qpl.data import loaders as L
+    df = L.raw_dukascopy(sym, tf)
+    df.index = df.index.tz_localize(None)
+    freq = {"M5": "5m", "M15": "15m", "M30": "30m", "H1": "1h", "D1": "1d"}[tf]
+    w = {k: df[[k]].rename(columns={k: sym}) for k in FIELDS}
+    return Bars(f"Dukascopy {sym} {freq}", freq, *(w[k] for k in FIELDS), periods_per_year=periods_per_year(df.index, freq))
+
+
+def futures_tr_index(ret: pd.DataFrame) -> pd.DataFrame:
+    """Daily futures returns (back-adjusted P&L / contract price) -> total-return index starting at 100 (roll gaps removed)."""
+    return 100 * (1 + ret.fillna(0)).cumprod().where(ret.notna().cumsum() > 0)
+
+
+def _futures_panel() -> Bars:
+    r = pd.read_parquet(ROOT / "data/processed/futures_panel/ret.parquet")
+    r.index = pd.DatetimeIndex(r.index).tz_localize(None) if getattr(r.index, "tz", None) else pd.DatetimeIndex(r.index)
+    c = futures_tr_index(r)
+    nan = c * np.nan
+    return Bars("Futures daily (pysystemtrade)", "1d", c, c, c, c, nan, periods_per_year=PPY["1d_tradfi"])
+
+
 def _lab_file(path: Path) -> Bars:
     df = pd.read_parquet(path)
     freq = df.attrs.get("freq") or infer_freq(pd.DatetimeIndex(sorted(df["time"].unique())))
@@ -138,8 +173,20 @@ def list_sources() -> dict:
         out["OKX USDT perps (hourly, 2020+)"] = _okx_local
     if list((ROOT / "data/raw/yahoo").glob("*.parquet")):
         out["Yahoo daily (indices, FX, ETFs, futures)"] = _yahoo_local
+    for sym in ("US100", "US500"):
+        for tf, lab in (("M5", "5-min, 2020-23"), ("M15", "15-min"), ("H1", "hourly")):
+            try:
+                from qpl.data import loaders as L
+                if (L.RAW / "dukascopy" / L.CFG["dukascopy_github"]["files"][sym].format(tf=tf)).exists():
+                    out[f"{sym} CFD, Dukascopy ({lab})"] = (lambda sym=sym, tf=tf: _dukascopy_github(sym, tf))
+            except Exception:
+                pass
+    if (ROOT / "data/processed/futures_panel/ret.parquet").exists():
+        out["Futures daily, 250 markets (pysystemtrade, to 2024-03)"] = _futures_panel
     if LAB.exists():
         for f in sorted(LAB.glob("*.parquet")):
+            if f.stem == "stablecoins":
+                continue
             out[f"Downloaded: {f.stem}"] = (lambda f=f: _lab_file(f))
     return out
 

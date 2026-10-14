@@ -61,7 +61,8 @@ def per_asset(bars, fn):
 
 
 def bars_per_day(bars):
-    return {"1h": 24, "4h": 6}.get(bars.freq, 1)
+    from qpl.lab.data import BPD
+    return BPD.get(bars.freq, 1)
 
 
 # ------------------------------------------------------------------ built-in strategies
@@ -181,6 +182,14 @@ class RSIReversion(Strategy):
 
 
 BUILTIN = [CStarTrend, BuyHold, SMACross, Donchian, TSMOM, RSIReversion]
+
+
+def _paper_strategies():
+    from qpl.lab.strategies_papers import KalmanPairs, MaxAIQLearning
+    return [KalmanPairs, MaxAIQLearning]
+
+
+BUILTIN += _paper_strategies()
 
 
 def load_user_strategies():
