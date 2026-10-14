@@ -1,0 +1,5 @@
+# Backtest Lab (app/lab.py) - on top of requirements.txt
+streamlit>=1.50
+plotly>=5.20
+requests>=2.31
+matplotlib>=3.8
