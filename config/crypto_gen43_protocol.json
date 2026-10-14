@@ -1,0 +1,15 @@
+{
+  "_written": "2026-10-14, BEFORE any gen43 return was computed.",
+  "idea": "breadth: the frozen E2 signal (+ O3 stable-liquidity overlay) on a wider point-in-time universe should diversify idiosyncratic trend timing, raising Sharpe and the share of positive months versus the 10-coin book",
+  "data": "Coin Metrics community PriceUSD / CapMrktCurUSD (close-only, survivorship-reduced point-in-time ranks; includes later-collapsed coins), 2018-01-01..2026-05-24; USDT+USDC caps for O3",
+  "books (same engine as gen37 U2: w = s * O3 * min(1, 0.40/sigma30) / N_members, close-to-close, 1-day overlay lag)": {
+    "BASE_TOP10": "point-in-time market-cap ranks 1-10 (non-stablecoin, >= 200 days history)",
+    "BROAD_TOP30": "ranks 1-30",
+    "BROAD_TOP20": "ranks 1-20 (reported, counts as a trial)"
+  },
+  "costs": "7.5 bp per unit turnover for ranks 1-10, 15 bp for ranks 11-30; 0 funding (CFT Bybit route); stress 2x",
+  "periods": {"DEV": "2018-01-01..2021-12-31", "VAL": "2022-01-01..2023-12-31", "TEST": "2024-01-01..2026-05-24"},
+  "acceptance (BROAD_TOP30 and BROAD_TOP20 separately vs BASE_TOP10, all at equal vol)": "Sharpe higher in each of DEV/VAL/TEST, share of positive months >= BASE's, 2x-cost TEST Sharpe >= 0.8, paired bootstrap Holm p < 0.05 (2 comparisons)",
+  "trials": "2 (BASE is the reference; cumulative crypto alpha trials ~166)",
+  "single_use": true
+}
