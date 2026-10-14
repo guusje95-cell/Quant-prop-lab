@@ -122,10 +122,14 @@ avt = st.sidebar.number_input("Per-asset volatility target (0 = off)", 0.0, 2.0,
 lev = st.sidebar.number_input("Leverage (whole book)", 0.05, 10.0, 0.79 if sname.startswith("C*") else 1.0, 0.05, key="lev",
                               help="0.79 = the research C* setting (~15% annual volatility)")
 minh = st.sidebar.number_input("Min. history before trading an asset (days)", 0, 400, 200, 10, key="minh")
+vlook = st.sidebar.number_input("Volatility lookback (days)", 5, 250, 30, 5, key="vlook", help="Gen52: 20 slightly better than 30 for C*")
+band_ = st.sidebar.number_input("No-trade band (fraction of position)", 0.0, 1.0, 0.0, 0.05, key="band",
+                                help="skip small rebalances; Gen52: 0.2 cuts costs for C*")
 if "MaxAI" in sname and cost > 2:
     st.sidebar.warning(f"{cost:g} bp per side is a crypto cost. MaxAI trades several times a day: NQ futures cost ≈ 0.3 bp per side, "
                        "index CFDs at a prop firm ≈ the spread (US100 ~1 point ≈ 0.6 bp).")
-cfg = EN.Config(cost_bps=cost, funding_bps_day=fund, asset_vol_target=avt, leverage=lev, min_history_days=int(minh))
+cfg = EN.Config(cost_bps=cost, funding_bps_day=fund, asset_vol_target=avt, leverage=lev, min_history_days=int(minh),
+                vol_lookback_days=int(vlook), no_trade_band=band_)
 
 st.sidebar.header("4 · Honesty checks")
 split_default = pd.Timestamp("2024-01-01").date()
@@ -135,7 +139,7 @@ split = st.sidebar.date_input("Out-of-sample starts", value=split_default, min_v
                               help="Tune only on data before this date; judge the strategy on data after it.")
 if "trials" not in st.session_state:
     st.session_state.trials = set()
-trial_key = (bars_key, tf, tuple(syms), sname, tuple(sorted(params.items())), cost, fund, avt, minh)
+trial_key = (bars_key, tf, tuple(syms), sname, tuple(sorted(params.items())), cost, fund, avt, minh, vlook, band_)
 st.session_state.trials.add(trial_key)
 n_trials = st.sidebar.number_input("Trials so far (for deflated Sharpe)", 1, 100000, max(1, len(st.session_state.trials)), key="ntr",
                                    help="Every distinct setting you looked at counts. The research project used ~170 for C*.")

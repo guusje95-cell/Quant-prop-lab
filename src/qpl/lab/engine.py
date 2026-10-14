@@ -23,6 +23,7 @@ class Config:
     max_asset_weight: float = 1.0     # cap per asset after vol scaling (before leverage)
     leverage: float = 1.0             # final multiplier on the whole book
     min_history_days: int = 200       # an asset is tradable only after this many days of data
+    no_trade_band: float = 0.0        # ignore weight changes smaller than this fraction of the current weight (cuts costs)
 
 
 def size(bars, sig: pd.DataFrame, cfg: Config, sizing="engine") -> pd.DataFrame:
@@ -38,7 +39,19 @@ def size(bars, sig: pd.DataFrame, cfg: Config, sizing="engine") -> pd.DataFrame:
     scale = (cfg.asset_vol_target / vol).clip(upper=cfg.max_asset_weight) if cfg.asset_vol_target > 0 else 1.0
     w = (sig * scale).where(hist, 0.0)
     nact = hist.sum(axis=1).replace(0, np.nan)
-    return w.div(nact, axis=0).fillna(0) * cfg.leverage
+    return apply_band(w.div(nact, axis=0).fillna(0) * cfg.leverage, cfg.no_trade_band)
+
+
+def apply_band(w: pd.DataFrame, band: float) -> pd.DataFrame:
+    """Hold the previous weight while the new target differs by at most `band` x |previous| (same sign)."""
+    if band <= 0:
+        return w
+    W = w.to_numpy().copy()
+    for t in range(1, len(W)):
+        prev, cur = W[t - 1], W[t]
+        keep = (np.abs(cur - prev) <= band * np.abs(prev)) & (np.sign(cur) == np.sign(prev)) & (prev != 0)
+        W[t] = np.where(keep, prev, cur)
+    return pd.DataFrame(W, index=w.index, columns=w.columns)
 
 
 def run(bars, weights: pd.DataFrame, cfg: Config) -> dict:

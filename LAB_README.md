@@ -246,6 +246,23 @@ Two strategies from the papers you supplied are built in. Neither can be copied 
 
 **Results:** see `research/GEN49_51_SEARCH.md`. C* stays the best strategy.
 
+### Optimised prop settings (Gen52)
+
+**Full study:** see `research/GEN52_PROP_OPTIMISATION.md`.
+
+**New sidebar settings:** "Volatility lookback (days)" and "No-trade band".
+
+**FTMO 2-Step setup to try in the app:**
+1. Pick C* and untick the stablecoin filter.
+2. Set the volatility lookback to 20 and the no-trade band to 0.2.
+3. In the Prop firm tab:
+   - preset FTMO;
+   - risk in challenge 1.5;
+   - risk when funded 0.6;
+   - daily equity stop 90.
+
+**Crypto Fund Trader 1-Phase:** keep plain C* (risk 1.0 / 0.4).
+
 ### What the Lab found (pre-registered defaults, every run listed, nothing tuned)
 
 **MaxAI re-implementation on US100 5-min CFD data, cost 0.3 bp/side**

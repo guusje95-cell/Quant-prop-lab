@@ -311,3 +311,9 @@ def test_catching_crypto_trends_ensemble_no_lookahead():
     full = st.signal(b, p)
     assert full.max().max() <= 1 and full.min().min() >= 0 and (full > 0).any().any()
     pd.testing.assert_frame_equal(full.iloc[:300], st.signal(b.select(end=b.close.index[299]), p), check_freq=False)
+
+
+def test_no_trade_band_keeps_small_changes():
+    w = pd.DataFrame({"A": [0.0, 1.0, 1.1, 1.3, -0.5, -0.55]})
+    out = EN.apply_band(w, 0.2)["A"].tolist()
+    assert out == [0.0, 1.0, 1.0, 1.3, -0.5, -0.5]

@@ -58,3 +58,12 @@ Details are in `research/GEN49_51_SEARCH.md`.
 - **Multi-strategy mixes and a C* + S&P regime filter:** do not beat C*.
 - **"Catching Crypto Trends" (Zarattini et al. 2025):** Sharpe 1.44 on the same coins. An independent confirmation of the crypto trend edge.
 - **Daily equity stop at −3% on C* in prop challenges:** pass rate up 6–7 points and no more daily-loss fails. The profit effect is uncertain on hourly data. Not passed.
+
+
+## Gen52 (2026-10-14): prop optimisation
+About 5,900 trials: DEV 2018–22 to choose, TEST 2023–26 and an hourly replay to judge. Details are in `research/GEN52_PROP_OPTIMISATION.md`.
+
+- **CFT 1-Phase:** nothing beats plain C* (1.0 / 0.4) on the hourly replay. Keep it.
+- **FTMO 2-Step:** C* without the stablecoin filter, vol 20, band 0.2, challenge 1.5×, funded 0.6×, daily stop at 90%, take-profit 4%.
+  - Net on TEST: $15.5k vs $6.9k for plain C*. Net on the hourly replay: $12.3k vs $10.9k.
+  - Chance of profit on hourly: 99%. This passes the rule, but the result is promising, not proven.
