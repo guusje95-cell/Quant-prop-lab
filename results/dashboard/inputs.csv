@@ -1,0 +1,11 @@
+key,value
+account_usd,100000
+fee_usd,798
+program,1PHASE
+horizon_days,730
+challenge_vol,0.15
+funded_vol,0.06
+profit_split,0.8
+payout_fee,0.05
+first_start,2018-01-01
+last_start,2024-10-06
