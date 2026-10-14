@@ -74,6 +74,9 @@ def verdict(t):
     return "Rejected"
 g["verdict"] = g["test"].map(verdict)
 out["gen53"] = g[["test", "sharpe", "sharpe_dev", "sharpe_test", "cagr", "max_dd", "worst_day", "verdict"]].to_dict("records")
+f55 = pd.read_csv(ROOT / "results/gen55_firms.csv")
+out["gen55"] = f55[["firm", "setting", "risk_challenge", "risk_funded", "daily_stop", "pass", "funded", "fees", "net", "net_p50", "net_p10",
+                    "p_profit", "months_with_income", "fee", "cost_bps", "swap_bps_day"]].sort_values("net", ascending=False).to_dict("records")
 (ROOT / "results/dashboard").mkdir(parents=True, exist_ok=True)
 json.dump(clean(out), open(ROOT / "results/dashboard/gen52_dashboard.json", "w"))
 tpl = (ROOT / "results/dashboard/template.html").read_text()

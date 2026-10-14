@@ -92,6 +92,11 @@ Rank the final table by how suitable each paper is for steady monthly prop-firm 
 **Prop settings found so far**
 - **CFT 1-Phase:** challenge 1.0×, funded 0.4×. No extra stops or take-profits (they did not hold up on hourly prices).
 - **FTMO 2-Step:** challenge 1.5×, funded 0.6×, daily stop at 90% of the limit, 4% take-profit, 20-day vol window, 0.2 no-trade band (Gen52).
+- **Which firm (Gen55, `research/GEN55_FIRMS.md`):**
+  - Robust and cheap: BrightFunded Two-Step Bright, FundedNext Stellar, FTMO, HyroTrader Two-Step (about $12k net per $100k account over 2 years, about $550 fees).
+  - Highest per account: HyroTrader One-Step ($14–17k).
+  - Avoid: Breakout and SizeProp Degen.
+  - Before buying, check each firm's algo/copy-trading rules and current prices (Breakout and BrightFunded One-Step prices were assumed).
 - **More accounts multiply income**, but not consistency (one strategy: 22–33% of months with income).
 
 **Tools:**

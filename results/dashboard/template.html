@@ -117,6 +117,12 @@ ul.notes{margin:0;padding-left:18px;display:grid;gap:6px;max-width:80ch}
   <div class="scroll"><table id="g53"></table></div>
 </section>
 
+<section class="panel" aria-labelledby="h-g55">
+  <h2 id="h-g55">Gen55: which prop firm, with its own rules and costs</h2>
+  <p class="note">C* + BTC leads replayed on hourly prices 2022–2026 with each firm's targets, loss limits, trading fees, swap, leverage cap and daily reset time. One account, up to 5 challenges, 24 months. "Baseline" = challenge 1.0×, funded 0.4×; "DEV pick" = the best risk setting on 2018–2022 data. Fees marked as assumed in the code (Breakout, BrightFunded One-Step) are not confirmed prices.</p>
+  <div class="scroll"><table id="g55"></table></div>
+</section>
+
 <section class="panel" aria-labelledby="h-n">
   <h2 id="h-n">How to read this</h2>
   <ul class="notes">
@@ -212,7 +218,11 @@ function g53(){const t=document.getElementById('g53');if(!D.gen53)return;
   D.gen53.forEach(r=>{const v=r.verdict||'';const col=v.startsWith('Pass')?'var(--good)':v.startsWith('Info')||v.startsWith('Base')?'var(--muted)':'var(--bad)';
     h+=`<tr><td>${r.test}</td><td><b>${f2(r.sharpe)}</b></td><td>${f2(r.sharpe_dev)}</td><td>${f2(r.sharpe_test)}</td><td>${pct(r.cagr)}</td><td class="neg">${pct(r.max_dd)}</td><td class="neg">${pct(r.worst_day)}</td><td><span class="pill" style="color:${col}">${v.toUpperCase()}</span></td></tr>`});
   t.innerHTML=h+'</tbody>';}
-function renderAll(){chips();drawEq();stats();heat();cards();cash();sens();finals();g53();}
+function g55(){const t=document.getElementById('g55');if(!D.gen55)return;
+  let h='<thead><tr><th>Firm</th><th>Setting</th><th>Risk ch/fd</th><th>Pass</th><th>Funded</th><th>Fees paid</th><th>Net avg</th><th>Net typical</th><th>Net unlucky 10%</th><th>Chance of profit</th><th>Months with income</th></tr></thead><tbody>';
+  D.gen55.forEach(r=>{h+=`<tr><td>${r.firm}</td><td>${r.setting}${r.daily_stop?' + stop':''}</td><td>${f2(r.risk_challenge)} / ${f2(r.risk_funded)}</td><td>${pct(r.pass)}</td><td>${pct(r.funded)}</td><td class="neg">$${Math.round(r.fees).toLocaleString()}</td><td><b>$${Math.round(r.net).toLocaleString()}</b></td><td>$${Math.round(r.net_p50).toLocaleString()}</td><td class="${r.net_p10<0?'neg':''}">$${Math.round(r.net_p10).toLocaleString()}</td><td>${pct(r.p_profit)}</td><td>${pct(r.months_with_income)}</td></tr>`});
+  t.innerHTML=h+'</tbody>';}
+function renderAll(){chips();drawEq();stats();heat();cards();cash();sens();finals();g53();g55();}
 const ms=document.getElementById('msel');NAMES.forEach(n=>ms.add(new Option(n,n)));ms.onchange=heat;
 const ps=document.getElementById('psel');Object.keys(D.prop).forEach(n=>ps.add(new Option(n,n)));ps.value=Object.keys(D.prop)[0];ps.onchange=cash;
 renderAll();

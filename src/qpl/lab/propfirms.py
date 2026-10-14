@@ -51,15 +51,60 @@ class Firm:
     cushion_scale: bool = False            # size x clip((equity - floor) / max_loss, cushion_min, 1)
     cushion_min: float = 0.25
     take_profit: float = 0.0               # flat for the rest of the day once the day's gain reaches this (0 = off)
+    # firm trading conditions (used by the hourly replay, which rebuilds the daily results with these costs; the daily
+    # simulator itself only sees the results it is given):
+    cost_bps: float = 7.5                  # commission + spread/slippage per side, basis points of traded notional
+    swap_bps_day: float = 0.0              # financing per day on open notional, basis points
+    lev_major: float = 0.0                 # max leverage BTC/ETH (0 = no cap); margin used = sum |notional| / leverage <= equity
+    lev_other: float = 0.0                 # max leverage other coins
+    reset_hour_utc: int = 0                # hour (UTC) at which the firm's trading day / daily loss resets
+    # payout rules:
+    payout_min: float = 0.0                # minimum payout (USD); smaller profits stay in the account
+    first_payout_days: int = 0             # days after funding before the first payout (0 = payout_every)
 
 
 PRESETS = {
     "Crypto Fund Trader 1-Phase $100k": Firm("CFT 1-Phase", 100_000, 798, (0.10,), 0.04, "initial", True, 0.06, "trailing_lock", True,
                                              0, 0, 0.80, 30, 0.05, False, 0.0, "CFT Bybit route; 6% trailing loss stops at the start balance"),
-    "Crypto Fund Trader 2-Phase $100k": Firm("CFT 2-Phase", 100_000, 798, (0.08, 0.05), 0.05, "initial", True, 0.10, "static", True,
-                                             0, 0, 0.80, 30, 0.05, False, 0.0, "fee: check the current price"),
+    "Crypto Fund Trader 2-Phase $100k": Firm("CFT 2-Phase", 100_000, 660, (0.08, 0.05), 0.05, "initial", True, 0.10, "static", True,
+                                             0, 0, 0.80, 30, 0.05, False, 0.0, "$660 list price (aggregators, Jul 2026); daily loss from 00:05 UTC balance"),
+    "Crypto Fund Trader 2-Phase $100k + weekly payouts + 90% split": Firm(
+        "CFT 2-Phase+addons", 100_000, 660 * 1.40, (0.08, 0.05), 0.05, "initial", True, 0.10, "static", True, 0, 0, 0.90, 7, 0.05, False, 0.0,
+        "add-ons: weekly payout +20%, 90% split +20% of the fee"),
     "FTMO 2-Step $100k": Firm("FTMO 2-Step", 100_000, 590, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True,
-                              4, 0, 0.80, 14, 0.0, True, 0.0, "€540 ≈ $590; daily loss 5% of initial balance; fee refunded with 1st payout"),
+                              4, 0, 0.80, 14, 0.0, True, 0.0, "€540 ≈ $590; daily loss 5% of initial balance; fee refunded with 1st payout; crypto CFD 0.0325%/side + ~5bp spread ASSUMED, swap not modelled",
+                              cost_bps=8.25, reset_hour_utc=22),
+    # ---- crypto prop firms from the user's comparison (Oct 2026). Unverified items are marked 'ASSUMED' in the note.
+    "HyroTrader Zero-Step $100k": Firm("Hyro Zero", 100_000, 949, (0.10,), 0.03, "initial", True, 0.05, "static", True, 1, 0, 0.80, 14, 0.0, False, 0.0,
+                                       "no refund; payout >= $100 in USDT/USDC; cadence 14d ASSUMED; Bybit taker 5.5bp + 2bp slippage ASSUMED",
+                                       cost_bps=7.5, payout_min=100),
+    "HyroTrader One-Step $100k": Firm("Hyro 1-Step", 100_000, 749, (0.10,), 0.04, "initial", True, 0.06, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                      "fee refunded with 1st payout; cadence 14d ASSUMED", cost_bps=7.5, payout_min=100),
+    "HyroTrader Two-Step $100k": Firm("Hyro 2-Step", 100_000, 579, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                      "5 min days per phase; refund; cadence 14d ASSUMED", cost_bps=7.5, payout_min=100),
+    "HyroTrader Two-Step $200k": Firm("Hyro 2-Step 200k", 200_000, 969, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                      "as $100k", cost_bps=7.5, payout_min=100),
+    "Breakout One-Step Classic $100k": Firm("Breakout Classic", 100_000, 999, (0.10,), 0.03, "initial", True, 0.06, "static", True, 0, 0, 0.80, 30, 0.0, False, 0.0,
+                                            "fee $999 from one blog (ASSUMED); split 80% and 30d cadence ASSUMED; 0.04%/side + 2bp slip; swap 0.033%/day",
+                                            cost_bps=6.0, swap_bps_day=3.3, lev_major=5, lev_other=2),
+    "Breakout One-Step Pro $100k": Firm("Breakout Pro", 100_000, 999, (0.12,), 0.03, "initial", True, 0.05, "static", True, 0, 0, 0.80, 30, 0.0, False, 0.0,
+                                        "fee ASSUMED = Classic", cost_bps=6.0, swap_bps_day=3.3, lev_major=5, lev_other=2),
+    "Breakout Two-Step $100k": Firm("Breakout 2-Step", 100_000, 999, (0.05, 0.10), 0.04, "initial", True, 0.06, "static", True, 0, 0, 0.80, 30, 0.0, False, 0.0,
+                                    "fee ASSUMED = Classic; phase order 5% then 10% as given", cost_bps=6.0, swap_bps_day=3.3, lev_major=5, lev_other=2),
+    "SizeProp Degen $100k": Firm("SizeProp Degen", 100_000, 522, (0.08,), 0.02, "initial", True, 0.03, "static", True, 0, 0, 0.80, 7, 0.0, False, 0.0,
+                                 "unlimited payout frequency (weekly modelled); daily reset 20:00 UTC; Hyperliquid 4.5bp + 2bp slip ASSUMED",
+                                 cost_bps=6.5, reset_hour_utc=20),
+    "SizeProp One-Step $100k": Firm("SizeProp 1-Step", 100_000, 899, (0.10,), 0.03, "initial", True, 0.05, "static", True, 0, 0, 0.80, 7, 0.0, False, 0.0,
+                                    "daily reset 20:00 UTC; must trade every 90 days", cost_bps=6.5, reset_hour_utc=20),
+    "FundedNext Stellar 2-Step $100k": Firm("FundedNext Stellar", 100_000, 549.99, (0.08, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                            "crypto leverage 1:1; first reward after 21 days then every 14; split 80% and costs ASSUMED; reset 22:00 UTC",
+                                            cost_bps=7.5, lev_major=1, lev_other=1, reset_hour_utc=22, first_payout_days=21),
+    "BrightFunded Two-Step Bright $100k": Firm("Bright 2-Step Bright", 100_000, 495, (0.08, 0.05), 0.04, "initial", True, 0.08, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                               "$495 from aggregators; cadence 14d, costs ASSUMED; reset 22:00 UTC", cost_bps=7.5, reset_hour_utc=22),
+    "BrightFunded Two-Step Classic $100k": Firm("Bright 2-Step Classic", 100_000, 495, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                                "fee ASSUMED = Bright", cost_bps=7.5, reset_hour_utc=22),
+    "BrightFunded One-Step $100k": Firm("Bright 1-Step", 100_000, 495, (0.10,), 0.03, "initial", True, 0.06, "trailing", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                        "fee ASSUMED; 6% trailing (modelled without lock = conservative)", cost_bps=7.5, reset_hour_utc=22),
     "Topstep 50k Combine (futures)": Firm("Topstep 50k", 50_000, 49, (0.06,), 0.0, "initial", True, 0.04, "trailing_lock", False,
                                           2, 0, 0.90, 30, 0.0, False, 149.0, "$3,000 target, $2,000 end-of-day trailing loss; $49/month while in the Combine; consistency rule not modelled", True),
     "Apex 50k (futures)": Firm("Apex 50k", 50_000, 167, (0.06,), 0.0, "initial", True, 0.05, "trailing_lock", True,
@@ -191,7 +236,7 @@ def _ledger(rc, loc, hic, rf, lof, hif, cal, s, end, f: Firm, budget: int):
         passed += 1
         first_pass = cal[t] - cal[s] if first_pass is None else first_pass
         cash[t - s] -= f.funded_fee
-        E = 1.0; hwm = 1.0; last = cal[t]; f_start = cal[t]
+        E = 1.0; hwm = 1.0; last = cal[t]; f_start = cal[t]; first_cycle = True
         while t < end:
             D = E
             low, close, high = _day(f, D, hwm, rf[t], lof[t], hif[t])
@@ -204,9 +249,10 @@ def _ledger(rc, loc, hic, rf, lof, hif, cal, s, end, f: Firm, budget: int):
             E = close
             if f.max_type != "static" and not f.trailing_intraday:
                 hwm = max(hwm, E)
-            if cal[t] - last >= f.payout_every:
-                last = cal[t]
-                if E > 1.0:
+            wait = f.first_payout_days if (f.first_payout_days and first_cycle) else f.payout_every
+            if cal[t] - last >= wait:
+                last = cal[t]; first_cycle = False
+                if E > 1.0 and (E - 1.0) * f.account * f.split >= f.payout_min:
                     pay = (E - 1.0) * f.account * f.split * (1 - f.payout_fee)
                     if f.refund_fee and not refunded:
                         pay += f.fee; refunded = True

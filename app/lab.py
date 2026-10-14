@@ -316,6 +316,14 @@ def firm_controls(prefix: str):
     firm = PF.Firm(base.name, float(acc_), fee_, targets or base.targets, dl / 100, "initial" if dlb.startswith("% of initial") else "day_start",
                    dli, ml / 100, mt, ti, int(mind), int(maxd), spl / 100, int(pe), pf_ / 100, refund, ffee, base.note, fee_m,
                    stopf / 100, 0.003, cush)
+    firm = PF.replace(firm, cost_bps=base.cost_bps, swap_bps_day=base.swap_bps_day, lev_major=base.lev_major, lev_other=base.lev_other,
+                      reset_hour_utc=base.reset_hour_utc, payout_min=base.payout_min, first_payout_days=base.first_payout_days)
+    if base.note:
+        st.caption(f"{base.name}: {base.note}. Trading costs at this firm: {base.cost_bps:g} bp/side"
+                   + (f", swap {base.swap_bps_day:g} bp/day" if base.swap_bps_day else "")
+                   + (f", leverage cap {base.lev_major:g}x majors / {base.lev_other:g}x others" if base.lev_major else "")
+                   + f"; day resets {base.reset_hour_utc:02d}:00 UTC. This tab uses the backtest's own costs; "
+                     "research/GEN55_FIRMS.md re-runs the main strategy with each firm's costs on hourly prices.")
     c = st.columns(5)
     budget_ = c[0].number_input("Max. challenges you will buy", 1, 50, 5, 1, key=f"{prefix}_budget",
                                 help="re-buy after a failed challenge or a lost funded account, up to this many in total")

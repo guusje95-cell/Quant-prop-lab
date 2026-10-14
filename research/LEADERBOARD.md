@@ -78,3 +78,11 @@ Details are in `research/GEN53_RESEARCH.md`.
 - **Survivorship check:** point-in-time universes give C* a Sharpe of 1.27–1.44, against 1.78 for the fixed majors on the same data. Plan with about 1.4–1.5.
 - **Rebalance tranching:** small gain (+0.07 TEST); not passed.
 - **AHL continuous signal and portfolio covariance vol-targeting:** rejected.
+
+## Gen55 (2026-10-14): which prop firm, with each firm's own rules and costs
+Details are in `research/GEN55_FIRMS.md`. Strategy: C\* + BTC leads on hourly prices 2022–26, 1 account, 24 months.
+
+- **Most robust:** the cheap two-steps with a fee refund. BrightFunded Bright, FundedNext Stellar, FTMO and HyroTrader Two-Step each net about $12–12.6k for about $550 in fees.
+- **Most per $100k account:** HyroTrader One-Step, $13.7k (baseline) to $17.0k (1.5×/0.6× + daily stop).
+- **Avoid:** Breakout (swap + tight limits; 25–48% pass) and SizeProp Degen (2%/3% limits; 24–37% pass).
+- **Months with income stay at 12–25% at every firm.** Firm choice does not solve consistency; extra uncorrelated strategies are still needed.

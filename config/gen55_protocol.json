@@ -1,0 +1,14 @@
+{
+  "generation": "Gen55",
+  "title": "Per-firm re-evaluation of C* + BTC leads with each firm's own rules, costs and day boundaries",
+  "registered": "2026-10-14, before any Gen55 result was computed",
+  "strategy": "C* + BTC leads (Gen53), vol lookback 30, no band, 15% vol scaling on DEV; fixed, not re-tuned",
+  "firms": "every crypto preset in qpl.lab.propfirms (17) + FTMO swap stress (swap 3.3 bp/day, since FTMO crypto swaps are unknown)",
+  "firm_conditions": "cost_bps per side on turnover, swap_bps_day on gross notional, leverage cap (sum |w|/lev <= 1, rows scaled down), day reset hour, payout minimum, first-payout delay",
+  "grid_per_firm": {"risk_challenge": [0.5, 0.75, 1.0, 1.5], "risk_funded": [0.25, 0.4, 0.6], "daily_stop_frac": [0.0, 0.75]},
+  "selection": "per firm, the grid point with the highest mean 24-month net (budget 5 challenges, 1 account) on DEV 2018-03-05..2022-12-31 using the daily-candle model with the firm's costs",
+  "evaluation": "hourly replay on Binance hourly prices 2022-01..2026-10 for (a) the common baseline 1.0/0.4/no stop and (b) the DEV pick; reported: pass rate, P(funded), mean / median / p10 net, P(profit), months 7-24 with net income",
+  "trials_added": 18,
+  "trials_note": "18 firm rows x 24 grid points = 432 configurations evaluated on DEV; the strategy itself is not re-selected, so the strategy trial count is unchanged; firm ranking is a choice among 18",
+  "caveats": "fees for Breakout and BrightFunded One-Step, all payout cadences not given by the user, splits for Breakout/FundedNext and most cost levels are ASSUMED (marked in each preset's note); hourly 2022 overlaps DEV"
+}

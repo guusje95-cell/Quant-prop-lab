@@ -349,3 +349,19 @@ def test_binance_vision_zip_parser_handles_header_and_microseconds(monkeypatch):
     monkeypatch.setattr(BV.requests, "get", lambda *a, **k: R(mk(row_us)))
     d2 = BV._zip_csv("u"); assert len(d2) == 1 and d2.shape[1] == 12
     ts = pd.to_numeric(d2.iloc[:, 0]); assert pd.to_datetime(ts, unit="us" if ts.max() > 1e14 else "ms")[0] == pd.Timestamp("2025-01-01")
+
+
+def test_payout_min_and_first_payout_delay():
+    import numpy as np, pandas as pd
+    from qpl.lab import propfirms as PF
+    idx = pd.date_range("2024-01-01", periods=120, freq="D")
+    d = pd.DataFrame({"net": 0.002, "worst": -0.001, "best": 0.003}, index=idx)
+    base = PF.Firm("t", 100_000, 100, (0.01,), 0.05, "initial", True, 0.10, "static", True, 0, 0, 0.8, 7, 0.0, False, 0.0)
+    rows = [d[c].to_numpy() for c in ("net", "worst", "best")]
+    cal = np.arange(len(idx))
+    a = PF._ledger(*rows, *rows, cal, 0, len(idx), base, 1)
+    b = PF._ledger(*rows, *rows, cal, 0, len(idx), PF.replace(base, first_payout_days=21), 1)
+    c = PF._ledger(*rows, *rows, cal, 0, len(idx), PF.replace(base, payout_min=50_000), 1)
+    assert b["first_pay"] - a["first_pay"] == 14          # first payout 21 days after funding instead of 7
+    assert c["payouts"] == 0 and a["payouts"] > 5         # profits accumulate but never reach a $50k payout in 120 days
+    assert PF.PRESETS["SizeProp Degen $100k"].reset_hour_utc == 20 and PF.PRESETS["Breakout One-Step Classic $100k"].swap_bps_day == 3.3
