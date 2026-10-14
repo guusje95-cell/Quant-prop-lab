@@ -1,0 +1,40 @@
+{
+  "generation": "Gen56",
+  "title": "Five crypto papers: intraday hour pairs (Wen et al. 2022), basis / momentum / basis-momentum factors (Chi et al. 2023; Cao et al. 2026), funding-rate predictability (Inan 2025), perpetual arbitrage bounds (Dai, Li & Yang 2025)",
+  "registered": "2026-10-14, before any Gen56 result was computed",
+  "A_intraday_pairs": {
+    "paper": "Wen, Bouri, Xu & Zhao (2022) NAJEF 62:101733; sample ends 2020-05, so everything from 2020-06 is out of sample",
+    "data": "OKX USDT perps hourly BTC ETH LTC XRP 2020-06..2026-10; Binance spot hourly BTC ETH XRP 2022+ as venue check",
+    "hour_returns": "r_i = return of the UTC hour (i-1):00-i:00, i = 1..24",
+    "published_pairs": [[3, 5, -1], [3, 15, -1], [3, 17, 1], [8, 22, 1], [10, 11, -1], [12, 13, -1], [22, 23, -1]],
+    "rule": "position in hour j = sign x sign(r_i); flat if r_i = 0; one round trip per day",
+    "costs_bps_per_side": [0, 2, 5],
+    "combo": "equal weight of the 5 pairs the paper calls effective (all but 3->17 and 10->11)",
+    "variants": ["no-jump: skip when |r_i| > rolling 60-day 95th percentile", "low-liquidity: trade only when hour-i volume < rolling 60-day median"],
+    "exploratory": "all 276 pairs i<j on BTC: select |t| >= 3 on 2020-06..2022-12 (sign from DEV), test 2023+ at 2 bp; 276 trials",
+    "pass": "combo Sharpe > 0.5 on 2023+ at 2 bp/side AND positive at 5 bp on at least BTC"
+  },
+  "B_basis_factors": {
+    "paper": "Chi, Hao, Hu & Ran (2023) J. Futures Markets 43:1161; Cao, Luo, Cheng & Dong (2026, SSRN 6365329, abstract only: log-basis + price-volume factor)",
+    "data": "10 majors: Binance spot daily close (00:00 UTC) vs OKX USDT perp close at the same timestamp; returns from OKX perps",
+    "signals": {"basis": "log S_t - log F_t (paper: high basis = long)", "momentum": "J-day perp return", "basis_momentum": "B_t - B_{t-J-1}"},
+    "portfolio": "long top third, short bottom third (round(N/3) each), equal weight, dollar neutral",
+    "grid": {"J": [1, 3, 5, 7], "hold_days": [1, 7], "entry_lag_hours": [0, 1]},
+    "costs_bps_per_side": 5,
+    "split": "DEV 2020-01..2022-12, TEST 2023-01..2026-10",
+    "extra": "cross-sectional momentum/reversal on all 58 OKX perps (no spot needed; survivorship-biased universe)",
+    "trials": 48,
+    "pass": "basis J=5 hold 1 lag 1h: TEST Sharpe > 0.5 net of 5 bp, same sign as paper; correlation with C* < 0.3",
+    "note": "Cao et al. price-volume factor is not defined in the abstract we have: not tested"
+  },
+  "C_funding": {
+    "paper": "Inan (2025) SSRN 5576424",
+    "data": "Binance BTC/ETH funding 2020-2023 (8h); OKX BTC perp returns",
+    "replication": "AR(1) point forecast (DAR(1) mean equation) on rolling 500-print window vs no-change: MSPE ratio and directional accuracy",
+    "trading": "contrarian: short next 8h when forecast > 0.03%, long when forecast < 0; 5 bp/side",
+    "practical": "funding drag of C* + BTC leads if held as perps (BTC, ETH positions x funding)",
+    "trials": 3
+  },
+  "D_arbitrage": "Dai, Li & Yang (2025): model-free no-arbitrage bounds for perps. Needs simultaneous spot + perp positions: not executable at a prop firm. Its implication (premium outside the bounds reverts) is covered by B and will be re-tested on Binance premium-index data",
+  "trials_added": 330
+}

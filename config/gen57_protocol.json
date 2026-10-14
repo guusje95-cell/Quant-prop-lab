@@ -1,0 +1,21 @@
+{
+  "generation": "Gen57",
+  "title": "Re-test on the user's Binance futures pack (1m/5m klines, 5-min OI and long/short ratios, funding, premium index)",
+  "registered": "2026-10-14, BEFORE the Binance pack arrived (no Gen57 data has been seen)",
+  "data": "research_data/binance/<SYM>_5m.parquet, _metrics.parquet, _funding.parquet, (_premium_1h.parquet if downloaded); 20 coins; klines 2020+, metrics ~2021-12+",
+  "split": {"DEV": "start..2022-12-31", "TEST": "2023-01-01..end"},
+  "costs": {"taker_bps_per_side": 5, "maker_bps_per_side": 2, "maker_fill_rule": "a limit order at the bar-open price fills only if a later 1-min low (buy) / high (sell) trades at least 1 bp through it within 5 minutes; otherwise skip the trade"},
+  "pass_rule": "TEST Sharpe >= 0.8 after costs, correlation with C* + BTC leads < 0.3, deflated Sharpe > 0.5 with the cumulative trial count, and it raises the share of positive months of C* + candidate (risk-parity weights fixed in advance)",
+  "tests": {
+    "T1 BTC/ETH evening window (Gen54)": "long 21:00-23:00 UTC, maker entry and exit; 20 coins as a check; also as an overlay on C* holdings",
+    "T2 funding carry cross-section": "long lowest third funding (8h average over 1/3/7 days), short highest third; hold 1 and 7 days",
+    "T3 positioning (metrics)": "contrarian on top-trader long/short ratio z-score (30d) and on OI change x price change; cross-sectional, daily; grid 2 signals x 2 holds",
+    "T4 liquidation reversal": "buy after a 5-min drop < -2.5 x 30d 5-min sigma with volume > 5x median and taker-sell share > 65%; hold 1h / 4h; BTC ETH SOL + all 20",
+    "T5 intraday breakout": "noise-area band (Zarattini 2024) adapted to the 24h UTC day on BTC/ETH 5-min; band multiplier 1.0 / 1.5; exit at 00:00 UTC or band re-entry",
+    "T6 basis (Chi 2023) and premium bounds (Dai, Li & Yang 2025)": "clean basis = premium index; long high basis / short low basis, J 1/5, hold 1/7; premium outside +-0.05% clamp -> reversal next 8h",
+    "T7 Wen et al. hour pairs": "same 7 pairs on Binance perps 2020+ (confirmatory only)",
+    "T8 earlier near-misses": "Gao intraday momentum on BTC 24h day; cross-sectional momentum on the 20 coins with taker-flow filter",
+    "T9 C* practicalities": "C* + BTC leads as perps with real funding (drag), and rebalance at 08:00 UTC instead of 00:00 (user-friendly time)"
+  },
+  "trials_planned": 120
+}

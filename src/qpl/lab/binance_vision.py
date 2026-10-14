@@ -4,12 +4,14 @@ cloud cannot reach the site).
     python -m qpl.lab.binance_vision klines  --symbols BTCUSDT ETHUSDT --start 2020-01 --interval 1m
     python -m qpl.lab.binance_vision metrics --symbols BTCUSDT ETHUSDT --start 2021-12-01
     python -m qpl.lab.binance_vision funding --symbols BTCUSDT ETHUSDT --start 2020-01
+    python -m qpl.lab.binance_vision premium                   # hourly perp premium index (basis) for the 20 coins, small
     python -m qpl.lab.binance_vision all                       # the 20-coin research set, everything (takes a while)
 
 What you get (all in data/lab/binance_vision/, one parquet per symbol, resumable: finished months are cached):
   klines  : 1-minute OHLCV + number of trades + taker-buy volume (monthly zip files, 2019-09+ for BTC)
   metrics : 5-minute open interest, top-trader and all-account long/short ratios, taker buy/sell ratio (daily zip files, ~2021-12+)
   funding : funding rate every 8h (monthly zip files)
+  premium : hourly premium-index klines (perp vs spot index, i.e. the basis; monthly zip files)
 Then `python -m qpl.lab.binance_vision build` (run automatically after `all`) writes a compact research pack to
 research_data/binance/ (5-minute bars + metrics + funding, ~20-40 MB per coin: commit and push it so Claude can use it) and Lab data sources: data/lab/binance_futures_5m.parquet (resampled from 1m)
 and data/lab/binance_futures_1h.parquet, which appear in the app as 'Downloaded: ...'."""
@@ -58,13 +60,15 @@ def _months(start: str, end: str | None = None):
     return pd.date_range(pd.Timestamp(start).replace(day=1), end, freq="MS")
 
 
-def klines(symbol: str, start: str = "2020-01", interval: str = "1m") -> Path:
-    cache = OUT / "cache" / f"{symbol}_{interval}"; cache.mkdir(parents=True, exist_ok=True)
+def klines(symbol: str, start: str = "2020-01", interval: str = "1m", kind: str = "klines") -> Path:
+    """kind: 'klines' (traded prices) or 'premiumIndexKlines' (perp premium vs the spot index = the basis, used by the funding formula)."""
+    tag = interval if kind == "klines" else f"premium_{interval}"
+    cache = OUT / "cache" / f"{symbol}_{tag}"; cache.mkdir(parents=True, exist_ok=True)
     for m in _months(start):
         f = cache / f"{m:%Y-%m}.parquet"
         if f.exists():
             continue
-        df = _zip_csv(f"{BASE}/monthly/klines/{symbol}/{interval}/{symbol}-{interval}-{m:%Y-%m}.zip")
+        df = _zip_csv(f"{BASE}/monthly/{kind}/{symbol}/{interval}/{symbol}-{interval}-{m:%Y-%m}.zip")
         if df is None:
             continue
         df.columns = KCOLS[: df.shape[1]]
@@ -72,10 +76,10 @@ def klines(symbol: str, start: str = "2020-01", interval: str = "1m") -> Path:
         df["time"] = pd.to_datetime(ts, unit="us" if ts.max() > 1e14 else "ms")       # 2025+ files use microseconds
         keep = ["time", "open", "high", "low", "close", "volume", "quote_volume", "count", "taker_buy_volume", "taker_buy_quote_volume"]
         df[keep].astype({c: float for c in keep if c != "time"}).to_parquet(f)
-        print(f"  {symbol} {interval} {m:%Y-%m}: {len(df)} bars", flush=True)
+        print(f"  {symbol} {tag} {m:%Y-%m}: {len(df)} bars", flush=True)
         time.sleep(0.2)
     parts = [pd.read_parquet(p) for p in sorted(cache.glob("*.parquet"))]
-    out = OUT / f"{symbol}_{interval}.parquet"
+    out = OUT / f"{symbol}_{tag}.parquet"
     if parts:
         pd.concat(parts).drop_duplicates("time").sort_values("time").to_parquet(out)
     return out
@@ -146,7 +150,7 @@ def build():
                "taker_buy_volume": "sum", "taker_buy_quote_volume": "sum"}
         d[[c for c in agg if c in d]].resample("5min").agg({k: v for k, v in agg.items() if k in d}).dropna(subset=["close"]).astype("float32") \
             .to_parquet(pack / f"{sym}_5m.parquet", compression="zstd")
-        for extra in ("metrics", "funding"):
+        for extra in ("metrics", "funding", "premium_1h"):
             f = OUT / f"{sym}_{extra}.parquet"
             if f.exists():
                 pd.read_parquet(f).to_parquet(pack / f"{sym}_{extra}.parquet", compression="zstd")
@@ -155,7 +159,7 @@ def build():
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("what", choices=["klines", "metrics", "funding", "all", "build"])
+    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build"])
     ap.add_argument("--symbols", nargs="*", default=RESEARCH_SET)
     ap.add_argument("--start", default=None)
     ap.add_argument("--interval", default="1m")
@@ -171,9 +175,11 @@ def main():
                 print(s, "->", metrics(s, a.start or "2021-12-01"))
             if a.what in ("funding", "all"):
                 print(s, "->", funding(s, a.start or "2020-01"))
+            if a.what in ("premium", "all"):
+                print(s, "->", klines(s, a.start or "2020-01", "1h", kind="premiumIndexKlines"))
         except Exception as e:
             print(s, "FAILED:", e)
-    if a.what in ("klines", "all"):
+    if a.what in ("klines", "premium", "all"):
         build()
 
 

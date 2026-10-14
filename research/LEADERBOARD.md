@@ -86,3 +86,15 @@ Details are in `research/GEN55_FIRMS.md`. Strategy: C\* + BTC leads on hourly pr
 - **Most per $100k account:** HyroTrader One-Step, $13.7k (baseline) to $17.0k (1.5×/0.6× + daily stop).
 - **Avoid:** Breakout (swap + tight limits; 25–48% pass) and SizeProp Degen (2%/3% limits; 24–37% pass).
 - **Months with income stay at 12–25% at every firm.** Firm choice does not solve consistency; extra uncorrelated strategies are still needed.
+
+## Gen56 (2026-10-14): five crypto papers
+Details are in `research/GEN56_FIVE_PAPERS.md`.
+
+- **Rejected:**
+  - Wen et al. intraday hour pairs: out of sample, about 0 before costs.
+  - Chi et al. basis / momentum / basis-momentum: basis TEST Sharpe +0.71 before costs, −0.42 after 5 bp, because turnover is 2.5× per day.
+  - Cross-sectional momentum on 58 perps: DEV +1, TEST below 0.
+  - Funding-forecast trading.
+- **Replicated, but not tradable:** funding rates are predictable (MSPE −7–9%, 61–62% of directions correct).
+- **New cost found:** about 0.8% of equity per year per coin in funding if C\* is held as perps.
+- **Re-tests on the Binance pack:** pre-registered in `config/gen57_protocol.json`, before the data arrived.

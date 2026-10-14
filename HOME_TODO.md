@@ -38,6 +38,8 @@
 **Not yet**
 - **Don't buy a challenge yet.** First paper trade C* + BTC leads for a few weeks. I'll update the daily signal script for it (see C).
 
+**Extra after the Binance download (small, a few minutes):** double-click `get_binance_premium.bat`, then push again (`git add research_data`, `git commit -m "Binance premium index"`, `git push`). It adds the hourly perp-vs-spot premium (the basis), needed for a clean re-test of the basis papers. If it reports 'failed' for every coin, tell Claude.
+
 ## B. Prompt for ChatGPT (copy everything between the lines)
 
 ---
