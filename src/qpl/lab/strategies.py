@@ -51,7 +51,9 @@ class CStarTrend(Strategy):
                    "x1.25 when USDT+USDC supply grew over 30 days, x0.75 when it shrank. Lookbacks are in days and scale "
                    "automatically on hourly / 4h bars.")
     params = {"stablecoin_filter": Param(True, help="needs stablecoin data (built in, or `download stablecoins`)"),
-              "long_only": Param(True, help="research version is long-only")}
+              "long_only": Param(True, help="research version is long-only"),
+              "btc_leads": Param(False, help="Gen53: hold altcoins only while BTC's own signal is positive (+0.1 Sharpe, smaller drawdown "
+                                             "on fixed and point-in-time universes)")}
     BO = [(n, k) for n in (5, 7, 10, 14, 20) for k in (1, 2, 3)]
     TM = (14, 30, 60, 90)
 
@@ -71,6 +73,9 @@ class CStarTrend(Strategy):
                 g = np.log(caps.where(caps > 0)).diff(30)
                 f = pd.Series(np.where(g > 0, 1.25, np.where(g <= 0, 0.75, 1.0)), index=g.index).shift(1)   # 1-day publication lag
                 s = s.mul(f.reindex(day).fillna(1.0).to_numpy(), axis=0)
+        if p.get("btc_leads") and "BTC" in s.columns:
+            alts = [c for c in s.columns if c != "BTC"]
+            s[alts] = s[alts].where(s["BTC"] > 0, 0.0, axis=0)
         return s
 
 

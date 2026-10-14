@@ -67,3 +67,14 @@ About 5,900 trials: DEV 2018–22 to choose, TEST 2023–26 and an hourly replay
 - **FTMO 2-Step:** C* without the stablecoin filter, vol 20, band 0.2, challenge 1.5×, funded 0.6×, daily stop at 90%, take-profit 4%.
   - Net on TEST: $15.5k vs $6.9k for plain C*. Net on the hourly replay: $12.3k vs $10.9k.
   - Chance of profit on hourly: 99%. This passes the rule, but the result is promising, not proven.
+
+
+## Gen53 (2026-10-14): literature-based improvements
+Details are in `research/GEN53_RESEARCH.md`.
+
+- **NEW BEST: C\* + BTC leads.** Altcoins are held only while BTC's own C* signal is positive.
+  - Sharpe 1.78 (TEST 1.63) vs 1.69 (1.50); MDD −13.1% vs −15.1%.
+  - It also improves the bias-free point-in-time top-10/top-20 universes, and the CFT and FTMO prop results on hourly prices.
+- **Survivorship check:** point-in-time universes give C* a Sharpe of 1.27–1.44, against 1.78 for the fixed majors on the same data. Plan with about 1.4–1.5.
+- **Rebalance tranching:** small gain (+0.07 TEST); not passed.
+- **AHL continuous signal and portfolio covariance vol-targeting:** rejected.

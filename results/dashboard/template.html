@@ -1,0 +1,221 @@
+<title>Prop Strategy Results</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* Layout: one reading column of stacked instrument panels; summary (stats + curves) first, prop outcomes, then the optimisation detail. */
+:root{
+  --bg:#f3f5f7; --panel:#ffffff; --ink:#15212b; --muted:#5b6b78; --line:#d9e0e6;
+  --accent:#1d6f8f; --good:#1f8a5b; --bad:#c2453b; --warn:#b7791f;
+  --s1:#1d6f8f; --s2:#7a5cc4; --s3:#d07a1f; --s4:#2f9e7a; --s5:#c2453b; --s6:#8a8f2c; --s7:#4d6bd6; --s8:#8b9aa6;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f161c; --panel:#162029; --ink:#e4ebf0; --muted:#93a4b1; --line:#2a3946;
+  --accent:#5fb4d6; --good:#52c08b; --bad:#ec7a6f; --warn:#e3a94f;
+  --s1:#5fb4d6; --s2:#a98cf0; --s3:#efa04e; --s4:#5ccaa5; --s5:#ec7a6f; --s6:#c3c85a; --s7:#8aa2ff; --s8:#7d8b96; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f161c; --panel:#162029; --ink:#e4ebf0; --muted:#93a4b1; --line:#2a3946;
+  --accent:#5fb4d6; --good:#52c08b; --bad:#ec7a6f; --warn:#e3a94f;
+  --s1:#5fb4d6; --s2:#a98cf0; --s3:#efa04e; --s4:#5ccaa5; --s5:#ec7a6f; --s6:#c3c85a; --s7:#8aa2ff; --s8:#7d8b96; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
+header{display:grid;gap:6px}
+.eyebrow{font-family:var(--f-data);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:600;font-size:16px;margin:0}
+p{margin:0;max-width:72ch}
+.lede{color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:500 13px var(--f-body);border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 11px 5px 9px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip[aria-pressed="false"]{opacity:.45}
+.chip:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.chart{position:relative;height:340px;max-width:100%}
+.chart.small{height:220px}
+.scroll{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font:600 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+td:first-child,th:first-child{text-align:left}
+td.num,td{font-variant-numeric:tabular-nums}
+td.mono{font-family:var(--f-data);font-size:12.5px;text-align:left}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.pill{display:inline-block;font:600 11px var(--f-data);letter-spacing:.04em;padding:2px 7px;border-radius:999px;border:1px solid currentColor}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:10px;min-width:0}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:14px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.big{font:600 28px var(--f-display);font-variant-numeric:tabular-nums}
+.heat{border-collapse:separate;border-spacing:3px;width:auto}
+.heat td,.heat th{border:0;padding:0;text-align:center;font:500 11.5px var(--f-data)}
+.heat td{width:46px;height:28px;border-radius:4px}
+.heat th{color:var(--muted);padding:2px 4px}
+select{font:500 14px var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 10px;max-width:100%}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.note{font-size:13.5px;color:var(--muted)}
+ul.notes{margin:0;padding-left:18px;display:grid;gap:6px;max-width:80ch}
+@media (max-width:520px){.chart{height:280px}.heat td{width:34px;height:24px;font-size:10px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Quant Prop Lab · Gen52 · crypto 10 majors, daily, net of 7.5 bp costs</div>
+  <h1>Prop Strategy Results</h1>
+  <p class="lede">Every strategy is scaled to the same 15% yearly volatility, so the curves compare edge, not leverage. Development data runs from March 2018 to December 2022; 2023 onward was held back for testing. Prop-firm results come from replaying positions on real hourly prices.</p>
+</header>
+
+<section class="panel" aria-labelledby="h-eq">
+  <div class="row" style="justify-content:space-between"><h2 id="h-eq">Equity curves</h2><span class="note">Growth of $1, log scale. Tap a name to hide or show it.</span></div>
+  <div class="row" id="chips"></div>
+  <div class="chart"><canvas id="eq" aria-label="Equity curves"></canvas></div>
+  <h3>Drawdown from the previous high</h3>
+  <div class="chart small"><canvas id="dd" aria-label="Drawdowns"></canvas></div>
+</section>
+
+<section class="panel" aria-labelledby="h-st">
+  <h2 id="h-st">Statistics</h2>
+  <div class="scroll"><table id="stats"></table></div>
+  <p class="note">Sharpe DEV covers 2018–2022, where settings were chosen. Sharpe TEST covers 2023 onward and was never used for choosing, so read that column as the honest one.</p>
+</section>
+
+<section class="panel" aria-labelledby="h-m">
+  <div class="row" style="justify-content:space-between"><h2 id="h-m">Monthly returns</h2><select id="msel" aria-label="Strategy for monthly returns"></select></div>
+  <div class="scroll"><table class="heat" id="heat"></table></div>
+</section>
+
+<section class="panel" aria-labelledby="h-p">
+  <h2 id="h-p">Prop firm outcome, 2 years, up to 5 challenges</h2>
+  <p class="note">Each card replays every start date from 2022 onward on hourly prices: fees paid, payouts received, and what is left after 24 months on a $100k account.</p>
+  <div class="cards" id="cards"></div>
+  <h3>Cash in your pocket over 24 months</h3>
+  <div class="row"><select id="psel" aria-label="Prop scenario"></select><span class="note">Band: unlucky 10% to lucky 10% of start dates. Line: typical outcome.</span></div>
+  <div class="chart"><canvas id="cash" aria-label="Prop cash curve"></canvas></div>
+</section>
+
+<section class="panel" aria-labelledby="h-s">
+  <h2 id="h-s">What each prop setting does</h2>
+  <p class="note">Average 24-month net across all 2,880 tested combinations per firm, development period 2018–2022, daily-candle model. Settings that look strong here were then checked on hourly prices, where most extras faded.</p>
+  <div class="grid2" id="sens"></div>
+</section>
+
+<section class="panel" aria-labelledby="h-f">
+  <h2 id="h-f">Optimisation finalists</h2>
+  <p class="note">The top 10 settings per firm from development, judged once on 2023–2026 and on hourly prices, next to plain C* (marked). A setting counts only if it beats plain C* on the test period and the hourly replay agrees.</p>
+  <div class="scroll"><table id="final"></table></div>
+</section>
+
+<section class="panel" aria-labelledby="h-g53">
+  <h2 id="h-g53">Gen53: new research</h2>
+  <p class="note">Each idea came from published research and was written down before testing. Point-in-time universes pick, every month, the coins with the highest trading volume at that time, including coins that later collapsed. That removes the survivorship bias of choosing today's winners.</p>
+  <div class="scroll"><table id="g53"></table></div>
+</section>
+
+<section class="panel" aria-labelledby="h-n">
+  <h2 id="h-n">How to read this</h2>
+  <ul class="notes">
+    <li>Gen53 found one real upgrade: C* + BTC leads (hold altcoins only while Bitcoin itself trends up). Sharpe 1.78 vs 1.69, test period 1.63 vs 1.50, smaller drawdown, and it also helps on bias-free point-in-time universes and in both prop firms on hourly prices.</li><li>Survivorship check: on point-in-time universes C* earns about 1.3–1.45 Sharpe instead of 1.7. Plan with those lower numbers.</li>
+    <li>Catching Crypto Trends, an independent design from a 2025 paper, reaches Sharpe 1.44 on the same coins. That supports the trend edge being real.</li>
+    <li>For Crypto Fund Trader 1-Phase, plain C* (challenge 1.0×, funded 0.4×) was not beaten once the hourly replay was applied.</li>
+    <li>For FTMO 2-Step, the optimised setup (no stablecoin filter, 20-day volatility, 0.2 no-trade band, 1.5× challenge, 0.6× funded, daily stop at 90% of the limit, 4% take-profit) earned more on test and on hourly prices. It was picked among about 5,900 trials, so paper trade it first.</li>
+    <li>Past results do not guarantee future payouts. Firm rules and fees come from public sources and change.</li>
+  </ul>
+</section>
+</div>
+<script>
+const D = __DATA__;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NAMES = Object.keys(D.series);
+const COLS = ['--s1','--s2','--s3','--s4','--s5','--s6','--s7','--s8','--muted'];
+const visible = {}; NAMES.forEach((n,i)=>visible[n]= i<4 || n.startsWith('BTC'));
+const pct = (v,d=1)=> v==null?'—':(v*100).toFixed(d)+'%';
+const usd = v => v==null?'—':(v<0?'−$':'$')+Math.abs(Math.round(v)).toLocaleString('en-US');
+const f2 = v => v==null?'—':v.toFixed(2);
+let charts = {};
+function axisStyle(){return {color:css('--muted'),font:{family:'IBM Plex Mono',size:11}}}
+function gridStyle(){return {color:css('--line')}}
+function base(){return {responsive:true,maintainAspectRatio:false,animation:false,interaction:{mode:'index',intersect:false},
+  plugins:{legend:{display:false},tooltip:{backgroundColor:css('--panel'),titleColor:css('--ink'),bodyColor:css('--ink'),borderColor:css('--line'),borderWidth:1,bodyFont:{family:'IBM Plex Mono'}}}}}
+function drawEq(){
+  const ds=[], dd=[];
+  NAMES.forEach((n,i)=>{ if(!visible[n])return; const c=css(COLS[i%9]);
+    ds.push({label:n,data:D.series[n].map(p=>({x:p[0],y:p[1]})),borderColor:c,backgroundColor:c,borderWidth:n.startsWith('C* + BTC')?2.8:(n.startsWith('C* (plain)')?2.2:1.5),pointRadius:0,tension:0});
+    dd.push({label:n,data:D.drawdown[n].map(p=>({x:p[0],y:p[1]*100})),borderColor:c,backgroundColor:c,borderWidth:1.3,pointRadius:0});});
+  for(const k of ['eq','dd']) if(charts[k]) charts[k].destroy();
+  charts.eq=new Chart(document.getElementById('eq'),{type:'line',data:{datasets:ds},options:{...base(),
+    scales:{x:{type:'category',labels:D.series[NAMES[0]].map(p=>p[0]),ticks:{...axisStyle(),maxTicksLimit:9,callback(v){const l=this.getLabelForValue(v);return l.slice(0,4)}},grid:gridStyle()},
+            y:{type:'logarithmic',ticks:{...axisStyle(),callback:v=>[1,2,3,5,8,10,15,20].includes(+v)?'$'+v:''},grid:gridStyle()}},
+    plugins:{...base().plugins,tooltip:{...base().plugins.tooltip,callbacks:{label:c=>`${c.dataset.label}: $${c.parsed.y.toFixed(2)}`}}}}});
+  charts.dd=new Chart(document.getElementById('dd'),{type:'line',data:{datasets:dd},options:{...base(),
+    scales:{x:{type:'category',labels:D.drawdown[NAMES[0]].map(p=>p[0]),ticks:{...axisStyle(),maxTicksLimit:9,callback(v){return this.getLabelForValue(v).slice(0,4)}},grid:gridStyle()},
+            y:{max:0,ticks:{...axisStyle(),callback:v=>v+'%'},grid:gridStyle()}},
+    plugins:{...base().plugins,tooltip:{...base().plugins.tooltip,callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`}}}}});
+}
+function chips(){const box=document.getElementById('chips');box.innerHTML='';
+  NAMES.forEach((n,i)=>{const b=document.createElement('button');b.className='chip';b.type='button';b.setAttribute('aria-pressed',visible[n]);
+    b.innerHTML=`<span class="dot" style="background:${css(COLS[i%9])}"></span>${n}`;b.onclick=()=>{visible[n]=!visible[n];b.setAttribute('aria-pressed',visible[n]);drawEq()};box.appendChild(b)});}
+function stats(){const t=document.getElementById('stats');
+  let h='<thead><tr><th>Strategy</th><th>Sharpe</th><th>Sharpe DEV</th><th>Sharpe TEST</th><th>CAGR</th><th>Max DD</th><th>Calmar</th><th>Positive months</th><th>Worst month</th><th>Best month</th></tr></thead><tbody>';
+  NAMES.forEach((n,i)=>{const s=D.stats[n];h+=`<tr><td><span class="dot" style="display:inline-block;margin-right:7px;background:${css(COLS[i%9])}"></span>${n}</td><td><b>${f2(s.sharpe)}</b></td><td>${f2(s.sharpe_dev)}</td><td>${f2(s.sharpe_test)}</td><td>${pct(s.cagr)}</td><td class="neg">${pct(s.maxdd)}</td><td>${f2(s.calmar)}</td><td>${pct(s.pos_months,0)}</td><td class="neg">${pct(s.worst_month)}</td><td class="pos">${pct(s.best_month)}</td></tr>`});
+  t.innerHTML=h+'</tbody>';}
+function heat(){const sel=document.getElementById('msel');const m=D.monthly[sel.value]||{};const t=document.getElementById('heat');
+  const yrs=[...new Set(Object.keys(m).map(k=>k.slice(0,4)))];const mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const g=css('--good'),b=css('--bad');
+  let h='<thead><tr><th></th>'+mn.map(x=>`<th>${x}</th>`).join('')+'<th>Year</th></tr></thead><tbody>';
+  yrs.forEach(y=>{let tot=1;h+=`<tr><th>${y}</th>`;for(let i=1;i<=12;i++){const k=`${y}-${String(i).padStart(2,'0')}`;const v=m[k];
+      if(v==null){h+='<td></td>';continue}tot*=1+v;const a=Math.min(1,Math.abs(v)/0.08);const c=v>=0?g:b;
+      h+=`<td style="background:color-mix(in srgb, ${c} ${Math.round(12+a*70)}%, transparent)" title="${k}: ${pct(v)}">${(v*100).toFixed(1)}</td>`}
+    const yv=tot-1;h+=`<td style="font-weight:600;color:${yv>=0?g:b}">${(yv*100).toFixed(0)}%</td></tr>`});
+  t.innerHTML=h+'</tbody>';}
+function cards(){const box=document.getElementById('cards');box.innerHTML='';
+  Object.entries(D.prop).forEach(([k,p])=>{const opt=k.includes('optimised');
+    box.insertAdjacentHTML('beforeend',`<div class="card"><div class="row" style="justify-content:space-between"><h3>${k.replace(': ',' · ')}</h3>${opt?'<span class="pill" style="color:var(--accent)">OPTIMISED</span>':'<span class="pill" style="color:var(--muted)">BASELINE</span>'}</div>
+    <div><div class="note">Average net after 24 months</div><div class="big ${p.net>=0?'pos':'neg'}">${usd(p.net)}</div></div>
+    <dl class="kv"><dt>Pass per attempt</dt><dd>${pct(p.pass,0)}</dd><dt>Fail on daily loss</dt><dd>${pct(p.fail_daily,0)}</dd><dt>Fail on max loss</dt><dd>${pct(p.fail_max,0)}</dd>
+    <dt>Get funded within 5 buys</dt><dd>${pct(p.funded,0)}</dd><dt>Challenges bought</dt><dd>${p.bought.toFixed(1)}</dd><dt>Fees / payouts</dt><dd>${usd(p.fees)} / ${usd(p.paid)}</dd>
+    <dt>Typical net</dt><dd>${usd(p.p50)}</dd><dt>Unlucky 10% / lucky 10%</dt><dd>${usd(p.p10)} / ${usd(p.p90)}</dd><dt>Chance of profit</dt><dd>${pct(p.p_profit,0)}</dd></dl></div>`)});}
+function cash(){const k=document.getElementById('psel').value;const p=D.prop[k];const x=p.week.map(w=>(w/52*12).toFixed(1));
+  if(charts.cash)charts.cash.destroy();const a=css('--accent');
+  charts.cash=new Chart(document.getElementById('cash'),{type:'line',data:{labels:x,datasets:[
+    {label:'Lucky 10%',data:p.curve.p90,borderWidth:0,pointRadius:0,backgroundColor:`color-mix(in srgb, ${a} 18%, transparent)`,fill:'+1'},
+    {label:'Unlucky 10%',data:p.curve.p10,borderWidth:0,pointRadius:0,backgroundColor:'transparent',fill:false},
+    {label:'Typical',data:p.curve.p50,borderColor:a,borderWidth:2.4,pointRadius:0},
+    {label:'Average',data:p.curve.mean,borderColor:css('--muted'),borderDash:[5,4],borderWidth:1.5,pointRadius:0}]},
+    options:{...base(),scales:{x:{ticks:{...axisStyle(),maxTicksLimit:9,callback(v){return this.getLabelForValue(v)+' mo'}},grid:gridStyle()},
+      y:{ticks:{...axisStyle(),callback:v=>usd(v)},grid:gridStyle()}},
+      plugins:{...base().plugins,tooltip:{...base().plugins.tooltip,callbacks:{title:c=>c[0].label+' months',label:c=>`${c.dataset.label}: ${usd(c.parsed.y)}`}}}}});}
+const SLAB={risk_challenge:'Risk in challenge (× base)',risk_funded:'Risk when funded (× base)',daily_stop:'Daily stop (share of firm limit)',take_profit:'Daily take-profit',cushion:'Smaller size near floor'};
+function sens(){const box=document.getElementById('sens');Object.values(charts).forEach(()=>{});box.innerHTML='';
+  Object.keys(SLAB).forEach((col,ci)=>{const id='s_'+col;box.insertAdjacentHTML('beforeend',`<div style="min-width:0"><h3>${SLAB[col]}</h3><div class="chart small"><canvas id="${id}"></canvas></div></div>`);
+    const keys=Object.keys(D.sensitivity.CFT1[col]);const lab=keys.map(k=>col==='take_profit'||col==='daily_stop'?(+k===0?'off':(col==='take_profit'?(k*100)+'%':(k*100)+'%')):(k==='True'?'on':k==='False'?'off':k+'×'));
+    if(charts[id])charts[id].destroy();
+    charts[id]=new Chart(document.getElementById(id),{type:'bar',data:{labels:lab,datasets:[
+      {label:'Crypto Fund Trader 1-Phase',data:keys.map(k=>D.sensitivity.CFT1[col][k]),backgroundColor:css('--s1')},
+      {label:'FTMO 2-Step',data:keys.map(k=>D.sensitivity.FTMO[col][k]),backgroundColor:css('--s3')}]},
+      options:{...base(),plugins:{...base().plugins,legend:{display:ci===0,labels:{color:css('--ink'),boxWidth:12,font:{family:'IBM Plex Sans'}}},
+        tooltip:{...base().plugins.tooltip,callbacks:{label:c=>`${c.dataset.label}: ${usd(c.parsed.y)}`}}},
+        scales:{x:{ticks:axisStyle(),grid:{display:false}},y:{beginAtZero:true,ticks:{...axisStyle(),callback:v=>'$'+(v/1000)+'k'},grid:gridStyle()}}}});});}
+function finals(){const t=document.getElementById('final');
+  let h='<thead><tr><th>Firm</th><th>Configuration</th><th>Risk ch / fd</th><th>Stop</th><th>TP</th><th>Cushion</th><th>DEV net</th><th>TEST pass</th><th>TEST net</th><th>TEST P(profit)</th><th>Hourly pass</th><th>Hourly net</th><th>Hourly P(profit)</th></tr></thead><tbody>';
+  D.final.forEach(r=>{const base=r.baseline;h+=`<tr${base?' style="font-weight:600"':''}><td>${r.firm==='CFT1'?'CFT 1-Phase':'FTMO 2-Step'}</td><td class="mono">${base?'<span class="pill" style="color:var(--muted)">PLAIN C*</span> ':''}${r.config.replace(/ \| /g,' · ')}</td>
+    <td>${r.risk_challenge} / ${r.risk_funded}</td><td>${r.daily_stop?Math.round(r.daily_stop*100)+'%':'off'}</td><td>${r.take_profit?Math.round(r.take_profit*100)+'%':'off'}</td><td>${r.cushion?'on':'off'}</td>
+    <td>${usd(r.DEV_net)}</td><td>${pct(r.TEST_pass,0)}</td><td>${usd(r.TEST_net)}</td><td>${pct(r.TEST_p_profit,0)}</td><td>${pct(r.HOURLY_pass,0)}</td><td><b>${usd(r.HOURLY_net)}</b></td><td>${pct(r.HOURLY_p_profit,0)}</td></tr>`});
+  t.innerHTML=h+'</tbody>';}
+function g53(){const t=document.getElementById('g53');if(!D.gen53)return;
+  let h='<thead><tr><th>Test</th><th>Sharpe</th><th>Sharpe DEV</th><th>Sharpe TEST</th><th>CAGR</th><th>Max DD</th><th>Worst day</th><th>Verdict</th></tr></thead><tbody>';
+  D.gen53.forEach(r=>{const v=r.verdict||'';const col=v.startsWith('Pass')?'var(--good)':v.startsWith('Info')||v.startsWith('Base')?'var(--muted)':'var(--bad)';
+    h+=`<tr><td>${r.test}</td><td><b>${f2(r.sharpe)}</b></td><td>${f2(r.sharpe_dev)}</td><td>${f2(r.sharpe_test)}</td><td>${pct(r.cagr)}</td><td class="neg">${pct(r.max_dd)}</td><td class="neg">${pct(r.worst_day)}</td><td><span class="pill" style="color:${col}">${v.toUpperCase()}</span></td></tr>`});
+  t.innerHTML=h+'</tbody>';}
+function renderAll(){chips();drawEq();stats();heat();cards();cash();sens();finals();g53();}
+const ms=document.getElementById('msel');NAMES.forEach(n=>ms.add(new Option(n,n)));ms.onchange=heat;
+const ps=document.getElementById('psel');Object.keys(D.prop).forEach(n=>ps.add(new Option(n,n)));ps.value=Object.keys(D.prop)[0];ps.onchange=cash;
+renderAll();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',renderAll);
+new MutationObserver(renderAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+</script>

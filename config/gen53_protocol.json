@@ -1,0 +1,16 @@
+{
+  "_written": "2026-10-14, BEFORE any Gen53 run. Base strategy: C* (frozen E2+O3) at the Gen52 15%-vol scaling. Split DEV 2018-03..2022-12 / TEST 2023-01..2026-10.",
+  "H1_point_in_time_universe": {
+    "why": "survivorship bias: Grobys, Sandretto & Aijo (2026, Finance Research Letters), Stockl et al. (2022): crypto results built on today's winners are inflated",
+    "data": "Yahoo daily USD candles + volume for 54 coins that were top-20 at some point 2017-2026, including collapsed ones (LUNC, FTT, EOS, XEM, BSV, BTG, WAVES, OMG, ...); MATIC and pre-2023 IOTA are not on Yahoo",
+    "rule": "each month: the 10 (and separately 20) coins with the highest trailing 30-day dollar volume among coins with >= 200 days of history, known at the month start; C* traded only on members",
+    "compare": "C* on the fixed 10 majors using the SAME Yahoo data",
+    "report": "full / DEV / TEST Sharpe, CAGR, MDD. Informational (measures the bias); a point-in-time version becomes the recommended forward universe if its TEST Sharpe is within 0.2 of the fixed list"
+  },
+  "H2_tranching": {"why": "rebalance timing luck: Hoffstein, Faber & Braun (2020); Zarattini & Pagani", "rule": "C* daily signals computed from 4 daily-bar schedules (00,06,12,18 UTC), positions = average; OKX hourly perps 2020-2026, same 10 coins", "compare": "single 00 UTC schedule on the same data"},
+  "H3_ahl_trend_signal": {"why": "Baz, Granger, Harvey, Le Roux & Rattray (2015) 'Dissecting investment strategies in the cross section and time series' (Man AHL)", "rule": "for (S,L) in (8,24),(16,48),(32,96) days: x = EWMA_S - EWMA_L of price; y = x / 63-day std of price; z = y / 252-day std of y; response u = z*exp(-z^2/4)/0.89; signal = mean of the three, long-only (clip at 0)", "variants": ["alone", "50/50 with C*"]},
+  "H4_portfolio_vol_target": {"rule": "scale the whole C* book daily so ex-ante portfolio volatility (EWMA covariance, 60-day half-life, of the 10 coins) equals the book's own 15% target; cap 2x"},
+  "H5_btc_leads": {"rule": "altcoin positions only on days when BTC's own C* signal is > 0 (BTC position unchanged)"},
+  "pass_rule_H2_H5": "TEST Sharpe >= C* TEST Sharpe + 0.10 AND full-period max drawdown not worse; then prop check (CFT 1-Phase, FTMO 2-Step) on the hourly replay must not be worse than C*",
+  "trials": "about 12 runs"
+}

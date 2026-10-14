@@ -380,6 +380,8 @@ with T["Prop firm"]:
 @st.cache_data(show_spinner=False)
 def scorecard_row(strat_name: str, setup_key: str, setup_t: tuple, n_trials: int):
     sources_ = D.list_sources(); setup = dict(setup_t); setup["sources"] = list(setup["sources"]); setup["symbols"] = list(setup["symbols"])
+    if "params" in setup:
+        setup["params"] = dict(setup["params"])
     src = SC.resolve(setup, sources_)
     if src is None:
         return None, f"data not found ({setup['sources'][-1]}); run python -m qpl.lab.setup_data"
@@ -388,7 +390,7 @@ def scorecard_row(strat_name: str, setup_key: str, setup_t: tuple, n_trials: int
     sel.extra = {k_: (v_.reindex(columns=sel.symbols) if isinstance(v_, pd.DataFrame) else v_) for k_, v_ in b.extra.items()}
     b = D.resample(sel, setup["tf"])
     reg_, _ = S.registry()
-    out = SC.run(reg_[strat_name], b, setup)
+    out = SC.run(reg_[setup.get("strategy", strat_name)], b, setup)
     return out, src
 
 
@@ -396,7 +398,8 @@ with T["Scorecard"]:
     st.markdown("**Every strategy on its own market**, with default settings: one row of statistics each, plus the prop-firm outcome "
                 "for the firm chosen below. Your own plug-ins run on the data selected in the sidebar.")
     sc_firm, sc_budget, sc_accounts, sc_scc, sc_scf, sc_hz = firm_controls("sc")
-    pick = st.multiselect("Strategies", list(reg), default=list(reg), key="sc_pick")
+    sc_names = list(reg) + [k_ for k_ in SC.SETUPS if k_ not in reg]           # registry + named variants (e.g. C* + BTC leads)
+    pick = st.multiselect("Strategies", sc_names, default=sc_names, key="sc_pick")
     if st.button("Build scorecard", key="sc_go", type="primary"):
         rows, prop_rows, curves = {}, {}, go.Figure()
         prog = st.progress(0.0)
@@ -408,7 +411,8 @@ with T["Scorecard"]:
                     setup = dict(sources=[], symbols=list(syms), tf=tf, cost=cost, lev=lev, start=str(start), market=f"sidebar: {choice}")
                     o = SC.run(reg[nme], bars, setup); src_ = choice
                 else:
-                    o, src_ = scorecard_row(nme, nme, tuple((k_, tuple(v) if isinstance(v, list) else v) for k_, v in setup.items()), int(n_trials))
+                    o, src_ = scorecard_row(nme, nme, tuple((k_, tuple(v) if isinstance(v, list) else (tuple(sorted(v.items())) if isinstance(v, dict) else v))
+                                                             for k_, v in setup.items()), int(n_trials))
                 if o is None:
                     rows[nme] = {"Market": setup["market"], "Data": src_}; continue
                 rows[nme] = {"Market": setup["market"], "Cost bp": setup["cost"], "Leverage": setup["lev"], **SC.stats(o, int(n_trials))}

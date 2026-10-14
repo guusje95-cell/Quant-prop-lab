@@ -246,6 +246,17 @@ Two strategies from the papers you supplied are built in. Neither can be copied 
 
 **Results:** see `research/GEN49_51_SEARCH.md`. C* stays the best strategy.
 
+### C* + BTC leads (Gen53): the current best
+
+Tick **btc_leads** on the C* strategy. This holds altcoins only while Bitcoin itself trends up.
+- **Sharpe:** 1.78 vs 1.69.
+- **Max drawdown:** −13.1% vs −15.1%.
+- **Prop results:** better at both CFT and FTMO on hourly prices.
+
+**Survivorship check:** choosing today's 10 biggest coins flattered the old backtests. A bias-free universe gives a Sharpe of about 1.4–1.5 with BTC leads. See `research/GEN53_RESEARCH.md`.
+
+**Dashboard with all curves and statistics:** https://claude.ai/artifact/4M2JZaEc7DjxZEDcUaN9HU
+
 ### Optimised prop settings (Gen52)
 
 **Full study:** see `research/GEN52_PROP_OPTIMISATION.md`.

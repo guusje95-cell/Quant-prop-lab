@@ -16,6 +16,7 @@ sig = {"C* (plain)": (S.CStarTrend().signal(CR, S.CStarTrend().defaults()), 30, 
        "Time-series momentum 60": (S.TSMOM().signal(CR, {"lookback": 60, "long_only": True}), 30, 0.0),
        "Donchian 55": (S.Donchian().signal(CR, {"n": 55, "long_only": True}), 30, 0.0)}
 sig["C* + CCT 50/50"] = ((sig["C* (plain)"][0] + sig["Catching Crypto Trends"][0]) / 2, 30, 0.0)
+sig = {"C* + BTC leads (Gen53)": (S.CStarTrend().signal(CR, {**S.CStarTrend().defaults(), "btc_leads": True}), 30, 0.0), **sig}
 out = {"series": {}, "stats": {}, "monthly": {}, "drawdown": {}}
 W = {}
 for nm, (sg, look, b) in sig.items():
@@ -37,7 +38,9 @@ Sm = A.summary(r, 365); out["stats"]["BTC buy & hold (15% vol)"] = {"sharpe": Sm
     "sharpe_dev": float(r.loc[G.DEV[0]:G.DEV[1]].mean() / r.loc[G.DEV[0]:G.DEV[1]].std() * np.sqrt(365)), "sharpe_test": float(r.loc[G.TEST[0]:].mean() / r.loc[G.TEST[0]:].std() * np.sqrt(365))}
 # prop cash curves on the hourly path
 out["prop"] = {}
-for tag, nm, fn, sc, sf, stop, tp in (("Crypto Fund Trader 1-Phase: plain C*", "C* (plain)", "CFT1", 1.0, 0.4, 0, 0),
+for tag, nm, fn, sc, sf, stop, tp in (("Crypto Fund Trader 1-Phase: C* + BTC leads", "C* + BTC leads (Gen53)", "CFT1", 1.0, 0.4, 0, 0),
+                                       ("FTMO 2-Step: C* + BTC leads", "C* + BTC leads (Gen53)", "FTMO", 1.0, 0.4, 0, 0),
+                                       ("Crypto Fund Trader 1-Phase: plain C*", "C* (plain)", "CFT1", 1.0, 0.4, 0, 0),
                                        ("FTMO 2-Step: plain C*", "C* (plain)", "FTMO", 1.0, 0.4, 0, 0),
                                        ("FTMO 2-Step: optimised", "C* no filter vol20 band0.2 (FTMO pick)", "FTMO", 1.5, 0.6, 0.9, 0.04)):
     f0 = G.FIRMS[fn]
@@ -61,7 +64,19 @@ def clean(o):
     if isinstance(o, (np.integer,)): return int(o)
     if isinstance(o, (np.bool_,)): return bool(o)
     return o
+g = pd.concat([pd.read_csv(ROOT / "results/gen53_research.csv"), pd.read_csv(ROOT / "results/gen53_btc_leads_pit.csv")])
+g = g.drop_duplicates("test", keep="last")
+def verdict(t):
+    if t.startswith("H1") or t.startswith("PIT top") and "BTC" not in t: return "Info: bias check"
+    if "base" in t or t.startswith("H2 single"): return "Baseline"
+    if "BTC leads" in t: return "Pass"
+    if t.startswith("H2 four"): return "Not passed (+0.07)"
+    return "Rejected"
+g["verdict"] = g["test"].map(verdict)
+out["gen53"] = g[["test", "sharpe", "sharpe_dev", "sharpe_test", "cagr", "max_dd", "worst_day", "verdict"]].to_dict("records")
 (ROOT / "results/dashboard").mkdir(parents=True, exist_ok=True)
 json.dump(clean(out), open(ROOT / "results/dashboard/gen52_dashboard.json", "w"))
+tpl = (ROOT / "results/dashboard/template.html").read_text()
+(ROOT / "results/dashboard/prop_strategy_results.html").write_text(tpl.replace("__DATA__", json.dumps(clean(out))))
 print("ok", {k: round(v["sharpe"], 2) for k, v in out["stats"].items()})
 print({k: (round(v["net"]), round(v["pass"], 2)) for k, v in out["prop"].items()})

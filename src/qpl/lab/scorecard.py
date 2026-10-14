@@ -18,6 +18,8 @@ METALS_ENERGY = ["GOLD", "SILVER", "PLAT", "PALLAD", "COPPER", "CRUDE_W", "HEATO
 SETUPS = {
     "C* trend + breakout (E2)": dict(sources=CRYPTO_SRC, symbols=CRYPTO, tf="1d", cost=7.5, lev=0.79, start="2018-01-01",
                                      market="crypto 10 majors, daily"),
+    "C* + BTC leads (Gen53)": dict(sources=CRYPTO_SRC, symbols=CRYPTO, tf="1d", cost=7.5, lev=0.79, start="2018-01-01",
+                                    market="crypto 10 majors, daily", params={"btc_leads": True}, strategy="C* trend + breakout (E2)"),
     "Buy & hold (benchmark)": dict(sources=CRYPTO_SRC, symbols=CRYPTO, tf="1d", cost=7.5, lev=0.79, start="2018-01-01", market="crypto 10 majors, daily"),
     "Moving-average crossover": dict(sources=CRYPTO_SRC, symbols=CRYPTO, tf="1d", cost=7.5, lev=0.79, start="2018-01-01", market="crypto 10 majors, daily"),
     "Donchian channel breakout (turtle)": dict(sources=CRYPTO_SRC, symbols=CRYPTO, tf="1d", cost=7.5, lev=0.79, start="2018-01-01", market="crypto 10 majors, daily"),
@@ -65,7 +67,7 @@ def resolve(setup: dict, sources: dict):
 
 def run(strategy_cls, bars, setup: dict) -> dict:
     """Backtest with the setup's costs / leverage; returns daily results (after warm-up) and the held positions."""
-    st = strategy_cls(); p = st.defaults()
+    st = strategy_cls(); p = {**st.defaults(), **setup.get("params", {})}
     cfg = EN.Config(cost_bps=setup["cost"], leverage=setup["lev"])
     sig = st.signal(bars, p)
     r = EN.run(bars, EN.size(bars, sig, cfg, st.sizing), cfg)
