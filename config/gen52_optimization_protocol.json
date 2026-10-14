@@ -1,0 +1,32 @@
+{
+  "_written": "2026-10-14, BEFORE any Gen52 run. Large search => high overfitting risk; the protocol separates choosing from judging.",
+  "goal": "maximise prop-firm outcome: average 24-month net cash (fees paid, payouts received) buying up to 5 challenges, 1 account. Primary firm Crypto Fund Trader 1-Phase $100k; secondary FTMO 2-Step $100k (separate ranking).",
+  "split": {
+    "DEV (choose)": "daily results 2018-03-05 -> 2022-12-31; challenge start dates 2018-03 -> 2020-12 (full 24 months inside DEV)",
+    "TEST (judge once)": "2023-01-01 -> 2026-10; start dates 2023-01 -> 2024-10. Never used for choosing.",
+    "HOURLY CHECK": "2022-01 -> 2026-10 on real hourly prices (daily weights replayed hourly; stops / take-profits fill at the hourly close where they trigger, 0.1% slippage)"
+  },
+  "stage1_signal_and_sizing (each backtest rescaled to 15% annual vol using DEV volatility only)": {
+    "strategies": {
+      "C*": ["default (stablecoin filter on)", "stablecoin filter off", "long-short", "long-short + filter off"],
+      "Catching Crypto Trends ensemble": ["5..360 (paper)", "20,60,150,360", "5,10,20,30"],
+      "Donchian breakout": [10, 20, 55],
+      "Time-series momentum": [30, 60, 90],
+      "Moving-average crossover (long-only)": ["20/100", "50/200"],
+      "N-day high breakout example": [20, 50],
+      "C* + CCT 50/50": ["default"]
+    },
+    "engine": {"volatility lookback (days)": [20, 30, 60], "no-trade band (relative weight change ignored)": [0.0, 0.2]},
+    "cost": "7.5 bp per unit turnover",
+    "selection": "rank by DEV prop score at default prop settings (risk 1.0 challenge / 0.4 funded, no stop, no take-profit); keep the top 8"
+  },
+  "stage2_prop_settings (grid on each of the top 8)": {
+    "challenge risk multiplier": [0.5, 0.75, 1.0, 1.25, 1.5],
+    "funded risk multiplier": [0.25, 0.4, 0.6],
+    "daily equity stop (fraction of firm daily limit)": [0, 0.5, 0.75, 0.9],
+    "daily take-profit (flat for the rest of the day once up X% on the day)": [0, 0.02, 0.04],
+    "cushion scaling near the max-loss floor": [false, true]
+  },
+  "reporting": "every stage-1 and stage-2 result saved (results/gen52_*.csv); top 10 configurations by DEV score per firm evaluated ONCE on TEST and on the hourly check, next to plain C* (default settings). Trial count ~3,000: a DEV winner that is not also clearly better than plain C* on TEST is reported as not proven.",
+  "decision_rule": "a configuration is RECOMMENDED only if on TEST it beats plain C* on average net AND on chance of profit, and the hourly check does not reverse that"
+}

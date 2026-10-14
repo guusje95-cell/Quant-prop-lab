@@ -50,6 +50,7 @@ class Firm:
     stop_slip: float = 0.003               # extra loss when the stop fills
     cushion_scale: bool = False            # size x clip((equity - floor) / max_loss, cushion_min, 1)
     cushion_min: float = 0.25
+    take_profit: float = 0.0               # flat for the rest of the day once the day's gain reaches this (0 = off)
 
 
 PRESETS = {
@@ -89,9 +90,11 @@ def _day(f: Firm, D: float, hwm: float, r: float, lo: float, hi: float):
     r, lo, hi = r * m, lo * m, hi * m
     if f.stop_frac > 0 and f.daily_loss > 0:
         stop = f.stop_frac * (f.daily_loss if f.daily_basis == "day_start" else f.daily_loss / D)   # as a return on D
-        if lo <= -stop:
+        if lo <= -stop:                                                # stop checked first (conservative if both hit)
             out = -stop - f.stop_slip
             return D * (1 + out), D * (1 + out), D * (1 + hi)          # the day's high may have come before the stop
+    if f.take_profit > 0 and hi >= f.take_profit:
+        return D * (1 + lo), D * (1 + f.take_profit), D * (1 + f.take_profit)
     return D * (1 + lo), D * (1 + r), D * (1 + hi)
 
 
