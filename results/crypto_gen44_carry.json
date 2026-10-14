@@ -1,0 +1,107 @@
+{
+ "time_in_position": {
+  "BTC": 0.561,
+  "ETH": 0.479
+ },
+ "CARRY": {
+  "DEV": {
+   "sharpe": 8.92,
+   "cagr": 0.1134,
+   "pos_months": 0.719,
+   "worst_month": -0.0019,
+   "max_dd": -0.0049
+  },
+  "VAL": {
+   "sharpe": 5.24,
+   "cagr": 0.0224,
+   "pos_months": 0.375,
+   "worst_month": -0.0023,
+   "max_dd": -0.005
+  },
+  "TEST": {
+   "sharpe": 7.05,
+   "cagr": 0.0307,
+   "pos_months": 0.618,
+   "worst_month": -0.002,
+   "max_dd": -0.0026
+  },
+  "ALL": {
+   "sharpe": 6.77,
+   "cagr": 0.0573,
+   "pos_months": 0.589,
+   "worst_month": -0.0023,
+   "max_dd": -0.005
+  },
+  "by_year_return": {
+   "2019": 0.0709,
+   "2020": 0.0893,
+   "2021": 0.1425,
+   "2022": -0.0017,
+   "2023": 0.0471,
+   "2024": 0.0684,
+   "2025": 0.0128,
+   "2026": 0.0053
+  }
+ },
+ "CARRY_stress": {
+  "DEV": {
+   "sharpe": 5.54,
+   "cagr": 0.0922,
+   "pos_months": 0.562,
+   "worst_month": -0.0049,
+   "max_dd": -0.0102
+  },
+  "VAL": {
+   "sharpe": 1.29,
+   "cagr": 0.012,
+   "pos_months": 0.292,
+   "worst_month": -0.0098,
+   "max_dd": -0.0297
+  },
+  "TEST": {
+   "sharpe": 2.78,
+   "cagr": 0.0273,
+   "pos_months": 0.5,
+   "worst_month": -0.0071,
+   "max_dd": -0.0157
+  }
+ },
+ "STEADY_CARRY": false,
+ "Cstar_alone_2019_2026": {
+  "sharpe": 1.82,
+  "cagr": 0.2787,
+  "pos_months": 0.456,
+  "worst_month": -0.0388,
+  "max_dd": -0.1407
+ },
+ "COMBO_50_50": {
+  "sharpe": 2.19,
+  "cagr": 0.1656,
+  "pos_months": 0.5,
+  "worst_month": -0.0203,
+  "max_dd": -0.0698
+ },
+ "COMBO_by_period": {
+  "DEV": {
+   "sharpe": 3.25,
+   "cagr": 0.3187,
+   "pos_months": 0.688,
+   "worst_month": -0.0203,
+   "max_dd": -0.0389
+  },
+  "VAL": {
+   "sharpe": 1.47,
+   "cagr": 0.0769,
+   "pos_months": 0.375,
+   "worst_month": -0.0148,
+   "max_dd": -0.0413
+  },
+  "TEST": {
+   "sharpe": 1.4,
+   "cagr": 0.0956,
+   "pos_months": 0.412,
+   "worst_month": -0.0152,
+   "max_dd": -0.0698
+  }
+ }
+}

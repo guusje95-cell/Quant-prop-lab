@@ -1,0 +1,11 @@
+{
+  "_written": "2026-10-14, BEFORE any gen45 number was computed (DVOL endpoint probed for availability only).",
+  "idea": "crypto volatility risk premium: implied vol (Deribit DVOL, 30d) exceeds subsequently realised vol on average -> selling 30-day variance earns a steady monthly premium (with crash/tail risk). Own Deribit account only; NOT tradable at CFT.",
+  "data": "Deribit DVOL daily (BTC, ETH) 2021-03..2026-10; realised vol from Binance spot daily closes (static_klines), annualised sqrt(365)",
+  "rule V1 (fixed)": "on the first day of each month: sell a 30-day variance-swap proxy per coin; P&L (fraction of capital) = vega_budget x (IV_eff^2 - RV_30^2) / (2 x IV_eff), IV_eff = DVOL_entry - 1.5 vol points (bid/ask + hedging costs), vega_budget = 0.5% of capital per vol point per coin; RV_30 = realised vol over the next 30 days",
+  "periods": {"DEV+VAL": "2021-04..2023-12", "TEST": "2024-01..2026-09"},
+  "gates ('STEADY VRP')": "TEST: share of positive months >= 0.70, monthly Sharpe (annualised) >= 1.0, worst month > -3 x mean month; ALL: same sign",
+  "report": "tail: worst months, behaviour in 2022 (LUNA/FTX), combination with C*",
+  "trials": "1",
+  "single_use": true
+}
