@@ -1,0 +1,18 @@
+{
+  "_written": "2026-10-14, BEFORE any gen41 return was computed.",
+  "goal": "steady monthly-recurring edge on MT5 index CFDs, usable alone or next to crypto C*",
+  "data": "Yahoo daily closes of 11 cash indices (US500 US100 US30 US2000 DE40 UK100 JP225 FR40 EU50 AU200 HK50), 2000-01 .. 2026-10-13; each index on its own trading calendar",
+  "hypotheses (literature, parameters fixed)": {
+    "A1_TURN_OF_MONTH": "long from the close of the 2nd-to-last trading day of each month to the close of the 3rd trading day of the next month (i.e. holds the last trading day + first 3 days; Lakonishok-Smidt 1988, McConnell-Xu 2008); flat otherwise",
+    "A2_TOM_TREND": "A1 only when the index closed above its 200-day moving average at entry",
+    "A3_PRE_HOLIDAY": "long for the trading day before each exchange holiday (gap of > 1 business day in the index's own calendar, excluding weekends); flat otherwise",
+    "A4_FIRST_HALF_MONTH": "long trading days 1..10 of each month only (control for semi-monthly effect; Ariel 1987)"
+  },
+  "portfolio": "equal-weight across the 11 indices (each index position 1/11 of the book when active), vol-scaled to 10% annual on DEV",
+  "costs": "index CFD: 2 bp per side + 3%/yr financing on exposure days; stress 2x",
+  "periods": {"DEV": "2000-01-01..2012-12-31", "VAL": "2013-01-01..2019-12-31", "TEST": "2020-01-01..2026-10-13"},
+  "acceptance per hypothesis": "net Sharpe >= 0.4 DEV, >= 0.3 VAL, >= 0.3 TEST, 2x-stress TEST >= 0.2, Holm-adjusted bootstrap p < 0.05 over the 4, AND positive net Sharpe in >= 8 of the 11 indices over 2000-2026",
+  "then": "accepted sleeve(s) + C*: monthly consistency report (share positive months, worst month, streaks), CFT/MT5 prop simulation",
+  "trials": "4",
+  "single_use": true
+}
