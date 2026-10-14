@@ -23,17 +23,19 @@
 
 **Optional (more data = better tests)**
 
-7. **Dukascopy 1-minute index data** (US100 / US500, 2013+, free):
-   ```
-   set PYTHONPATH=src
-   python -m qpl.lab.download dukascopy --symbols US100 US500 --start 2013-01-01
-   ```
-   Tell me when it's done; I'll add a step that packs it small enough to push.
-8. **Real CME futures 1-minute data from Databento.** New accounts get $125 of free data credit.
-   1. Make a free account. Don't add a payment card.
-   2. Run `setx DATABENTO_API_KEY your_key`, then open a new terminal window. Never paste the key in chat.
+7. **Dukascopy (free, no account, no website clicking).** Double-click these in order. Each can be stopped and restarted.
+   - `get_dukascopy_1.bat`: about 3 hours. 1-minute data, 2013 to today, for US100, US500, US30, DE40, gold, EURUSD.
+   - `get_dukascopy_spreads.bat`: about 1 hour. Ask prices 2023+ for the same 6 instruments, so we get the real spread per hour.
+   - `get_dukascopy_2.bat`: overnight. US2000, UK100, JP225, EU50, FR40, silver, WTI, Brent, 5 FX majors, BTC and ETH CFDs.
+   - `get_dukascopy_3.bat`: optional, overnight. AUS200, HK50, CH20, ES35, natural gas, copper, Bund, US T-bond, 6 more FX pairs.
+   - After each one, push: `git add research_data`, `git commit -m "Dukascopy data"`, `git push`.
+8. **Databento: real CME futures, using the free $125 credit.**
+   1. Make a free account at databento.com. **Don't add a payment card**; then nothing can ever be charged.
+   2. Copy your API key, then run `setx DATABENTO_API_KEY your_key` in a terminal and open a new terminal window. Never paste the key in chat or code.
    3. Run `pip install databento`.
-   4. Run `python -m qpl.lab.download databento --symbols ES NQ --interval 1m --start 2015-01-01 --max-usd 20`.
+   4. Double-click `get_databento_check_cost.bat`. It downloads nothing; it prints the exact cost of every item and what fits in $100. Send me the list if anything looks odd.
+   5. Double-click `get_databento_download.bat`. It downloads in priority order and stops before going over $100.
+   6. Push: `git add research_data`, `git commit -m "Databento data"`, `git push`.
 
 **Not yet**
 - **Don't buy a challenge yet.** First paper trade C* + BTC leads for a few weeks. I'll update the daily signal script for it (see C).

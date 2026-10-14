@@ -191,18 +191,26 @@ def topstepx(symbol, interval="1min"):
 # Dukascopy public datafeed: one LZMA file per day of 1-minute BID candles. 24-byte big-endian records:
 # uint32 seconds since 00:00 UTC, int32 open, close, low, high (price x 10^k), float32 volume.
 DUKA_SYM = {"US100": "USATECHIDXUSD", "US500": "USA500IDXUSD", "US30": "USA30IDXUSD", "US2000": "USSC2000IDXUSD", "DE40": "DEUIDXEUR",
-            "UK100": "GBRIDXGBP", "JP225": "JPNIDXJPY", "XAUUSD": "XAUUSD", "XAGUSD": "XAGUSD", "WTI": "LIGHTCMDUSD", "BRENT": "BRENTCMDUSD",
-            "EURUSD": "EURUSD", "GBPUSD": "GBPUSD", "USDJPY": "USDJPY", "AUDUSD": "AUDUSD", "USDCAD": "USDCAD", "USDCHF": "USDCHF"}
+            "UK100": "GBRIDXGBP", "JP225": "JPNIDXJPY", "EU50": "EUSIDXEUR", "FR40": "FRAIDXEUR", "AUS200": "AUSIDXAUD", "HK50": "HKGIDXHKD",
+            "CH20": "CHEIDXCHF", "ES35": "ESPIDXEUR",
+            "XAUUSD": "XAUUSD", "XAGUSD": "XAGUSD", "WTI": "LIGHTCMDUSD", "BRENT": "BRENTCMDUSD", "NATGAS": "GASCMDUSD", "COPPER": "COPPERCMDUSD",
+            "BUND": "BUNDTREUR", "USTBOND": "USTBONDTRUSD", "BTCUSD": "BTCUSD", "ETHUSD": "ETHUSD",
+            "EURUSD": "EURUSD", "GBPUSD": "GBPUSD", "USDJPY": "USDJPY", "AUDUSD": "AUDUSD", "USDCAD": "USDCAD", "USDCHF": "USDCHF",
+            "NZDUSD": "NZDUSD", "EURJPY": "EURJPY", "GBPJPY": "GBPJPY", "EURGBP": "EURGBP", "EURCHF": "EURCHF", "AUDJPY": "AUDJPY"}
 # plausible price ranges, used to find the price scale 10^k from the data itself (so a wrong guess can never pass silently)
 DUKA_RANGE = {"US100": (1000, 60000), "US500": (500, 15000), "US30": (5000, 100000), "US2000": (300, 6000), "DE40": (3000, 60000),
-              "UK100": (3000, 20000), "JP225": (8000, 80000), "XAUUSD": (200, 10000), "XAGUSD": (3, 200), "WTI": (5, 200), "BRENT": (5, 200),
-              "EURUSD": (0.5, 2), "GBPUSD": (0.8, 2.5), "USDJPY": (60, 250), "AUDUSD": (0.4, 1.2), "USDCAD": (0.8, 1.8), "USDCHF": (0.5, 1.8)}
+              "UK100": (3000, 20000), "JP225": (8000, 80000), "EU50": (1500, 15000), "FR40": (2500, 20000), "AUS200": (3000, 20000),
+              "HK50": (8000, 60000), "CH20": (5000, 30000), "ES35": (4000, 30000),
+              "XAUUSD": (200, 10000), "XAGUSD": (3, 200), "WTI": (5, 200), "BRENT": (5, 200), "NATGAS": (0.5, 20), "COPPER": (1, 15),
+              "BUND": (100, 250), "USTBOND": (80, 250), "BTCUSD": (500, 500000), "ETHUSD": (50, 50000),
+              "EURUSD": (0.5, 2), "GBPUSD": (0.8, 2.5), "USDJPY": (60, 250), "AUDUSD": (0.4, 1.2), "USDCAD": (0.8, 1.8), "USDCHF": (0.5, 1.8),
+              "NZDUSD": (0.4, 1.1), "EURJPY": (80, 250), "GBPJPY": (100, 300), "EURGBP": (0.6, 1.1), "EURCHF": (0.8, 1.8), "AUDJPY": (50, 150)}
 
 
-def _duka_day(inst, day):
+def _duka_day(inst, day, side="BID"):
     import lzma
     import numpy as np
-    url = f"https://datafeed.dukascopy.com/datafeed/{inst}/{day.year}/{day.month - 1:02d}/{day.day:02d}/BID_candles_min_1.bi5"
+    url = f"https://datafeed.dukascopy.com/datafeed/{inst}/{day.year}/{day.month - 1:02d}/{day.day:02d}/{side}_candles_min_1.bi5"
     for k in range(6):
         try:
             r = requests.get(url, headers=HDR, timeout=30)
@@ -221,13 +229,13 @@ def _duka_day(inst, day):
     raise RuntimeError(f"Dukascopy {inst} {day.date()}: failed after retries")
 
 
-def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25):
+def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25, side="BID"):
     """1-minute BID candles from Dukascopy's public datafeed (no account). Run on your own PC (blocked from the research
     cloud). Cached per month in data/lab/cache/dukascopy/<SYM>/ so an interrupted download resumes. Weekend minutes with
     zero volume are dropped. Price scale is detected from the data and checked against a plausible range."""
     import numpy as np
     inst = DUKA_SYM.get(symbol, symbol); lo_, hi_ = DUKA_RANGE.get(symbol, (1e-9, 1e12))
-    cache = LAB / "cache" / "dukascopy" / symbol; cache.mkdir(parents=True, exist_ok=True)
+    cache = LAB / "cache" / "dukascopy" / (symbol if side == "BID" else f"{symbol}_{side}"); cache.mkdir(parents=True, exist_ok=True)
     end = pd.Timestamp(end or pd.Timestamp.now("UTC").tz_localize(None).normalize() - pd.Timedelta(days=1))
     parts = []
     for m0 in pd.date_range(pd.Timestamp(start).replace(day=1), end, freq="MS"):
@@ -236,13 +244,13 @@ def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25):
         if f.exists() and complete:
             parts.append(pd.read_parquet(f)); continue
         days = [d for d in pd.date_range(max(m0, pd.Timestamp(start)), min(m0 + pd.offsets.MonthEnd(0), end)) if d.weekday() != 5]
-        mon = [x for d in days if (x := _duka_day(inst, d)) is not None and (time.sleep(pause) or True)]
+        mon = [x for d in days if (x := _duka_day(inst, d, side)) is not None and (time.sleep(pause) or True)]
         if mon:
             mdf = pd.concat(mon, ignore_index=True)
             if complete:
                 mdf.to_parquet(f)
             parts.append(mdf)
-        print(f"  {symbol} {m0:%Y-%m}: {sum(len(x) for x in mon) if mon else 0} minutes", flush=True)
+        print(f"  {symbol} {side} {m0:%Y-%m}: {sum(len(x) for x in mon) if mon else 0} minutes", flush=True)
     if not parts:
         raise RuntimeError(f"no Dukascopy data for {symbol}")
     df = pd.concat(parts, ignore_index=True).drop_duplicates("time").sort_values("time")
@@ -258,26 +266,36 @@ def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25):
     return df.reset_index(drop=True)
 
 
-def databento(symbol, interval="1m", start="2015-01-01", end=None, max_usd=20.0, roll="v"):
-    """REAL CME Globex bars from Databento (GLBX.MDP3), continuous front contract (roll='v': by volume, 'c': calendar).
-    Needs a free Databento account (new accounts get $125 data credit) and `pip install databento`; put the key in the
-    environment variable DATABENTO_API_KEY (never in code or chat). The cost is checked FIRST and the download is refused
-    if it would exceed --max-usd. Prices are NOT back-adjusted: a small gap appears on roll days (fine for intraday tests)."""
+def databento_query(symbol, interval="1m", start="2015-01-01", end=None, roll="v", rank=0, schema=None):
+    return dict(dataset="GLBX.MDP3", symbols=[f"{symbol}.{roll}.{rank}"], stype_in="continuous", schema=schema or f"ohlcv-{interval}",
+                start=start, end=end or (pd.Timestamp.now("UTC").normalize() - pd.Timedelta(days=1)).strftime("%Y-%m-%d"))
+
+
+def databento_client():
     import os
     import databento as db
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
         raise RuntimeError("set the environment variable DATABENTO_API_KEY first (Windows: setx DATABENTO_API_KEY your_key, then open a new terminal)")
-    client = db.Historical(key)
-    q = dict(dataset="GLBX.MDP3", symbols=[f"{symbol}.{roll}.0"], stype_in="continuous", schema=f"ohlcv-{interval}",
-             start=start, end=end or (pd.Timestamp.now("UTC").normalize() - pd.Timedelta(days=1)).strftime("%Y-%m-%d"))
+    return db.Historical(key)
+
+
+def databento(symbol, interval="1m", start="2015-01-01", end=None, max_usd=20.0, roll="v", rank=0, schema=None, client=None):
+    """REAL CME Globex data from Databento (GLBX.MDP3), continuous contract (roll='v': by volume, 'c': calendar; rank 0 = front,
+    1 = second month, ...). Needs a free Databento account (new accounts get $125 data credit) and `pip install databento`; put the
+    key in the environment variable DATABENTO_API_KEY (never in code or chat). The cost is checked FIRST and the download is refused
+    if it would exceed --max-usd. Prices are NOT back-adjusted: a small gap appears on roll days (fine for intraday tests)."""
+    client = client or databento_client()
+    q = databento_query(symbol, interval, start, end, roll, rank, schema)
     cost = float(client.metadata.get_cost(**q))
-    print(f"  Databento {symbol} {interval} {q['start']}..{q['end']}: estimated cost ${cost:.2f} (limit ${max_usd:.2f})", flush=True)
+    print(f"  Databento {q['symbols'][0]} {q['schema']} {q['start']}..{q['end']}: estimated cost ${cost:.2f} (limit ${max_usd:.2f})", flush=True)
     if cost > max_usd:
         raise RuntimeError(f"estimated ${cost:.2f} > --max-usd {max_usd}; shorten the period or raise the limit deliberately")
     df = client.timeseries.get_range(**q).to_df().reset_index()
     df["time"] = pd.to_datetime(df["ts_event"]).dt.tz_localize(None)
-    return df[["time", "open", "high", "low", "close", "volume"]].astype({k: float for k in ("open", "high", "low", "close", "volume")})
+    if q["schema"].startswith("ohlcv"):
+        return df[["time", "open", "high", "low", "close", "volume"]].astype({k: float for k in ("open", "high", "low", "close", "volume")})
+    return df
 
 
 def china(symbol):
