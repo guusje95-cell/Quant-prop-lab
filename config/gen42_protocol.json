@@ -1,0 +1,19 @@
+{
+  "_written": "2026-10-14, BEFORE any gen42 return was computed (VIX3M/VVIX/VIX9D just downloaded, coverage only).",
+  "idea": "harvest the equity-index risk premium only in risk-on regimes (VIX term structure in contango, trend up), on MT5 index CFDs; aim: steadier months and small crash tails for prop daily-loss rules",
+  "data": "Yahoo: ^GSPC (US500), ^NDX (US100), ^DJI, ^RUT, ^GDAXI, ^FTSE closes; ^VIX, ^VIX3M closes. Decisions at close t (US close) for the return close t -> close t+1.",
+  "benchmark (not a trial)": "B0 buy & hold, 1x",
+  "hypotheses": {
+    "B1_VIX_TS": "long 1x when VIX/VIX3M < 1.0, else flat",
+    "B2_TREND200": "long 1x when close > 200-day MA, else flat",
+    "B3_VIX_TS_AND_TREND": "long when both B1 and B2 conditions hold",
+    "B4_VIX_TS_VOLMANAGED": "B1 with exposure = min(1.5, 0.15 / sigma_20d_ann)"
+  },
+  "book": "average of US500 and US100 positions",
+  "costs": "2 bp per side + 3%/yr financing on exposure; stress 2x",
+  "periods": {"DEV": "2007-01-01..2013-12-31", "VAL": "2014-01-01..2019-12-31", "TEST": "2020-01-01..2026-10-13"},
+  "acceptance": "net Sharpe >= 0.6 in DEV, VAL, TEST; Sharpe > B0 Sharpe in each period; 2x-stress TEST >= 0.5; paired-bootstrap Holm p < 0.05 (Sharpe-difference vs B0 at equal vol) over the 4; replication: same rule beats B0 Sharpe over 2007-2026 on >= 3 of US30, US2000, DE40, UK100 (US VIX signal)",
+  "then": "monthly consistency, combination with C*, generic MT5 2-Phase / CFT-MT5 prop simulation (equity daily loss 5% with real daily lows)",
+  "trials": "4",
+  "single_use": true
+}
