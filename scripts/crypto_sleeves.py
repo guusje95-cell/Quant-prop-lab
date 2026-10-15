@@ -68,13 +68,14 @@ def premium_weights(look=7, hold=7):
     return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
 
 
-def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0, doi_th=0.05, positions=False, live=False):
+def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0, doi_th=0.05, positions=False, live=False,
+            coins=None, maker_fee=2.0, cost_map=None):
     """Liquidation-cascade buy. live=True (paper trading): the entry fee is booked in the fill hour (known then) instead of the
     signal hour; P&L is otherwise identical. positions=True also returns hourly notional per coin and, in .attrs, the trades
     still open at the end of the data and the signals of the last hour (limit orders for the next hour)."""
     import gen57_cascade_hourly as CH
     trades, pending = [], []
-    for coin in B.coins():
+    for coin in (coins or B.coins()):
         d = CH.hourly(coin).loc[:END]; c, lo, hi, v, o = d.c, d.lo, d.hi, d.v, d.oi
         r = c.pct_change(); sd = r.rolling(720).std().shift(1); vq = v.rolling(720).quantile(0.95).shift(1); doi = o.pct_change()
         atr = (hi - lo).rolling(14).mean(); ev = (r < -k * sd) & (doi < -doi_th) & (v > vq)
@@ -117,13 +118,14 @@ def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0
         if positions:
             pos.loc[t0 + pd.Timedelta(hours=1):t1, coin] += size        # hours whose return the trade earns
         t_fee = t0 + pd.Timedelta(hours=1) if live else t0
+        c_in = (cost_map or {}).get(coin, maker_fee if maker else cost); c_out = (cost_map or {}).get(coin, cost)
         if t_fee in pnl.index:
-            pnl.loc[t_fee] -= size * (2 if maker else cost) / 1e4
+            pnl.loc[t_fee] -= size * c_in / 1e4
         for ts, rr in path:
             if ts in pnl.index:
                 pnl.loc[ts] += size * rr
         if t1 in pnl.index and not still_open:
-            pnl.loc[t1] -= size * cost / 1e4
+            pnl.loc[t1] -= size * c_out / 1e4
     if positions:
         free = max_open - len(open_now)
         pos.attrs = {"open_trades": open_now, "pending_signals": pending[:max(free, 0)]}
