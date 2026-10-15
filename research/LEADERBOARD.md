@@ -203,3 +203,12 @@ Details are in `research/GEN70_PAPERS.md`.
   - AdaptiveTrend: HOLD -1.15, corr C\* 0.61.
   - Dhanya own-history books: TEST 0.50; mostly the carry we already hold.
   - CTREND exact: TEST -1.61; a small-cap effect.
+
+## Gen71 (2026-10-15): uploaded papers 6-9
+Details are in `research/GEN71_PAPERS.md`. All rejected.
+
+- **Zarattini Donchian ensemble:** HOLD 0.01, corr C\* 0.66. As a replacement for C\* it lowers v4 to 1.77.
+- **Guo cross-crypto lead-lag:** gross Sharpe ~5 at 5 minutes, but strongly negative after costs. Not tradable, and not allowed at prop firms.
+- **Borri CMOM:** TEST 0.14.
+- **Gornall perps/basis:** not applicable (needs a spot leg).
+- **v4 + Weiss expiry (v5 candidate)** remains the best crypto portfolio.
