@@ -113,3 +113,14 @@ Synthetic, smooth (fat-tailed but not trend-skewed) daily returns at 15% vol, ru
 | 3.0 | 90% | $35.2k | $22.5k | 75% |
 
 C\* (realistic Sharpe about 1.4–1.5) gets only about 21% months with income, against about 45% for a smooth Sharpe-1.5 series: trend profits are lumpy. **Smoothness matters as much as Sharpe.**
+
+## Gen57 (2026-10-15): Binance futures pack
+Details are in `research/GEN57_BINANCE.md`.
+
+- **C\* realistic on perps:** funding costs 3.1%/yr, Sharpe 1.55 in 2023+ (1.75 for 2020–26). No overlay passes. Rebalancing at 08:00 UTC costs about 0.07.
+- **Rejected:** noise-area intraday trend, the evening window on BTC, long-short session windows, premium reversion, positioning contrarian signals, CTREND, Gao, Wen, opening taker flow.
+- **Promising, not validated:**
+  - Liquidation-cascade buy: 2023+ 1.29, all 20 coins positive, survives 2x costs. But 2022 was negative, and it loses on the same crash days as C\*.
+  - Funding carry XS: 7d average, 2023+ about 0.7.
+  - ETH evening window with maker fills: 2023+ 0.99.
+- **Descriptive combination 2023+:** C\* + 3 add-ons gives Sharpe 1.98 and **73% positive months** (C\* alone: 44%). This is optimistic, so the next step is forward testing.
