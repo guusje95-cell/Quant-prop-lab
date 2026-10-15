@@ -143,3 +143,10 @@ Details are in `research/GEN62_MARKET_NEUTRAL.md`.
   - The cascade with a BTC regime filter: it lowers HOLD.
 - **Best crypto-firm portfolio stays C\* + premium carry + cascade at equal risk.** Sharpe 1.56 (2022–26), 61% positive months.
 - **HyroTrader 1-Step at 1.0x/0.6x:** about $19.8k per $100k account over 2 years (unlucky 10%: $14.3k), payouts in about 35% of months.
+
+## Gen63 (2026-10-15): more crypto-only ideas
+Details are in `research/GEN63_MORE_CRYPTO.md`.
+
+- **Rejected:** C\* on 20 coins (worse than 10), cascade with risk-based sizing, premium carry with trend-aligned legs.
+- **Dip-buy in uptrends:** passes its own test but lowers the portfolio's 2022–26 Sharpe, so it is not added.
+- **Near-miss: 4-hour breakout trend (BTC/ETH/SOL, long-short).** It earns in 2022 and lifts the portfolio from 1.56 to 1.69 (65% positive months). Forward-test candidate.
