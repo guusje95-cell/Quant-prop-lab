@@ -1,0 +1,17 @@
+{
+  "generation": "Gen63",
+  "title": "More crypto-only ideas to lift the crypto-firm portfolio",
+  "registered": "2026-10-15, before any Gen63 result was computed",
+  "data": "Binance USD-M pack, 20 coins; funding included; taker 5 bp/side (7.5 for C* variants as before)",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (cascade-type rules: DEV = 2022 only, OI from 2021-12)",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0, corr with C* <= 0.3 for a new sleeve; for C*/sleeve VARIANTS: must beat the current version by >= 0.10 Sharpe in BOTH TEST and HOLD and not lose in DEV. Final check: adding a passing sleeve must raise the 2022-26 Sharpe of the equal-risk crypto portfolio",
+  "ideas": {
+    "I1 C* on 20 coins": "same frozen C* + BTC leads rules on all 20 perps (altcoins only while BTC's signal > 0), 15% vol scaling on DEV, 7.5 bp; compared with the 10-coin version on perps with funding",
+    "I2 cascade risk-based sizing": "Gen57 B4 events, max 3 open; size each event so that hitting the stop loses 0.4% of equity (notional capped at 0.5)",
+    "I3 short-squeeze continuation": "per coin at the daily close: 3-settlement average funding < -0.01% (shorts paying) AND 3-day return > 0 AND open interest 3-day change > 0 -> long for the next 3 days, 0.1 notional each, max 5 coins",
+    "I4 premium carry with trend alignment": "G4 premium carry, but a long is only kept if the coin's 50-day MA is rising (vs 10 days ago) and a short only if it is falling; otherwise zero; weekly",
+    "I5 daily dip-buy in uptrends": "per coin: daily return < -2.5 x 30-day sigma AND close > 100-day MA -> long the next 3 days, 0.2 notional, max 3 open",
+    "I6 4-hour trend sleeve": "BTC, ETH, SOL on 4-hour bars: long when close > 20-bar high (previous bars), short when close < 20-bar low, exit on the opposite 10-bar extreme; each coin vol-targeted, sleeve 10% vol; taker"
+  },
+  "trials_added": 6
+}
