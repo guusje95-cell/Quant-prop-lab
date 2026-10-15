@@ -190,3 +190,16 @@ Details are in `research/GEN69_V4.md`.
 - **Friday-expiry window:** forward test only, because its tail risk cannot be estimated.
 - **Look-ahead bug in the first hourly 4h sleeve:** caught by its impossible result and fixed.
 - **Prop (bootstrap), HyroTrader 1-Step at 1.0 / 0.6:** $22.5k per $100k account over 2 years, unlucky 10% $7.5k, P(profit) 98%.
+
+## Gen70 (2026-10-15): uploaded papers 1, 2, 3, 5 with exact full-text rules
+Details are in `research/GEN70_PAPERS.md`.
+
+- **Weiss expiry reversal, last Friday:** fade 07–08 UTC from 08:00 to 10:00.
+  - **Passes the gate:** DEV 0.47, TEST 1.64, HOLD 0.62, corr 0.
+  - **v4 + it:** Sharpe 1.94 → 2.29.
+  - **Evidence is thin:** 81 events, t = 1.6.
+  - **v5 candidate at notional cap 0.5:** Sharpe 2.20, max DD -9.9%. Paper trading first.
+- **Rejected:**
+  - AdaptiveTrend: HOLD -1.15, corr C\* 0.61.
+  - Dhanya own-history books: TEST 0.50; mostly the carry we already hold.
+  - CTREND exact: TEST -1.61; a small-cap effect.
