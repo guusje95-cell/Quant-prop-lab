@@ -225,3 +225,16 @@ Details are in `research/GEN72_OPTIMISE.md`; the chart is `results/gen72_report.
   - 72% positive months; worst month -4.2%; 2022 +18.8%.
   - Treat this as an in-sample best case: plan for a live Sharpe of 1.3-1.7.
 - **HyroTrader 1-Step 1.0 / 0.6 (bootstrap):** $26.4k per $100k account over 2 years, unlucky 10% $12.0k, P(profit) 99.6%.
+
+## Gen73 (2026-10-15): first CFD tests on Dukascopy hourly data
+Details are in `research/GEN73_CFD_FIRST.md`. **All rejected.**
+
+| Test | Result |
+|---|---|
+| Gold session split | +0.76 in 2013-15, -0.72 since: decayed |
+| European-open re-test | fresh -0.71 |
+| Noise-area re-test | fresh -0.59 |
+| 4h trend on 6 CFDs | -0.41 |
+| Overnight US100 | fresh +0.90, but it fails the frozen same-sign rule and is mostly equity beta |
+
+**Next for CFD firms:** crypto CFDs (C\* / trend / Weiss with CFD costs) and the FX fix, once the rest of the Dukascopy data is in.
