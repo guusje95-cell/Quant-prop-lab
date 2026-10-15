@@ -1,0 +1,10 @@
+{
+  "generation": "Gen69",
+  "title": "Robustness of portfolio v3, near-misses inside v3, and prop sizing for v3",
+  "registered": "2026-10-15, before any Gen69 result was computed",
+  "M1 near-misses inside v3": "add (a) 4h breakout trend I6, (b) Friday-expiry window maker K2, (c) both, as extra equal-risk sleeves before the portfolio vol targeting. Adopt only if the 2022-26 Sharpe rises AND max drawdown is not worse AND the bootstrap 5%-worst year is not worse",
+  "M3 vol-targeting lookback robustness": "14, 30 (adopted), 60 days and caps 1.25 / 1.5 / 2.0; the adopted setting is kept only if all neighbours also beat the no-targeting baseline on Sharpe and max drawdown",
+  "M4 cascade (strict limit) neighbours": "max open {3, 5} x hold {12, 24} h; robustness only, the adopted 3/12 is kept unless it is the only good point",
+  "M7 prop sizing for v3": "challenge {0.75, 1.0, 1.25} x funded {0.4, 0.6, 0.8} with S50, HyroTrader 1-Step / 2-Step, SizeProp 1-Step, CFT 1-Phase; bootstrap 1000 paths; report mean, unlucky 10%, P(profit), payout months; descriptive (selected on the same data)",
+  "trials_added": 12
+}
