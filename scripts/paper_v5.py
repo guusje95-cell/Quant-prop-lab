@@ -120,12 +120,14 @@ def compute():
                 side[coin] = -np.sign(p8 / k.open[t7] - 1) / 2
         expo["Weiss expiry"] = pd.Series(side, dtype=float)
         weiss_note = "expiry trade: hold from 08:00 to 10:00 UTC"
-    book = pd.Series(dtype=float)
+    book = pd.Series(dtype=float); by = {}
     for s in SLEEVES:
         if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
-            book = book.add(expo[s].astype(float) * float(eff[s]), fill_value=0.0)
+            part = expo[s].astype(float) * float(eff[s]); by[s] = part
+            book = book.add(part, fill_value=0.0)
     effd = W.mul(mult.reindex(W.index), axis=0) * SCALE                              # per-day sleeve multipliers
     return {"END": END, "H": H, "ph": ph, "eff": eff, "effd": effd, "book": book[book.abs() > 1e-6].sort_values(),
+            "by_sleeve": pd.DataFrame(by).fillna(0.0),
             "pending": cpos.attrs.get("pending_signals", []), "open_cascade": ot, "weiss": weiss_note, "mult": mult}
 
 
@@ -220,17 +222,67 @@ def cmd_freeze(a):
         Dd.to_csv(OUT / "daily.csv", index=False)
     h1 = END + pd.Timedelta(hours=1)
     eq = float(Dd["equity"].iloc[-1]) if len(Dd) else float(CFG["frozen"]["account"])
+    by = (R["by_sleeve"] * eq * a.risk).round(2)
     book = {"for_hour_utc": str(h1), "made_at_utc": str(utcnow()), "data_cutoff_utc": str(cut), "equity": round(eq, 2), "risk": a.risk,
             "target_notional_usd": {k: round(v * eq * a.risk, 2) for k, v in R["book"].items()},
+            "by_sleeve_usd": {c: {s_: v for s_, v in row.items() if abs(v) >= 0.01} for c, row in by.iterrows()},
             "cascade_limit_orders": R["pending"], "cascade_open_trades": R["open_cascade"], "weiss": R["weiss"],
             "sleeve_multipliers": {k: (None if not np.isfinite(v) else round(float(v), 4)) for k, v in R["eff"].items()},
             "note": "simulation only - no order is sent anywhere"}
-    (OUT / "book_next_hour.json").write_text(json.dumps(book, indent=1, default=str))
+    prev_file = OUT / "book_next_hour.json"
+    prev = json.loads(prev_file.read_text()) if prev_file.exists() else None
+    orders = simulated_orders(prev, book)
+    prev_file.write_text(json.dumps(book, indent=1, default=str))
+    print_orders(book, orders)
     (OUT / "status.md").write_text(status_text(L, Dd, a.risk))
     log_event("RUN", cutoff=cut, new_hours=len(new), seconds=round(time.time() - t0, 1))
     print(f"frozen {len(new)} new hour(s) up to {END:%Y-%m-%d %H:00} UTC; book for {h1:%H:00} written ({time.time() - t0:.0f}s)")
     print((OUT / "status.md").read_text())
     return 0
+
+
+MIN_ORDER_USD = 50.0          # smaller changes are ignored (a bot would not trade dust)
+
+
+def simulated_orders(prev: dict | None, book: dict) -> pd.DataFrame:
+    """Orders a bot would send at the start of book['for_hour_utc'] to move from the previous target to the new one.
+    Appended to orders.csv. Simulation only."""
+    new = book["target_notional_usd"]; old = prev["target_notional_usd"] if prev else {}
+    nb = book.get("by_sleeve_usd", {}); ob = prev.get("by_sleeve_usd", {}) if prev else {}
+    rows = []
+    for coin in sorted(set(new) | set(old)):
+        d = new.get(coin, 0.0) - old.get(coin, 0.0)
+        if abs(d) < MIN_ORDER_USD:
+            continue
+        sl = set(nb.get(coin, {})) | set(ob.get(coin, {}))
+        why = {s_: nb.get(coin, {}).get(s_, 0.0) - ob.get(coin, {}).get(s_, 0.0) for s_ in sl}
+        why = ", ".join(f"{s_} {v:+,.0f}" for s_, v in sorted(why.items(), key=lambda kv: -abs(kv[1])) if abs(v) >= 1)
+        rows.append({"hour_utc": book["for_hour_utc"], "coin": coin, "side": "BUY" if d > 0 else "SELL", "usd": round(abs(d), 2),
+                     "from_usd": round(old.get(coin, 0.0), 2), "to_usd": round(new.get(coin, 0.0), 2),
+                     "type": "initial position" if prev is None else "rebalance", "because": why})
+    df = pd.DataFrame(rows)
+    if len(df):
+        f = OUT / "orders.csv"
+        df.to_csv(f, mode="a", header=not f.exists(), index=False)
+    return df
+
+
+def print_orders(book: dict, orders: pd.DataFrame):
+    h = pd.Timestamp(book["for_hour_utc"])
+    print(f"\n=== Simulated orders at {h:%Y-%m-%d %H:00} UTC (paper only, nothing is sent) ===")
+    if orders.empty:
+        print("  no changes: keep the current positions")
+    for o in orders.itertuples():
+        print(f"  {o.side:4} {o.coin:5} ${o.usd:>10,.0f}   {o.from_usd:>+10,.0f} -> {o.to_usd:>+10,.0f}   ({o.because})")
+    for x in book.get("cascade_limit_orders") or []:
+        print(f"  LIMIT BUY {x['coin']} at {x['limit_price']:.6g}, valid 1 hour, stop {x['stop']:.6g} (cascade)")
+    if book.get("weiss"):
+        print(f"  {book['weiss']}")
+    tgt = book["target_notional_usd"]
+    gross = sum(abs(v) for v in tgt.values())
+    print(f"  positions after: {len([v for v in tgt.values() if v > 0])} long / {len([v for v in tgt.values() if v < 0])} short, "
+          f"gross ${gross:,.0f} on ${book['equity']:,.0f} equity")
+    print("  full list: paper_trading/v5/orders.csv and book_next_hour.json\n")
 
 
 def cmd_loop(a):

@@ -23,6 +23,23 @@ The plan and the go/no-go rules were fixed in advance in `config/paper_v5.json`.
 
 The first run only records the starting point. Paper results start with the next completed hour.
 
+## What you see in the window
+Every hour (at :06 UTC; that is :06 Dutch time with the hour +2 in summer and +1 in winter) the window prints the **simulated orders**: what a bot would buy or sell at the start of that hour to reach the new target positions. Example:
+```
+=== Simulated orders at 2026-10-16 00:00 UTC (paper only, nothing is sent) ===
+  BUY  ADA   $     3,159       -2,012 ->     +1,147   (premium carry +3,217, C* -58)
+  SELL DOT   $     6,201       +3,923 ->     -2,279   (premium carry -5,865, C* -336)
+  positions after: 8 long / 7 short, gross $42,017 on $99,844 equity
+```
+How to read a line:
+- BUY / SELL and the dollar amount;
+- the position before -> after (negative = short);
+- which strategies caused it.
+
+Most trading happens at 00:00 UTC (daily strategies), every 4 hours (4h trend), after liquidation cascades (limit orders) and on the last Friday of the month at 08:00-10:00 UTC (Weiss). Many hours show "no changes". Changes under $50 are ignored.
+
+All orders are also saved in `paper_trading/v5/orders.csv`. The P&L is booked as if they were filled at the research cost assumptions.
+
 ## Daily use
 | What | How |
 |---|---|
@@ -36,6 +53,7 @@ The first run only records the starting point. Paper results start with the next
 | `ledger_hourly.csv` | **Frozen.** Per hour: the P&L of each sleeve, its multiplier, the portfolio return, when it was computed, and a *late* flag (more than 2 hours after the hour closed, e.g. the PC was asleep). |
 | `daily.csv` | The account per day ($100k, risk 1.0): return, equity, intraday low, daily-stop hits, and HyroTrader 1-Step rule flags (daily / max loss breach, 10% target reached). |
 | `status.md` | Summary against the backtest, plus the gate verdict. |
+| `orders.csv` | Every simulated order: hour, coin, side, amount, before / after, and which strategy caused it. |
 | `events.jsonl` | Every run, error and reconciliation. |
 | `reconcile.csv` | The frozen ledger compared with a recomputation on the final data. |
 
