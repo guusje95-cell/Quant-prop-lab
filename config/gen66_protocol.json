@@ -1,0 +1,15 @@
+{
+  "generation": "Gen66",
+  "title": "Prop-level risk tools for the crypto-firm portfolio (C* + premium carry + cascade, equal risk, 15% vol)",
+  "registered": "2026-10-15, before any Gen66 result was computed",
+  "replay": "hourly path 2022-01..2026-09; challenge 1.0x, funded 0.6x; budget 5 challenges, 24 months, start every 5 days",
+  "firms": ["HyroTrader One-Step $100k", "HyroTrader Two-Step $100k", "Crypto Fund Trader 1-Phase $100k", "SizeProp One-Step $100k"],
+  "tools": {
+    "S50": "intraday portfolio stop: when the day's loss on the hourly path reaches 50% of the firm's daily limit, flat for the rest of the UTC day (fill at that hour's close minus 10 bp)",
+    "S75": "same at 75% of the daily limit",
+    "CUSH": "cushion scaling (engine): size x clip((equity - floor) / max loss, 0.25, 1)",
+    "S75+CUSH": "both"
+  },
+  "adopt": "a tool is adopted only if it raises BOTH the mean net AND the unlucky-10% net at all four firms, and does not lower months with income by more than 3 points",
+  "trials_added": 4
+}
