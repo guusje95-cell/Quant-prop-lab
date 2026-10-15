@@ -57,7 +57,7 @@ def premium_carry(look=7, hold=7):
     return _from_daily_weights(w, C, 5)
 
 
-def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0):
+def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0):
     import gen57_cascade_hourly as CH
     trades = []
     for coin in B.coins():
@@ -72,7 +72,7 @@ def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0):
             entry = cv[t]
             if limit > 0:                                         # Gen67 E1: limit buy `limit` below the event close, valid 1 hour
                 entry = cv[t] * (1 - limit)
-                if lov[t + 1] > entry:
+                if lov[t + 1] > entry * (1 - through):              # Gen68 L1: require a trade-through, not just a touch
                     continue
             for j in range(t + 1, min(t + 1 + hold, n)):
                 if lov[j] <= stop:
@@ -118,6 +118,7 @@ def all_sleeves(refresh=False):
     if CACHE.exists() and not refresh:
         return pd.read_parquet(CACHE)
     df = pd.DataFrame({"C*": cstar(), "funding carry": carry(), "premium carry": premium_carry(), "cascade": cascade(), "cascade limit": cascade(limit=0.005),
+                       "cascade limit strict": cascade(limit=0.005, through=0.001),
                        "ETH evening": eth_evening()}).fillna(0.0)
     df.to_parquet(CACHE)
     return df
@@ -130,3 +131,17 @@ def to_daily(h: pd.Series) -> pd.DataFrame:
         p = np.cumprod(1 + g.to_numpy())
         rows.append((d, p[-1] - 1, min(p.min(), 1.0) - 1, max(p.max(), 1.0) - 1))
     return pd.DataFrame(rows, columns=["day", "net", "worst", "best"]).set_index("day")
+
+
+def portfolio_v3(cols=("C*", "premium carry", "cascade limit strict"), vol=0.15):
+    """Gen68 portfolio v3: sleeves at equal risk (10% each on their own history), portfolio scaled daily to `vol` with trailing
+    30-day realised vol (cap 1.5x, decided at the previous close), as an hourly return series from 2022."""
+    H = all_sleeves()[list(cols)].loc["2021-12-01":"2026-09-30 23:00"]
+    D = H.groupby(H.index.floor("D")).sum()
+    ph = H.mul(pd.Series({c: 0.10 / (D[c].std() * np.sqrt(365)) for c in D})).mean(axis=1)
+    pdly = ph.groupby(ph.index.floor("D")).sum()
+    ph = ph * vol / (pdly.loc["2022":].std() * np.sqrt(365)); pdly = ph.groupby(ph.index.floor("D")).sum()   # same level as v1/v2
+    mult = (vol / (pdly.rolling(30).std().shift(1) * np.sqrt(365))).clip(upper=1.5)
+    out = (ph * mult.reindex(ph.index.floor("D")).set_axis(ph.index)).loc["2022-01-01":].dropna()
+    od = out.groupby(out.index.floor("D")).sum()
+    return out * vol / (od.std() * np.sqrt(365))                      # realised vol back to `vol` (descriptive, like v1/v2)

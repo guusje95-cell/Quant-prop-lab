@@ -172,3 +172,12 @@ Details are in `research/GEN67_STRESS_EXECUTION.md`.
 - **S50 daily stop** now helps at all four crypto firms.
 - **Bootstrap expectation at HyroTrader 1-Step:** $20.7k per $100k account over 2 years (unlucky 10%: $5.6k), P(profit) 98%.
 - **Rejected:** C\* weekly rebalance, no-trade band.
+
+## Gen68 (2026-10-15): fill realism and drawdown control
+Details are in `research/GEN68_FILLS_DRAWDOWN.md`.
+
+- **Cascade limit fills:** the gain survives a 0.1% trade-through rule (2023+ 1.30), but not 0.3%. The portfolio now uses the strict version.
+- **Maker rebalancing for C\* / premium carry:** rejected (adverse selection).
+- **Portfolio vol targeting: ADOPTED.** Max DD -20% to -13.5%; bootstrap 5%-worst year +0.4% to +3.0%.
+- **Crypto-firm portfolio v3:** Sharpe 1.88, max DD -13.3%.
+- **At HyroTrader 1-Step (bootstrap):** $20.3k per $100k account over 2 years, unlucky 10% $6.8k, P(profit) 98.5%, payout months 52%.
