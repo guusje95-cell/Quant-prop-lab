@@ -1,0 +1,38 @@
+{
+  "generation": "Gen73",
+  "title": "First CFD-firm tests on Dukascopy hourly data (US100, US500, US30, DE40, XAUUSD, EURUSD, 2013-01..2026-09)",
+  "registered": "2026-10-15, after the 6 hourly files arrived and before any Gen73 number was computed",
+  "data": "research_data/dukascopy/<SYM>_1h.parquet, BID prices, UTC bar-open times; converted to New York / London time where a rule says so (DST-aware)",
+  "costs": {
+    "spread_commission_per_side": "indices 1.0 bp (US100/US500/US30/DE40), XAUUSD 2.0 bp, EURUSD 1.0 bp (spread + commission at FTMO-type firms); stress 2x",
+    "financing": "3%/yr on notional for positions held over 22:00 UTC (CFD swap), charged per night held; intraday-only rules pay none",
+    "note": "real ask-side spreads by hour arrive later (Dukascopy ASK pass) and will be used to re-check any pass"
+  },
+  "splits": "DEV 2013-2019 | TEST 2020-2023 | HOLD 2024-2026 (Gen60 Dukascopy splits); Gen59 re-tests are judged on the FRESH period 2023-10..2026-09 only",
+  "pass_new": "TEST >= 0.8 and HOLD >= 0.5 and DEV > 0, worst day >= -1.5% at 10% vol, AND (portfolio check) correlation with crypto v5 <= 0.3",
+  "pass_retest": "Gen59 rule: fresh-period Sharpe > 0.5 after costs AND same sign as the original result",
+  "tests": {
+    "T1 gold session split (Gen60 D2, frozen)": {
+      "rule": "XAUUSD: long 23:00-07:00 UTC, short 07:00-16:00 UTC, flat otherwise; unit notional; 2 bp per side per leg; neither leg is held over 22:00 UTC, so no swap",
+      "report": "also 2013-02/2015 and 03/2015-2026 separately, as registered",
+      "variant": "long leg only"
+    },
+    "T2 Gen59 re-test: European-open long (Gen48c, frozen)": {
+      "rule": "US500 and DE40: long 23:30-03:30 New York time. Hourly data: enter at the open of the 00:00 NY bar, exit at the open of the 04:00 NY bar (same 4 hours, shifted 30 min). 1 bp per side; no swap (04:00-09:00 UTC, does not cross 22:00 UTC)",
+      "original": "US500 -0.18 at 1 bp (2013-08..2023-09); positive gross"
+    },
+    "T3 Gen59 re-test: overnight index return (Liu & Tse, frozen)": {
+      "rule": "US500, US100, US30: long from the open of the 16:00 NY bar to the open of the 09:00 NY bar (hourly stand-in for close-to-open), 1 bp per side, one night of financing (3%/yr / 365)",
+      "original": "rejected: +5.5%/yr gross, negative after costs"
+    },
+    "T4 Gen59 re-test: noise-area breakout (Gen47 G47b) on US100": {
+      "rule": "as Gen47 (14-day band, VWAP replaced by the session's typical-price average, 2% daily vol target, max 4x), but checks every hour instead of every 30 min (hourly data deviation, fixed here); flat at the 16:00 NY close; 1 bp per side",
+      "original": "US100 +0.71 at 1 bp (15-min, 2013-2023)"
+    },
+    "T5 4h breakout trend on the 6 CFDs (new; crypto 'trend 4h' rule frozen)": {
+      "rule": "4-hour bars (UTC 00/04/08/12/16/20): long on close > highest high of the previous 20 bars, short on close < lowest low of 20, exit long on close < lowest low of 10, exit short on close > highest high of 10; each instrument at 10% vol (6 x 30 4h-bar trailing vol, cap 2x), equal weight across the 6; costs per instrument + 3%/yr financing on held notional",
+      "variant": "indices + gold only (5)"
+    }
+  },
+  "trials_added": 9
+}
