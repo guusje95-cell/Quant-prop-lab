@@ -203,8 +203,7 @@ def cmd_freeze(a):
     led = OUT / "ledger_hourly.csv"
     L = pd.read_csv(led, parse_dates=["hour", "computed_at"]) if led.exists() else pd.DataFrame()
     if L.empty:
-        first = pd.Timestamp(a.start) if a.start else END + pd.Timedelta(hours=1)
-        log_event("START", first_hour=first, cutoff=cut)
+        first = paper_start(a.start, END + pd.Timedelta(hours=1), cut)
     else:
         first = L["hour"].max() + pd.Timedelta(hours=1)
     new = R["ph"].loc[first:END]
@@ -283,6 +282,24 @@ def print_orders(book: dict, orders: pd.DataFrame):
     print(f"  positions after: {len([v for v in tgt.values() if v > 0])} long / {len([v for v in tgt.values() if v < 0])} short, "
           f"gross ${gross:,.0f} on ${book['equity']:,.0f} equity")
     print("  full list: paper_trading/v5/orders.csv and book_next_hour.json\n")
+
+
+def paper_start(requested: str | None, default: pd.Timestamp, cut: pd.Timestamp) -> pd.Timestamp:
+    """The first paper hour, fixed once (state.json). Older installs: the earliest START event in events.jsonl."""
+    st = OUT / "state.json"
+    if st.exists():
+        return pd.Timestamp(json.loads(st.read_text())["first_hour"])
+    first = None
+    ev = OUT / "events.jsonl"
+    if ev.exists():
+        starts = [json.loads(x) for x in ev.read_text().splitlines() if '"START"' in x]
+        if starts:
+            first = min(pd.Timestamp(e["first_hour"]) for e in starts)
+    if first is None:
+        first = pd.Timestamp(requested) if requested else default
+        log_event("START", first_hour=first, cutoff=cut)
+    st.write_text(json.dumps({"first_hour": str(first)}))
+    return first
 
 
 def cmd_loop(a):
