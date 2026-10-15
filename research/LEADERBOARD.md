@@ -124,3 +124,11 @@ Details are in `research/GEN57_BINANCE.md`.
   - Funding carry XS: 7d average, 2023+ about 0.7.
   - ETH evening window with maker fills: 2023+ 0.99.
 - **Descriptive combination 2023+:** C\* + 3 add-ons gives Sharpe 1.98 and **73% positive months** (C\* alone: 44%). This is optimistic, so the next step is forward testing.
+
+## Gen61 + crypto portfolio (2026-10-15)
+Details are in `research/GEN58_61_CRYPTO_PORTFOLIO.md`.
+
+- **PASSED: premium carry XS.** Long the lowest third of the 7-day average premium index, short the highest third, weekly. 2023+ Sharpe 0.95, HOLD 1.18, 0.81 at 2x costs, correlation with C\* -0.07.
+- **Rejected:** crowding overlay, funding-settlement window, bear short sleeve, Monday intraday trend.
+- **Portfolio** (C\* + premium carry + cascade, 15% vol, 2022-26): Sharpe 1.55 vs 1.28, positive months 61% vs 42%. Prop months with income about 45% vs about 20%.
+- **2022 hurt every crypto sleeve**, so non-crypto sleeves are needed next.
