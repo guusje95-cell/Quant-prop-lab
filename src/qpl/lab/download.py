@@ -208,17 +208,21 @@ DUKA_RANGE = {"US100": (1000, 60000), "US500": (500, 15000), "US30": (5000, 1000
 
 
 _DUKA = None
-_PACE = {"pause": 1.5, "streak": 0}                                  # adaptive pause between Dukascopy requests
+_PACE = {"pause": 1.5, "streak": 0, "fails": 0}                                  # adaptive pause between Dukascopy requests
 
 
 def _pace(ok: bool):
     """Slow down after a block (pause x2, max 20 s), speed up slowly after 40 good requests in a row (min 1.5 s)."""
     if ok:
+        _PACE["fails"] = 0
         _PACE["streak"] += 1
         if _PACE["streak"] >= 40:
             _PACE["pause"] = max(1.5, _PACE["pause"] * 0.8); _PACE["streak"] = 0
     else:
-        _PACE["pause"] = min(20.0, _PACE["pause"] * 2); _PACE["streak"] = 0
+        _PACE["pause"] = min(20.0, _PACE["pause"] * 2); _PACE["streak"] = 0; _PACE["fails"] += 1
+        if _PACE["fails"] >= 6:                                        # blocked: long break, then carry on by itself
+            print(f"\n  [Dukascopy is blocking this connection; pausing 20 minutes at {pd.Timestamp.now():%H:%M}, then continuing]", flush=True)
+            time.sleep(1200); _PACE["fails"] = 0; _PACE["pause"] = 3.0
     time.sleep(_PACE["pause"])
 
 
