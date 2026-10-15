@@ -1,0 +1,41 @@
+{
+  "generation": "Gen70",
+  "title": "Full-text replications of the four uploaded papers (Paper_1, 2, 3, 5; Paper_4 not received)",
+  "registered": "2026-10-15, after reading the full texts and before any Gen70 number was computed",
+  "note": "Gen65 K1-K3 and Gen57 B3 tested abstract-level sketches of papers 1, 2, 3 and 5. Gen70 tests the exact constructions in the full texts, adapted only where our data forces it (20 Binance USD-M perps, no market caps, no Deribit options data). Adaptations are listed per idea and are fixed here.",
+  "data": "research_data/binance: 5m klines (volume, trade count, taker-buy volume), 8h funding, metrics (OI, top-trader and all-account long/short ratios, from 2021-12), 20 coins, to 2026-09-30",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0 (where DEV exists), corr with C* <= 0.3, AND adding it to the v4 equal-risk portfolio (C* + premium carry + cascade limit strict + trend 4h) raises the 2022-26 Sharpe",
+  "ideas": {
+    "W Weiss, Gaudiosi, Zhou & Webb (FRL 2026), option-expiry reversal": {
+      "rule": "BTC and ETH perps. Observe Return Pre = 07:00-08:00 UTC. At 08:00 take position -sign(Return Pre), close at 10:00. Unit notional per coin, taker 5 bp per side.",
+      "adaptation": "The paper conditions on the top decile of at-the-money Deribit OI and negative dealer gamma; we have neither. Proxy for high-OI days = Deribit monthly expiry (last Friday of the month), which carries most of the large-OI days.",
+      "W1 (PRIMARY)": "last Friday of each month",
+      "W2": "every Friday (weekly expiry)",
+      "W3": "every day, only when |Return Pre| is above the trailing 365-day 90th percentile of |Return Pre| (large pre-expiry move)",
+      "W4": "every day, unconditional (paper: no reversal expected in the full sample; a placebo)"
+    },
+    "A Bui & Nguyen (arXiv 2602.11708), AdaptiveTrend": {
+      "rule": "6h bars. MOM = P_t / P_{t-L} - 1. Long entry when MOM > theta, short entry when MOM < -theta. Trailing stop S_t = max(S_{t-1}, P_t - alpha*ATR_k) for longs (mirror for shorts), k = 14, exit on close through the stop. Monthly: long candidates = top 15 coins by size, short candidates = bottom 5 by size; for each candidate grid-search (L, theta, alpha) on the previous month and keep it if that month's best Sharpe >= 1.3 (long) / >= 1.7 (short); trade the chosen parameters next month. Capital 70% long leg / 30% short leg, equal weight within the leg (notional). Taker 5 bp, funding.",
+      "adaptation": "size = trailing 30-day dollar volume (no market caps). Grid not given in the paper; fixed here: L in {12, 28, 56} bars, theta in {0.02, 0.05, 0.10}, alpha in {2.0, 2.5, 3.0} (27 cells). The trailing-stop state carries over across month boundaries only if the same parameters stay selected; otherwise positions are re-evaluated with the new parameters.",
+      "A1 (PRIMARY)": "full AdaptiveTrend as above",
+      "A2": "fixed parameters L = 28, theta = 0.05, alpha = 2.5 on all 20 coins, long and short, 70/30, no monthly selection"
+    },
+    "D Dhanya MD (2026), every asset its own benchmark": {
+      "rule": "Weekly, Monday 00:00 UTC. Eleven factors from Table 2 computed from point-in-time intraday data; each raw weekly factor smoothed with a 20-week rolling mean; self-referential score = rank of this week's value within the coin's own previous 52 weeks (min 26), mapped to [-1, 1]; score minus the coin's cross-sectional funding rank (trailing week funding, mapped to [-1, 1], funding weight 1); one dollar-neutral quintile book per factor (top 20% long, bottom 20% short, +-1/n); book returns combined by inverse trailing 26-week volatility (lagged). Funding paid/received, cost 4 bp per unit turnover, forward returns clipped at +100%.",
+      "factors": "AVOL = -log(week volume / mean of previous 12 weeks); Q = VWAP of the top 20% of the week's hourly bars by |r|/sqrt(v) over VWAP of all bars (sign +, momentum-consistent as the paper reports for perps); RSJ = -(sum r+^2 - sum r-^2)/sum r^2 over hourly returns; OFI = sum(2b - v)/sum v; CPVm = -mean over days of corr(hourly close, hourly volume); CPVv = -sd of those daily correlations; WRspread = -(top-trader position L/S - all-account L/S); TopChg = -weekly change of top-trader L/S; Quad = -sign(weekly return) * weekly change of log OI; TKU = mean daily kurtosis of log(v/n) over 5m bars; TSKD = weekly change of mean daily [skew(log ticket | taker-buy > half) - skew(log ticket | other)] over 5m bars",
+      "adaptation": "20 coins, so each quintile is 4 coins. Positioning factors exist from 2022-01 only.",
+      "D1 (PRIMARY)": "full construction, 11 books, inverse-vol combined",
+      "D2": "same books but cross-sectional ranks instead of own-history ranks (the paper's control)",
+      "D3": "funding-rank book alone (the paper's carry component)"
+    },
+    "C Fieberg et al. (JFQA 2025), CTREND": {
+      "rule": "28 daily technical indicators (rsi14, stochK14, stochD, stochRSI14, cci20, sma 3/5/10/20/50/100/200 over price, macd 12/26 as % of fast EMA, macd minus 9-day signal, volume SMA 3/5/10/20/50/100/200 over current volume, volmacd, volmacd signal diff, chaikin 20, Bollinger low/mid/high over price, Bollinger width), sampled weekly; cross-sectional ranks mapped to [-0.5, 0.5]; for each indicator weekly weighted cross-sectional regressions of next-week return on the indicator; coefficients averaged over the last 52 weeks; per-indicator forecasts; pooled elastic net (l1_ratio 0.5, lambda by corrected AIC) of returns on the 28 in-window forecasts; CTREND = mean of the forecasts with positive elastic-net weight. Quintile long-short, weighted, weekly. Funding, taker 5 bp.",
+      "adaptation": "weights = trailing 30-day dollar volume instead of market cap; 20 coins (quintile = 4 coins).",
+      "C1 (PRIMARY)": "as above",
+      "C2": "equal-weighted forecast combination of all 28 forecasts (paper's naive combination), same portfolio"
+    }
+  },
+  "trials_added": 11,
+  "selection": "a sleeve is added to the crypto portfolio only via its PRIMARY row; variants are reported for information and cannot be promoted in this generation"
+}
