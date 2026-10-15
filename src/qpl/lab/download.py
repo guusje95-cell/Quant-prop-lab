@@ -207,36 +207,87 @@ DUKA_RANGE = {"US100": (1000, 60000), "US500": (500, 15000), "US30": (5000, 1000
               "NZDUSD": (0.4, 1.1), "EURJPY": (80, 250), "GBPJPY": (100, 300), "EURGBP": (0.6, 1.1), "EURCHF": (0.8, 1.8), "AUDJPY": (50, 150)}
 
 
-def _duka_day(inst, day, side="BID", tries=4):
-    """One day of 1-minute candles. Returns a DataFrame, None (no data that day) or the string 'FAILED: <reason>' when the
-    day could not be fetched after retries (the caller skips it and does NOT mark the month complete, so a later run retries)."""
+_DUKA = None
+
+
+def _duka_get(url):
+    global _DUKA
+    if _DUKA is None:
+        _DUKA = requests.Session(); _DUKA.headers.update(HDR)
+    return _DUKA.get(url, timeout=(10, 20))
+
+
+def _duka_decode(content, base):
     import lzma
     import numpy as np
-    url = f"https://datafeed.dukascopy.com/datafeed/{inst}/{day.year}/{day.month - 1:02d}/{day.day:02d}/{side}_candles_min_1.bi5"
+    raw = lzma.decompress(content)
+    a = np.frombuffer(raw[: len(raw) // 24 * 24], dtype=np.dtype([("t", ">u4"), ("o", ">i4"), ("c", ">i4"), ("l", ">i4"), ("h", ">i4"), ("v", ">f4")]))
+    return pd.DataFrame({"time": pd.Timestamp(base) + pd.to_timedelta(a["t"].astype("int64"), unit="s"),
+                         "open": a["o"].astype(float), "high": a["h"].astype(float), "low": a["l"].astype(float),
+                         "close": a["c"].astype(float), "volume": a["v"].astype(float)})
+
+
+def _duka_fetch(url, base, tries=4):
+    """-> DataFrame, None (no data) or 'FAILED: reason'. On a block/timeout it cools down 30/60/90 s before retrying."""
+    import lzma
     reason = ""
     for k in range(tries):
         try:
-            r = requests.get(url, headers=HDR, timeout=30)
+            r = _duka_get(url)
             if r.status_code == 404 or (r.status_code == 200 and not r.content):
                 return None
             if r.status_code != 200:
                 reason = f"HTTP {r.status_code}"
-                time.sleep(10 * (k + 1)); continue
-            raw = lzma.decompress(r.content)
-            a = np.frombuffer(raw[: len(raw) // 24 * 24], dtype=np.dtype([("t", ">u4"), ("o", ">i4"), ("c", ">i4"), ("l", ">i4"), ("h", ">i4"), ("v", ">f4")]))
-            return pd.DataFrame({"time": pd.Timestamp(day) + pd.to_timedelta(a["t"].astype("int64"), unit="s"),
-                                 "open": a["o"].astype(float), "high": a["h"].astype(float), "low": a["l"].astype(float),
-                                 "close": a["c"].astype(float), "volume": a["v"].astype(float)})
-        except lzma.LZMAError:
-            reason = f"not a data file ({len(r.content)} bytes, starts {r.content[:40]!r})"
-            time.sleep(10 * (k + 1))
+            else:
+                try:
+                    return _duka_decode(r.content, base)
+                except lzma.LZMAError:
+                    reason = f"not a data file ({len(r.content)} bytes)"
         except requests.RequestException as e:
-            reason = f"{type(e).__name__}: {str(e)[:120]}"
-            time.sleep(10 * (k + 1))
+            reason = f"{type(e).__name__}"
+            global _DUKA
+            _DUKA = None                                           # fresh connection after a network error
+        if k < tries - 1:
+            time.sleep(30 * (k + 1))
     return f"FAILED: {reason}"
 
 
-def dukascopy(symbol, start="2013-01-01", end=None, pause=0.6, side="BID"):
+def duka_hourly(symbol, start="2013-01-01", end=None, side="BID"):
+    """Hourly candles: ONE request per month (vs ~22 for 1-minute), so 2013-2026 takes ~3 minutes per instrument."""
+    inst = DUKA_SYM.get(symbol, symbol); lo_, hi_ = DUKA_RANGE.get(symbol, (1e-9, 1e12))
+    end = pd.Timestamp(end or pd.Timestamp.now("UTC").tz_localize(None).normalize())
+    print(f"{symbol} {side} hourly from {start}: ", end="", flush=True)
+    parts, missed = [], 0
+    for m0 in pd.date_range(pd.Timestamp(start).replace(day=1), end, freq="MS"):
+        x = _duka_fetch(f"https://datafeed.dukascopy.com/datafeed/{inst}/{m0.year}/{m0.month - 1:02d}/{side}_candles_hour_1.bi5", m0)
+        if isinstance(x, str):
+            missed += 1; print("x", end="", flush=True)
+        elif x is not None:
+            parts.append(x); print(".", end="", flush=True)
+        time.sleep(0.5)
+    print(f" ({missed} months failed)" if missed else " done", flush=True)
+    if not parts:
+        raise RuntimeError(f"no Dukascopy hourly data for {symbol}")
+    df = pd.concat(parts, ignore_index=True).drop_duplicates("time").sort_values("time")
+    df = df[df["volume"] > 0]
+    ref = float(df["close"].median())
+    for k in range(0, 8):
+        if lo_ <= ref / 10 ** k <= hi_:
+            break
+    else:
+        raise RuntimeError(f"{symbol}: could not determine the price scale (median raw {ref})")
+    for c in ("open", "high", "low", "close"):
+        df[c] = df[c] / 10 ** k
+    return df.reset_index(drop=True)
+
+
+def _duka_day(inst, day, side="BID", tries=4):
+    """One day of 1-minute candles -> DataFrame, None (no trading) or 'FAILED: reason'."""
+    url = f"https://datafeed.dukascopy.com/datafeed/{inst}/{day.year}/{day.month - 1:02d}/{day.day:02d}/{side}_candles_min_1.bi5"
+    return _duka_fetch(url, day, tries)
+
+
+def dukascopy(symbol, start="2013-01-01", end=None, pause=1.0, side="BID"):
     """1-minute BID candles from Dukascopy's public datafeed (no account). Run on your own PC (blocked from the research
     cloud). Cached per month in data/lab/cache/dukascopy/<SYM>/ so an interrupted download resumes. Weekend minutes with
     zero volume are dropped. Price scale is detected from the data and checked against a plausible range."""

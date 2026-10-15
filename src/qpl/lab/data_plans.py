@@ -45,17 +45,22 @@ def _pack(df: pd.DataFrame, rule: str) -> pd.DataFrame:
 
 
 def dukascopy(priority: int, start: str = "2013-01-01"):
+    """Priority 1: 1-minute data (needed for intraday tests). Priorities 2-3: hourly data (one request per month, minutes per
+    instrument) - enough for session, trend and fix tests; 1-minute for those can be added later if a test needs it."""
     out = ROOT / "research_data" / "dukascopy"; out.mkdir(parents=True, exist_ok=True)
     for sym in DUKA_PLAN[priority]:
         try:
-            df = DL.dukascopy(sym, DUKA_START.get(sym, start))
+            if priority == 1:
+                df = DL.dukascopy(sym, DUKA_START.get(sym, start))
+                DL.save({sym: df}, f"dukascopy_{sym}_1m", "1m")
+                _pack(df, "5min").to_parquet(out / f"{sym}_5m.parquet", compression="zstd")
+                _pack(df, "1h").to_parquet(out / f"{sym}_1h.parquet", compression="zstd")
+            else:
+                df = DL.duka_hourly(sym, DUKA_START.get(sym, start))
+                df.set_index("time").astype("float32").to_parquet(out / f"{sym}_1h.parquet", compression="zstd")
         except Exception as e:
             print(sym, "FAILED:", e, flush=True); continue
-        DL.save({sym: df}, f"dukascopy_{sym}_1m", "1m")
-        _pack(df, "1h").to_parquet(out / f"{sym}_1h.parquet", compression="zstd")
-        if priority == 1:
-            _pack(df, "5min").to_parquet(out / f"{sym}_5m.parquet", compression="zstd")
-        print(sym, "done:", len(df), "minutes", df.time.min(), "..", df.time.max(), flush=True)
+        print(sym, "done:", len(df), "bars", df.time.min(), "..", df.time.max(), flush=True)
     print("pack ->", out, "(commit: git add research_data && git commit -m 'Dukascopy data' && git push)")
 
 
