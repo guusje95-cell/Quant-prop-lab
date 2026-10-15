@@ -1,0 +1,17 @@
+{
+  "generation": "Gen76",
+  "title": "Index ideas batch 3: option-expiration week and cross-index weekly reversal",
+  "registered": "2026-10-15, before any Gen76 number was computed (after Gen75 results were seen; these two ideas were not part of Gen75)",
+  "costs_splits_pass": "as Gen75 (1 bp per side indices, 3%/yr financing per night; DEV 2013-19 / TEST 2020-23 / HOLD 2024-26; TEST >= 0.8, HOLD >= 0.5, DEV > 0, then the CFD-portfolio check)",
+  "tests": {
+    "O1 option-expiration week (Stivers & Sun 2013, 'Returns and option activity over the option-expiration week for S&P 100 stocks'; index-level OPEX-week effect)": {
+      "rule": "US500 and US100: long from the daily close (16:00 NY) of the Friday before the monthly option expiration (3rd Friday) to the close of the expiration Friday; flat otherwise; equal weight",
+      "variant": "short the week after expiration (close of expiration Friday to close of the following Friday)"
+    },
+    "O2 cross-index weekly reversal (short-horizon index reversal)": {
+      "rule": "US500, US100, US30, DE40: at each Friday close (US 16:00 NY; DE40 17:00 Berlin bar close on the same Friday), rank by the past-week return; long the worst, short the best, hold one week; unit notional per leg",
+      "variant": "rank on the past 2 weeks"
+    }
+  },
+  "trials_added": 4
+}
