@@ -98,3 +98,18 @@ Details are in `research/GEN56_FIVE_PAPERS.md`.
 - **Replicated, but not tradable:** funding rates are predictable (MSPE −7–9%, 61–62% of directions correct).
 - **New cost found:** about 0.8% of equity per year per coin in funding if C\* is held as perps.
 - **Re-tests on the Binance pack:** pre-registered in `config/gen57_protocol.json`, before the data arrived.
+
+## Gen58 (2026-10-15): what portfolio quality do we need? (theory, synthetic series)
+Script: `scripts/gen58_target_sharpe.py`. Results: `results/gen58_target_sharpe.csv`.
+
+Synthetic, smooth (fat-tailed but not trend-skewed) daily returns at 15% vol, run through the real prop engine. Per $100k account over 2 years, challenge 1.0×, funded 0.6×, FTMO 2-Step:
+
+| Sharpe | Pass | Net, 2 years | Net, unlucky 10% | Months with income |
+|---|---|---|---|---|
+| 1.0 | 58% | $9.7k | $0.7k | 33% |
+| 1.5 | 70% | $15.3k | $4.4k | 45% |
+| 2.0 | 79% | $21.6k | $9.7k | 57% |
+| 2.5 | 86% | $28.3k | $15.7k | 67% |
+| 3.0 | 90% | $35.2k | $22.5k | 75% |
+
+C\* (realistic Sharpe about 1.4–1.5) gets only about 21% months with income, against about 45% for a smooth Sharpe-1.5 series: trend profits are lumpy. **Smoothness matters as much as Sharpe.**
