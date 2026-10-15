@@ -238,3 +238,16 @@ Details are in `research/GEN73_CFD_FIRST.md`. **All rejected.**
 | Overnight US100 | fresh +0.90, but it fails the frozen same-sign rule and is mostly equity beta |
 
 **Next for CFD firms:** crypto CFDs (C\* / trend / Weiss with CFD costs) and the FX fix, once the rest of the Dukascopy data is in.
+
+## Gen74 (2026-10-15): crypto portfolio as CFDs at CFD firms
+Details are in `research/GEN74_CRYPTO_CFD.md`.
+
+- **Surviving CFD costs (spread + swap, no funding):** only C\* and Weiss expiry.
+  - The 4h trend misses 2025-26.
+  - Premium carry and the cascade fail.
+- **C\* + Weiss as CFDs:** Sharpe 1.50, max DD -16%, 49% positive months.
+- **FTMO / FundedNext / BrightFunded 2-Step at 1.0 / 0.6:**
+  - $14-15k mean net per $100k over 2 years;
+  - unlucky 10% about $0-1.4k;
+  - P(profit) 90-92%.
+- **Verdict:** a weaker second channel next to the crypto firms (v5: $26.4k, 99.6%).
