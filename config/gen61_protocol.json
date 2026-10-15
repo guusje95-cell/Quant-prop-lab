@@ -1,0 +1,14 @@
+{
+  "generation": "Gen61",
+  "title": "Remaining crypto ideas on the Binance pack",
+  "registered": "2026-10-15, before any Gen61 result was computed (Gen57 results known)",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026; pass = 2023+ Sharpe >= 0.8 net, HOLD >= 0.5, corr with C* <= 0.3",
+  "tests": {
+    "G1 (= Gen60 B6) crowding overlay on C*": "halve C* exposure when BOTH the 30-day z-score of the BTC premium index and the z-score of BTC 7-day OI change exceed their trailing 1-year 95th percentile; restore below the 80th. Judge on max drawdown and Calmar (must not lower 2023+ Sharpe by > 0.05)",
+    "G2 funding-settlement window": "for each of 20 coins: if the last known funding rate > +0.03% short the perp from 1h before to 1h after each settlement (23-01, 07-09, 15-17 UTC); if < -0.01% long. Maker 2 bp/side with the 5-minute touch rule (taker 5 bp when not touched)",
+    "G4 premium carry XS": "rank 20 coins on the 7-day average hourly premium index; long lowest third, short highest third, hold 7 days, taker 5 bp, funding included",
+    "G5 bear short sleeve": "short BTC and ETH perps (equal risk) when BTC close < 50-day MA AND the 100-day MA is falling (vs 10 days ago); flat otherwise; vol target 10%; taker 5 bp; funding included",
+    "G12 (= Gen60 B1 variant) weekly-anchored intraday trend": "noise-area rule on BTC/ETH with the session anchored at Sunday 23:00 UTC, trading only Sunday 23:00 -> Monday 23:00"
+  },
+  "trials_added": 5
+}
