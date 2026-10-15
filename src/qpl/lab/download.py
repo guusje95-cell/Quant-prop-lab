@@ -207,29 +207,36 @@ DUKA_RANGE = {"US100": (1000, 60000), "US500": (500, 15000), "US30": (5000, 1000
               "NZDUSD": (0.4, 1.1), "EURJPY": (80, 250), "GBPJPY": (100, 300), "EURGBP": (0.6, 1.1), "EURCHF": (0.8, 1.8), "AUDJPY": (50, 150)}
 
 
-def _duka_day(inst, day, side="BID"):
+def _duka_day(inst, day, side="BID", tries=8):
+    """One day of 1-minute candles. Returns a DataFrame, None (no data that day) or the string 'FAILED: <reason>' when the
+    day could not be fetched after retries (the caller skips it and does NOT mark the month complete, so a later run retries)."""
     import lzma
     import numpy as np
     url = f"https://datafeed.dukascopy.com/datafeed/{inst}/{day.year}/{day.month - 1:02d}/{day.day:02d}/{side}_candles_min_1.bi5"
-    for k in range(6):
+    reason = ""
+    for k in range(tries):
         try:
             r = requests.get(url, headers=HDR, timeout=30)
             if r.status_code == 404 or (r.status_code == 200 and not r.content):
                 return None
-            if r.status_code == 429 or r.status_code >= 500:
-                time.sleep(10 * (k + 1)); continue
-            r.raise_for_status()
+            if r.status_code != 200:
+                reason = f"HTTP {r.status_code}"
+                time.sleep(min(15 * (k + 1), 90)); continue
             raw = lzma.decompress(r.content)
             a = np.frombuffer(raw[: len(raw) // 24 * 24], dtype=np.dtype([("t", ">u4"), ("o", ">i4"), ("c", ">i4"), ("l", ">i4"), ("h", ">i4"), ("v", ">f4")]))
             return pd.DataFrame({"time": pd.Timestamp(day) + pd.to_timedelta(a["t"].astype("int64"), unit="s"),
                                  "open": a["o"].astype(float), "high": a["h"].astype(float), "low": a["l"].astype(float),
                                  "close": a["c"].astype(float), "volume": a["v"].astype(float)})
-        except (requests.RequestException, lzma.LZMAError):
-            time.sleep(5 * (k + 1))
-    raise RuntimeError(f"Dukascopy {inst} {day.date()}: failed after retries")
+        except lzma.LZMAError:
+            reason = f"not a data file ({len(r.content)} bytes, starts {r.content[:40]!r})"
+            time.sleep(min(15 * (k + 1), 90))
+        except requests.RequestException as e:
+            reason = f"{type(e).__name__}: {str(e)[:120]}"
+            time.sleep(min(15 * (k + 1), 90))
+    return f"FAILED: {reason}"
 
 
-def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25, side="BID"):
+def dukascopy(symbol, start="2013-01-01", end=None, pause=0.6, side="BID"):
     """1-minute BID candles from Dukascopy's public datafeed (no account). Run on your own PC (blocked from the research
     cloud). Cached per month in data/lab/cache/dukascopy/<SYM>/ so an interrupted download resumes. Weekend minutes with
     zero volume are dropped. Price scale is detected from the data and checked against a plausible range."""
@@ -247,13 +254,20 @@ def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25, side="BID"):
             except Exception:                                    # cut off mid-write (PC went to sleep): download that month again
                 f.unlink(missing_ok=True)
         days = [d for d in pd.date_range(max(m0, pd.Timestamp(start)), min(m0 + pd.offsets.MonthEnd(0), end)) if d.weekday() != 5]
-        mon = [x for d in days if (x := _duka_day(inst, d, side)) is not None and (time.sleep(pause) or True)]
+        mon, missed = [], []
+        for d in days:
+            x = _duka_day(inst, d, side); time.sleep(pause)
+            if isinstance(x, str):
+                missed.append(f"{d.date()} {x}")
+            elif x is not None:
+                mon.append(x)
         if mon:
             mdf = pd.concat(mon, ignore_index=True)
-            if complete:
-                mdf.to_parquet(f)
+            if complete and not missed:
+                mdf.to_parquet(f)                                # only fully downloaded months are cached
             parts.append(mdf)
-        print(f"  {symbol} {side} {m0:%Y-%m}: {sum(len(x) for x in mon) if mon else 0} minutes", flush=True)
+        print(f"  {symbol} {side} {m0:%Y-%m}: {sum(len(x) for x in mon) if mon else 0} minutes"
+              + (f"  ({len(missed)} days skipped, retried next run; first: {missed[0]})" if missed else ""), flush=True)
     if not parts:
         raise RuntimeError(f"no Dukascopy data for {symbol}")
     df = pd.concat(parts, ignore_index=True).drop_duplicates("time").sort_values("time")
