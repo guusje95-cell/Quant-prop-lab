@@ -58,7 +58,7 @@ def weights(method):
     W = pd.DataFrame(np.nan, index=D.index, columns=SLEEVES)
     for m in month_starts(D.index):
         hist = D.loc[m - pd.Timedelta(days=365):m - pd.Timedelta(days=1)]
-        live = [c for c in SLEEVES if (hist[c] != 0).sum() >= 30 and hist[c].std() > 0]
+        live = [c for c in SLEEVES if (hist[c] != 0).sum() >= (6 if c == "Weiss expiry" else 30) and hist[c].std() > 0]
         if len(live) < 2:
             continue
         if method == "P0":                                             # full-sample vols (the v4 recipe, look-ahead in the scale)
@@ -151,7 +151,7 @@ corr = D.loc["2022":END].corr()
 # ---------------------------------------------------------------- charts
 plt.rcParams.update({"font.size": 10})
 fig = plt.figure(figsize=(14, 17))
-gs = fig.add_gridspec(4, 2, height_ratios=[1.3, 0.7, 1.1, 1.0], hspace=0.35, wspace=0.18)
+gs = fig.add_gridspec(4, 2, height_ratios=[1.3, 0.7, 1.1, 1.0], hspace=0.35, wspace=0.18, top=0.95)
 ax = fig.add_subplot(gs[0, :])
 eqf = (1 + PD).cumprod(); eqv = (1 + V4D.loc["2022":]).cumprod()
 ax.plot(eqf.index, eqf, lw=2.4, color="#0b5394", label=f"Final portfolio  Sharpe {sharpe(PD):.2f}")
@@ -189,7 +189,7 @@ for i in range(len(corr)):
     for j in range(len(corr)):
         ax.text(j, i, f"{corr.iloc[i, j]:.2f}", ha="center", va="center", fontsize=8)
 ax.set_title("Sleeve correlations (daily, 2022-26)")
-fig.suptitle("Crypto prop portfolio (Gen72 final): C* + premium carry + cascade + 4h trend + Weiss expiry", fontsize=13, y=0.995)
+fig.suptitle("Crypto prop portfolio (Gen72 final): C* + premium carry + cascade + 4h trend + Weiss expiry", fontsize=13, y=0.975)
 fig.savefig(ROOT / "results/gen72_report.png", dpi=110, bbox_inches="tight")
 print("chart saved", flush=True)
 

@@ -212,3 +212,16 @@ Details are in `research/GEN71_PAPERS.md`. All rejected.
 - **Borri CMOM:** TEST 0.14.
 - **Gornall perps/basis:** not applicable (needs a spot leg).
 - **v4 + Weiss expiry (v5 candidate)** remains the best crypto portfolio.
+
+## Gen72 (2026-10-15): optimisation, final crypto portfolio v5
+Details are in `research/GEN72_OPTIMISE.md`; the chart is `results/gen72_report.png`.
+
+- **Sleeve tuning (104 cells, plateau rule + walk-forward):**
+  - Every tuned sleeve was worse out of sample: premium carry 0.87 → 0.69, trend 4h 0.93 → 0.87, cascade 1.30 → 0.91.
+  - **Defaults kept.**
+- **Portfolio scaling:** now point-in-time (P1 equal risk), so the small look-ahead in the old recipe is gone.
+- **v5 = v4 + Weiss expiry at half weight:**
+  - Sharpe 2.25, Sortino 4.3, CAGR 38.7% at 15% vol, max DD -9.5%.
+  - 72% positive months; worst month -4.2%; 2022 +18.8%.
+  - Treat this as an in-sample best case: plan for a live Sharpe of 1.3-1.7.
+- **HyroTrader 1-Step 1.0 / 0.6 (bootstrap):** $26.4k per $100k account over 2 years, unlucky 10% $12.0k, P(profit) 99.6%.
