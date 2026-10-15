@@ -1,0 +1,13 @@
+{
+  "generation": "Gen65",
+  "title": "Literature-based crypto ideas (research_notes/Crypto strategy papers 2/)",
+  "registered": "2026-10-15, before any Gen65 result was computed",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0, corr with C* <= 0.3, AND adding it to the equal-risk crypto portfolio (C* + premium carry + cascade) raises the 2022-26 Sharpe",
+  "ideas": {
+    "K1 own-history cross-sectional ranking (Dhanya MD, SSRN 7301919, unverified)": "each coin's 30-day return z-scored against its own trailing 365-day distribution of 30-day returns; rank coins on the z-score; long top third, short bottom third, weekly, funding, taker 5 bp. Variant: same with the 7-day average premium index (own-history z)",
+    "K2 Friday options-expiry window (Weiss, Gaudiosi, Zhou & Webb, FRL 2026)": "BTC and ETH perps: short 07:00-08:00 UTC and long 08:00-10:00 UTC on the last Friday of each month (Deribit monthly/quarterly expiry). Variant A: every Friday. Variant B: maker 2 bp with the 5-minute touch rule. Unit notional per coin",
+    "K3 6-hour trend with coin selection (Bui & Nguyen, arXiv 2602.11708)": "6h bars, 20 coins: long on close > 20-bar high, short on close < 20-bar low, exit on a 3 x ATR(14) trailing stop from the best price since entry; each coin vol-targeted (10%); every month keep the 5 coins with the best trailing 90-day Sharpe of this rule; longs at 0.7 weight, shorts at 0.3; taker 5 bp, funding"
+  },
+  "trials_added": 6
+}
