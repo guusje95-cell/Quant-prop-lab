@@ -1,0 +1,99 @@
+{
+  "generation": "Gen60",
+  "title": "Literature-scan test queue (reports/Trading strategy paper scan.md)",
+  "registered": "2026-10-15, before any of these were run and before the Binance/Dukascopy/Databento data arrived",
+  "protocol": {
+    "fills_costs": {
+      "Dukascopy": "next 1-min bar bid/ask, quoted spread; stress 1.5x",
+      "Databento": "next 1-min bar, 1 tick + $2.5/side; stress 2 ticks",
+      "Binance": "next 1-min bar, 5 bp/side taker; stress 10 bp; funding applied at 00/08/16 UTC"
+    },
+    "sizing": "vol target 10%/yr per sleeve, hard stop capping a day at 1% of equity",
+    "splits": {
+      "Dukascopy": "train 2013-2019 / test 2020-2023 / holdout 2024-2026",
+      "Databento": "train to 2019 / test 2020-2023 / holdout 2024-2026",
+      "Binance": "train 2020-2022 / test 2023-2024 / holdout 2025-2026 (CTREND holdout from 2022-06)"
+    },
+    "pass": "net Sharpe >= 0.8 test and >= 0.5 holdout; Harvey-Liu adjusted t >= 2.5; worst day >= -1.5% at target vol; correlation with C* <= 0.2, also on C*'s 20 worst days",
+    "variants": "one frozen rule + at most two named robustness variants; anything else counts toward the trial total",
+    "lookups_before_run": "exact FX fix windows and ECB fix time from the Krohn, Mueller & Whelan (JF 2024) replication package; noise-area band/leverage parameters from Zarattini et al. 2024"
+  },
+  "tests": {
+    "C1": {
+      "data": "Databento (CME)",
+      "rule": "ES: if the RTH close (16:00 ET) is below the prior RTH close, buy at 02:00 ET and exit at 03:30 ET. Otherwise flat.",
+      "variant": "Unconditional 23:30-03:30 ET window"
+    },
+    "C2": {
+      "data": "Databento (CME)",
+      "rule": "NQ and ES: band = today's RTH open \u00d7 (1 \u00b1 mean of \\|close/open \u2212 1\\| at the same minute over 14 days). Check at :00/:30. Long above the upper band, short below the lower band. Trailing stop = max(band, VWAP) for longs and min(band, VWAP) for shorts. Flat at 15:59 ET. Report 2024-2026 separately.",
+      "variant": "Trade only when VIX or 20-day realised vol is above its 1-year median"
+    },
+    "C3": {
+      "data": "Databento (CME)",
+      "rule": "CL: on EIA days, take the sign of the 10:30-11:00 ET return and hold that direction 14:00-14:30 ET. On other days, take the sign of the prior 14:30 settle \u2192 09:30 ET return and hold over the same window.",
+      "variant": "EIA days only"
+    },
+    "C4": {
+      "data": "Databento (CME)",
+      "rule": "GC, SI, CL, 6E, 6J, ZN: signal = settle(t-1) \u2192 settle(t) \u2212 30 min. Trade its sign into the settlement only if \\|signal\\| > 1 \u00d7 trailing 60-day \u03c3 of the signal. Equal risk.",
+      "variant": "Threshold 0.5\u03c3"
+    },
+    "C5": {
+      "data": "Databento (CME)",
+      "rule": "NQ: the first 5-minute RTH bar sets direction. Enter at bar 2's open. Stop at the opposite side of bar 1, target 10R or 15:59 ET. Risk 0.5% per trade.",
+      "variant": "None"
+    },
+    "D1": {
+      "data": "Dukascopy (CFD)",
+      "rule": "Equal-weight basket of EUR, GBP, JPY, AUD, CHF, CAD and NZD vs USD. Long USD from 2h before to the WMR 16:00 London fix, then short USD from the fix to +3h. Same for the Tokyo 09:55 JST fix. DST-aware. Exact windows are taken from the Krohn et al. replication package before any run.",
+      "variant": "Add the ECB reference-rate fix (time from the replication package)"
+    },
+    "D2": {
+      "data": "Dukascopy (CFD)",
+      "rule": "XAUUSD: long 23:00-07:00 UTC, short 07:00-16:00 UTC, otherwise flat. Report 2013-02/2015 and 03/2015-2026 separately.",
+      "variant": "Long leg only"
+    },
+    "D3": {
+      "data": "Dukascopy (CFD)",
+      "rule": "Apply the C2 rule on DAX, FTSE 100 and Nikkei 225 CFDs with each index's cash open/close, plus US100 as a control.",
+      "variant": "Volatility filter as in C2"
+    },
+    "D4": {
+      "data": "Dukascopy (CFD)",
+      "rule": "Overlay on D1: on the last business day, if the S&P 500 month-to-date return exceeds that of an equal-weighted STOXX 600/FTSE/Nikkei basket, short USD from 13:00 to 16:00 London. Reverse the trade if the S&P lagged.",
+      "variant": "None"
+    },
+    "B1": {
+      "data": "Binance USD-M",
+      "rule": "BTC and ETH: apply the C2 rule with session open 00:00 UTC, 14-day same-minute band, checks at :00/:30, VWAP trailing stop and flat at 23:59 UTC. Taker cost 5 bp/side. Separate Sunday 23:00 UTC-Monday 23:00 UTC P&L.",
+      "variant": "Session open 23:00 UTC Sunday-anchored weekly"
+    },
+    "B2": {
+      "data": "Binance USD-M",
+      "rule": "BTC: long 21:00-23:00 UTC, short 01:00-05:00 UTC (equal notional), taker fills.",
+      "variant": "Long 20:00 \u2192 13:30 UTC, short 13:30 \u2192 20:00 on NYSE days"
+    },
+    "B3": {
+      "data": "Binance USD-M",
+      "rule": "20 perps, point-in-time listing: weekly (Monday 00:00 UTC) cross-sectional elastic-net combination of 1/5/20/60/120-day MA price and volume ratios, trained expanding-window on data to May 2022 and frozen. Rank-weighted long-short, max 15% per name, beta-neutral to BTC.",
+      "variant": "Equal-weight top/bottom tercile"
+    },
+    "B4": {
+      "data": "Binance USD-M",
+      "rule": "Per coin: if the 1h return < -3\u03c3 (30-day hourly \u03c3), the 1h OI change < -5%, and 1h volume > the 95th percentile, go long at the next 5-minute bar. Stop at the cascade low \u2212 1 ATR, exit at 12h. Mirror for squeezes.",
+      "variant": "Hold 4h / 24h"
+    },
+    "B5": {
+      "data": "Binance USD-M",
+      "rule": "BTC, ETH, SOL, XRP, DOGE, ADA: take the sign of (2\u00b7takerBuy \u2212 vol)/vol in the 00:00 UTC opening minute and hold 8h. Data from November 2024 onward only.",
+      "variant": "None"
+    },
+    "B6": {
+      "data": "Binance USD-M",
+      "rule": "Overlay on the existing trend book: halve exposure when both the 30-day z-score of the premium index and the z-score of the 7-day OI change exceed the 95th percentile, and restore at the 80th. Judge on max drawdown and Calmar, not Sharpe.",
+      "variant": "None"
+    }
+  },
+  "trials_planned": 45
+}
