@@ -163,3 +163,12 @@ Details are in `research/GEN66_PROP_TOOLS.md`.
 
 - **Daily portfolio stop at 50% of the firm's daily limit:** +$3–5k net per $100k account over 2 years at HyroTrader and CFT, and 0 daily-loss fails. At SizeProp the unlucky-10% net is $240 lower, so it misses the all-four rule by a hair.
 - **Cushion scaling:** clearly worse.
+
+## Gen67 (2026-10-15): stress tests and execution
+Details are in `research/GEN67_STRESS_EXECUTION.md`.
+
+- **ADOPTED: cascade with a -0.5% limit entry.** 2023+ 1.35 (was 1.19); 2022 turns positive (+0.77 Sharpe).
+- **Crypto-firm portfolio v2:** Sharpe 1.83 (2022–26), 67% positive months, 2022 +8%.
+- **S50 daily stop** now helps at all four crypto firms.
+- **Bootstrap expectation at HyroTrader 1-Step:** $20.7k per $100k account over 2 years (unlucky 10%: $5.6k), P(profit) 98%.
+- **Rejected:** C\* weekly rebalance, no-trade band.

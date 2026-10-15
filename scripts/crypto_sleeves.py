@@ -57,7 +57,7 @@ def premium_carry(look=7, hold=7):
     return _from_daily_weights(w, C, 5)
 
 
-def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2):
+def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0):
     import gen57_cascade_hourly as CH
     trades = []
     for coin in B.coins():
@@ -69,21 +69,30 @@ def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2):
             if t + 1 >= n:
                 continue
             stop = lov[t] - atv[t]; ex = None
+            entry = cv[t]
+            if limit > 0:                                         # Gen67 E1: limit buy `limit` below the event close, valid 1 hour
+                entry = cv[t] * (1 - limit)
+                if lov[t + 1] > entry:
+                    continue
             for j in range(t + 1, min(t + 1 + hold, n)):
                 if lov[j] <= stop:
-                    ex = (j, stop); break
+                    ex = (j, min(stop, entry)); break
             if ex is None:
                 ex = (min(t + hold, n - 1), cv[min(t + hold, n - 1)])
-            path = [(c.index[m], cv[m] / cv[m - 1] - 1) for m in range(t + 1, ex[0])] + [(c.index[ex[0]], ex[1] / cv[ex[0] - 1] - 1)]
-            trades.append((c.index[t], c.index[ex[0]], path))
+            if limit > 0:                                         # mark to market from the limit price
+                seq = [entry] + [cv[m] for m in range(t + 1, ex[0])] + [ex[1]]
+                path = [(c.index[t + 1 + i] if t + 1 + i < ex[0] else c.index[ex[0]], seq[i + 1] / seq[i] - 1) for i in range(len(seq) - 1)]
+            else:
+                path = [(c.index[m], cv[m] / cv[m - 1] - 1) for m in range(t + 1, ex[0])] + [(c.index[ex[0]], ex[1] / cv[ex[0] - 1] - 1)]
+            trades.append((c.index[t], c.index[ex[0]], path, limit > 0))
     trades.sort(key=lambda x: x[0])
     idx = _hourly_close(["BTC"]).index; pnl = pd.Series(0.0, index=idx); open_ex = []
-    for t0, t1, path in trades:
+    for t0, t1, path, maker in trades:
         open_ex = [e for e in open_ex if e > t0]
         if len(open_ex) >= max_open:
             continue
         open_ex.append(t1)
-        pnl.loc[t0] -= size * cost / 1e4
+        pnl.loc[t0] -= size * (2 if maker else cost) / 1e4
         for ts, rr in path:
             if ts in pnl.index:
                 pnl.loc[ts] += size * rr
@@ -108,7 +117,7 @@ def eth_evening():
 def all_sleeves(refresh=False):
     if CACHE.exists() and not refresh:
         return pd.read_parquet(CACHE)
-    df = pd.DataFrame({"C*": cstar(), "funding carry": carry(), "premium carry": premium_carry(), "cascade": cascade(),
+    df = pd.DataFrame({"C*": cstar(), "funding carry": carry(), "premium carry": premium_carry(), "cascade": cascade(), "cascade limit": cascade(limit=0.005),
                        "ETH evening": eth_evening()}).fillna(0.0)
     df.to_parquet(CACHE)
     return df
