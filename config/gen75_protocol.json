@@ -1,0 +1,31 @@
+{
+  "generation": "Gen75",
+  "title": "Index / gold / EURUSD ideas for CFD firms, batch 2 (Dukascopy hourly 2013-01..2026-09)",
+  "registered": "2026-10-15, before any Gen75 number was computed",
+  "costs": "as Gen73: indices and EURUSD 1 bp per side, XAUUSD 2 bp per side, 3%/yr financing per night held over 22:00 UTC; stress 2x",
+  "splits": "DEV 2013-2019 | TEST 2020-2023 | HOLD 2024-2026",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0, worst day >= -1.5% at 10% vol; then the CFD-portfolio check: adding it to the Gen74 CFD portfolio (C* + Weiss) must raise the 2022-26 Sharpe",
+  "tests": {
+    "H1 RSI(2) pullback in an uptrend (Connors & Alvarez 2009)": {
+      "rule": "US500, US100, US30, DE40 on daily closes (US: close of the 15:00 NY bar = 16:00; DE40: close of the 17:00 Berlin bar). Long at the close when close > 200-day SMA and RSI(2) < 10; exit at the close when close > 5-day SMA. Equal weight across the 4, unit notional each; costs + financing per night",
+      "variant": "RSI(2) < 5"
+    },
+    "H2 pre-FOMC drift (Lucca & Moench 2015)": {
+      "rule": "US500 and US100: long from the open of the 14:00 ET bar on the day before each scheduled FOMC announcement to the open of the 14:00 ET bar on announcement day; one night of financing. Dates: scheduled FOMC statements 2013-2026 (emergency meetings excluded), from the Fed calendar as listed in the script",
+      "variant": "hold through 16:00 ET on announcement day"
+    },
+    "H3 gold London PM-fix dip (Caminschi & Heaney 2014)": {
+      "rule": "XAUUSD: short from the open of the 14:00 London bar to the open of the 15:00 London bar (PM fix at 15:00), every weekday; 2 bp per side",
+      "variant": "AM fix: short 09:30-10:30 London -> hourly 09:00-10:00 London bar"
+    },
+    "H4 Asian-range breakout in London": {
+      "rule": "EURUSD and XAUUSD: range = high / low of the 00:00-06:59 UTC bars. From the 07:00 to the 11:00 UTC bar close: first hourly close above the range high -> long, below the range low -> short (one trade a day); stop at the other side of the range (filled at the stop price), else exit at the open of the 16:00 UTC bar; unit notional",
+      "variant": "EURUSD only"
+    },
+    "H5 volatility-managed equity sleeve (Moreira & Muir 2017; Gen48 passed as overlay)": {
+      "rule": "US500 and US100, long only, weight c / RV(previous calendar month) with c = expanding mean of past RV, cap 1.5x, monthly rebalance, financing 3%/yr on held notional every night, 1 bp per side",
+      "judged_as": "a beta sleeve: it must beat buy-and-hold Sharpe on TEST and HOLD AND raise the CFD-portfolio Sharpe; the TEST/HOLD thresholds above do not apply"
+    }
+  },
+  "trials_added": 10
+}
