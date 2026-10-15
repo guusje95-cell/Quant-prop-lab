@@ -57,13 +57,13 @@ def premium_carry(look=7, hold=7):
     return _from_daily_weights(w, C, 5)
 
 
-def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0):
+def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0, doi_th=0.05):
     import gen57_cascade_hourly as CH
     trades = []
     for coin in B.coins():
         d = CH.hourly(coin).loc[:END]; c, lo, hi, v, o = d.c, d.lo, d.hi, d.v, d.oi
         r = c.pct_change(); sd = r.rolling(720).std().shift(1); vq = v.rolling(720).quantile(0.95).shift(1); doi = o.pct_change()
-        atr = (hi - lo).rolling(14).mean(); ev = (r < -k * sd) & (doi < -0.05) & (v > vq)
+        atr = (hi - lo).rolling(14).mean(); ev = (r < -k * sd) & (doi < -doi_th) & (v > vq)
         cv, lov, atv = c.to_numpy(), lo.to_numpy(), atr.to_numpy(); n = len(cv)
         for t in np.flatnonzero(ev.to_numpy()):
             if t + 1 >= n:
