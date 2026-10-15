@@ -1,6 +1,7 @@
 """One-click download plans for the user's PC (the research cloud cannot reach these sites).
 
-    python -m qpl.lab.data_plans dukascopy --priority 1        # free, no account; ~25 min per instrument for 2013-today
+    python -m qpl.lab.data_plans dukascopy-hourly              # all 35 instruments hourly 2013-today (fast: 1 request per month)
+    python -m qpl.lab.data_plans dukascopy --priority 1        # 1-minute 2018-today for US100 US500 US30 DE40 gold EURUSD (slow: Dukascopy throttles)
     python -m qpl.lab.data_plans dukascopy --priority 2 / 3     # more instruments (run overnight; resumable)
     python -m qpl.lab.data_plans dukascopy-spread               # ASK candles 2023+ for the priority-1 set -> real spreads
     python -m qpl.lab.data_plans databento                      # DRY RUN: prints the exact cost of every item, downloads nothing
@@ -44,7 +45,24 @@ def _pack(df: pd.DataFrame, rule: str) -> pd.DataFrame:
     return d[list(agg)].resample(rule).agg(agg).dropna(subset=["close"]).astype("float32")
 
 
-def dukascopy(priority: int, start: str = "2013-01-01"):
+def dukascopy_hourly(start: str = "2013-01-01"):
+    """All 35 instruments, hourly, 2013-today: one request per month, the fast first pass."""
+    out = ROOT / "research_data" / "dukascopy"; out.mkdir(parents=True, exist_ok=True)
+    for pr in (1, 2, 3):
+        for sym in DUKA_PLAN[pr]:
+            f = out / f"{sym}_1h.parquet"
+            if f.exists():
+                print(sym, "hourly already done"); continue
+            try:
+                df = DL.duka_hourly(sym, DUKA_START.get(sym, start))
+                df.set_index("time").astype("float32").to_parquet(f, compression="zstd")
+                print(sym, "hourly:", len(df), "bars", df.time.min(), "..", df.time.max(), flush=True)
+            except Exception as e:
+                print(sym, "FAILED:", e, flush=True)
+    print("pack ->", out)
+
+
+def dukascopy(priority: int, start: str = "2018-01-01"):
     """Priority 1: 1-minute data (needed for intraday tests). Priorities 2-3: hourly data (one request per month, minutes per
     instrument) - enough for session, trend and fix tests; 1-minute for those can be added later if a test needs it."""
     out = ROOT / "research_data" / "dukascopy"; out.mkdir(parents=True, exist_ok=True)
@@ -64,8 +82,8 @@ def dukascopy(priority: int, start: str = "2013-01-01"):
     print("pack ->", out, "(commit: git add research_data && git commit -m 'Dukascopy data' && git push)")
 
 
-def dukascopy_spread(start: str = "2023-01-01"):
-    """ASK candles for the priority-1 set; writes a small table of the bid/ask spread (bp) by year and UTC hour."""
+def dukascopy_spread(start: str = "2025-01-01"):
+    """ASK candles (2025+) for the priority-1 set; writes a small table of the bid/ask spread (bp) by year and UTC hour."""
     out = ROOT / "research_data" / "dukascopy"; out.mkdir(parents=True, exist_ok=True)
     rows = []
     for sym in DUKA_PLAN[1]:
@@ -127,13 +145,15 @@ def databento(go: bool, budget: float):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("what", choices=["dukascopy", "dukascopy-spread", "databento"])
+    ap.add_argument("what", choices=["dukascopy", "dukascopy-hourly", "dukascopy-spread", "databento"])
     ap.add_argument("--priority", type=int, default=1, choices=[1, 2, 3])
     ap.add_argument("--go", action="store_true", help="databento: actually download (default is a dry run that only prints costs)")
     ap.add_argument("--budget", type=float, default=100.0, help="databento: maximum total estimated cost in USD (free credit is $125)")
     a = ap.parse_args()
     if a.what == "dukascopy":
         dukascopy(a.priority)
+    elif a.what == "dukascopy-hourly":
+        dukascopy_hourly()
     elif a.what == "dukascopy-spread":
         dukascopy_spread()
     else:

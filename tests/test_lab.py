@@ -164,7 +164,8 @@ def test_dukascopy_minute_decoder_and_price_scale(tmp_path, monkeypatch):
     class R:
         status_code, content = 200, blob
         def raise_for_status(self): pass
-    monkeypatch.setattr(DL.requests, "get", lambda *a, **k: R())
+    monkeypatch.setattr(DL, "_duka_get", lambda url: R())
+    monkeypatch.setattr(DL, "_pace", lambda ok: None)
     monkeypatch.setattr(DL, "LAB", tmp_path)
     df = DL.dukascopy("US100", start="2024-01-02", end="2024-01-02", pause=0)
     assert list(df["close"]) == [15001.0, 15002.0]                    # zero-volume minute dropped, scale 10^3 found

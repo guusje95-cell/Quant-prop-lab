@@ -208,6 +208,18 @@ DUKA_RANGE = {"US100": (1000, 60000), "US500": (500, 15000), "US30": (5000, 1000
 
 
 _DUKA = None
+_PACE = {"pause": 1.5, "streak": 0}                                  # adaptive pause between Dukascopy requests
+
+
+def _pace(ok: bool):
+    """Slow down after a block (pause x2, max 20 s), speed up slowly after 40 good requests in a row (min 1.5 s)."""
+    if ok:
+        _PACE["streak"] += 1
+        if _PACE["streak"] >= 40:
+            _PACE["pause"] = max(1.5, _PACE["pause"] * 0.8); _PACE["streak"] = 0
+    else:
+        _PACE["pause"] = min(20.0, _PACE["pause"] * 2); _PACE["streak"] = 0
+    time.sleep(_PACE["pause"])
 
 
 def _duka_get(url):
@@ -235,18 +247,19 @@ def _duka_fetch(url, base, tries=4):
         try:
             r = _duka_get(url)
             if r.status_code == 404 or (r.status_code == 200 and not r.content):
-                return None
+                _pace(True); return None
             if r.status_code != 200:
                 reason = f"HTTP {r.status_code}"
             else:
                 try:
-                    return _duka_decode(r.content, base)
+                    out = _duka_decode(r.content, base); _pace(True); return out
                 except lzma.LZMAError:
                     reason = f"not a data file ({len(r.content)} bytes)"
         except requests.RequestException as e:
             reason = f"{type(e).__name__}"
             global _DUKA
             _DUKA = None                                           # fresh connection after a network error
+        _pace(False)
         if k < tries - 1:
             time.sleep(30 * (k + 1))
     return f"FAILED: {reason}"
@@ -264,7 +277,6 @@ def duka_hourly(symbol, start="2013-01-01", end=None, side="BID"):
             missed += 1; print("x", end="", flush=True)
         elif x is not None:
             parts.append(x); print(".", end="", flush=True)
-        time.sleep(0.5)
     print(f" ({missed} months failed)" if missed else " done", flush=True)
     if not parts:
         raise RuntimeError(f"no Dukascopy hourly data for {symbol}")
@@ -287,7 +299,7 @@ def _duka_day(inst, day, side="BID", tries=4):
     return _duka_fetch(url, day, tries)
 
 
-def dukascopy(symbol, start="2013-01-01", end=None, pause=1.0, side="BID"):
+def dukascopy(symbol, start="2013-01-01", end=None, pause=0.0, side="BID"):
     """1-minute BID candles from Dukascopy's public datafeed (no account). Run on your own PC (blocked from the research
     cloud). Cached per month in data/lab/cache/dukascopy/<SYM>/ so an interrupted download resumes. Weekend minutes with
     zero volume are dropped. Price scale is detected from the data and checked against a plausible range."""
@@ -309,7 +321,9 @@ def dukascopy(symbol, start="2013-01-01", end=None, pause=1.0, side="BID"):
         mon, missed = [], []
         print(f"  {symbol} {side} {m0:%Y-%m} ", end="", flush=True)
         for d in days:
-            x = _duka_day(inst, d, side); time.sleep(pause)
+            x = _duka_day(inst, d, side)
+            if pause:
+                time.sleep(pause)
             if isinstance(x, str):
                 missed.append(f"{d.date()} {x}"); print("x", end="", flush=True)
             elif x is not None:
