@@ -181,3 +181,12 @@ Details are in `research/GEN68_FILLS_DRAWDOWN.md`.
 - **Portfolio vol targeting: ADOPTED.** Max DD -20% to -13.5%; bootstrap 5%-worst year +0.4% to +3.0%.
 - **Crypto-firm portfolio v3:** Sharpe 1.88, max DD -13.3%.
 - **At HyroTrader 1-Step (bootstrap):** $20.3k per $100k account over 2 years, unlucky 10% $6.8k, P(profit) 98.5%, payout months 52%.
+
+## Gen69 (2026-10-15): portfolio v4
+Details are in `research/GEN69_V4.md`.
+
+- **v4** (C\* + premium carry + strict-limit cascade + 4h trend, vol targeting): Sharpe 1.95, max DD -12%, 68% positive months, 2022 +8%.
+- **Vol targeting:** the drawdown benefit is robust; the Sharpe benefit is not, because the 14d neighbour fails.
+- **Friday-expiry window:** forward test only, because its tail risk cannot be estimated.
+- **Look-ahead bug in the first hourly 4h sleeve:** caught by its impossible result and fixed.
+- **Prop (bootstrap), HyroTrader 1-Step at 1.0 / 0.6:** $22.5k per $100k account over 2 years, unlucky 10% $7.5k, P(profit) 98%.

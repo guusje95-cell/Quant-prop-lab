@@ -114,11 +114,39 @@ def eth_evening():
     return pnl
 
 
+def trend4h(coins=("BTC", "ETH", "SOL"), n_in=20, n_out=10, cost=5):
+    """Gen63 I6 / Gen69: 4-hour breakout trend (long-short), per coin 10% vol target (cap 2), funding; hourly P&L, equal weight."""
+    out = []
+    for coin in coins:
+        k = B.k5(coin); c4 = k.close.resample("4h").last().loc[:END]; h4 = k.high.resample("4h").max().loc[c4.index]; l4 = k.low.resample("4h").min().loc[c4.index]
+        hi_in, lo_in = h4.rolling(n_in).max().shift(1).to_numpy(), l4.rolling(n_in).min().shift(1).to_numpy()
+        hi_out, lo_out = h4.rolling(n_out).max().shift(1).to_numpy(), l4.rolling(n_out).min().shift(1).to_numpy()
+        cv = c4.to_numpy(); pos = np.zeros(len(cv)); p = 0
+        for i in range(len(cv)):
+            if p == 0:
+                p = 1 if cv[i] > hi_in[i] else (-1 if cv[i] < lo_in[i] else 0)
+            elif p == 1 and cv[i] < lo_out[i]:
+                p = 0
+            elif p == -1 and cv[i] > hi_out[i]:
+                p = 0
+            pos[i] = p
+        r4 = c4.pct_change().fillna(0)
+        lev = (0.10 / (r4.rolling(6 * 30).std().shift(1) * np.sqrt(6 * 365))).clip(upper=2.0).fillna(0)
+        held4 = pd.Series(pos, index=c4.index) * lev                       # decided at the close of each 4h bar ...
+        held4.index = held4.index + pd.Timedelta(hours=4)                   # ... i.e. known at bar open + 4h (no look-ahead)
+        h1 = k.close.resample("1h").last().loc[:END]; r1 = h1.pct_change().fillna(0)
+        held = held4.reindex(h1.index, method="ffill").fillna(0)            # applies to hourly bars opening at/after that time
+        f = B.funding(coin).copy(); f.index = f.index - pd.Timedelta(hours=1)
+        f = f.groupby(level=0).sum().reindex(h1.index).fillna(0.0)
+        out.append(held * r1 - held * f - held.diff().abs().fillna(0) * cost / 1e4)
+    return pd.concat(out, axis=1).fillna(0).mean(axis=1)
+
+
 def all_sleeves(refresh=False):
     if CACHE.exists() and not refresh:
         return pd.read_parquet(CACHE)
     df = pd.DataFrame({"C*": cstar(), "funding carry": carry(), "premium carry": premium_carry(), "cascade": cascade(), "cascade limit": cascade(limit=0.005),
-                       "cascade limit strict": cascade(limit=0.005, through=0.001),
+                       "cascade limit strict": cascade(limit=0.005, through=0.001), "trend 4h": trend4h(),
                        "ETH evening": eth_evening()}).fillna(0.0)
     df.to_parquet(CACHE)
     return df
