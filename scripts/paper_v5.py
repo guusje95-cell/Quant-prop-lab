@@ -35,6 +35,10 @@ def utcnow() -> pd.Timestamp:
     return pd.Timestamp.now("UTC").tz_localize(None)
 
 
+def locked(path: Path):
+    print(f"  ({path.name} is open in another program, e.g. Excel - close it; it will be updated next hour)")
+
+
 def log_event(kind: str, **kw):
     OUT.mkdir(parents=True, exist_ok=True)
     with open(OUT / "events.jsonl", "a") as f:
@@ -214,11 +218,17 @@ def cmd_freeze(a):
                              "port": new.to_numpy(), "computed_at": now})
         rows["lag_h"] = (rows["computed_at"] - (rows["hour"] + pd.Timedelta(hours=1))).dt.total_seconds() / 3600
         rows["late"] = rows["lag_h"] > 2
-        L = pd.concat([L, rows], ignore_index=True)
-        tmp = led.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(led)
+        L2 = pd.concat([L, rows], ignore_index=True)
+        try:
+            tmp = led.with_suffix(".tmp"); L2.to_csv(tmp, index=False); tmp.replace(led); L = L2
+        except PermissionError:                                 # hours stay unfrozen and are added (flagged late if > 2h) next run
+            locked(led); new = new.iloc[:0]
     Dd = account(L, a.risk, a.firm) if len(L) else pd.DataFrame()
     if len(Dd):
-        Dd.to_csv(OUT / "daily.csv", index=False)
+        try:
+            Dd.to_csv(OUT / "daily.csv", index=False)
+        except PermissionError:
+            locked(OUT / "daily.csv")
     h1 = END + pd.Timedelta(hours=1)
     eq = float(Dd["equity"].iloc[-1]) if len(Dd) else float(CFG["frozen"]["account"])
     by = (R["by_sleeve"] * eq * a.risk).round(2)
@@ -231,13 +241,20 @@ def cmd_freeze(a):
     prev_file = OUT / "book_next_hour.json"
     prev = json.loads(prev_file.read_text()) if prev_file.exists() else None
     orders = simulated_orders(prev, book)
-    prev_file.write_text(json.dumps(book, indent=1, default=str))
-    print_orders(book, orders)
-    (OUT / "status.md").write_text(status_text(L, Dd, a.risk))
+    if orders is not None:                                      # None: orders.csv locked -> keep the old book, diff again next hour
+        try:
+            prev_file.write_text(json.dumps(book, indent=1, default=str))
+        except PermissionError:
+            locked(prev_file)
+        print_orders(book, orders)
+    try:
+        (OUT / "status.md").write_text(status_text(L, Dd, a.risk))
+    except PermissionError:
+        locked(OUT / "status.md")
     write_excel(L, Dd)
     log_event("RUN", cutoff=cut, new_hours=len(new), seconds=round(time.time() - t0, 1))
     print(f"frozen {len(new)} new hour(s) up to {END:%Y-%m-%d %H:00} UTC; book for {h1:%H:00} written ({time.time() - t0:.0f}s)")
-    print((OUT / "status.md").read_text())
+    print(status_text(L, Dd, a.risk))
     return 0
 
 
@@ -263,7 +280,10 @@ def simulated_orders(prev: dict | None, book: dict) -> pd.DataFrame:
     df = pd.DataFrame(rows)
     if len(df):
         f = OUT / "orders.csv"
-        df.to_csv(f, mode="a", header=not f.exists(), index=False)
+        try:
+            df.to_csv(f, mode="a", header=not f.exists(), index=False)
+        except PermissionError:
+            locked(f); return None
     return df
 
 
