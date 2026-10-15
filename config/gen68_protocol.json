@@ -1,0 +1,14 @@
+{
+  "generation": "Gen68",
+  "title": "Fill-realism check, maker execution for C* and premium carry, drawdown attribution and controls",
+  "registered": "2026-10-15, before any Gen68 result was computed",
+  "L1 fill realism (cascade limit -0.5%)": "count a fill only if the next hour's low is at least 0.1% (and, second check, 0.3%) BELOW the limit price (trade-through, not a touch); report fill rate and Sharpe",
+  "L2 maker rebalancing for C* and premium carry": "each rebalance trade is placed as a limit at the 00:00 UTC price; it fills at that price with 2 bp if the first hour trades at least 0.05% through it (buy: low <= price x 0.9995; sell: high >= price x 1.0005); otherwise it is done at the 01:00 price with 5 bp. Adopt if 2023+ Sharpe rises and DEV does not fall by > 0.05",
+  "D1 drawdown attribution": "split the v2 portfolio's 5 deepest drawdowns by sleeve contribution",
+  "D2 drawdown controls": {
+    "portfolio vol targeting": "scale the whole portfolio daily to 15% using trailing 30-day realised vol (cap 1.5x)",
+    "sleeve drawdown brake": "halve a sleeve's weight while its own drawdown is worse than -10% (at its 10% vol scale), restore when it recovers to -5%",
+    "adopt": "only if the 2022-26 Sharpe does not fall AND the max drawdown improves, AND the bootstrap 5%-worst year improves"
+  },
+  "trials_added": 6
+}
