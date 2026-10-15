@@ -1,0 +1,13 @@
+{
+  "generation": "Gen64",
+  "title": "Own crypto ideas round 2 (literature-based ideas follow in Gen65 once the paper scan is in)",
+  "registered": "2026-10-15, before any Gen64 result was computed",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0, corr with C* <= 0.3; AND adding it to the current equal-risk crypto portfolio (C* + premium carry + cascade) must raise the 2022-26 Sharpe",
+  "ideas": {
+    "J1 4h trend ensemble": "positions averaged over three breakout pairs (entry/exit 10/5, 20/10, 40/20 four-hour bars), long-short, per-coin 10% vol target (30-day 4h vol, leverage cap 2), funding, taker 5 bp; PRIMARY universe BTC ETH SOL; variant: BTC ETH SOL XRP BNB DOGE",
+    "J2 12h trend": "same as I6 (20/10 breakout) on 12-hour bars, BTC ETH SOL, long-short",
+    "J3 BTC->alt lead-lag (5-min)": "when BTC's 5-min return exceeds 2 x its 30-day 5-min sigma (up or down), trade each of the 19 alts whose same-bar return is less than half of BTC's in the same direction, for the next 3 bars (15 min); 0.05 notional per alt; taker 5 bp (variant: maker 2 bp with the touch rule)"
+  },
+  "trials_added": 5
+}
