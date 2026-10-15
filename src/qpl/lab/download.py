@@ -261,6 +261,7 @@ def _duka_fetch(url, base, tries=4):
             _DUKA = None                                           # fresh connection after a network error
         _pace(False)
         if k < tries - 1:
+            print(f"[{reason}, waiting {30 * (k + 1)} s]", end="", flush=True)
             time.sleep(30 * (k + 1))
     return f"FAILED: {reason}"
 
@@ -269,7 +270,7 @@ def duka_hourly(symbol, start="2013-01-01", end=None, side="BID"):
     """Hourly candles: ONE request per month (vs ~22 for 1-minute), so 2013-2026 takes ~3 minutes per instrument."""
     inst = DUKA_SYM.get(symbol, symbol); lo_, hi_ = DUKA_RANGE.get(symbol, (1e-9, 1e12))
     end = pd.Timestamp(end or pd.Timestamp.now("UTC").tz_localize(None).normalize())
-    print(f"{symbol} {side} hourly from {start}: ", end="", flush=True)
+    print(f"{symbol} {side} hourly from {start} (. = month ok, _ = no data, x = failed): ", end="", flush=True)
     parts, missed = [], 0
     for m0 in pd.date_range(pd.Timestamp(start).replace(day=1), end, freq="MS"):
         x = _duka_fetch(f"https://datafeed.dukascopy.com/datafeed/{inst}/{m0.year}/{m0.month - 1:02d}/{side}_candles_hour_1.bi5", m0)
@@ -277,6 +278,8 @@ def duka_hourly(symbol, start="2013-01-01", end=None, side="BID"):
             missed += 1; print("x", end="", flush=True)
         elif x is not None:
             parts.append(x); print(".", end="", flush=True)
+        else:
+            print("_", end="", flush=True)
     print(f" ({missed} months failed)" if missed else " done", flush=True)
     if not parts:
         raise RuntimeError(f"no Dukascopy hourly data for {symbol}")
