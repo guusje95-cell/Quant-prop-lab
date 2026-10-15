@@ -157,3 +157,9 @@ Details are in `research/GEN64_OWN_IDEAS_2.md` and `research/GEN65_LITERATURE_CR
 - **Nothing passes.** Rejected: 4h/12h trend ensembles, BTC-to-alt lead-lag, own-history ranking.
 - **6h trend with coin selection:** good alone (2023+ 1.19) but correlation 0.59 with C\*.
 - **Friday options-expiry window (maker):** 2023+ 1.13, but DEV slightly negative and only 12 trades a year. Forward-test lead only.
+
+## Gen66 (2026-10-15): prop risk tools for the crypto portfolio
+Details are in `research/GEN66_PROP_TOOLS.md`.
+
+- **Daily portfolio stop at 50% of the firm's daily limit:** +$3–5k net per $100k account over 2 years at HyroTrader and CFT, and 0 daily-loss fails. At SizeProp the unlucky-10% net is $240 lower, so it misses the all-four rule by a hair.
+- **Cushion scaling:** clearly worse.
