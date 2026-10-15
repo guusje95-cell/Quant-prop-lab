@@ -1,0 +1,31 @@
+{
+  "generation": "Gen71",
+  "title": "Uploaded papers 6-9 (last crypto batch), exact full-text rules",
+  "registered": "2026-10-15, after reading the full texts and before any Gen71 number was computed",
+  "data": "Binance USD-M pack, 20 coins, 5m klines, funding, to 2026-09-30",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "TEST >= 0.8, HOLD >= 0.5, DEV > 0, corr with C* <= 0.3, AND adding it to v4 (C* + premium carry + cascade limit strict + trend 4h, daily recipe of Gen70) raises the 2022-26 Sharpe. Replacement test (Z only): replacing C* by the sleeve in v4 must raise the 2022-26 Sharpe AND the sleeve must beat C* on TEST and HOLD.",
+  "ideas": {
+    "Z Zarattini, Pagani & Barbon (2025), Catching Crypto Trends": {
+      "rule": "Daily closes. For each lookback n in {5,10,20,30,60,90,150,250,360}: go long when close = n-day highest close; exit when close <= trailing stop; the stop starts at the Donchian midline at entry and is raised daily to max(stop, midline), never lowered. Position weight per n = min(0.25 / sigma_90d annualised, 2.0). Combo = equal average over the 9 lookbacks. Portfolio: coins listed >= 365 days, equal 1/B capital per coin, each running the Combo independently. Vol-only weight changes are traded only when the change exceeds 20% of the target; signal changes always trade. Taker 5 bp (paper 10 bp), funding charged.",
+      "Z1 (PRIMARY)": "long-only Combo on all 20 coins",
+      "Z2": "long-short appendix version (short on close = n-day lowest close, mirrored stop)",
+      "Z3": "BTC only, long-only Combo",
+      "replacement test": "Z1 replacing C* inside v4"
+    },
+    "G Guo, Sang, Tu & Wang (JEDC 2024), cross-cryptocurrency predictability": {
+      "rule": "5-minute bars (paper: 1-minute; our finest data). Out-of-sample rolling window of 720 bars, re-estimated once per day. Forecast each coin's next-bar return; each bar sort coins into quintiles, equal-weighted long top / short bottom, rebalanced every bar. Cost 4 bp per unit turnover (the paper's regular taker level).",
+      "G1 (PRIMARY)": "univariate BTC model, Eq. (7): r_i,t+1 = a_i + b_i * r_BTC,t, on the 19 non-BTC coins",
+      "G2": "adaptive LASSO (Zou 2006, gamma 1, OLS first stage, lambda by BIC) on the standardized lagged 5m returns of all 20 coins",
+      "G3": "G1 on 1-hour bars (720-hour window, re-estimated daily), to check whether any of it survives at a tradable frequency"
+    },
+    "S Borri, Liu, Tsyvinski & Wu (ARFE 2026), survey": {
+      "rule": "CMOM smart-beta: weekly, sort on the past two-week return, quintiles, value-weighted long top / short bottom. Taker 5 bp, funding.",
+      "adaptation": "weights = trailing 30-day dollar volume (no market caps). CSIZE and CVALUE are not testable: no market caps or on-chain new-address data, and the size effect lives in coins outside the perp universe.",
+      "S1 (PRIMARY)": "CMOM as above"
+    },
+    "Paper 9 Gornall, Rinaldi & Xiao (2025), perpetual futures and basis risk": "no test: the paper's strategy is spot-versus-futures cash-and-carry, which needs a spot leg that crypto prop firms do not offer. Recorded as not applicable."
+  },
+  "trials_added": 7,
+  "selection": "only PRIMARY rows (and the pre-registered Z1 replacement test) can be promoted"
+}
