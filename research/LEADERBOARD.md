@@ -132,3 +132,14 @@ Details are in `research/GEN58_61_CRYPTO_PORTFOLIO.md`.
 - **Rejected:** crowding overlay, funding-settlement window, bear short sleeve, Monday intraday trend.
 - **Portfolio** (C\* + premium carry + cascade, 15% vol, 2022-26): Sharpe 1.55 vs 1.28, positive months 61% vs 42%. Prop months with income about 45% vs about 20%.
 - **2022 hurt every crypto sleeve**, so non-crypto sleeves are needed next.
+
+## Gen62 (2026-10-15): market-neutral and bear-phase crypto ideas
+Details are in `research/GEN62_MARKET_NEUTRAL.md`.
+
+- **Rejected:**
+  - Pairs trading (cointegration).
+  - The premium variants: none beat G4.
+  - The bear short sleeve: +15% in 2022 but loses in other periods.
+  - The cascade with a BTC regime filter: it lowers HOLD.
+- **Best crypto-firm portfolio stays C\* + premium carry + cascade at equal risk.** Sharpe 1.56 (2022–26), 61% positive months.
+- **HyroTrader 1-Step at 1.0x/0.6x:** about $19.8k per $100k account over 2 years (unlucky 10%: $14.3k), payouts in about 35% of months.
