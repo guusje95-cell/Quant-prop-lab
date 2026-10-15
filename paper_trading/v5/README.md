@@ -50,6 +50,7 @@ All orders are also saved in `paper_trading/v5/orders.csv`. The P&L is booked as
 ## Files (paper_trading/v5/)
 | File | What it holds |
 |---|---|
+| **`paper_v5.xlsx`** | **Open this one in Excel.** Sheets: Daily, Orders (newest first), Hourly (newest first), Status, with proper %, $ and date formats. It is rewritten every hour; close it in Excel so it can refresh. (The .csv files use a decimal point, which Dutch Excel misreads.) |
 | `ledger_hourly.csv` | **Frozen.** Per hour: the P&L of each sleeve, its multiplier, the portfolio return, when it was computed, and a *late* flag (more than 2 hours after the hour closed, e.g. the PC was asleep). |
 | `daily.csv` | The account per day ($100k, risk 1.0): return, equity, intraday low, daily-stop hits, and HyroTrader 1-Step rule flags (daily / max loss breach, 10% target reached). |
 | `status.md` | Summary against the backtest, plus the gate verdict. |

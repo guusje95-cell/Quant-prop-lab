@@ -234,6 +234,7 @@ def cmd_freeze(a):
     prev_file.write_text(json.dumps(book, indent=1, default=str))
     print_orders(book, orders)
     (OUT / "status.md").write_text(status_text(L, Dd, a.risk))
+    write_excel(L, Dd)
     log_event("RUN", cutoff=cut, new_hours=len(new), seconds=round(time.time() - t0, 1))
     print(f"frozen {len(new)} new hour(s) up to {END:%Y-%m-%d %H:00} UTC; book for {h1:%H:00} written ({time.time() - t0:.0f}s)")
     print((OUT / "status.md").read_text())
@@ -282,6 +283,48 @@ def print_orders(book: dict, orders: pd.DataFrame):
     print(f"  positions after: {len([v for v in tgt.values() if v > 0])} long / {len([v for v in tgt.values() if v < 0])} short, "
           f"gross ${gross:,.0f} on ${book['equity']:,.0f} equity")
     print("  full list: paper_trading/v5/orders.csv and book_next_hour.json\n")
+
+
+def write_excel(L: pd.DataFrame, Dd: pd.DataFrame):
+    """paper_trading/v5/paper_v5.xlsx: the same results with proper %, $ and date formats (CSV numbers use a decimal point,
+    which Dutch Excel misreads). Skipped with a note if openpyxl is missing or the file is open in Excel."""
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        print("  (install openpyxl for the Excel file: pip install openpyxl)"); return
+    path = OUT / "paper_v5.xlsx"
+    try:
+        with pd.ExcelWriter(path, engine="openpyxl") as xw:
+            if len(Dd):
+                d = Dd.copy(); d["day"] = pd.to_datetime(d["day"]).dt.date
+                d = d.rename(columns={"day": "Day (UTC)", "ret": "Return", "equity": "Equity $", "intraday_low": "Intraday low $",
+                                      "daily_stop_hit": "Own daily stop hit", "firm_daily_breach": "Firm daily-loss breach",
+                                      "firm_max_breach": "Firm max-loss breach", "target_reached": "10% target reached"})
+                d.to_excel(xw, sheet_name="Daily", index=False)
+            o = OUT / "orders.csv"
+            if o.exists():
+                od = pd.read_csv(o).rename(columns={"hour_utc": "Hour (UTC)", "coin": "Coin", "side": "Side", "usd": "Amount $",
+                                                    "from_usd": "Position before $", "to_usd": "Position after $", "type": "Type",
+                                                    "because": "Caused by (strategy $ change)"})
+                od.iloc[::-1].to_excel(xw, sheet_name="Orders (newest first)", index=False)
+            if len(L):
+                h = L[["hour", "port"] + SLEEVES + ["late"]].copy()
+                h = h.rename(columns={"hour": "Hour (UTC)", "port": "Portfolio return (risk 1.0)", "late": "Computed late"})
+                h.iloc[::-1].to_excel(xw, sheet_name="Hourly (newest first)", index=False)
+            st = (OUT / "status.md").read_text().splitlines() if (OUT / "status.md").exists() else []
+            pd.DataFrame({"Status": [x.lstrip("#- ").replace("**", "") for x in st if x.strip()]}).to_excel(xw, sheet_name="Status", index=False)
+            fmt = {"Return": "0.00%", "Equity $": "#,##0.00", "Intraday low $": "#,##0.00", "Amount $": "#,##0", "Position before $": "#,##0",
+                   "Position after $": "#,##0", "Portfolio return (risk 1.0)": "0.000%", **{s_: "0.000%" for s_ in SLEEVES}}
+            for ws in xw.book.worksheets:
+                for col in ws.iter_cols(min_row=1, max_row=1):
+                    name = col[0].value; letter = col[0].column_letter
+                    ws.column_dimensions[letter].width = max(12, min(45, len(str(name)) + 4))
+                    if name in fmt:
+                        for c in ws[letter][1:]:
+                            c.number_format = fmt[name]
+                ws.freeze_panes = "A2"
+    except PermissionError:
+        print("  (paper_v5.xlsx is open in Excel; close it to let it refresh next hour)")
 
 
 def paper_start(requested: str | None, default: pd.Timestamp, cut: pd.Timestamp) -> pd.Timestamp:
