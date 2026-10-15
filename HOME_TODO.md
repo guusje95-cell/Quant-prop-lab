@@ -112,12 +112,17 @@ Rank the final table by how suitable each paper is for steady monthly prop-firm 
 
 ## D. What we do next (Claude)
 
-1. **Update the daily signal script** (`scripts/cft_e2_signal.py`) to C* + BTC leads, for paper trading.
-2. **When your Binance data arrives:**
-   - test whether limit orders get filled for the 21:00–23:00 window;
-   - test the window as an overlay on C*'s existing positions;
-   - test open-interest / funding / long-short-ratio signals;
-   - test liquidation reversal and intraday breakouts on crypto 1-minute/5-minute data.
-3. **Test the papers you send**, each with a written plan before testing (pre-registered), as usual.
-4. **Build the combined portfolio** (strategy 1 + 2 + …) and re-run the prop simulator, aiming at more positive months and steadier payouts.
-5. **Update the dashboard** with every new result.
+Target: about 5-7 strategies in total, giving 2-4 per firm type (crypto / CFD / futures). Pipeline for every new data set:
+
+1. **Test** each candidate with a written plan made before testing, using real costs and spreads.
+   - Pass rule: Sharpe >= 0.8 after costs in the test period, correlation with existing strategies < 0.3, and it adds positive months.
+2. **Robustness checks:** hourly or minute replay; 2x costs; one-bar delay; other markets and periods; deflated Sharpe with the full trial count.
+3. **Portfolio per firm type:** which validated strategies fit each firm's markets and rules (intraday-only, leverage, swap, automation).
+   - Weights follow a simple rule (equal risk), not optimised on the past.
+4. **Prop settings per firm:** challenge and funded risk, daily stop, payout timing, and number and staggering of accounts.
+   - Chosen on development data, then confirmed on the test period and the hourly replay.
+5. **Ranking:** firms ranked by expected net profit, chance of profit and months with a payout. Dashboard and Lab updated.
+6. **Execution:** daily signal script, then a paper-trading bot with safety guards (loss stop below the firm limit, kill switch, alerts) per platform (Bybit / Hyperliquid API, MT5, TopstepX).
+7. **Monitoring:** live vs backtest per strategy. Replace strategies that decay, using the same process.
+
+Order: Binance pack (crypto #2) -> Dukascopy (index / gold / FX for CFD firms) -> Databento (futures firms) -> combined portfolios and prop simulation per firm.
