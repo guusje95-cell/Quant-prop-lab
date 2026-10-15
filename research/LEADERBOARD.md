@@ -251,3 +251,12 @@ Details are in `research/GEN74_CRYPTO_CFD.md`.
   - unlucky 10% about $0-1.4k;
   - P(profit) 90-92%.
 - **Verdict:** a weaker second channel next to the crypto firms (v5: $26.4k, 99.6%).
+
+## Gen75-76 (2026-10-15): index / gold ideas, batches 2-3
+Details are in `research/GEN75_76_INDEX_GOLD.md`.
+
+- **14 more trials, all rejected:** RSI(2) pullback, pre-FOMC drift, gold London fix, Asian-range breakout, vol-managed equity, option-expiry week, cross-index reversal.
+- **Near misses** (forward-test list only, not adopted):
+  - RSI(2) pullback: HOLD 1.29, TEST 0.39;
+  - pre-FOMC drift: TEST 1.15, HOLD 0.38.
+- **Gen73-76 total:** 19 index / gold / FX timing ideas, none survives CFD costs on 2013-26 data.
