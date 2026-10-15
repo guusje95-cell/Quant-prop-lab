@@ -366,6 +366,8 @@ def paper_start(requested: str | None, default: pd.Timestamp, cut: pd.Timestamp)
 
 
 def cmd_loop(a):
+    from qpl.live.keepawake import keep_awake
+    keep_awake()
     while True:
         try:
             cmd_run(a)

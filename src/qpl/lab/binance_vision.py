@@ -195,4 +195,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from qpl.live.keepawake import keep_awake
+    keep_awake()
     main()
