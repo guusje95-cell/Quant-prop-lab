@@ -35,7 +35,14 @@ def ingest(cache: Path, rule: str) -> pd.DataFrame:
 
 def load(rule: str = "1d") -> dict[str, pd.DataFrame]:
     """Returns {'open': DataFrame[date x symbol], 'high': ..., 'low': ..., 'close': ..., 'volume': ...}."""
+    import os
     df = pd.read_parquet(PROC / f"binance_spot_majors_{rule}.parquet")
+    live = os.environ.get("QPL_LIVE_PACK")                      # paper trading: newer spot bars in the same format
+    if live and (Path(live) / f"binance_spot_majors_{rule}.parquet").exists():
+        df = pd.concat([df, pd.read_parquet(Path(live) / f"binance_spot_majors_{rule}.parquet")])
+        df = df[~df.index.duplicated(keep="last")].sort_index()
+    if os.environ.get("QPL_CUTOFF"):                            # only bars that had closed at the cutoff
+        df = df[df.index + pd.Timedelta(rule) <= pd.Timestamp(os.environ["QPL_CUTOFF"])]
     out = {k: df.xs(k, axis=1, level=1) for k in COLS}
     # bad-tick rule (added after gen30; affects only LINK 2020-03-12, low 0.0001 vs open 3.82): a low below 10% of
     # min(open, close) is replaced by 50% of min(open, close) (a conservative 50% wick)

@@ -2,6 +2,14 @@
 
 ## A. What to do at home
 
+**NEW (2026-10-15): start paper trading of crypto portfolio v5.** This is simulation only: public data, no keys, no orders.
+1. Run `git pull`.
+2. Double-click `paper_v5_start.bat`. Leave the window open and the PC awake. Alternatively, run `paper_v5_schedule.bat` once to make it an hourly background task.
+3. Check it any time with `paper_v5_status.bat`.
+4. Once a week, double-click `paper_v5_share.bat` to send the results to Claude.
+
+Details are in `paper_trading/v5/README.md`; the go/no-go rules are in `config/paper_v5.json` (minimum 8 weeks).
+
 **Must do**
 1. **Get the project on your PC.** If it's already there, run `git pull` instead.
    ```

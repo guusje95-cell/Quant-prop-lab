@@ -9,3 +9,9 @@ logs/*.log
 results/v6_gen15_ml_preds.parquet
 results/*_series.pkl
 data/lab/
+
+# paper trading v5: live market data and scratch files stay local
+paper_trading/v5/data/
+paper_trading/v5/_selftest/
+paper_trading/v5/_recompute*
+paper_trading/v5/run_log.txt

@@ -230,6 +230,15 @@ def read_csv(buf, name="uploaded CSV") -> Bars:
 
 
 def stablecoin_caps() -> pd.Series | None:
+    """USDT+USDC market cap per day, cut at QPL_CUTOFF (paper trading) when set: a day's value counts as known at the end of the day."""
+    import os
+    s = _stablecoin_caps_all()
+    if s is not None and os.environ.get("QPL_CUTOFF"):
+        s = s[s.index + pd.Timedelta(days=1) <= pd.Timestamp(os.environ["QPL_CUTOFF"])]
+    return s
+
+
+def _stablecoin_caps_all() -> pd.Series | None:
     """USDT+USDC market cap per day (Coin Metrics files if present, else data/lab/stablecoins.parquet)."""
     try:
         from qpl.data import coinmetrics as CM

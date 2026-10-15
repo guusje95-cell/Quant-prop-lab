@@ -1,0 +1,324 @@
+"""Paper trading of crypto portfolio v5 (config/paper_v5.json). Simulation only: public market data, no keys, no orders.
+
+  python scripts/paper_v5.py run          # once: update data, freeze the newly completed hours, write book + status
+  python scripts/paper_v5.py loop         # keep running: every hour at :06 UTC (leave the window open, PC awake)
+  python scripts/paper_v5.py status       # print the status (no download)
+  python scripts/paper_v5.py reconcile    # recompute the paper period with the final data and compare with the frozen ledger
+  python scripts/paper_v5.py selftest     # no-look-ahead proof on the research pack (cut the data at several moments)
+
+Outputs in paper_trading/v5/: ledger_hourly.csv (frozen), daily.csv, book_next_hour.json, events.jsonl, status.md, reconcile.csv.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
+CFG = json.loads((ROOT / "config/paper_v5.json").read_text())
+OUT = ROOT / "paper_trading" / "v5"
+DATA = OUT / "data"
+PACK = ROOT / "research_data" / "binance"
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"]
+SCALE = CFG["frozen"]["v5_scale"]
+
+
+def utcnow() -> pd.Timestamp:
+    return pd.Timestamp.now("UTC").tz_localize(None)
+
+
+def log_event(kind: str, **kw):
+    OUT.mkdir(parents=True, exist_ok=True)
+    with open(OUT / "events.jsonl", "a") as f:
+        f.write(json.dumps({"wall_utc": str(utcnow()), "event": kind, **kw}, default=str) + "\n")
+
+
+# ---------------------------------------------------------------- data coverage (which hours are complete everywhere)
+def _end_of(path: Path, kind: str):
+    if not path.exists():
+        return None
+    if kind == "5m":
+        return pd.DatetimeIndex(pd.read_parquet(path, columns=["close"]).index).max() + pd.Timedelta(minutes=5)
+    if kind == "premium":
+        return pd.to_datetime(pd.read_parquet(path, columns=["time"])["time"]).max() + pd.Timedelta(hours=1)
+    if kind == "oi":
+        return pd.to_datetime(pd.read_parquet(path, columns=["time"])["time"]).max() + pd.Timedelta(minutes=5)
+    if kind == "spot":
+        return pd.DatetimeIndex(pd.read_parquet(path).index).max() + pd.Timedelta(days=1)
+
+
+def data_cutoff(live: bool) -> pd.Timestamp:
+    """Latest whole hour at which every input the sleeves read is complete."""
+    from qpl.lab import binance_pack as B0
+    ends = []
+    for coin in sorted(p.stem.replace("USDT_5m", "") for p in PACK.glob("*USDT_5m.parquet")):
+        for name, kind in ((f"{coin}USDT_5m.parquet", "5m"), (f"{coin}USDT_premium_1h.parquet", "premium"),
+                           (f"{coin}USDT_metrics.parquet", "oi")):
+            e = [x for x in (_end_of(PACK / name, kind), _end_of(DATA / name, kind) if live else None) if x is not None]
+            ends.append(max(e))
+    cut = min(ends).floor("h")
+    spot = [x for x in (_end_of(ROOT / "data/processed/crypto/binance_spot_majors_1d.parquet", "spot"),
+                        _end_of(DATA / "binance_spot_majors_1d.parquet", "spot") if live else None) if x is not None]
+    day_ok = max(spot)                                     # daily bars complete up to here
+    if cut.floor("D") > day_ok:                            # cannot cross a midnight before yesterday's spot bar exists
+        cut = day_ok
+    return cut
+
+
+def set_env(cutoff: pd.Timestamp, live: bool):
+    os.environ["QPL_CUTOFF"] = str(cutoff)
+    os.environ["QPL_END"] = str(cutoff - pd.Timedelta(hours=1))
+    if live:
+        os.environ["QPL_LIVE_PACK"] = str(DATA)
+    else:
+        os.environ.pop("QPL_LIVE_PACK", None)
+
+
+# ---------------------------------------------------------------- compute (call after set_env, in a fresh process)
+def compute():
+    import crypto_sleeves as CS
+    from qpl.lab import binance_pack as B
+    END = pd.Timestamp(CS.END)
+    cw = CS.cstar_weights(); pw = CS.premium_weights()
+    cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
+    tr, tpos = CS.trend4h(positions=True)
+    we, wpos = CS.weiss_expiry(positions=True)
+    H = pd.DataFrame({"C*": CS._from_daily_weights(cw, B.MAJ10, 7.5), "premium carry": CS._from_daily_weights(pw, B.coins(), 5),
+                      "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}).fillna(0.0).loc[:END]
+    h1 = END + pd.Timedelta(hours=1)
+    Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])          # makes the next day's weights computable
+    ph, W, mult = CS.portfolio_v5(Hx)
+    ph = ph.loc[:END] * SCALE
+    # ---- target book for the next hour (fractions of equity at risk 1.0)
+    d = h1.floor("D")
+    eff = (W.loc[d] * mult.get(d, np.nan) * SCALE) if d in W.index else pd.Series(np.nan, index=SLEEVES)
+    expo = {}
+    prev = cw.loc[:d - pd.Timedelta(days=1)]
+    expo["C*"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    prev = pw.loc[:d - pd.Timedelta(days=1)]
+    expo["premium carry"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    expo["trend 4h"] = tpos.loc[h1] if h1 in tpos.index else pd.Series(dtype=float)
+    ot = cpos.attrs.get("open_trades", [])
+    expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
+    expo["Weiss expiry"] = pd.Series(dtype=float)
+    last_fri = h1.dayofweek == 4 and (h1 + pd.Timedelta(days=7)).month != h1.month
+    weiss_note = None
+    if last_fri and h1.hour in (8, 9):
+        side = {}
+        for coin in ("BTC", "ETH"):
+            k = B.k5(coin); t7 = h1.normalize() + pd.Timedelta(hours=7)
+            p8 = k.close.loc[:h1.normalize() + pd.Timedelta(hours=7, minutes=55)].iloc[-1] if h1.hour == 8 else k.open.get(h1.normalize() + pd.Timedelta(hours=8))
+            if t7 in k.index and p8 is not None:
+                side[coin] = -np.sign(p8 / k.open[t7] - 1) / 2
+        expo["Weiss expiry"] = pd.Series(side, dtype=float)
+        weiss_note = "expiry trade: hold from 08:00 to 10:00 UTC"
+    book = pd.Series(dtype=float)
+    for s in SLEEVES:
+        if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
+            book = book.add(expo[s].astype(float) * float(eff[s]), fill_value=0.0)
+    effd = W.mul(mult.reindex(W.index), axis=0) * SCALE                              # per-day sleeve multipliers
+    return {"END": END, "H": H, "ph": ph, "eff": eff, "effd": effd, "book": book[book.abs() > 1e-6].sort_values(),
+            "pending": cpos.attrs.get("pending_signals", []), "open_cascade": ot, "weiss": weiss_note, "mult": mult}
+
+
+# ---------------------------------------------------------------- account (rebuilt from the frozen ledger each time)
+def account(L: pd.DataFrame, risk: float, firm_key: str):
+    from qpl.lab import propfirms as PF
+    f = PF.PRESETS[firm_key]; acct = float(CFG["frozen"]["account"])
+    stop = 0.5 * f.daily_loss
+    eq = acct; rows = []
+    for day, g in L.groupby(L["hour"].dt.floor("D")):
+        start = eq; low = eq; stopped = False
+        for r in g["port"].to_numpy():
+            if stopped:
+                continue
+            eq *= 1 + risk * r; low = min(low, eq)
+            if eq / start - 1 <= -stop:
+                eq *= 1 - 0.001; low = min(low, eq); stopped = True
+        dl_floor = start - f.daily_loss * (acct if f.daily_basis == "initial" else start)
+        rows.append({"day": day, "ret": eq / start - 1, "equity": eq, "intraday_low": low, "daily_stop_hit": stopped,
+                     "firm_daily_breach": low < dl_floor, "firm_max_breach": low < acct * (1 - f.max_loss),
+                     "target_reached": eq >= acct * (1 + f.targets[0])})
+    return pd.DataFrame(rows)
+
+
+def status_text(L: pd.DataFrame, Dd: pd.DataFrame, risk: float) -> str:
+    bt = pd.read_parquet(ROOT / "results/cache_gen72_final.parquet")["portfolio"]
+    btd = bt.groupby(bt.index.floor("D")).sum().loc["2023-01-01":] * risk
+    lines = [f"# Paper trading v5 - status ({utcnow():%Y-%m-%d %H:%M} UTC)", "",
+             f"Simulation only. Account ${CFG['frozen']['account']:,.0f}, risk {risk}, firm rules: {CFG['frozen']['firm']}.", ""]
+    if L.empty or Dd.empty:
+        return "\n".join(lines + ["No completed paper hours yet."])
+    n = len(Dd); r = Dd["ret"]; eq = Dd["equity"]
+    dd = (eq / eq.cummax().clip(lower=CFG["frozen"]["account"]) - 1).min()
+    z = (r.mean() - btd.mean()) / (btd.std() / np.sqrt(n))
+    late = float(L["late"].mean())
+    weiss_n = int((L.groupby(L["hour"].dt.floor("D"))["Weiss expiry"].apply(lambda x: (x != 0).any())).sum())
+    verdict = ("too early" if n < 56 or weiss_n < 2 else ("STOP" if z < -2 or dd < -0.12 else ("EXTEND" if z <= -1 else "GO")))
+    lines += [f"- Paper period: {L['hour'].min():%Y-%m-%d %H:00} to {L['hour'].max():%Y-%m-%d %H:00} UTC ({len(L)} hours, {n} days)",
+              f"- Equity: ${eq.iloc[-1]:,.0f} ({eq.iloc[-1] / CFG['frozen']['account'] - 1:+.2%}), max drawdown {dd:.2%}",
+              f"- Daily mean {r.mean():+.3%} vs backtest {btd.mean():+.3%} (z = {z:+.2f}); positive days {(r > 0).mean():.0%}",
+              f"- Daily stop hits: {int(Dd['daily_stop_hit'].sum())}; firm daily-limit breaches: {int(Dd['firm_daily_breach'].sum())}; "
+              f"max-loss breaches: {int(Dd['firm_max_breach'].sum())}",
+              f"- Weiss expiry events: {weiss_n}; late hours: {late:.1%}",
+              f"- Gate (config/paper_v5.json): **{verdict}**", "",
+              "Sleeve P&L so far (sum of hourly returns, unit size): " +
+              ", ".join(f"{s} {L[s].sum():+.2%}" for s in SLEEVES)]
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------- commands
+def cmd_run(a):
+    OUT.mkdir(parents=True, exist_ok=True); DATA.mkdir(parents=True, exist_ok=True)
+    if not a.no_download:
+        from qpl.lab import binance_pack as B0
+        from qpl.live import binance_public as BP
+        print("updating public market data ...", flush=True)
+        try:
+            n = BP.update(PACK, DATA, B0.coins(), B0.MAJ10, now=utcnow(), spot_base=ROOT / "data/processed/crypto/binance_spot_majors_1d.parquet")
+            print("  new rows:", n, flush=True)
+        except BP.Restricted as e:
+            log_event("DATA_REFUSED", msg=str(e)); print(e); return 2
+        BP.stablecoins()
+    cut = min(data_cutoff(live=True), utcnow().floor("h"))
+    # compute in a child process so the loaders see the cutoff from the start
+    r = subprocess.run([sys.executable, __file__, "_freeze", "--cutoff", str(cut), "--risk", str(a.risk), "--firm", a.firm]
+                       + (["--start", a.start] if a.start else []), cwd=ROOT)
+    return r.returncode
+
+
+def cmd_freeze(a):
+    cut = pd.Timestamp(a.cutoff); set_env(cut, live=True)
+    t0 = time.time(); R = compute(); END = R["END"]
+    led = OUT / "ledger_hourly.csv"
+    L = pd.read_csv(led, parse_dates=["hour", "computed_at"]) if led.exists() else pd.DataFrame()
+    if L.empty:
+        first = pd.Timestamp(a.start) if a.start else END + pd.Timedelta(hours=1)
+        log_event("START", first_hour=first, cutoff=cut)
+    else:
+        first = L["hour"].max() + pd.Timedelta(hours=1)
+    new = R["ph"].loc[first:END]
+    if len(new):
+        now = utcnow()
+        rows = pd.DataFrame({"hour": new.index, **{s: R["H"][s].reindex(new.index).to_numpy() for s in SLEEVES},
+                             **{f"w {s}": R["effd"][s].reindex(new.index.floor("D")).to_numpy() for s in SLEEVES},
+                             "port": new.to_numpy(), "computed_at": now})
+        rows["lag_h"] = (rows["computed_at"] - (rows["hour"] + pd.Timedelta(hours=1))).dt.total_seconds() / 3600
+        rows["late"] = rows["lag_h"] > 2
+        L = pd.concat([L, rows], ignore_index=True)
+        tmp = led.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(led)
+    Dd = account(L, a.risk, a.firm) if len(L) else pd.DataFrame()
+    if len(Dd):
+        Dd.to_csv(OUT / "daily.csv", index=False)
+    h1 = END + pd.Timedelta(hours=1)
+    eq = float(Dd["equity"].iloc[-1]) if len(Dd) else float(CFG["frozen"]["account"])
+    book = {"for_hour_utc": str(h1), "made_at_utc": str(utcnow()), "data_cutoff_utc": str(cut), "equity": round(eq, 2), "risk": a.risk,
+            "target_notional_usd": {k: round(v * eq * a.risk, 2) for k, v in R["book"].items()},
+            "cascade_limit_orders": R["pending"], "cascade_open_trades": R["open_cascade"], "weiss": R["weiss"],
+            "sleeve_multipliers": {k: (None if not np.isfinite(v) else round(float(v), 4)) for k, v in R["eff"].items()},
+            "note": "simulation only - no order is sent anywhere"}
+    (OUT / "book_next_hour.json").write_text(json.dumps(book, indent=1, default=str))
+    (OUT / "status.md").write_text(status_text(L, Dd, a.risk))
+    log_event("RUN", cutoff=cut, new_hours=len(new), seconds=round(time.time() - t0, 1))
+    print(f"frozen {len(new)} new hour(s) up to {END:%Y-%m-%d %H:00} UTC; book for {h1:%H:00} written ({time.time() - t0:.0f}s)")
+    print((OUT / "status.md").read_text())
+    return 0
+
+
+def cmd_loop(a):
+    while True:
+        try:
+            cmd_run(a)
+        except Exception as e:                                 # keep going; the next run catches up the missed hours
+            log_event("ERROR", msg=repr(e)); print("error:", e)
+        nxt = utcnow().floor("h") + pd.Timedelta(hours=1, minutes=6)
+        print(f"next run at {nxt:%H:%M} UTC", flush=True)
+        time.sleep(max(30, (nxt - utcnow()).total_seconds()))
+
+
+def cmd_status(a):
+    L = pd.read_csv(OUT / "ledger_hourly.csv", parse_dates=["hour", "computed_at"]) if (OUT / "ledger_hourly.csv").exists() else pd.DataFrame()
+    Dd = account(L, a.risk, a.firm) if len(L) else pd.DataFrame()
+    print(status_text(L, Dd, a.risk))
+
+
+def cmd_reconcile(a):
+    L = pd.read_csv(OUT / "ledger_hourly.csv", parse_dates=["hour", "computed_at"])
+    cut = L["hour"].max() + pd.Timedelta(hours=1)
+    r = subprocess.run([sys.executable, __file__, "_dump", "--cutoff", str(cut), "--live", "1", "--out", str(OUT / "_recompute.parquet")], cwd=ROOT)
+    if r.returncode:
+        return r.returncode
+    X = pd.read_parquet(OUT / "_recompute.parquet").reindex(L["hour"])
+    rep = pd.DataFrame({"hour": L["hour"], "frozen": L["port"].to_numpy(), "recomputed": X["port"].to_numpy()})
+    for s in SLEEVES:
+        rep[f"{s} diff"] = L[s].to_numpy() - X[s].to_numpy()
+    rep["diff"] = rep["frozen"] - rep["recomputed"]; rep.to_csv(OUT / "reconcile.csv", index=False)
+    corr = rep[["frozen", "recomputed"]].corr().iloc[0, 1]; cum = (rep["frozen"] - rep["recomputed"]).sum() * a.risk
+    ok = (corr >= 0.99 or rep["diff"].abs().max() < 1e-9) and abs(cum) <= 0.005
+    msg = f"reconcile: {len(rep)} hours, correlation {corr:.4f}, cumulative difference {cum:+.3%} of the account -> {'OK' if ok else 'INVESTIGATE'}"
+    worst = rep.reindex(rep["diff"].abs().sort_values(ascending=False).index).head(5)
+    print(msg); print(worst[["hour", "frozen", "recomputed"] + [f"{s} diff" for s in SLEEVES]].to_string(index=False))
+    log_event("RECONCILE", ok=ok, corr=corr, cum=cum)
+    return 0
+
+
+def cmd_dump(a):
+    """Child process: compute with data cut at --cutoff and save hourly sleeves + portfolio (+ book) to --out."""
+    set_env(pd.Timestamp(a.cutoff), live=bool(int(a.live)))
+    R = compute()
+    X = R["H"].copy(); X["port"] = R["ph"].reindex(X.index)
+    X.to_parquet(a.out)
+    Path(a.out).with_suffix(".book.json").write_text(json.dumps({k: float(v) for k, v in R["book"].items()}))
+    return 0
+
+
+def cmd_selftest(a):
+    """No-look-ahead proof: P&L of every hour computed with only the data up to that hour must equal the P&L computed with all
+    later data. Uses the research pack (no download)."""
+    tmp = OUT / "_selftest"; tmp.mkdir(parents=True, exist_ok=True)
+    cuts = ["2026-09-01 01:00", "2026-09-14 00:00", "2026-09-21 13:00", "2026-09-25 09:00", "2026-09-25 10:00", "2026-09-25 11:00",
+            "2026-09-28 05:00",
+            "2026-09-30 17:00"]
+    full = tmp / "full.parquet"
+    subprocess.run([sys.executable, __file__, "_dump", "--cutoff", "2026-10-01 00:00", "--live", "0", "--out", str(full)], cwd=ROOT, check=True)
+    F = pd.read_parquet(full); worst = 0.0; ok = True
+    for c in cuts:
+        out = tmp / f"cut_{c.replace(' ', '_').replace(':', '')}.parquet"
+        subprocess.run([sys.executable, __file__, "_dump", "--cutoff", c, "--live", "0", "--out", str(out)], cwd=ROOT, check=True)
+        X = pd.read_parquet(out)
+        last = X.index.max(); win = X.loc[last - pd.Timedelta(hours=71):last]
+        d = (win - F.reindex(win.index)).abs()
+        m = float(d.max().max()); worst = max(worst, m)
+        bad = d.max()[d.max() > 1e-12]
+        print(f"cutoff {c}: last hour {last}, max |difference| over the last 72 hours = {m:.2e}" + (f"  MISMATCH in {list(bad.index)}" if len(bad) else ""))
+        ok &= len(bad) == 0
+    print("SELFTEST", "PASSED: no look-ahead, frozen hours equal the final recomputation" if ok else "FAILED")
+    return 0 if ok else 1
+
+
+def main():
+    ap = argparse.ArgumentParser(); sub = ap.add_subparsers(dest="cmd", required=True)
+    for name in ("run", "loop", "status", "reconcile", "_freeze"):
+        p = sub.add_parser(name)
+        p.add_argument("--risk", type=float, default=CFG["frozen"]["risk"]); p.add_argument("--firm", default=CFG["frozen"]["firm"])
+        p.add_argument("--start", help="first paper hour (UTC), default: the next completed hour")
+        p.add_argument("--no-download", action="store_true")
+        if name == "_freeze":
+            p.add_argument("--cutoff", required=True)
+    p = sub.add_parser("_dump"); p.add_argument("--cutoff", required=True); p.add_argument("--live", default="1"); p.add_argument("--out", required=True)
+    sub.add_parser("selftest")
+    a = ap.parse_args()
+    return {"run": cmd_run, "loop": cmd_loop, "status": cmd_status, "reconcile": cmd_reconcile, "_freeze": cmd_freeze,
+            "_dump": cmd_dump, "selftest": cmd_selftest}[a.cmd](a)
+
+
+if __name__ == "__main__":
+    sys.exit(main() or 0)
