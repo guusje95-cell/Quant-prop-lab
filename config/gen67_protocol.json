@@ -1,0 +1,13 @@
+{
+  "generation": "Gen67",
+  "title": "Stress tests of the crypto-firm portfolio and execution improvements",
+  "registered": "2026-10-15, before any Gen67 result was computed",
+  "stress": "block bootstrap (20-day blocks, 2000 paths of 1 year) of the daily portfolio (C* + premium carry + cascade, equal risk, 15% vol, hourly-derived, with and without the S50 daily stop): distribution of annual return, max drawdown, worst month, P(losing year); prop pipeline with 1000 bootstrapped 2-year paths for HyroTrader 1-Step and CFT 1-Phase at 1.0x/0.6x with S50",
+  "execution": {
+    "E1 cascade limit entry": "instead of buying at the event-hour close, place a limit buy X below it, valid for the next hour (filled if that hour's low <= limit; maker 2 bp entry); X in {0.25%, 0.5%}; exit rules unchanged (taker)",
+    "E2 C* weekly rebalance": "C* + BTC leads on perps with funding: hold weights fixed Monday to Monday (but exits to zero are executed daily)",
+    "E3 C* no-trade band": "skip a coin's rebalance when the weight change is below 25% of the current weight (exits/entries always executed)",
+    "adopt": "an execution change is adopted only if 2023+ Sharpe rises AND DEV (2020-22) Sharpe does not fall by more than 0.05"
+  },
+  "trials_added": 4
+}
