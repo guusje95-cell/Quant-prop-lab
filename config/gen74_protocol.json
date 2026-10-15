@@ -1,0 +1,23 @@
+{
+  "generation": "Gen74",
+  "title": "Crypto portfolio v5 traded as CFDs at CFD prop firms (FTMO / FundedNext / BrightFunded type)",
+  "registered": "2026-10-15, before any Gen74 number was computed",
+  "why": "Gen73: index/gold/FX timing effects fail on CFD costs. CFD firms also list crypto CFDs, where our validated crypto sleeves could run. Prices from the Binance pack (Dukascopy BTC/ETH CFD files will re-check later).",
+  "universe": "coins commonly listed as CFDs at these firms and present in our pack: BTC, ETH, LTC, XRP, ADA, DOGE, SOL, DOT, AVAX, LINK, BCH (11). BNB is treated as not tradable: C* weight on BNB is dropped (not redistributed).",
+  "costs": {
+    "spread_per_side": "BTC/ETH 5 bp, other coins 10 bp (CFD spread; no maker rebate for limit orders); stress 2x",
+    "funding": "none (CFDs have no funding)",
+    "swap": "per day on |notional| held over 22:00 UTC, long and short: scenarios 0, 3.3 (base, Gen55 stress rate, ~12%/yr) and 6.6 bp/day (~24%/yr)"
+  },
+  "sleeves_frozen": {
+    "C*": "Gen53 weights (C* + BTC leads), MAJ10 without BNB",
+    "trend 4h": "Gen69 rule, BTC/ETH/SOL",
+    "Weiss expiry": "Gen70 W1, BTC/ETH, 2h intraday (no swap)",
+    "cascade limit strict": "Gen68 rule restricted to the 11 CFD coins; limit fills by the same trade-through rule; spread paid on entry and exit",
+    "premium carry": "Gen61 rule on the 11 CFD coins, signal from the public premium index, price P&L only (no funding received) plus swap on both legs"
+  },
+  "sleeve_rule": "a sleeve enters the CFD portfolio only if, at base costs (3.3 bp/day swap), TEST 2023-24 >= 0.5 and HOLD 2025-26 >= 0.3",
+  "portfolio": "Gen72 P1 (point-in-time equal risk, 30-day vol targeting), Weiss at half weight; reported at swap 0 / 3.3 / 6.6 and 2x spread",
+  "prop": "bootstrap 500 paths, 2 years, S50 daily stop, risk 1.0/0.6 and 0.75/0.4: FTMO 2-Step $100k, FundedNext Stellar 2-Step $100k, BrightFunded Two-Step Classic $100k",
+  "trials_added": 5
+}
