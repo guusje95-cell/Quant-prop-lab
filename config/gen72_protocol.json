@@ -1,0 +1,27 @@
+{
+  "generation": "Gen72",
+  "title": "Systematic optimisation of the crypto sleeves and the portfolio construction (anti-overfit protocol)",
+  "registered": "2026-10-15, before any Gen72 number was computed",
+  "why": "Several sleeves still run their first-guess parameters (premium carry 7/7 terciles, trend 4h 20/10 on BTC/ETH/SOL, cascade k=3 / OI -5% / limit 0.5%). The portfolio scales sleeves with full-sample volatility (mild look-ahead) and uses equal risk without looking at correlations. Gen72 tunes all of this under fixed rules.",
+  "selection_rule": {
+    "per_sleeve": "Every grid cell is scored on DEV only. Score = mean Sharpe of the cell and its immediate grid neighbours (+-1 step on each axis), so isolated peaks lose to plateaus. The best-scoring cell replaces the current default only if (a) its 2023-26 Sharpe is >= the default's AND (b) swapping it into v4 does not lower the v4 2022-26 Sharpe. Otherwise the default stays.",
+    "walk_forward_check": "For 2023, 2024, 2025 and 2026 separately, pick the best smoothed cell using only data before that year and stitch the out-of-sample years. If the walk-forward series beats the default on 2023-26, tuning this sleeve adds real value; if not, a change is reported as unproven even if it passed the rule above.",
+    "DEV": "2020-2022 for premium carry and trend 4h; 2022 only for the cascade (open-interest data starts 2021-12)"
+  },
+  "grids": {
+    "premium carry": "lookback {3, 7, 14, 21} days x hold {1, 3, 7, 14} days x bucket {terciles, quartiles}; default 7 / 7 / terciles (32 cells)",
+    "trend 4h": "(entry, exit) in {(10,5), (20,5), (20,10), (40,5), (40,10), (40,20), (60,10), (60,20), (60,30)} x coins {BTC/ETH/SOL, BTC/ETH/SOL/BNB/XRP/DOGE}; default (20,10) BTC/ETH/SOL (18 cells)",
+    "cascade limit strict": "sigma threshold k {2.5, 3.0, 3.5} x hold {6, 12, 24} h x limit {0.3%, 0.5%, 0.8%} x OI drop {3%, 5%}; trade-through 0.1%, max 3 open, 0.2 notional; default 3.0 / 12 / 0.5% / 5% (54 cells)"
+  },
+  "portfolio": {
+    "P0": "current v4 recipe (full-sample sleeve vols, equal risk) - reference only",
+    "P1": "point-in-time equal risk: each sleeve scaled with its trailing 365-day vol (min 90 days), known at the previous close",
+    "P2": "point-in-time inverse-variance-with-correlation (equal risk contribution, ERC) from the trailing 365-day covariance",
+    "P3": "point-in-time minimum variance (long-only weights, trailing 365-day covariance, shrinkage 50% to diagonal)",
+    "rule": "All use the same 30-day portfolio vol targeting (cap 1.5x) and the same sleeves. The method is chosen on 2022-2024 Sharpe and must not lose on HOLD 2025-26 vs P1; else P1 (the honest version of the current method) is used.",
+    "sleeves": "final sleeve set = C*, premium carry, cascade limit strict, trend 4h (each at the Gen72-selected settings) + Weiss expiry W1 at notional cap 0.5 (Gen70)"
+  },
+  "untouched": "C* stays frozen (it is itself an ensemble of 19 lookbacks; earlier tuning rounds are in Gen32/Gen53). Weiss W1 has no free parameters.",
+  "trials_added": 108,
+  "output": "research/GEN72_OPTIMISE.md, results/gen72_*.csv, full report with statistics, monthly heatmap, equity curve and prop simulation"
+}
