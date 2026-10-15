@@ -1,0 +1,32 @@
+{
+  "generation": "Gen59",
+  "title": "Re-test of every earlier strategy on the incoming Dukascopy and Databento data, with frozen parameters",
+  "registered": "2026-10-15, before the Dukascopy / Databento data arrived",
+  "rule": "Parameters frozen exactly as in each original protocol. Each strategy is judged on data AFTER its original sample ended; that period is genuinely out of sample. No re-tuning on it. Earlier periods are reported, but only as a consistency check.",
+  "pass": "fresh-period Sharpe > 0.5 after realistic costs (Dukascopy spreads by hour / CME fees + 1 tick) AND same sign as the original; candidates that pass go to the full Gen57-style robustness checks",
+  "dukascopy": {
+    "Zarattini 2024 noise-area breakout (gen47)": "US100, US500; fresh period 2023-10..2026; also 1-min 2013-2020 as extra history",
+    "Gao 2018 intraday momentum (gen47)": "US500, US100",
+    "Bondarenko & Muravyev European open (gen48)": "US500, DE40",
+    "Liu & Tse overnight index returns": "US500, US100, US30, DE40",
+    "Moreira & Muir volatility-managed (gen48)": "US500 CFD vs futures version",
+    "Liu et al. semivariance TSMOM (gen48)": "13 -> up to 35 CFDs, fresh 2023-10..2026",
+    "Multi-asset CFD trend (gen40)": "35 CFDs, fresh 2023-10..2026",
+    "HTF sweep / failed-breakout / breakout families A1-A3": "CFD/FX, fresh period only",
+    "C21 rolling-hedge pairs": "metals, indices, FX",
+    "Turn-of-month / pre-holiday index effects (gen41)": "US500, US100, DE40",
+    "C* + BTC leads on Dukascopy BTC/ETH CFDs with CFD spreads + swap": "viability at FTMO-type firms",
+    "MaxAI Q-learning (paper 2)": "US100 1-min/5-min, 2013-2026"
+  },
+  "databento": {
+    "F7/F9 futures trend + carry": "fresh 2024-04..2026 on the CME subset; daily ranks c0-c2",
+    "de Groot curve momentum / Bianchi curve slope (gen48-49)": "fresh 2024-04..2026 with clean calendar-rank data",
+    "Noise-area breakout on NQ / ES": "real futures, CME fees + 1 tick slippage, futures-firm intraday rules",
+    "Gao intraday momentum on ES / NQ": "same costs",
+    "Kalman pairs metals + energy (paper 1)": "GC/SI/HG, CL/HO/RB",
+    "C* + BTC leads on CME BTC/ETH futures, intraday-compatible variant": "viability at futures firms",
+    "Vol-managed ES": "real futures"
+  },
+  "new_strategies": "Ideas never tested before use DEV = start..2022-12, TEST = 2023-01..end on all available data, each with its own protocol written before testing",
+  "trial_accounting": "every re-test counts toward the project trial total and the deflated Sharpe"
+}
