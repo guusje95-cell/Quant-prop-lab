@@ -1,0 +1,33 @@
+{
+  "generation": "Gen62",
+  "title": "Market-neutral and bear-phase crypto sleeves for crypto prop firms",
+  "registered": "2026-10-15, before any Gen62 result was computed",
+  "data": "Binance USD-M pack, 20 coins, daily from 5-min klines, funding included in every P&L, taker 5 bp/side unless stated",
+  "split": "DEV 2020-2022 (includes the 2022 bear market) | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "primary rule: TEST Sharpe >= 0.8, HOLD >= 0.5, DEV > 0, correlation with C* <= 0.3. A variant only replaces the primary if it also passes AND both of its neighbouring grid points have 2023+ Sharpe > 0.5 (stability). Bear-sleeve extra condition: 2022 return > 0.",
+  "ideas": {
+    "H1 pairs (cointegration)": {
+      "rule": "first day of each month: on the previous F days of daily log prices, test all 190 pairs (Engle-Granger p < 0.05, correlation > 0.8, half-life 2-30 days); keep the 5 with the shortest half-life. Next month: spread = log A - beta log B (formation OLS beta), z from the formation mean/std; enter |z| > Z, exit |z| < 0.5, stop |z| > 4 or at month end. 0.2 notional per leg per pair.",
+      "primary": {"F": 180, "Z": 2.0},
+      "grid": {"F": [90, 180], "Z": [1.5, 2.0, 2.5]}
+    },
+    "H2 premium/basis variants (baseline = Gen61 G4)": {
+      "H2a": "residual premium: 7-day average premium minus its own 60-day average (removes each coin's persistent premium); long lowest third, short highest; weekly",
+      "H2b": "combined rank: average of G4 premium rank and 7-day funding rank; weekly",
+      "H2c": "G4 with inverse-volatility weights inside each leg (30-day vol), legs still dollar-neutral",
+      "accept": "a variant replaces G4 only if it passes AND beats G4 by >= 0.10 in BOTH TEST and HOLD"
+    },
+    "H3 bear-phase short sleeve": {
+      "rule": "only when BTC close < its 200-day MA: short every coin whose close < its M-day MA and whose L-day return < 0; inverse-vol weights, sleeve vol target 10%; flat otherwise",
+      "primary": {"M": 50, "L": 20},
+      "grid": {"M": [50, 100], "L": [20, 60]}
+    },
+    "H4 cascade with regime filter": {
+      "rule": "Gen57 B4 cascade buy (1h return < -3 sigma, OI -5%, volume > 95th pct; stop low - 1 ATR), only when BTC close > its 200-day MA (as of the previous daily close); at most K open events; hold H hours; 0.2 notional each",
+      "primary": {"K": 3, "H": 12},
+      "grid": {"K": [3, 5], "H": [12, 24]}
+    },
+    "H7 portfolio weights (descriptive)": "equal risk (fixed) vs inverse-volatility re-weighted monthly on trailing 90 days; reported, not used for selection"
+  },
+  "trials_added": 19
+}
