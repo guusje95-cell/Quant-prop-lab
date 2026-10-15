@@ -226,7 +226,7 @@ def _duka_get(url):
     global _DUKA
     if _DUKA is None:
         _DUKA = requests.Session(); _DUKA.headers.update(HDR)
-    return _DUKA.get(url, timeout=(10, 20))
+    return _DUKA.get(url, timeout=(15, 90))
 
 
 def _duka_decode(content, base):
