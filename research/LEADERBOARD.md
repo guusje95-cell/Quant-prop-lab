@@ -150,3 +150,10 @@ Details are in `research/GEN63_MORE_CRYPTO.md`.
 - **Rejected:** C\* on 20 coins (worse than 10), cascade with risk-based sizing, premium carry with trend-aligned legs.
 - **Dip-buy in uptrends:** passes its own test but lowers the portfolio's 2022–26 Sharpe, so it is not added.
 - **Near-miss: 4-hour breakout trend (BTC/ETH/SOL, long-short).** It earns in 2022 and lifts the portfolio from 1.56 to 1.69 (65% positive months). Forward-test candidate.
+
+## Gen64–65 (2026-10-15): own ideas round 2 and literature-based crypto ideas
+Details are in `research/GEN64_OWN_IDEAS_2.md` and `research/GEN65_LITERATURE_CRYPTO.md`.
+
+- **Nothing passes.** Rejected: 4h/12h trend ensembles, BTC-to-alt lead-lag, own-history ranking.
+- **6h trend with coin selection:** good alone (2023+ 1.19) but correlation 0.59 with C\*.
+- **Friday options-expiry window (maker):** 2023+ 1.13, but DEV slightly negative and only 12 trades a year. Forward-test lead only.
