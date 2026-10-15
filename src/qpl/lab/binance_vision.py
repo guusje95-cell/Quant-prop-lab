@@ -55,6 +55,16 @@ def _zip_csv(url: str, tries: int = 5) -> pd.DataFrame | None:
     raise RuntimeError(f"failed: {url}")
 
 
+def _read_ok(p: Path):
+    """A month file cut off mid-write (PC went to sleep) is deleted, so the next run downloads that month again."""
+    try:
+        return pd.read_parquet(p)
+    except Exception:
+        print(f"  damaged cache file removed: {p.name} (will be downloaded again next run)")
+        p.unlink(missing_ok=True)
+        return None
+
+
 def _months(start: str, end: str | None = None):
     end = pd.Timestamp(end) if end else pd.Timestamp.now("UTC").tz_localize(None) - pd.offsets.MonthBegin(1)
     return pd.date_range(pd.Timestamp(start).replace(day=1), end, freq="MS")
@@ -66,7 +76,7 @@ def klines(symbol: str, start: str = "2020-01", interval: str = "1m", kind: str 
     cache = OUT / "cache" / f"{symbol}_{tag}"; cache.mkdir(parents=True, exist_ok=True)
     for m in _months(start):
         f = cache / f"{m:%Y-%m}.parquet"
-        if f.exists():
+        if f.exists() and _read_ok(f) is not None:
             continue
         df = _zip_csv(f"{BASE}/monthly/{kind}/{symbol}/{interval}/{symbol}-{interval}-{m:%Y-%m}.zip")
         if df is None:
@@ -78,7 +88,8 @@ def klines(symbol: str, start: str = "2020-01", interval: str = "1m", kind: str 
         df[keep].astype({c: float for c in keep if c != "time"}).to_parquet(f)
         print(f"  {symbol} {tag} {m:%Y-%m}: {len(df)} bars", flush=True)
         time.sleep(0.2)
-    parts = [pd.read_parquet(p) for p in sorted(cache.glob("*.parquet"))]
+    parts = [_read_ok(p) for p in sorted(cache.glob("*.parquet"))]
+    parts = [p for p in parts if p is not None]
     out = OUT / f"{symbol}_{tag}.parquet"
     if parts:
         pd.concat(parts).drop_duplicates("time").sort_values("time").to_parquet(out)
@@ -89,7 +100,7 @@ def metrics(symbol: str, start: str = "2021-12-01") -> Path:
     cache = OUT / "cache" / f"{symbol}_metrics"; cache.mkdir(parents=True, exist_ok=True)
     for m in _months(start):
         f = cache / f"{m:%Y-%m}.parquet"
-        if f.exists():
+        if f.exists() and _read_ok(f) is not None:
             continue
         days = pd.date_range(max(m, pd.Timestamp(start)), m + pd.offsets.MonthEnd(0))
         rows = []
@@ -105,7 +116,7 @@ def metrics(symbol: str, start: str = "2021-12-01") -> Path:
             df["time"] = pd.to_datetime(df["create_time"])
             df.drop(columns=[c for c in ("create_time", "symbol") if c in df]).to_parquet(f)
             print(f"  {symbol} metrics {m:%Y-%m}: {len(df)} rows", flush=True)
-    parts = [pd.read_parquet(p) for p in sorted(cache.glob("*.parquet"))]
+    parts = [x for x in (_read_ok(p) for p in sorted(cache.glob("*.parquet"))) if x is not None]
     out = OUT / f"{symbol}_metrics.parquet"
     if parts:
         pd.concat(parts).drop_duplicates("time").sort_values("time").to_parquet(out)

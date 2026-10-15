@@ -40,7 +40,9 @@
 **Not yet**
 - **Don't buy a challenge yet.** First paper trade C* + BTC leads for a few weeks. I'll update the daily signal script for it (see C).
 
-**Extra after the Binance download (small, a few minutes):** double-click `get_binance_premium.bat`, then push again (`git add research_data`, `git commit -m "Binance premium index"`, `git push`). It adds the hourly perp-vs-spot premium (the basis), needed for a clean re-test of the basis papers. If it reports 'failed' for every coin, tell Claude.
+**Easiest: everything free in one go.** First `git pull`. Set Windows sleep to Never: Settings > System > Power & battery > Screen and sleep > "When plugged in, put my device to sleep after: Never". Then double-click `get_all_free_data.bat` overnight. It covers Binance (including the premium index) and all Dukascopy steps. Already-finished months are skipped, so an interrupted run loses nothing. Afterwards push `research_data`.
+
+**Extra after the Binance download (small, a few minutes; not needed if you used get_all_free_data.bat):** double-click `get_binance_premium.bat`, then push again (`git add research_data`, `git commit -m "Binance premium index"`, `git push`). It adds the hourly perp-vs-spot premium (the basis), needed for a clean re-test of the basis papers. If it reports 'failed' for every coin, tell Claude.
 
 ## B. Prompt for ChatGPT (copy everything between the lines)
 

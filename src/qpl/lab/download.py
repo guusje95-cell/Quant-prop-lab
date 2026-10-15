@@ -242,7 +242,10 @@ def dukascopy(symbol, start="2013-01-01", end=None, pause=0.25, side="BID"):
         f = cache / f"{m0:%Y-%m}.parquet"
         complete = m0 + pd.offsets.MonthEnd(0) < end
         if f.exists() and complete:
-            parts.append(pd.read_parquet(f)); continue
+            try:
+                parts.append(pd.read_parquet(f)); continue
+            except Exception:                                    # cut off mid-write (PC went to sleep): download that month again
+                f.unlink(missing_ok=True)
         days = [d for d in pd.date_range(max(m0, pd.Timestamp(start)), min(m0 + pd.offsets.MonthEnd(0), end)) if d.weekday() != 5]
         mon = [x for d in days if (x := _duka_day(inst, d, side)) is not None and (time.sleep(pause) or True)]
         if mon:
