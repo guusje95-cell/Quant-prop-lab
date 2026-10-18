@@ -382,3 +382,9 @@ Details are in `research/GEN93_FLOWS.md`.
 - The daily H4 deleveraging bounce stays.
 - **Ensemble of all 6 bounce rules:** book 1.27.
 - **4-hourly check:** HOLD 0.26.
+
+## Gen95 (2026-10-18): CFD cost structure, no change (3 trials)
+- **Rejected:**
+  - C\* on BTC/ETH only: book 1.61;
+  - C\* with altcoins at half weight: 1.80, no gain;
+  - risk-sized bounce: 1.77.

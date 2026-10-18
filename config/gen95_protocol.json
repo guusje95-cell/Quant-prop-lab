@@ -1,0 +1,14 @@
+{
+  "generation": "Gen95",
+  "title": "CFD cost structure: C* concentrated on cheap-spread coins, and risk-sized deleveraging bounce",
+  "registered": "2026-10-18, after Gen94 and before any Gen95 number was computed",
+  "costs": "CFD: BTC/ETH 5 bp, others 10 bp per side, swap 3.3 bp per rollover",
+  "split": "DEV 2020-2022 (2022 for the bounce) | TEST 2023-2024 | HOLD 2025-2026",
+  "tests": {
+    "G1 C* on BTC/ETH only (PRIMARY, replacement)": "Gen85 swap-aware C* weights, altcoin weights set to 0 (BTC/ETH weights unchanged)",
+    "G2 C* altcoins at half weight (PRIMARY, replacement)": "Gen85 swap-aware C* weights, altcoin weights x 0.5",
+    "G3 risk-sized deleveraging bounce (PRIMARY, replacement)": "H4 rule unchanged; position per signal = 0.5 x (median 30-day vol of the coin over the past 365 days / current 30-day vol), capped at 0.75"
+  },
+  "pass": "replacement: beats the current sleeve on TEST and HOLD, DEV > 0, and the Gen90 CFD book 2022-26 Sharpe rises when it replaces it",
+  "trials_added": 3
+}
