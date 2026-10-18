@@ -280,3 +280,13 @@ Details are in `research/GEN78_CFD_PORTFOLIO.md`.
 - **CFD-firm portfolio = crypto CFD book (C\* + Weiss):**
   - Sharpe 1.57, max DD -16%, 47% positive months;
   - FTMO / FundedNext / BrightFunded at 1.0 / 0.6: $15.0-15.8k mean net per $100k over 2 years, P(profit) 91-92%.
+
+## Gen79 (2026-10-18): per-firm prop deployment optimisation
+Details are in `research/GEN79_PROP_DEPLOYMENT.md`. Picked on 2022-24, verified on 2025-26.
+
+| Firm | Adopted setting | 2025-26 mean net (pick vs default) | Note |
+|---|---|---|---|
+| HyroTrader 1-Step | 1.25 / 1.0 / 60% | $26.8k vs $17.8k | |
+| HyroTrader 2-Step | 1.5 / 1.0 / 50% | $27.6k vs $14.9k | |
+| FTMO / FundedNext / BrightFunded (CFD book) | 1.5 / 1.0 / 60% | about $20k vs $10.5-11.3k | safer as well |
+| SizeProp, CFT | defaults kept | | pick failed the 2025-26 check |
