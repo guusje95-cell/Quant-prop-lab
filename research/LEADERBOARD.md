@@ -272,3 +272,11 @@ Details are in `research/GEN77_DUKASCOPY_FULL.md`.
 | Dukascopy BTC/ETH | correlation 0.94-0.96 with Binance; **Gen74 crypto CFD book confirmed** |
 
 **Total so far:** 25 non-crypto CFD ideas, none passes.
+
+## Gen78 (2026-10-18): low-turnover CFD ideas + the CFD-firm portfolio
+Details are in `research/GEN78_CFD_PORTFOLIO.md`.
+
+- **Rejected:** XS momentum (-0.71), pairs (-0.51), FX seasonality (-0.54). That makes 31 non-crypto CFD ideas, none passing.
+- **CFD-firm portfolio = crypto CFD book (C\* + Weiss):**
+  - Sharpe 1.57, max DD -16%, 47% positive months;
+  - FTMO / FundedNext / BrightFunded at 1.0 / 0.6: $15.0-15.8k mean net per $100k over 2 years, P(profit) 91-92%.
