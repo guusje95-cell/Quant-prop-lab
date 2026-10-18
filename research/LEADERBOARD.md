@@ -367,3 +367,13 @@ Details are in `research/GEN91_92_OI_CAPITULATION.md`.
   - volume capitulation (too few signals);
   - VIX-backwardation index bounce (passes alone, lowers the book).
 - **Candidate v6 (v5 + bounce):** Sharpe 2.46; HyroTrader 1-Step about **$46k** mean, unlucky 10% $18.8k (v5: $41.9k / $14.0k).
+
+## Gen93 (2026-10-18): forced-flow family (3 trials)
+Details are in `research/GEN93_FLOWS.md`.
+
+- **Stablecoin mint spike** (USDT+USDC +0.5% in a day -> long BTC/ETH 3 days): passes the rule (1.01 / 1.79 / 0.33; book 1.80 -> 1.88).
+  - Not adopted: HOLD turns negative at every nearby threshold.
+  - Moved to the watchlist.
+- **Rejected:**
+  - perp deep-discount bounce;
+  - funding flush (passes alone, lowers the book).

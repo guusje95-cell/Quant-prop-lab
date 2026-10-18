@@ -1,0 +1,14 @@
+{
+  "generation": "Gen93",
+  "title": "Forced-flow family on BTC/ETH CFDs: stablecoin mint spike, perp deep-discount bounce, funding flush bounce",
+  "registered": "2026-10-18, after Gen92 and before any Gen93 number was computed",
+  "costs": "CFD: BTC/ETH 5 bp per side, swap 3.3 bp per rollover",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09; stablecoin data ends 2026-05)",
+  "tests": {
+    "M1 stablecoin mint spike (PRIMARY)": "USDT+USDC market cap (Coin Metrics) daily growth > +0.5%, used with the 2-day publication lag -> long BTC and ETH (0.5 each) for 3 days from 00:00 UTC",
+    "M2 perp deep-discount bounce (PRIMARY)": "coin's Binance premium index, mean of day d's 24 hourly closes, below its trailing-365-day 5th percentile (days before d) -> long that coin for 2 days from 00:00 UTC d+1, 0.5 per coin",
+    "M3 funding flush bounce (PRIMARY)": "the coin's 3 funding settlements of day d (00/08/16 UTC) all negative AND its 3-day return to the close of d negative -> long 2 days, 0.5 per coin"
+  },
+  "pass": "DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen90 CFD book (C* + Weiss + delev bounce) raises the 2022-26 Sharpe",
+  "trials_added": 3
+}
