@@ -290,3 +290,15 @@ Details are in `research/GEN79_PROP_DEPLOYMENT.md`. Picked on 2022-24, verified 
 | HyroTrader 2-Step | 1.5 / 1.0 / 50% | $27.6k vs $14.9k | |
 | FTMO / FundedNext / BrightFunded (CFD book) | 1.5 / 1.0 / 60% | about $20k vs $10.5-11.3k | safer as well |
 | SizeProp, CFT | defaults kept | | pick failed the 2025-26 check |
+
+## Gen81-83 (2026-10-18): CFD-book improvements
+Details are in `research/GEN81_83_CFD_BOOK.md`.
+
+- **Rejected:**
+  - C\* rebalance band: no effect; turnover is already low.
+  - CME weekend gap: -0.36.
+  - 5-minute ORB on US100: 2024-26 0.06; fails at 2 bp.
+- **NEW: swap-free CFD book** (C\* + premium carry + trend 4h + Weiss; same sleeve rule at zero swap):
+  - Sharpe 1.81, max DD -12.8%, 67% positive months;
+  - FTMO / FundedNext / BrightFunded at 1.5 / 1.0 / 60%: about $35k mean net per $100k over 2 years, unlucky 10% about $12k, P(profit) 98%.
+  - Usable only where crypto CFDs carry no swap.
