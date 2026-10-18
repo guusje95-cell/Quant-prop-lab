@@ -1,0 +1,14 @@
+{
+  "generation": "Gen88",
+  "title": "Coinbase premium (US spot demand) as a signal for BTC/ETH CFDs and as a C* filter",
+  "registered": "2026-10-18, before the Coinbase data was downloaded (user runs get_coinbase.bat); no Gen88 number exists yet",
+  "data": "Coinbase Exchange BTC-USD / ETH-USD hourly closes (public API) vs Binance USD-M BTCUSDT / ETHUSDT hourly closes, 2020-01 .. 2026-09",
+  "signal": "premium_t = Coinbase close / Binance close - 1 per coin; P24 = its 24-hour mean; z = (P24 - 30-day mean of P24) / 30-day std of P24, all known at hour t",
+  "tests": {
+    "Q1 premium momentum, BTC/ETH CFDs (PRIMARY)": "daily at 00:00 UTC: long a coin when z > +1, short when z < -1, flat otherwise; hold 24 hours; CFD costs 5 bp per side, swap 3.3 bp per rollover",
+    "Q2 C* premium filter (PRIMARY)": "C* (swap-aware, Gen85) weights x 1.25 on days when the BTC z > 0 and x 0.75 when z <= 0 (same form as the stablecoin filter)",
+    "Q3 variant": "Q1 with thresholds +-0.5"
+  },
+  "pass": "Q1: DEV > 0, TEST >= 0.5, HOLD >= 0.3 and adding it to the Gen85 CFD book raises the 2022-26 Sharpe. Q2: the C* CFD Sharpe rises on DEV, TEST and HOLD and the CFD book 2022-26 Sharpe rises",
+  "trials_added": 3
+}
