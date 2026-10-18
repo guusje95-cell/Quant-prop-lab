@@ -33,6 +33,11 @@ OUT = LAB / "binance_vision"
 HDR = {"User-Agent": "qpl-backtest-lab/1.0 (public market data)"}
 RESEARCH_SET = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "SOLUSDT", "DOGEUSDT", "AVAXUSDT", "DOTUSDT", "LINKUSDT",
                 "LTCUSDT", "BCHUSDT", "TRXUSDT", "ETCUSDT", "XLMUSDT", "ATOMUSDT", "NEARUSDT", "FILUSDT", "UNIUSDT", "AAVEUSDT"]
+# Gen80 breadth: ~40 more liquid USD-M perps (listed since 2019-2023), hourly pack only (research_data/binance_extra/)
+EXTRA_SET = ["1INCHUSDT", "ALGOUSDT", "APEUSDT", "APTUSDT", "ARBUSDT", "AXSUSDT", "CHZUSDT", "COMPUSDT", "CRVUSDT", "DASHUSDT",
+             "DYDXUSDT", "ENJUSDT", "GALAUSDT", "GRTUSDT", "ICPUSDT", "IMXUSDT", "INJUSDT", "IOTAUSDT", "KSMUSDT", "LDOUSDT",
+             "MANAUSDT", "NEOUSDT", "OPUSDT", "1000PEPEUSDT", "SANDUSDT", "1000SHIBUSDT", "SNXUSDT", "STXUSDT", "SUIUSDT", "SUSHIUSDT",
+             "THETAUSDT", "TIAUSDT", "WLDUSDT", "XTZUSDT", "YFIUSDT", "ZECUSDT", "ZILUSDT", "EGLDUSDT", "RUNEUSDT", "HBARUSDT"]
 KCOLS = ["open_time", "open", "high", "low", "close", "volume", "close_time", "quote_volume", "count", "taker_buy_volume",
          "taker_buy_quote_volume", "ignore"]
 
@@ -168,9 +173,31 @@ def build():
     print("research pack ->", pack, "(commit this folder: git add research_data && git commit && git push)")
 
 
+def build_extra(symbols):
+    """Compact hourly pack for the extra coins: research_data/binance_extra/<SYM>_1h / _oi_1h / _funding / _premium_1h."""
+    pack = ROOT / "research_data" / "binance_extra"; pack.mkdir(parents=True, exist_ok=True)
+    for sym in symbols:
+        k = OUT / f"{sym}_1h.parquet"
+        if not k.exists():
+            continue
+        pd.read_parquet(k).set_index("time").astype("float32").to_parquet(pack / f"{sym}_1h.parquet", compression="zstd")
+        m = OUT / f"{sym}_metrics.parquet"
+        if m.exists():
+            d = pd.read_parquet(m)
+            d["time"] = pd.to_datetime(d["time"])
+            oi = d.set_index("time")["sum_open_interest_value"].astype(float).resample("1h").last()
+            pd.DataFrame({"oi_value": oi.astype("float32")}).to_parquet(pack / f"{sym}_oi_1h.parquet", compression="zstd")
+        for extra in ("funding", "premium_1h"):
+            f = OUT / f"{sym}_{extra}.parquet"
+            if f.exists():
+                pd.read_parquet(f).to_parquet(pack / f"{sym}_{extra}.parquet", compression="zstd")
+        print("  extra pack:", sym, flush=True)
+    print("extra pack ->", pack, "(commit: git add research_data && git commit && git push)")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build"])
+    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build", "extra"])
     ap.add_argument("--symbols", nargs="*", default=RESEARCH_SET)
     ap.add_argument("--start", default=None)
     ap.add_argument("--interval", default="1m")
@@ -178,6 +205,16 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     if a.what == "build":
         build(); return
+    if a.what == "extra":                                   # Gen80: hourly klines, metrics (open interest), funding, premium
+        for s in EXTRA_SET:
+            try:
+                print(s, "->", klines(s, "2020-01", "1h"))
+                print(s, "->", metrics(s, "2021-12-01"))
+                print(s, "->", funding(s, "2020-01"))
+                print(s, "->", klines(s, "2020-01", "1h", kind="premiumIndexKlines"))
+            except Exception as e:
+                print(s, "FAILED:", e)
+        build_extra(EXTRA_SET); return
     for s in a.symbols:
         try:
             if a.what in ("klines", "all"):

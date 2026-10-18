@@ -1,0 +1,17 @@
+{
+  "generation": "Gen80",
+  "title": "Breadth: premium carry and the liquidation cascade on 20 + ~40 more Binance USD-M perps (same frozen rules)",
+  "registered": "2026-10-18, before the extra-coin data was downloaded (get_binance_extra.bat)",
+  "why": "both sleeves are cross-sectional / event-driven: more independent coins = more bets per unit of risk, without touching any parameter",
+  "data": "research_data/binance (20 coins, 5m) + research_data/binance_extra (~40 coins, 1h klines, hourly open interest, funding, premium); a coin enters only after 60 days of listing (as now)",
+  "rules_frozen": {
+    "premium carry": "Gen61: rank all listed coins on the 7-day average premium index; long the lowest third, short the highest third, rebalance every 7 days; taker 5 bp; funding paid/received",
+    "cascade limit strict": "Gen68: 1h return < -3 sigma (720h), open-interest drop > 5% in the hour, volume > 95th percentile (720h); limit 0.5% below, fill only on 0.1% trade-through; stop low - 1 ATR(14h); exit after 12h; max 3 open, 0.2 notional each; maker 2 bp in, 5 bp out; ties by time then coin"
+  },
+  "variants": {
+    "cascade max 5 open": "the only capacity change allowed, because the event count rises with breadth"
+  },
+  "pass": "a breadth version replaces the current sleeve only if its 2023-26 Sharpe >= the 20-coin sleeve's AND HOLD 2025-26 Sharpe >= the 20-coin sleeve's AND swapping it into v5 raises the 2022-26 Sharpe",
+  "extra_checks": "liquidity: report the median daily dollar volume of the coins actually traded; coins below $20m/day median are reported separately (a prop account trades $5-10k positions, so capacity is not binding, but slippage on thin coins is)",
+  "trials_added": 4
+}
