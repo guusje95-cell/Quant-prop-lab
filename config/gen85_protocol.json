@@ -1,0 +1,15 @@
+{
+  "generation": "Gen85",
+  "title": "Improving the CFD book (C* + Weiss at swap 3.3): wider Weiss, swap-aware C*, C* by side, trend 4h on more CFD coins",
+  "registered": "2026-10-18, after Gen84 and before any Gen85 number was computed",
+  "costs": "Gen74 CFD costs: BTC/ETH 5 bp, other coins 10 bp per side, swap 3.3 bp/day on |notional| held over 22:00 UTC, no funding; CFD coins BTC ETH LTC XRP ADA DOGE SOL DOT AVAX LINK BCH",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09)",
+  "tests": {
+    "A1 Weiss expiry on all 11 CFD coins (PRIMARY, replacement)": "Gen70 W1 rule unchanged (last Friday, fade 07-08 UTC move from 08:00 to 10:00), equal weight over the 11 CFD coins, spread per coin; replaces Weiss BTC/ETH if it beats it on TEST and HOLD and the CFD book 2022-26 Sharpe rises",
+    "B1 swap-aware C* (PRIMARY)": "same C* target weights; per day, set to zero every coin weight with |w| < thr x mean(|w| over nonzero coins); thr in {0, 0.5, 1.0}; pick on DEV 2020-22 C*-CFD Sharpe; adopt only if TEST and HOLD >= thr 0 and the CFD book 2022-26 Sharpe rises",
+    "B2 C* long side only / short side only (info)": "C* weights clipped to >= 0 or <= 0; reported; adopt long-only only if it beats full C* on DEV, TEST and HOLD and the book rises",
+    "D1 trend 4h on all 11 CFD coins (PRIMARY)": "Gen trend-4h rule unchanged (20/10 Donchian on 4h bars), equal weight over the 11 CFD coins (each 1/11 of the BTC/ETH/SOL version's per-coin size x 3), swap 3.3; added as a sleeve if TEST >= 0.5 and HOLD >= 0.3 (Gen74 sleeve rule) and the CFD book 2022-26 Sharpe rises; also reported inside the swap-free book (swap 0) against Gen83"
+  },
+  "construction": "Gen72 P1 point-in-time equal risk, Weiss at half weight, 30-day vol targeting (CS.portfolio_v5)",
+  "trials_added": 8
+}

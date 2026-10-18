@@ -313,3 +313,14 @@ Details are in `research/GEN84_SHARPE_IDEAS.md`.
   - DVOL VRP overlay on v5: 2.26 vs 2.275, deeper DD.
 - **v5 unchanged** at 2.275.
 - **Swap-free:** FundedNext offers swap-free at +10% fee, which costs about $50 of mean net. It is the practical home for the swap-free CFD book.
+
+## Gen85 (2026-10-18): CFD-book improvements (8 trials)
+Details are in `research/GEN85_CFD_IMPROVE.md`.
+
+- **ADOPTED: swap-aware C\*** (drop coin weights below half the average held weight):
+  - C\* as a CFD: HOLD 0.39 -> 0.50;
+  - CFD book: Sharpe **1.57 -> 1.62**;
+  - FTMO / FundedNext / BrightFunded at 1.5 / 1.0 / 60%: about $26-28k mean net per $100k (+$0.5-1k).
+- **Rejected:**
+  - Weiss on 11 CFD coins: HOLD 0.11;
+  - trend 4h on 11 CFD coins: HOLD -0.41.
