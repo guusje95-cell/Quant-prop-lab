@@ -71,7 +71,7 @@ class CStarTrend(Strategy):
             if caps is not None:
                 day = s.index.floor("D")
                 g = np.log(caps.where(caps > 0)).diff(30)
-                f = pd.Series(np.where(g > 0, 1.25, np.where(g <= 0, 0.75, 1.0)), index=g.index).shift(1)   # 1-day publication lag
+                f = pd.Series(np.where(g > 0, 1.25, np.where(g <= 0, 0.75, 1.0)), index=g.index).shift(2)   # 2-day lag: Coin Metrics publishes day d-1 hours after midnight (paper trading 2026-10-18)
                 s = s.mul(f.reindex(day).fillna(1.0).to_numpy(), axis=0)
         if p.get("btc_leads") and "BTC" in s.columns:
             alts = [c for c in s.columns if c != "BTC"]

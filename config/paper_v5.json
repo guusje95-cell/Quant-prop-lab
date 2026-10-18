@@ -19,5 +19,12 @@
     "operations": "late or missed hours <= 5% of hours; no data errors",
     "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v5 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
     "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
-  }
+  },
+  "changes": [
+    {
+      "date": "2026-10-18",
+      "what": "C* stablecoin filter lag 1 -> 2 days",
+      "why": "paper ledger showed C* trading at 00:00 and partly reversing at 02:00 every day: at 00:06 UTC the previous day's USDT+USDC cap is not yet published, so the filter fell back to neutral and switched ~2 hours later. With a 2-day lag the input is always published by midnight; backtest impact C* 2022-26 Sharpe 1.28 -> 1.32, v5 2.25 -> 2.28 (no selection: the change is forced by data timing). Hours frozen before the change keep the old rule; reconciliation of those hours shows small C* differences at 00:00."
+    }
+  ]
 }
