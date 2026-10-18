@@ -1,0 +1,11 @@
+{
+  "generation": "Gen83",
+  "title": "Swap-free CFD book: the crypto CFD book for firms / account types that charge no overnight swap on crypto",
+  "registered": "2026-10-18, after Gen74 (which reported a swap-0 scenario per sleeve) and Gen82; before the swap-free portfolio, its stats or prop results were computed",
+  "condition": "only for accounts where crypto CFDs carry no swap (swap-free / Islamic-type accounts, or firms with zero crypto swap). The user must confirm this with the firm before use; any admin fee replacing the swap must be added as a cost",
+  "sleeve_rule": "the Gen74 rule unchanged, applied at swap 0 and base spreads: keep a sleeve if TEST 2023-24 >= 0.5 and HOLD 2025-26 >= 0.3. From the Gen74 swap-0 table this keeps C* (2.38 / 0.47), premium carry price-only (1.22 / 0.57), trend 4h (1.47 / 0.42) and Weiss (1.64 / 0.63); the cascade fails (HOLD -0.57)",
+  "portfolio": "Gen72 P1 point-in-time equal risk, Weiss at half weight, 30-day vol targeting; reported at swap 0 and at 2x spread",
+  "prop": "FTMO 2-Step, FundedNext Stellar 2-Step, BrightFunded 2-Step Classic: Gen79-adopted setting 1.5 / 1.0 / 60% stop and the default 1.0 / 0.6 / 50%, bootstrap 500 paths",
+  "comparison": "vs the base CFD book (C* + Weiss, swap 3.3 bp/day)",
+  "trials_added": 1
+}
