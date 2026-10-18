@@ -1,0 +1,12 @@
+{
+  "generation": "Gen99",
+  "title": "Altcoin deleveraging bounce in the cheaper books: swap-free CFD book and crypto-firm v6",
+  "registered": "2026-10-18, after Gen98. Known before registering: Gen91 K1 (bounce on 9 CFD altcoins at swap 3.3) failed DEV and lowered the normal CFD book; per-coin results positive on 7 of 9. No result in the swap-free book or v6 was computed",
+  "rule": "H4 rule unchanged (OI value -10% in 24h to 23:55 UTC and price down -> long 2 days, 0.5 per coin per signal), on altcoins only, as a separate sleeve next to the BTC/ETH bounce",
+  "tests": {
+    "S1 alt bounce in the swap-free CFD book (PRIMARY)": "9 CFD altcoins (LTC XRP ADA DOGE SOL DOT AVAX LINK BCH), CFD spreads 10 bp per side, swap 0; added to the Gen90 swap-free book (C* + premium carry + trend 4h + Weiss + BTC/ETH bounce)",
+    "S2 alt bounce in crypto-firm v6 (PRIMARY)": "the 18 non-BTC/ETH Binance pack coins, perp costs (5 bp taker + funding); added to v6 (v5 + BTC/ETH bounce)"
+  },
+  "pass": "S1: sleeve DEV 2022 > 0, TEST >= 0.5, HOLD >= 0.3 at its book's costs AND the book 2022-26 Sharpe rises AND TEST and HOLD book Sharpe do not fall. S2: same with the crypto rule (TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3)",
+  "trials_added": 2
+}

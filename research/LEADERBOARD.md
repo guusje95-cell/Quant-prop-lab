@@ -411,3 +411,9 @@ Details are in `research/GEN96_VALIDATION.md`.
 - **Gold 12-month trend (XAUUSD CFD, long-only, 10% vol):** DEV 2014-19 0.12, TEST 2020-23 0.19, HOLD 2024-26 1.71; Yahoo 2005-12 pre-check 0.76.
   - It raises the book to 1.86, but only through the 2024-26 gold rally.
   - Rejected by the TEST rule; that one-period dependence is exactly what the rule is there to catch.
+
+## Gen99 (2026-10-18): altcoin bounce in the cheaper books, rejected (2 trials; `config/gen99_protocol.json`, `scripts/gen99_altbounce.py`)
+- **Swap-free CFD book:** alt bounce DEV 2022 -0.15, TEST 1.01, HOLD 0.46; book 2.07 -> 2.02.
+- **v6 at perp costs:** alt bounce DEV 2022 -0.10, TEST 1.12, HOLD 0.73; v6 2.46 -> 2.50.
+  - Rejected: DEV < 0.
+  - The altcoin bounce lost money in 2022 in every form tested (Gen91, Gen99), so the rule keeps it out.
