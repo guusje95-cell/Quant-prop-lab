@@ -1,0 +1,10 @@
+{
+  "generation": "Gen82",
+  "title": "5-minute Opening Range Breakout on US100 / US500 CFDs (Zarattini, Barbon & Aziz 2024; Gen60 C5 rule, CFD version)",
+  "registered": "2026-10-18, before any Gen82 number was computed (Gen81 results seen: band and CME gap rejected)",
+  "data": "Dukascopy 5-minute US100 / US500 BID bars, 2018-01..2026-10 (pushed by the user); New York time, DST-aware",
+  "rule": "Each US trading day: bar 1 = 09:30-09:35 ET. If bar 1 closed up (close > open) go long at the open of bar 2; if down go short; flat if unchanged. Stop at bar 1's low (long) / high (short); target = 10 x the entry-to-stop distance (10R); otherwise exit at the 15:55 ET bar close. Size: risk 0.5% of equity per trade (position = 0.005 / stop distance as a fraction of price), capped at 4x leverage. Stops fill at the stop price (or the bar open if it gaps through). Costs 1 bp per side (CFD spread; stress 2 bp). No overnight positions, so no swap.",
+  "variant": "risk 1% per trade (the paper's setting); same Sharpe, reported for the prop sizing only",
+  "splits_pass": "DEV 2018-2020 | TEST 2021-2023 | HOLD 2024-2026; TEST >= 0.8, HOLD >= 0.5, DEV > 0 on US100 (primary); US500 reported; worst day >= -1.5% at 10% vol; and adding it to the CFD book (C* + Weiss) raises the 2022-26 Sharpe",
+  "trials_added": 4
+}
