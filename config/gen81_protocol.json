@@ -1,0 +1,19 @@
+{
+  "generation": "Gen81",
+  "title": "Improving the CFD book: cheaper C* execution (rebalance band) and a CFD-native crypto edge (CME weekend-gap reversion)",
+  "registered": "2026-10-18, before any Gen81 number was computed",
+  "costs": "Gen74 CFD costs: BTC/ETH 5 bp, other coins 10 bp per side, swap 3.3 bp/day on |notional| held over 22:00 UTC (base), no funding",
+  "tests": {
+    "E1 C* with a rebalance band (CFD execution)": {
+      "rule": "same C* target weights; per coin, keep the held weight unless the target differs by more than band x |held weight|; a change of sign or a move to/from zero always trades",
+      "grid": "band in {0 (current), 0.10, 0.25, 0.50}",
+      "selection": "choose the band with the best C*-CFD Sharpe on DEV 2020-22 (neighbour-smoothed); adopt only if its 2023-26 and HOLD 2025-26 Sharpe are >= band 0's and the CFD book (C* + Weiss) 2022-26 Sharpe rises"
+    },
+    "E2 CME weekend-gap reversion (BTC, ETH CFDs)": {
+      "rule": "gap = price at the open of the Sunday 22:00 UTC bar (CME reopen, hourly stand-in) vs the close of the Friday 20:00 UTC bar (CME close 21:00 UTC); if |gap| > 1%, trade toward the Friday close at the Sunday 22:00 open (unit notional per coin); exit when the price touches the Friday close (filled at that level) or at the open of the Wednesday 22:00 UTC bar; spread 5 bp per side, swap per rollover held",
+      "variant": "gap threshold 2%",
+      "pass": "DEV 2020-22 > 0, TEST 2023-24 >= 0.8, HOLD 2025-26 >= 0.5 (yearly-scaled daily Sharpe), and adding it to the CFD book raises the 2022-26 Sharpe"
+    }
+  },
+  "trials_added": 6
+}
