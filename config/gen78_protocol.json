@@ -1,0 +1,25 @@
+{
+  "generation": "Gen78",
+  "title": "CFD portfolio research on all 35 Dukascopy instruments: low-turnover ideas, then the CFD portfolio",
+  "registered": "2026-10-18, before any Gen78 number was computed",
+  "lesson_applied": "Gen73-77: 25 timing ideas failed on CFD costs; this batch is restricted to low-turnover designs with strong published evidence",
+  "data": "Dukascopy hourly, 2013-01..2026-09; daily closes = last hourly close of each UTC day (22:00-23:00 bar)",
+  "costs": "per side: FX 1 bp, indices 1 bp, XAUUSD 2 bp, XAGUSD/WTI/BRENT/COPPER 4 bp, NATGAS 6 bp, BUND/USTBOND 2 bp; financing 3%/yr on |notional| per night, long and short (conservative); stress 2x",
+  "splits_pass": "DEV 2013-2019 | TEST 2020-2023 | HOLD 2024-2026; TEST >= 0.8, HOLD >= 0.5, DEV > 0, worst day >= -1.5% at 10% vol",
+  "tests": {
+    "M1 cross-sectional momentum within asset classes (Asness, Moskowitz & Pedersen 2013)": {
+      "rule": "month end: within each class rank on the 12-month return skipping the last month (12-1); long the top third, short the bottom third, equal weight, each instrument scaled by 1/(60-day vol); classes: FX (7 currencies vs USD via the 7 USD pairs), equity indices (US500, US100, US30, US2000, DE40, UK100, JP225, EU50, FR40, AUS200, HK50, CH20, ES35), commodities (XAUUSD, XAGUSD, WTI, BRENT, NATGAS, COPPER); classes at equal risk (10% vol each, trailing 1-year), held one month",
+      "variant": "6-1 month lookback"
+    },
+    "M2 pairs mean reversion on related CFDs": {
+      "rule": "pairs WTI/BRENT, XAUUSD/XAGUSD, AUDUSD/NZDUSD, EU50/DE40, FR40/EU50, US500/US30; daily: hedge ratio = OLS slope of log prices over the last 120 days; spread z-score vs its last 60 days; enter when |z| > 2 (short the rich leg, long the cheap leg, gross 1 per pair), exit when z crosses 0 or after 20 days or |z| > 4; equal weight across pairs",
+      "variant": "entry |z| > 1.5"
+    },
+    "M3 intraday FX seasonality (Breedon & Ranaldo 2013)": {
+      "rule": "foreign currencies depreciate during their own working hours: sell EUR, GBP, CHF vs USD (short EURUSD, GBPUSD; long USDCHF) from 07:00 to 12:00 UTC, flat otherwise; one round trip a day",
+      "variant": "add buying them back during US hours 13:00-20:00 UTC (long EURUSD, GBPUSD; short USDCHF)"
+    }
+  },
+  "portfolio": "CFD portfolio = Gen74 crypto CFD book (C* + Weiss, base costs) + every PRIMARY that passes, Gen72 P1 point-in-time equal risk, Weiss at half weight; if none passes, the CFD portfolio is the crypto CFD book alone. Prop simulation: FTMO 2-Step, FundedNext Stellar 2-Step, BrightFunded 2-Step Classic, $100k, risk 1.0/0.6 and 0.75/0.4, bootstrap 500 paths, S50 daily stop",
+  "trials_added": 6
+}
