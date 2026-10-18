@@ -22,3 +22,10 @@ Then tell Claude: "data is pushed".
 **Before buying a CFD challenge:**
 - Ask the firm in writing whether crypto CFDs can be swap-free (FundedNext: add-on, +10% fee).
 - Ask what the crypto swap rate is.
+
+## Decisions Claude needs from you
+1. **Switch paper trading from v5 to v6** (v5 + deleveraging bounce)? Answer yes or no.
+2. **Which CFD firm do you want to use?** Ask about swap-free first:
+   - FundedNext: swap-free add-on;
+   - FTMO and BrightFunded: ask support.
+3. **Databento futures trial:** yes or no. It is optional and has a cost, so check that first.
