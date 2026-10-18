@@ -1,0 +1,26 @@
+{
+  "generation": "Gen77",
+  "title": "Full Dukascopy set: FX fix pattern (Gen60 D1/D4), noise-area re-test on 5-minute data (Gen59), crypto CFDs on Dukascopy BTC/ETH (Gen74 check)",
+  "registered": "2026-10-18, after the 35 hourly + US100/US500 5-minute files arrived and before any Gen77 number was computed",
+  "costs": "FX 1 bp per side, indices 1 bp, crypto CFD 5 bp (BTC/ETH); financing 3%/yr per night over 22:00 UTC where held",
+  "tests": {
+    "X1 FX fix pattern (Gen60 D1, Krohn, Mueller & Whelan, JF 2024)": {
+      "rule": "Equal-weight basket of EUR, GBP, JPY, AUD, CHF, CAD, NZD vs USD (7 USD pairs; USD-long = short EURUSD/GBPUSD/AUDUSD/NZDUSD, long USDJPY/USDCHF/USDCAD). London WMR 16:00 fix: long USD from the open of the 14:00 London bar to the open of the 16:00 London bar, short USD from 16:00 to the open of the 19:00 London bar. Tokyo 09:55 JST fix (hourly stand-in 10:00 JST): long USD 08:00-10:00 JST, short USD 10:00-13:00 JST. DST-aware via tz conversion. The registered lookup of exact windows in the replication package could not be done (no access); the windows above are the paper's described 2h-before / 3h-after pattern, fixed here before any run.",
+      "variant": "London fix only",
+      "splits_pass": "DEV 2013-19 / TEST 2020-23 / HOLD 2024-26; TEST >= 0.8, HOLD >= 0.5, DEV > 0"
+    },
+    "X2 month-end equity overlay (Gen60 D4)": {
+      "rule": "On the last business day of each month: if the US500 month-to-date return (to the 12:00 London bar) exceeds that of an equal-weight UK100 / JP225 / EU50 basket, short USD (same 7-pair basket) from the open of the 13:00 London bar to the open of the 16:00 London bar; if US500 lagged, long USD. Flat otherwise.",
+      "splits_pass": "as X1"
+    },
+    "X3 noise-area breakout re-test on 5-minute data (Gen47 G47b, exact paper rule, Gen59)": {
+      "rule": "qpl.lab.strategies_papers.NoiseAreaMomentum with paper defaults (14-day band, 30-minute checks, VWAP stop, 2% daily vol target, max 4x) on US100 and US500 5-minute CFD bars, 1 bp per side",
+      "judged_on": "FRESH period 2023-10-01..2026-10-15 (Gen47 data ended 2023-09); pass = fresh Sharpe > 0.5 and same sign as Gen47 (US100 +0.71, US500 +0.36)"
+    },
+    "X4 crypto CFD check on Dukascopy BTCUSD / ETHUSD": {
+      "rule": "trend 4h (Gen69 rule, BTC+ETH only here) and Weiss expiry (Gen70 W1) computed on Dukascopy CFD prices with 5 bp per side and 3.3 bp/day swap (trend only); compared with the same rules on Binance prices over 2018-2026",
+      "judged_as": "data check: daily return correlation >= 0.9 and same-sign Sharpe on 2023-26 confirms the Gen74 CFD result; otherwise Gen74 is revised"
+    }
+  },
+  "trials_added": 6
+}

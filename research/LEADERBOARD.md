@@ -260,3 +260,15 @@ Details are in `research/GEN75_76_INDEX_GOLD.md`.
   - RSI(2) pullback: HOLD 1.29, TEST 0.39;
   - pre-FOMC drift: TEST 1.15, HOLD 0.38.
 - **Gen73-76 total:** 19 index / gold / FX timing ideas, none survives CFD costs on 2013-26 data.
+
+## Gen77 (2026-10-18): full Dukascopy set
+Details are in `research/GEN77_DUKASCOPY_FULL.md`.
+
+| Test | Result |
+|---|---|
+| FX fix | tiny effect (<1 bp/day) under 4 bp/day costs; rejected |
+| Month-end overlay | rejected |
+| Noise-area on 5-minute data | US100 fresh 0.44 (near miss), US500 fresh -1.15 |
+| Dukascopy BTC/ETH | correlation 0.94-0.96 with Binance; **Gen74 crypto CFD book confirmed** |
+
+**Total so far:** 25 non-crypto CFD ideas, none passes.
