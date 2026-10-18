@@ -388,3 +388,15 @@ Details are in `research/GEN93_FLOWS.md`.
   - C\* on BTC/ETH only: book 1.61;
   - C\* with altcoins at half weight: 1.80, no gain;
   - risk-sized bounce: 1.77.
+
+## Gen96 (2026-10-18): validation and risk audit of the CFD book
+Details are in `research/GEN96_VALIDATION.md`.
+
+- **Look-ahead:** 0 differences in about 244k rows at 5 data cutoffs. A deliberate look-ahead control is detected (2.59).
+- **Execution delay:** C\* and the bounce are robust; **Weiss must be on time** (1h late: book 1.57).
+- **Bootstrap 2y Sharpe:** 5-95% range 0.69-2.96; P(2y loss) 0.5%.
+- **Deflated Sharpe probability:** 0.81 at 700 trials, 0.57 at 7,000.
+- **Crashes:** FTX -6.2%, LUNA -0.6%.
+- **Cost stress:** 2x spread + 2x swap still 1.45.
+- **Bounce grid:** a 10-12% ridge; the registered cell is the best one, so expect less live.
+- **Realistic live CFD Sharpe: about 1.2-1.6.**
