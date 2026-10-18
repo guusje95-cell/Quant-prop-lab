@@ -405,3 +405,9 @@ Details are in `research/GEN96_VALIDATION.md`.
 - **Taker sell climax:** DEV 2022 -0.33, TEST 1.74, HOLD -0.19; book 1.78.
 - **Market-wide deleveraging (OI of all 20 coins -8%):** DEV -0.98, TEST 0.90, HOLD 0.64; book 1.74.
 - The per-coin H4 bounce stays the only adopted forced-flow sleeve.
+
+## Gen98 (2026-10-18): slow bounce and gold trend, rejected (2 trials; `config/gen98_protocol.json`, `scripts/gen98_slow.py`)
+- **Weekly deleveraging bounce** (OI -20% in 7 days): DEV 2022 -0.06, TEST 1.38, HOLD -0.55; book 1.45.
+- **Gold 12-month trend (XAUUSD CFD, long-only, 10% vol):** DEV 2014-19 0.12, TEST 2020-23 0.19, HOLD 2024-26 1.71; Yahoo 2005-12 pre-check 0.76.
+  - It raises the book to 1.86, but only through the 2024-26 gold rally.
+  - Rejected by the TEST rule; that one-period dependence is exactly what the rule is there to catch.

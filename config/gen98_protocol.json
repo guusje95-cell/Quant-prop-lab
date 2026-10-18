@@ -1,0 +1,13 @@
+{
+  "generation": "Gen98",
+  "title": "Slow deleveraging bounce (weekly horizon) and a slow gold trend sleeve for the CFD book",
+  "registered": "2026-10-18, after Gen97 and before any Gen98 number was computed",
+  "costs": "crypto CFD: BTC/ETH 5 bp per side, swap 3.3 bp per rollover; gold CFD (XAUUSD): 2 bp per side, financing 3%/yr on held notional (Gen73 convention)",
+  "split": "crypto: DEV 2022 | TEST 2023-2024 | HOLD 2025-2026. Gold: DEV 2014-2019 | TEST 2020-2023 | HOLD 2024-2026 (Dukascopy 2013+), plus a Yahoo 2005-2013 pre-check",
+  "tests": {
+    "W1 weekly deleveraging bounce (PRIMARY)": "coin's open-interest value fell more than 20% over the 7 days to 23:55 UTC AND its price fell over the same 7 days -> long 5 days, BTC/ETH, 0.5 per coin; no new signal while held (rolling max)",
+    "Y1 gold 12-month trend (PRIMARY)": "daily: long XAUUSD when its 252-trading-day return (to yesterday's close) > 0, flat otherwise; size = 10% annualised vol target on 60-day vol, cap 2; long-only (gold financing makes shorts costly and the literature effect is long-biased)"
+  },
+  "pass": "DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen90 CFD book (C* + Weiss + delev bounce) raises the 2022-26 Sharpe",
+  "trials_added": 2
+}
