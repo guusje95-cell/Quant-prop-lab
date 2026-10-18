@@ -1,0 +1,13 @@
+{
+  "generation": "Gen79",
+  "title": "Prop deployment optimisation per firm: challenge risk, funded risk, daily stop (strategies unchanged)",
+  "registered": "2026-10-18, before any Gen79 number was computed",
+  "series": "crypto firms: v5 hourly portfolio (results/cache_gen72_final.parquet, 15% vol); CFD firms: crypto CFD book at base costs (results/cache_gen74_hourly.parquet 'swap 3.3 (base)', scaled to 15% vol as in Gen78)",
+  "firms": {"crypto": ["HyroTrader One-Step $100k", "HyroTrader Two-Step $100k", "SizeProp One-Step $100k", "Crypto Fund Trader 1-Phase $100k"],
+            "cfd": ["FTMO 2-Step $100k", "FundedNext Stellar 2-Step $100k", "BrightFunded Two-Step Classic $100k"]},
+  "grid": "challenge risk {0.75, 1.0, 1.25, 1.5} x funded risk {0.4, 0.6, 0.8, 1.0} x own daily stop at {40%, 50%, 60%, 75%} of the firm's daily loss limit (64 cells per firm)",
+  "default": "1.0 / 0.6 / 50%",
+  "selection": "bootstrap (300 paths, 20-day blocks, 2-year horizon, 5 attempts) drawn ONLY from DEV = 2022-01..2024-12. Score = mean net, among cells with DEV P(profit) >= 95% (crypto firms) or >= 88% (CFD firms) and DEV unlucky-10% >= 0; smoothed by averaging each cell with its grid neighbours (+-1 step per axis). The best smoothed cell is adopted only if, with paths drawn ONLY from HOLD = 2025-01..2026-09, its mean net >= the default's AND its P(profit) >= the default's - 2 points; otherwise the default stays.",
+  "trials_added": 7,
+  "note": "deployment choice only; the strategy rules and the portfolio are unchanged"
+}
