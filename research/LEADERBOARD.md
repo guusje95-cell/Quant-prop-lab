@@ -400,3 +400,8 @@ Details are in `research/GEN96_VALIDATION.md`.
 - **Cost stress:** 2x spread + 2x swap still 1.45.
 - **Bounce grid:** a 10-12% ridge; the registered cell is the best one, so expect less live.
 - **Realistic live CFD Sharpe: about 1.2-1.6.**
+
+## Gen97 (2026-10-18): forced-flow family II, rejected (2 trials; `config/gen97_protocol.json`, `scripts/gen97_flows2.py`)
+- **Taker sell climax:** DEV 2022 -0.33, TEST 1.74, HOLD -0.19; book 1.78.
+- **Market-wide deleveraging (OI of all 20 coins -8%):** DEV -0.98, TEST 0.90, HOLD 0.64; book 1.74.
+- The per-coin H4 bounce stays the only adopted forced-flow sleeve.

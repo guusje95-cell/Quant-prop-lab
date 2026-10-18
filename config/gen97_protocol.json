@@ -1,0 +1,13 @@
+{
+  "generation": "Gen97",
+  "title": "Forced-flow family II: taker sell climax and market-wide deleveraging (BTC/ETH CFDs)",
+  "registered": "2026-10-18, after Gen96 and before any Gen97 number was computed",
+  "costs": "CFD: BTC/ETH 5 bp per side, swap 3.3 bp per rollover",
+  "split": "DEV 2022 | TEST 2023-2024 | HOLD 2025-2026 (metrics from 2021-12)",
+  "tests": {
+    "T1 taker sell climax (PRIMARY)": "coin's daily taker long/short volume ratio (mean of day d's 5-minute sum_taker_long_short_vol_ratio) below its trailing-365-day 5th percentile (days before d) AND daily return negative -> long that coin 2 days from 00:00 UTC d+1, 0.5 per coin",
+    "T2 market-wide deleveraging (PRIMARY)": "sum of open-interest value over all 20 pack coins (zeros treated as missing, last value carried) fell more than 8% over the 24h to 23:55 UTC AND BTC price fell over the same 24h -> long BTC and ETH 0.5 each for 2 days; added next to the per-coin H4 bounce"
+  },
+  "pass": "DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen90 CFD book (C* + Weiss + delev bounce) raises the 2022-26 Sharpe",
+  "trials_added": 2
+}
