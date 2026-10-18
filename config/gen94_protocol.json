@@ -1,0 +1,13 @@
+{
+  "generation": "Gen94",
+  "title": "Bounce family ensemble (no cherry-picking) and a 4-hourly check of the deleveraging bounce",
+  "registered": "2026-10-18, after Gen93 and before any Gen94 number was computed",
+  "costs": "CFD: BTC/ETH 5 bp per side, other coins 10 bp, swap 3.3 bp per rollover",
+  "split": "DEV 2020-2022 (2022 for OI-based legs) | TEST 2023-2024 | HOLD 2025-2026",
+  "tests": {
+    "F1 bounce-family ensemble (PRIMARY)": "average of the daily target weights of ALL six bounce-type rules registered in Gen87-93 on BTC/ETH, passed or failed: H4 deleveraging bounce, R4 dip-buy BTC/ETH, L1 DVOL spike, L2 volume capitulation, M2 deep discount, M3 funding flush (each at its registered size); replaces the H4 bounce sleeve in the Gen90 CFD book",
+    "F2 deleveraging bounce checked every 4 hours (PRIMARY)": "at 00/04/08/12/16/20 UTC (using data to 5 min before): OI value -10% vs 24h earlier AND price lower than 24h earlier -> long the coin for 48 hours from that time; no new trigger while held; BTC/ETH 0.5 each; replaces the daily H4 sleeve"
+  },
+  "pass": "replacement: beats the H4 sleeve on TEST and HOLD, DEV > 0, and the Gen90 CFD book 2022-26 Sharpe rises when it replaces H4",
+  "trials_added": 2
+}

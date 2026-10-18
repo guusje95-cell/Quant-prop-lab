@@ -377,3 +377,8 @@ Details are in `research/GEN93_FLOWS.md`.
 - **Rejected:**
   - perp deep-discount bounce;
   - funding flush (passes alone, lowers the book).
+
+## Gen94 (2026-10-18): bounce-family ensemble and 4-hourly bounce, rejected (2 trials)
+- The daily H4 deleveraging bounce stays.
+- **Ensemble of all 6 bounce rules:** book 1.27.
+- **4-hourly check:** HOLD 0.26.
