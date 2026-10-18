@@ -341,3 +341,17 @@ Details are in `research/GEN87_CFD_RETEST.md`.
   - dip-buy: passes alone (TEST 0.93, HOLD 0.58) but lowers the CFD book to 1.58;
   - cascade on BTC/ETH: HOLD -0.82;
   - trend 4h on BTC/ETH: HOLD 0.05.
+
+## Gen89-90 (2026-10-18): NEW SLEEVE, the deleveraging bounce (6 trials)
+Details are in `research/GEN89_90_DELEV_BOUNCE.md`.
+
+- **Rule:** BTC/ETH open interest -10% in 24h with a falling price -> long 2 days.
+  - DEV 0.70, TEST 1.01, HOLD 0.61, corr C\* 0.03.
+  - 70 episodes, t = 2.2. A few big rebounds carry much of it.
+- **CFD book:** Sharpe **1.62 -> 1.80**, max DD -16% -> -12%; FTMO / FundedNext / BrightFunded at 1.5 / 1.0 / 60% about **$31-32k** mean net.
+- **Swap-free book:** **1.81 -> 2.07**; FundedNext swap-free about **$42k**.
+- **Crypto v5 + it:** **2.28 -> 2.46** (candidate v6).
+- **Rejected in the same round:**
+  - NFP-day crypto momentum;
+  - weekend reversal;
+  - US500 trend filter on C\*.

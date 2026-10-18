@@ -277,3 +277,22 @@ def portfolio_v5(H=None, vol=0.15, start="2022-01-01"):
     mult = (lvl * tgt).loc[start:]
     ph = (raw * mult.reindex(raw.index.floor("D")).set_axis(raw.index)).loc[start:].dropna()
     return ph, W, mult
+
+
+def delev_bounce_weights(coins=("BTC", "ETH"), th=0.10, hold=2, size=0.5):
+    """Gen89 H4 / Gen90 (passed): daily target weights (row d = decided at the close of d, held during d+1). Long `size` in a coin for
+    `hold` days when its open-interest value fell more than `th` over the 24 hours to 23:55 UTC AND its price fell over the same 24h."""
+    days = pd.date_range("2021-12-01", pd.Timestamp(END).normalize())
+    w = pd.DataFrame(0.0, index=days, columns=list(coins))
+    for c in coins:
+        m = B.metrics(c)["sum_open_interest_value"].pipe(lambda z: z.where(z > 0)).resample("1h").last().ffill(); px = B.k5(c).close.resample("1h").last()
+        mid = days + pd.Timedelta(days=1); t = mid - pd.Timedelta(minutes=5)
+        f = lambda s, tt: s.reindex(tt.floor("h"), method="ffill").to_numpy()
+        sig = pd.Series((f(m, t) / f(m, t - pd.Timedelta(days=1)) - 1 < -th) & (f(px, t) < f(px, t - pd.Timedelta(days=1))), index=days)
+        w[c] = sig.astype(float).rolling(hold, min_periods=1).max() * size
+    return w
+
+
+def delev_bounce(coins=("BTC", "ETH")):
+    """Hourly P&L of the deleveraging bounce at Binance perp costs (taker 5 bp, funding)."""
+    return _from_daily_weights(delev_bounce_weights(coins), list(coins), 5)

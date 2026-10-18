@@ -1,0 +1,16 @@
+{
+  "generation": "Gen89",
+  "title": "New CFD ideas: NFP-day crypto momentum, weekend reversal, equity-trend filter on C*, deleveraging bounce",
+  "registered": "2026-10-18, after Gen87 and before any Gen89 number was computed",
+  "costs": "Gen74 CFD costs: BTC/ETH 5 bp per side, swap 3.3 bp per 22:00 UTC rollover held, no funding",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09); H4 has open-interest data from 2021-12, so DEV = 2022",
+  "tests": {
+    "H1 NFP-day crypto momentum (PRIMARY)": "first Friday of each month (US payrolls, 08:30 New York): side = sign of BTC/ETH return 08:30 -> 09:30 NY per coin; enter at 09:30 NY, exit 15:00 NY (before the rollover); BTC/ETH equal weight",
+    "H2 weekend reversal (PRIMARY)": "side = -sign of BTC/ETH return Saturday 00:00 -> Sunday 00:00 UTC per coin; enter Sunday 00:00, exit Sunday 20:00 UTC (no rollover)",
+    "H3 equity-trend filter on C* (PRIMARY)": "Gen85 swap-aware C* weights x 0.5 on days when US500 (Dukascopy daily close, known before the crypto day starts) is below its 100-day moving average, x 1 otherwise",
+    "H4 deleveraging bounce (PRIMARY)": "daily: if a coin's (BTC, ETH) open-interest value fell more than 10% over the past 24 hours AND its price fell over the same 24 hours, go long at 00:00 UTC for 2 days; 0.5 per coin",
+    "H4 variant": "OI drop threshold 5%"
+  },
+  "pass": "H1/H2/H4: DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen85 CFD book raises the 2022-26 Sharpe (event sleeves use the 6-event live rule as in gen86_bookcheck). H3: C* CFD Sharpe rises on DEV, TEST and HOLD and the book 2022-26 Sharpe rises",
+  "trials_added": 5
+}

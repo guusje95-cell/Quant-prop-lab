@@ -1,0 +1,9 @@
+{
+  "generation": "Gen90",
+  "title": "Adopt the Gen89 H4 deleveraging bounce: new CFD book, swap-free book, and a v5 crypto-firm test",
+  "registered": "2026-10-18, after Gen89 (H4 passed in the CFD book) and before any of the numbers below were computed",
+  "cfd_book": "Gen85 CFD book + H4 (P1 equal risk; H4 uses the standard 30-active-day live rule): stats 2022-26 and prop at FTMO / FundedNext / BrightFunded, 1.5 / 1.0 / 60% and 1.0 / 0.6 / 50%",
+  "swap_free_book": "Gen83 swap-free book + H4 at swap 0: adopted if the 2022-26 Sharpe rises",
+  "v5_test": "H4 at Binance perp costs (taker 5 bp per side, funding charged), BTC/ETH: added to v5 if DEV 2022 > 0, TEST >= 0.8, HOLD >= 0.5, corr with C* <= 0.3 and v5 2022-26 Sharpe rises (the standing crypto rule); v5 in paper trading stays frozen until a v6 decision",
+  "trials_added": 1
+}
