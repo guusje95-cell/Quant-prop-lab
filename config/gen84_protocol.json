@@ -1,0 +1,18 @@
+{
+  "generation": "Gen84",
+  "title": "New crypto Sharpe ideas: MAX / lottery effect, idiosyncratic volatility, turn-of-month, DVOL variance-risk-premium timing",
+  "registered": "2026-10-18, after Gen83 and before any Gen84 number was computed",
+  "data": "Binance USD-M pack, 20 coins, daily closes from 5m klines, funding; Deribit BTC/ETH DVOL; to 2026-09-30",
+  "costs": "perp taker 5 bp per unit turnover, funding charged (v5 convention); CFD version: Gen74 spreads 5/10 bp, swap 3.3 bp/day, CFD coin universe only",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09)",
+  "tests": {
+    "M1 MAX effect (Grobys & Junttila 2021; Li et al. 2021) (PRIMARY)": "every Monday 00:00 UTC rank coins listed >= 60 days by MAX = highest daily return over the past 7 days; long the bottom third, short the top third, equal weight, gross 1 (0.5 / 0.5), held 7 days",
+    "M2 MAX on 30-day window": "same, MAX over the past 30 days",
+    "I1 idiosyncratic volatility (PRIMARY)": "every Monday rank coins by the std of residuals of a 30-day daily regression on BTC (BTC itself excluded); long lowest third, short highest third, gross 1, 7-day hold",
+    "T1 turn-of-month (PRIMARY)": "long BTC and ETH (0.5 each) from the close of the second-to-last calendar day of the month to the close of the 3rd day of the next month; flat otherwise",
+    "V1 DVOL VRP timing overlay (PRIMARY)": "VRP = BTC DVOL(t-1)/100 minus 30-day realised BTC vol (annualised) at t-1; scale the v5 portfolio by 1.25 when VRP is in its trailing-365-day top tercile, 0.75 in its bottom tercile, 1.0 otherwise (vol-target cap unchanged)"
+  },
+  "pass": "new sleeve: TEST >= 0.8, HOLD >= 0.5, DEV > 0, corr with C* <= 0.3, AND adding it to v5 (Gen72 P1 construction) raises the 2022-26 Sharpe; for the CFD route the same rule against the Gen83 swap-free book. Overlay V1: raises the v5 Sharpe on TEST and HOLD and on 2022-26 without worsening max DD.",
+  "selection": "only PRIMARY rows can be promoted; variants are reported",
+  "trials_added": 5
+}

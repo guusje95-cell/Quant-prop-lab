@@ -302,3 +302,14 @@ Details are in `research/GEN81_83_CFD_BOOK.md`.
   - Sharpe 1.81, max DD -12.8%, 67% positive months;
   - FTMO / FundedNext / BrightFunded at 1.5 / 1.0 / 60%: about $35k mean net per $100k over 2 years, unlucky 10% about $12k, P(profit) 98%.
   - Usable only where crypto CFDs carry no swap.
+
+## Gen84 (2026-10-18): new crypto Sharpe ideas, all rejected (5 trials)
+Details are in `research/GEN84_SHARPE_IDEAS.md`.
+
+- **Rejected** (yearly-scaled daily Sharpe):
+  - MAX/lottery effect: TEST -0.63;
+  - idiosyncratic vol: TEST -0.99;
+  - turn-of-month: TEST -1.15;
+  - DVOL VRP overlay on v5: 2.26 vs 2.275, deeper DD.
+- **v5 unchanged** at 2.275.
+- **Swap-free:** FundedNext offers swap-free at +10% fee, which costs about $50 of mean net. It is the practical home for the swap-free CFD book.
