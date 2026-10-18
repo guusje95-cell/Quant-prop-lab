@@ -1,0 +1,17 @@
+{
+  "generation": "Gen86",
+  "title": "More CFD sleeves: CME crypto-expiry fade, crypto-weekend -> Monday equity index, pre-FOMC drift on BTC/ETH CFDs",
+  "registered": "2026-10-18, after Gen85 and before any Gen86 number was computed",
+  "costs": "crypto CFDs: BTC/ETH 5 bp per side, swap 3.3 bp per rollover held (22:00 UTC); index CFDs US100/US500: 1 bp per side, positions closed before the daily rollover (no swap)",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09)",
+  "tests": {
+    "E1 CME expiry fade (PRIMARY)": "last Friday of each month (CME BTC/ETH futures final settlement = CF Benchmarks rate 15:00-16:00 London): at 16:00 London take -sign(BTC/ETH return 15:00->16:00 London) per coin, exit at 18:00 London; BTC and ETH equal weight",
+    "E1 variant": "hold to 17:00 London",
+    "E2 crypto weekend -> Monday index (PRIMARY)": "signal = sign of BTC return Friday 20:00 UTC -> Sunday 21:00 UTC (Binance hourly closes); trade US100 and US500 CFDs (equal weight) from the open of the first hourly bar after Sunday 21:00 UTC to the open of the Monday 20:00 UTC bar, long if the signal is positive, short if negative",
+    "E2 variant": "only trade when |BTC weekend return| > 2%",
+    "E3 pre-FOMC drift on BTC/ETH CFDs (PRIMARY)": "long BTC and ETH (equal weight) from 14:00 New York on the business day before each scheduled FOMC decision to 14:00 New York on decision day (statement at 14:00); one rollover swap; FOMC list as in scripts/gen75_cfd.py",
+    "E3 variant": "exit 16:00 New York (after the press conference)"
+  },
+  "pass": "PRIMARY only: DEV > 0, TEST >= 0.5, HOLD >= 0.3 (Gen74 sleeve rule, yearly-scaled daily Sharpe incl. zero days), AND adding it to the Gen85 CFD book (swap-aware C* + Weiss, P1 equal risk) raises the 2022-26 Sharpe; reported also inside the swap-free book",
+  "trials_added": 6
+}

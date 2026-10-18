@@ -324,3 +324,12 @@ Details are in `research/GEN85_CFD_IMPROVE.md`.
 - **Rejected:**
   - Weiss on 11 CFD coins: HOLD 0.11;
   - trend 4h on 11 CFD coins: HOLD -0.41.
+
+## Gen86 (2026-10-18): more CFD sleeves, all rejected (6 trials)
+Details are in `research/GEN86_CFD_SLEEVES.md`.
+
+- **Rejected:**
+  - CME expiry fade: TEST -0.08, HOLD 1.77; on the watchlist;
+  - crypto weekend -> Monday index: HOLD -0.78;
+  - pre-FOMC drift on BTC/ETH: TEST 0.20.
+- **CFD book unchanged** at 1.62.
