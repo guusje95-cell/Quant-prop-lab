@@ -1,0 +1,15 @@
+{
+  "generation": "Gen91",
+  "title": "Open-interest family: the deleveraging bounce on more coins, and two mirror ideas",
+  "registered": "2026-10-18, after Gen90 (H4 bounce on BTC/ETH adopted) and before any Gen91 number was computed. The H4 rule is NOT re-tuned: threshold 10%, hold 2 days, as registered in Gen89",
+  "costs": "CFD: BTC/ETH 5 bp, others 10 bp per side, swap 3.3 bp per rollover; perp (v5 route): 5 bp taker + funding",
+  "split": "DEV 2022 | TEST 2023-2024 | HOLD 2025-2026 (open-interest data from 2021-12)",
+  "tests": {
+    "K1 bounce on the 9 CFD altcoins (PRIMARY)": "H4 rule unchanged on LTC XRP ADA DOGE SOL DOT AVAX LINK BCH (whichever have Binance open-interest data), 0.5 per coin per signal, CFD costs; a cross-sectional out-of-sample check of H4 and a candidate extra sleeve",
+    "K2 short-covering fade (PRIMARY)": "OI value -10% in 24h AND price UP over the same 24h -> short 2 days, BTC/ETH, 0.5 per coin",
+    "K3 leverage build-up fade (PRIMARY)": "OI value +10% in 24h AND price UP -> short 2 days, BTC/ETH, 0.5 per coin",
+    "K4 bounce on all 20 pack coins at perp costs (v5 route)": "H4 rule on the 20 Binance coins, perp costs; candidate replacement for the BTC/ETH bounce in v6"
+  },
+  "pass": "K1-K3: DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen90 CFD book (C* + Weiss + bounce BTC/ETH) raises the 2022-26 Sharpe. K4: replaces the BTC/ETH bounce in v5+bounce only if it beats it on DEV, TEST and HOLD and raises the 2022-26 Sharpe",
+  "trials_added": 4
+}

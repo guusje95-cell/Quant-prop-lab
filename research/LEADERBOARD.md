@@ -355,3 +355,15 @@ Details are in `research/GEN89_90_DELEV_BOUNCE.md`.
   - NFP-day crypto momentum;
   - weekend reversal;
   - US500 trend filter on C\*.
+
+## Gen91-92 (2026-10-18): open-interest family and capitulation signals, nothing new adopted (8 trials)
+Details are in `research/GEN91_92_OI_CAPITULATION.md`.
+
+- **Bounce on altcoins:** positive on 7 of 9 coins. It confirms the effect but is not a sleeve (10 bp spreads).
+- **Rejected:**
+  - short-covering fade;
+  - leverage build-up fade;
+  - DVOL spike bounce;
+  - volume capitulation (too few signals);
+  - VIX-backwardation index bounce (passes alone, lowers the book).
+- **Candidate v6 (v5 + bounce):** Sharpe 2.46; HyroTrader 1-Step about **$46k** mean, unlucky 10% $18.8k (v5: $41.9k / $14.0k).

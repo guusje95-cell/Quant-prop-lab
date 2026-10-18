@@ -1,0 +1,15 @@
+{
+  "generation": "Gen92",
+  "title": "Capitulation family: DVOL spike bounce, volume capitulation bounce (BTC/ETH CFDs), VIX term-structure panic bounce (US500/US100 CFDs)",
+  "registered": "2026-10-18, after Gen91 and before any Gen92 number was computed",
+  "costs": "crypto CFD: BTC/ETH 5 bp per side, swap 3.3 bp per rollover; index CFD: 1 bp per side, financing 3%/yr on held notional",
+  "split": "crypto: DEV 2020-2022 (DVOL from 2021-03) | TEST 2023-2024 | HOLD 2025-2026; index: DEV 2018-2020 (Dukascopy) plus a 2007-2017 Yahoo daily close-to-close pre-check reported | TEST 2021-2023 | HOLD 2024-2026",
+  "tests": {
+    "L1 DVOL spike bounce (PRIMARY)": "BTC (ETH) DVOL daily close up more than 10% vs the previous close AND the coin's daily return negative -> long that coin for 2 days from 00:00 UTC, 0.5 per coin",
+    "L2 volume capitulation bounce (PRIMARY)": "coin daily quote volume > 3 x its mean of the previous 30 days AND daily return negative -> long 2 days, BTC/ETH, 0.5 per coin",
+    "L3 VIX term-structure panic bounce (PRIMARY)": "VIX close / VIX3M close > 1.0 on day d (backwardation) -> long US500 and US100 CFDs (0.5 each) from 14:00 UTC on day d+1 for 3 trading days (exit 14:00 UTC on the 3rd trading day after entry); re-signals extend the hold",
+    "L3 variant": "ratio > 1.05"
+  },
+  "pass": "PRIMARY: DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the Gen90 CFD book (C* + Weiss + delev bounce) raises the 2022-26 Sharpe",
+  "trials_added": 4
+}
