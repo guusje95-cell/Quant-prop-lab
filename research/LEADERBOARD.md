@@ -333,3 +333,11 @@ Details are in `research/GEN86_CFD_SLEEVES.md`.
   - crypto weekend -> Monday index: HOLD -0.78;
   - pre-FOMC drift on BTC/ETH: TEST 0.20.
 - **CFD book unchanged** at 1.62.
+
+## Gen87 (2026-10-18): crypto sleeves re-tested in the CFD book, all rejected (4 trials)
+Details are in `research/GEN87_CFD_RETEST.md`.
+
+- **Rejected:**
+  - dip-buy: passes alone (TEST 0.93, HOLD 0.58) but lowers the CFD book to 1.58;
+  - cascade on BTC/ETH: HOLD -0.82;
+  - trend 4h on BTC/ETH: HOLD 0.05.

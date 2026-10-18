@@ -1,0 +1,15 @@
+{
+  "generation": "Gen87",
+  "title": "Re-test, in the CFD book, crypto sleeves that were judged only against the crypto-firm portfolio, plus cheaper-coin versions",
+  "registered": "2026-10-18, after Gen86 and before any Gen87 number was computed. Earlier results known: Gen63 I5 dip-buy passed its own test but lowered the crypto-firm portfolio; Gen74 cascade and trend 4h on the CFD list failed HOLD",
+  "costs": "Gen74 CFD costs: BTC/ETH 5 bp, others 10 bp per side, swap 3.3 bp per rollover (22:00 UTC), no funding",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026 (to 2026-09)",
+  "tests": {
+    "R1 dip-buy in uptrends on the 11 CFD coins (PRIMARY)": "Gen63 I5 rule unchanged: daily return < -2.5 x trailing 30-day std and close > 100-day MA -> long 0.2 for 3 days, max 3 open",
+    "R2 cascade limit strict on BTC/ETH CFDs only (PRIMARY)": "Gen67/68 cascade rule unchanged, coins BTC and ETH only (5 bp spread)",
+    "R3 trend 4h on BTC/ETH only (PRIMARY)": "trend 4h rule unchanged, coins BTC and ETH only (drops SOL at 10 bp)",
+    "R4 dip-buy on BTC/ETH only (variant)": "R1 on BTC and ETH only"
+  },
+  "pass": "PRIMARY: DEV > 0, TEST >= 0.5, HOLD >= 0.3 (Gen74 sleeve rule) AND adding it to the Gen85 CFD book (swap-aware C* + Weiss, P1) raises the 2022-26 Sharpe. If two or more pass, the combination is reported and adopted only if it beats each single addition. Same tests reported inside the swap-free book (swap 0) for information",
+  "trials_added": 4
+}
