@@ -437,3 +437,14 @@ Details are in `research/GEN102_FLOWS.md`.
   - Fear & Greed: HOLD -0.24.
 - **Kimchi premium momentum:** DEV 0.40, TEST 0.80, HOLD 1.29 alone (contrarian strongly negative), but it lowers the book (1.85 -> 1.70), so it is not adopted.
 - **Bitstamp replicates the Coinbase premium** (corr 0.93): the effect is a USD-vs-USDT/perp basis signal, not exchange-specific.
+
+## Gen105 (2026-10-19): demand composite (Coinbase + Korean premium), not adopted (1 trial)
+Details are in `research/GEN105_DEMAND_COMPOSITE.md`.
+
+- **The checks found an FX-timing error.** Yahoo stamps USD/KRW at London midnight. It inflated the first run (BrightFunded book 2.45) and Gen102's kimchi numbers.
+- **Strict point-in-time version:**
+  - sleeve 1.20 / 1.37 / 1.11 (Coinbase sleeve 0.72 / 1.33 / 0.70);
+  - book 2.25 -> 2.30;
+  - placebo p < 0.02.
+- **Not adopted:** book TEST falls 3.45 -> 3.33, which breaks the rule.
+- **Watchlist.**

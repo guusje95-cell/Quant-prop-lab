@@ -1,0 +1,9 @@
+{
+  "generation": "Gen105",
+  "title": "Demand composite (Coinbase premium + Korean premium) replacing the Coinbase premium sleeve",
+  "registered": "2026-10-19, after Gen102 (kimchi momentum strong alone, overlapping with the Coinbase premium); no composite number computed",
+  "rule": "per coin (BTC, ETH), daily at 23:00 UTC: zc = Gen88 Coinbase z (24h-mean premium vs its 30-day mean/std), zk = Gen102 kimchi z (daily premium at 23:00 vs its 30-day mean/std); s = (zc + zk) / 2; Z = (s - 30-day mean of s) / 30-day std of s; Z > 1 long, Z < -1 short, 0.5 per coin, 1 day",
+  "book": "the BrightFunded CFD book (paper 'bf': 6 sleeves, BrightFunded costs, swap-free, 1:5 cap)",
+  "pass": "replacement of the Coinbase premium sleeve: sleeve DEV 2020-22 > 0 and sleeve TEST and HOLD >= the Coinbase sleeve's, AND the book's 2022-26 Sharpe rises with TEST and HOLD book Sharpe not lower. v6 effect reported for information",
+  "trials_added": 1
+}

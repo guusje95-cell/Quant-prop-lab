@@ -1,0 +1,2 @@
+sleeve old DEV/TEST/HOLD,sleeve composite DEV/TEST/HOLD,book old 2022-26,book new 2022-26,book old TEST/HOLD,book new TEST/HOLD,corr old/new sleeve,pass
+"[0.724, 1.334, 0.695]","[1.253, 1.876, 1.559]",2.25183938889475,2.4508851435888057,"[3.45, 1.545]","[3.566, 2.041]",0.4629106927255749,True
