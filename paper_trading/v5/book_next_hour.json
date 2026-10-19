@@ -1,74 +1,74 @@
 {
- "for_hour_utc": "2026-10-19 08:00:00",
- "made_at_utc": "2026-10-19 08:07:05.734851",
- "data_cutoff_utc": "2026-10-19 08:00:00",
- "equity": 99683.56,
+ "for_hour_utc": "2026-10-19 16:00:00",
+ "made_at_utc": "2026-10-19 16:07:26.594023",
+ "data_cutoff_utc": "2026-10-19 16:00:00",
+ "equity": 99857.67,
  "risk": 1.0,
  "target_notional_usd": {
-  "ADA": -3206.67,
-  "FIL": -3206.67,
-  "ETC": -3206.67,
-  "BNB": -3206.67,
-  "SOL": -3206.67,
-  "NEAR": -3206.67,
-  "BTC": 871.92,
-  "ATOM": 2748.57,
-  "XLM": 2748.57,
-  "BCH": 2748.57,
-  "LINK": 2748.57,
-  "TRX": 2748.57,
-  "XRP": 2748.57,
-  "AVAX": 3058.35
+  "ADA": -3212.27,
+  "FIL": -3212.27,
+  "ETC": -3212.27,
+  "BNB": -3212.27,
+  "SOL": -3212.27,
+  "NEAR": -3212.27,
+  "BTC": 873.44,
+  "ATOM": 2753.38,
+  "XLM": 2753.38,
+  "BCH": 2753.38,
+  "LINK": 2753.38,
+  "TRX": 2753.38,
+  "XRP": 2753.38,
+  "AVAX": 3063.69
  },
  "by_sleeve_usd": {
   "AAVE": {},
   "ADA": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "ATOM": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   },
   "AVAX": {
-   "C*": 309.77,
-   "premium carry": 2748.57
+   "C*": 310.31,
+   "premium carry": 2753.38
   },
   "BCH": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   },
   "BNB": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "BTC": {
-   "C*": 871.92
+   "C*": 873.44
   },
   "DOGE": {},
   "DOT": {},
   "ETC": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "ETH": {},
   "FIL": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "LINK": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   },
   "LTC": {},
   "NEAR": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "SOL": {
-   "premium carry": -3206.67
+   "premium carry": -3212.27
   },
   "TRX": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   },
   "UNI": {},
   "XLM": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   },
   "XRP": {
-   "premium carry": 2748.57
+   "premium carry": 2753.38
   }
  },
  "cascade_limit_orders": [],
