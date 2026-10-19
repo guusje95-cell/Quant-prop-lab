@@ -185,3 +185,5 @@ These are backtests; expect less live (Gen96).
   - the EA fee;
   - real spreads (measure them on a Stellar account);
   - the Gen96 live discount.
+
+**FundedNext EA fee (support, 2026-10-19):** $5 one-off, non-refundable, for a $100k Stellar 2-Step. Negligible next to the about $30k mean net.
