@@ -187,3 +187,35 @@ These are backtests; expect less live (Gen96).
   - the Gen96 live discount.
 
 **FundedNext EA fee (support, 2026-10-19):** $5 one-off, non-refundable, for a $100k Stellar 2-Step. Negligible next to the about $30k mean net.
+
+## Update 2026-10-19 (3): BrightFunded MT5 specification (exported; Gen104, `scripts/gen104_brightfunded.py`)
+
+**From the MT5 export** (`research_data/firm_specs/BrightFunded_*.csv`):
+- **Crypto leverage 1:5:** margin 20% on BTC and ETH.
+- **Commission:** 0.024% per deal, modelled as 2.4 bp per side (conservative); 1.2 bp shown as the optimistic case.
+- **Measured spread:** BTC 0.36 bp, ETH 2.65 bp (one snapshot); altcoins assumed at 10 bp.
+- **Swap:** charged every day including weekends (multiplier 1 each day, no triple day). Per day, converted at the latest Coinbase prices:
+
+| BTC | ETH | SOL | XRP | ADA | DOGE | LINK | AVAX | DOT long / short | LTC | BCH |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1.6 bp | 29 bp | 40 bp | 76 bp | 24 bp | 23 bp | 17 bp | 5 bp | 58 / 2 bp | 12 bp | 6 bp |
+
+Only BTC is cheap to hold, at about 6%/yr. ETH is about 105%/yr; XRP about 280%/yr.
+
+| Book at BrightFunded (1:5 cap) | Account | Sharpe | TEST | HOLD | Max DD | Prop mean / unlucky 10% / P(profit) |
+|---|---|---|---|---|---|---|
+| 4-sleeve (C\*, Weiss, bounce, premium) | standard swaps | 1.19 | 2.12 | 0.68 | -15.0% | $20.7k / $2.3k / 95% |
+| 6-sleeve | standard swaps | **-0.54** | 0.58 | -1.55 | -45.5% | unusable |
+| **4-sleeve, BTC positions only** | **standard swaps** | **1.75** | 3.06 | 1.14 | -12.6% | **$32.3k / $9.1k / 98%** |
+| 4-sleeve | swap-free (if offered) | 2.02 | 3.20 | 1.51 | -11.7% | $38.3k / $16.8k / 99% |
+| 6-sleeve | swap-free (if offered) | **2.19** | 3.38 | 1.48 | -9.9% | **$42.5k / $19.7k / 99%** |
+
+**Note on "BTC positions only":**
+- This is a cost-driven universe restriction (every non-BTC coin has a punitive swap), not a performance selection.
+- Each sleeve keeps its rule and BTC weight; the other coins are dropped.
+- C\* on BTC alone is 1.14 at these costs, against 0.41 for the full C\* paying the alt swaps.
+
+**Overall (backtests, before the Gen96 live discount):**
+- **BrightFunded swap-free, if it exists for crypto:** best, 2.0-2.2.
+- **BrightFunded standard, BTC-only book:** 1.75, about the same as FundedNext swap-free (1.67-1.70).
+- **Deciding question:** does BrightFunded's swap-free add-on exist for crypto, and at what price?

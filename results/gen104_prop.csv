@@ -1,0 +1,5 @@
+book,account,pass,mean_net,p10,P_profit
+4-sleeve CFD book,standard (real BF swaps),0.6544401544401545,20693.354820297056,2282.6385511129643,0.95
+4-sleeve CFD book,swap-free (if the add-on exists),0.7181467181467182,38278.36131319165,16760.697259466953,0.99
+6-sleeve book,standard (real BF swaps),0.13320463320463322,2230.948686736195,-2475.0,0.436
+6-sleeve book,swap-free (if the add-on exists),0.8281853281853282,42506.2892291879,19723.85927714618,0.992
