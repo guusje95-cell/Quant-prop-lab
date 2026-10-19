@@ -30,16 +30,20 @@ def fetch(product, start, end):
     raise RuntimeError(f"{product} {start}: {err}")
 
 
-def update(product, since="2020-01-01"):
-    OUT.mkdir(parents=True, exist_ok=True); f = OUT / f"{product}_1h.parquet"
+def update(product, since="2020-01-01", out=None, base=None):
+    """Append new hourly candles to <out>/<product>_1h.parquet (default research_data/coinbase). base: an older file to continue
+    from when out has no file yet (paper trading starts from the research copy). The last 3 hours are always fetched again, so a
+    candle that was still forming at the previous call is replaced by its final value."""
+    out = Path(out) if out else OUT; out.mkdir(parents=True, exist_ok=True); f = out / f"{product}_1h.parquet"
     old = pd.read_parquet(f) if f.exists() else None
-    t = (old.index[-1].to_pydatetime().replace(tzinfo=timezone.utc) + timedelta(hours=1)) if old is not None and len(old) else \
+    ref = old if old is not None and len(old) else (pd.read_parquet(base) if base and Path(base).exists() else None)
+    t = (ref.index[-1].to_pydatetime().replace(tzinfo=timezone.utc) - timedelta(hours=3)) if ref is not None and len(ref) else \
         datetime.fromisoformat(since).replace(tzinfo=timezone.utc)
     now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0); rows = []
     while t < now:
         e = min(t + timedelta(hours=299), now)
         rows += fetch(product, t, e); t = e + timedelta(hours=1); time.sleep(0.4)
-        if len(rows) % 6000 < 300:
+        if len(rows) % 6000 < 300 and len(rows) > 3000:
             print(f"  {product} up to {e:%Y-%m-%d}", flush=True)
     if rows:
         d = pd.DataFrame(rows, columns=["t", "low", "high", "open", "close", "volume"])

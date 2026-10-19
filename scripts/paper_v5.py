@@ -30,8 +30,11 @@ OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
 SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER == "v6" else [])
+if VER == "bf":                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
+    SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / ("results/cache_v6_final.parquet" if VER == "v6" else "results/cache_gen72_final.parquet")
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "bf": "results/cache_bf_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
+STOP_FRACTION = CFG["frozen"].get("stop_fraction", 0.5)
 
 
 def utcnow() -> pd.Timestamp:
@@ -72,6 +75,11 @@ def data_cutoff(live: bool) -> pd.Timestamp:
             e = [x for x in (_end_of(PACK / name, kind), _end_of(DATA / name, kind) if live else None) if x is not None]
             ends.append(max(e))
     cut = min(ends).floor("h")
+    if VER == "bf":                                        # Coinbase candles count once their hour is over
+        for prod in ("BTC-USD", "ETH-USD"):
+            e = [pd.read_parquet(p).index.max() + pd.Timedelta(hours=1) for p in
+                 (ROOT / f"research_data/coinbase/{prod}_1h.parquet", DATA / "coinbase" / f"{prod}_1h.parquet") if p.exists() and (live or "research" in str(p))]
+            cut = min(cut, max(e).floor("h"))
     spot = [x for x in (_end_of(ROOT / "data/processed/crypto/binance_spot_majors_1d.parquet", "spot"),
                         _end_of(DATA / "binance_spot_majors_1d.parquet", "spot") if live else None) if x is not None]
     day_ok = max(spot)                                     # daily bars complete up to here
@@ -91,6 +99,8 @@ def set_env(cutoff: pd.Timestamp, live: bool):
 
 # ---------------------------------------------------------------- compute (call after set_env, in a fresh process)
 def compute():
+    if VER == "bf":
+        return compute_bf()
     import crypto_sleeves as CS
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END)
@@ -144,11 +154,52 @@ def compute():
             "pending": cpos.attrs.get("pending_signals", []), "open_cascade": ot, "weiss": weiss_note, "mult": mult}
 
 
+def compute_bf():
+    """CFD book (BrightFunded): same outputs as compute(). Gross exposure is capped at the 1:5 crypto leverage at the paper risk."""
+    import crypto_sleeves as CS
+    import cfd_book as CB
+    from qpl.lab import binance_pack as B
+    END = pd.Timestamp(CS.END); h1 = END + pd.Timedelta(hours=1)
+    R, pos, daily = CB.positions()
+    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in SLEEVES}).fillna(0.0).loc[:END]
+    Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])
+    ph0, W, mult = CS.portfolio_v5(Hx)
+    idx = ph0.index
+    Wh = W.reindex(idx.floor("D")).set_axis(idx); mh = mult.reindex(idx.floor("D")).set_axis(idx)
+    net = sum(pos[s].reindex(idx).fillna(0.0) * Wh[s].to_numpy()[:, None] for s in SLEEVES).mul(mh * SCALE, axis=0)
+    cap = CB.LEVERAGE_CAP / float(CFG["frozen"]["risk"])
+    capf = (cap / net.abs().sum(axis=1)).clip(upper=1.0).fillna(1.0)
+    ph = (ph0 * SCALE * capf).loc[:END]
+    d = h1.floor("D")
+    eff = (W.loc[d] * mult.get(d, np.nan) * SCALE) if d in W.index else pd.Series(np.nan, index=SLEEVES)
+    expo = {s: pos[s].loc[h1] if h1 in pos[s].index else pd.Series(dtype=float) for s in SLEEVES}
+    expo["Weiss expiry"] = pd.Series(dtype=float); weiss_note = None
+    if h1.dayofweek == 4 and (h1 + pd.Timedelta(days=7)).month != h1.month and h1.hour in (8, 9):
+        side = {}
+        for coin in ("BTC", "ETH"):
+            k = B.k5(coin); t7 = h1.normalize() + pd.Timedelta(hours=7)
+            p8 = k.close.loc[:h1.normalize() + pd.Timedelta(hours=7, minutes=55)].iloc[-1] if h1.hour == 8 else k.open.get(h1.normalize() + pd.Timedelta(hours=8))
+            if t7 in k.index and p8 is not None:
+                side[coin] = -np.sign(p8 / k.open[t7] - 1) / 2
+        expo["Weiss expiry"] = pd.Series(side, dtype=float); weiss_note = "expiry trade: hold from 08:00 to 10:00 UTC"
+    book = pd.Series(dtype=float); by = {}
+    for s in SLEEVES:
+        if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
+            part = expo[s].astype(float) * float(eff[s]); part = part[part.abs() > 1e-9]; by[s] = part
+            book = book.add(part, fill_value=0.0)
+    g = float(book.abs().sum()) if len(book) else 0.0
+    if g > cap:
+        book = book * cap / g; by = {k: v * cap / g for k, v in by.items()}
+    effd = W.mul(mult.reindex(W.index), axis=0) * SCALE
+    return {"END": END, "H": H, "ph": ph, "eff": eff, "effd": effd, "book": book[book.abs() > 1e-6].sort_values(),
+            "by_sleeve": pd.DataFrame(by).fillna(0.0), "pending": [], "open_cascade": [], "weiss": weiss_note, "mult": mult}
+
+
 # ---------------------------------------------------------------- account (rebuilt from the frozen ledger each time)
 def account(L: pd.DataFrame, risk: float, firm_key: str):
     from qpl.lab import propfirms as PF
     f = PF.PRESETS[firm_key]; acct = float(CFG["frozen"]["account"])
-    stop = 0.5 * f.daily_loss
+    stop = STOP_FRACTION * f.daily_loss
     eq = acct; rows = []
     for day, g in L.groupby(L["hour"].dt.floor("D")):
         start = eq; low = eq; stopped = False
@@ -203,6 +254,10 @@ def cmd_run(a):
         except BP.Restricted as e:
             log_event("DATA_REFUSED", msg=str(e)); print(e); return 2
         BP.stablecoins()
+        if VER == "bf":
+            from qpl.live import coinbase_public as CB
+            for prod in ("BTC-USD", "ETH-USD"):
+                CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
     cut = min(data_cutoff(live=True), utcnow().floor("h"))
     # compute in a child process so the loaders see the cutoff from the start
     r = subprocess.run([sys.executable, __file__, "_freeze", "--cutoff", str(cut), "--risk", str(a.risk), "--firm", a.firm]
