@@ -1,0 +1,12 @@
+{
+  "generation": "Gen120",
+  "title": "Deribit option flow: put skew and call-minus-put buying (BTC, ETH)",
+  "registered": "2026-10-19, before the Deribit option data was downloaded (get_free_data2.bat)",
+  "data": "research_data/more2/deribit_{BTC,ETH}_optflow_YYYY-MM.parquet: hourly features from up to 1000 option trades per hour (7-60 day expiries for implied vols). Daily value = mean (skew) or sum (flows) of the 24 hours of UTC day d, used for day d+1",
+  "tests": {
+    "D1 put-skew contrarian (PRIMARY)": "skew = iv_put_otm - iv_call_otm (0.85-0.95 vs 1.05-1.15 moneyness); daily mean; z vs trailing 90 days; z > 1.5 (fear) -> long 0.5 for 2 days, z < -1.5 (complacency) -> short 0.5 for 2 days; per coin",
+    "D2 call-minus-put buying": "flow = net_buy_C - net_buy_P (contracts), daily sum, z vs trailing 30 days; z > 1.5 -> long 0.5 for 1 day, z < -1.5 -> short 0.5 for 1 day; per coin"
+  },
+  "costs_rule": "Binance perp costs (v6) and BrightFunded CFD costs (bf); standard crypto rule per book",
+  "trials_added": 2
+}

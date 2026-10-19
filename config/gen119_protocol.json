@@ -1,0 +1,14 @@
+{
+  "generation": "Gen119",
+  "title": "CFTC Commitments of Traders signals (futures book and CME bitcoin -> crypto books)",
+  "registered": "2026-10-19, before the COT data was downloaded (get_free_data2.bat)",
+  "data": "research_data/more2/cot_disagg.parquet and cot_tff.parquet (futures-only). Report date = Tuesday; released Friday 15:30 ET; a signal is used from the next Monday 00:00 UTC (no earlier). Contracts matched to Databento roots by CFTC market code/name (mapping fixed in code before results)",
+  "tests": {
+    "C1 managed money extremes, commodities (contrarian)": "disagg: (M_Money long - short) / open interest; z vs trailing 156 weeks; z > 1.5 -> short, z < -1.5 -> long; equal risk; held one week; GC SI HG CL NG RB HO ZC ZS ZW LE HE",
+    "C2 leveraged funds extremes, financials (contrarian)": "TFF: (Lev_Money long - short) / open interest, same z rule; ES NQ ZN ZB 6E 6J 6B 6A",
+    "C3 hedging pressure (Basu-Miffre)": "disagg producer/merchant net short / their total position; monthly: long the 4 commodities with the highest hedging pressure, short the 4 lowest; equal risk",
+    "C4 CME bitcoin leveraged funds (contrarian) -> crypto": "TFF bitcoin contract: leveraged funds net / OI, z vs 52 weeks; z > 1.5 -> short BTC 0.5, z < -1.5 -> long 0.5 for the week; Binance perp / BrightFunded costs; crypto book rule"
+  },
+  "rules": "C1-C3: futures stand-alone rule of Gen114 (DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3, net of Databento-based costs). C4: standard crypto rule into v6 and bf",
+  "trials_added": 4
+}
