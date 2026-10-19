@@ -1,0 +1,18 @@
+{
+  "generation": "Gen115",
+  "title": "Futures-native ideas (own portfolio, not crypto copies) on Databento CME hourly",
+  "registered": "2026-10-19, before the Databento data arrived",
+  "data_costs_splits": "as Gen114 (DEV 2010-06..2017, TEST 2018..2022, HOLD 2023..2026-09; 1 tick + commission per side; returns within one instrument_id)",
+  "tests": {
+    "U1 EIA crude inventory day": "CL: Wednesday 10:30 ET release; sign of CL return 10:00-11:00 ET -> hold same sign 11:00-15:00 ET (post-news continuation)",
+    "U2 opening-hour range breakout": "ES NQ GC CL: range of the 09:00-10:00 ET bar (hourly); long above its high / short below its low on the 10:00-15:00 bar closes, flat 16:00 ET; one trade per day",
+    "U3 overnight-intraday reversal": "ES NQ: sign of 18:00-09:00 ET return -> hold the opposite sign 10:00-16:00 ET",
+    "U4 bond-equity lead": "ES: sign of ZN 09:00-10:00 ET return predicts ES 10:00-16:00 ET with the opposite sign (risk-on/off), traded in ES",
+    "U5 cross-sectional momentum, 24 roots": "monthly, 12-1 month return ranked within the 24 non-crypto roots, long top 6 / short bottom 6, equal risk",
+    "U6 commodity curve carry (cross-section)": "commodities only (GC SI HG CL NG RB HO ZC ZS ZW LE HE): monthly, rank by front/second annualised roll yield, long top 4 / short bottom 4, equal risk",
+    "U7 FX month-end fixing flow": "6E 6J 6B 6A: last business day, sign of month-to-date ES return -> USD direction opposite (rebalancing) from 10:00 to 16:00 ET (London 4pm fix)",
+    "U8 gold Asia-session drift": "GC: long 18:00-02:00 ET every session"
+  },
+  "rules": "each idea: DEV > 0, TEST >= 0.5, HOLD >= 0.3 net; then a separate FUTURES BOOK from passers (Gen114 T1-T4 included) at equal risk, added only if it raises the book's TEST-period Sharpe without lowering HOLD. Topstep/Lucid compatibility (flat by close) reported for each.",
+  "trials_added": 8
+}
