@@ -1,0 +1,11 @@
+{
+  "generation": "Gen109",
+  "title": "Machine learning in the crypto-firm book: Gen108 ridge in v6 (perp costs), and a cross-sectional walk-forward ridge on the 20 Binance coins",
+  "registered": "2026-10-19, after Gen108; no v6 / cross-sectional number computed",
+  "tests": {
+    "X1 Gen108 ridge sleeve in v6 (PRIMARY)": "the Gen108 ML1 predictions unchanged (results/gen108_preds.parquet), position 0.5 x prediction per coin held next day, Binance perp costs (5 bp taker + funding); added to v6",
+    "X2 cross-sectional ridge, 20 coins (PRIMARY)": "features per coin and day (known at 00:00): returns 1/7/30d, vol 30d, funding 7-day mean, premium 7-day mean, OI value change 7d, taker imbalance 7d; each feature ranked across coins per day (0..1); target = next 7-day return ranked across coins; Ridge(alpha=10) refit monthly on past data only (expanding from 2020-06, first predictions 2021-01); every Monday 00:00 long the top third / short the bottom third of predicted rank, equal weight, gross 1, hold 7 days; perp costs 5 bp + funding; added to v6"
+  },
+  "pass": "crypto rule: DEV 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr with C* <= 0.3, AND v6 2022-26 Sharpe rises with v6 TEST and HOLD not lower",
+  "trials_added": 2
+}

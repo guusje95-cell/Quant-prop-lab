@@ -467,3 +467,13 @@ Details are in `research/GEN108_ML.md`.
   - Not adopted: book TEST 3.45 -> 3.42 breaks the "not lower" rule.
   - Watchlist.
 - **Gradient boosting:** TEST -0.40, rejected.
+
+## Gen109 (2026-10-19): ML in the crypto-firm book. ADOPTED candidate v7 (2 trials)
+Details are in `research/GEN109_ML_V6.md`.
+
+- **Walk-forward ridge** (16 point-in-time features: flows, premiums, OI, funding, taker flow, price):
+  - in v6 at perp costs: sleeve 0.13 / 1.28 / 1.36, corr C\* 0.19;
+  - **v6 2.46 -> 2.53** (TEST 3.44 -> 3.49, HOLD 1.90 -> 2.24).
+  - Insensitive to alpha and refit frequency; placebo p < 0.01; survives 2x costs.
+  - The flow features carry it. Weak 2021-22.
+- **Cross-sectional ridge on 20 coins:** TEST -1.50, rejected.
