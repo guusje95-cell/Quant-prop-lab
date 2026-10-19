@@ -1,0 +1,12 @@
+{
+  "generation": "Gen112",
+  "title": "Breadth for the newer sleeves: deleveraging bounce on the ~40 extra Binance coins (addendum to Gen80)",
+  "registered": "2026-10-19, before the extra-coin data arrived (get_binance_extra.bat still running). The Gen89 bounce rule is NOT re-tuned. Known before: the bounce on the 20 pack altcoins was positive on most coins but failed DEV 2022 as a sleeve (Gen91 K4, Gen99 S2)",
+  "data": "research_data/binance_extra (hourly klines and open interest) + research_data/binance (20 coins); a coin enters after 60 days of listing",
+  "tests": {
+    "G1 bounce on all non-BTC/ETH coins (20-pack alts + extra), perp costs (PRIMARY)": "H4 rule unchanged per coin (OI value -10% in 24h to 23:55 and price down -> long 2 days), size 0.5 per signal scaled by 2 / number of eligible coins that day (total budget like the BTC/ETH sleeve), 5 bp taker + funding; added to v6 next to the BTC/ETH bounce",
+    "G2 bounce per-coin hit table (report only)": "for each extra coin: episodes, mean return per episode, share positive; a cross-sectional replication check of H4, not an adoption test"
+  },
+  "pass": "G1: crypto rule in v6 (DEV 2022 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3, v6 2022-26 rises with TEST and HOLD not lower). Liquidity reported as in Gen80 (coins below $20m median daily volume reported separately)",
+  "trials_added": 1
+}
