@@ -1,0 +1,10 @@
+hour_utc,coin,side,usd,from_usd,to_usd,type,because
+2026-10-19 10:00:00,ADA,SELL,8590.43,0.0,-8590.43,initial position,"premium carry -8,590"
+2026-10-19 10:00:00,AVAX,BUY,6975.71,0.0,6975.71,initial position,"premium carry +6,443, C* +533"
+2026-10-19 10:00:00,BCH,BUY,6442.82,0.0,6442.82,initial position,"premium carry +6,443"
+2026-10-19 10:00:00,BTC,SELL,8145.63,0.0,-8145.63,initial position,"coinbase premium -9,646, C* +1,500"
+2026-10-19 10:00:00,DOGE,SELL,8590.43,0.0,-8590.43,initial position,"premium carry -8,590"
+2026-10-19 10:00:00,ETH,SELL,9645.56,0.0,-9645.56,initial position,"coinbase premium -9,646"
+2026-10-19 10:00:00,LINK,BUY,6442.82,0.0,6442.82,initial position,"premium carry +6,443"
+2026-10-19 10:00:00,SOL,SELL,8590.43,0.0,-8590.43,initial position,"premium carry -8,590"
+2026-10-19 10:00:00,XRP,BUY,6442.82,0.0,6442.82,initial position,"premium carry +6,443"
