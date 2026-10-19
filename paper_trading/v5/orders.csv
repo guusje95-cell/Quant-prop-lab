@@ -58,3 +58,38 @@ hour_utc,coin,side,usd,from_usd,to_usd,type,because
 2026-10-18 02:00:00,DOT,SELL,128.44,513.56,385.12,rebalance,C* -128
 2026-10-18 02:00:00,LINK,SELL,151.22,3328.35,3177.13,rebalance,C* -151
 2026-10-18 02:00:00,SOL,SELL,191.0,-5724.78,-5915.78,rebalance,C* -192
+2026-10-18 15:00:00,ADA,BUY,59.76,-2762.98,-2703.22,rebalance,"premium carry +67, C* -7"
+2026-10-18 15:00:00,ATOM,SELL,57.17,2725.37,2668.2,rebalance,premium carry -57
+2026-10-18 15:00:00,AVAX,SELL,62.15,3024.45,2962.3,rebalance,"premium carry -57, C* -5"
+2026-10-18 15:00:00,BCH,SELL,57.17,2725.37,2668.2,rebalance,premium carry -57
+2026-10-18 15:00:00,BNB,BUY,66.69,-3179.59,-3112.9,rebalance,premium carry +67
+2026-10-18 15:00:00,BTC,BUY,104.08,-4783.96,-4679.88,rebalance,"trend 4h +118, C* -14"
+2026-10-18 15:00:00,ETC,BUY,66.69,-3179.59,-3112.9,rebalance,premium carry +67
+2026-10-18 15:00:00,FIL,BUY,66.69,-3179.59,-3112.9,rebalance,premium carry +67
+2026-10-18 15:00:00,LINK,SELL,64.7,3177.86,3113.16,rebalance,"premium carry -57, C* -8"
+2026-10-18 15:00:00,NEAR,BUY,66.69,-3179.59,-3112.9,rebalance,premium carry +67
+2026-10-18 15:00:00,SOL,BUY,127.58,-5963.4,-5835.82,rebalance,"trend 4h +70, premium carry +67, C* -10"
+2026-10-18 15:00:00,TRX,SELL,57.17,2725.37,2668.2,rebalance,premium carry -57
+2026-10-18 15:00:00,XLM,SELL,57.17,2725.37,2668.2,rebalance,premium carry -57
+2026-10-18 15:00:00,XRP,SELL,57.17,2725.37,2668.2,rebalance,premium carry -57
+2026-10-18 20:00:00,BTC,SELL,331.26,-4674.72,-5005.98,rebalance,trend 4h -332
+2026-10-18 20:00:00,SOL,SELL,162.69,-5830.83,-5993.52,rebalance,"trend 4h -160, premium carry -3"
+2026-10-19 00:00:00,ADA,SELL,509.43,-2698.9,-3208.33,rebalance,"C* -409, premium carry -100"
+2026-10-19 00:00:00,ATOM,BUY,86.07,2663.93,2750.0,rebalance,premium carry +86
+2026-10-19 00:00:00,AVAX,BUY,205.67,2957.57,3163.24,rebalance,"C* +120, premium carry +86"
+2026-10-19 00:00:00,BCH,BUY,86.07,2663.93,2750.0,rebalance,premium carry +86
+2026-10-19 00:00:00,BNB,SELL,100.41,-3107.92,-3208.33,rebalance,premium carry -100
+2026-10-19 00:00:00,BTC,BUY,121.66,-4995.13,-4873.47,rebalance,"C* +318, trend 4h -196"
+2026-10-19 00:00:00,DOT,SELL,378.2,378.2,0.0,rebalance,C* -378
+2026-10-19 00:00:00,ETC,SELL,100.41,-3107.92,-3208.33,rebalance,premium carry -100
+2026-10-19 00:00:00,FIL,SELL,100.41,-3107.92,-3208.33,rebalance,premium carry -100
+2026-10-19 00:00:00,LINK,SELL,358.19,3108.19,2750.0,rebalance,"C* -444, premium carry +86"
+2026-10-19 00:00:00,NEAR,SELL,100.41,-3107.92,-3208.33,rebalance,premium carry -100
+2026-10-19 00:00:00,SOL,SELL,821.77,-5980.53,-6802.3,rebalance,"C* -565, trend 4h -157, premium carry -100"
+2026-10-19 00:00:00,TRX,BUY,86.07,2663.93,2750.0,rebalance,premium carry +86
+2026-10-19 00:00:00,XLM,BUY,86.07,2663.93,2750.0,rebalance,premium carry +86
+2026-10-19 00:00:00,XRP,BUY,86.07,2663.93,2750.0,rebalance,premium carry +86
+2026-10-19 02:00:00,AVAX,SELL,104.12,3162.08,3057.96,rebalance,C* -103
+2026-10-19 02:00:00,BTC,SELL,289.24,-4871.69,-5160.93,rebalance,"C* -291, trend 4h +2"
+2026-10-19 04:00:00,BTC,BUY,6032.63,-5160.57,872.06,rebalance,"trend 4h +6,032"
+2026-10-19 04:00:00,SOL,BUY,3590.26,-6797.44,-3207.18,rebalance,"trend 4h +3,591, premium carry -1"
