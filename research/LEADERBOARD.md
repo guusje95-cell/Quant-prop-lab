@@ -428,3 +428,12 @@ Details are in `research/GEN88_101_COINBASE.md`.
 - **Swap-free book:** 2.07 -> **2.15**.
 - **Crypto v6:** passes but adds only 0.01, so v6 is unchanged.
 - **C\* premium filter:** rejected.
+
+## Gen102 (2026-10-19): more demand-flow signals (5 trials)
+Details are in `research/GEN102_FLOWS.md`.
+
+- **Rejected:**
+  - Coinbase premium on altcoins: HOLD -0.55;
+  - Fear & Greed: HOLD -0.24.
+- **Kimchi premium momentum:** DEV 0.40, TEST 0.80, HOLD 1.29 alone (contrarian strongly negative), but it lowers the book (1.85 -> 1.70), so it is not adopted.
+- **Bitstamp replicates the Coinbase premium** (corr 0.93): the effect is a USD-vs-USDT/perp basis signal, not exchange-specific.
