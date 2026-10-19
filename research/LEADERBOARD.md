@@ -492,3 +492,7 @@ Details are in `research/GEN109_ML_V6.md`.
 Details are in `research/GEN113_ALLOCATION.md`.
 - ERC (2.33 v6 / 2.13 bf), min-variance (2.11 / 1.88), 90-day inverse vol (1.82 / 1.91) and a Sharpe tilt (2.06 / 1.91) all lose to the current P1 equal-risk weights (2.46 / 2.25).
 - **P1 stays.**
+
+## Gen116-117 (2026-10-19): equity-session spillover, volume-return rule, CFD intraday ideas; all rejected (7 trials)
+- **Gen116 (crypto):** US-open spillover into BTC/ETH 0.24 / 0.17 / -1.25 (perp DEV/TEST/HOLD); US-close spillover 0.04 / -1.18 / -1.17; Llorente volume-return rule -0.49 / -0.36 / -0.13. All lower both books.
+- **Gen117 (Dukascopy CFDs, CFD costs, DEV 2013-18 / TEST 2019-22 / HOLD 2023-26):** bond-equity lead -0.57 / -0.18 / -0.21; EIA crude day -0.19 / 0.17 / -0.06; FX month-end fix 0.69 / -0.45 / 0.17; overnight-intraday reversal -0.35 / -0.22 / 0.45. US500 and USTBOND data start in 2018 (short DEV). One deviation, noted: the CFD data has no 17:00 ET bar, so the night return starts at the 17:00 ET price instead of 18:00.

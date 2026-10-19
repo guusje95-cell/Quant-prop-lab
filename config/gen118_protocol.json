@@ -1,0 +1,15 @@
+{
+  "generation": "Gen118",
+  "title": "On-chain exchange flows, exchange supply, fee mania and hash ribbons (Coin Metrics community data, never used as signals before)",
+  "registered": "2026-10-19, before any Gen118 number was computed",
+  "data": "data/raw/ext/coinmetrics-data/csv/{btc,eth}.csv, daily, ends 2026-05-23 (signals are 0 after the last row; HOLD effectively 2025-01..2026-05). Every value used with a 2-day publication lag",
+  "tests": {
+    "O1 exchange net flow (PRIMARY)": "BTC, ETH: n = (FlowInExNtv - FlowOutExNtv) / SplyCur, 7-day sum, z vs trailing 365 days; z > 1.5 -> short 0.5 for 3 days; z < -1.5 -> long 0.5 for 3 days",
+    "O2 exchange supply trend": "BTC, ETH: e = SplyExNtv / SplyCur; position = -0.25 * sign(30-day change of e) (coins leaving exchanges -> long), daily",
+    "O3 fee mania": "BTC, ETH: f = FeeTotNtv * PriceUSD, 7-day mean, z vs trailing 365 days; z > 2 -> short 0.5 for 5 days",
+    "O4 hash ribbons (BTC)": "30-day MA of HashRate crosses back above its 60-day MA after >= 10 days below -> long BTC 0.5 for 30 days"
+  },
+  "costs": "v6: Binance perp 5 bp per side + funding; bf: BrightFunded CFD costs",
+  "rule": "standard crypto rule per book (as Gen116)",
+  "trials_added": 4
+}
