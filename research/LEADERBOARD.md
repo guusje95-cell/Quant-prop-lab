@@ -482,3 +482,8 @@ Details are in `research/GEN109_ML_V6.md`.
 - **Hourly ridge, 4h horizon, BTC/ETH:** 0.80 / 1.34 / **-0.26**; v7 2.53 -> 2.39.
 - **Daily ridge pooled over 9 altcoins:** 0.38 / 1.17 / **-0.32**, corr C\* 0.36; v7 -> 2.32.
 - Only the daily BTC/ETH ridge (Gen109) holds up out of sample.
+
+## Gen111 (2026-10-19): cross-exchange signals, rejected (2 trials; `config/gen111_protocol.json`, `scripts/gen111_xexch.py`)
+- **Binance-vs-Deribit funding divergence (contrarian):** 0.46 / **0.09** / 0.99.
+  - v6 2.46 -> 2.53 and bf 2.25 -> 2.35 overall, but TEST fails and book TEST falls.
+- **OKX-vs-Binance perp premium momentum:** 0.32 / 0.37 / -0.65.

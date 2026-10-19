@@ -1,0 +1,11 @@
+{
+  "generation": "Gen111",
+  "title": "Cross-exchange signals: Binance-vs-Deribit funding divergence, OKX-vs-Binance perp price premium",
+  "registered": "2026-10-19, before any Gen111 number was computed",
+  "tests": {
+    "F1 funding divergence, contrarian (PRIMARY)": "per coin (BTC, ETH), day d: div = Binance 7-day mean funding (per 8h) - Deribit 7-day mean interest_8h; z = (div - 90-day mean) / 90-day std; z > 1 -> short 0.5 (Binance longs crowded), z < -1 -> long 0.5; hold 1 day",
+    "F2 OKX-Binance perp premium momentum (PRIMARY)": "per coin: p = OKX USDT-swap hourly close / Binance USDT-M close - 1; 24h mean; z vs its 30-day mean/std at 23:00 UTC; z > 1 long 0.5, z < -1 short 0.5, hold 1 day (same form as the Coinbase premium)"
+  },
+  "books": "crypto: v6 at perp costs (5 bp + funding), crypto rule (DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3, v6 2022-26 rises with TEST and HOLD not lower). CFD: BrightFunded book reported with the same book conditions",
+  "trials_added": 2
+}
