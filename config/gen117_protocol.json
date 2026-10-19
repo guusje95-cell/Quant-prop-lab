@@ -1,0 +1,15 @@
+{
+  "generation": "Gen117",
+  "title": "Gen115 intraday ideas that have a CFD twin, run first on Dukascopy CFDs at CFD costs (Databento futures run later as replication)",
+  "registered": "2026-10-19, before any Gen117 number was computed",
+  "data": "research_data/dukascopy/*_1h.parquet (UTC bar-start labels), 2013-2026-09; New York times via tz conversion",
+  "costs_bp_per_side": {"US500": 1.0, "US100": 1.0, "WTI": 4.0, "EURUSD": 1.0, "GBPUSD": 1.0, "AUDUSD": 1.0, "USDJPY": 1.0, "USTBOND": "signal only"},
+  "tests": {
+    "X1 bond-equity lead (=U4)": "sign of USTBOND 09:00-10:00 ET bar -> US500 position of the OPPOSITE sign, size 1, for the 10:00-15:00 ET bars (flat at 16:00)",
+    "X2 EIA crude day (=U1)": "Wednesdays: sign of WTI 10:00-11:00 ET bar -> same sign, size 1, for 11:00-14:00 ET bars",
+    "X3 FX month-end fix (=U7)": "last weekday of the month: if US500 month-to-date return (to the 09:00 ET bar close) > 0 -> sell USD (long EURUSD GBPUSD AUDUSD, short USDJPY, 0.25 each) else the reverse, for 10:00-11:00 ET bars",
+    "X4 overnight-intraday reversal (=U3)": "US500 and US100: sign of 18:00 (previous day) -> 09:00 ET return -> opposite sign 0.5 each for 10:00-15:00 ET bars"
+  },
+  "rule": "stand-alone: DEV 2013-2018 > 0, TEST 2019-2022 >= 0.5, HOLD 2023-2026/09 >= 0.3 net; passers then go into the bf book under the standard book rule (2022-26 Sharpe up, TEST and HOLD not lower)",
+  "trials_added": 4
+}
