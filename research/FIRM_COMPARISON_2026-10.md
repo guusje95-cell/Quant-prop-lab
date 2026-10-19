@@ -121,3 +121,23 @@ A free trial or demo account in each firm's platform answers the first three wit
 **Swap comparisons (other brokers):**
 - [Afterprime BTCUSD swap](https://afterprime.com/swaps/btcusd)
 - [OANDA TMS swap points](https://www.oanda.com/eu-en/document/91)
+
+## Update 2026-10-19: FundedNext text received by the user (help centre / support)
+
+**Now confirmed by FundedNext's own text:**
+- **Crypto commission:** lot x contract size x open price x **0.04% per trade side**, already modelled at 4 bp per side. It applies to all models, including Stellar and FundedNext Accounts.
+- **Swap-free:** available on **all challenges**, at a price **10% higher**. "Swap charges do not apply to Swap-Free Accounts."
+- **Overnight and weekend holding:** overnight is allowed on Stellar 1-Step, 2-Step and Lite. **Weekend holding is allowed on Challenge accounts AND FundedNext (funded) accounts.** This resolves the earlier contradiction in favour of holding.
+- **Swaps on standard accounts:** shown in MT5 under Specification; they count toward the daily-loss calculation. Crypto triple swap is Friday on MT4 / MT5 / cTrader, Wednesday on Match-Trader.
+
+**Still open for FundedNext. This is the only thing that moves the estimate between 1.46 and about 1.85:**
+1. Crypto symbol list: are SOL, AVAX, DOT available? The help-centre list says no.
+2. Crypto leverage on BTC/ETH and on altcoins: 1:1, 1:2 or 1:5?
+3. Typical BTCUSD / ETHUSD spread.
+4. Explicit confirmation that swap-free covers crypto CFDs, not only FX.
+5. Expert advisors / automated execution allowed on Stellar challenge and funded accounts.
+
+**Effect on the estimate:**
+- The book cost model already used the confirmed 4 bp commission and swap 0.
+- Weekend holding being allowed on the funded account removes a downside risk that was not yet priced in.
+- The range stays **1.46 (1:1, 6 coins, 5/10 bp spreads) to 1.74 (1:5)**. The upper end rises to about 1.85 if SOL, AVAX and DOT turn out to be available. These are backtests; expect less live (Gen96).
