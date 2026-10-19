@@ -1,4 +1,5 @@
-"""Paper trading of crypto portfolio v5 (config/paper_v5.json). Simulation only: public market data, no keys, no orders.
+"""Paper trading of crypto portfolio v5 (config/paper_v5.json) or v6 (config/paper_v6.json; set QPL_PAPER=v6).
+Simulation only: public market data, no keys, no orders. v5 and v6 run side by side, each in its own folder.
 
   python scripts/paper_v5.py run          # once: update data, freeze the newly completed hours, write book + status
   python scripts/paper_v5.py loop         # keep running: every hour at :06 UTC (leave the window open, PC awake)
@@ -23,12 +24,14 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
-CFG = json.loads((ROOT / "config/paper_v5.json").read_text())
-OUT = ROOT / "paper_trading" / "v5"
+VER = os.environ.get("QPL_PAPER", "v5")                   # "v5" or "v6" (v6 = v5 + deleveraging bounce, Gen90)
+CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
+OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"]
-SCALE = CFG["frozen"]["v5_scale"]
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER == "v6" else [])
+SCALE = CFG["frozen"][f"{VER}_scale"]
+BACKTEST = ROOT / ("results/cache_v6_final.parquet" if VER == "v6" else "results/cache_gen72_final.parquet")
 
 
 def utcnow() -> pd.Timestamp:
@@ -95,8 +98,11 @@ def compute():
     cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
     tr, tpos = CS.trend4h(positions=True)
     we, wpos = CS.weiss_expiry(positions=True)
-    H = pd.DataFrame({"C*": CS._from_daily_weights(cw, B.MAJ10, 7.5), "premium carry": CS._from_daily_weights(pw, B.coins(), 5),
-                      "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}).fillna(0.0).loc[:END]
+    cols = {"C*": CS._from_daily_weights(cw, B.MAJ10, 7.5), "premium carry": CS._from_daily_weights(pw, B.coins(), 5),
+            "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}
+    if "delev bounce" in SLEEVES:
+        bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
+    H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
     h1 = END + pd.Timedelta(hours=1)
     Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])          # makes the next day's weights computable
     ph, W, mult = CS.portfolio_v5(Hx)
@@ -110,6 +116,9 @@ def compute():
     prev = pw.loc[:d - pd.Timedelta(days=1)]
     expo["premium carry"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
     expo["trend 4h"] = tpos.loc[h1] if h1 in tpos.index else pd.Series(dtype=float)
+    if "delev bounce" in SLEEVES:
+        prev = bw.loc[:d - pd.Timedelta(days=1)]
+        expo["delev bounce"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -157,9 +166,9 @@ def account(L: pd.DataFrame, risk: float, firm_key: str):
 
 
 def status_text(L: pd.DataFrame, Dd: pd.DataFrame, risk: float) -> str:
-    bt = pd.read_parquet(ROOT / "results/cache_gen72_final.parquet")["portfolio"]
+    bt = pd.read_parquet(BACKTEST)["portfolio"]
     btd = bt.groupby(bt.index.floor("D")).sum().loc["2023-01-01":] * risk
-    lines = [f"# Paper trading v5 - status ({utcnow():%Y-%m-%d %H:%M} UTC)", "",
+    lines = [f"# Paper trading {VER} - status ({utcnow():%Y-%m-%d %H:%M} UTC)", "",
              f"Simulation only. Account ${CFG['frozen']['account']:,.0f}, risk {risk}, firm rules: {CFG['frozen']['firm']}.", ""]
     if L.empty or Dd.empty:
         return "\n".join(lines + ["No completed paper hours yet."])
@@ -175,7 +184,7 @@ def status_text(L: pd.DataFrame, Dd: pd.DataFrame, risk: float) -> str:
               f"- Daily stop hits: {int(Dd['daily_stop_hit'].sum())}; firm daily-limit breaches: {int(Dd['firm_daily_breach'].sum())}; "
               f"max-loss breaches: {int(Dd['firm_max_breach'].sum())}",
               f"- Weiss expiry events: {weiss_n}; late hours: {late:.1%}",
-              f"- Gate (config/paper_v5.json): **{verdict}**", "",
+              f"- Gate (config/paper_{VER}.json): **{verdict}**", "",
               "Sleeve P&L so far (sum of hourly returns, unit size): " +
               ", ".join(f"{s} {L[s].sum():+.2%}" for s in SLEEVES)]
     return "\n".join(lines)
@@ -302,7 +311,7 @@ def print_orders(book: dict, orders: pd.DataFrame):
     gross = sum(abs(v) for v in tgt.values())
     print(f"  positions after: {len([v for v in tgt.values() if v > 0])} long / {len([v for v in tgt.values() if v < 0])} short, "
           f"gross ${gross:,.0f} on ${book['equity']:,.0f} equity")
-    print("  full list: paper_trading/v5/orders.csv and book_next_hour.json\n")
+    print(f"  full list: paper_trading/{VER}/orders.csv and book_next_hour.json\n")
 
 
 def write_excel(L: pd.DataFrame, Dd: pd.DataFrame):
@@ -312,7 +321,7 @@ def write_excel(L: pd.DataFrame, Dd: pd.DataFrame):
         import openpyxl  # noqa: F401
     except ImportError:
         print("  (install openpyxl for the Excel file: pip install openpyxl)"); return
-    path = OUT / "paper_v5.xlsx"
+    path = OUT / f"paper_{VER}.xlsx"
     try:
         with pd.ExcelWriter(path, engine="openpyxl") as xw:
             if len(Dd):
@@ -344,7 +353,7 @@ def write_excel(L: pd.DataFrame, Dd: pd.DataFrame):
                             c.number_format = fmt[name]
                 ws.freeze_panes = "A2"
     except PermissionError:
-        print("  (paper_v5.xlsx is open in Excel; close it to let it refresh next hour)")
+        print(f"  (paper_{VER}.xlsx is open in Excel; close it to let it refresh next hour)")
 
 
 def paper_start(requested: str | None, default: pd.Timestamp, cut: pd.Timestamp) -> pd.Timestamp:
@@ -421,6 +430,8 @@ def cmd_selftest(a):
     cuts = ["2026-09-01 01:00", "2026-09-14 00:00", "2026-09-21 13:00", "2026-09-25 09:00", "2026-09-25 10:00", "2026-09-25 11:00",
             "2026-09-28 05:00",
             "2026-09-30 17:00"]
+    if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
+        cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]
     full = tmp / "full.parquet"
     subprocess.run([sys.executable, __file__, "_dump", "--cutoff", "2026-10-01 00:00", "--live", "0", "--out", str(full)], cwd=ROOT, check=True)
     F = pd.read_parquet(full); worst = 0.0; ok = True

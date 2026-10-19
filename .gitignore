@@ -15,3 +15,7 @@ paper_trading/v5/data/
 paper_trading/v5/_selftest/
 paper_trading/v5/_recompute*
 paper_trading/v5/run_log.txt
+paper_trading/v6/data/
+paper_trading/v6/_selftest/
+paper_trading/v6/_recompute*
+paper_trading/v6/run_log.txt
