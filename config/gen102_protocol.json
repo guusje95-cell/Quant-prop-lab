@@ -1,0 +1,16 @@
+{
+  "generation": "Gen102",
+  "title": "More demand-flow signals: Coinbase premium on CFD altcoins, Korean (kimchi) premium, Bitstamp replication, Fear & Greed",
+  "registered": "2026-10-19, before any of this data was downloaded (user runs get_more_data.bat); after Gen88 Q1 passed",
+  "costs": "CFD: BTC/ETH 5 bp, altcoins 10 bp per side, swap 3.3 bp per rollover",
+  "split": "DEV 2020-2022 (Fear & Greed from 2018) | TEST 2023-2024 | HOLD 2025-2026",
+  "tests": {
+    "P1 Coinbase premium on the 9 CFD altcoins (PRIMARY)": "Gen88 Q1 rule unchanged per coin (premium = Coinbase USD close / Binance perp close - 1; 24h mean; 30-day z; z > 1 long, z < -1 short, 1 day), 0.5 per coin, as a separate sleeve next to the BTC/ETH premium",
+    "P2 Korean premium momentum (PRIMARY)": "kimchi premium = Upbit KRW close / USDKRW (Yahoo daily close of the previous day) / Binance perp close - 1, daily value at the 23:00 UTC bar; 30-day z of the daily value; z > 1 long, z < -1 short, 1 day, BTC/ETH 0.5 each",
+    "P2b variant": "same signal, opposite direction (contrarian)",
+    "P3 Fear & Greed extreme fear (PRIMARY)": "index value of day d <= 20 -> long BTC and ETH 0.5 each for 3 days from 00:00 UTC d+1",
+    "P4 Bitstamp replication of Q1 (check, not an adoption test)": "Q1 with Bitstamp USD instead of Coinbase; it should be positive if the US-demand effect is real and not a Coinbase artefact"
+  },
+  "pass": "P1-P3: DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND adding to the CFD book (C* + Weiss + delev bounce + Coinbase premium) raises the 2022-26 Sharpe. P4 is reported only",
+  "trials_added": 5
+}

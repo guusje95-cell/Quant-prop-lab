@@ -1,5 +1,7 @@
 # To do at home (for Claude's research)
 
+**New (2026-10-19):** double-click `get_more_data.bat`. It takes about 30-60 minutes, needs no account or key, and you push it afterwards (see the window). It covers Coinbase altcoins, the Korean premium, Bitstamp and Fear & Greed; the tests for it are already registered in `config/gen102_protocol.json`.
+
 Double-click each file in the `Quant-prop-lab` folder, wait until it says Done, then push (commands below).
 
 1. **`get_coinbase.bat`**: Coinbase BTC/ETH hourly, about 10-20 min.
