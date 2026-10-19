@@ -1,0 +1,7 @@
+book,firm,account,challenge_fee_usd,pass_rate,mean_net_2y,unlucky_10pct_2y,p_profit,mean_net_per_month
+v6 (crypto firm),HyroTrader 1-Step,$100k,749,0.747,46033,18845,0.994,1918.0
+v6 (crypto firm),HyroTrader 2-Step,$100k,579,0.82,46428,21480,0.998,1934.0
+v5 (crypto firm),HyroTrader 1-Step,$100k,749,0.77,41883,13962,0.98,1745.0
+v5 (crypto firm),HyroTrader 2-Step,$100k,579,0.82,42436,18123,0.992,1768.0
+FundedNext CFD book,FundedNext Stellar 2-Step swap-free,$100k,605,0.695,32005,10176,0.976,1334.0
+BrightFunded CFD book,BrightFunded 2-Step Classic swap-free,$100k,591,0.842,43868,21026,0.996,1828.0

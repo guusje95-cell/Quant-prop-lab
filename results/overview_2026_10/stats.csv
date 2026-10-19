@@ -1,0 +1,5 @@
+book,sharpe,sortino,cagr,max_dd,calmar,positive_months,best_month,worst_month,worst_day,longest_dd_days,sharpe_2023_24,sharpe_2025_26
+v6 (crypto firm),2.46,4.55,0.4297,-0.0944,4.55,0.719,0.2143,-0.0438,-0.0336,111,3.43,1.9
+v5 (crypto firm),2.28,4.12,0.391,-0.0948,4.13,0.719,0.22,-0.0423,-0.036,172,3.35,1.68
+BrightFunded CFD book,2.25,3.98,0.3861,-0.0971,3.98,0.702,0.1938,-0.0543,-0.04,137,3.45,1.55
+FundedNext CFD book,1.7,2.97,0.2769,-0.1081,2.56,0.667,0.162,-0.0673,-0.0462,356,2.63,1.06
