@@ -1,0 +1,16 @@
+{
+  "generation": "Gen108",
+  "title": "Walk-forward machine learning on BTC/ETH daily returns with the project's point-in-time features (BrightFunded costs)",
+  "registered": "2026-10-19, before any Gen108 number was computed. Earlier ML families (v6 futures, regime) were rejected; this is a new feature set (flows, premiums, open interest)",
+  "features": "per coin and day d, all known at 00:00 UTC d+1: returns 1/3/7/30d; realised vol 7/30d; funding sum of day d and 7-day mean; Binance premium index mean of day d; open-interest value change 1d and 7d (zeros as missing); daily taker imbalance; Coinbase premium z (Gen88); kimchi premium z with strictly dated FX (Gen105); DVOL 1-day change; USDT+USDC 1-day growth (2-day lag); coin dummy",
+  "target": "next-day return (close d+1 / close d - 1)",
+  "walk_forward": "pooled BTC+ETH; refit at each month start on all rows whose target is known before that month (expanding window from 2020-03); features standardised with training statistics; missing values set to 0 after standardising; first predictions 2021-01",
+  "models": {
+    "ML1 ridge regression (PRIMARY)": "sklearn Ridge(alpha=10)",
+    "ML2 gradient boosting (PRIMARY)": "sklearn HistGradientBoostingRegressor(max_depth=3, max_iter=200, learning_rate=0.05, min_samples_leaf=50, random_state=0)"
+  },
+  "position": "0.5 x clip(prediction / std of the model's training-set predictions, -1, 1) per coin, held during day d+1; BrightFunded costs (BTC 1.6, ETH 3.9 bp per side), swap-free",
+  "split": "DEV 2021-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "pass": "DEV > 0, TEST >= 0.5, HOLD >= 0.3, AND adding it to the BrightFunded CFD book raises the 2022-26 Sharpe with book TEST and HOLD not lower",
+  "trials_added": 2
+}

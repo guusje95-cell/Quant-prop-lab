@@ -459,3 +459,11 @@ Details are in `research/GEN105_DEMAND_COMPOSITE.md`.
 ## Gen107 (2026-10-19): cost-sensitive rules re-tested at BrightFunded's real costs, rejected (2 trials; `scripts/gen107_bfcost.py`)
 - **Cascade strict on BTC/ETH** (1.6 / 3.9 bp per side): -0.08 / 0.05 / -0.78. Lower costs do not rescue it.
 - **Hourly shock reversal:** 0.43 / -0.58 / -0.75.
+
+## Gen108 (2026-10-19): walk-forward machine learning (2 trials)
+Details are in `research/GEN108_ML.md`.
+
+- **Ridge on 16 point-in-time features:** sleeve 0.27 / 1.49 / 1.49; book 2.25 -> 2.28, HOLD 1.55 -> 1.95.
+  - Not adopted: book TEST 3.45 -> 3.42 breaks the "not lower" rule.
+  - Watchlist.
+- **Gradient boosting:** TEST -0.40, rejected.
