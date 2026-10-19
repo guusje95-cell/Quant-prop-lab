@@ -219,3 +219,11 @@ Only BTC is cheap to hold, at about 6%/yr. ETH is about 105%/yr; XRP about 280%/
 - **BrightFunded swap-free, if it exists for crypto:** best, 2.0-2.2.
 - **BrightFunded standard, BTC-only book:** 1.75, about the same as FundedNext swap-free (1.67-1.70).
 - **Deciding question:** does BrightFunded's swap-free add-on exist for crypto, and at what price?
+
+**BrightFunded support, 2026-10-19:**
+- **Crypto commission:** 0.024% per round trip = **0.012% per side**, on challenge and funded accounts. The 1.2 bp rows of Gen104 apply.
+- **Book Sharpe at 1.2 bp:**
+  - BTC-only on a standard account: **1.81**;
+  - 4-sleeve standard: 1.24;
+  - swap-free 4-sleeve / 6-sleeve: 2.08 / 2.25.
+- **Still unanswered:** whether a swap-free add-on covers crypto, its price, and whether EAs are allowed.
