@@ -1,0 +1,11 @@
+{
+  "generation": "Gen107",
+  "title": "Re-tests of cost-sensitive short-term rules under BrightFunded's real costs (BTC 1.6 bp, ETH 3.9 bp per side, swap-free)",
+  "registered": "2026-10-19, before any Gen107 number was computed. Known before: the cascade on BTC/ETH CFDs at 5 bp failed (Gen87 R2: -0.13 / -0.03 / -0.82); the hourly shock reversal was rejected in gen39-42 at higher costs",
+  "tests": {
+    "C1 cascade strict, BTC/ETH (PRIMARY)": "Gen67/68 cascade rule unchanged (limit entry 0.5% below, 0.1% trade-through, hold 12h), BTC and ETH only, cost per side = BrightFunded spread + 1.2 bp commission",
+    "C2 hourly shock reversal, BTC/ETH (PRIMARY)": "hourly return beyond 3 x the trailing 30-day hourly std (lagged one hour): fade it for the next 3 hours (long after a drop, short after a jump), 0.5 per coin"
+  },
+  "pass": "DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3, AND adding it to the BrightFunded CFD book raises the 2022-26 Sharpe with book TEST and HOLD not lower",
+  "trials_added": 2
+}

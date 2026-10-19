@@ -455,3 +455,7 @@ Details are in `research/GEN105_DEMAND_COMPOSITE.md`.
   - Strongly negative in every period, so the opposite (continuation after the 15:00-16:00 London move) looks positive.
   - That observation was made on this data, so it cannot be tested on this data.
   - **Forward-test only.** Watchlist: "fixing continuation", to be judged on fresh data from 2026-10 onward.
+
+## Gen107 (2026-10-19): cost-sensitive rules re-tested at BrightFunded's real costs, rejected (2 trials; `scripts/gen107_bfcost.py`)
+- **Cascade strict on BTC/ETH** (1.6 / 3.9 bp per side): -0.08 / 0.05 / -0.78. Lower costs do not rescue it.
+- **Hourly shock reversal:** 0.43 / -0.58 / -0.75.
