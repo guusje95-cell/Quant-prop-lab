@@ -148,3 +148,40 @@ A free trial or demo account in each firm's platform answers the first three wit
 | all 11 coins | 1.65 | 1.77 | 1.87 |
 
 These are backtests; expect less live (Gen96).
+
+## Update 2026-10-19 (2): FundedNext confirmed by support, and the book re-priced (Gen103, `scripts/gen103_fundednext.py`)
+
+**Support answer:**
+- **Crypto availability:** on Stellar 1-Step and 2-Step only. The free trial has no crypto.
+- **Pairs:** BTC ETH XRP ADA DOGE LTC XLM LINK(LNK) XMR. **No SOL, AVAX, DOT or BCH.**
+- **Crypto leverage 1:1** on challenge and funded accounts.
+- **Swap-free option:** exists.
+- **EAs:** allowed on MT4 / MT5 for a small fee that depends on account size (amount still unknown); not on cTrader or Match-Trader.
+
+**Re-priced:**
+- **Setup:** frozen sleeves, FundedNext coin list, 4 bp commission, 1:1 cap applied at the challenge (1.5x) and funded (1.0x) sizes.
+- **Sharpe:** measured on the funded-size book.
+
+| Book | Account | Spread (+4 bp comm) | Sharpe (1:1) | TEST | HOLD | Max DD | Sharpe without cap |
+|---|---|---|---|---|---|---|---|
+| 4-sleeve (C\*, Weiss, bounce, Coinbase premium) | swap-free | 5/10 bp | **1.67** | 2.67 | 1.17 | -11.6% | 1.80 |
+| 4-sleeve | swap-free | 2/5 bp | 1.82 | 2.89 | 1.31 | -11.1% | 1.96 |
+| 4-sleeve | standard swap 3.3 | 5/10 bp | 1.53 | 2.48 | 1.02 | -12.2% | 1.67 |
+| **6-sleeve (+ premium carry, trend 4h)** | swap-free | 5/10 bp | **1.70** | 2.63 | 1.06 | -10.6% | 1.80 |
+| 6-sleeve | swap-free | 2/5 bp | 1.88 | 2.84 | 1.23 | -9.8% | 1.98 |
+
+**Prop, FundedNext Stellar 2-Step $100k** (1.5 / 1.0 / 60% stop, 1:1 cap, 5/10 bp spreads, bootstrap 500 paths, 2 years):
+
+| Book / account | Pass | Days to pass | Mean net | Unlucky 10% | P(profit) |
+|---|---|---|---|---|---|
+| 4-sleeve, swap-free | 73% | 97 | $29.5k | $9.0k | 97% |
+| 4-sleeve, standard swap | 71% | 100 | $26.6k | $6.4k | 97% |
+| **6-sleeve, swap-free** | 70% | 93 | **$32.0k** | **$10.2k** | 98% |
+
+**Verdict:**
+- **FundedNext is usable:** realistic Sharpe 1.7 at 1:1 leverage, about $30k mean net per account over 2 years (backtest).
+- **The Coinbase premium sleeve offsets most of what the missing coins and the 1:1 cap cost.**
+- **Not yet in these numbers:**
+  - the EA fee;
+  - real spreads (measure them on a Stellar account);
+  - the Gen96 live discount.

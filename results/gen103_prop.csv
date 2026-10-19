@@ -1,0 +1,4 @@
+book,account,setting,pass,days_to_pass,mean_net,p10,P_profit
+"4-sleeve CFD book (C*, Weiss, bounce, Coinbase premium)",swap-free,"1.5 / 1.0 / 60% stop, 1:1 cap",0.7277992277992278,97.0,29458.563570074908,9026.252131077266,0.97
+"4-sleeve CFD book (C*, Weiss, bounce, Coinbase premium)",standard swap 3.3,"1.5 / 1.0 / 60% stop, 1:1 cap",0.7065637065637066,99.5,26647.915361341024,6404.902970891964,0.972
+"6-sleeve swap-free book (+ premium carry, trend 4h)",swap-free,"1.5 / 1.0 / 60% stop, 1:1 cap",0.694980694980695,92.5,32004.94887408651,10175.864863820867,0.976
