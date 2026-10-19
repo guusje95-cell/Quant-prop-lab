@@ -1,0 +1,15 @@
+hour_utc,coin,side,usd,from_usd,to_usd,type,because
+2026-10-19 08:00:00,ADA,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,ATOM,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
+2026-10-19 08:00:00,AVAX,BUY,3180.03,0.0,3180.03,initial position,"premium carry +2,858, C* +322"
+2026-10-19 08:00:00,BCH,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
+2026-10-19 08:00:00,BNB,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,BTC,BUY,906.61,0.0,906.61,initial position,C* +907
+2026-10-19 08:00:00,ETC,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,FIL,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,LINK,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
+2026-10-19 08:00:00,NEAR,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,SOL,SELL,3334.25,0.0,-3334.25,initial position,"premium carry -3,334"
+2026-10-19 08:00:00,TRX,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
+2026-10-19 08:00:00,XLM,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
+2026-10-19 08:00:00,XRP,BUY,2857.93,0.0,2857.93,initial position,"premium carry +2,858"
