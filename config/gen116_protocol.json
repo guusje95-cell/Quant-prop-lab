@@ -1,0 +1,14 @@
+{
+  "generation": "Gen116",
+  "title": "Equity-session spillover into crypto and the volume-return (Llorente) rule, on existing data",
+  "registered": "2026-10-19, before any Gen116 number was computed",
+  "data": "Dukascopy US100 hourly (research_data/dukascopy/US100_1h.parquet, UTC bar-start labels, checked by the open-hour volatility peak), Binance BTC/ETH hourly and 5-minute volume",
+  "tests": {
+    "W1 US open spillover (PRIMARY)": "sign of US100 return over the 10:00-11:00 New York bar -> BTC and ETH 0.5 each in the same direction for the 11:00-16:00 New York bars, US100 trading days only, flat otherwise",
+    "W2 US close spillover": "sign of US100 return 10:00-16:00 New York -> BTC and ETH 0.5 same direction for 16:00-24:00 New York",
+    "W3 Llorente volume-return rule (daily)": "BTC and ETH, day d: r = daily return, s = 30-day std of r, v = log(volume) minus its 30-day mean (z-scored by 30-day std). |r| > s and v > 1 -> +0.5*sign(r) for day d+1 (informed, continues); |r| > s and v < 0 -> -0.5*sign(r) (liquidity, reverses); else 0"
+  },
+  "costs": "v6: Binance perp taker 5 bp per side plus funding for held hours. bf: BrightFunded CFD spread+commission (BTC 0.4+1.2 bp, ETH 2.7+1.2 bp per side)",
+  "rule": "standard crypto rule per book: sleeve DEV 2020-22 > 0, TEST 2023-24 >= 0.8 (bf 0.5), HOLD 2025-26 >= 0.5 (bf 0.3), corr C* <= 0.3; book 2022-26 Sharpe up AND book TEST and HOLD not lower",
+  "trials_added": 3
+}
