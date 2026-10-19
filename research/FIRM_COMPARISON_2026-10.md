@@ -140,4 +140,11 @@ A free trial or demo account in each firm's platform answers the first three wit
 **Effect on the estimate:**
 - The book cost model already used the confirmed 4 bp commission and swap 0.
 - Weekend holding being allowed on the funded account removes a downside risk that was not yet priced in.
-- The range stays **1.46 (1:1, 6 coins, 5/10 bp spreads) to 1.74 (1:5)**. The upper end rises to about 1.85 if SOL, AVAX and DOT turn out to be available. These are backtests; expect less live (Gen96).
+- **FundedNext swap-free, 5-sleeve book, 4 bp commission, 5/10 bp spreads, computed 2026-10-19:**
+
+| Coins \ crypto leverage cap | 1:1 | 1:2 | 1:5 |
+|---|---|---|---|
+| 6 coins (help-centre list) | 1.46 | 1.63 | 1.74 |
+| all 11 coins | 1.65 | 1.77 | 1.87 |
+
+These are backtests; expect less live (Gen96).
