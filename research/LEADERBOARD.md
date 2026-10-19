@@ -477,3 +477,8 @@ Details are in `research/GEN109_ML_V6.md`.
   - Insensitive to alpha and refit frequency; placebo p < 0.01; survives 2x costs.
   - The flow features carry it. Weak 2021-22.
 - **Cross-sectional ridge on 20 coins:** TEST -1.50, rejected.
+
+## Gen110 (2026-10-19): more ML, rejected (2 trials; `config/gen110_protocol.json`, `scripts/gen110_ml2.py`)
+- **Hourly ridge, 4h horizon, BTC/ETH:** 0.80 / 1.34 / **-0.26**; v7 2.53 -> 2.39.
+- **Daily ridge pooled over 9 altcoins:** 0.38 / 1.17 / **-0.32**, corr C\* 0.36; v7 -> 2.32.
+- Only the daily BTC/ETH ridge (Gen109) holds up out of sample.

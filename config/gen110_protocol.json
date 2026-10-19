@@ -1,0 +1,12 @@
+{
+  "generation": "Gen110",
+  "title": "More walk-forward ML: hourly 4-hour-horizon ridge on BTC/ETH, and the daily ridge pooled over 9 altcoins",
+  "registered": "2026-10-19, after Gen109 (daily ridge adopted as v7 candidate); no Gen110 number computed",
+  "base": "v7 candidate = v6 + Gen109 X1 ridge sleeve (perp costs)",
+  "tests": {
+    "H1 hourly ridge, BTC/ETH (PRIMARY)": "features per coin and hour (known at the hour's end): returns 1/4/24h, hourly taker imbalance 1h and 4h mean, Binance premium 1h and 4h mean, OI value change 1h/4h (zeros missing), Coinbase hourly premium (raw and 24h-mean z); target = next-4h return; pooled BTC+ETH with coin dummy; Ridge(alpha=10), refit monthly on past data only (from 2020-03, predictions from 2021-01); position for the next hour = 0.5 x mean of clip(pred/std,-1,1) over the 4 most recent hourly predictions; perp costs 5 bp + funding",
+    "A1 daily ridge pooled over 9 altcoins (PRIMARY)": "Gen108 feature set without the kimchi z (BTC/ETH only), with each coin's own Coinbase premium z: LTC XRP ADA DOGE SOL DOT AVAX LINK BCH; coin dummies; same walk-forward and position rule (0.5 x clipped prediction, scaled by 2/9 so the total budget equals the BTC/ETH sleeve); perp costs"
+  },
+  "pass": "crypto rule: DEV 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr with C* <= 0.3, AND the v7 candidate 2022-26 Sharpe rises with TEST and HOLD not lower",
+  "trials_added": 2
+}
