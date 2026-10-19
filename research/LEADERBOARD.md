@@ -487,3 +487,8 @@ Details are in `research/GEN109_ML_V6.md`.
 - **Binance-vs-Deribit funding divergence (contrarian):** 0.46 / **0.09** / 0.99.
   - v6 2.46 -> 2.53 and bf 2.25 -> 2.35 overall, but TEST fails and book TEST falls.
 - **OKX-vs-Binance perp premium momentum:** 0.32 / 0.37 / -0.65.
+
+## Gen113 (2026-10-19): sleeve allocation, rejected (4 trials)
+Details are in `research/GEN113_ALLOCATION.md`.
+- ERC (2.33 v6 / 2.13 bf), min-variance (2.11 / 1.88), 90-day inverse vol (1.82 / 1.91) and a Sharpe tilt (2.06 / 1.91) all lose to the current P1 equal-risk weights (2.46 / 2.25).
+- **P1 stays.**
