@@ -1,0 +1,23 @@
+{
+  "generation": "Gen114",
+  "title": "Futures program on Databento CME hourly (2010-06 .. 2026-09): multi-day trend+carry, Topstep-compatible session trading, CME crypto signals; CFD port only for passers",
+  "registered": "2026-10-19, before the Databento data arrived (no Gen114 number computed)",
+  "data": "research_data/databento/{ROOT}_1h.parquet, GLBX.MDP3 ohlcv-1h, .v.0 front and .v.1 second contract; returns computed within one instrument_id only (no roll jumps); days with Databento 'degraded' quality kept but checked for gaps",
+  "costs": "per side: 1 tick slippage + $0.85 commission per micro contract equivalent (MES/MNQ/M2K/MYM/MGC/SIL/MCL/M6E... for markets with micros; full contracts otherwise at $2.50); a roll costs one round trip",
+  "splits": "stand-alone futures: DEV 2010-06..2017, TEST 2018..2022, HOLD 2023..2026-09. Crypto-signal tests: DEV 2020-22, TEST 2023-24, HOLD 2025-26 (as all crypto work)",
+  "tests": {
+    "T1 trend+carry multi-day (PRIMARY, own account / swing-allowed firms)": "24 non-crypto roots; daily close = last hourly close before 21:00 UTC; trend = mean of capped vol-scaled EWMAC 16/64, 32/128, 64/256; carry = (front/second - 1) annualised with fixed roll spacing (financials 0.25y, energy 1/12y, metals and ags 1/6y), vol-scaled; forecast 0.6 trend + 0.4 carry, capped; equal risk per instrument, portfolio 15% vol target; positions traded next day",
+    "T2 intraday momentum (Topstep-compatible)": "ES NQ RTY YM GC CL ZN: sign of return from previous 16:00 ET to 10:00 ET today -> hold 15:00-16:00 ET, flat after",
+    "T3 overnight drift (Topstep-compatible, inside one trading session)": "long ES and NQ from 18:00 ET to 09:00 ET next morning, every session, flat outside",
+    "T4 T1 signal held only inside the session": "T1 positions on ES NQ ZN GC CL 6E, opened at 18:00 ET and closed at 16:00 ET each session (flat-by-close rule), full daily round-trip costs",
+    "T5 CME bitcoin basis momentum": "p = CME BTC front / Binance BTC perp - 1, 24h mean, z vs 30-day mean/std at 21:00 UTC; z > 1 long 0.5 BTC, z < -1 short 0.5; hold 1 day; Binance perp costs; crypto book rule into v6 and bf",
+    "T6 CME weekend gap fill": "gap = Binance BTC price at the CME Sunday reopen / CME Friday settle-hour close - 1; |gap| > 1% -> 0.5 position toward the gap for 24h; Binance perp costs; crypto book rule into v6 and bf"
+  },
+  "rules": {
+    "futures stand-alone (T1-T4)": "DEV > 0, TEST >= 0.5, HOLD >= 0.3 net of costs; T1 also reported at $100k with whole micro contracts (rounding) and its correlation to the v6 and bf books",
+    "crypto (T5-T6)": "standard crypto rule: DEV > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3, book 2022-26 Sharpe up with book TEST and HOLD not lower",
+    "CFD port": "only a passing T1-T4 is ported to BrightFunded CFDs (index/metal/FX specs from research_data/firm_specs) and must pass again at CFD costs including swap-free fees"
+  },
+  "firm_rules_status": "Topstep: flat by 3:10 PM CT is well supported by several secondary sources; trailing drawdown details conflict. Apex reportedly flat by 4:59 PM ET since March 2026. Tradeify reportedly allows overnight holds. All UNVERIFIED on official pages; check before any purchase",
+  "trials_added": 6
+}
