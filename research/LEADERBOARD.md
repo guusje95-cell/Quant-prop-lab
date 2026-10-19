@@ -448,3 +448,10 @@ Details are in `research/GEN105_DEMAND_COMPOSITE.md`.
   - placebo p < 0.02.
 - **Not adopted:** book TEST falls 3.45 -> 3.33, which breaks the rule.
 - **Watchlist.**
+
+## Gen106 (2026-10-19): web-sourced intraday ideas at BrightFunded costs, rejected (3 trials; `config/gen106_protocol.json`, `scripts/gen106_intraday.py`)
+- **Hourly opening order imbalance** ("Quarter-Hour Effect", arXiv 2607.09426): DEV 0.26, TEST -0.69, HOLD -1.47. Top-20% variant: -1.80 / -1.02.
+- **16:00 London fixing reversal** ("tea time", Brauneis, Mestel & Theissen 2025): -2.21 / -2.52 / -3.01.
+  - Strongly negative in every period, so the opposite (continuation after the 15:00-16:00 London move) looks positive.
+  - That observation was made on this data, so it cannot be tested on this data.
+  - **Forward-test only.** Watchlist: "fixing continuation", to be judged on fresh data from 2026-10 onward.

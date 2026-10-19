@@ -1,0 +1,14 @@
+{
+  "generation": "Gen106",
+  "title": "Web-sourced intraday ideas at BrightFunded costs: hourly opening order imbalance (Quarter-Hour Effect, 2026) and the daily 16:00 London fixing reversal (Brauneis, Mestel & Theissen 2025, 'tea time')",
+  "registered": "2026-10-19, before any Gen106 number was computed. Known before: Gen57 B5 (00:00 opening-minute taker flow, hold 8h, 5 bp) failed; Gen86 E1 (monthly CME-expiry fade) on the watchlist",
+  "costs": "BrightFunded: commission 1.2 bp per side + spread BTC 0.4 bp, ETH 2.7 bp; swap-free",
+  "split": "DEV 2020-2022 | TEST 2023-2024 | HOLD 2025-2026",
+  "tests": {
+    "I1 hourly opening imbalance (PRIMARY)": "for every hour h and coin (BTC, ETH): imb = (2 x taker buy volume - volume) / volume of the 5-minute bar h:00-h:05; position in hours h+1 .. h+4 = 0.5 x mean of sign(imb) over the four most recent hourly signals (overlapping 4h holds)",
+    "I1b variant": "only signals with |imb| above its trailing 30-day 80th percentile count (others 0)",
+    "F1 daily 16:00 London fixing reversal (PRIMARY)": "every day, BTC and ETH: at 16:00 London take -sign(return 15:00 -> 16:00 London) and hold to 18:00 London, 0.5 per coin"
+  },
+  "pass": "DEV > 0, TEST >= 0.5, HOLD >= 0.3, AND adding it to the BrightFunded CFD book raises the 2022-26 Sharpe with book TEST and HOLD not lower",
+  "trials_added": 3
+}
