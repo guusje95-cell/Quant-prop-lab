@@ -14,5 +14,6 @@
     "U8 gold Asia-session drift": "GC: long 18:00-02:00 ET every session"
   },
   "rules": "each idea: DEV > 0, TEST >= 0.5, HOLD >= 0.3 net; then a separate FUTURES BOOK from passers (Gen114 T1-T4 included) at equal risk, added only if it raises the book's TEST-period Sharpe without lowering HOLD. Topstep/Lucid compatibility (flat by close) reported for each.",
-  "trials_added": 8
+  "trials_added": 8,
+  "addendum_before_data": "2026-10-19, still before any Databento data: CME equity/commodity futures halt 17:00-18:00 ET, so 'from 18:00 ET' signals (U3) start at the last price before the halt (close of the 16:00 ET bar). Same convention in Gen114 T2/T4. Code smoke-tested on synthetic random-walk files only."
 }
