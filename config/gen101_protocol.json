@@ -1,0 +1,8 @@
+{
+  "generation": "Gen101",
+  "title": "Coinbase premium Q1 (Gen88, passed in the CFD book) in crypto-firm v6 at perp costs",
+  "registered": "2026-10-19, after Gen88 and its robustness checks (CFD costs); no perp / v6 number computed",
+  "rule": "Gen88 Q1 unchanged: daily at 00:00 UTC long a coin when its Coinbase-premium z > +1, short when z < -1, flat otherwise, hold 24h, BTC/ETH 0.5 each; perp costs 5 bp taker + real funding",
+  "pass": "crypto rule: DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3, and adding it to v6 (v5 + deleveraging bounce) raises the 2022-26 Sharpe",
+  "trials_added": 1
+}

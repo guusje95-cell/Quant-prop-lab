@@ -417,3 +417,14 @@ Details are in `research/GEN96_VALIDATION.md`.
 - **v6 at perp costs:** alt bounce DEV 2022 -0.10, TEST 1.12, HOLD 0.73; v6 2.46 -> 2.50.
   - Rejected: DEV < 0.
   - The altcoin bounce lost money in 2022 in every form tested (Gen91, Gen99), so the rule keeps it out.
+
+## Gen88 + Gen101 (2026-10-19): Coinbase premium, ADOPTED for the CFD books (4 trials)
+Details are in `research/GEN88_101_COINBASE.md`.
+
+- **The rule was registered before the data existed.**
+  - Coinbase-vs-Binance premium z > 1 -> long, z < -1 -> short, for 1 day, BTC/ETH.
+  - DEV 0.57, TEST 1.12, HOLD 0.50, corr C\* -0.04; placebo p = 0.01; clocks aligned (0.998 at lag 0).
+- **CFD book:** 1.80 -> **1.85**.
+- **Swap-free book:** 2.07 -> **2.15**.
+- **Crypto v6:** passes but adds only 0.01, so v6 is unchanged.
+- **C\* premium filter:** rejected.
