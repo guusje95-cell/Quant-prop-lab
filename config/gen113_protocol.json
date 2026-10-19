@@ -1,0 +1,14 @@
+{
+  "generation": "Gen113",
+  "title": "Sleeve allocation: replace P1 inverse-vol equal risk with correlation-aware or faster allocators (v6 and bf books)",
+  "registered": "2026-10-19, before any Gen113 number was computed",
+  "baseline": "P1 (CS.v5_weights): monthly, trailing 365 days before the month, w = 0.10 / daily vol / n_live, Weiss x0.5; same live-sleeve rules for every variant; level multiplier and 30-day vol targeting unchanged",
+  "tests": {
+    "A1 ERC (PRIMARY)": "equal risk contribution on the trailing-365-day covariance of daily sleeve returns, Ledoit-Wolf shrinkage; Weiss weight then x0.5",
+    "A2 min-variance": "long-only minimum variance on the same shrunk covariance (SLSQP, weights >= 0, sum 1); Weiss x0.5",
+    "A3 inverse-vol 90d": "P1 with a 90-day window instead of 365 (live rules still on 365 days)",
+    "A4 half Sharpe tilt": "P1 weight x (0.5 + 0.5 * s / mean(s)), s = trailing-365-day Sharpe clipped to [0, 3]; if all s = 0 use P1"
+  },
+  "rule": "a variant is adopted for a book only if that book's 2022-26 Sharpe rises AND its TEST (2023-24) and HOLD (2025-26/09) Sharpes do not fall. Judged separately for v6 (Binance perps) and bf (BrightFunded CFD). No other variants after seeing results.",
+  "trials_added": 4
+}
