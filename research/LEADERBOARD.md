@@ -508,3 +508,5 @@ Details are in `research/GEN114_121_NEW_DATA.md`.
 - **Premium carry on 60 coins (Gen80):** v6 2.458 -> 2.539, HOLD 1.90 -> 2.39, robust to 2x costs and to dropping any top coin. But v6 TEST falls 3.44 -> 3.14, so it fails the strict book rule. **Forward-test candidate.**
 - **Premium carry on 42 BrightFunded coins (Gen121):** bf 2.252 -> 2.414, HOLD 1.55 -> 2.09, but TEST 3.45 -> 3.18. Same verdict.
 - **Bounce on all altcoins (Gen112):** DEV 2022 -0.30. Rejected; per-coin means replicate (+0.74% per episode on the extra coins).
+- **Cascade on 60 coins (Gen80):** sleeve 2023-26 1.30 -> 0.90, v6 2.46 -> 2.32. Rejected.
+- **Shadow paper tests v6b and bf-b started** (premium carry breadth); v6 and bf stay the main books.

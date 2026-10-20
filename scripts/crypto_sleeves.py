@@ -68,6 +68,48 @@ def premium_weights(look=7, hold=7):
     return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
 
 
+def _breadth_universe(extra=None):
+    from qpl.lab import extra_pack as X
+    return B.coins() + (X.coins() if extra is None else list(extra))
+
+
+def _breadth_close(coins):
+    """Hourly closes of pack coins (binance_pack) and extra coins (extra_pack), cut at END."""
+    from qpl.lab import extra_pack as X
+    pk = [c for c in coins if c in B.coins()]
+    H = pd.concat([B.panel("close", "1h", pk)] + [X.close_1h(c).rename(c) for c in coins if c not in pk], axis=1)
+    return H.sort_index().loc[:END][list(coins)]
+
+
+def premium_breadth_weights(coins=None, look=7, hold=7):
+    """Gen80 breadth: the frozen Gen61 premium-carry rule on pack + extra coins (row d = decided at the close of day d)."""
+    from qpl.lab import extra_pack as X
+    coins = _breadth_universe() if coins is None else list(coins)
+    P = _breadth_close(coins).resample("1D").last()
+    prem = pd.DataFrame({c: (B.premium(c)["close"] if c in B.coins() else X.premium(c)).resample("1D").mean() for c in coins}
+                        ).reindex(P.index).rolling(look).mean()
+    listed = P.notna().cumsum() >= 60
+    rk = (-prem).where(listed).rank(axis=1, pct=True)
+    w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
+    return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
+
+
+def premium_carry_breadth(coins=None, w=None):
+    """Hourly P&L of premium carry on pack + extra coins at perp costs (5 bp taker + funding), same accounting as _from_daily_weights."""
+    from qpl.lab import extra_pack as X
+    coins = _breadth_universe() if coins is None else list(coins)
+    w = premium_breadth_weights(coins) if w is None else w
+    H = _breadth_close(coins); r = H.pct_change(fill_method=None).fillna(0.0)
+    w = w.reindex(w.index.append(pd.DatetimeIndex([w.index[-1] + pd.Timedelta(days=1)])))
+    hd = w.reindex(columns=coins).shift(1)
+    held = hd.reindex(H.index.floor("D")).set_axis(H.index).fillna(0.0)
+    turn = hd.fillna(0.0).diff().abs().sum(axis=1).reindex(H.index.floor("D")).set_axis(H.index).where(H.index.hour == 0, 0.0)
+    pk = [c for c in coins if c in B.coins()]
+    f = pd.concat([B.funding_panel(pk)] + [X.funding(c).rename(c) for c in coins if c not in pk], axis=1).sort_index()[coins]
+    f.index = f.index - pd.Timedelta(hours=1); f = f.groupby(level=0).sum().reindex(H.index).fillna(0.0)
+    return (held * r).sum(axis=1) - (held * f).sum(axis=1) - turn.fillna(0.0) * 5 / 1e4
+
+
 def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0, doi_th=0.05, positions=False, live=False,
             coins=None, maker_fee=2.0, cost_map=None):
     """Liquidation-cascade buy. live=True (paper trading): the entry fee is booked in the fill hour (known then) instead of the

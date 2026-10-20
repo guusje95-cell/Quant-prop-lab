@@ -190,3 +190,31 @@ def stablecoins(log=print):
     except Exception as e:                                       # filter falls back to neutral (x1.0) if unavailable
         log(f"  stablecoins: not updated ({e.__class__.__name__}); C* filter will be neutral for missing days")
         return False
+
+
+def update_extra(pack: Path, live: Path, coins: list[str], now: pd.Timestamp | None = None, log=print) -> dict:
+    """Extra coins (Gen80 breadth, research_data/binance_extra format): hourly klines, funding, hourly premium index, into live/."""
+    live.mkdir(parents=True, exist_ok=True)
+    now = pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)
+    c = Client(); n = {"1h": 0, "funding": 0, "premium": 0}
+    for coin in coins:
+        sym = f"{coin}USDT"
+        last = _last_time(pack, live, f"{sym}_1h.parquet", None)
+        start = (last + pd.Timedelta(hours=1)) if last is not None else now - pd.Timedelta(days=60)
+        k = _klines(c, f"{FAPI}/fapi/v1/klines", sym, "1h", start, now)[["open", "high", "low", "close", "volume", "quote_volume"]].astype("float32")
+        n["1h"] += _append(live / f"{sym}_1h.parquet", k)
+        last = _last_time(pack, live, f"{sym}_funding.parquet", "time")
+        start = (last + pd.Timedelta(minutes=1)) if last is not None else now - pd.Timedelta(days=60)
+        d = c.get(f"{FAPI}/fapi/v1/fundingRate", {"symbol": sym, "startTime": _ms(start), "limit": 1000})
+        if d:
+            f = pd.DataFrame({"funding_interval_hours": 8, "last_funding_rate": [float(x["fundingRate"]) for x in d],
+                              "time": pd.to_datetime([int(x["fundingTime"]) for x in d], unit="ms")})
+            n["funding"] += _append(live / f"{sym}_funding.parquet", f[f.time <= now], key="time")
+        last = _last_time(pack, live, f"{sym}_premium_1h.parquet", "time")
+        start = (last + pd.Timedelta(hours=1)) if last is not None else now - pd.Timedelta(days=60)
+        p = _klines(c, f"{FAPI}/fapi/v1/premiumIndexKlines", sym, "1h", start, now)
+        if len(p):
+            p = p.reset_index().rename(columns={"index": "time"})
+            n["premium"] += _append(live / f"{sym}_premium_1h.parquet", p, key="time")
+    log(f"  {len(coins)} extra coins: data up to date")
+    return n

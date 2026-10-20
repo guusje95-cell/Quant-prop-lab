@@ -1,0 +1,25 @@
+{
+  "name": "SHADOW paper test v6b: v6 with premium carry on 60 coins (Gen80 breadth)",
+  "registered": "2026-10-20, before the first v6b paper hour; runs side by side with v6, which stays the main book",
+  "what": "Identical to v6 except the premium-carry sleeve uses the frozen Gen61 rule on the 20 pack coins + 40 extra Binance USD-M coins (research_data/binance_extra; live data for the extra coins from Binance public endpoints). Shadow test because Gen80 passed its own registered rule but failed the strict book rule (v6 TEST 2023-24 3.44 -> 3.14). Simulation only.",
+  "frozen": {
+    "account": 100000,
+    "risk": 1.0,
+    "firm": "HyroTrader One-Step $100k",
+    "daily_stop": "flat for the rest of the UTC day once the day's loss reaches 50% of the firm's daily loss limit (2% at HyroTrader 1-Step), exit 10 bp worse",
+    "costs": "as in research: C* 7.5 bp, premium carry / trend / Weiss 5 bp taker, cascade 2 bp maker entry + 5 bp exit, real funding; deleveraging bounce 5 bp taker + funding",
+    "booking": "cascade entry fee in the fill hour and Weiss legs as each bar closes (live=True); same totals as research",
+    "v6b_scale": 0.888,
+    "v6b_scale_note": "0.15 / realised vol of the point-in-time v6b series 2022-26 (0.8880, computed 2026-10-20)"
+  },
+  "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
+  "gate": {
+    "minimum": "56 days of paper results and at least 2 Weiss expiry events",
+    "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
+    "operations": "late or missed hours <= 5% of hours; no data errors",
+    "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v6b 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
+    "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises.",
+    "shadow_decision": "after >= 56 days: v6b replaces v6 only if its paper result is not worse than v6's over the same hours (difference of daily means >= 0) AND it reconciles; otherwise it is dropped"
+  },
+  "changes": []
+}

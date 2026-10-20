@@ -51,6 +51,15 @@ All tests were pre-registered before the data arrived (Gen114, Gen115, Gen80, Ge
   - It **fails the stricter standing book rule** (since Gen105), because v6 book TEST falls 3.44 -> 3.14.
   - Not adopted into v6. Forward-test candidate.
 
+### Gen80 cascade part: strict-limit cascade on 60 coins
+| | sleeve 2020-22 / 23-24 / 25-26 | 2023-26 | v6 2022-26 |
+|---|---|---|---|
+| 20 coins (current) | 0.40 / 1.73 / 0.79 | 1.30 | 2.458 |
+| 60 coins, max 3 open | 0.23 / 1.54 / 0.21 | 0.90 | 2.318 |
+| 60 coins, max 5 open (registered variant) | 0.12 / 1.59 / 0.12 | 0.91 | 2.249 |
+
+**Verdict:** rejected. More coins dilute the cascade: the extra coins' events are weaker, and they take the 3 slots.
+
 ### Gen112: deleveraging bounce on all altcoins
 - **G1 sleeve:** -0.30 / 1.27 / 0.83 (DEV 2022 negative, as on the 20-coin alts before). Rejected.
 - **G2 hit table:** 4,888 episodes on extra coins, 2-day mean +0.74%, 50% positive. The mean replicates the pack alts (+0.71%, 52%), but it is noisy.
@@ -68,3 +77,10 @@ All tests were pre-registered before the data arrived (Gen114, Gen115, Gen80, Ge
 - 16 new trials. Nothing passes the strict book rule.
 - **Premium carry on more coins** is the strongest new candidate on both books: 2022-26 +0.08 (v6) and +0.16 (bf), HOLD +0.5.
 - Its 2023-24 book Sharpe falls, so under our own rules it stays a candidate for a forward (paper) test, not an adoption.
+
+## Shadow paper tests started (2026-10-20)
+- **v6b** (`config/paper_v6b.json`): v6 with premium carry on 60 coins.
+- **bf-b** (`config/paper_bfb.json`): the bf book with premium carry on 42 BrightFunded coins.
+- **Backtest reference files** were made by the paper trader itself (`results/cache_v6b_final.parquet` 2.539, `cache_bfb_final.parquet` 2.414), identical to the research numbers.
+- **Breadth mode trades only premium carry on the new coins:** C* stays on the original 11 CFD coins in bf-b. Without that, C* would have picked up BNB.
+- **Decision rule:** after >= 56 days, a shadow book replaces its main book only if it is not worse over the same hours and it reconciles.

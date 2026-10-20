@@ -1,4 +1,4 @@
-"""Paper trading of crypto portfolio v5 (config/paper_v5.json) or v6 (config/paper_v6.json; set QPL_PAPER=v6).
+"""Paper trading of crypto portfolio v5 (config/paper_v5.json), v6, bf, or the shadow books v6b/bfb (config/paper_<VER>.json; set QPL_PAPER).
 Simulation only: public market data, no keys, no orders. v5 and v6 run side by side, each in its own folder.
 
   python scripts/paper_v5.py run          # once: update data, freeze the newly completed hours, write book + status
@@ -24,16 +24,29 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
-VER = os.environ.get("QPL_PAPER", "v5")                   # "v5" or "v6" (v6 = v5 + deleveraging bounce, Gen90)
+VER = os.environ.get("QPL_PAPER", "v5")                   # "v5", "v6" (v5 + deleveraging bounce, Gen90), "bf" (CFD book), and the
+BREADTH = VER in ("v6b", "bfb")                            # shadow books "v6b"/"bfb": premium carry on more coins (Gen80 / Gen121)
+if VER == "bfb":
+    os.environ["QPL_BREADTH"] = "1"                        # read by cfd_book (also in the child processes)
 CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER == "v6" else [])
-if VER == "bf":                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b") else [])
+CFDBOOK = VER in ("bf", "bfb")
+if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
     SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "bf": "results/cache_bf_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+                   "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
+
+
+def extra_coins() -> list[str]:
+    """Extra Binance coins the shadow book reads (none for v5/v6/bf)."""
+    if not BREADTH:
+        return []
+    from qpl.lab import extra_pack as X
+    return X.coins() if VER == "v6b" else [c for c in X.BF_NEW if c in X.coins()]
 STOP_FRACTION = CFG["frozen"].get("stop_fraction", 0.5)
 
 
@@ -57,6 +70,8 @@ def _end_of(path: Path, kind: str):
         return None
     if kind == "5m":
         return pd.DatetimeIndex(pd.read_parquet(path, columns=["close"]).index).max() + pd.Timedelta(minutes=5)
+    if kind == "1h":
+        return pd.DatetimeIndex(pd.read_parquet(path, columns=["close"]).index).max() + pd.Timedelta(hours=1)
     if kind == "premium":
         return pd.to_datetime(pd.read_parquet(path, columns=["time"])["time"]).max() + pd.Timedelta(hours=1)
     if kind == "oi":
@@ -74,8 +89,13 @@ def data_cutoff(live: bool) -> pd.Timestamp:
                            (f"{coin}USDT_metrics.parquet", "oi")):
             e = [x for x in (_end_of(PACK / name, kind), _end_of(DATA / name, kind) if live else None) if x is not None]
             ends.append(max(e))
+    for coin in extra_coins():                             # shadow books: extra coins' hourly klines and premium
+        for name, kind in ((f"{coin}USDT_1h.parquet", "1h"), (f"{coin}USDT_premium_1h.parquet", "premium")):
+            e = [x for x in (_end_of(ROOT / "research_data/binance_extra" / name, kind), _end_of(DATA / "extra" / name, kind) if live else None)
+                 if x is not None]
+            ends.append(max(e))
     cut = min(ends).floor("h")
-    if VER == "bf":                                        # Coinbase candles count once their hour is over
+    if CFDBOOK:                                        # Coinbase candles count once their hour is over
         for prod in ("BTC-USD", "ETH-USD"):
             e = [pd.read_parquet(p).index.max() + pd.Timedelta(hours=1) for p in
                  (ROOT / f"research_data/coinbase/{prod}_1h.parquet", DATA / "coinbase" / f"{prod}_1h.parquet") if p.exists() and (live or "research" in str(p))]
@@ -99,16 +119,17 @@ def set_env(cutoff: pd.Timestamp, live: bool):
 
 # ---------------------------------------------------------------- compute (call after set_env, in a fresh process)
 def compute():
-    if VER == "bf":
+    if CFDBOOK:
         return compute_bf()
     import crypto_sleeves as CS
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END)
-    cw = CS.cstar_weights(); pw = CS.premium_weights()
+    cw = CS.cstar_weights(); pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights()
     cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
     tr, tpos = CS.trend4h(positions=True)
     we, wpos = CS.weiss_expiry(positions=True)
-    cols = {"C*": CS._from_daily_weights(cw, B.MAJ10, 7.5), "premium carry": CS._from_daily_weights(pw, B.coins(), 5),
+    cols = {"C*": CS._from_daily_weights(cw, B.MAJ10, 7.5),
+            "premium carry": CS.premium_carry_breadth(w=pw) if BREADTH else CS._from_daily_weights(pw, B.coins(), 5),
             "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}
     if "delev bounce" in SLEEVES:
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
@@ -254,7 +275,9 @@ def cmd_run(a):
         except BP.Restricted as e:
             log_event("DATA_REFUSED", msg=str(e)); print(e); return 2
         BP.stablecoins()
-        if VER == "bf":
+        if extra_coins():
+            BP.update_extra(ROOT / "research_data/binance_extra", DATA / "extra", extra_coins(), now=utcnow())
+        if CFDBOOK:
             from qpl.live import coinbase_public as CB
             for prod in ("BTC-USD", "ETH-USD"):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")

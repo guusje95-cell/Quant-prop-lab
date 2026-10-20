@@ -1,0 +1,26 @@
+{
+  "name": "SHADOW paper test bf-b: BrightFunded CFD book with premium carry on 42 BrightFunded coins (Gen121)",
+  "registered": "2026-10-20, before the first bf-b paper hour; runs side by side with bf, which stays the main CFD book",
+  "what": "Hourly forward test of the CFD book: C* (swap-aware), premium carry (CFD coins), trend 4h, Weiss expiry, deleveraging bounce, Coinbase premium; P1 equal risk, 30-day vol targeting. BrightFunded conditions from the MT5 export and support: commission 0.012% per side, spread BTC 0.4 / ETH 2.7 / altcoins 10 bp (assumed), swap-free (all instruments, +10% fee), crypto leverage 1:5 (gross exposure capped at 5x at the paper risk). Prices: Binance perps as the CFD proxy (Dukascopy/Binance correlation 0.94-0.96, Gen77). Simulation only.",
+  "frozen": {
+    "account": 100000,
+    "risk": 1.5,
+    "firm": "BrightFunded Two-Step Classic $100k",
+    "stop_fraction": 0.6,
+    "daily_stop": "flat for the rest of the UTC day once the day's loss reaches 60% of the 5% daily loss limit (3%), exit 10 bp worse (Gen79 setting)",
+    "costs": "commission 1.2 bp per side + spread (BTC 0.4, ETH 2.7, altcoins 10 bp); no swap (swap-free add-on)",
+    "booking": "every sleeve as hourly positions x hourly returns; Weiss legs in their bars",
+    "bfb_scale": 0.886,
+    "bfb_scale_note": "0.15 / realised vol 2022-26 of the uncapped point-in-time bf-b book (0.8855, computed 2026-10-20)"
+  },
+  "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
+  "gate": {
+    "minimum": "56 days of paper results and at least 2 Weiss expiry events",
+    "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
+    "operations": "late or missed hours <= 5% of hours; no data errors",
+    "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = the BrightFunded book 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
+    "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises.",
+    "shadow_decision": "after >= 56 days: bf-b replaces bf only if its paper result is not worse than bf's over the same hours AND it reconciles; otherwise it is dropped"
+  },
+  "changes": []
+}

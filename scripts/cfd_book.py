@@ -14,6 +14,11 @@ from qpl.lab import binance_pack as B
 
 ROOT = Path(__file__).resolve().parents[1]
 CFD = ["BTC", "ETH", "LTC", "XRP", "ADA", "DOGE", "SOL", "DOT", "AVAX", "LINK", "BCH"]
+CFD_BASE = list(CFD)                                       # every sleeve except premium carry trades only these
+BREADTH = os.environ.get("QPL_BREADTH") == "1"             # bf-b shadow book (Gen121): premium carry on all BrightFunded-listed coins
+if BREADTH:
+    from qpl.lab.extra_pack import BF_NEW
+    CFD = CFD + BF_NEW
 SPREAD = pd.Series({c: (0.4 if c == "BTC" else 2.7 if c == "ETH" else 10.0) for c in CFD})
 COMM = 1.2
 LEVERAGE_CAP = 5.0
@@ -33,7 +38,7 @@ def coinbase(product):
 
 
 def hourly_returns(end):
-    H1 = B.panel("close", "1h", CFD).loc[:end]
+    H1 = (CS._breadth_close(CFD) if BREADTH else B.panel("close", "1h", CFD)).loc[:end]
     return H1.pct_change(fill_method=None).fillna(0.0)
 
 
@@ -46,10 +51,12 @@ def d2h(w, idx):
 def cstar_w():
     cw = CS.cstar_weights().copy()
     a = cw.abs(); m = a.where(a > 0).mean(axis=1)
-    return cw.where(a.ge(m * 0.5, axis=0), 0.0).reindex(columns=CFD).fillna(0.0)
+    return cw.where(a.ge(m * 0.5, axis=0), 0.0).reindex(columns=CFD_BASE).reindex(columns=CFD).fillna(0.0)
 
 
 def premium_carry_w(look=7, hold=7):
+    if BREADTH:
+        return CS.premium_breadth_weights(CFD, look, hold).reindex(columns=CFD).fillna(0.0)
     P = B.panel("close", "1D", CFD)
     prem = pd.DataFrame({c: B.premium(c)["close"].resample("1D").mean() for c in CFD}).reindex(P.index).rolling(look).mean()
     listed = P.notna().cumsum() >= 60
