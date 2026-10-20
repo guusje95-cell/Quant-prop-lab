@@ -1,194 +1,194 @@
 {
- "for_hour_utc": "2026-10-20 18:00:00",
- "made_at_utc": "2026-10-20 18:08:25.788609",
- "data_cutoff_utc": "2026-10-20 18:00:00",
- "equity": 99425.64,
+ "for_hour_utc": "2026-10-20 19:00:00",
+ "made_at_utc": "2026-10-20 19:08:46.502455",
+ "data_cutoff_utc": "2026-10-20 19:00:00",
+ "equity": 99392.63,
  "risk": 1.0,
  "target_notional_usd": {
-  "1000SHIB": -1545.88,
-  "1INCH": -1545.88,
-  "ALGO": -1545.88,
-  "ADA": -1545.88,
-  "APE": -1545.88,
-  "CHZ": -1545.88,
-  "COMP": -1545.88,
-  "AXS": -1545.88,
-  "BNB": -1545.88,
-  "IOTA": -1545.88,
-  "IMX": -1545.88,
-  "HBAR": -1545.88,
-  "EGLD": -1545.88,
-  "ENJ": -1545.88,
-  "DYDX": -1545.88,
-  "CRV": -1545.88,
-  "ZEC": -1545.88,
-  "XTZ": -1545.88,
-  "WLD": -1545.88,
-  "THETA": -1545.88,
-  "DOT": 447.23,
-  "ETH": 1545.88,
-  "AVAX": 1545.88,
-  "ATOM": 1545.88,
-  "LTC": 1545.88,
-  "DASH": 1545.88,
-  "LDO": 1545.88,
-  "LINK": 1545.88,
-  "AAVE": 1545.88,
-  "1000PEPE": 1545.88,
-  "ARB": 1545.88,
-  "BCH": 1545.88,
-  "XRP": 1545.88,
-  "SAND": 1545.88,
-  "MANA": 1545.88,
-  "NEO": 1545.88,
-  "TRX": 1545.88,
-  "STX": 1545.88,
-  "XLM": 1545.88,
-  "SNX": 1545.88,
-  "BTC": 2532.69
+  "1000SHIB": -1545.37,
+  "1INCH": -1545.37,
+  "ALGO": -1545.37,
+  "ADA": -1545.37,
+  "APE": -1545.37,
+  "CHZ": -1545.37,
+  "COMP": -1545.37,
+  "AXS": -1545.37,
+  "BNB": -1545.37,
+  "IOTA": -1545.37,
+  "IMX": -1545.37,
+  "HBAR": -1545.37,
+  "EGLD": -1545.37,
+  "ENJ": -1545.37,
+  "DYDX": -1545.37,
+  "CRV": -1545.37,
+  "ZEC": -1545.37,
+  "XTZ": -1545.37,
+  "WLD": -1545.37,
+  "THETA": -1545.37,
+  "DOT": 447.08,
+  "ETH": 1545.37,
+  "AVAX": 1545.37,
+  "ATOM": 1545.37,
+  "LTC": 1545.37,
+  "DASH": 1545.37,
+  "LDO": 1545.37,
+  "LINK": 1545.37,
+  "AAVE": 1545.37,
+  "1000PEPE": 1545.37,
+  "ARB": 1545.37,
+  "BCH": 1545.37,
+  "XRP": 1545.37,
+  "SAND": 1545.37,
+  "MANA": 1545.37,
+  "NEO": 1545.37,
+  "TRX": 1545.37,
+  "STX": 1545.37,
+  "XLM": 1545.37,
+  "SNX": 1545.37,
+  "BTC": 2531.85
  },
  "by_sleeve_usd": {
   "1000PEPE": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "1000SHIB": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "1INCH": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "AAVE": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "ADA": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "ALGO": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "APE": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "APT": {},
   "ARB": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "ATOM": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "AVAX": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "AXS": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "BCH": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "BNB": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "BTC": {
-   "C*": 986.81,
-   "premium carry": 1545.88
+   "C*": 986.48,
+   "premium carry": 1545.37
   },
   "CHZ": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "COMP": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "CRV": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "DASH": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "DOGE": {},
   "DOT": {
-   "C*": 447.23
+   "C*": 447.08
   },
   "DYDX": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "EGLD": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "ENJ": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "ETC": {},
   "ETH": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "FIL": {},
   "GALA": {},
   "GRT": {},
   "HBAR": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "ICP": {},
   "IMX": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "INJ": {},
   "IOTA": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "KSM": {},
   "LDO": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "LINK": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "LTC": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "MANA": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "NEAR": {},
   "NEO": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "OP": {},
   "RUNE": {},
   "SAND": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "SNX": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "SOL": {},
   "STX": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "SUI": {},
   "SUSHI": {},
   "THETA": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "TIA": {},
   "TRX": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "UNI": {},
   "WLD": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "XLM": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "XRP": {
-   "premium carry": 1545.88
+   "premium carry": 1545.37
   },
   "XTZ": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "YFI": {},
   "ZEC": {
-   "premium carry": -1545.88
+   "premium carry": -1545.37
   },
   "ZIL": {}
  },
