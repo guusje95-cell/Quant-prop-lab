@@ -106,6 +106,8 @@ PRESETS = {
                                                "$495 from aggregators; cadence 14d, costs ASSUMED; reset 22:00 UTC", cost_bps=7.5, reset_hour_utc=22),
     "BrightFunded Two-Step Classic $100k": Firm("Bright 2-Step Classic", 100_000, 495, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
                                                 "fee ASSUMED = Bright", cost_bps=7.5, reset_hour_utc=22),
+    "BrightFunded Two-Step Classic $200k": Firm("Bright 2-Step Classic 200k", 200_000, 757, (0.10, 0.05), 0.05, "initial", True, 0.10, "static", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
+                                                "Classic 2.0 $200k: EUR 697.90 promo (EUR 997 regular), user-verified 2026-10; rules as $100k", cost_bps=7.5, reset_hour_utc=22),
     "BrightFunded One-Step $100k": Firm("Bright 1-Step", 100_000, 495, (0.10,), 0.03, "initial", True, 0.06, "trailing", True, 5, 0, 0.80, 14, 0.0, True, 0.0,
                                         "fee ASSUMED; 6% trailing (modelled without lock = conservative)", cost_bps=7.5, reset_hour_utc=22),
     "Topstep 50k Combine (futures)": Firm("Topstep 50k", 50_000, 49, (0.06,), 0.0, "initial", True, 0.04, "trailing_lock", False,

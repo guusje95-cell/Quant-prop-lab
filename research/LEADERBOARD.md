@@ -856,3 +856,14 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen244, overnight reversal of closing pressure (against the QQQ imbalance, NQ):** from 16:00 to 09:30: 0.65 / 0.03 / 0.53; from 18:00 to 09:30: 0.45 / 0.08 / 0.38. Positive in every period, but **2021-23 is below the 0.3 bar. Fails (near-miss).**
 - **Gen243, confirmation on SPY -> ES (NYSE Arca closing imbalance, same rule, no re-selection):** -1.81 / -1.38 / -0.85 (gross -0.32). **NOT confirmed.** Gen242 (QQQ) is most likely chance; the closing-auction sleeve is not adopted. (Flipping the sign would not help: gross +0.32 is below costs.)
 - **Gen245, ridge-lite (Binance-only features):** sleeve 0.09 / 0.55 / 0.97 (full ridge 0.11 / 1.28 / 1.36); v6 + lite 2.425 with TEST 3.316 < 3.435. **Fails.** The Coinbase / kimchi premium, DVOL and stablecoin features carry the ridge's 2023-24 value, so live v7 needs those feeds.
+
+## Paper traders v7 and bf2 (2026-10-20): live versions of the adopted books
+- **v7** (`QPL_PAPER=v7`, `paper_v7_start.bat`, `config/paper_v7.json`): v6 + ridge ML, HyroTrader 2-Step $200k, risk 2.0, daily stop 2.5%, scale 0.881.
+  - Live ridge `scripts/ridge_live.py` reproduces `results/gen108_preds.parquet` exactly (max diff 0) and gives identical weights when the data is cut at 4 moments (no look-ahead).
+  - Kimchi feature (Gen105 strict): Yahoo USD/KRW dated by London day, previous day's close; reproduces `gen105_zk_strict` exactly. A Yahoo bar that is still forming is overridden by the finished (London-midnight) bar.
+  - The paper code reproduces v7: **2.534 / TEST 3.493 / HOLD 2.240**. Self-test PASSED (15 cutoffs, max difference 2e-18).
+- **bf2** (`QPL_PAPER=bf2`, `paper_bf2_start.bat`, `config/paper_bf2.json`): bf + ridge ML + index sleeve (P6 + R1 + P1), BrightFunded Classic $200k, risk 2.0, daily stop 2.5%, scale 0.904.
+  - `scripts/index_sleeve.py` reproduces Gen234's P6 + R1 + P1 exactly; uncapped the paper code gives Gen234's **2.378 / 3.699 / 2.118**. With the real 1:5 crypto leverage cap at risk 2.0: 2.370 / 3.682 / 2.118.
+  - Self-test PASSED, including cutoffs around the 14:00 / 16:00 ET index entries.
+- New live feeds (run on the user's PC): `src/qpl/live/ml_feeds.py` (Upbit, USD/KRW, Deribit DVOL; DVOL tested from the cloud: it replaces the research file's still-forming last bar) and `src/qpl/live/index_feed.py` (Dukascopy hour candles + same-day hourly tick files; not testable from the cloud because of throttling).
+- Note: the bf2 index CFDs carry swap at BrightFunded (US100 long -910 points per lot per day in the MT5 export); the backtest assumes the swap-free add-on. **Verify that swap-free covers the index CFDs**, or the P6 overnight long pays swap.
