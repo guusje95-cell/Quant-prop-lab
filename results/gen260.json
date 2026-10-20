@@ -1,0 +1,36 @@
+{
+ "A DE40 opening range 2018-19": -0.763,
+ "A DE40 opening range (bf2)": {
+  "sleeve D/T/H": [
+   0.502,
+   -1.421,
+   0.126
+  ],
+  "bf2": [
+   2.263,
+   [
+    1.013,
+    3.137,
+    2.046
+   ]
+  ],
+  "pass": false
+ },
+ "B US500+US30 pre-market range 2018-19": 0.097,
+ "B US500+US30 pre-market range (bf2)": {
+  "sleeve D/T/H": [
+   0.118,
+   -0.123,
+   -0.434
+  ],
+  "bf2": [
+   2.18,
+   [
+    0.386,
+    3.585,
+    1.682
+   ]
+  ],
+  "pass": false
+ }
+}

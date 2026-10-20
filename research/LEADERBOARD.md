@@ -911,3 +911,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 | C NR7 breakout (BTC/ETH, 5-minute fills) | 1.73 / -0.40 / -0.33 | 2.370 | 1.83 / -0.22 / -0.13 | 2.320 | fails (edge gone after 2022) |
 | D Asian-range breakout (BTC/ETH) | 0.85 / -0.23 / 1.51 | 2.326 | 1.11 / 0.19 / 1.91 | 2.278 | fails (TEST) |
 - **Session tally (Gen246-259): 27 pre-registered trials on existing data, none passes.**
+- **Gen260, session-range breakouts on index CFDs (5-minute, 2018+):** DE40 30-minute opening range 2018-19 -0.76, then 0.50 / -1.42 / 0.13, bf2 2.263; US500+US30 pre-market range 0.10, then 0.12 / -0.12 / -0.43, bf2 2.180. **Both fail.**
+- **Session tally (Gen246-260): 29 pre-registered trials on existing data, none passes.**
