@@ -1,0 +1,9 @@
+{
+  "generation": "Gen222",
+  "title": "Grain weather-risk premium: long ZC/ZS/ZW from Apr 15 to Jun 30 (growing-season uncertainty)",
+  "registered": "2026-10-20, before any Gen222 number",
+  "rule": "long ZC, ZS, ZW 0.10 / vol / 3 each on Apr 15 - Jun 30, flat otherwise; daily_book costs",
+  "selection": "single setting; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.240",
+  "trials_added": 1
+}
