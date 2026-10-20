@@ -1,0 +1,12 @@
+{
+  "generation": "Gen178",
+  "title": "Earnings-season premium (Savor and Wilson 2016) and lunar cycle (Dichev and Janes 2003), equity index futures",
+  "registered": "2026-10-20, before any Gen178 number",
+  "families": {
+    "EA long ES/NQ/RTY/YM 0.25 each": "{whole months Jan/Apr/Jul/Oct; days >= 8 of those months (peak announcement weeks)}",
+    "LU long ES/NQ/RTY/YM 0.25 each within +-7 calendar days of a new moon (mean synodic month 29.530588 d from 2000-01-06 18:14 UTC)": "one setting"
+  },
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrants; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 3
+}

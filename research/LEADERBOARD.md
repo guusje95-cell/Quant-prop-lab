@@ -666,3 +666,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - DE40 -0.44 / 0.33 / 0.58, EU50 -0.51 / 0.74 / 0.51, UK100 -0.32 / -0.02 / 0.48, JP225 0.46 / 0.10 / 1.72.
   - Combined leg -0.31 / 0.36 / 1.07; book 2.331 but TEST 3.673 and HOLD 1.853. **Fails.**
 - **Gen176 (2 trials):** post-winter HO crack -0.39 / 0.36; small-cap January effect -0.42 / 0.03. Rejected.
+- **Gen177, book vol estimator (walk-forward, 5 trials):** 2018-22: R20 1.25, E30 1.22, MIX 1.20, R60 1.18, R120 1.13. Chosen R20 -> 2023-26 **1.075 < 1.102. Not adopted.**
