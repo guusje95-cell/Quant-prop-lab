@@ -537,3 +537,14 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **News-minute continuation and gap fade:** rejected on both futures and CFD data (consistent).
 - **Noise-area breakout on real futures:** ES+NQ primary 0.92 / 1.17 / 0.16, so rejected (HOLD). The NQ component alone is 1.05 / 1.07 / 0.88 (11% a year at 11% vol, max DD -9%, corr v6 0.05). Choosing NQ afterwards is selection, so it is pre-registered for an out-of-sample check on unseen NQ 2010-2017 data (Gen126).
 - **ORB 5-minute and month-end pension rebalancing:** rejected.
+
+## Gen126-127 (2026-10-20): NQ out-of-sample, multi-sleeve futures/CFD round (9 trials)
+- **Gen126, NQ noise-area on unseen 2010-17 data:** net -0.45 (both halves negative), so **rejected**. Gross it is +0.82; at 0.5 bp it is 0.48. The edge is real but thin; NQ's lower prices before 2018 made costs 1.9 bp per side.
+- **Gen127 results:**
+  - P1 IBS reversal, index futures: 0.00 / 0.68 / 0.16
+  - P2 gold/silver: -0.04 / -1.06 / -0.37
+  - P3 gasoline crack: -0.20 / 0.51 / -0.15
+  - P5 Baltussen last half hour: 0.41 / -0.02 / -2.25
+  - P7 IBS on index CFDs: - / 0.63 / 0.08
+  - P8 Nasdaq-vs-S&P style momentum: -0.17 / 0.03 / -0.56
+- **P4 Brent-WTI reversion on Dukascopy CFDs: 0.63 / 0.73 / 0.73 (passes).** But Dukascopy WTI contains roll gaps (21 bp median deviation from roll-safe CME on roll days), so it is **not accepted** until the clean CME BZ/CL test (Gen128).
