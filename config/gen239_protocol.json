@@ -1,0 +1,10 @@
+{
+  "generation": "Gen239",
+  "title": "Overnight return predicts the last half hour (index futures literature), intraday-flat compatible",
+  "registered": "2026-10-20, before any Gen239 number",
+  "rule": "1-minute ES/NQ: overnight return = price at 09:30 (open of the 09:30 bar) / 16:00 close of the previous session - 1 (same contract); if |overnight| > k x 20-day sd of overnight returns, take sign(overnight) from the 15:30 bar open to the last price before 16:00; 0.5 per index; 2 x cost_frac",
+  "grid": "k {0, 0.5}",
+  "selection": "better on 2018-20 + 2021-23 pooled (ES+NQ)",
+  "pass": "ES+NQ 2018-20 > 0, 2021-23 >= 0.3, 2024-26 >= 0.3 AND NQ 2010-17 > 0",
+  "trials_added": 2
+}
