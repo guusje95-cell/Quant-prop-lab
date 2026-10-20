@@ -1,0 +1,9 @@
+{
+  "generation": "Gen245",
+  "title": "Ridge-lite: the Gen108 walk-forward ridge with Binance-only features (live-feasible), as the v7 ML sleeve",
+  "registered": "2026-10-20, before any Gen245 number",
+  "why": "the Gen108 ridge also uses Coinbase premium, kimchi premium (Upbit + USD/KRW), Deribit DVOL and stablecoin caps; five live sources are fragile. Ridge-lite drops zc, zk, dvol1, stab",
+  "model": "identical to Gen108 otherwise: features r1/r3/r7/r30, vol7/vol30, fund1/fund7, prem, oi1/oi7, imb, is_eth; target next-day return; Ridge(alpha=10) refit monthly on data before the month (from 2020-03), standardised, prediction / sd of in-sample predictions clipped to +-1; position 0.5 x prediction per coin, held next day, Binance perp costs 5 bp + funding",
+  "pass": "sleeve D/T/H > 0 / >= 0.8 / >= 0.5 (crypto rule) AND strict rule vs v6 (as Gen109); reported next to the full ridge (v7). If it passes and v6 + ridge-lite >= 0.95 x v7 on 2022-26, ridge-lite is used for live paper trading of v7",
+  "trials_added": 1
+}
