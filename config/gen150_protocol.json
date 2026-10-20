@@ -1,0 +1,9 @@
+{
+  "generation": "Gen150",
+  "title": "Overnight R1 on US index CFDs as a bf + P6 sleeve",
+  "registered": "2026-10-20, before any Gen150 number",
+  "why": "Gen149 set 2 (CFDs) passed on its own; Gen149's follow-up condition required both sets, which failed, so this is a separate, additional trial",
+  "sleeve": "US100, US500, US30 Dukascopy hourly on the bf grid; signal on 15:00 ET prices (close of the 14:00 bar), IBS range from bars 09:00-14:00; long 0.25 x mean indicator from the bar opening at 16:00 ET until the bar opening at 10:00 ET next day; 1 bp per side (also 2 bp reported)",
+  "pass": "sleeve D/T/H (2020-22/23-24/25-26) > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs bf + P6 (2.302; TEST 3.691, HOLD 1.849)",
+  "trials_added": 1
+}
