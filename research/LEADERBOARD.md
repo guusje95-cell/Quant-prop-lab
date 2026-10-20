@@ -792,3 +792,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Chosen on 2022-24: 1.5 / 1.0. On 2025-26: net $15.2k but P(profit) 0.80, vs 1.0 / 0.5 at $8.2k and 0.91 (half-mean stress 0.69 vs 0.71).
   - **Not adopted** (Gen230 rule: P(profit) may drop by at most 0.02). The index-CFD book stays at 1.0 / 0.5; its edge is too thin for more risk.
 - **Gen232, P1 long-only IBS on US100/US500 CFDs (16:00 ET) in the bf index sleeve:** leg **1.18 / 1.22 / 1.08**; bf 2.326 -> 2.350, TEST 3.719, but **HOLD 1.864 < 1.883. Fails (near-miss).**
+- **Gen233, index-CFD book + P1 CFD leg:** fit 1.11, 2023-24 **1.168 < 1.247**, 2025-26 0.986 < 0.988. Fails. Gen201 stays.
