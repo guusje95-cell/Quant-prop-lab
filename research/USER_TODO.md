@@ -1,7 +1,7 @@
 # To do on your PC (when home)
 
-1. **Extra futures roots** (Ultra bonds UB/TN, Nikkei NKD, MidCap EMD): double-click `get_futures_extra.bat`.
-   - It shows the Databento cost first; it only downloads if the cost is at most the amount you type (~$50 credit left).
+1. **Extra futures roots** (priority order: UB ultra bond, NKD Nikkei, PL platinum, TN ultra 10y, EMD MidCap): double-click `get_futures_extra.bat`.
+   - It shows the Databento cost per root first, then downloads roots in that order while the running total stays within the amount you type (~$50 credit left).
    - Then: `git pull --no-edit`, `git add research_data/databento`, `git commit -m "databento extra roots"`, `git push`.
 2. **VIX / VXN / VVIX history** (free, CBOE): double-click `get_vix_data.bat`.
    - Then: `git pull --no-edit`, `git add research_data/more2`, `git commit -m "vix data"`, `git push`.

@@ -32,6 +32,7 @@ def symbols():
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--download", action="store_true"); ap.add_argument("--max-cost", type=float, default=0.0)
     ap.add_argument("--minute", action="store_true", help="1-minute bars, front contract only, for --roots from --start (intraday research)")
+    ap.add_argument("--priority", action="store_true", help="download --roots in the given order while the running total stays <= --max-cost (skip the rest)")
     ap.add_argument("--roots", nargs="*", default=None, help="minute mode: default ES NQ GC CL; hourly mode: default all ROOTS"); ap.add_argument("--start", default="2018-01-01"); ap.add_argument("--end", default=None)
     a = ap.parse_args()
     global SCHEMA, START, ROOTS, END
@@ -46,14 +47,21 @@ def main():
         sys.exit("Set DATABENTO_API_KEY first (see get_futures_data.bat). Do not paste the key anywhere else.")
     import databento as db
     client = db.Historical(key)
-    total = 0.0
+    total = 0.0; cost = {}
     for r in ROOTS:
         c = client.metadata.get_cost(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous")
-        total += c; print(f"{r:4s} ${c:8.2f}", flush=True)
+        total += c; cost[r] = c; print(f"{r:4s} ${c:8.2f}", flush=True)
     print(f"TOTAL quoted cost: ${total:.2f}  (check your free credit on databento.com -> Billing)")
     if not a.download:
         print("Cost check only; nothing downloaded."); return
-    if total > a.max_cost:
+    if a.priority:
+        run, keep = 0.0, []
+        for r in ROOTS:
+            if run + cost[r] <= a.max_cost:
+                run += cost[r]; keep.append(r)
+        print(f"Priority mode: downloading {keep} for ${run:.2f}; skipped {[r for r in ROOTS if r not in keep]}")
+        ROOTS = keep
+    elif total > a.max_cost:
         sys.exit(f"Quoted ${total:.2f} is above --max-cost {a.max_cost:.2f}: nothing downloaded.")
     OUT.mkdir(parents=True, exist_ok=True)
     for r in ROOTS:
