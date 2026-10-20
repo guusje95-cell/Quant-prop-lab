@@ -4,6 +4,7 @@ The API key is read from the DATABENTO_API_KEY environment variable only: never 
 
     python -m qpl.live.databento_futures                 # COST CHECK ONLY (free, downloads nothing)
     python -m qpl.live.databento_futures --download --max-cost 20
+    python -m qpl.live.databento_futures --minute                     # cost check for 1-minute bars (ES NQ GC CL, 2018+)
         downloads only if the quoted total is <= --max-cost dollars (set it to what your free credit covers).
 
 Data: GLBX.MDP3 (CME Globex, from 2010-06-06), hourly OHLCV, volume-rolled continuous front (.v.0) and second (.v.1) contract
@@ -30,7 +31,12 @@ def symbols():
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--download", action="store_true"); ap.add_argument("--max-cost", type=float, default=0.0)
+    ap.add_argument("--minute", action="store_true", help="1-minute bars, front contract only, for --roots from --start (intraday research)")
+    ap.add_argument("--roots", nargs="*", default=["ES", "NQ", "GC", "CL"]); ap.add_argument("--start", default="2018-01-01")
     a = ap.parse_args()
+    global SCHEMA, START, ROOTS
+    if a.minute:
+        SCHEMA, START, ROOTS = "ohlcv-1m", a.start, a.roots
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
         sys.exit("Set DATABENTO_API_KEY first (see get_futures_data.bat). Do not paste the key anywhere else.")
@@ -38,7 +44,7 @@ def main():
     client = db.Historical(key)
     total = 0.0
     for r in ROOTS:
-        c = client.metadata.get_cost(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous")
+        c = client.metadata.get_cost(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous")
         total += c; print(f"{r:4s} ${c:8.2f}", flush=True)
     print(f"TOTAL quoted cost: ${total:.2f}  (check your free credit on databento.com -> Billing)")
     if not a.download:
@@ -47,13 +53,16 @@ def main():
         sys.exit(f"Quoted ${total:.2f} is above --max-cost {a.max_cost:.2f}: nothing downloaded.")
     OUT.mkdir(parents=True, exist_ok=True)
     for r in ROOTS:
-        f = OUT / f"{r}_1h.parquet"
+        f = OUT / (f"{r}_1m.parquet" if a.minute else f"{r}_1h.parquet")
         if f.exists():
             print(f"{r}: exists, skipped"); continue
-        data = client.timeseries.get_range(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous")
+        data = client.timeseries.get_range(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"],
+                                           schema=SCHEMA, stype_in="continuous")
         df = data.to_df()
         df = df.reset_index()[["ts_event", "symbol", "open", "high", "low", "close", "volume", "instrument_id"]]
-        df.to_parquet(f, index=False); print(f"{r}: {len(df)} rows", flush=True)
+        if a.minute:                                   # keep files well under GitHub's 100 MB limit
+            df = df.astype({c: "float32" for c in ("open", "high", "low", "close")}).astype({"volume": "int32", "symbol": "category"})
+        df.to_parquet(f, index=False, compression="zstd"); print(f"{r}: {len(df)} rows, {f.stat().st_size / 1e6:.0f} MB", flush=True)
     print("Done.")
 
 
