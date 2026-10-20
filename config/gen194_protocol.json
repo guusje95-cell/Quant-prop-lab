@@ -1,0 +1,10 @@
+{
+  "generation": "Gen194",
+  "title": "Treasury butterfly mean reversion (ZF vs ZT/ZN, vol-neutral legs)",
+  "registered": "2026-10-20, before any Gen194 number",
+  "rule": "unit-vol leg returns u_x = r_x / vol_x (60d, lagged); fly s = u_ZF - 0.5 u_ZT - 0.5 u_ZN; index I = cumsum(s); z = (I - mean_L(I)) / sd_L(I); position p = -clip(z / 2, -1, 1) when |z| > th else 0, decided at the close and held from the next day (1-day lag); weights ZF p x 0.05/vol, ZT/ZN -p x 0.025/vol; daily_book costs",
+  "grid": "L {20, 60} x th {1.0, 1.5}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.143",
+  "trials_added": 4
+}
