@@ -1,0 +1,10 @@
+{
+  "generation": "Gen173",
+  "title": "Overnight-only holding of the equity calendar sleeves (T1, T2, FC, MM)",
+  "registered": "2026-10-20, before any Gen173 number",
+  "why": "US equity index returns accrue mostly overnight (Cliff, Cooper and Gulen 2008; Kelly and Clark 2011); R1 excluded (its window was examined in Gen148)",
+  "variants": {"full": "current: close of d-1 to close of d (daily_book)", "night": "hourly roll-safe: from 16:00 ET on the trading day before an active day d to 09:00 ET on d (close of the 15:00 bar to close of the 08:00 bar), same 0.25 per index; 2 x cost_frac per round trip"},
+  "selection": "variant with the higher 2010-06..2022-12 Sharpe of the equal-weighted sum of the four sleeves",
+  "judgement": "if night is chosen it replaces the four sleeves; ONE evaluation 2023-26 vs 1.102; adopt only if higher",
+  "trials_added": 2
+}
