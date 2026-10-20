@@ -45,11 +45,28 @@ def main():
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
         sys.exit("Set DATABENTO_API_KEY first (see get_futures_data.bat). Do not paste the key anywhere else.")
+    import time
     import databento as db
     client = db.Historical(key)
+
+    def retry(fn, what):
+        for k in range(5):                                  # Databento sometimes answers 504 (gateway timeout): wait and retry
+            try:
+                return fn()
+            except Exception as e:                          # noqa: BLE001 (BentoServerError and network errors)
+                if k == 4 or "50" not in str(e)[:4] and "timed out" not in str(e):
+                    raise
+                print(f"  {what}: {str(e)[:60]} - waiting {30 * (k + 1)} s and retrying", flush=True); time.sleep(30 * (k + 1))
+
+    def outfile(r):
+        return OUT / ((f"{r}_1m_{START[:4]}_{int(END[:4]) - 1}.parquet" if a.end else f"{r}_1m.parquet") if a.minute else f"{r}_1h.parquet")
+    done = [r for r in ROOTS if outfile(r).exists()]
+    if done:
+        print("Already downloaded (skipped, not charged again):", done)
+    ROOTS = [r for r in ROOTS if r not in done]
     total = 0.0; cost = {}
     for r in ROOTS:
-        c = client.metadata.get_cost(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous")
+        c = retry(lambda: client.metadata.get_cost(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"], schema=SCHEMA, stype_in="continuous"), f"cost {r}")
         total += c; cost[r] = c; print(f"{r:4s} ${c:8.2f}", flush=True)
     print(f"TOTAL quoted cost: ${total:.2f}  (check your free credit on databento.com -> Billing)")
     if not a.download:
@@ -68,8 +85,8 @@ def main():
         f = OUT / ((f"{r}_1m_{START[:4]}_{int(END[:4]) - 1}.parquet" if a.end else f"{r}_1m.parquet") if a.minute else f"{r}_1h.parquet")
         if f.exists():
             print(f"{r}: exists, skipped"); continue
-        data = client.timeseries.get_range(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"],
-                                           schema=SCHEMA, stype_in="continuous")
+        data = retry(lambda: client.timeseries.get_range(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"],
+                                                         schema=SCHEMA, stype_in="continuous"), f"download {r}")
         df = data.to_df()
         df = df.reset_index()[["ts_event", "symbol", "open", "high", "low", "close", "volume", "instrument_id"]]
         if a.minute:                                   # keep files well under GitHub's 100 MB limit
