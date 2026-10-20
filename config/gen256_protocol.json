@@ -1,0 +1,10 @@
+{
+  "generation": "Gen256",
+  "title": "Vol-managed long BTC/ETH (the P6 rule transferred to crypto)",
+  "registered": "2026-10-20, before any Gen256 number",
+  "rule": "per coin (BTC, ETH): weight = 0.5 x min(1, 0.40 / (20-day realised daily vol x sqrt(365))), decided at 00:00 UTC from data to the previous day's close, held the next day; v7: perps 5 bp + funding; bf2: CFD costs",
+  "why": "Moreira-Muir: scaling exposure down when volatility is high raises the Sharpe of a long position; it worked for US indices in bf (P6); crypto beta is not in v7 as a dedicated sleeve",
+  "pass": "v7: sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule; bf2: sleeve DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
