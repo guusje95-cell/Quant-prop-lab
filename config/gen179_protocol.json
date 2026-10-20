@@ -1,0 +1,10 @@
+{
+  "generation": "Gen179",
+  "title": "Realized skewness from hourly returns, cross-section of 26 futures (Amaya, Christoffersen, Jacobs and Vasquez 2015)",
+  "registered": "2026-10-20, before any Gen179 number",
+  "rule": "RSK = sqrt(N) * sum(r^3) / (sum(r^2))^1.5 over the hourly roll-safe returns of the past L trading days; every Friday close rank roots; long the n most negative, short the n most positive, inverse-vol (35d), held the next week; daily_book costs",
+  "grid": "L {5, 21} x n {4, 6}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrant; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 4
+}
