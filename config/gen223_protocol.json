@@ -1,0 +1,10 @@
+{
+  "generation": "Gen223",
+  "title": "Trend sleeves without equity indices: G1 (TSMOM) and U5 (XS momentum) on the 22 non-equity roots",
+  "registered": "2026-10-20, before any Gen223 number",
+  "variants": {"G1": "{26 roots (current), 22 non-equity}", "U5": "{26 roots (current), 22 non-equity (5 per side instead of 6)}"},
+  "mechanics": "Gen140/143 chosen settings otherwise (G1 126 days; U5 252 days); replacements get the same Gen221 sleeve vol targeting as the current versions",
+  "selection": "per sleeve the higher 2010-06..2022-12 Sharpe; replaced only if the non-equity version wins",
+  "judgement": "ONE evaluation 2023-26 of the EQR book vs 1.240",
+  "trials_added": 4
+}
