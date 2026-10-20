@@ -1,0 +1,9 @@
+{
+  "generation": "Gen182",
+  "title": "F3 month-end Treasury demand weighted to refunding months (larger index extension)",
+  "registered": "2026-10-20, before any Gen182 number",
+  "variants": {"flat": "current F3 (Gen140 k)", "refund": "same k, size x1.6 in Feb/May/Aug/Nov and x0.7 in other months (average size about unchanged)", "refund-only": "only Feb/May/Aug/Nov, size x2"},
+  "selection": "best on 2010-06..2022-12; replaces F3 only if not flat",
+  "judgement": "ONE evaluation 2023-26 of the book vs 1.102",
+  "trials_added": 3
+}

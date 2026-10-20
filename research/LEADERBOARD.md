@@ -670,3 +670,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen178, earnings-season months / lunar cycle (3 trials):** EA whole months 0.87 / 0.50 and lunar 0.57 / 0.21 both enter, but the book drops to **0.938 < 1.102** (extra equity beta). Not adopted.
 - **Gen179, realized skewness XS from hourly returns (4 trials):** best L=21, n=4: 0.43 / 0.17 enters, but the book drops to **1.084 < 1.102**. Not adopted.
 - **Gen180, hourly big-move continuation in Treasuries (4 trials):** all negative (best -0.38 / -0.23). The convexity flow works at the daily horizon (BC), not hourly. Rejected.
+- **Gen181, dash for cash: short equities before month end (3 trials):** -0.32 / -0.77 at best. Rejected.
