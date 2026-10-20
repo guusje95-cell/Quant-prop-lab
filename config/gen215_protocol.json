@@ -1,0 +1,9 @@
+{
+  "generation": "Gen215",
+  "title": "K3 pension rebalancing on ES+NQ instead of ES only",
+  "registered": "2026-10-20, before any Gen215 number (K3 has never been computed on NQ)",
+  "variants": {"ES": "current K3 (5 days, ES vs ZN month to date, 0.15 / ES vol)", "ESNQ": "same signal (ES vs ZN), position split 50/50 ES and NQ, each 0.15 / own vol x 0.5"},
+  "selection": "higher 2010-06..2022-12 Sharpe",
+  "judgement": "if ESNQ, replaces K3; ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 2
+}
