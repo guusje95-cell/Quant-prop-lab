@@ -732,3 +732,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Prop (2023-26-only bootstrap, 50k swing, ASSUMED terms):
     - 0.5 / 0.5: P(profit) 0.98, net 2y $5.2k (p10 +$1.5k).
     - 1.0 / 0.5: P(profit) 0.94, net 2y $6.8k (p10 +$0.9k).
+- **Gen213, cascade limit buys on ES/NQ (crypto transfer; 4 trials):** best 0.14 / 0.64 (2.0 sd, next-close exit). Does not enter.
