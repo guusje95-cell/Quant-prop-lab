@@ -1,0 +1,12 @@
+{
+  "generation": "Gen168",
+  "title": "bf: merge index effects into the P6 sleeve (one combined index sleeve) instead of separate sleeves",
+  "registered": "2026-10-20, before any Gen168 number",
+  "variants": {
+    "M1": "P6 + R1 CFD (Gen147 version: US100/US500/US30, 14:00 ET fill, 24h, 1 bp)",
+    "M2": "P6 + calendar long US100/US500 (0.5 each) on T1 (2 before / 3 after month turn), T2 (session before NYSE holiday), FC (FOMC weeks 2/4/6), MM (15th +-1); a day counts once; ET trade dates (17:00 roll); 1 bp",
+    "M3": "P6 + R1 CFD + calendar"
+  },
+  "pass": "strict bf rule vs bf + P6 (2.302; TEST 3.691, HOLD 1.849): 2022-26 Sharpe up, TEST and HOLD not lower. If several pass, the highest 2022-26 Sharpe",
+  "trials_added": 3
+}

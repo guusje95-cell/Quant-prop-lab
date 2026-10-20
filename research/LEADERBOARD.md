@@ -644,3 +644,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen166, seasonal energy spreads (2 trials):**
   - **Autumn heating-oil crack (long HO / short CL, Aug-Oct): 0.45 / 0.32 (2010-17 0.37, 2018-22 0.59), enters.** Spring gasoline crack 0.10 / 0.09, no.
   - **Book 2023-26 1.041 -> 1.102 (2010-17 1.63, 2018-22 1.56). Adopted, 14 sleeves.**
+- **Gen167, seasonals (2 trials):** grain harvest pressure 0.17 / -0.22; gasoline grade switch -0.06 / 0.10. Rejected.
