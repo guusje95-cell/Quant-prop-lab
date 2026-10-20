@@ -799,3 +799,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **New bf (Gen234) with the Gen230 settings (2.0 / 1.5 / stop 0.5), 2025-26 bootstrap:**
   - **Net 2y $62.1k** (p10 $34.3k, P(profit) 0.998), vs old bf $54.5k with the same settings and $36.9k with the old settings.
   - Half-mean stress: $22.6k, P(profit) 0.88.
+- **Diagnostic, crypto execution costs:** C* at 7.5 / 4 / 2 bp gives v7 2.534 / 2.554 / 2.565. Maker execution adds at most ~0.03; not a material lever.
+  - Per-sleeve D/T/H: C* 2.03 / 2.32 / **0.60** (decayed in 2025-26), premium carry 0.87 / 0.68 / 1.15, cascade 0.40 / 1.73 / 0.79, trend 4h 0.77 / 1.43 / 0.44, Weiss 0.47 / 1.64 / 0.62, delev bounce 0.51 / 1.03 / 0.65, ridge 0.11 / 1.28 / 1.36. v7's HOLD comes from diversification.
+- **Gen235, P1 overnight-only vs 24h:** tune 0.29 vs 0.68. 24h kept (unlike R1, P1's edge is not overnight).
