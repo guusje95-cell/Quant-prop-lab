@@ -681,3 +681,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen187, oil timing on BTC/ETH as a v7 sleeve:** sleeve 0.67 / 0.71 / 0.11; v7 2.472, TEST 3.381, HOLD 2.132. **Fails.**
 - **Gen188, commodity MAX / idiosyncratic vol XS (4 trials):** MAX best 0.10 / 0.65; IVOL best 0.29 / 0.54 (just below the 0.3 bar). Nothing enters.
 - **Gen189, short-rate (ZT) equity timing (2 trials):** best L=63 0.64 / 0.36 enters, but the book drops to **1.061 < 1.137**. Not adopted.
+- **Gen190, weight caps / 1/N (walk-forward, 5 trials):** 2018-22 with 2010-17 weights: SW 0.99, CAP20 0.99, CAP12 0.98, **EQR 1.25**, EW 1.11.
+  - **Chosen EQR (1/sd over sleeves with positive fit Sharpe) -> 2023-26 1.143 vs 1.137. Adopted.** The out-of-sample gain is small, but the walk-forward margin is large.
+  - **Construction is now EQR (scripts/fbook.py); entrants from Gen191 are judged against 1.143.**
