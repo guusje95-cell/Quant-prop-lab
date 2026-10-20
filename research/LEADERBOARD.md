@@ -585,3 +585,13 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - J5 leveraged-ETF rebalancing on big days: -0.06 / -1.14 / -1.16
   - J8c daily pre-FOMC ES 2010-26: 0.21 / 0.21 / -0.53
   - **All rejected.**
+
+## Gen145-146 (2026-10-20): classic families; the equity dip-buying ensemble enters
+- **Gen145 (19 trials), none enter (best tune 2010-22 / 2023-26):** value XS 5y -0.21 / -0.73; seasonality XS -0.10 / -0.34; multi-speed EWMAC trend 0.23 / -0.44; 52-week high 0.10 / 0.10; continuous carry 0.11 / -0.41.
+- **Gen146 (13 trials):**
+  - **R1 reversal ensemble on ES/NQ/RTY/YM** (mean of RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3; long only, next-close exit): **0.68 / 1.09**. Per index (2023-26): ES 1.21, NQ 1.34, RTY 0.76, YM 0.62.
+  - T1 turn of month (2 before, 3 after): 0.35 / 0.36.
+  - T2 pre-holiday (1 session): 0.35 / 0.41.
+  - **Book (Gen143 + R1, T1, T2) 2023-26: 0.825 > 0.674, adopted.**
+- **Execution check (results/gen146_exec.json):** with a 1-day delay R1 collapses (0.13 / 0.55), so the edge needs entry near the close. Computing the signal **and filling at 14:00 ET** from hourly data (24h hold) gives **0.49 / 1.11** (12:00 1.13, 15:00 1.17, 16:00 1.32 out of sample). **The book with the executable 14:00 R1: 2010-17 1.49, 2018-22 1.31, 2023-26 0.815.** That is the number to quote.
+- **Current futures book: 10 sleeves (F3, F5, G1, P1, A3, U5, K3, R1@14:00, T1, T2); out of sample 2023-26 0.815.**

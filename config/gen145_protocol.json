@@ -1,0 +1,15 @@
+{
+  "generation": "Gen145",
+  "title": "Classic futures families not yet tested: value, seasonality, multi-speed trend, 52-week high, continuous carry; nested 2010-22 tuning, one 2023-26 judgement",
+  "registered": "2026-10-20, before any Gen145 number",
+  "grids": {
+    "V1 value cross-section (Asness, Moskowitz and Pedersen 2013): score = -log(PX / mean PX 4.5-5.5y ago); 24 roots": "horizon years {3, 5} x names per side {4, 6}",
+    "S1 return seasonality cross-section (Keloharju, Linnainmaa and Nyberg 2016): score = mean return of next calendar month over past N years; 24 roots": "N {5, 10} x names per side {4, 6}",
+    "E1 multi-speed EWMAC trend (continuous, vol-scaled, forecast capped +-2), 24 roots": "speeds {fast: 8/32+16/64, slow: 32/128+64/256, all four}",
+    "W1 52-week-high cross-section (George and Hwang 2004 for futures): score = PX / 252-day max": "names per side {4, 6}",
+    "C5 continuous carry (front vs second, annualised, vol-scaled forecast, capped), commodities + rates + equity + FX roots with near_far": "smoothing days {1, 21, 63}"
+  },
+  "selection": "per family the best setting on 2010-06..2022-12; it enters only if that Sharpe > 0.3",
+  "judgement": "book = Gen143 book sleeves (7) + entrants, Sharpe-weighted on 2010-22, 10% vol target; ONE evaluation 2023-26 vs 0.674; adopt only if higher",
+  "trials_added": 19
+}
