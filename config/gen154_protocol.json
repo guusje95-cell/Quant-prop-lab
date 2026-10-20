@@ -1,0 +1,10 @@
+{
+  "generation": "Gen154",
+  "title": "Intraday return periodicity (Heston, Korajczyk and Sadka 2010) on 26 futures, hourly; nested",
+  "registered": "2026-10-20, before any Gen154 number",
+  "rule": "per root and ET hour-of-day bar: t = mean / (sd / sqrt(n)) of that hour's roll-safe returns over the previous N trading days (strictly before today); hold sign(t) for that hour's bar when |t| > k; size 0.10 / (hourly vol x sqrt(24 x 252)) / 26 per root (60-day hourly vol); cost = cost_frac per unit turnover",
+  "grid": "N {20, 60, 250} x k {0, 1, 2}",
+  "selection": "best on 2010-06..2022-12 (daily-summed P&L); enters only if > 0.3",
+  "judgement": "book = Gen146 executable book (10 sleeves) + entrant, Sharpe-weighted on 2010-22; ONE evaluation 2023-26 vs 0.815",
+  "trials_added": 9
+}
