@@ -1,0 +1,4 @@
+test,DEV,TEST,HOLD,pass,trades,mean per trade bp
+J1 08:30 continuation [futures 1m],0.535,-0.314,-0.73,False,530,-0.98
+J2 14:00 continuation [futures 1m],-0.809,-0.82,0.029,False,325,-14.03
+J3 RTH gap fade [futures 1m],0.824,-0.982,0.762,False,2020,0.76

@@ -32,11 +32,13 @@ def symbols():
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--download", action="store_true"); ap.add_argument("--max-cost", type=float, default=0.0)
     ap.add_argument("--minute", action="store_true", help="1-minute bars, front contract only, for --roots from --start (intraday research)")
-    ap.add_argument("--roots", nargs="*", default=["ES", "NQ", "GC", "CL"]); ap.add_argument("--start", default="2018-01-01")
+    ap.add_argument("--roots", nargs="*", default=["ES", "NQ", "GC", "CL"]); ap.add_argument("--start", default="2018-01-01"); ap.add_argument("--end", default=None)
     a = ap.parse_args()
-    global SCHEMA, START, ROOTS
+    global SCHEMA, START, ROOTS, END
     if a.minute:
         SCHEMA, START, ROOTS = "ohlcv-1m", a.start, a.roots
+        if a.end:
+            END = a.end
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
         sys.exit("Set DATABENTO_API_KEY first (see get_futures_data.bat). Do not paste the key anywhere else.")
@@ -53,7 +55,7 @@ def main():
         sys.exit(f"Quoted ${total:.2f} is above --max-cost {a.max_cost:.2f}: nothing downloaded.")
     OUT.mkdir(parents=True, exist_ok=True)
     for r in ROOTS:
-        f = OUT / (f"{r}_1m.parquet" if a.minute else f"{r}_1h.parquet")
+        f = OUT / ((f"{r}_1m_{START[:4]}_{int(END[:4]) - 1}.parquet" if a.end else f"{r}_1m.parquet") if a.minute else f"{r}_1h.parquet")
         if f.exists():
             print(f"{r}: exists, skipped"); continue
         data = client.timeseries.get_range(dataset=DATASET, start=START, end=END, symbols=[f"{r}.v.0"] if a.minute else [f"{r}.v.0", f"{r}.v.1"],

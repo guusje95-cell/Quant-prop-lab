@@ -531,3 +531,9 @@ Details are in `research/GEN122_123_FUTURES.md`.
   - J2 14:00 continuation: -0.82 / -0.81 / -0.11
   - J3 RTH gap fade: 0.92 / -1.08 / 0.82
 - **Verdict:** J1 and J2 already fail the registered rule, which requires a non-negative CFD replication. The futures 1-minute run follows when the data arrives.
+
+## Gen124-126 (2026-10-20): intraday futures on 1-minute ES/NQ
+Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
+- **News-minute continuation and gap fade:** rejected on both futures and CFD data (consistent).
+- **Noise-area breakout on real futures:** ES+NQ primary 0.92 / 1.17 / 0.16, so rejected (HOLD). The NQ component alone is 1.05 / 1.07 / 0.88 (11% a year at 11% vol, max DD -9%, corr v6 0.05). Choosing NQ afterwards is selection, so it is pre-registered for an out-of-sample check on unseen NQ 2010-2017 data (Gen126).
+- **ORB 5-minute and month-end pension rebalancing:** rejected.

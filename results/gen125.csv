@@ -1,0 +1,10 @@
+test,DEV,TEST,HOLD,pass
+K1 noise-area breakout ES+NQ (PRIMARY),0.924,1.171,0.159,False
+K1 noise-area ES (component),0.629,1.056,-0.765,False
+K1 noise-area NQ (component),1.052,1.068,0.875,True
+K1 at half-tick cost (report only),1.041,1.308,0.305,True
+K2 5-minute ORB ES+NQ,0.267,0.564,-0.66,False
+K2 ORB ES (component),-0.482,0.278,-1.466,False
+K2 ORB NQ (component),0.864,0.692,0.232,False
+K2 at half-tick cost (report only),0.45,0.738,-0.436,False
+K3 month-end pension rebalancing (ES),0.448,0.052,0.814,False

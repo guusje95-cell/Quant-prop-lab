@@ -1,0 +1,10 @@
+{
+  "generation": "Gen126",
+  "title": "Out-of-sample validation of the NQ noise-area breakout on 2010-2017 NQ 1-minute data (never used before)",
+  "registered": "2026-10-20, after Gen125 (NQ component 1.05 / 1.07 / 0.88; the ES+NQ primary failed HOLD), BEFORE the 2010-2017 data was downloaded",
+  "why": "NQ alone was chosen after seeing Gen125, which is selection. An untouched earlier period is the honest check. Caveat: Gen47 saw US100 CFD 15-minute bars 2013-2018 (0.62 before 2018-09 at 1 bp), so only 2010-06..2013-07 is fully unseen; 2013-2017 was seen in a different instrument and resolution",
+  "data": "Databento GLBX.MDP3 ohlcv-1m, NQ.v.0, 2010-06-06 .. 2018-01-01 -> research_data/databento/NQ_1m_2010_2017.parquet",
+  "test": "exactly the Gen125 K1 code (NoiseAreaMomentum paper defaults, 5-minute bars from 1-minute, proportional back-adjust at rolls), cost = futures_db.cost_frac at the median 2010-17 NQ price (1 tick + $0.85 MNQ commission)",
+  "pass": "net Sharpe >= 0.5 over 2010-06..2017-12 AND positive in both halves (2010-06..2013-12, 2014-01..2017-12) AND positive in 2010-06..2013-07 (the fully unseen part). Pass -> the NQ noise-area becomes a futures paper-trading candidate (Topstep/Lucid). Fail -> rejected, no further variants",
+  "trials_added": 1
+}
