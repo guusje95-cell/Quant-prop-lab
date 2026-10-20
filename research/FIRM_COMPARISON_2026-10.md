@@ -227,3 +227,11 @@ Only BTC is cheap to hold, at about 6%/yr. ETH is about 105%/yr; XRP about 280%/
   - 4-sleeve standard: 1.24;
   - swap-free 4-sleeve / 6-sleeve: 2.08 / 2.25.
 - **Still unanswered:** whether a swap-free add-on covers crypto, its price, and whether EAs are allowed.
+
+## Update 2026-10-20: BrightFunded commission per deal (MT5 symbol spec)
+- **What MT5 shows:** the symbol specification (screenshot of a low-priced crypto CFD: contract size 1, margin 20% = 1:5, swap -3.47 points) says "Commission: 0.024% in USD per lot, directly on deal volume, per deal". "Per deal" can mean 0.024% on EACH side, which is twice the 0.012% per side we used (from support: "0.024% round trip").
+- **Impact if it is per side (2.4 bp instead of 1.2 bp):**
+  - bf: 2.252 -> 2.187 (TEST 3.45 -> 3.38, HOLD 1.55 -> 1.48)
+  - bf-b: 2.414 -> 2.346
+  - Return falls by about 1.1 percentage points a year.
+- **Conclusion:** small. Settle it with one demo round trip in MT5: open and close 1 lot and read the two commission lines in the History tab.
