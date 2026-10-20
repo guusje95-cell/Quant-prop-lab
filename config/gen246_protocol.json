@@ -1,0 +1,19 @@
+{
+  "generation": "Gen246",
+  "title": "Two new crypto/CFD improvements: (A) ridge with cross-asset features, (B) vol-managed international index CFDs in bf2",
+  "registered": "2026-10-20, before any Gen246 number",
+  "A_ridge_plus": {
+    "model": "Gen108 ridge unchanged (features, alpha=10, monthly walk-forward refit from 2020-03, prediction / in-sample sd clipped +-1, position 0.5 x prediction) plus two features known at 00:00 UTC of day d+1: vix1 = VIX close(d) / VIX close(previous trading day) - 1 (CBOE close 16:15 ET; 0 on non-trading days), spx1 = US500 CFD return over UTC day d (Dukascopy hourly closes, 0 on closed days)",
+    "why": "crypto has traded as a risk asset since 2020; the previous US session's risk-off moves may carry into the next crypto day. Gen227 used VIX only as a level overlay (failed); a daily change as a ridge input is untested",
+    "evaluation": "v7: replace the ridge sleeve with ridge+ (perp costs). bf2: replace the ridge sleeve with ridge+ (CFD costs). Sleeve bars D 2021-22 > 0, TEST >= 0.8 (v7) / 0.5 (bf2), HOLD >= 0.5 / 0.3; strict rule: book 2022-26 up AND TEST and HOLD not lower than v7 (2.534 / 3.494 / 2.240) or bf2 uncapped (2.378 / 3.699 / 2.118)",
+    "trials_added": 1
+  },
+  "B_P6_international": {
+    "rule": "P6 recipe (0.5 x 0.15 / 20-day realised vol, cap 2, decided the previous day, hourly positions) on DE40, UK100 and JP225 CFDs, each leg scaled by 2/3 so the three legs together carry about the risk of the two P6 legs; 2 bp per unit turnover (wider spreads than US indices); added to the merged 'vol-managed indices' sleeve of bf2",
+    "why": "Gen175 tested only the R1 dip rule abroad; the vol-managed long (P6) was the strongest bf index leg and non-US equity beta is a further diversifier for a crypto book",
+    "pass": "leg D 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118)",
+    "caveat": "BrightFunded charges swap on index CFDs in the MT5 export; like bf2 this assumes the swap-free add-on covers them",
+    "trials_added": 1
+  },
+  "no_changes_after_results": true
+}

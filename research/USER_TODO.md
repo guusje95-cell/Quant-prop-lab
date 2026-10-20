@@ -1,5 +1,15 @@
 # To do on your PC (when home)
 
+**NEW - start the two new paper traders (simulation only, no keys, no orders):**
+   - `git pull --no-edit` first.
+   - Double-click `paper_v7_start.bat` (crypto v7 = v6 + ridge ML, HyroTrader 2-Step $200k rules, risk 2.0, daily stop 2.5%).
+   - Double-click `paper_bf2_start.bat` (new BrightFunded book bf2 = bf + ridge ML + US100/US500/US30 index sleeve, $200k, risk 2.0).
+   - Leave both windows open (PC awake). Each installs scikit-learn once if missing. The first run catches up the market data
+     (Upbit, USD/KRW, Deribit DVOL, Coinbase; bf2 also Dukascopy index bars) and can take a few minutes.
+   - If Dukascopy throttles you, bf2 waits at most 1 hour per bar and then continues; the reconciliation later shows any effect.
+   - Once a week: `paper_v7_share.bat` and `paper_bf2_share.bat` (pushes ledger/status, not market data).
+   - The old v5/v6/bf traders can keep running side by side; they are not changed.
+
 0. **Intraday-edge data (new):**
    - a. Double-click `get_squeeze_dix.bat` (free SqueezeMetrics GEX/DIX). If it fails, open https://squeezemetrics.com/monitor/static/DIX.csv in your browser and save it as `research_data\more2\squeeze_dix.csv`. Push it.
    - b. Double-click `get_databento_quotes.bat`: it only PRINTS prices (order flow, top of book, 1-second bars, ES options for gamma exposure). Downloads nothing, costs nothing. Send Claude the printed prices.

@@ -1,4 +1,4 @@
-"""Paper trading of crypto portfolio v5 (config/paper_v5.json), v6, bf, or the shadow books v6b/bfb (config/paper_<VER>.json; set QPL_PAPER).
+"""Paper trading of crypto portfolio v5 (config/paper_v5.json), v6, v7 (v6 + ridge ML, Gen109), bf, or the shadow books v6b/bfb (config/paper_<VER>.json; set QPL_PAPER).
 Simulation only: public market data, no keys, no orders. v5 and v6 run side by side, each in its own folder.
 
   python scripts/paper_v5.py run          # once: update data, freeze the newly completed hours, write book + status
@@ -32,12 +32,18 @@ CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b") else [])
-CFDBOOK = VER in ("bf", "bfb")
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7") else []) \
+    + (["ridge ML"] if VER == "v7" else [])
+RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
+CFDBOOK = VER in ("bf", "bfb", "bf2")
 if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
     SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
+    if VER == "bf2":                                   # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
+        SLEEVES += ["ridge ML", "vol-managed indices"]
+    RIDGE = "ridge ML" in SLEEVES
+INDEX = "vol-managed indices" in SLEEVES
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -95,11 +101,15 @@ def data_cutoff(live: bool) -> pd.Timestamp:
                  if x is not None]
             ends.append(max(e))
     cut = min(ends).floor("h")
-    if CFDBOOK:                                        # Coinbase candles count once their hour is over
+    if CFDBOOK or RIDGE:                               # Coinbase candles count once their hour is over
         for prod in ("BTC-USD", "ETH-USD"):
             e = [pd.read_parquet(p).index.max() + pd.Timedelta(hours=1) for p in
                  (ROOT / f"research_data/coinbase/{prod}_1h.parquet", DATA / "coinbase" / f"{prod}_1h.parquet") if p.exists() and (live or "research" in str(p))]
             cut = min(cut, max(e).floor("h"))
+    if INDEX:                                          # index CFD bars: wait at most one hour for a late Dukascopy bar (closed market: go on)
+        last = max(max(pd.read_parquet(p).index.max() for p in (ROOT / f"research_data/dukascopy/{s}_1h.parquet", DATA / "dukascopy" / f"{s}_1h.parquet")
+                       if p.exists() and (live or "research" in str(p))) for s in ("US100", "US500", "US30"))
+        cut = min(cut, max(last + pd.Timedelta(hours=1), cut - pd.Timedelta(hours=1)))
     spot = [x for x in (_end_of(ROOT / "data/processed/crypto/binance_spot_majors_1d.parquet", "spot"),
                         _end_of(DATA / "binance_spot_majors_1d.parquet", "spot") if live else None) if x is not None]
     day_ok = max(spot)                                     # daily bars complete up to here
@@ -133,6 +143,9 @@ def compute():
             "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}
     if "delev bounce" in SLEEVES:
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
+    if RIDGE:
+        import ridge_live as RL
+        rw = RL.ridge_weights(); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
     h1 = END + pd.Timedelta(hours=1)
     Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])          # makes the next day's weights computable
@@ -150,6 +163,9 @@ def compute():
     if "delev bounce" in SLEEVES:
         prev = bw.loc[:d - pd.Timedelta(days=1)]
         expo["delev bounce"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    if RIDGE:
+        prev = rw.loc[:d - pd.Timedelta(days=1)]
+        expo["ridge ML"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -182,12 +198,20 @@ def compute_bf():
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END); h1 = END + pd.Timedelta(hours=1)
     R, pos, daily = CB.positions()
-    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in SLEEVES}).fillna(0.0).loc[:END]
+    CSL = [s for s in SLEEVES if s != "vol-managed indices"]                          # crypto CFD sleeves
+    if RIDGE:
+        import ridge_live as RL
+        pos["ridge ML"] = CB.d2h(RL.ridge_weights().reindex(columns=CB.CFD).fillna(0.0), pos["C*"].index)
+    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL})
+    if INDEX:
+        import index_sleeve as IS
+        ipos, ipnl = IS.sleeve(pos["C*"].index); pos["vol-managed indices"] = ipos; H["vol-managed indices"] = ipnl.reindex(R.index)
+    H = H[SLEEVES].fillna(0.0).loc[:END]
     Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])
     ph0, W, mult = CS.portfolio_v5(Hx)
     idx = ph0.index
     Wh = W.reindex(idx.floor("D")).set_axis(idx); mh = mult.reindex(idx.floor("D")).set_axis(idx)
-    net = sum(pos[s].reindex(idx).fillna(0.0) * Wh[s].to_numpy()[:, None] for s in SLEEVES).mul(mh * SCALE, axis=0)
+    net = sum(pos[s].reindex(idx).fillna(0.0) * Wh[s].to_numpy()[:, None] for s in CSL).mul(mh * SCALE, axis=0)   # crypto 1:5 cap
     cap = CB.LEVERAGE_CAP / float(CFG["frozen"]["risk"])
     capf = (cap / net.abs().sum(axis=1)).clip(upper=1.0).fillna(1.0)
     ph = (ph0 * SCALE * capf).loc[:END]
@@ -208,7 +232,7 @@ def compute_bf():
         if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
             part = expo[s].astype(float) * float(eff[s]); part = part[part.abs() > 1e-9]; by[s] = part
             book = book.add(part, fill_value=0.0)
-    g = float(book.abs().sum()) if len(book) else 0.0
+    g = float(book[book.index.isin(CB.CFD)].abs().sum()) if len(book) else 0.0     # the 1:5 cap counts crypto CFDs (whole book scaled, as ph)
     if g > cap:
         book = book * cap / g; by = {k: v * cap / g for k, v in by.items()}
     effd = W.mul(mult.reindex(W.index), axis=0) * SCALE
@@ -277,10 +301,18 @@ def cmd_run(a):
         BP.stablecoins()
         if extra_coins():
             BP.update_extra(ROOT / "research_data/binance_extra", DATA / "extra", extra_coins(), now=utcnow())
-        if CFDBOOK:
+        if CFDBOOK or RIDGE:
             from qpl.live import coinbase_public as CB
             for prod in ("BTC-USD", "ETH-USD"):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
+        if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
+            from qpl.live import ml_feeds
+            if not ml_feeds.update(DATA):
+                log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
+        if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
+            from qpl.live import index_feed
+            if not index_feed.update(DATA, now=utcnow()):
+                log_event("DATA_PARTIAL", msg="index CFD bars not fully updated")
     cut = min(data_cutoff(live=True), utcnow().floor("h"))
     # compute in a child process so the loaders see the cutoff from the start
     r = subprocess.run([sys.executable, __file__, "_freeze", "--cutoff", str(cut), "--risk", str(a.risk), "--firm", a.firm]
@@ -510,6 +542,8 @@ def cmd_selftest(a):
             "2026-09-30 17:00"]
     if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
         cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]
+    if INDEX:                                         # around the index signals: R1 entry 14:00 ET and P1 entry 16:00 ET (EDT = UTC-4)
+        cuts += ["2026-09-23 17:00", "2026-09-23 18:00", "2026-09-23 19:00", "2026-09-23 20:00", "2026-09-23 21:00", "2026-09-29 20:00"]
     full = tmp / "full.parquet"
     subprocess.run([sys.executable, __file__, "_dump", "--cutoff", "2026-10-01 00:00", "--live", "0", "--out", str(full)], cwd=ROOT, check=True)
     F = pd.read_parquet(full); worst = 0.0; ok = True
