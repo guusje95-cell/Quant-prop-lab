@@ -1,0 +1,9 @@
+{
+  "generation": "Gen230",
+  "title": "Prop settings for the crypto-firm books (v7 on HyroTrader 2-Step, bf + index sleeve on BrightFunded 2-Step swap-free), nested",
+  "registered": "2026-10-20, before any Gen230 number",
+  "grid": "challenge scale {1.0, 1.5, 2.0} x funded scale {0.75, 1.0, 1.5} x daily stop (fraction of the firm's daily loss limit) {0.5, 0.7} (x 15% vol; vol normaliser from 2022-24 only)",
+  "selection": "max mean net 2-year P&L subject to P(profit) >= 0.90 on a block bootstrap (500 paths, block 20, budget 5) of 2022-01..2024-12 only",
+  "evaluation": "chosen vs current (1.5 / 1.0 / 0.5 for v7; 1.5 / 1.0 / 0.6 for bf) on a bootstrap of 2025-01..2026-09 only; adopt only if mean net higher AND P(profit) not lower by more than 0.02",
+  "trials_added": 36
+}
