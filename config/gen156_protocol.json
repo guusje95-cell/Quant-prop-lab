@@ -1,0 +1,14 @@
+{
+  "generation": "Gen156",
+  "title": "Futures book construction with correlations, walk-forward selection",
+  "registered": "2026-10-20, before any Gen156 number",
+  "candidates": {
+    "SW": "current Sharpe-weighted (w ~ max(SR,0)/sd)",
+    "MV50 / MV80": "w ~ inv(S_shrunk) mu, S shrunk 50% / 80% toward its diagonal, negatives set to 0, normalised",
+    "HRP": "hierarchical risk parity (Lopez de Prado 2016), correlation distance, single linkage",
+    "SWC": "Sharpe-weighted divided by (1 + mean correlation with the other sleeves)"
+  },
+  "selection": "weights fitted on 2010-06..2017-12, scored by book Sharpe on 2018-22 (10% vol target as now)",
+  "judgement": "chosen method refitted on 2010-06..2022-12; ONE evaluation 2023-26 vs 0.842; adopt only if higher",
+  "trials_added": 5
+}
