@@ -700,3 +700,13 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen198, commodity intraday momentum, first hour -> last hour (2 trials):** gross 0.24 / 0.09 / 0.19 (filtered), net -2 to -6 (hourly trades cost more than the edge). Rejected.
 - **Gen199, oil -> CAD (2 trials):** -0.58 / -0.44 and -0.36 / -0.70. Rejected.
 - **Gen200 (TS own-month seasonality): withdrawn before any number.** Data starts in 2010, so a 10-year history leaves almost no tuning period.
+
+## Gen201 (2026-10-20): stand-alone index-CFD book (new account type)
+- **Components** (fixed, each passed on its own): P6 vol-managed (0.49 / 1.46 / 1.04), R1 14:00 dip ensemble (1.05 / 0.56 / 1.17), calendar union (0.85 / 1.21 / 0.89). EQR weights fit 2020-22: R1 0.62, P6 0.20, CAL 0.19.
+- **Book 2020-22 (fit) / 2023-24 / 2025-26: 0.97 / 1.25 / 0.99. Passes** (both unseen periods >= 0.8). By year: 1.16, 1.31, -0.15, 1.80, 0.75, 0.33, 2.06. Max DD 2023-26 at 10% vol: -11.6%. Correlation with the futures book 0.78.
+- **Caveat:** the components' 2023-26 results were known from Gen147/Gen168, so only the combination is new.
+- **Prop (2023-26-only bootstrap, BrightFunded 2-step $100k preset + swap-free fee):**
+  - Risk 1.0 / 0.5: P(funded) 0.98, P(profit) 0.93, **net 2y $9.3k** (p10 +$1.3k).
+  - Risk 1.0 / 1.0: net $15.8k (p10 +$0.8k).
+  - Risk 0.5 / 0.5: net $4.2k (P(profit) 0.68).
+- **Use:** a second BrightFunded (or other index-CFD) account next to bf, not inside it.
