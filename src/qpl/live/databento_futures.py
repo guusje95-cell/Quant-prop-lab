@@ -32,13 +32,15 @@ def symbols():
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--download", action="store_true"); ap.add_argument("--max-cost", type=float, default=0.0)
     ap.add_argument("--minute", action="store_true", help="1-minute bars, front contract only, for --roots from --start (intraday research)")
-    ap.add_argument("--roots", nargs="*", default=["ES", "NQ", "GC", "CL"]); ap.add_argument("--start", default="2018-01-01"); ap.add_argument("--end", default=None)
+    ap.add_argument("--roots", nargs="*", default=None, help="minute mode: default ES NQ GC CL; hourly mode: default all ROOTS"); ap.add_argument("--start", default="2018-01-01"); ap.add_argument("--end", default=None)
     a = ap.parse_args()
     global SCHEMA, START, ROOTS, END
     if a.minute:
-        SCHEMA, START, ROOTS = "ohlcv-1m", a.start, a.roots
+        SCHEMA, START, ROOTS = "ohlcv-1m", a.start, (a.roots or ["ES", "NQ", "GC", "CL"])
         if a.end:
             END = a.end
+    elif a.roots:
+        ROOTS = a.roots                                     # hourly mode for a few extra roots (e.g. BZ, Gen128)
     key = os.environ.get("DATABENTO_API_KEY")
     if not key:
         sys.exit("Set DATABENTO_API_KEY first (see get_futures_data.bat). Do not paste the key anywhere else.")

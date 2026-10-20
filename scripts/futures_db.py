@@ -20,8 +20,9 @@ SPEC = {"ES": (0.25, 50, 5, .25, "equity"), "NQ": (0.25, 20, 2, .25, "equity"), 
         "GC": (0.1, 100, 10, 1 / 6, "metal"), "SI": (0.005, 5000, 1000, 1 / 6, "metal"), "HG": (5e-4, 25000, 2500, 1 / 6, "metal"),
         "CL": (0.01, 1000, 100, 1 / 12, "energy"), "NG": (1e-3, 10000, 1000, 1 / 12, "energy"), "RB": (1e-4, 42000, None, 1 / 12, "energy"), "HO": (1e-4, 42000, None, 1 / 12, "energy"),
         "ZC": (0.25, 50, 5, 1 / 6, "ags"), "ZS": (0.25, 50, 5, 1 / 6, "ags"), "ZW": (0.25, 50, 5, 1 / 6, "ags"), "LE": (0.025, 400, None, 1 / 6, "ags"), "HE": (0.025, 400, None, 1 / 6, "ags"),
+        "BZ": (0.01, 1000, None, 1 / 12, "energy"),
         "BTC": (5.0, 5, 0.1, 1 / 12, "crypto"), "ETH": (0.5, 50, 0.1, 1 / 12, "crypto")}
-NONCRYPTO = [r for r in SPEC if SPEC[r][4] != "crypto"]
+NONCRYPTO = [r for r in SPEC if SPEC[r][4] != "crypto" and r != "BZ"]          # BZ (Brent, Gen128) is not in the 24-market set
 COMMISSION = {"micro": 0.85, "full": 2.50}                    # $ per side per contract, incl. exchange fees (assumption)
 
 

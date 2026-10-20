@@ -1,0 +1,9 @@
+{
+  "generation": "Gen128",
+  "title": "Clean-data validation of P4 (Brent-WTI reversion) on CME futures BZ and CL",
+  "registered": "2026-10-20, after Gen127 P4 passed on Dukascopy CFDs (0.63 / 0.73 / 0.73) and the Dukascopy WTI series was found to contain roll gaps (median 21 bp off the roll-safe CME series on roll days, outliers clustered on the 19th-21st). Before the BZ data was downloaded",
+  "data": "Databento GLBX.MDP3 ohlcv-1h BZ.v.0/.v.1 (NYMEX Brent last-day financial), roll-safe returns via futures_db; CL as in Gen114",
+  "test": "exactly the P4 rule: z = (log(BZ/CL adjusted indices) - 60-day mean) / 60-day std; |z| > 2 -> fade (short the rich leg), exit |z| < 0.5 or after 20 trading days; legs 0.5 x 0.10 / 60-day vol; costs 1 tick + $2.50 per side (no micros)",
+  "pass": "futures rule DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3. Pass -> P4 is accepted as a CFD sleeve candidate (BrightFunded BRN/WTI) and a futures sleeve. Fail -> P4 is rejected as a roll artefact",
+  "trials_added": 1
+}
