@@ -1,0 +1,12 @@
+{
+  "generation": "Gen229",
+  "title": "Treasury auction strength (bid-to-cover surprise) predicts the next days' returns",
+  "registered": "2026-10-20, before any Gen229 number",
+  "data": "treasury_auctions.parquet (Fiscal Data, 2009+): 2-, 5-, 10-, 30-year notes/bonds mapped to ZT/ZF/ZN/ZB as in A3",
+  "signal": "surprise = bid-to-cover minus the median of the previous 8 auctions of the same tenor (known after the 13:00 ET auction, before the close)",
+  "rule": "from the next session for H days: long the mapped future if surprise > 0, short if < 0; 0.10 / vol (60d) / 4 per root; daily_book costs",
+  "grid": "H {3, 5}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.218",
+  "trials_added": 2
+}
