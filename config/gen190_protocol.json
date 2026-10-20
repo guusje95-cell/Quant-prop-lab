@@ -1,0 +1,9 @@
+{
+  "generation": "Gen190",
+  "title": "Weight caps and 1/N for the 15-sleeve futures book, walk-forward selection",
+  "registered": "2026-10-20, before any Gen190 number",
+  "candidates": {"SW": "current Sharpe-weighted", "CAP20": "SW with each weight capped at 20% (excess redistributed pro rata, iterated)", "CAP12": "cap 12%", "EQR": "equal risk: w ~ 1/sd for sleeves with positive fit-period Sharpe", "EW": "1/N over sleeves with positive fit-period Sharpe (no vol scaling)"},
+  "selection": "weights fitted on 2010-06..2017-12, book Sharpe 2018-22 (10% target, 60d)",
+  "judgement": "chosen candidate refitted on 2010-22; ONE evaluation 2023-26 vs 1.137; adopt only if not SW and higher",
+  "trials_added": 5
+}
