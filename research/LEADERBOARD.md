@@ -796,3 +796,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen234, bf + ridge ML sleeve + P1 CFD in the index sleeve (combination of the Gen196 / Gen232 near-misses; flagged as in Gen133):**
   - **bf 2.326 -> 2.378, TEST 3.698 -> 3.699 (razor-thin), HOLD 1.883 -> 2.118; 2022 0.49 -> 0.37. Passes the strict rule; adopted.**
   - New bf = 6 crypto sleeves + ridge ML (BTC/ETH CFDs) + merged index sleeve (P6 + R1 + P1 @16:00 ET).
+- **New bf (Gen234) with the Gen230 settings (2.0 / 1.5 / stop 0.5), 2025-26 bootstrap:**
+  - **Net 2y $62.1k** (p10 $34.3k, P(profit) 0.998), vs old bf $54.5k with the same settings and $36.9k with the old settings.
+  - Half-mean stress: $22.6k, P(profit) 0.88.
