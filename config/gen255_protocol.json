@@ -1,0 +1,13 @@
+{
+  "generation": "Gen255",
+  "title": "Sign-reversed Gen254 A and D (POST-HOC: registered after seeing Gen254, where both were negative in every period)",
+  "registered": "2026-10-20, after Gen254, before any Gen255 number",
+  "A_rev_oi_growth": "score = +log(OI value today / 7 days ago): long the fastest leverage build-up, short the slowest; else as Gen254",
+  "D_rev_toptrader": "score = -7-day change of log top-trader long/short ratio (contrarian); else as Gen254",
+  "pass_extra_because_post_hoc": {
+    "A": "strict v7 rule (sleeve bars + book) AND replication on the 40 untouched extra coins (research_data/binance_extra; OI from 2021-12): same rule, 10 bp per unit turnover, no funding (the extra funding files are incomplete), sleeve 2022 > 0 and 2023-26 > 0.5",
+    "D": "strict v7 rule AND sleeve positive in at least 4 of the 5 calendar years 2022-2026 (no untouched universe has this data)"
+  },
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
