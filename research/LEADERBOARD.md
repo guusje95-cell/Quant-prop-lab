@@ -569,3 +569,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **bf + P6 vol-managed US100/US500 CFDs:** bf 2.252 -> **2.302**, TEST 3.45 -> 3.69, HOLD 1.55 -> 1.85. **Passes the strict rule** (2022 weaker: 1.15 -> 0.46).
 - **v7 (v6 + ridge ML):** 2.534, passes. The validated crypto improvement.
 - **Gen136 futures round 5:** basis-momentum -0.76 / 0.70 / 0.42; skewness -0.03 / 0.36 / 0.12; weekly XS reversal -0.50 / -0.57 / -0.12; bond trend -0.19 / 0.94 / 0.01; curve trend -0.47 / 0.01 / -0.13. All rejected.
+- **Gen137 crypto sleeves on CME BTC/ETH futures:** all 6 fail. The code reproduces the Binance results (e.g. C* legs 1.91 / 2.02 / 0.67 on Binance vs 1.28 / 1.44 / 0.39 on CME weekend-hold, 0.80 / 0.81 / 0.19 weekend-flat). Topstep daily-flat is negative for all. Causes: weekend closure, thin off-hours CME prints.

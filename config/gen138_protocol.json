@@ -1,0 +1,12 @@
+{
+  "generation": "Gen138",
+  "title": "Walk-forward ridge across 24 CME futures (many weak signals in one model, as Gen108 did for crypto)",
+  "registered": "2026-10-20, before any Gen138 number",
+  "universe": "the 24 non-crypto roots, daily CME trade dates, roll-safe returns",
+  "features (all known at the close of day d)": "vol-scaled past returns over 1, 5, 20, 60 and 250 days (return / (60-day daily vol x sqrt(h))); carry = (near/far - 1) / spacing / annual vol; IBS of day d; COT positioning z (managed money for commodities, leveraged funds for financials, net / OI, z vs 156 weeks, usable from the Monday after the report, 0 if missing); last-3-trading-days-of-month flag",
+  "target": "next 5-day return / (60-day daily vol x sqrt 5)",
+  "model": "ridge regression, alpha = 10 (fixed, not tuned), features standardised on the training window, pooled over all roots; refit at each month start on all data before that month (expanding), first predictions 2013-01",
+  "trading": "every Friday close: w = clip(prediction / its trailing 52-week cross-sectional std, -2, 2) x 0.10 / 60-day vol / 24, held the next week; costs 1 tick + commission per side",
+  "rule": "DEV 2013-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3; a pass is also added to the Gen135 book (reported)",
+  "trials_added": 1
+}
