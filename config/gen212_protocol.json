@@ -1,0 +1,9 @@
+{
+  "generation": "Gen212",
+  "title": "EQR weights: static fit vs yearly expanding refit (point-in-time)",
+  "registered": "2026-10-20, before any Gen212 number",
+  "variants": {"STATIC": "weights fitted once on data up to the fit end (current)", "EXP": "each January 1, weights (1/sd, positive Sharpe) fitted on all data from 2010-06 to the previous Dec 31 (first fit at 2013-01 with 2010-06..2012-12)"},
+  "selection": "book Sharpe 2018-22 with STATIC fitted on 2010-17 vs EXP (point-in-time)",
+  "judgement": "chosen variant; ONE evaluation 2023-26 vs 1.231 (STATIC fitted 2010-22); adopt only if EXP and higher",
+  "trials_added": 2
+}
