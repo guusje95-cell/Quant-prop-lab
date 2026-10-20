@@ -672,3 +672,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen180, hourly big-move continuation in Treasuries (4 trials):** all negative (best -0.38 / -0.23). The convexity flow works at the daily horizon (BC), not hourly. Rejected.
 - **Gen181, dash for cash: short equities before month end (3 trials):** -0.32 / -0.77 at best. Rejected.
 - **Gen182, F3 weighted to refunding months (3 trials):** flat 0.96 / 0.05, refund-weighted 0.78 / 0.33, refund-only 0.43 / 0.69. Flat kept (best on tune).
+- **Gen183, oil predicts stocks (Driesprong et al. 2008; 4 trials):**
+  - **Long ES/NQ/RTY/YM for the next month only after CL fell over the past 21 days: 0.47 / 0.87** (63-day version 0.32 / 1.21; long/short versions 0.10 / 0.20 and -0.11 / 0.60).
+  - **Book 2023-26 1.102 -> 1.137 (2010-17 1.64, 2018-22 1.42). Adopted, 15 sleeves.**
