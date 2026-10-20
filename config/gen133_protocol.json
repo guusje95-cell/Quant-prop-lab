@@ -1,0 +1,13 @@
+{
+  "generation": "Gen133",
+  "title": "Combining already-tested crypto improvements: v6 + Gen109 ridge ML sleeve + Gen80 premium-carry breadth (v8 candidate); bf-b + ridge",
+  "registered": "2026-10-20, before any Gen133 number",
+  "components": "X1 ridge sleeve (Gen108/109, walk-forward, passed every rule in v6: v7 = 2.534); premium carry on 60 coins (Gen80, passed its own rule, failed the strict book rule alone: 2.539, TEST 3.14); bf-b (Gen121, 2.414, TEST 3.18)",
+  "tests": {
+    "E1 v8 = v6 + ridge sleeve + 60-coin premium carry, vs v6": "strict book rule vs v6 (2022-26 up, TEST and HOLD not lower)",
+    "E2 v8 vs v7 (v6 + ridge)": "strict book rule vs v7: does breadth add on top of the ML sleeve?",
+    "E3 bf-b + ridge sleeve (CFD costs), vs bf": "strict book rule vs bf (2.252 / TEST 3.45 / HOLD 1.545)"
+  },
+  "note": "no parameter is changed; only frozen sleeves are combined. An E1 pass makes v8 a shadow paper-trading candidate (it needs its own no-look-ahead self-test)",
+  "trials_added": 3
+}
