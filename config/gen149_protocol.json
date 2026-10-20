@@ -1,0 +1,12 @@
+{
+  "generation": "Gen149",
+  "title": "R1 overnight variant (window found in Gen148 on ES/NQ) tested on markets not used to find it",
+  "registered": "2026-10-20, before any Gen149 number",
+  "why": "Gen148 found R1's edge sits overnight (16:00 -> 09:30) on ES/NQ, a window chosen after seeing all periods there; so it is judged on unseen markets",
+  "signal": "fixed R1 indicators (RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3), size = mean indicator, long only",
+  "set 1 futures RTY + YM (hourly, 2010-26)": "signal on 15:00 ET prices, IBS range from bars 09:00-15:00, entry at 16:00, exit at 10:00 next day (hourly grid); 2 x cost_frac; splits 2010-17 / 2018-22 / 2023-26",
+  "set 2 CFDs US100 + US500 + US30 (5-minute, 2018-26)": "signal on the last price before 15:55 ET, IBS range 09:30-15:55, entry at the last price before 16:00, exit at the 09:30 open; 1 bp per side; also 2 bp; splits 2018-20 / 2021-23 / 2024-26",
+  "pass per set": "pooled Sharpe > 0 in all three splits and mean of the three >= 0.5",
+  "if both pass": "(a) as a bf + P6 sleeve under the strict bf rule (hourly implementation: signal 15:00 ET, 16:00 -> 10:00); (b) in the futures book replacing R1 (hourly, 4 roots), reported against 0.815 but flagged: ES/NQ 2023-26 was seen in Gen148",
+  "trials_added": 2
+}
