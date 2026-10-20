@@ -788,3 +788,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - v7: chosen $21.1k vs current $15.3k (P(profit) 0.90 vs 0.90; p10 -$0.3k vs -$0.0k).
   - bf: $18.6k vs $12.7k (0.85 vs 0.84; p10 -$3.0k vs -$2.4k).
   - The new settings stay better in mean with similar P(profit) and a slightly worse tail. **Adopted** (36 trials). Firm terms as in the presets (fees, splits, payout cadence ASSUMED where marked).
+- **Gen231, index-CFD book prop settings:**
+  - Chosen on 2022-24: 1.5 / 1.0. On 2025-26: net $15.2k but P(profit) 0.80, vs 1.0 / 0.5 at $8.2k and 0.91 (half-mean stress 0.69 vs 0.71).
+  - **Not adopted** (Gen230 rule: P(profit) may drop by at most 0.02). The index-CFD book stays at 1.0 / 0.5; its edge is too thin for more risk.
