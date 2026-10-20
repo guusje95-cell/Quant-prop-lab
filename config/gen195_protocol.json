@@ -1,0 +1,9 @@
+{
+  "generation": "Gen195",
+  "title": "Gold autumn effect (Baur 2013) and yen fiscal-year-end repatriation",
+  "registered": "2026-10-20, before any Gen195 number",
+  "families": {"GA": "long GC (0.10 / vol) Sep 1 - Nov 30", "JR": "long 6J (0.10 / vol) Feb 15 - Mar 31 (Japanese fiscal year-end repatriation)"},
+  "selection": "single settings; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrants; ONE evaluation 2023-26 vs 1.143",
+  "trials_added": 2
+}

@@ -691,3 +691,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen192, BC refinement (4 trials):** 1-day trigger on ZF/ZN/ZB (current) 0.32 is best; adding ZT 0.28; 3-day trigger 0.26 / 0.14. Current kept.
 - **Gen193 (2 trials):** quarter-end USD demand -0.14 / 0.38; post-Lunar-New-Year copper -0.09 / 0.54. Rejected.
 - **Gen194, Treasury butterfly mean reversion (4 trials):** gross 0.04 / -0.21, net -1.8 to -3.2 (turnover 200-365x a year). Rejected.
+- **Diagnostic: NQ-only book** (validated equity sleeves on NQ only, EQR; results/nq_only_book.json):
+  - 2010-17 / 2018-22 / 2023-26: 1.11 / 0.82 / 1.25, vs NQ buy-and-hold 1.11 / 0.50 / 1.23. Max DD at 10% vol about 2-4 points smaller; correlation with NQ 0.85.
+  - **A single-instrument NQ book does not get near 2.0. The futures book's gains come from the diversifiers (BC, SH, F3, A3).**
