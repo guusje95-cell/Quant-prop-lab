@@ -1,0 +1,12 @@
+{
+  "generation": "Gen259",
+  "title": "Four new strategy types: PCA stat-arb, funding time-series carry, NR7 breakout, Asian-range breakout (crypto)",
+  "registered": "2026-10-20, before any Gen259 number",
+  "A_pca_statarb": "Avellaneda-Lee style on the 20 Binance perps, daily: each day, PCA (3 factors) of the past 90 days of standardised daily returns; regress each coin's 90-day returns on the factor returns; X = cumulative residual over the last 60 days; s = (X_t - mean(X)) / sd(X) over those 60 days. Enter long 0.1 if s < -1.25, short 0.1 if s > 1.25; exit when |s| < 0.5; BTC beta of the net book offset with BTC (90-day betas); 5 bp + funding",
+  "B_funding_ts_carry": "BTC and ETH: f7 = 7-day mean daily funding; z = (f7 - 365-day mean) / 365-day sd (min 180); z > 1 -> short 0.25, z < -1 -> long 0.25, held the next day; 5 bp + funding",
+  "C_nr7_breakout": "BTC and ETH: day d is NR7 if its high-low range is the smallest of the last 7 days; on d+1 the first 5-minute bar trading through d's high (low) opens a long (short) 0.5 at the high (low) or the bar's open if it gaps through; exit at d+1's last close; one trade per day; 5 bp per side (perp) / CFD spread + commission (bf2); P&L booked in the 23:00 bar",
+  "D_asian_range_breakout": "BTC and ETH: range = high / low of 00:00-06:55 UTC; from 07:00 to 20:55 the first 5-minute bar through the range opens 0.5 in the break direction at the range edge (or the gap open); exit at the day's last close; costs and booking as C",
+  "pass": "v7: sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule. bf2 (B, C, D only): sleeve DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
