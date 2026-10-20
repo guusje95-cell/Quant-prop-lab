@@ -766,3 +766,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Per-sleeve beta-adjusted (2010-22): MM 0.52, P1 0.45, F5 0.40, R1 0.24, T2 0.17, T1 0.07, FC 0.06, OIL -0.04.
   - **Research priority: non-equity diversifiers.**
 - **Gen225, Treasuries after VIX term-structure inversion (2 trials):** -0.05 / -0.54 and 0.03 / -0.81. Rejected.
+- **Gen226, group risk parity (walk-forward):** 2018-22 EQR 1.43 vs **GRP 1.65**, so GRP is chosen, but 2023-26 **0.92 < 1.24** (beta-adjusted 0.35, corr 0.53). Not adopted. With one energy sleeve, SH gets 45% of the risk; the book needs more non-equity sleeves before de-betaing pays.
