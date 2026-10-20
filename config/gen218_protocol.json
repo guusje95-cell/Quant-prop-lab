@@ -1,0 +1,17 @@
+{
+  "generation": "Gen218",
+  "title": "Backcast holdout 2003-06..2010-05: the adopted equity sleeves on Dukascopy daily US500 / USTECH CFDs (data never used before)",
+  "registered": "2026-10-20, before the 2003-2010 index data is downloaded",
+  "data": "Dukascopy daily BID candles USA500IDXUSD, USATECHIDXUSD, LIGHTCMDUSD (crude) 2003-2010; 1 bp per side",
+  "sleeves (fixed rules, ES->US500, NQ->USTECH, 0.5 each)": {
+    "R1d": "R1 indicators on daily closes (close-fill version of Gen146; the executable 14:00 version needs hourly data), long-only, next-day hold, low-vol sizing as Gen155",
+    "P1d": "IBS < 0.3 long next day",
+    "T1": "2 days before to 3 after the month turn",
+    "T2": "session before an NYSE holiday",
+    "MM": "15th +- 1 trading day",
+    "OIL": "long next month if crude fell over the past 21 trading days",
+    "FC": "not testable (FOMC dates file starts 2010)"
+  },
+  "report": "per sleeve Sharpe 2003-06..2010-05 and the equal-risk combination (weights 1/sd within the window); no adoption decision; a sleeve with a negative backcast is flagged as fragile",
+  "trials_added": 0
+}
