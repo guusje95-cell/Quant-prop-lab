@@ -1,0 +1,54 @@
+{
+ "crypto v7 (HyroTrader)": {
+  "Sharpe 2022-26": 2.53,
+  "Sharpe 2023-26": 2.91,
+  "CAGR @15%vol": 0.446,
+  "MaxDD": -0.085,
+  "positive months": 0.7,
+  "worst month": -0.048,
+  "2022": 0.248,
+  "2023": 0.639,
+  "2024": 0.633,
+  "2025": 0.262,
+  "2026": 0.368
+ },
+ "CFD bf + index sleeve (BrightFunded)": {
+  "Sharpe 2022-26": 2.33,
+  "Sharpe 2023-26": 2.83,
+  "CAGR @15%vol": 0.402,
+  "MaxDD": -0.1,
+  "positive months": 0.7,
+  "worst month": -0.063,
+  "2022": 0.065,
+  "2023": 0.674,
+  "2024": 0.723,
+  "2025": 0.186,
+  "2026": 0.364
+ },
+ "futures book (swing futures firm)": {
+  "Sharpe 2022-26": 1.23,
+  "Sharpe 2023-26": 1.23,
+  "CAGR @15%vol": 0.189,
+  "MaxDD": -0.113,
+  "positive months": 0.72,
+  "worst month": -0.057,
+  "2022": 0.243,
+  "2023": 0.236,
+  "2024": 0.123,
+  "2025": 0.132,
+  "2026": 0.191
+ },
+ "index-CFD book (2nd CFD account)": {
+  "Sharpe 2022-26": 0.85,
+  "Sharpe 2023-26": 1.12,
+  "CAGR @15%vol": 0.123,
+  "MaxDD": -0.161,
+  "positive months": 0.6,
+  "worst month": -0.092,
+  "2022": -0.034,
+  "2023": 0.275,
+  "2024": 0.11,
+  "2025": 0.043,
+  "2026": 0.24
+ }
+}
