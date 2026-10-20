@@ -1,0 +1,8 @@
+{
+  "generation": "Gen186",
+  "title": "Oil-predicts-stocks (Gen183 rule) inside the merged bf index sleeve",
+  "registered": "2026-10-20, before any Gen186 number",
+  "rule": "at each month end (UTC), if the WTI CFD (Dukascopy) past-21-trading-day return < 0, long US100 and US500 CFDs 0.5 each for the next month, else flat; 1 bp per side; added to the merged sleeve P6 + R1 US",
+  "pass": "OIL leg D/T/H > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs bf + (P6 + R1) = 2.326; TEST 3.698, HOLD 1.883",
+  "trials_added": 1
+}

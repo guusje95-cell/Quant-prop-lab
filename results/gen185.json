@@ -1,0 +1,23 @@
+{
+ "families": {
+  "OB": {
+   "best": {
+    "root": "CL",
+    "L": 63
+   },
+   "tune": 0.217,
+   "2023-26": -0.62,
+   "enters": false
+  },
+  "CB": {
+   "best": {
+    "root": "HG",
+    "L": 63
+   },
+   "tune": 0.263,
+   "2023-26": 0.409,
+   "enters": false
+  }
+ },
+ "entered": []
+}
