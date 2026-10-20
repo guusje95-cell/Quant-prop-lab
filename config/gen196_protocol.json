@@ -1,0 +1,9 @@
+{
+  "generation": "Gen196",
+  "title": "Ridge ML sleeve (Gen108/109, the v7 improvement) in the bf CFD book",
+  "registered": "2026-10-20, before any Gen196 number",
+  "why": "only bf-b + ridge was tested (Gen133 E3, failed); bf + ridge was never tested",
+  "rule": "Gen108 ridge predictions unchanged, 0.5 x prediction on BTC/ETH CFDs, daily (decided at the close, held next day), CFD costs via cfd_book.sleeve; added as a sleeve to bf + merged index sleeve (P6 + R1)",
+  "pass": "sleeve D/T/H > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs 2.326 (TEST 3.698, HOLD 1.883)",
+  "trials_added": 1
+}
