@@ -1,0 +1,10 @@
+{
+  "generation": "Gen199",
+  "title": "Oil forecasts the Canadian dollar (Ferraro, Rogoff and Rossi 2015): 6C on lagged CL returns",
+  "registered": "2026-10-20, before any Gen199 number",
+  "rule": "s = sign of the CL roll-safe return over the past L trading days, known at the close; long 6C (CAD up) when s > 0, short when s < 0, from the next day (1-day lag for execution safety); size 0.10 / 6C vol; daily_book costs",
+  "grid": "L {1, 5}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.143",
+  "trials_added": 2
+}
