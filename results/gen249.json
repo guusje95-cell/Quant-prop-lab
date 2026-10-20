@@ -1,0 +1,130 @@
+{
+ "reference": {
+  "v7": [
+   2.534,
+   [
+    1.38,
+    3.494,
+    2.24
+   ]
+  ],
+  "bf2": [
+   2.378,
+   [
+    0.367,
+    3.699,
+    2.118
+   ]
+  ]
+ },
+ "A USDT premium": {
+  "sleeve perp D/T/H": [
+   0.978,
+   1.81,
+   1.14
+  ],
+  "corr C*": 0.074,
+  "sleeve CFD D/T/H": [
+   1.03,
+   1.873,
+   1.181
+  ],
+  "v7": {
+   "book": [
+    2.534,
+    [
+     1.533,
+     3.359,
+     2.209
+    ]
+   ],
+   "strict": false
+  },
+  "bf2": {
+   "book": [
+    2.282,
+    [
+     0.465,
+     3.474,
+     2.036
+    ]
+   ],
+   "strict": false
+  },
+  "pass v7": false,
+  "pass bf2": false
+ },
+ "B ETH-BTC premium spread": {
+  "sleeve perp D/T/H": [
+   1.318,
+   -0.243,
+   -0.258
+  ],
+  "corr C*": -0.039,
+  "sleeve CFD D/T/H": [
+   1.451,
+   0.056,
+   0.049
+  ],
+  "v7": {
+   "book": [
+    2.355,
+    [
+     1.425,
+     3.266,
+     1.967
+    ]
+   ],
+   "strict": false
+  },
+  "bf2": {
+   "book": [
+    2.288,
+    [
+     0.516,
+     3.523,
+     1.999
+    ]
+   ],
+   "strict": false
+  },
+  "pass v7": false,
+  "pass bf2": false
+ },
+ "C Weiss every Friday": {
+  "every-Friday sleeve D/T/H": [
+   -0.17,
+   1.528,
+   -0.399
+  ],
+  "last-Friday sleeve D/T/H": [
+   0.468,
+   1.644,
+   0.623
+  ],
+  "v7": {
+   "book": [
+    2.421,
+    [
+     1.377,
+     3.378,
+     2.062
+    ]
+   ],
+   "strict": false
+  },
+  "bf2": {
+   "book": [
+    2.314,
+    [
+     0.433,
+     3.675,
+     1.953
+    ]
+   ],
+   "strict": false
+  },
+  "pass v7": false,
+  "pass bf2": false
+ }
+}

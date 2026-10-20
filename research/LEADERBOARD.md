@@ -872,3 +872,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, ridge+ (Gen108 ridge + VIX daily change + US500 day return):** sleeve perp 0.04 / 1.11 / 1.57 (full ridge 0.13 / 1.28 / 1.36); v7 2.534 -> 2.538, HOLD 2.24 -> 2.30, but **TEST 3.494 -> 3.446**. bf2 2.378 -> 2.355. **Fails** (strict rule; DEV 0.04 also weak). The cross-asset inputs shift ridge value from 2023-24 to 2025-26 without adding to it overall.
 - **B, P6 on DE40 / UK100 / JP225 in bf2:** leg -0.25 / 1.20 / 1.10; bf2 2.378 -> 2.361 (TEST 3.699 -> 3.622). **Fails** (negative DEV 2020-22, like Gen175's international R1).
 - Status: the adopted books (v7, bf2) are unchanged.
+
+## Gen249 (2026-10-20): USDT premium, ETH-BTC premium spread, Weiss every Friday (3 trials, `config/gen249_protocol.json`)
+- **A, USDT premium (Coinbase USDT-USD, z > 1 -> long BTC/ETH):** sleeve 0.98 / 1.81 / 1.14 (DEV from 2021-06), corr C* 0.07. Strong alone, but v7 2.534 -> 2.534 with TEST 3.494 -> 3.359; bf2 2.378 -> 2.282. **Fails the strict rule** (redundant with what the books already hold, most likely the ridge's Coinbase-premium feature).
+- **B, ETH-BTC Coinbase premium spread (market-neutral):** 1.32 / -0.24 / -0.26. **Fails.**
+- **C, Weiss reversal on every Friday (replacing last-Friday-only):** every-Friday sleeve -0.17 / 1.53 / -0.40 vs last-Friday 0.47 / 1.64 / 0.62; v7 2.421, bf2 2.314. **Fails** (weekly expiries carry no edge; the monthly effect stays).

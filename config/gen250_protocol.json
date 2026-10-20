@@ -1,0 +1,10 @@
+{
+  "generation": "Gen250",
+  "title": "Ridge + USDT premium feature (follow-up to Gen249 A, registered after seeing Gen249: counted as a new trial)",
+  "registered": "2026-10-20, after Gen249, before any Gen250 number",
+  "model": "Gen108 ridge unchanged plus one feature: zu = the Gen249 USDT premium z-score read at 23:00 UTC (NaN before 2021-06 -> standardised 0, as for other missing features). Replaces the ridge sleeve in v7 (perp) and bf2 (CFD)",
+  "why": "Gen249 A was strong alone (1.81 / 1.14) but redundant as a separate sleeve; inside the ridge it can add only its unique part",
+  "pass": "same as Gen246 A: sleeve D 2021-22 > 0, TEST >= 0.8 / 0.5, HOLD >= 0.5 / 0.3 and strict rule vs v7 (2.534 / 3.494 / 2.240) or bf2 (2.378 / 3.699 / 2.118)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
