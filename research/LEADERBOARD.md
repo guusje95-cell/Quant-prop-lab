@@ -645,3 +645,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Autumn heating-oil crack (long HO / short CL, Aug-Oct): 0.45 / 0.32 (2010-17 0.37, 2018-22 0.59), enters.** Spring gasoline crack 0.10 / 0.09, no.
   - **Book 2023-26 1.041 -> 1.102 (2010-17 1.63, 2018-22 1.56). Adopted, 14 sleeves.**
 - **Gen167, seasonals (2 trials):** grain harvest pressure 0.17 / -0.22; gasoline grade switch -0.06 / 0.10. Rejected.
+- **Gen168, bf with one merged index sleeve (3 trials):**
+  - **M1 = P6 + R1 CFD: bf 2.302 -> 2.326, TEST 3.691 -> 3.698, HOLD 1.849 -> 1.883. Passes the strict rule; adopted as the new bf reference.**
+  - M2 = P6 + calendar: 2.354, but HOLD 1.766. Fails.
+  - M3 = all: 2.365, but TEST 3.684 and HOLD 1.796. Fails.
+  - Calendar leg alone: 0.71 / 1.28 / 0.65.
