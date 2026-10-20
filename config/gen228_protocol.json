@@ -1,0 +1,11 @@
+{
+  "generation": "Gen228",
+  "title": "Calendar-spread momentum in commodities (front minus second contract)",
+  "registered": "2026-10-20, before any Gen228 number",
+  "universe": "CL, NG, HO, RB, ZC, ZS, LE, HE",
+  "rule": "spread return s = r_front - r_second (roll-safe front; second contract returns only between bars of the same contract); signal = sign of the L-day sum of s (known at the close), held from the next day; size 0.10 / annualised 60-day spread vol / 8 per market; costs: both legs per unit turnover (cost_frac front + cost_frac second) and both legs again on front roll days",
+  "grid": "L {21, 63}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.240",
+  "trials_added": 2
+}
