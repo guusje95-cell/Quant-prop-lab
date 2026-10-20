@@ -1,5 +1,9 @@
 # To do on your PC (when home)
 
+0. **Intraday-edge data (new):**
+   - a. Double-click `get_squeeze_dix.bat` (free SqueezeMetrics GEX/DIX). If it fails, open https://squeezemetrics.com/monitor/static/DIX.csv in your browser and save it as `research_data\more2\squeeze_dix.csv`. Push it.
+   - b. Double-click `get_databento_quotes.bat`: it only PRINTS prices (order flow, top of book, 1-second bars, ES options for gamma exposure). Downloads nothing, costs nothing. Send Claude the printed prices.
+
 1. **Extra futures roots** (priority order: UB ultra bond, NKD Nikkei, PL platinum, TN ultra 10y, EMD MidCap): double-click `get_futures_extra.bat`.
    - It shows the Databento cost per root first, then downloads roots in that order while the running total stays within the amount you type (~$50 credit left).
    - Then: `git pull --no-edit`, `git add research_data/databento`, `git commit -m "databento extra roots"`, `git push`.
