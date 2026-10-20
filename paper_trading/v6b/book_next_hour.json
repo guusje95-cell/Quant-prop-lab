@@ -1,0 +1,207 @@
+{
+ "for_hour_utc": "2026-10-20 18:00:00",
+ "made_at_utc": "2026-10-20 18:08:25.788609",
+ "data_cutoff_utc": "2026-10-20 18:00:00",
+ "equity": 99425.64,
+ "risk": 1.0,
+ "target_notional_usd": {
+  "1000SHIB": -1545.88,
+  "1INCH": -1545.88,
+  "ALGO": -1545.88,
+  "ADA": -1545.88,
+  "APE": -1545.88,
+  "CHZ": -1545.88,
+  "COMP": -1545.88,
+  "AXS": -1545.88,
+  "BNB": -1545.88,
+  "IOTA": -1545.88,
+  "IMX": -1545.88,
+  "HBAR": -1545.88,
+  "EGLD": -1545.88,
+  "ENJ": -1545.88,
+  "DYDX": -1545.88,
+  "CRV": -1545.88,
+  "ZEC": -1545.88,
+  "XTZ": -1545.88,
+  "WLD": -1545.88,
+  "THETA": -1545.88,
+  "DOT": 447.23,
+  "ETH": 1545.88,
+  "AVAX": 1545.88,
+  "ATOM": 1545.88,
+  "LTC": 1545.88,
+  "DASH": 1545.88,
+  "LDO": 1545.88,
+  "LINK": 1545.88,
+  "AAVE": 1545.88,
+  "1000PEPE": 1545.88,
+  "ARB": 1545.88,
+  "BCH": 1545.88,
+  "XRP": 1545.88,
+  "SAND": 1545.88,
+  "MANA": 1545.88,
+  "NEO": 1545.88,
+  "TRX": 1545.88,
+  "STX": 1545.88,
+  "XLM": 1545.88,
+  "SNX": 1545.88,
+  "BTC": 2532.69
+ },
+ "by_sleeve_usd": {
+  "1000PEPE": {
+   "premium carry": 1545.88
+  },
+  "1000SHIB": {
+   "premium carry": -1545.88
+  },
+  "1INCH": {
+   "premium carry": -1545.88
+  },
+  "AAVE": {
+   "premium carry": 1545.88
+  },
+  "ADA": {
+   "premium carry": -1545.88
+  },
+  "ALGO": {
+   "premium carry": -1545.88
+  },
+  "APE": {
+   "premium carry": -1545.88
+  },
+  "APT": {},
+  "ARB": {
+   "premium carry": 1545.88
+  },
+  "ATOM": {
+   "premium carry": 1545.88
+  },
+  "AVAX": {
+   "premium carry": 1545.88
+  },
+  "AXS": {
+   "premium carry": -1545.88
+  },
+  "BCH": {
+   "premium carry": 1545.88
+  },
+  "BNB": {
+   "premium carry": -1545.88
+  },
+  "BTC": {
+   "C*": 986.81,
+   "premium carry": 1545.88
+  },
+  "CHZ": {
+   "premium carry": -1545.88
+  },
+  "COMP": {
+   "premium carry": -1545.88
+  },
+  "CRV": {
+   "premium carry": -1545.88
+  },
+  "DASH": {
+   "premium carry": 1545.88
+  },
+  "DOGE": {},
+  "DOT": {
+   "C*": 447.23
+  },
+  "DYDX": {
+   "premium carry": -1545.88
+  },
+  "EGLD": {
+   "premium carry": -1545.88
+  },
+  "ENJ": {
+   "premium carry": -1545.88
+  },
+  "ETC": {},
+  "ETH": {
+   "premium carry": 1545.88
+  },
+  "FIL": {},
+  "GALA": {},
+  "GRT": {},
+  "HBAR": {
+   "premium carry": -1545.88
+  },
+  "ICP": {},
+  "IMX": {
+   "premium carry": -1545.88
+  },
+  "INJ": {},
+  "IOTA": {
+   "premium carry": -1545.88
+  },
+  "KSM": {},
+  "LDO": {
+   "premium carry": 1545.88
+  },
+  "LINK": {
+   "premium carry": 1545.88
+  },
+  "LTC": {
+   "premium carry": 1545.88
+  },
+  "MANA": {
+   "premium carry": 1545.88
+  },
+  "NEAR": {},
+  "NEO": {
+   "premium carry": 1545.88
+  },
+  "OP": {},
+  "RUNE": {},
+  "SAND": {
+   "premium carry": 1545.88
+  },
+  "SNX": {
+   "premium carry": 1545.88
+  },
+  "SOL": {},
+  "STX": {
+   "premium carry": 1545.88
+  },
+  "SUI": {},
+  "SUSHI": {},
+  "THETA": {
+   "premium carry": -1545.88
+  },
+  "TIA": {},
+  "TRX": {
+   "premium carry": 1545.88
+  },
+  "UNI": {},
+  "WLD": {
+   "premium carry": -1545.88
+  },
+  "XLM": {
+   "premium carry": 1545.88
+  },
+  "XRP": {
+   "premium carry": 1545.88
+  },
+  "XTZ": {
+   "premium carry": -1545.88
+  },
+  "YFI": {},
+  "ZEC": {
+   "premium carry": -1545.88
+  },
+  "ZIL": {}
+ },
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "weiss": null,
+ "sleeve_multipliers": {
+  "C*": 0.6023,
+  "premium carry": 0.311,
+  "cascade limit strict": 0.3532,
+  "trend 4h": 0.6598,
+  "Weiss expiry": 1.3711,
+  "delev bounce": 0.3587
+ },
+ "note": "simulation only - no order is sent anywhere"
+}
