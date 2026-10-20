@@ -1,0 +1,9 @@
+book,firm,risk challenge/funded,daily stop,P(pass per attempt),fees paid,payouts received,net 2y mean,net 2y p10,net 2y median,P(profit),net per month,days to funded (median),days to 1st payout (median)
+crypto v7 (HyroTrader),HyroTrader Two-Step $100k,1.5/1.0,0.5,0.95,770,50149,49379,25539,49223,1.0,2056,101.5,134.0
+crypto v7 (HyroTrader),HyroTrader One-Step $100k,1.25/1.0,0.6,0.88,1872,50556,48683,24433,47968,1.0,2027,66.0,100.0
+crypto v6 (reference),HyroTrader Two-Step $100k,1.5/1.0,0.5,0.82,925,47353,46428,21480,45776,1.0,1933,106.0,142.0
+CFD bf + indices (BrightFunded),BrightFunded Two-Step Classic $100k,1.5/1.0,0.6,0.84,864,46614,45750,23341,44605,1.0,1905,101.0,132.0
+CFD bf (reference),BrightFunded Two-Step Classic $100k,1.5/1.0,0.6,0.84,845,44763,43918,21005,43432,1.0,1829,107.0,142.5
+futures book (swing futures firm),"Swing futures firm 50k (MFFU/Tradeify-like, ASSUMED)",0.33/0.33 (x15% vol),0.0,0.6,273,1355,1082,-450,629,0.64,45,369.0,421.0
+futures book (swing futures firm),"Swing futures firm 50k (MFFU/Tradeify-like, ASSUMED)",0.5/0.5 (x15% vol),0.0,0.4,565,2919,2354,-600,1747,0.81,98,230.0,288.5
+futures book (swing futures firm),"Swing futures firm 50k (MFFU/Tradeify-like, ASSUMED)",0.75/0.75 (x15% vol),0.0,0.36,746,3540,2795,-750,1901,0.72,116,118.0,160.0
