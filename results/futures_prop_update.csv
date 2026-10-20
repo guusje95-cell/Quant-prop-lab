@@ -1,0 +1,7 @@
+book,risk (x15% vol),Sharpe 2023-26,P(pass per attempt),net 2y mean,net 2y p10,P(profit),net per month,days to 1st payout (median)
+Gen143 book (old),0.33,0.67,0.59,1111,-300,0.65,46,450.0
+Gen143 book (old),0.5,0.67,0.33,2419,-600,0.81,101,306.0
+Gen143 book (old),0.75,0.67,0.31,2588,-750,0.7,108,156.0
+Gen166 book (current),0.33,1.1,0.89,2538,-136,0.89,106,360.0
+Gen166 book (current),0.5,1.1,0.59,4349,671,0.94,181,232.5
+Gen166 book (current),0.75,1.1,0.42,5255,-20,0.9,219,139.5

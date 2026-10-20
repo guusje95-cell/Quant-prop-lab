@@ -650,3 +650,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - M2 = P6 + calendar: 2.354, but HOLD 1.766. Fails.
   - M3 = all: 2.365, but TEST 3.684 and HOLD 1.796. Fails.
   - Calendar leg alone: 0.71 / 1.28 / 0.65.
+- **Futures prop update (results/futures_prop_update.csv; bootstrap of the UNSEEN 2023-26 window only; 50k swing firm with ASSUMED terms):**
+  - At risk 0.5: old book pass 33%, P(profit) 0.81, net 2y $2.4k; **new book (1.10) pass 59%, P(profit) 0.94, net 2y $4.3k (p10 +$671)**.
+  - At risk 0.33: pass 89%, P(profit) 0.89.
