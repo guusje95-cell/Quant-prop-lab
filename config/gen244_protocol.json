@@ -1,0 +1,10 @@
+{
+  "generation": "Gen244",
+  "title": "Closing-auction pressure reverses overnight (Bogousslavsky & Muravyev, 'Who trades at the close?'): QQQ imbalance -> NQ against the imbalance overnight",
+  "registered": "2026-10-20, before any Gen244 number (Gen242 only looked at 15:51-16:00)",
+  "rule": "same daily imbalance signal as Gen242 (first closing message at/after 15:50, |dollar imbalance| > 20-day median); position = OPPOSITE of the imbalance side in NQ; 0.5 units; 2 x cost_frac",
+  "variants": {"ON18": "from the 18:00 ET reopen to 09:30 next day (MFFU / Tradeify compatible)", "ON16": "from the 16:00 close (settlement) to 09:30 next day (swing firms)"},
+  "selection": "better on 2018-06..2023-12",
+  "pass": "2018-20 > 0, 2021-23 >= 0.3, 2024-26 >= 0.3",
+  "trials_added": 2
+}
