@@ -523,3 +523,11 @@ Details are in `research/GEN122_123_FUTURES.md`.
   - C2 leveraged funds, financials: 0.04 / 0.61 / -0.52
   - C3 hedging pressure: -0.04 / -0.78 / 0.82
   - C4 CME bitcoin leveraged funds -> crypto: -0.02 / 0.24 / -0.78; lowers v6 2.46 -> 2.29 and bf 2.25 -> 2.09.
+
+## Gen124 (2026-10-20): intraday news-minute continuation and gap fade (3 trials; CFD replication run first)
+- **Timestamps:** Dukascopy 5-minute bars are labelled by their start (the volatility peaks sit in the 08:30 and 09:30 bars).
+- **CFD US500/US100, 1 bp per side, DEV 2018-20 / TEST 2021-23 / HOLD 2024-26:**
+  - J1 08:30 continuation: 0.76 / -0.60 / -0.84 (516 trades)
+  - J2 14:00 continuation: -0.82 / -0.81 / -0.11
+  - J3 RTH gap fade: 0.92 / -1.08 / 0.82
+- **Verdict:** J1 and J2 already fail the registered rule, which requires a non-negative CFD replication. The futures 1-minute run follows when the data arrives.
