@@ -595,3 +595,19 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Book (Gen143 + R1, T1, T2) 2023-26: 0.825 > 0.674, adopted.**
 - **Execution check (results/gen146_exec.json):** with a 1-day delay R1 collapses (0.13 / 0.55), so the edge needs entry near the close. Computing the signal **and filling at 14:00 ET** from hourly data (24h hold) gives **0.49 / 1.11** (12:00 1.13, 15:00 1.17, 16:00 1.32 out of sample). **The book with the executable 14:00 R1: 2010-17 1.49, 2018-22 1.31, 2023-26 0.815.** That is the number to quote.
 - **Current futures book: 10 sleeves (F3, F5, G1, P1, A3, U5, K3, R1@14:00, T1, T2); out of sample 2023-26 0.815.**
+
+## Gen147-151 (2026-10-20): R1 dip ensemble on other markets and holding windows
+- **Gen147, R1 on US100/US500/US30 CFDs (14:00 ET fill) as a bf + P6 sleeve:**
+  - Sleeve: 0.78 / 0.93 / 1.05 (2 bp: 0.72 / 0.81 / 0.99).
+  - Book: 2.302 -> 2.065 (2022 0.46 -> -0.22). **Fails the strict rule.**
+- **Gen148, where the R1 edge sits (ES+NQ 1-minute):**
+  - 14:00 -> 16:00: -0.71 / -0.44 / -0.92.
+  - **16:00 -> 09:30 overnight: 1.13 / 0.62 / 1.68** (NQ 2010-17 0.62).
+  - Next session 09:30 -> 16:00: 0.73 / 0.49 / -0.02. **The Topstep version fails.**
+- **Gen149, overnight R1 on unseen markets:**
+  - RTY+YM futures: 0.04 / 0.63 / 0.35. **Fails.**
+  - **US100+US500+US30 CFDs (5-minute): 0.85 / 0.98 / 1.54. Passes** (2 bp: 0.72 / 0.72 / 1.32).
+  - The protocol required both sets to pass, so the futures book keeps the 24h R1.
+- **Gen150, overnight R1 CFD sleeve for bf:** sleeve 0.51 / 1.00 / 0.81, book 2.302 -> 2.172. **Fails the strict rule.** Index sleeves beyond P6 dilute the crypto sleeves in the bf allocation.
+- **Gen151, dip-day short 14:00 -> 16:00 on unseen markets:** RTY+YM -0.70 / -0.53 / -0.36; CFDs -0.29 / -0.50 / 0.29. **Rejected.**
+- **Note for CFD-index accounts** (e.g. an index-only CFD challenge): overnight R1 on US100/US500/US30 is a validated stand-alone strategy (0.85 / 0.98 / 1.54 at 1 bp).
