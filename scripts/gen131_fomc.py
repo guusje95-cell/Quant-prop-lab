@@ -26,3 +26,5 @@ for d in fomc:
 print("FOMC events traded:", n, flush=True)
 report("F1 post-FOMC drift ZN/ZB (15 days)", daily_book(W.fillna(0.0), M), "multi-day (MFFU/Tradeify)")
 pd.DataFrame(rows).to_csv(ROOT / "results/gen131_fomc.csv", index=False)
+
+pd.DataFrame(g["PNL"]).to_parquet(ROOT / "results/gen131_fomc_daily.parquet")

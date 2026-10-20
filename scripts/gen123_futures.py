@@ -45,3 +45,5 @@ p3 = daily_book(W3, M); report("G3 risk parity ES/ZN/GC", p3, "multi-day (MFFU/T
 bh = daily_book(pd.DataFrame(W3.mean().to_dict(), index=RM.index), M); k = F.splits(bh)
 print("G3 beta check: buy-and-hold at G3's average weights", k, stats(bh))
 pd.DataFrame(rows).to_csv(ROOT / "results/gen123.csv", index=False)
+
+pd.DataFrame(g["PNL"]).to_parquet(ROOT / "results/gen123_daily.parquet")

@@ -47,3 +47,5 @@ report("A1 pre-auction cheapening (short)", daily_book(W1, M), "multi-day (MFFU/
 report("A2 post-auction recovery (long)", daily_book(W2, M), "multi-day")
 report("A3 round trip", daily_book(W1 + W2, M), "multi-day")
 pd.DataFrame(rows).to_csv(ROOT / "results/gen130.csv", index=False)
+
+pd.DataFrame(g["PNL"]).to_parquet(ROOT / "results/gen130_daily.parquet")

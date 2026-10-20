@@ -49,7 +49,7 @@ def sharpe(p, a, b):
     x = p.loc[a:b]; return float(x.mean() / x.std() * np.sqrt(252)) if x.std() > 0 else float("nan")
 
 
-rows = []
+rows, PNL = [], {}
 ENERGY = ["CL", "HO", "RB", "NG"]; ALL12 = ENERGY + ["GC", "SI", "HG", "ZC", "ZS", "ZW", "LE", "HE"]
 for name, members, lead in (("R1 Strategy 1 (10 days), energy, PRIMARY", ENERGY, 10), ("R2 Strategy 2 (5 days), energy", ENERGY, 5),
                             ("R3 Strategy 1, all 12", ALL12, 10)):
@@ -59,5 +59,7 @@ for name, members, lead in (("R1 Strategy 1 (10 days), energy, PRIMARY", ENERGY,
     per = {r: tuple(round(sharpe(P[r], a, b), 2) for a, b in SPL) for r in members}
     row = {"test": name, "DEV": k[0], "TEST": k[1], "HOLD": k[2], "pass": bool(k[0] > 0 and k[1] >= 0.5 and k[2] >= 0.3),
            "ann ret": round(float(p.mean() * 252), 4), "per market": per}
-    rows.append(row); print(row, flush=True)
+    rows.append(row); PNL[name] = p; print(row, flush=True)
 pd.DataFrame(rows).to_csv(ROOT / "results/gen129.csv", index=False)
+
+pd.DataFrame(PNL).to_parquet(ROOT / "results/gen129_daily.parquet")

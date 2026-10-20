@@ -1,0 +1,132 @@
+{
+ "pool (DEV 2010-17, TEST 2018-22)": {
+  "T1 trend+carry multi-day (24 roots)": [
+   0.04,
+   -0.16
+  ],
+  "T2 intraday momentum (last hour)": [
+   -3.52,
+   -2.07
+  ],
+  "T3 overnight drift ES/NQ": [
+   -0.22,
+   0.54
+  ],
+  "U1 EIA crude day": [
+   -0.08,
+   0.08
+  ],
+  "U2 opening-hour range breakout": [
+   -1.03,
+   -0.69
+  ],
+  "U3 overnight-intraday reversal": [
+   -1.46,
+   -0.13
+  ],
+  "U4 bond-equity lead": [
+   -0.96,
+   -0.85
+  ],
+  "U5 cross-sectional momentum 12-1": [
+   0.5,
+   0.23
+  ],
+  "U6 commodity curve carry": [
+   0.22,
+   -0.83
+  ],
+  "U7 FX month-end fix": [
+   0.59,
+   -0.5
+  ],
+  "U8 gold Asia-session drift": [
+   0.47,
+   -0.69
+  ],
+  "F1 European-open overnight drift ES/NQ": [
+   -2.01,
+   -0.4
+  ],
+  "F2 F1 after a down day": [
+   -1.02,
+   0.02
+  ],
+  "F3 month-end Treasury demand": [
+   0.97,
+   0.94
+  ],
+  "F4 FX carry cross-section": [
+   0.11,
+   -0.73
+  ],
+  "F5 volatility-managed equity ES/NQ (beta)": [
+   1.04,
+   0.54
+  ],
+  "G1 TSMOM 12m (24 markets)": [
+   0.26,
+   0.42
+  ],
+  "G2 vol-managed ES/NQ in-session only": [
+   0.24,
+   0.22
+  ],
+  "G3 risk parity ES/ZN/GC": [
+   0.94,
+   0.26
+  ],
+  "P1 IBS reversal, equity index futures": [
+   0.0,
+   0.67
+  ],
+  "P2 gold/silver ratio reversion": [
+   -0.04,
+   -1.06
+  ],
+  "P3 gasoline crack reversion": [
+   -0.2,
+   0.51
+  ],
+  "P8 Nasdaq-vs-S&P style momentum": [
+   -0.16,
+   0.03
+  ],
+  "R1 Goldman roll": [
+   -0.54,
+   -0.57
+  ],
+  "A3 auction round trip": [
+   0.4,
+   0.47
+  ],
+  "F1 post-FOMC drift": [
+   0.6,
+   -0.62
+  ],
+  "K3 pension rebalancing": [
+   0.44,
+   0.05
+  ]
+ },
+ "selected": [
+  "F3 month-end Treasury demand",
+  "F5 volatility-managed equity ES/NQ (beta)",
+  "G1 TSMOM 12m (24 markets)",
+  "P1 IBS reversal, equity index futures",
+  "A3 auction round trip"
+ ],
+ "book DEV / TEST / HOLD": [
+  0.975,
+  0.809,
+  0.585
+ ],
+ "judgement: HOLD 2023-26": 0.585,
+ "HOLD ann return at 10% vol": 0.0639,
+ "HOLD max DD": -0.099,
+ "corr v6 / bf 2023-26": [
+  0.039,
+  -0.005
+ ],
+ "pass": true
+}

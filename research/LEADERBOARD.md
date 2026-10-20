@@ -563,3 +563,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **bf-b + ridge:** 2.438, TEST 3.241. Fails.
 - **Reading:** breadth always lowers 2023-24 and stays shadow-only. **v7 is the validated crypto improvement**, now to be built for paper trading.
 - **Gen134 noise-area improvement round:** selected V1 (60-minute checks, DEV 2018-23 1.10). Judgement: ES+NQ 2024-26 **-0.20**, NQ 2010-17 **-0.85**. **Rejected for good.**
+
+## Gen135 + P6 (2026-10-20): first passing futures book; bf improvement
+- **Futures book (Gen135):** nested out-of-sample. 5 sleeves selected on 2010-22 only (F3, F5, G1, P1, A3); 2023-26 Sharpe **0.59** (pass), 6.4% a year at 10% vol, max DD -9.9%, corr v6 0.04. MFFU/Tradeify fit (overnight).
+- **bf + P6 vol-managed US100/US500 CFDs:** bf 2.252 -> **2.302**, TEST 3.45 -> 3.69, HOLD 1.55 -> 1.85. **Passes the strict rule** (2022 weaker: 1.15 -> 0.46).
+- **v7 (v6 + ridge ML):** 2.534, passes. The validated crypto improvement.

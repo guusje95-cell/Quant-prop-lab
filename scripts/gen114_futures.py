@@ -46,12 +46,12 @@ def book_daily(fc, members, vol=0.15):
     return pnl, held
 
 
-rows = []
+rows, PNL = [], {}
 
 
 def report(name, pnl, extra=None):
     k = F.splits(pnl); r = {"test": name, "DEV": k[0], "TEST": k[1], "HOLD": k[2], "pass": F.passes(k), **(extra or {})}
-    rows.append(r); print(r, flush=True)
+    rows.append(r); PNL[name] = pnl; print(r, flush=True)
 
 
 # T1
@@ -106,3 +106,4 @@ for r in ["ES", "NQ", "ZN", "GC", "CL", "6E"]:
     P[r] = pd.Series(np.where((t.h == 16) | (t.h == 17), 0.0, dpos), index=f.index).fillna(0.0)
 run_hourly("T4 T1 signal in-session only", P)
 pd.DataFrame(rows).to_csv(ROOT / "results/gen114_futures.csv", index=False)
+pd.DataFrame(PNL).to_parquet(ROOT / "results/gen114_futures_daily.parquet")
