@@ -1,0 +1,10 @@
+{
+  "generation": "Gen181",
+  "title": "Dash for cash: short equity index futures in the days before month end (Etula, Rinne, Suominen and Vaittinen 2020, RFS)",
+  "registered": "2026-10-20, before any Gen181 number",
+  "rule": "short ES/NQ/RTY/YM 0.25 each on trading days k0..k1 counted back from the last trading day of the month (last day = -1); positions known in advance; daily_book costs",
+  "grid": "(k0, k1) {(-7, -3), (-6, -3), (-5, -3)}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrant; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 3
+}
