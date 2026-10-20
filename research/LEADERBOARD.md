@@ -758,3 +758,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - The non-beta variants (VR1 36% invested: 0.51 / 0.93; TS1 8%: 0.25 / 0.22) are below buy-and-hold on tune.
 - **New rule (config/rule_timing_vs_buyhold.json):** equity-timing entrants must beat buy-and-hold of their instruments on 2010-22.
 - **Gen224, VIX refinements (6 trials):** F5 implied-vol sizing 0.79 vs 0.86 current; R1 x VIX 0.55 vs 0.56; VIX spike reversal 0.45 but **appraisal -0.07** (beta). No change.
+- **IMPORTANT diagnostic, how much of the futures book is ES/NQ beta (Gen221 book vs ES/NQ 50/50 buy-and-hold):**
+  - 2010-17: book 1.49, corr 0.71, beta-adjusted Sharpe 1.02 (buy-and-hold 1.09).
+  - 2018-22: book 1.49, corr 0.76, **beta-adjusted 1.74** (buy-and-hold 0.48).
+  - 2023-26: book 1.24, corr 0.79, **beta-adjusted 0.51** (buy-and-hold 1.17).
+  - **Reading:** out of sample the book is mostly smarter ES/NQ exposure; its genuine excess return is about 0.5 Sharpe. It held up in the 2022 bear market (2018-22 1.49 vs buy-and-hold 0.48).
+  - Per-sleeve beta-adjusted (2010-22): MM 0.52, P1 0.45, F5 0.40, R1 0.24, T2 0.17, T1 0.07, FC 0.06, OIL -0.04.
+  - **Research priority: non-equity diversifiers.**

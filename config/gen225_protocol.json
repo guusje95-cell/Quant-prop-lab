@@ -1,0 +1,10 @@
+{
+  "generation": "Gen225",
+  "title": "Treasuries when the VIX term structure inverts (implied-stress flight to quality)",
+  "registered": "2026-10-20, before any Gen225 number",
+  "rule": "TS = VIX3M / VIX - 1 at the close; when TS < 0 (inverted), long ZF/ZN/ZB (0.10 / vol / 3 each) from the next session for H days (re-armed while inverted)",
+  "grid": "H {5, 21}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.240",
+  "trials_added": 2
+}
