@@ -1,0 +1,10 @@
+{
+  "generation": "Gen163",
+  "title": "Big-move continuation: rates (mortgage convexity hedging, Hanson 2014) and commodities; nested",
+  "registered": "2026-10-20, before any Gen163 number",
+  "rule": "z = daily return / 60-day sd (lagged); when |z| > th, take sign(return) at the close (traded at the next close, one-day lag for execution safety) and hold H days (overlapping signals averaged); size 0.10 / annualised vol / n per root",
+  "families": {"BC rates ZF/ZN/ZB": "th {1.5, 2.0} x H {1, 3, 5}", "CC commodities GC/SI/HG/CL/HO/RB": "th {1.5, 2.0} x H {1, 3, 5}"},
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 12-sleeve book + entrants; ONE evaluation 2023-26 vs 0.908",
+  "trials_added": 12
+}

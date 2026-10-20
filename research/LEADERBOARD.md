@@ -633,3 +633,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Mid-month [-1, +1] around the 15th: 0.72 / 0.37.
   - Both enter. **Book 2023-26 0.842 -> 0.908 (2010-17 1.53, 2018-22 1.36). Adopted. 12 sleeves.**
 - **Gen160, sleeve-momentum overlay (walk-forward, 5 trials):** 2018-22 NONE 1.10, M126h 1.13, M504h 1.14, M252h 1.04, M252z 0.90. Chosen M504h -> 2023-26 **0.800 < 0.908. Not adopted.**
+- **Gen161, vol-managed calendar sleeves:** const 0.70 / 0.80 vs vm 0.66 / 0.66 (tune / 2023-26). Const kept.
+- **Gen162, sleeve upgrades:** F5 + 200d filter 0.64 / 0.80, + 100d 0.51 / 0.83 (current 0.84 / 0.98); K3 quarter-end 0.01 / -0.18. Current settings kept.
