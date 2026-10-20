@@ -6,7 +6,7 @@ import pandas as pd
 import futures_db as F
 ROOT = Path(__file__).resolve().parents[1]
 TUNE, JUDGE = ("2010-06-01", "2022-12-31"), ("2023-01-01", "2026-09-30")
-REF = 1.240                                                                  # Gen221 book 2023-26
+REF = 1.218                                                                  # after the P1 execution correction (16:00 ET / TAS)
 
 
 def sleeves():
