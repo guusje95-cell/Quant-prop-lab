@@ -1,0 +1,8 @@
+{
+  "generation": "Gen238",
+  "title": "Daily-flat futures book (MFFU / Tradeify rule): re-apply the standard entry bar to cost-adjusted sleeves",
+  "registered": "2026-10-20 (the per-sleeve 2023-26 numbers under daily-flat costs were printed by futures_book_build.py; this rule uses only 2010-22 and is the existing entry bar, so the choice is mechanical)",
+  "rule": "sleeves rebuilt with QPL_DAILY_FLAT=1; keep a sleeve only if its 2010-06..2022-12 Sharpe > 0.3 (the bar every sleeve originally had to pass); EQR over kept sleeves (fit 2010-22), 10% target",
+  "judgement": "ONE 2023-26 evaluation vs the unfiltered daily-flat book (0.835)",
+  "trials_added": 1
+}
