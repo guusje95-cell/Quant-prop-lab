@@ -899,3 +899,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen256, vol-managed long BTC/ETH (P6 rule on crypto):** v7 sleeve 0.58 / 1.53 / 0.00 (corr C* 0.54), v7 2.291; bf2 sleeve 0.82 / 1.74 / 0.09, bf2 2.116. **Fails** (crypto beta is already in the books through C*; no edge in 2025-26).
 - **Gen257, betting-against-beta in bf2 + replication:** bf2 sleeve 1.69 / 0.59 / 0.57, bf2 2.378 -> 2.326 (HOLD 1.994). **On the 40 untouched extra coins: 2020-21 2.01, 2022 -1.86, 2023-26 -0.38.** Fails; the Gen253 v7 near miss does not replicate, so it was most likely luck. The strict rule did its job.
 - **Session tally (Gen246-257): 21 pre-registered trials on existing data, none passes.**
+- **Gen258 A, ridge + market breadth features (breadth, mean funding, total OI change, dispersion):** v7 2.427, bf2 2.296. **Fails.**
+- **Gen258 B, recency-weighted ridge (half-life 365 days):** v7 2.490 [1.38, 3.56, 2.06], bf2 2.325. **Fails** (HOLD lower).
+- **Session tally (Gen246-258): 23 pre-registered trials on existing data, none passes.**

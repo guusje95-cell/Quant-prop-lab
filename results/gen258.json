@@ -1,0 +1,84 @@
+{
+ "reference v7": [
+  2.534,
+  [
+   1.38,
+   3.494,
+   2.24
+  ]
+ ],
+ "reference bf2": [
+  2.378,
+  [
+   0.367,
+   3.699,
+   2.118
+  ]
+ ],
+ "A ridge + market breadth": {
+  "sleeve D/T/H": [
+   -0.007,
+   1.103,
+   1.281
+  ],
+  "corr C*": 0.0,
+  "v7": [
+   2.427,
+   [
+    1.189,
+    3.37,
+    2.192
+   ]
+  ],
+  "pass": false
+ },
+ "A ridge + market breadth (bf2)": {
+  "sleeve D/T/H": [
+   0.133,
+   1.291,
+   1.424
+  ],
+  "bf2": [
+   2.296,
+   [
+    0.174,
+    3.627,
+    2.074
+   ]
+  ],
+  "pass": false
+ },
+ "B recency-weighted ridge": {
+  "sleeve D/T/H": [
+   -0.02,
+   1.055,
+   0.67
+  ],
+  "corr C*": 0.0,
+  "v7": [
+   2.49,
+   [
+    1.379,
+    3.555,
+    2.06
+   ]
+  ],
+  "pass": false
+ },
+ "B recency-weighted ridge (bf2)": {
+  "sleeve D/T/H": [
+   0.125,
+   1.246,
+   0.822
+  ],
+  "bf2": [
+   2.325,
+   [
+    0.299,
+    3.751,
+    1.979
+   ]
+  ],
+  "pass": false
+ }
+}
