@@ -1,0 +1,16 @@
+{
+  "generation": "Gen140",
+  "title": "Nested parameter optimisation of the Gen135 futures book: tune on 2010-2022 only, judge once on 2023-2026",
+  "registered": "2026-10-20, before any Gen140 number",
+  "grids": {
+    "F3 month-end Treasury demand": "holding days {2, 3, 4, 5} (the last k trading days of the month), legs ZN ZB ZF",
+    "F5 vol-managed ES/NQ": "vol window {10, 20, 40, 60} x cap {1.5, 2, 3}",
+    "G1 TSMOM": "lookback {63, 126, 252} days or the equal-weight ensemble of the three",
+    "P1 IBS reversal": "(low, high) thresholds {(0.1, 0.9), (0.2, 0.8), (0.3, 0.7)} x {long-short, long-only}",
+    "A3 auction cycle": "pre-auction short window {3, 5, 7} days x post-auction long window {2, 4, 6} days"
+  },
+  "book_construction": "{inverse-vol (Gen135), static weights proportional to each sleeve's 2010-22 Sharpe (negative -> 0), long-only minimum variance on 2010-22 covariance}",
+  "selection": "per sleeve: the setting with the highest Sharpe on 2010-06..2022-12; then the construction with the highest 2010-22 book Sharpe. No 2023+ data is used",
+  "judgement": "ONE evaluation: the optimised book's 2023-01..2026-09 Sharpe vs the Gen135 book (0.585). The optimised book replaces it only if it is higher; either way both numbers are reported, plus per-sleeve chosen settings and their 2023-26 Sharpe",
+  "trials_added": 54
+}
