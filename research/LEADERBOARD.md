@@ -776,3 +776,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - All other sleeves use information known before the fill (calendar dates, lagged signals).
 - **Book corrected to P1 @16:00 ET: 1.459 / 1.451 / 1.218 (was 1.240). New reference 1.218.**
 - **Live note:** P1 must be executed at the 16:00 ET settlement (TAS orders on ES/NQ; check whether the firm / micros support TAS, otherwise a market order at 15:59).
+- **Gen229, auction strength (bid-to-cover surprise) continuation (2 trials):** -0.39 / -0.72 and -0.54 / -0.78. Rejected.
+  - The consistent negative sign hints at reversal, but flipping it after the fact is data snooping, and there is no unused auction history to test it cleanly. Recorded only as a hypothesis.
