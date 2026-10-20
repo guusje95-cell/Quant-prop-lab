@@ -1,0 +1,30 @@
+{
+ "families": {
+  "EA": {
+   "best": {
+    "v": "whole"
+   },
+   "tune": 0.866,
+   "2023-26": 0.501,
+   "enters": true
+  },
+  "LU": {
+   "best": {
+    "v": "new moon +-7"
+   },
+   "tune": 0.573,
+   "2023-26": 0.207,
+   "enters": true
+  }
+ },
+ "entered": [
+  "EA",
+  "LU"
+ ],
+ "book 2023-26": 0.938,
+ "adopt": false,
+ "book 2010-17 / 2018-22": [
+  1.654,
+  1.459
+ ]
+}
