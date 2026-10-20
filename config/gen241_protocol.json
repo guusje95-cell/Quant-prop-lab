@@ -1,0 +1,8 @@
+{
+  "generation": "Gen241",
+  "title": "Dark-pool index (DIX, SqueezeMetrics) predicts index returns: ES/NQ timing entrant for the swing book",
+  "registered": "2026-10-20, BEFORE the SqueezeMetrics data exists in the repo",
+  "rule": "DIX(t-1) > its trailing 252-day 80th percentile -> long ES/NQ 0.5 each for the next 20 trading days (re-armed)",
+  "pass": "2010-22 (from data start) Sharpe > 0.3 AND appraisal (beta-adjusted) > 0.3; then EQR book judgement on 2023-26 vs the reference at run time",
+  "trials_added": 1
+}

@@ -1,0 +1,15 @@
+{
+  "generation": "Gen240",
+  "title": "Dealer-gamma regime intraday strategy on ES/NQ (Barbon & Buraschi 'Gamma Fragility'; Baltussen et al. hedging demand); intraday-flat (MFFU / Tradeify / Topstep compatible)",
+  "registered": "2026-10-20, BEFORE the SqueezeMetrics data exists in the repo",
+  "data": "research_data/more2/squeeze_dix.csv (daily GEX, published after the close: day t uses the value of t-1); ES/NQ 1-minute 2018-26, NQ 1-minute 2010-17 (GEX starts 2011)",
+  "regime": "low gamma = GEX(t-1) below its trailing 252-day 30th percentile; high gamma = above the 70th percentile",
+  "variants": {
+    "LGM": "low-gamma days only: momentum, sign of the 09:30 -> 10:00 return, held 10:00 -> 15:55",
+    "BOTH": "LGM plus high-gamma days: reversal, opposite sign of 09:30 -> 10:00, held 10:00 -> 15:55"
+  },
+  "sizing / costs": "0.5 per index; 2 x cost_frac per trade; same contract at both ends",
+  "selection": "better on ES+NQ 2018-20 + 2021-23 pooled",
+  "pass": "ES+NQ 2018-20 > 0, 2021-23 >= 0.3, 2024-26 >= 0.3 AND NQ 2011-17 > 0",
+  "trials_added": 2
+}
