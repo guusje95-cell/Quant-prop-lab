@@ -1,6 +1,11 @@
 # To do on your PC (when home)
 
-**NEW - start the two new paper traders (simulation only, no keys, no orders):**
+**NEWEST - free data for the next crypto test (Gen247, ~30-45 min, resumable):** double-click `get_flow_data2.bat`
+   (Upbit KRW hourly for the altcoins + Binance spot hourly with taker-buy volume). Then:
+   `git pull --no-edit`, `git add research_data/more research_data/binance_spot`, `git commit -m "flow data 2"`, `git push`.
+   If bf2 showed "error: no Dukascopy hourly data for US100": `git pull --no-edit`, then close and restart `paper_bf2_start.bat`.
+
+**DONE - start the two new paper traders (simulation only, no keys, no orders):**
    - `git pull --no-edit` first.
    - Double-click `paper_v7_start.bat` (crypto v7 = v6 + ridge ML, HyroTrader 2-Step $200k rules, risk 2.0, daily stop 2.5%).
    - Double-click `paper_bf2_start.bat` (new BrightFunded book bf2 = bf + ridge ML + US100/US500/US30 index sleeve, $200k, risk 2.0).
