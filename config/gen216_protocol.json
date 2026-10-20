@@ -1,0 +1,11 @@
+{
+  "generation": "Gen216",
+  "title": "Dealer positioning predicts Treasury returns (NY Fed, dealer balance-sheet share and expected returns): CFTC TFF dealers in ZN/ZB",
+  "registered": "2026-10-20, before any Gen216 number",
+  "signal": "x = (Dealer long - Dealer short) / open interest, weekly per ZN and ZB; z = 156-week z-score (min 104); effective report + 6 days (gen119 weekly_to_daily)",
+  "rule": "long the contract when z > th (dealers heavily long: compensation for warehousing), short when z < -th, else flat; 0.10 / vol / 2 each",
+  "grid": "th {0.5, 1.0}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 2
+}
