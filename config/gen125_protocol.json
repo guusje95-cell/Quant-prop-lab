@@ -1,0 +1,15 @@
+{
+  "generation": "Gen125",
+  "title": "Real-futures retest of the two intraday near-misses (noise-area breakout, 5-minute ORB) + month-end pension rebalancing",
+  "registered": "2026-10-20, before any Gen125 number; Gen47 said the noise area should be retested ONCE on real ES/NQ data at futures costs",
+  "data": "Databento 1-minute ES/NQ front contract 2018-01..2026-09 resampled to 5-minute bars (New York session); daily Databento ES/ZN 2010-2026 for K3",
+  "tests": {
+    "K1 noise-area breakout (Zarattini, Aziz and Barbon 2024), PRIMARY": "src/qpl/lab/strategies_papers.NoiseAreaMomentum with paper defaults (14 days, 30-minute checks, VWAP stop, 2% daily vol sizing, max 4x), unchanged code; ES and NQ separately, then their average",
+    "K2 5-minute ORB (Zarattini and Aziz 2023)": "the Gen82 rule unchanged (first 5-minute bar direction, entry at the next open, stop at the other end of the first bar, 10R target, exit 16:00, 0.5% risk, max 4x); ES and NQ, average",
+    "K3 month-end pension rebalancing (Harvey, Mazzoleni and Melone 2025)": "at the daily close 4 trading days before the month's last trading day: if ES month-to-date return > ZN month-to-date return, short ES for the last 3 trading days, else long; size 0.15 / 60-day vol; daily Databento data 2010-2026"
+  },
+  "costs": "per side = futures_db.cost_frac (1 tick + $0.85 micro commission) at the median 2018-26 price: about 1.0 bp ES, 0.55 bp NQ. Also reported (not for the verdict) at half a tick (a resting order at the touch)",
+  "splits": "K1/K2: DEV 2018-2020, TEST 2021-2023, HOLD 2024-2026/09; K3: DEV 2010-17, TEST 2018-22, HOLD 2023-26",
+  "rule": "DEV > 0, TEST >= 0.5, HOLD >= 0.3 net (K1 and K2 on the ES+NQ average). Prop fit: K1/K2 flat by 16:00 (Topstep/Lucid); K3 multi-day",
+  "trials_added": 3
+}
