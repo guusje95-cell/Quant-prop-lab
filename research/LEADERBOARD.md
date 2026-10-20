@@ -515,3 +515,11 @@ Details are in `research/GEN114_121_NEW_DATA.md`.
 Details are in `research/GEN122_123_FUTURES.md`.
 - **Only F5 (vol-managed long ES/NQ) passes:** 1.05 / 0.55 / 0.98. It is equity beta (buy-and-hold: 1.07 / 0.47 / 1.17) with a smaller drawdown (-22% vs -35%).
 - **Rejected:** European-open drift, month-end Treasuries (dead since 2023), FX carry, TSMOM 12m (0.26 / 0.42 / 0.39), in-session vol-managed equity, risk parity.
+
+## Gen119 (2026-10-20): CFTC COT positioning, rejected (4 trials)
+- **Data fix first:** the report dates sit in different columns and formats across the yearly CFTC files. Before the fix gold had only 3 years and CME bitcoin none; after it, full 2010-2026 coverage.
+- **Results:**
+  - C1 managed-money extremes, commodities: -0.35 / -0.73 / -0.69
+  - C2 leveraged funds, financials: 0.04 / 0.61 / -0.52
+  - C3 hedging pressure: -0.04 / -0.78 / 0.82
+  - C4 CME bitcoin leveraged funds -> crypto: -0.02 / 0.24 / -0.78; lowers v6 2.46 -> 2.29 and bf 2.25 -> 2.09.

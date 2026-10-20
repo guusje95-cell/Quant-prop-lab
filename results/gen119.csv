@@ -1,0 +1,4 @@
+test,DEV,TEST,HOLD,pass,corr v6 2022-26,active days,prop fit
+"C1 managed money extremes, commodities (contrarian)",-0.351,-0.726,-0.685,False,0.02,3585,multi-day
+"C2 leveraged funds extremes, financials (contrarian)",0.039,0.61,-0.515,False,0.061,3282,multi-day
+C3 hedging pressure (Basu-Miffre),-0.036,-0.777,0.822,False,-0.02,4182,multi-day
