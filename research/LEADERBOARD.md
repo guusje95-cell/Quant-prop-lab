@@ -656,3 +656,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen169, Treasury betting-against-beta (2 trials):** ZT+ZF vs ZB -0.61 / -0.08; ZT vs ZN -0.58 / -0.26. Rejected.
 - **Gen170, open-interest growth (6 trials):** aggregate timing best -0.02 / 0.27; cross-section best -0.07 / -0.14. Rejected.
 - **Futures book now: 14 sleeves (F3, F5, G1, P1, A3, U5, K3, R1 low-vol 14:00, T1, T2, FC, MM, BC, SH); out of sample 2023-26 1.102 (robust range given BC sensitivity about 1.0-1.05).**
+- **Gen171, calendar effects on BTC/ETH as a v7 sleeve (2 trials):**
+  - FOMC weeks 2/4/6: sleeve 0.21 / 0.63 / 0.74, v7 2.534 -> 2.548, but TEST 3.494 -> 3.258. Fails the strict rule.
+  - Union of all calendar effects: 1.22 / 0.49 / -0.01. Fails.

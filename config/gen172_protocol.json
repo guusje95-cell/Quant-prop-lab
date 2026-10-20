@@ -1,0 +1,9 @@
+{
+  "generation": "Gen172",
+  "title": "FOMC cycle in Treasuries and gold (Cieslak, Morse and Vissing-Jorgensen mechanism: even-week Fed easing news)",
+  "registered": "2026-10-20, before any Gen172 number",
+  "variants": {"FB": "long ZF/ZN/ZB (0.10 / annualised 60d vol / 3 each) in FOMC weeks 2/4/6 (Gen159 mask)", "FG": "long GC (0.10 / vol) in FOMC weeks 2/4/6"},
+  "selection": "each single setting; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "current 14-sleeve book + entrants; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 2
+}
