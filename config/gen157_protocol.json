@@ -1,0 +1,10 @@
+{
+  "generation": "Gen157",
+  "title": "Market-neutral relative reversal between US equity index futures (NQ, RTY, YM each vs ES)",
+  "registered": "2026-10-20, before any Gen157 number",
+  "rule": "spread return = r_X - beta x r_ES (beta 120-day rolling, lagged); z = L-day cumulative spread return / (sd of daily spread x sqrt(L)), 120-day sd; when z < -th go long X / short beta ES (and the mirror when z > th); signal from the close of day t, traded at the close of t+1 (one full day lag), held L days; size so each pair runs at 10%/3 vol (60-day spread vol); cost_frac on both legs",
+  "grid": "L {3, 5, 10} x th {1.0, 1.5}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "current 10-sleeve book (with Gen155 R1) + entrant, Sharpe-weighted on 2010-22; ONE evaluation 2023-26 vs 0.842",
+  "trials_added": 6
+}
