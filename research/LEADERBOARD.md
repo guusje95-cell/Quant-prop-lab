@@ -556,3 +556,9 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - CME bitcoin retail positioning: rejected.
   - Post-FOMC drift: waits for the FOMC dates.
 - **Gen131 F1 post-FOMC drift (ZN/ZB, 124 events):** 0.60 / -0.63 / 0.30. Rejected.
+
+## Gen133 (2026-10-20): combining tested crypto improvements (3 trials)
+- **v7 = v6 + ridge ML:** 2.534 / TEST 3.494 / HOLD 2.240. **Passes the strict rule** (as Gen109).
+- **v8 = v7 + 60-coin premium carry:** 2.617, but TEST 3.295. Fails vs v6 and vs v7.
+- **bf-b + ridge:** 2.438, TEST 3.241. Fails.
+- **Reading:** breadth always lowers 2023-24 and stays shadow-only. **v7 is the validated crypto improvement**, now to be built for paper trading.

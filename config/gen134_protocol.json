@@ -1,0 +1,15 @@
+{
+  "generation": "Gen134",
+  "title": "Noise-area breakout improvement round on real ES/NQ futures, with a development / judgement split",
+  "registered": "2026-10-20, before any Gen134 number. Gen125 primary failed (ES+NQ 0.92 / 1.17 / 0.16); Gen126 NQ 2010-17 net -0.45 (gross +0.82)",
+  "variants": {
+    "V0": "paper defaults (as Gen125)",
+    "V1": "check_minutes 60 (half the trades -> lower cost drag)",
+    "V2": "band_mult 1.5 (only stronger breakouts)",
+    "V3": "vwap_stop off (boundary stop only: fewer exits and re-entries)",
+    "V4": "allow_short off (long-only; equity drift)"
+  },
+  "selection": "the variant with the highest Sharpe on the ES+NQ average over the DEVELOPMENT period 2018-01..2023-12 only (net, registered costs)",
+  "judgement": "the selected variant is judged ONCE: ES+NQ average 2024-01..2026-09 Sharpe >= 0.5 AND NQ 2010-06..2017-12 Sharpe >= 0.3 net (costs = futures_db.cost_frac at the median price of each period). Nothing else is selected or re-run after the judgement",
+  "trials_added": 5
+}
