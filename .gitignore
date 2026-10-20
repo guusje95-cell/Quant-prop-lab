@@ -31,3 +31,6 @@ paper_trading/bfb/data/
 paper_trading/bfb/_selftest/
 paper_trading/bfb/_recompute*
 paper_trading/bfb/run_log.txt
+
+# raw Databento statistics are too large for GitHub; push the compact daily file instead
+research_data/databento_extra/fut_stats.parquet
