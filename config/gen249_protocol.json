@@ -1,0 +1,23 @@
+{
+  "generation": "Gen249",
+  "title": "Three untested crypto ideas on existing / freely fetched data: USDT premium, ETH-BTC Coinbase premium spread, Weiss on every Friday",
+  "registered": "2026-10-20, before any Gen249 number (USDT-USD fetched from Coinbase's public API, 2021-05..)",
+  "A_usdt_premium": {
+    "signal": "Coinbase USDT-USD hourly close; d = close - 1; p24 = 24h mean of d (min 20); z = (p24 - 720h mean) / 720h sd (min 480), as the Coinbase-premium zc; read at the 23:00 UTC bar. z > 1 -> long BTC and ETH 0.25 each, z < -1 -> short 0.25 each, held the next UTC day",
+    "why": "buying crypto offshore needs USDT; paying above $1 for it signals fresh USD demand (like the Coinbase / kimchi premia, which work)",
+    "periods": "DEV 2021-06..2022-12 (data start), TEST 2023-24, HOLD 2025-26",
+    "trials_added": 1
+  },
+  "B_eth_btc_premium_spread": {
+    "signal": "s = zc_ETH - zc_BTC (Gen108 Coinbase premium z per coin, 23:00 UTC); z = (s - 30-day mean) / 30-day sd (min 20); z > 1 -> long ETH 0.25 / short BTC 0.25, z < -1 the reverse, held the next day",
+    "why": "relative US demand between the two coins; market-neutral, so low correlation with the directional sleeves",
+    "trials_added": 1
+  },
+  "C_weiss_every_friday": {
+    "rule": "the Weiss expiry sleeve (fade the 07-08 UTC move from 08:00 to 10:00) applied on EVERY Friday (Deribit weekly expiries too), replacing the last-Friday-only sleeve; same costs, same half weight",
+    "why": "the hedging-flow mechanism applies to every expiry; weekly expiries are smaller, so the per-event effect may be smaller but there are 4x the events (the monthly version has t = 1.6 on 81 events)",
+    "trials_added": 1
+  },
+  "pass": "v7 (perp costs): sleeve DEV > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 (A, B) AND strict rule vs v7 (2.534 / 3.494 / 2.240). bf2 (CFD costs): sleeve DEV > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118). C is judged on the books only (it replaces a sleeve).",
+  "no_changes_after_results": true
+}
