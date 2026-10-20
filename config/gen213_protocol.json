@@ -1,0 +1,10 @@
+{
+  "generation": "Gen213",
+  "title": "Cascade limit buys on ES/NQ (transfer of the crypto 'cascade limit' sleeve)",
+  "registered": "2026-10-20, before any Gen213 number",
+  "rule": "each trade date: limit level L = prior trade-date close x (1 - k x sd20), sd20 = 20-day sd of daily close-to-close returns (lagged); filled if any hourly low of the trade date is <= L x (1 - 1 tick) (trade-through), at price L; exit at the trade-date close (X0) or the next trade-date close (X1); one fill per day; 0.5 per index; cost_frac per side (2 sides)",
+  "grid": "k {1.5, 2.0} x exit {X0, X1}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 4
+}
