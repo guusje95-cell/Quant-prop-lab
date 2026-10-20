@@ -1,0 +1,13 @@
+{
+  "generation": "Gen188",
+  "title": "Commodity cross-section: lottery (MAX) and idiosyncratic volatility (Fuertes, Miffre and Fernandez-Perez 2015)",
+  "registered": "2026-10-20, before any Gen188 number",
+  "universe": "GC SI HG CL NG RB HO ZC ZS ZW LE HE, monthly rebalance at month end (Gen143 xs helper: inverse-vol, dollar-balanced legs)",
+  "families": {
+    "MX": "score = max daily return over the past 21 days; long the n lowest, short the n highest; n {3, 4}",
+    "IV": "score = sd of residuals from regressing daily returns on the equal-weighted commodity average over the past 63 days; long the n lowest, short the n highest; n {3, 4}"
+  },
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 15-sleeve book + entrants; ONE evaluation 2023-26 vs 1.137",
+  "trials_added": 4
+}
