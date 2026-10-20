@@ -1,0 +1,9 @@
+{
+  "generation": "Gen161",
+  "title": "Volatility-managed sizing of the equity calendar sleeves (T1, T2, FC, MM)",
+  "registered": "2026-10-20, before any Gen161 number",
+  "candidates": {"const": "0.25 per index on active days (current)", "vm": "0.25 x min(2, median-normalised (0.15 / 20-day realised vol of the index, lagged)) per index; normalisation constant = 2010-22 median of 0.15/rv20 so the average size is unchanged"},
+  "selection": "variant with the higher 2010-06..2022-12 Sharpe of the equal-weighted sum of the four sleeves",
+  "judgement": "chosen variant replaces the four sleeves in the book; ONE evaluation 2023-26 vs 0.908; adopt only if vm chosen and higher",
+  "trials_added": 2
+}
