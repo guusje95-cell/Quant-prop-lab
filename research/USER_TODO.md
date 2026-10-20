@@ -5,4 +5,6 @@
    - Then: `git pull --no-edit`, `git add research_data/databento`, `git commit -m "databento extra roots"`, `git push`.
 2. **VIX / VXN / VVIX history** (free, CBOE): double-click `get_vix_data.bat`.
    - Then: `git pull --no-edit`, `git add research_data/more2`, `git commit -m "vix data"`, `git push`.
-3. Earlier open items: Deribit download (`get_deribit_fast.bat`, then push); check BF spreads for SNX/INJ/HBAR/SUI/OP in MT5; one demo round trip to see whether the commission is per deal or per round trip.
+3. **Dukascopy daily history 2003-2026** (free, slow: about 1 hour, resumable): double-click `get_dukascopy_daily.bat`. Needed for the gold/platinum test and the 2003-2010 backcasts.
+   - Then: `git pull --no-edit`, `git add research_data/dukascopy_daily`, `git commit -m "dukascopy daily"`, `git push`.
+4. Earlier open items: Deribit download (`get_deribit_fast.bat`, then push); check BF spreads for SNX/INJ/HBAR/SUI/OP in MT5; one demo round trip to see whether the commission is per deal or per round trip.

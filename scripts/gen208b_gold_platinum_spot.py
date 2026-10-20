@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts"))
-RAW = ROOT / "data/raw/dukascopy_direct"
+RAW = ROOT / "research_data/dukascopy_daily"
 c = {"__file__": str(ROOT / "scripts/gen184_cross_pred.py")}; exec(open(ROOT / "scripts/gen184_cross_pred.py").read().split("\nFAM = {")[0], c)
 F, S, TUNE, JUDGE, IX, daily_book, monthly = (c[k] for k in ("F", "S", "TUNE", "JUDGE", "IX", "daily_book", "monthly"))
 import fbook as B

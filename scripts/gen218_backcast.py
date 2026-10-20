@@ -7,7 +7,7 @@ import pandas as pd
 from dateutil.easter import easter
 from pandas.tseries.holiday import USFederalHolidayCalendar
 ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT / "data/raw/dukascopy_direct"
+RAW = ROOT / "research_data/dukascopy_daily"
 A, Z = "2003-06-01", "2010-05-31"
 ld = lambda s: pd.read_parquet(RAW / f"{s}_D1_raw.parquet")
 E = {"US500": ld("USA500IDXUSD"), "USTECH": ld("USATECHIDXUSD")}

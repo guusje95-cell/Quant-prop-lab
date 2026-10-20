@@ -36,4 +36,6 @@ for sym in sys.argv[1:]:
         fetch(sym, y)
     parts = [pd.read_parquet(p) for p in sorted(PARTS.glob(f"{sym}_*.parquet"))]
     df = pd.concat([p for p in parts if len(p)]).sort_index(); df = df[~df.index.duplicated()]; df = df[df.volume > 0]
-    df.to_parquet(DD.RAW / f"{sym}_D1_raw.parquet"); print(sym, "DONE", len(df), df.index.min().date(), df.index.max().date(), flush=True)
+    df.to_parquet(DD.RAW / f"{sym}_D1_raw.parquet")
+    SHARE = ROOT / "research_data/dukascopy_daily"; SHARE.mkdir(parents=True, exist_ok=True); df.to_parquet(SHARE / f"{sym}_D1_raw.parquet")
+    print(sym, "DONE", len(df), df.index.min().date(), df.index.max().date(), flush=True)

@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
-d = pd.read_parquet(ROOT / "data/raw/dukascopy_direct/USTBONDTRUSD_D1_raw.parquet"); d = d[d.index.weekday < 5]
+d = pd.read_parquet(ROOT / "research_data/dukascopy_daily/USTBONDTRUSD_D1_raw.parquet"); d = d[d.index.weekday < 5]
 r = d.close.pct_change(); A, Z = "2003-06-01", "2010-05-31"
 
 
