@@ -1,0 +1,13 @@
+{
+  "generation": "Gen131",
+  "title": "User papers round 2: crypto order flow (Anastasopoulos et al. 2024), retail positioning in CME bitcoin futures (Dunbar and Owusu-Amoako 2023), post-FOMC drift in Treasury futures (Indriawan, Jiao and Tse 2021)",
+  "registered": "2026-10-20, from the user-supplied papers, before any Gen131 number (and before the FOMC dates were downloaded)",
+  "tests": {
+    "O1 weekly order-flow cross-section (crypto)": "60 Binance perps (pack + extra, listed >= 60 days): order flow ratio = (2 x taker-buy quote volume - quote volume) / quote volume summed over the past 7 days (to Sunday 24:00 UTC); long the top fifth, short the bottom fifth, equal weight, held one week; 5 bp taker + funding; crypto rule into v6",
+    "O2 retail positioning in CME bitcoin futures (contrarian)": "COT TFF bitcoin: retail net short = (NonRept short - NonRept long) / OI; weekly change; z vs 52 weeks; z > 1 -> long BTC 0.5 for the week, z < -1 -> short 0.5; usable from the Monday after the report; crypto rule into v6 and bf",
+    "F1 post-FOMC drift, Treasury futures": "on each scheduled FOMC statement day (research_data/more2/fomc_dates.parquet): s = sign of the ZN return from 14:00 to 16:00 ET (close of the 13:00 bar to close of the 15:00 bar); hold ZN and ZB in direction s from the trade-date close of the announcement day for 15 trading days, 0.10 / 60-day vol each"
+  },
+  "rules": "O1/O2: standard crypto rule per book (DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3, book up with TEST and HOLD not lower). F1: futures rule DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3",
+  "not_tested": "Gornall et al. 2025 (descriptive, no rule); Benedetti and Nikbakht 2021 (two-thirds of the gain is before the listing date; about 40 listings in our data)",
+  "trials_added": 3
+}
