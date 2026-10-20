@@ -765,3 +765,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Reading:** out of sample the book is mostly smarter ES/NQ exposure; its genuine excess return is about 0.5 Sharpe. It held up in the 2022 bear market (2018-22 1.49 vs buy-and-hold 0.48).
   - Per-sleeve beta-adjusted (2010-22): MM 0.52, P1 0.45, F5 0.40, R1 0.24, T2 0.17, T1 0.07, FC 0.06, OIL -0.04.
   - **Research priority: non-equity diversifiers.**
+- **Gen225, Treasuries after VIX term-structure inversion (2 trials):** -0.05 / -0.54 and 0.03 / -0.81. Rejected.
