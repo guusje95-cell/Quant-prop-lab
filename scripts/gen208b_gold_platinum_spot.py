@@ -22,6 +22,6 @@ out = {"spot history": [str(gp.index.min().date()), str(gp.index.max().date())],
 if out["enters"]:
     bh = daily_book(pd.DataFrame({r: pd.Series(0.5, index=IX) for r in ("ES", "NQ")}), ["ES", "NQ"]); out["buy-and-hold tune"] = round(S(bh, TUNE), 3)
     out["beats buy-and-hold (rule)"] = bool(t[ch] > out["buy-and-hold tune"])
-if out["enters"] and out["beats buy-and-hold (rule)"]:
+if out["enters"] and out.get("beats buy-and-hold (rule)", False):
     out.update(B.judge({"GP": sl[ch]}, "gen208b"))
 print(json.dumps(out)); json.dump(out, open(ROOT / "results/gen208b.json", "w"), indent=1)
