@@ -1,0 +1,13 @@
+{
+  "generation": "Gen170",
+  "title": "Open-interest growth in commodities (Hong and Yogo 2012, JFE)",
+  "registered": "2026-10-20, before any Gen170 number",
+  "data": "CFTC disaggregated Open_Interest_All for the 12 commodities (GC SI HG CL NG RB HO ZC ZS ZW LE HE), weekly, effective report + 6 days",
+  "families": {
+    "OA aggregate timing": "g = log(sum over markets of OI / OI_max-normalised... ) -> growth of the equal-weighted average of each market's OI / its 52-week mean, over L weeks; long the equal-vol commodity basket (0.10/vol/12 each) when g > 0, else flat; L {4, 13, 52}",
+    "OX cross-section": "rank markets by L-week OI growth (log OI_t / OI_t-L); long top 3 / short bottom 3, inverse-vol, rebalanced weekly at the effective date; L {4, 13, 52}"
+  },
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrants; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 6
+}

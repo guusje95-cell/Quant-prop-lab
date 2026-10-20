@@ -653,3 +653,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Futures prop update (results/futures_prop_update.csv; bootstrap of the UNSEEN 2023-26 window only; 50k swing firm with ASSUMED terms):**
   - At risk 0.5: old book pass 33%, P(profit) 0.81, net 2y $2.4k; **new book (1.10) pass 59%, P(profit) 0.94, net 2y $4.3k (p10 +$671)**.
   - At risk 0.33: pass 89%, P(profit) 0.89.
+- **Gen169, Treasury betting-against-beta (2 trials):** ZT+ZF vs ZB -0.61 / -0.08; ZT vs ZN -0.58 / -0.26. Rejected.
