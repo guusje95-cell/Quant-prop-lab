@@ -1,0 +1,8 @@
+{
+  "generation": "Gen187",
+  "title": "Oil predicts crypto: Gen183 rule on BTC/ETH perps as a v7 sleeve",
+  "registered": "2026-10-20, before any Gen187 number",
+  "rule": "at each month end, if CME crude (CL, roll-safe) fell over the past 21 trading days, long BTC and ETH 0.5 each for the next calendar month (decided at the month-end close, held from the next UTC day), else flat; _from_daily_weights (7.5 bp + funding)",
+  "pass": "sleeve D/T/H > 0 / >= 0.5 / >= 0.3 AND strict rule vs v7 (2.534; TEST 3.494, HOLD 2.240)",
+  "trials_added": 1
+}
