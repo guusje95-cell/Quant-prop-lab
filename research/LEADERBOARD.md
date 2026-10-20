@@ -671,3 +671,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen179, realized skewness XS from hourly returns (4 trials):** best L=21, n=4: 0.43 / 0.17 enters, but the book drops to **1.084 < 1.102**. Not adopted.
 - **Gen180, hourly big-move continuation in Treasuries (4 trials):** all negative (best -0.38 / -0.23). The convexity flow works at the daily horizon (BC), not hourly. Rejected.
 - **Gen181, dash for cash: short equities before month end (3 trials):** -0.32 / -0.77 at best. Rejected.
+- **Gen182, F3 weighted to refunding months (3 trials):** flat 0.96 / 0.05, refund-weighted 0.78 / 0.33, refund-only 0.43 / 0.69. Flat kept (best on tune).
