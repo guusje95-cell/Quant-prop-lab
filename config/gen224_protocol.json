@@ -1,0 +1,12 @@
+{
+  "generation": "Gen224",
+  "title": "VIX-based futures refinements and a spike-reversal entrant",
+  "registered": "2026-10-20, before any Gen224 number (VIX data pushed; only Gen209 has used it)",
+  "families": {
+    "F5i (refinement of F5)": "{current: 0.5 x min(2, 0.15 / realised 20d vol); implied: ES 0.5 x min(2, 0.15 / (VIX/100)), NQ 0.5 x min(2, 0.15 / (VXN/100))}, previous close; replaces F5 if the implied version has the higher 2010-22 Sharpe (then sleeve vol targeting as Gen221)",
+    "VSR (entrant)": "spike = VIX close > 1.25 x its 20-day mean; trigger = first day after a spike day on which VIX closes below the previous close; long ES/NQ 0.5 each for H trading days from the next session; H {5, 10}; must pass > 0.3 AND the appraisal rule (config/rule_timing_vs_buyhold.json)",
+    "R1v (refinement of R1)": "{current; R1 size x clip(VIX / 252-day median VIX, 0.5, 2) at the previous close}; replaces R1 if higher 2010-22 Sharpe"
+  },
+  "judgement": "ONE evaluation 2023-26 of the EQR book with all changes from this generation vs 1.240",
+  "trials_added": 6
+}
