@@ -677,3 +677,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Book 2023-26 1.102 -> 1.137 (2010-17 1.64, 2018-22 1.42). Adopted, 15 sleeves.**
 - **Gen184 (6 trials):** copper -> stocks (long only after HG fell) 0.73 / 0.59 enters, but the book is 1.128 < 1.137 (overlaps the oil sleeve). Commodity currencies -> commodities: best -0.005 / -0.15. Not adopted.
 - **Gen185, oil / copper -> Treasuries (4 trials):** best oil 0.22 / -0.62; copper 0.26 / 0.41. Rejected.
+- **Gen186, oil timing in the merged bf index sleeve:** leg -0.06 / 2.28 / 0.36; bf 2.286, HOLD 1.809. **Fails the strict rule.**
