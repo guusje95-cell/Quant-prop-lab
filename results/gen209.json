@@ -1,0 +1,33 @@
+{
+ "families": {
+  "VRP": {
+   "tune": {
+    "VR1": 0.512,
+    "VR2": 0.805
+   },
+   "chosen": "VR2",
+   "2023-26": 1.239,
+   "enters": true
+  },
+  "TS": {
+   "tune": {
+    "TS1": 0.245,
+    "TS2": 0.761
+   },
+   "chosen": "TS2",
+   "2023-26": 1.207,
+   "enters": true
+  }
+ },
+ "entered": [
+  "VRP",
+  "TS"
+ ],
+ "book 2023-26": 1.299,
+ "reference": 1.24,
+ "book 2010-17 / 2018-22": [
+  1.492,
+  1.301
+ ],
+ "adopt": true
+}

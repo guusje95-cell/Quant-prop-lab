@@ -1,0 +1,6 @@
+{
+  "rule": "Equity-timing entrants (sleeves that are long-only ES/NQ some of the time) must, on 2010-06..2022-12, have a Sharpe above that of buy-and-hold of the same instruments with the same weights (0.76 for ES/NQ 50/50) in addition to > 0.3",
+  "registered": "2026-10-20, after Gen209 exposed the gap: the plain > 0.3 bar cannot tell beta from timing",
+  "applies to": "Gen208/208b, Gen210 NKD and every later equity-timing test; Gen209 is judged by it (conservatively, see LEADERBOARD)",
+  "note": "earlier adopted timing sleeves (T1, T2, FC, MM, OIL) are invested 9-47% of the time and are not near buy-and-hold; not re-judged (no repeated looks at 2023-26)"
+}

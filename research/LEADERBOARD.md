@@ -750,3 +750,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **D1 put-skew contrarian (primary):** 0.01 / -0.79 / -0.12; lowers v6 and bf. **Fails.**
 - **D2 call-minus-put buying:** 0.35 / 0.81 / 0.05; v6 2.458 -> 2.512 but HOLD 1.90 -> 1.66; bf 2.252 -> 2.338 but HOLD 1.55 -> 1.42. **Fails** (HOLD).
 - Both fail against the books they were registered against (v6 / bf), so there is no case to test against v7.
+
+## Gen209 (2026-10-20): VIX variance risk premium / term structure (VIX data 1990-2026)
+- Chosen VR2 (long ES/NQ when VRP > 0): 0.81 / 1.24. Chosen TS2 (long when VIX3M > VIX): 0.76 / 1.21. Both enter under the 0.3 bar; book 2023-26 1.240 -> 1.299, but 2010-17 / 2018-22 fall to 1.49 / 1.30.
+- **Check:** VR2 is invested 84% of the time, TS2 92%; correlation with ES/NQ buy-and-hold 0.88 / 0.83. Buy-and-hold ES/NQ itself scores 0.76 / 1.17.
+- **These are buy-and-hold, not timing. Overridden conservatively: NOT adopted; the book stays at 1.240.**
+- The non-beta variants (VR1 36% invested: 0.51 / 0.93; TS1 8%: 0.25 / 0.22) are below buy-and-hold on tune.
+- **New rule (config/rule_timing_vs_buyhold.json):** equity-timing entrants must beat buy-and-hold of their instruments on 2010-22.
