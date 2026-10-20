@@ -1,0 +1,12 @@
+{
+  "generation": "Gen211",
+  "title": "Corporate-issuance hedging pressure in Treasuries: weekly (Mon/Tue issuance) and monthly (early-month issuance) patterns",
+  "registered": "2026-10-20, before any Gen211 number",
+  "families": {
+    "DW": "long ZF/ZN/ZB (0.10 / vol / 3 each) on Wednesday-Friday (pressure reverses after Mon/Tue issuance), flat Mon/Tue",
+    "IS": "short ZF/ZN/ZB on the first 3 trading days of each month (heavy issuance and rate-lock selling), flat otherwise"
+  },
+  "selection": "single settings; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrants; ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 2
+}
