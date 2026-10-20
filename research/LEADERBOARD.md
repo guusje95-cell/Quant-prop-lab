@@ -710,3 +710,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Risk 1.0 / 1.0: net $15.8k (p10 +$0.8k).
   - Risk 0.5 / 0.5: net $4.2k (P(profit) 0.68).
 - **Use:** a second BrightFunded (or other index-CFD) account next to bf, not inside it.
+- **Gen202, futures sleeves transferred to crypto v7 (3 trials):**
+  - Vol-managed long: 0.60 / 1.51 / -0.03.
+  - Big-move continuation: 0.52 / 0.11 / 0.88; v7 HOLD 2.34 but TEST 3.22.
+  - R1 dip: 0.77 / 0.58 / 0.21.
+  - **All fail the strict rule.**
