@@ -555,3 +555,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Crypto order-flow cross-section: sleeve 2.05 / 0.99 / 0.60, v6 2.458 -> 2.557, but HOLD 1.901 -> 1.879 (fails the strict rule). 2026 so far -1.87. In bf: HOLD -1.11. **Rejected; the effect is fading.**
   - CME bitcoin retail positioning: rejected.
   - Post-FOMC drift: waits for the FOMC dates.
+- **Gen131 F1 post-FOMC drift (ZN/ZB, 124 events):** 0.60 / -0.63 / 0.30. Rejected.
