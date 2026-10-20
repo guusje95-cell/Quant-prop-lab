@@ -741,3 +741,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - SH positive in 11 of 17 years (best 2012 1.97, worst 2014 / 2024 -0.65).
   - BC positive in 12 of 17 (worst 2012 -1.08).
   - Neither depends on a single year.
+- **Gen220, dollar carry (average forward discount):** -0.15 / -0.35 (2010-17 -0.62). Rejected.

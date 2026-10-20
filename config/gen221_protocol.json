@@ -1,0 +1,9 @@
+{
+  "generation": "Gen221",
+  "title": "Sleeve-level vol targeting of the always-active sleeves (F5, G1, A3, U5) before EQR, walk-forward",
+  "registered": "2026-10-20, before any Gen221 number",
+  "variants": {"RAW": "current", "SVT": "each of F5, G1, A3, U5 multiplied by (its 2010-17 sd) / (its trailing 60-day sd, lagged), capped 2x; other sleeves unchanged"},
+  "selection": "book Sharpe 2018-22 with EQR weights fitted on 2010-17 (SVT normaliser from 2010-17 too)",
+  "judgement": "if SVT is chosen, refit on 2010-22 (normaliser 2010-22); ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 2
+}
