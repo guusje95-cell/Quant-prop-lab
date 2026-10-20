@@ -1,0 +1,9 @@
+{
+  "generation": "Gen203",
+  "title": "Universe of the equity timing sleeves (T1, T2, FC, MM, OIL): four indices vs ES+NQ",
+  "registered": "2026-10-20, before any Gen203 number",
+  "variants": {"ALL4": "current: ES/NQ/RTY/YM 0.25 each", "ESNQ": "ES/NQ 0.5 each"},
+  "selection": "higher 2010-06..2022-12 Sharpe of the equal-weighted sum of the five sleeves",
+  "judgement": "if ESNQ is chosen, the five sleeves are replaced; ONE evaluation 2023-26 of the EQR book vs 1.143",
+  "trials_added": 2
+}
