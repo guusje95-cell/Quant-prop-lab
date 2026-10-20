@@ -621,3 +621,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen154, intraday return periodicity, 26 futures hourly (9 trials):** net -12 to -27 (costs).
   - Gross 2.92 / 0.83: the signal is real, but the edge per unit of turnover (ES -0.1, NQ 0.1-0.8, GC 0.5-0.7, CL 1.1-1.8 bp) is below the cost per side (1.0-2.6 bp) in every market and setting. **Rejected: not tradable at our costs.**
 - **Futures book unchanged: OOS 2023-26 0.815.**
+- **Gen155, R1 refinement (12 trials, executable 14:00 ET):** chosen: base 4 indicators, size x vol250/vol20 (capped 2), 24h hold (tune 0.56, 2023-26 1.04). The 6-indicator and 48h-hold variants were worse on tune. **Book 2023-26 0.815 -> 0.842 (2010-17 1.46, 2018-22 1.33). Adopted.**
