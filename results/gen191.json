@@ -1,0 +1,20 @@
+{
+ "chosen": {
+  "challenge": 1.0,
+  "funded": 0.5
+ },
+ "chosen 2023-26": {
+  "net": 6205,
+  "p10": 398,
+  "P_profit": 0.93,
+  "P_funded": 0.97,
+  "per_month": 258
+ },
+ "default 0.5/0.5 2023-26": {
+  "net": 4737,
+  "p10": 889,
+  "P_profit": 0.96,
+  "P_funded": 1.0,
+  "per_month": 197
+ }
+}

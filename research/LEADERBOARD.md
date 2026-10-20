@@ -684,3 +684,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen190, weight caps / 1/N (walk-forward, 5 trials):** 2018-22 with 2010-17 weights: SW 0.99, CAP20 0.99, CAP12 0.98, **EQR 1.25**, EW 1.11.
   - **Chosen EQR (1/sd over sleeves with positive fit Sharpe) -> 2023-26 1.143 vs 1.137. Adopted.** The out-of-sample gain is small, but the walk-forward margin is large.
   - **Construction is now EQR (scripts/fbook.py); entrants from Gen191 are judged against 1.143.**
+- **Gen191, prop sizing of the futures book (12 sizing pairs, chosen on a 2010-22 bootstrap):**
+  - Chosen: **challenge 1.0 / funded 0.5 (x15% vol)**. On a 2023-26-only bootstrap: **net 2y $6.2k per 50k account** (P(profit) 0.93, p10 +$398, P(funded) 0.97).
+  - Default 0.5 / 0.5: net $4.7k (P(profit) 0.96, p10 +$889).
+  - More payout, slightly worse tail: the user's choice. ASSUMED firm terms.
