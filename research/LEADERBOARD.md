@@ -696,3 +696,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **A single-instrument NQ book does not get near 2.0. The futures book's gains come from the diversifiers (BC, SH, F3, A3).**
 - **Gen195 (2 trials):** gold autumn effect -0.49 / 0.68; yen fiscal-year-end -0.54 / -0.51. Rejected.
 - **Gen196, ridge ML sleeve in bf (+ merged index sleeve):** sleeve 0.22 / 1.49 / 1.49 (CFD costs). bf 2.326 -> 2.359, HOLD 1.883 -> 2.142, but **TEST 3.698 -> 3.681 (-0.017). Fails the strict rule (near-miss).** Not adopted; the rule is not relaxed after the fact.
+- **Gen197, hour-opening order imbalance (Kim and Hansen 2026; 4 trials):** best DEV 0.14 but TEST / HOLD -1.70 / -2.14 (4h: -4.1 / -4.5). Fails badly. 5-minute bars and a next-hour entry do not capture the paper's seconds-scale effect.
