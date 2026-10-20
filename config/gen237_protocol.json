@@ -1,0 +1,12 @@
+{
+  "generation": "Gen237",
+  "title": "Futures book account size at an MFFU-type swing firm (50k / 100k / 150k), nested sizing",
+  "registered": "2026-10-20, before any Gen237 number",
+  "terms (ASSUMED from third-party summaries, 2026; verify on the firm's site, incl. overnight holding)": {"50k": "target 3k (6%), EOD trailing 2k (4%) locking at start, fee $150", "100k": "target 6k, trailing 3k (3%), fee $250", "150k": "target 9k, trailing 4.5k (3%), fee $350"},
+  "common": "90% split, payouts every 14 days, no daily limit; consistency rule not modelled",
+  "book": "results/book_corrected_p1.parquet (current futures book), scaled to 15% vol with the 2010-22 sd",
+  "grid": "challenge {0.33, 0.5, 0.75, 1.0} x funded {0.25, 0.33, 0.5}",
+  "selection": "per size: max 2010-22 bootstrap mean net with P(profit) >= 0.90; then the size with the highest 2010-22 mean net",
+  "evaluation": "2023-26 bootstrap (and the halved-mean stress) for all three sizes at their chosen settings",
+  "trials_added": 36
+}
