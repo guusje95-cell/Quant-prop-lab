@@ -1,0 +1,8 @@
+{
+  "generation": "Gen227",
+  "title": "VIX risk-off overlay on the crypto books (v7, bf + index sleeve)",
+  "registered": "2026-10-20, before any Gen227 number",
+  "rule": "daily multiplier m_d = 0.5 if the previous US close VIX > its trailing 252-trading-day 80th percentile, else 1.0; applied to the book's hourly returns of day d (costs of the size change ignored: scaling an existing book; flagged)",
+  "pass": "strict rule per book: v7 (2.534; TEST 3.494, HOLD 2.240), bf + index sleeve (2.326; TEST 3.698, HOLD 1.883)",
+  "trials_added": 2
+}
