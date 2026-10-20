@@ -1,0 +1,12 @@
+{
+  "generation": "Gen254",
+  "title": "Four more untested crypto cross-section ideas (batch)",
+  "registered": "2026-10-20, after Gen253, before any Gen254 number",
+  "common": "as Gen253: 20 Binance perps, daily at 00:00 UTC, long the 4 highest / short the 4 lowest scores, 0.125 each, >= 10 coins, 5 bp + funding; same pass rule (sleeve bars + strict rule vs v7)",
+  "A_oi_growth": "score = -log(open-interest value today / 7 days ago) (leverage build-up underperforms; cross-sectional version of the rejected time-series fade)",
+  "B_taker_imbalance": "score = 7-day mean of daily perp taker imbalance (2 x taker buy - volume) / volume; long high (persistent aggressive buying)",
+  "C_illiquidity": "score = 30-day mean of |daily return| / daily quote volume (Amihud); long illiquid, short liquid",
+  "D_toptrader_change": "score = 7-day change of the top-trader long/short position ratio (sum_toptrader_long_short_ratio, daily last); long rising (smart-money positioning). DEV from the metrics start",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
