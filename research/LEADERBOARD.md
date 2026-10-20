@@ -778,3 +778,13 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Live note:** P1 must be executed at the 16:00 ET settlement (TAS orders on ES/NQ; check whether the firm / micros support TAS, otherwise a market order at 15:59).
 - **Gen229, auction strength (bid-to-cover surprise) continuation (2 trials):** -0.39 / -0.72 and -0.54 / -0.78. Rejected.
   - The consistent negative sign hints at reversal, but flipping it after the fact is data snooping, and there is no unused auction history to test it cleanly. Recorded only as a hypothesis.
+
+## Gen230 (2026-10-20): prop settings for the crypto-firm books (chosen on 2022-24, evaluated on 2025-26 bootstraps)
+- **v7 on HyroTrader 2-Step: 2.0 / 1.5 / stop 0.5** (challenge / funded / daily stop as a fraction of the daily limit), replacing 1.5 / 1.0 / 0.5.
+  - 2025-26 net 2y: **$61.6k vs $41.6k** (p10 $33.9k vs $24.4k, P(profit) 1.00 vs 1.00).
+- **bf + index sleeve on BrightFunded 2-Step swap-free: 2.0 / 1.5 / 0.5**, replacing 1.5 / 1.0 / 0.6.
+  - 2025-26: **$54.5k vs $36.9k** (p10 $27.2k vs $19.0k, P(profit) 0.99 vs 0.99).
+- **Stress test, mean return halved:**
+  - v7: chosen $21.1k vs current $15.3k (P(profit) 0.90 vs 0.90; p10 -$0.3k vs -$0.0k).
+  - bf: $18.6k vs $12.7k (0.85 vs 0.84; p10 -$3.0k vs -$2.4k).
+  - The new settings stay better in mean with similar P(profit) and a slightly worse tail. **Adopted** (36 trials). Firm terms as in the presets (fees, splits, payout cadence ASSUMED where marked).

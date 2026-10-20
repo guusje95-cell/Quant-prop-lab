@@ -1,0 +1,42 @@
+{
+ "v7": {
+  "half-Sharpe 2025-26 chosen": {
+   "net": 21110,
+   "p10": -314,
+   "P_profit": 0.896,
+   "P_funded": 0.954
+  },
+  "half-Sharpe 2025-26 current": {
+   "net": 15333,
+   "p10": -40,
+   "P_profit": 0.898,
+   "P_funded": 0.966
+  },
+  "half-Sharpe 2025-26 middle 1.5/1.5": {
+   "net": 18156,
+   "p10": -1495,
+   "P_profit": 0.862,
+   "P_funded": 0.966
+  }
+ },
+ "bf": {
+  "half-Sharpe 2025-26 chosen": {
+   "net": 18576,
+   "p10": -2955,
+   "P_profit": 0.852,
+   "P_funded": 0.948
+  },
+  "half-Sharpe 2025-26 current": {
+   "net": 12694,
+   "p10": -2364,
+   "P_profit": 0.842,
+   "P_funded": 0.95
+  },
+  "half-Sharpe 2025-26 middle 1.5/1.5": {
+   "net": 14911,
+   "p10": -2955,
+   "P_profit": 0.804,
+   "P_funded": 0.954
+  }
+ }
+}
