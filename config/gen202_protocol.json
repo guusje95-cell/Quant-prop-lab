@@ -1,0 +1,12 @@
+{
+  "generation": "Gen202",
+  "title": "Transfers of validated futures/CFD sleeves to crypto (v7): vol-managed long, big-move continuation, R1 dip ensemble on BTC/ETH perps",
+  "registered": "2026-10-20, before any Gen202 number",
+  "sleeves (daily weights, decided at the 00:00 UTC close, held next day; _from_daily_weights 7.5 bp + funding)": {
+    "VM": "0.5 x min(2, 0.60 / 20-day realised annualised vol) per coin, long only (F5/P6 analog; 0.60 = typical BTC vol)",
+    "BCX": "z = daily return / 60-day sd (lagged); |z| > 2 -> sign of the move, from the next day for 3 days (overlapping averaged), 0.5 per coin (Gen163 analog)",
+    "R1X": "mean of RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3 (UTC daily bars), long 0.5 x mean per coin, 1 day (Gen146 analog)"
+  },
+  "pass (each separately)": "sleeve D/T/H > 0 / >= 0.8 / >= 0.5 AND strict v7 rule (2.534; TEST 3.494, HOLD 2.240)",
+  "trials_added": 3
+}
