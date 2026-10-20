@@ -1,0 +1,9 @@
+{
+  "generation": "Gen174",
+  "title": "Topstep-compatible (flat overnight) equity calendar book: T1, T2, FC, MM held 09:30-16:00 ET",
+  "registered": "2026-10-20, before any Gen174 number",
+  "caveat": "Gen173 showed full-day and overnight-only results for 2010-26; the session-only result is roughly their difference, so 2023-26 is partly contaminated. Reported as such; ES/NQ 1-minute 2018-26 gives the exact session",
+  "rule": "on active days long ES and NQ 0.5 each from the 09:30 open to the 16:00 close (1-minute bars, same contract at both ends); 2 x cost_frac; also the hourly 4-index version 09:00-16:00 for 2010-26",
+  "pass": "1-minute ES+NQ: 2018-20 / 2021-23 / 2024-26 > 0 / >= 0.3 / >= 0.3; hourly 4-index 2010-17 > 0",
+  "trials_added": 1
+}

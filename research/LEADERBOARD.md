@@ -660,3 +660,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - FOMC weeks 2/4/6: sleeve 0.21 / 0.63 / 0.74, v7 2.534 -> 2.548, but TEST 3.494 -> 3.258. Fails the strict rule.
   - Union of all calendar effects: 1.22 / 0.49 / -0.01. Fails.
 - **Gen172, FOMC cycle in Treasuries / gold (2 trials):** Treasuries 0.13 / -0.47; gold 0.08 / 1.21 (fails the tune bar). Rejected.
+- **Gen173, overnight-only calendar sleeves:** night 0.27 / -0.03 vs full 0.70 / 0.80. Full kept. **The calendar edge accrues in the session, not overnight.**
