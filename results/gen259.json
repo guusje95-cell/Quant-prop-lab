@@ -1,0 +1,120 @@
+{
+ "A PCA stat-arb": {
+  "sleeve D/T/H": [
+   -0.762,
+   -0.616,
+   -0.452
+  ],
+  "corr C*": -0.107,
+  "v7": [
+   2.187,
+   [
+    1.059,
+    3.137,
+    1.889
+   ]
+  ],
+  "pass": false
+ },
+ "B funding TS carry": {
+  "sleeve D/T/H": [
+   -0.109,
+   -0.091,
+   0.749
+  ],
+  "corr C*": -0.282,
+  "v7": [
+   2.408,
+   [
+    1.258,
+    3.321,
+    2.091
+   ]
+  ],
+  "pass": false
+ },
+ "B funding TS carry (bf2)": {
+  "sleeve D/T/H": [
+   -0.304,
+   -0.235,
+   0.751
+  ],
+  "bf2": [
+   2.307,
+   [
+    0.392,
+    3.51,
+    2.06
+   ]
+  ],
+  "pass": false
+ },
+ "C NR7 breakout trades": 711,
+ "C NR7 breakout": {
+  "sleeve D/T/H": [
+   1.734,
+   -0.404,
+   -0.328
+  ],
+  "corr C*": 0.013,
+  "v7": [
+   2.37,
+   [
+    1.769,
+    3.149,
+    1.884
+   ]
+  ],
+  "pass": false
+ },
+ "C NR7 breakout (bf2)": {
+  "sleeve D/T/H": [
+   1.829,
+   -0.219,
+   -0.129
+  ],
+  "bf2": [
+   2.32,
+   [
+    1.062,
+    3.41,
+    1.858
+   ]
+  ],
+  "pass": false
+ },
+ "D Asian-range breakout trades": 4716,
+ "D Asian-range breakout": {
+  "sleeve D/T/H": [
+   0.848,
+   -0.232,
+   1.514
+  ],
+  "corr C*": 0.066,
+  "v7": [
+   2.326,
+   [
+    0.917,
+    3.095,
+    2.399
+   ]
+  ],
+  "pass": false
+ },
+ "D Asian-range breakout (bf2)": {
+  "sleeve D/T/H": [
+   1.11,
+   0.19,
+   1.906
+  ],
+  "bf2": [
+   2.278,
+   [
+    -0.004,
+    3.444,
+    2.382
+   ]
+  ],
+  "pass": false
+ }
+}

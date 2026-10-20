@@ -902,3 +902,12 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen258 A, ridge + market breadth features (breadth, mean funding, total OI change, dispersion):** v7 2.427, bf2 2.296. **Fails.**
 - **Gen258 B, recency-weighted ridge (half-life 365 days):** v7 2.490 [1.38, 3.56, 2.06], bf2 2.325. **Fails** (HOLD lower).
 - **Session tally (Gen246-258): 23 pre-registered trials on existing data, none passes.**
+
+## Gen259 (2026-10-20): four new strategy types (4 trials, `config/gen259_protocol.json`, `scripts/gen259_newtypes.py`)
+| Idea | v7 sleeve D / T / H | v7 | bf2 sleeve | bf2 | result |
+|---|---|---|---|---|---|
+| A PCA stat-arb (Avellaneda-Lee, 20 perps) | -0.76 / -0.62 / -0.45 | 2.187 | - | - | fails |
+| B funding time-series carry (BTC/ETH) | -0.11 / -0.09 / 0.75 | 2.408 | -0.30 / -0.24 / 0.75 | 2.307 | fails |
+| C NR7 breakout (BTC/ETH, 5-minute fills) | 1.73 / -0.40 / -0.33 | 2.370 | 1.83 / -0.22 / -0.13 | 2.320 | fails (edge gone after 2022) |
+| D Asian-range breakout (BTC/ETH) | 0.85 / -0.23 / 1.51 | 2.326 | 1.11 / 0.19 / 1.91 | 2.278 | fails (TEST) |
+- **Session tally (Gen246-259): 27 pre-registered trials on existing data, none passes.**
