@@ -1,0 +1,11 @@
+{
+  "generation": "Gen201",
+  "title": "Stand-alone index-CFD book (US100/US500/US30) from components that passed on their own",
+  "registered": "2026-10-20, before any Gen201 number for the combination",
+  "components (fixed)": {"P6": "vol-managed US100/US500 (Gen127)", "R1": "dip ensemble at 14:00 ET, 24h (Gen147, sleeve 0.78/0.93/1.05)", "CAL": "calendar union T1/T2/FC/MM long US100/US500 (Gen168 leg, 0.71/1.28/0.65)"},
+  "excluded": "OIL leg (DEV negative in Gen186); overnight R1 (Gen149) because it overlaps R1",
+  "construction": "EQR: weights 1/sd of daily sleeve returns over 2020-01..2022-12 (fit), 10% vol target (60d), 1 bp per side",
+  "report": "2020-22 (fit, in-sample) / 2023-24 / 2025-26 Sharpe, max DD, per-year; prop simulation on a 2023-26-only bootstrap at an ASSUMED 2-step CFD firm (BrightFunded preset, swap-free fee)",
+  "pass (to recommend as a separate account)": "2023-24 >= 0.8 and 2025-26 >= 0.8",
+  "trials_added": 1
+}
