@@ -1,0 +1,11 @@
+{
+  "generation": "Gen151",
+  "title": "Short into the close on dip days (Gen148 window A, found on ES/NQ) on unseen markets; Topstep-compatible",
+  "registered": "2026-10-20, before any Gen151 number",
+  "why": "Gen148 window A (14:00 -> 16:00 on R1 signal days) was negative on ES and NQ in every split; chosen after seeing ES/NQ, so judged on unseen markets",
+  "rule": "R1 signal on 14:00 ET prices (fixed indicators); short size = mean indicator from 14:00 to 16:00 ET the same day; flat overnight",
+  "set 1 futures RTY + YM (hourly 2010-26)": "entry = close of the 13:00 bar, exit = close of the 15:00 bar; 2 x cost_frac; splits 2010-17 / 2018-22 / 2023-26",
+  "set 2 CFDs US100 + US500 + US30 (5-minute 2018-26)": "entry = last price before 14:00, exit = last price before 16:00; 1 bp per side (2 bp reported); splits 2018-20 / 2021-23 / 2024-26",
+  "pass per set": "pooled Sharpe > 0 in all splits and mean >= 0.5",
+  "trials_added": 2
+}
