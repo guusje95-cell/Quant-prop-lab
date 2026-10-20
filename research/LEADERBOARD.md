@@ -880,3 +880,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen250, ridge + USDT premium feature:** sleeve -0.15 / 1.32 / 1.35; v7 2.527 (< 2.534), bf2 2.360. **Fails.** The USDT premium's information is already in the books.
 - **Gen251 A, ridge 3-day horizon with overlapping holds:** sleeve 0.02 / 1.91 / 1.00; v7 2.463 (HOLD 1.98). **Fails.**
 - **Gen251 B, ridge alpha bag (1/10/100):** v7 2.536 / 3.496 / 2.237, bf2 2.377: the same model in effect. **Fails the strict rule (HOLD -0.003); no change.**
+- **Gen252, swap-free TSMOM on 12 FX / metals / energy CFDs (21/63/252-day sign blend, 10% vol):** 2014-19 0.13, then 0.06 / -0.35 / 0.17; corr with bf2 -0.10; bf2 2.378 -> 2.260. **Fails.** Even without swap, FX/commodity trend has had too little return since 2020 to help.
