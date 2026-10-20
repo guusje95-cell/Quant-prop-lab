@@ -1,0 +1,10 @@
+{
+  "generation": "Gen258",
+  "title": "Ridge: market-breadth features; recency-weighted training",
+  "registered": "2026-10-20, before any Gen258 number",
+  "A_breadth": "Gen108 ridge + 4 daily market features from the 20 Binance perps (same value for BTC and ETH rows): breadth = share of coins with close > 30-day mean; fund_avg = mean daily funding; oi_agg = 7-day change of total open-interest value; disp = cross-sectional sd of 1-day returns",
+  "B_recency": "Gen108 ridge unchanged except sample weights in training = 0.5 ** (age in days / 365)",
+  "pass": "each replaces the ridge sleeve; sleeve bars and strict rule vs v7 (2.534 / 3.494 / 2.240) and bf2 (2.378 / 3.699 / 2.118), as Gen246 A",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

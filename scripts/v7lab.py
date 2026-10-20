@@ -16,10 +16,14 @@ V7 = book([]); REF = (sh(V7, "2022-01-01", END), per(V7, "2022-01-01"))
 CST = H6["C*"].groupby(H6.index.floor("D")).sum()
 
 
-def judge(name, h, out, dev_start="2020-01-01"):
+def judge(name, h, out, dev_start="2020-01-01", replace_ridge=False):
     h = h.reindex(H6.index).fillna(0.0)
     s = per(h, dev_start); c = float(pd.concat([CST, h.groupby(h.index.floor("D")).sum()], axis=1).loc[dev_start:].corr().iloc[0, 1])
-    b = book([h.rename(name)]); B1, k1 = sh(b, "2022-01-01", END), per(b, "2022-01-01")
+    if replace_ridge:                                              # the entrant IS a new ridge sleeve: no corr bar
+        b = CS.portfolio_v5(pd.concat([H6, h.rename("ridge ML")], axis=1).fillna(0.0))[0]; c = min(c, 0.0)
+    else:
+        b = book([h.rename(name)])
+    B1, k1 = sh(b, "2022-01-01", END), per(b, "2022-01-01")
     r = {"sleeve D/T/H": np.round(s, 3).tolist(), "corr C*": round(c, 3), "v7": [round(B1, 3), np.round(k1, 3).tolist()]}
     r["pass"] = bool(s[0] > 0 and s[1] >= 0.8 and s[2] >= 0.5 and c <= 0.3 and B1 > REF[0] and k1[1] >= REF[1][1] and k1[2] >= REF[1][2])
     out[name] = r; print(name, r, flush=True)
