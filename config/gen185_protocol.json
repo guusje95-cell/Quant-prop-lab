@@ -1,0 +1,10 @@
+{
+  "generation": "Gen185",
+  "title": "Inflation-news underreaction in bonds: lagged oil / copper returns predict Treasury futures",
+  "registered": "2026-10-20, before any Gen185 number",
+  "rule": "at month end, s = sign of the past-L-day return of the commodity; next month hold ZF/ZN/ZB at -s (0.10 / vol / 3 each): long bonds after the commodity fell, short after it rose",
+  "families": {"OB oil": "L {21, 63}", "CB copper": "L {21, 63}"},
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 15-sleeve book + entrants; ONE evaluation 2023-26 vs 1.137",
+  "trials_added": 4
+}

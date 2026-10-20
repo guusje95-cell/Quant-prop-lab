@@ -675,3 +675,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen183, oil predicts stocks (Driesprong et al. 2008; 4 trials):**
   - **Long ES/NQ/RTY/YM for the next month only after CL fell over the past 21 days: 0.47 / 0.87** (63-day version 0.32 / 1.21; long/short versions 0.10 / 0.20 and -0.11 / 0.60).
   - **Book 2023-26 1.102 -> 1.137 (2010-17 1.64, 2018-22 1.42). Adopted, 15 sleeves.**
+- **Gen184 (6 trials):** copper -> stocks (long only after HG fell) 0.73 / 0.59 enters, but the book is 1.128 < 1.137 (overlaps the oil sleeve). Commodity currencies -> commodities: best -0.005 / -0.15. Not adopted.
