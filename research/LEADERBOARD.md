@@ -715,3 +715,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Big-move continuation: 0.52 / 0.11 / 0.88; v7 HOLD 2.34 but TEST 3.22.
   - R1 dip: 0.77 / 0.58 / 0.21.
   - **All fail the strict rule.**
+- **Gen203, equity timing sleeves (T1, T2, FC, MM, OIL) on ES+NQ instead of 4 indices (2 trials):**
+  - Combined tune: ALL4 0.68, **ESNQ 0.79**.
+  - **Book 2023-26 1.143 -> 1.187 (2010-17 1.54, 2018-22 1.44). Adopted.**
+  - Not repeated for R1 / P1: their per-index 2023-26 results are known (Gen146), so that test would be contaminated.

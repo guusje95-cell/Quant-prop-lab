@@ -1,0 +1,39 @@
+{
+ "variants": {
+  "ALL4": {
+   "tune": 0.676,
+   "per sleeve tune": {
+    "T1": 0.35,
+    "T2": 0.35,
+    "FC": 0.37,
+    "MM": 0.72,
+    "OIL": 0.47
+   }
+  },
+  "ESNQ": {
+   "tune": 0.785,
+   "per sleeve tune": {
+    "T1": 0.41,
+    "T2": 0.31,
+    "FC": 0.5,
+    "MM": 0.77,
+    "OIL": 0.54
+   }
+  }
+ },
+ "chosen": "ESNQ",
+ "current sleeves tune (check)": {
+  "T1": 0.354,
+  "T2": 0.346,
+  "FC": 0.374,
+  "MM": 0.716,
+  "OIL": 0.474
+ },
+ "book 2023-26": 1.187,
+ "reference": 1.143,
+ "book 2010-17 / 2018-22": [
+  1.535,
+  1.444
+ ],
+ "adopt": true
+}
