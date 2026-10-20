@@ -744,3 +744,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen220, dollar carry (average forward discount):** -0.15 / -0.35 (2010-17 -0.62). Rejected.
 - **Gen221, sleeve-level vol targeting of F5 / G1 / A3 / U5 (walk-forward):** 2018-22 RAW 1.427 vs SVT 1.430, so SVT is chosen. **Book 2023-26 1.231 -> 1.240. Adopted by the rule, but the gain is noise-level.**
 - **Gen222, grain weather premium (long Apr 15 - Jun 30):** -0.05 / -0.73. Rejected.
+- **Gen223, trend sleeves without equity indices (4 trials):** G1 0.35 -> 0.28, U5 0.36 -> 0.10 on tune. Current kept.
