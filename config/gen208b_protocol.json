@@ -1,0 +1,9 @@
+{
+  "generation": "Gen208b",
+  "title": "Addendum to Gen208: gold/platinum ratio from Dukascopy spot daily closes (XAUUSD / XPTUSD, 2003+) instead of CME PL futures",
+  "registered": "2026-10-20, before the XPT data is downloaded and before any Gen208 number",
+  "why": "CME PL is pending the user's download; Dukascopy spot is reachable from the container and has history from 2003, so the 60-month z-score is available from 2008",
+  "unchanged": "everything else as config/gen208_protocol.json (signal z of log ratio vs 60-month mean/sd at month end; BIN vs SCL; selection on 2010-06..2022-12; entry > 0.3; one 2023-26 judgement vs the reference at run time)",
+  "note": "if Gen208 later runs on CME PL, it is reported but cannot re-enter: one judgement per hypothesis",
+  "trials_added": 2
+}
