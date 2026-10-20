@@ -1,0 +1,10 @@
+{
+  "generation": "Gen135",
+  "title": "Nested out-of-sample futures book: select sleeves on 2010-2022 only, judge the combined book once on 2023-2026",
+  "registered": "2026-10-20, before the book was computed",
+  "pool": "every daily non-crypto futures sleeve tested since Gen114 with 2010+ data, exactly as registered: Gen114 T1 T3 T4 (T2 intraday excluded: hourly, 2010+ is fine, included), Gen115 U1-U8, Gen122 F1-F5, Gen123 G1-G3, Gen127 P1 P2 P3 P8, Gen129 R1-R3, Gen130 A1-A3, Gen131 F1, Gen125 K3. Intraday 1-minute sleeves (2018+ only) are excluded",
+  "selection": "a sleeve enters if its Sharpe 2010-06..2017-12 > 0 AND 2018..2022 > 0.3 (no 2023+ data used). For overlapping families only the registered primary/combined version enters (A3 not A1/A2; R1 not R2/R3; K3; T1 not T4)",
+  "book": "point-in-time equal risk: monthly weights = 1 / trailing 365-day daily vol of each sleeve (days before the month), scaled to 10% annual vol with trailing 60-day realised vol (cap 3x)",
+  "judgement": "book Sharpe 2023-01..2026-09 >= 0.5 (reported with its correlation to v6 and bf). Pass -> futures book candidate; fail -> no futures book",
+  "trials_added": 1
+}

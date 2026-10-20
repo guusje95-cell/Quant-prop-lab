@@ -562,3 +562,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **v8 = v7 + 60-coin premium carry:** 2.617, but TEST 3.295. Fails vs v6 and vs v7.
 - **bf-b + ridge:** 2.438, TEST 3.241. Fails.
 - **Reading:** breadth always lowers 2023-24 and stays shadow-only. **v7 is the validated crypto improvement**, now to be built for paper trading.
+- **Gen134 noise-area improvement round:** selected V1 (60-minute checks, DEV 2018-23 1.10). Judgement: ES+NQ 2024-26 **-0.20**, NQ 2010-17 **-0.85**. **Rejected for good.**
