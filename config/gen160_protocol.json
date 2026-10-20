@@ -1,0 +1,10 @@
+{
+  "generation": "Gen160",
+  "title": "Sleeve momentum overlay on the futures book (factor momentum), walk-forward selection",
+  "registered": "2026-10-20, before any Gen160 number",
+  "candidates": {"NONE": "static Sharpe weights", "M252h": "x0.5 while the sleeve's trailing 252-day return < 0", "M252z": "x0 while trailing 252-day return < 0", "M126h": "x0.5 while trailing 126-day return < 0", "M504h": "x0.5 while trailing 504-day return < 0"},
+  "mechanics": "trailing returns use days before the current one; weights renormalised to the static weight sum; book vol-targeted to 10% as now",
+  "selection": "static weights fitted on 2010-06..2017-12, overlay applied, scored by book Sharpe 2018-22",
+  "judgement": "chosen candidate with weights from 2010-22; ONE evaluation 2023-26 vs 0.908; adopt only if not NONE and higher",
+  "trials_added": 5
+}
