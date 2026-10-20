@@ -768,3 +768,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen225, Treasuries after VIX term-structure inversion (2 trials):** -0.05 / -0.54 and 0.03 / -0.81. Rejected.
 - **Gen226, group risk parity (walk-forward):** 2018-22 EQR 1.43 vs **GRP 1.65**, so GRP is chosen, but 2023-26 **0.92 < 1.24** (beta-adjusted 0.35, corr 0.53). Not adopted. With one energy sleeve, SH gets 45% of the risk; the book needs more non-equity sleeves before de-betaing pays.
 - **Gen227, VIX risk-off overlay on the crypto books (halve exposure when VIX > its 1-year 80th percentile, 21% of days):** v7 2.534 -> 2.483 (HOLD 2.24 -> 2.01); bf 2.326 -> 2.233. Fails. The crypto books do fine in high-VIX periods.
+- **Gen228, calendar-spread momentum, 8 commodities (2 trials):** net -1.69 / -1.77 (gross 0.21-0.37 on tune, negative 2023-26; tiny spread vol means large notional and costs). Rejected.
