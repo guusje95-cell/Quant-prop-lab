@@ -70,6 +70,21 @@ def front(root):
     return f
 
 
+@lru_cache(maxsize=None)
+def second(root):
+    """Second-contract (.v.1) hourly bars with a return `r` computed only between consecutive bars of the same contract."""
+    d = raw(root); s = d[d.symbol.str.endswith(".v.1")].drop_duplicates("ts").set_index("ts")
+    same = s.instrument_id.eq(s.instrument_id.shift(1))
+    s["r"] = (s.close / s.close.shift(1) - 1).where(same & (s.close > 0) & (s.close.shift(1) > 0)).fillna(0.0)
+    return s
+
+
+def daily_second(root):
+    s = second(root); td = trade_date(s.index)
+    out = s.groupby(td).r.apply(lambda x: float(np.prod(1 + x) - 1))
+    return out[out.index.weekday < 5]
+
+
 def cost_frac(root, price):
     """Cost per side as a fraction of notional: one tick of slippage + commission on the micro (or full) contract."""
     tick, mult, micro, _, _ = SPEC[root]

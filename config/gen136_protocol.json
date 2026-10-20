@@ -1,0 +1,14 @@
+{
+  "generation": "Gen136",
+  "title": "Futures round 5: basis-momentum, commodity skewness, weekly cross-sectional reversal, bond trend, curve trend",
+  "registered": "2026-10-20, before any Gen136 number",
+  "tests": {
+    "H1 basis-momentum (Boons and Prado 2019, JF)": "12 commodities (GC SI HG CL NG RB HO ZC ZS ZW LE HE): BM = 252-day roll-safe return of the front contract minus that of the second contract; month-end: long the 4 highest BM, short the 4 lowest, inverse-vol weights, held one month",
+    "H2 commodity skewness (Fernandez-Perez, Frijns, Fuertes and Miffre 2018)": "same 12: skewness of the last 252 daily front returns; month-end: long the 4 LOWEST skew, short the 4 highest, inverse-vol, one month",
+    "H3 weekly cross-sectional reversal": "24 non-crypto roots: each Friday close, rank by the past 5-day return; long the bottom 6, short the top 6, inverse-vol, held one week",
+    "H4 bond multi-speed trend": "ZT ZF ZN ZB: Gen114 EWMAC trend forecast only (16/64, 32/128, 64/256, capped), equal risk, 10% vol target",
+    "H5 yield-curve trend": "duration-neutral spread S = ZN minus ZT at equal risk (each leg 1 / 60-day vol); position = sign of S's 63-day return, rebalanced weekly"
+  },
+  "rule": "futures stand-alone: DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3; costs 1 tick + commission per side; passers are added to the Gen135 book and reported",
+  "trials_added": 5
+}
