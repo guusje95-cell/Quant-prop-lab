@@ -1,0 +1,11 @@
+{
+  "generation": "Gen260",
+  "title": "Session-range breakouts on index CFDs (5-minute Dukascopy, 2018+), bf2 sleeves",
+  "registered": "2026-10-20, before any Gen260 number",
+  "A_de40_open_range": "DE40: range = high / low of the first 30 minutes of the Xetra session (09:00-09:30 Europe/Berlin local time); the first later 5-minute bar through the range opens 0.5 in that direction at the edge (or gap open); exit at 17:30 Berlin; one trade per day; 1.5 bp per side",
+  "B_us_premarket_range": "US500 and US30: range = high / low of 04:00-09:30 New York (pre-market on the CFD); the first 5-minute bar from 09:30 to 15:55 New York through the range opens 0.25 per index in that direction at the edge (or gap open); exit at 15:55 New York close; 1 bp per side",
+  "booking": "trade P&L booked in the hour of the exit (bf hour grid)",
+  "pass": "sleeve DEV 2020-22 > 0 (and 2018-19 > 0 as a pre-check), TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
