@@ -5,6 +5,13 @@
    `git pull --no-edit`, `git add research_data/more research_data/binance_spot`, `git commit -m "flow data 2"`, `git push`.
    If bf2 showed "error: no Dukascopy hourly data for US100": `git pull --no-edit`, then close and restart `paper_bf2_start.bat`.
 
+**OPTIONAL big job (overnight, free): `get_trade_size_flow.bat`** - BTC/ETH perp trades split by trade size (whale vs small
+   flow), 2020 to last month, from the public Binance archive. Tens of GB download, processed one month at a time and deleted;
+   ~5 GB free disk needed. Resumable. Then `git add research_data/trade_size`, commit, push.
+
+**Dukascopy:** run at most ONE Dukascopy download at a time while bf2 paper trades (parallel downloads get the connection blocked,
+   which also starves bf2's live index bars).
+
 **DONE - start the two new paper traders (simulation only, no keys, no orders):**
    - `git pull --no-edit` first.
    - Double-click `paper_v7_start.bat` (crypto v7 = v6 + ridge ML, HyroTrader 2-Step $200k rules, risk 2.0, daily stop 2.5%).
