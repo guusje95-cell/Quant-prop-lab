@@ -1,0 +1,8 @@
+{
+  "generation": "Gen147",
+  "title": "R1 equity dip-buying ensemble (Gen146) on index CFDs as a sleeve of the bf + P6 book",
+  "registered": "2026-10-20, before any Gen147 number",
+  "sleeve": "US100, US500, US30 Dukascopy hourly; settings fixed from Gen146 (RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3; long only); signal and fill at 14:00 ET (close of the 13:00 bar), held 24h; IBS range from bars starting 09:00-13:00 ET; 0.25 x mean indicator per index; 1 bp per side (as P6), also reported at 2 bp",
+  "pass": "sleeve D/T/H (2020-22/23-24/25-26) > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs bf + P6: 2022-26 Sharpe up, TEST and HOLD not lower",
+  "trials_added": 1
+}
