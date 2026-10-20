@@ -1,0 +1,16 @@
+{
+  "generation": "Gen124",
+  "title": "Intraday futures on 1-minute data (Topstep/Lucid-compatible, flat every day): news-minute continuation detected from price, RTH gap fade",
+  "registered": "2026-10-20, before the Databento 1-minute data arrived and before any Dukascopy minute-data Gen124 number",
+  "data": "Databento GLBX.MDP3 ohlcv-1m front contract (.v.0) for ES and NQ, 2018-01..2026-09 (research_data/databento/{ES,NQ}_1m.parquet); returns only within one instrument_id. Replication on Dukascopy US500/US100 5-minute CFD data",
+  "already_rejected_before": "5-minute ORB on US100, noise-area breakout, Gao last-half-hour momentum, overnight-intraday reversal: not repeated",
+  "tests": {
+    "J1 08:30 ET release continuation (PRIMARY)": "news day if |return 08:30-08:35 ET| > 4x the median |08:30-08:35 return| of the previous 60 sessions; enter at 08:35 in the direction of that move, exit 10:00 ET; size 1 (ES and NQ, 0.5 each)",
+    "J2 14:00 ET release continuation (FOMC, minutes)": "same detection on 14:00-14:05 ET; enter 14:05, exit 15:55 ET",
+    "J3 RTH opening-gap fade": "gap = 09:30 ET open / previous 16:00 ET close - 1; if |gap| > 0.4%: fade at 09:30 (short after up-gaps, long after down-gaps); exit when price touches the previous close, at a stop of one gap size beyond the 09:30 open, or at 11:00 ET at the latest; stop/target checked on 1-minute high/low (stop first if both in one minute)"
+  },
+  "costs": "futures: 1 tick + $0.85 per side on micros (MES/MNQ), as futures_db.cost_frac; a stop exit costs one extra tick. CFD replication: 1 bp per side",
+  "splits": "DEV 2018-2020, TEST 2021-2023, HOLD 2024-2026/09",
+  "rule": "futures stand-alone: DEV > 0, TEST >= 0.5, HOLD >= 0.3; AND the same rule on the CFD replication must not be negative over TEST+HOLD combined. Prop fit: all three are flat by 16:00 ET (Topstep/Lucid compatible)",
+  "trials_added": 3
+}
