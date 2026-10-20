@@ -42,15 +42,28 @@ def front(root):
     s = d[d.symbol.str.endswith(".v.1")].drop_duplicates("ts").set_index("ts")
     last = d.drop_duplicates(["ts", "instrument_id"]).set_index(["instrument_id", "ts"])["close"]
     prev_ts = pd.Series(f.index, index=f.index).shift(1)
-    same = f.instrument_id.eq(f.instrument_id.shift(1))
+    prev_id = f.instrument_id.shift(1)
+    same = f.instrument_id.eq(prev_id)
     prev_close = f.close.shift(1).where(same)
-    miss = ~same & prev_ts.notna()                             # roll bar: previous close of the SAME contract (it was .v.1)
-    if miss.any():
-        keys = list(zip(f.instrument_id[miss], prev_ts[miss]))
-        prev_close[miss] = last.reindex(keys).to_numpy()
-    f["r"] = (f.close / prev_close - 1).fillna(0.0)
-    f["roll"] = (~same & prev_ts.notna()).astype(int)
+    r = (f.close / prev_close - 1).where(same)
+    roll = ~same & prev_ts.notna()
+    if roll.any():                                            # roll bar: the contract we HELD (old front) over the bar, else the
+        ro = roll[roll].index                                 # new front's own previous close at the previous bar, else 0
+        old_now = last.reindex(list(zip(prev_id[ro].astype("int64"), ro))).to_numpy()
+        old_prev = f.close.shift(1)[ro].to_numpy()
+        new_prev = last.reindex(list(zip(f.instrument_id[ro], prev_ts[ro]))).to_numpy()
+        r_old = old_now / old_prev - 1; r_new = f.close[ro].to_numpy() / new_prev - 1
+        r[ro] = np.where(np.isfinite(r_old), r_old, r_new)
+    bad = (f.close <= 0) | (f.close.shift(1) <= 0)            # CL April 2020: negative prices, no percentage return
+    f["r"] = r.where(~bad).fillna(0.0)
+    f["roll"] = roll.astype(int)
     f["close2"] = s.close.reindex(f.index)
+    # carry ratio near/far: Databento's volume-ranked .v.1 is sometimes the EXPIRING contract (right after a roll), so the two
+    # contracts are ordered by first appearance in the data (listing order = expiry order) instead of by their v.0/v.1 label
+    first = d.groupby("instrument_id").ts.min()
+    id1 = s.instrument_id.reindex(f.index)
+    later = first.reindex(id1).to_numpy() > first.reindex(f.instrument_id).to_numpy()
+    f["near_far"] = np.where(later, f.close / f.close2, f.close2 / f.close)
     return f
 
 
@@ -75,7 +88,7 @@ def daily(root):
     """Daily roll-safe returns, front/second closes at the daily close, roll flags and cost fraction, indexed by trade date."""
     f = front(root); td = trade_date(f.index)
     g = f.groupby(td)
-    out = pd.DataFrame({"r": g.r.apply(lambda x: float(np.prod(1 + x) - 1)), "close": g.close.last(), "close2": g.close2.last(),
+    out = pd.DataFrame({"r": g.r.apply(lambda x: float(np.prod(1 + x) - 1)), "close": g.close.last(), "close2": g.close2.last(), "near_far": g.near_far.last(),
                         "roll": g.roll.max()})
     out = out[out.index.weekday < 5]
     out["cost"] = cost_frac(root, out.close)

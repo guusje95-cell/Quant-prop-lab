@@ -98,7 +98,7 @@ def monthly_xs(score, members, n_side, name):
 px = (1 + R.fillna(0.0)).cumprod()
 monthly_xs(px.shift(21) / px.shift(252) - 1, roots, 6, "U5 cross-sectional momentum 12-1")
 comm = [r for r in ("GC", "SI", "HG", "CL", "NG", "RB", "HO", "ZC", "ZS", "ZW", "LE", "HE") if r in roots]
-carry = pd.DataFrame({r: (D[r].close / D[r].close2 - 1) / F.SPEC[r][3] for r in comm}).reindex(R.index)
+carry = pd.DataFrame({r: (D[r].near_far - 1) / F.SPEC[r][3] for r in comm}).reindex(R.index)
 monthly_xs(carry, comm, 4, "U6 commodity curve carry")
 # U7 FX month-end fix
 if have("ES", "6E", "6J", "6B", "6A"):

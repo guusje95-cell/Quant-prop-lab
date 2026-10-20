@@ -1,0 +1,9 @@
+test,DEV,TEST,HOLD,pass,trading days
+U1 EIA crude day,-0.076,0.08,-0.301,False,844.0
+U2 opening-hour range breakout,-1.029,-0.696,-0.733,False,4219.0
+U3 overnight-intraday reversal,-1.471,-0.128,0.385,False,3238.0
+U4 bond-equity lead,-0.96,-0.851,-0.185,False,3958.0
+U5 cross-sectional momentum 12-1,0.499,0.228,0.359,False,
+U6 commodity curve carry,0.22,-0.834,0.423,False,
+U7 FX month-end fix,0.594,-0.505,-0.126,False,195.0
+U8 gold Asia-session drift,0.476,-0.694,0.585,False,5063.0

@@ -1,0 +1,6 @@
+test,DEV,TEST,HOLD,pass,mean |contracts|
+T1 trend+carry multi-day (24 roots),0.041,-0.158,-0.414,False,
+"T1 at $100k, whole contracts (report only)",0.295,-0.22,-0.747,False,28.3
+T2 intraday momentum (last hour),-3.529,-2.077,-1.709,False,
+T3 overnight drift ES/NQ,-0.217,0.54,0.555,False,
+T4 T1 signal in-session only,-0.76,-0.929,-1.297,False,

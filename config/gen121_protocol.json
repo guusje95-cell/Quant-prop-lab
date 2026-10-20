@@ -1,0 +1,10 @@
+{
+  "generation": "Gen121",
+  "title": "Premium carry breadth in the BrightFunded CFD book: all BrightFunded-listed coins that have Binance perp data",
+  "registered": "2026-10-20, after Gen80 (v6) results were seen, before any bf breadth number was computed",
+  "universe": "current 11 CFD coins + BrightFunded crypto CFDs with Binance data: pack AAVE ATOM BNB ETC FIL NEAR TRX UNI XLM + extra ALGO APT ARB COMP CRV DASH DYDX EGLD GRT HBAR ICP INJ LDO MANA NEO OP RUNE SAND SNX STX SUI XTZ (MT5 export 2026-10-19)",
+  "rule_frozen": "Gen61 premium carry unchanged (7-day mean premium, long lowest third / short highest third, weekly), signals from Binance premium index, traded as CFDs",
+  "costs": "BrightFunded: commission 1.2 bp per side; spread BTC 0.4, ETH 2.7, every other coin 10 bp (assumption, as the current book); swap-free; gross capped at 1:5",
+  "pass": "replaces the bf premium carry sleeve only if (a) sleeve 2023-26 Sharpe >= current sleeve's and sleeve HOLD >= current's, AND (b) the strict book rule: bf 2022-26 Sharpe up with bf TEST and HOLD not lower. Also reported at 2x spreads",
+  "trials_added": 1
+}

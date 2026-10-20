@@ -1,0 +1,3 @@
+test,perp DEV/TEST/HOLD,cfd DEV/TEST/HOLD,corr C*,v6 before/after,v6 TEST/HOLD before/after,bf before/after,bf TEST/HOLD before/after,pass v6,pass bf
+T5 CME bitcoin basis momentum,"[0.12, 0.332, 1.097]","[0.235, 0.453, 1.198]",0.054,"[2.458, 2.305]","[[3.435, 1.901], [3.142, 2.16]]","[2.252, 2.056]","[[3.45, 1.545], [3.064, 1.802]]",False,False
+T6 CME weekend gap fill,"[-0.023, -2.343, 0.309]","[0.034, -2.258, 0.42]",-0.048,"[2.458, 2.049]","[[3.435, 1.901], [2.569, 2.039]]","[2.252, 1.82]","[[3.45, 1.545], [2.627, 1.712]]",False,False

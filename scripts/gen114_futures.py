@@ -18,7 +18,7 @@ def forecasts(r):
     d = D[r]; px = (1 + d.r).cumprod()
     sd = d.r.ewm(span=35, min_periods=30).std()                   # daily return vol
     tr = sum((px.ewm(span=f).mean() - px.ewm(span=s).mean()) / (px * sd) * k for (f, s), k in EW.items()) / len(EW)
-    carry = (d.close / d.close2 - 1) / F.SPEC[r][3]
+    carry = (d.near_far - 1) / F.SPEC[r][3]                         # near/far, order-safe
     ca = (carry / (sd * np.sqrt(256))) * 30
     return tr.clip(-20, 20), ca.clip(-20, 20), sd
 

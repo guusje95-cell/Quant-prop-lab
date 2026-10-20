@@ -1,0 +1,5 @@
+test,DEV/TEST/HOLD,2023-26,corr C*,v6 before/after,v6 TEST/HOLD before/after,pass (crypto rule),pass (Gen80 rule)
+"premium carry, 20 coins (current)","[0.871, 0.679, 1.146]",0.874,-0.102,"[2.458, 2.458]","[[3.435, 1.901], [3.435, 1.901]]",False,
+"premium carry, 20 + extra coins","[1.252, 0.841, 2.522]",1.526,-0.072,"[2.458, 2.539]","[[3.435, 1.901], [3.135, 2.393]]",,True
+"premium carry, 20 + extra coins >= $20m/day","[1.562, 1.088, 2.465]",1.666,-0.09,"[2.458, 2.626]","[[3.435, 1.901], [3.224, 2.317]]",,True
+G1 bounce on all altcoins (pack alts + extra),"[-0.296, 1.274, 0.831]",1.09,0.149,"[2.458, 2.46]","[[3.435, 1.901], [3.462, 2.014]]",False,
