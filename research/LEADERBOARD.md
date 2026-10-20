@@ -742,3 +742,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - BC positive in 12 of 17 (worst 2012 -1.08).
   - Neither depends on a single year.
 - **Gen220, dollar carry (average forward discount):** -0.15 / -0.35 (2010-17 -0.62). Rejected.
+- **Gen221, sleeve-level vol targeting of F5 / G1 / A3 / U5 (walk-forward):** 2018-22 RAW 1.427 vs SVT 1.430, so SVT is chosen. **Book 2023-26 1.231 -> 1.240. Adopted by the rule, but the gain is noise-level.**
