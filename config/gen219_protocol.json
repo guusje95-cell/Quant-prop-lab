@@ -1,0 +1,12 @@
+{
+  "generation": "Gen219",
+  "title": "Backcast holdout 2003-06..2010-05 of the rates sleeves on the Dukascopy US T-bond CFD (USTBONDTRUSD daily; data never used before)",
+  "registered": "2026-10-20, before the bond CFD data is downloaded",
+  "sleeves (fixed rules, single instrument, 1 bp per side)": {
+    "BC": "|z| > 2 of the daily return vs 60-day sd (lagged) -> sign of the move from the next day for 3 days (overlapping averaged)",
+    "F3": "long the last 3 trading days of each month",
+    "A3": "short the 5 days before and long the 4 days after each 10-year and 30-year auction (auction dates from treasury_auctions.parquet)"
+  },
+  "report": "per sleeve Sharpe 2003-06..2010-05; no adoption decision; negative = flagged fragile",
+  "trials_added": 0
+}
