@@ -611,3 +611,13 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen150, overnight R1 CFD sleeve for bf:** sleeve 0.51 / 1.00 / 0.81, book 2.302 -> 2.172. **Fails the strict rule.** Index sleeves beyond P6 dilute the crypto sleeves in the bf allocation.
 - **Gen151, dip-day short 14:00 -> 16:00 on unseen markets:** RTY+YM -0.70 / -0.53 / -0.36; CFDs -0.29 / -0.50 / 0.29. **Rejected.**
 - **Note for CFD-index accounts** (e.g. an index-only CFD challenge): overnight R1 on US100/US500/US30 is a validated stand-alone strategy (0.85 / 0.98 / 1.54 at 1 bp).
+
+## Gen152-154 (2026-10-20)
+- **Gen152, R1 dip ensemble by futures group (executable snapshot, 10 trials):** all groups negative on 2010-22 (rates -1.17, metals -0.58, energy -0.51, FX -0.90, ags -1.48). Even gross, none reaches 0.3 (rates 0.26, metals -0.13). **Dip-buying is an equity-index effect. Rejected.**
+- **Gen153, calendar premia (8 trials):**
+  - Announcement days: equities FOMC 0.26 / -0.50; bonds FOMC 0.03 / -0.17.
+  - Options-expiry week: -0.13 / 0.48.
+  - **Halloween (Nov-Apr long): 0.44 / 0.52, enters**, but the book drops to 0.777 < 0.815. **Not adopted.**
+- **Gen154, intraday return periodicity, 26 futures hourly (9 trials):** net -12 to -27 (costs).
+  - Gross 2.92 / 0.83: the signal is real, but the edge per unit of turnover (ES -0.1, NQ 0.1-0.8, GC 0.5-0.7, CL 1.1-1.8 bp) is below the cost per side (1.0-2.6 bp) in every market and setting. **Rejected: not tradable at our costs.**
+- **Futures book unchanged: OOS 2023-26 0.815.**
