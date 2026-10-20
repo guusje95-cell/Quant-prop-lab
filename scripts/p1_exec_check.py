@@ -1,6 +1,7 @@
 """Execution check of P1 (IBS < 0.3 long, ES+NQ, Gen205): signal and fill at an intraday snapshot (ET), 24h hold, vs the
 daily-close version in the book. Diagnostic (no new trial). Writes results/p1_exec_check.json."""
 import json
+import os
 import sys
 from pathlib import Path
 import numpy as np
@@ -19,7 +20,8 @@ def snap(hour, members=("ES", "NQ")):
         hi = np.maximum(pz[rth].groupby(t.date[rth]).max().reindex(c.index), c); lo = np.minimum(pz[rth].groupby(t.date[rth]).min().reindex(c.index), c)
         sig = (((c - lo) / (hi - lo)) < 0.3).astype(float).where(hi > lo, 0.0); w = 0.5 * sig
         nxt = c.shift(-1) / c - 1; nxt[(c.index.to_series().diff(-1).dt.days < -4).to_numpy()] = np.nan
-        out[r] = (w * nxt - w.diff().abs().fillna(w) * F.daily(r).cost.reindex(c.index).ffill()).shift(1)
+        flat = 2 * w.abs() if os.environ.get("QPL_DAILY_FLAT") == "1" else 0.0
+        out[r] = (w * nxt - (w.diff().abs().fillna(w) + flat) * F.daily(r).cost.reindex(c.index).ffill()).shift(1)
     p = pd.DataFrame(out).sum(axis=1); return p[p.index.weekday < 5]
 
 

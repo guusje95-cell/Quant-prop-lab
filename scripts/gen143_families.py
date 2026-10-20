@@ -1,5 +1,6 @@
 """Gen143 (config/gen143_protocol.json): nested tuning of other futures families. Writes results/gen143.json."""
 import json
+import os
 import sys
 from pathlib import Path
 import numpy as np
@@ -66,6 +67,8 @@ def k3(k):
         d0 = gg.index[-(k + 1)]; mtd = (1 + gg.loc[:d0]).prod() - 1
         W.loc[gg.index[-k:]] = (-1.0 if mtd.ES > mtd.ZN else 1.0) * 0.15 / VK.loc[d0]
     cst = es.cost.reindex(RK.index).ffill(); roll = es.roll.reindex(RK.index).fillna(0); turn = W.diff().abs().fillna(W.abs()) + 2 * W.abs() * roll
+    if os.environ.get("QPL_DAILY_FLAT") == "1":
+        turn = turn + 2 * W.abs()
     return W * RK.ES - turn * cst
 
 

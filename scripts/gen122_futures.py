@@ -1,6 +1,7 @@
 """Gen122 (config/gen122_protocol.json): futures round 2. Writes results/gen122.csv and results/gen122_daily.parquet."""
 import sys
 from pathlib import Path
+import os
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts"))
@@ -49,6 +50,8 @@ def daily_book(W, members):
     COST = pd.DataFrame({r: D[r].cost for r in members}).reindex(R.index).ffill(); ROLL = pd.DataFrame({r: D[r].roll for r in members}).reindex(R.index).fillna(0)
     held = W.reindex(R.index).fillna(0.0)
     turn = held.diff().abs().fillna(held.abs()) + 2 * held.abs() * ROLL
+    if os.environ.get("QPL_DAILY_FLAT") == "1":                  # firm rule: flat at 16:10 ET, reopen at 18:00 -> one round trip per held day
+        turn = turn + 2 * held.abs()
     return (held * R.fillna(0.0)).sum(axis=1) - (turn * COST).sum(axis=1)
 
 

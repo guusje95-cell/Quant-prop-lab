@@ -1,0 +1,30 @@
+{
+ "swing (overnight allowed)": {
+  "chosen": [
+   1.0,
+   0.5
+  ],
+  "2023-26": {
+   "net": 6695,
+   "P_profit": 0.954
+  },
+  "half-mean": {
+   "net": 3081,
+   "P_profit": 0.818
+  }
+ },
+ "daily flat 16:10 / reopen 18:00": {
+  "chosen": [
+   1.0,
+   0.5
+  ],
+  "2023-26": {
+   "net": 4337,
+   "P_profit": 0.85
+  },
+  "half-mean": {
+   "net": 2172,
+   "P_profit": 0.714
+  }
+ }
+}

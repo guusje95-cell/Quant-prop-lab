@@ -1,6 +1,7 @@
 """Gen155 (config/gen155_protocol.json): R1 refinement at the executable 14:00 ET snapshot. Writes results/gen155.json."""
 import itertools
 import json
+import os
 import sys
 from pathlib import Path
 import numpy as np
@@ -42,7 +43,8 @@ def r1v(ind, size, hold):
         mult = {"const": 1.0, "highvol": (v20 / v250).clip(upper=2), "lowvol": (v250 / v20).clip(upper=2)}[size]
         w = (0.25 * sig * mult).fillna(0.0)
         nxt = c.shift(-1) / c - 1; nxt[(c.index.to_series().diff(-1).dt.days < -4).to_numpy()] = np.nan
-        out[r] = (w * nxt - w.diff().abs().fillna(w) * cost).shift(1)
+        flat = 2 * w.abs() if os.environ.get("QPL_DAILY_FLAT") == "1" else 0.0   # daily 16:10 flat + 18:00 reopen
+        out[r] = (w * nxt - (w.diff().abs().fillna(w) + flat) * cost).shift(1)
     p = pd.DataFrame(out).sum(axis=1); return p[p.index.weekday < 5]
 
 

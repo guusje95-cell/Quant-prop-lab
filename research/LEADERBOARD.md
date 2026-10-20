@@ -825,3 +825,15 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 ## Gen208 / Gen210 (2026-10-20): Databento extra roots (UB, TN, NKD, PL, EMD; 2010-26)
 - **Gen210:** BC + UB/TN tune 0.257 < 0.32 (current kept). Equity timing sleeves + NKD 0.696 < 0.785, appraisal 0.15 (current kept). **No change.**
 - **Gen208, gold/platinum ratio -> ES/NQ (CME PL):** best SCL 0.50 / 0.83, but **appraisal -0.19** (beta). **Rejected** under the refined rule. Gen208b (Dukascopy spot) is retired: same hypothesis, already judged.
+
+## Futures firm rule check (2026-10-20, terms checked by the user on the firms' help pages)
+- **MFFU and Tradeify do NOT allow holding across the daily close** (MFFU auto-flattens at 16:10 ET; Tradeify requires flat by 16:45 ET). The futures book is a swing book.
+- **scripts/futures_book_build.py** now rebuilds the whole book from its adopted settings; it reproduces the saved sleeves exactly. QPL_DAILY_FLAT=1 charges one round trip per held position per day (flat at 16:10, reopen at 18:00; the 16:10-18:00 return is ignored).
+- **Daily-flat book: 0.36 / 0.72 / 0.84** (vs 1.46 / 1.45 / 1.22). Multi-market sleeves (G1, U5, A3, F3) turn negative; the ES/NQ sleeves survive (P1 0.98, OIL 0.96, R1 0.87, F5 / FC 0.73 in 2023-26).
+- **Prop, 50k (2023-26 bootstrap):**
+  - Swing firm: $6.7k, P(profit) 0.95 (half-mean $3.1k, 0.82).
+  - Daily-flat at MFFU / Tradeify: $4.3k, 0.85 (half-mean $2.2k, 0.71).
+- Swing-friendly candidates (affiliate-type sources, verify): Elite Trader Funding (Diamond Hands / Direct to Funded; "semi-automated only" may conflict), PropEd Capital (Mega Drawdown accounts), PropShop Trader (Direct swing).
+- **User-checked terms:**
+  - HyroTrader $200k 2-Step: $969 (refundable with the first payout), 10% / 5% targets, 5% daily, 10% max; trades on **Bybit / BloFin** (backtests use Binance perps: similar prices, funding differs slightly). A swing-drawdown upgrade (+$89) is advertised; check it.
+  - BrightFunded Classic 2.0 $200k: EUR 697.90 promo (EUR 997 regular), 10% / 5%, 5% daily, 10% static, overnight / weekend allowed, swap-free add-on still listed (check it covers the bf coins).
