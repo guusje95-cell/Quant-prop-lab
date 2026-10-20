@@ -1,0 +1,10 @@
+{
+  "generation": "Gen180",
+  "title": "Intraday big-move continuation in Treasuries (hourly convexity-hedging flow)",
+  "registered": "2026-10-20, before any Gen180 number",
+  "rule": "per root ZF/ZN/ZB: z = hourly roll-safe return / sd of hourly returns over the previous 20 trade dates; when |z| > th, take sign of the move from the NEXT hourly bar for H bars (overlapping triggers: latest wins); size 0.10 / annualised daily vol (60d) / 3; cost_frac per unit turnover; P&L summed per trade date",
+  "grid": "th {3, 4} x H {6, 24}",
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrant; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 4
+}
