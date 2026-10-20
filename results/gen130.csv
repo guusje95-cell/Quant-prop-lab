@@ -1,0 +1,4 @@
+test,DEV,TEST,HOLD,pass,corr v6 2022-26,active days,prop fit
+A1 pre-auction cheapening (short),0.018,0.249,0.671,False,-0.027,2730,multi-day (MFFU/Tradeify)
+A2 post-auction recovery (long),0.457,0.329,-0.342,False,0.019,2731,multi-day
+A3 round trip,0.399,0.472,0.262,False,-0.005,3994,multi-day
