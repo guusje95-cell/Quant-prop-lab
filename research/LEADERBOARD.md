@@ -635,3 +635,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen160, sleeve-momentum overlay (walk-forward, 5 trials):** 2018-22 NONE 1.10, M126h 1.13, M504h 1.14, M252h 1.04, M252z 0.90. Chosen M504h -> 2023-26 **0.800 < 0.908. Not adopted.**
 - **Gen161, vol-managed calendar sleeves:** const 0.70 / 0.80 vs vm 0.66 / 0.66 (tune / 2023-26). Const kept.
 - **Gen162, sleeve upgrades:** F5 + 200d filter 0.64 / 0.80, + 100d 0.51 / 0.83 (current 0.84 / 0.98); K3 quarter-end 0.01 / -0.18. Current settings kept.
+- **Gen163, big-move continuation (12 trials):**
+  - **BC rates ZF/ZN/ZB (|z| > 2, hold 3 days, 1-day execution lag): 0.32 / 0.46, enters.** Commodities CC: 0.25 / 0.20, no.
+  - **Book 2023-26 0.908 -> 1.041 (2010-17 1.57, 2018-22 1.46). Adopted, 13 sleeves.**
+  - Sensitivity (report only): neighbouring BC settings give a book of 0.926-0.982 (th 1.5 / 2.5, H 2 / 4 / 5), and BC's correlation with the book is -0.17. **The gain is robust in sign, but 1.04 is the lucky top end; expect about 0.95.**
