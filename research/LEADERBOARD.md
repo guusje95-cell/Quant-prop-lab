@@ -548,3 +548,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - P7 IBS on index CFDs: - / 0.63 / 0.08
   - P8 Nasdaq-vs-S&P style momentum: -0.17 / 0.03 / -0.56
 - **P4 Brent-WTI reversion on Dukascopy CFDs: 0.63 / 0.73 / 0.73 (passes).** But Dukascopy WTI contains roll gaps (21 bp median deviation from roll-safe CME on roll days), so it is **not accepted** until the clean CME BZ/CL test (Gen128).
+- **Gen128, clean-data check of P4 on CME BZ/CL:** -0.63 / -0.01 / -0.49. **P4 rejected: the Dukascopy result was a roll-gap artefact.**
