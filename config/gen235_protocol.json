@@ -1,0 +1,9 @@
+{
+  "generation": "Gen235",
+  "title": "P1 (IBS < 0.3 at 16:00 ET, ES+NQ) held overnight only (16:00 -> 10:00 ET) vs 24h",
+  "registered": "2026-10-20, before any Gen235 number (P1's intraday split has not been looked at)",
+  "variants": {"24h": "current P1 @16:00 (book version after the execution correction)", "ON": "same signal; long from the 16:00 ET close to the close of the 09:00 bar (10:00 ET) next day; hourly roll-safe prices; cost_frac per side"},
+  "selection": "higher 2010-06..2022-12 Sharpe",
+  "judgement": "if ON, replaces P1; ONE evaluation 2023-26 of the EQR book vs 1.218",
+  "trials_added": 2
+}
