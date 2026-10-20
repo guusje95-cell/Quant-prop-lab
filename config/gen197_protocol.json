@@ -1,0 +1,11 @@
+{
+  "generation": "Gen197",
+  "title": "Clock-bar opening order imbalance (Kim and Hansen 2026, 'The Quarter-Hour Effect') on BTC/ETH perps",
+  "registered": "2026-10-20, before any Gen197 number",
+  "signal": "per coin and hour: imbalance = (2 x taker_buy_volume - volume) / volume of the 5-minute bar opening the hour (hh:00-hh:05); z = (imbalance - 30-day mean) / 30-day sd of the same statistic (past hours only)",
+  "rule": "if |z| > k, position sign(z) (continuation, the paper's direction) from the NEXT full hour (hh+1:00) for H hours; overlapping signals averaged (sum of the last H signals / H); 0.5 per coin; cost 5 bp per unit turnover + actual funding",
+  "grid": "H {4, 12} x k {1, 2}",
+  "selection": "best on DEV 2020-22 (crypto split)",
+  "pass": "chosen sleeve D/T/H > 0 / >= 0.8 / >= 0.5 (crypto rule) AND strict v7 rule (2.534; TEST 3.494, HOLD 2.240)",
+  "trials_added": 4
+}
