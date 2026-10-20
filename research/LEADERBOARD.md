@@ -679,3 +679,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen185, oil / copper -> Treasuries (4 trials):** best oil 0.22 / -0.62; copper 0.26 / 0.41. Rejected.
 - **Gen186, oil timing in the merged bf index sleeve:** leg -0.06 / 2.28 / 0.36; bf 2.286, HOLD 1.809. **Fails the strict rule.**
 - **Gen187, oil timing on BTC/ETH as a v7 sleeve:** sleeve 0.67 / 0.71 / 0.11; v7 2.472, TEST 3.381, HOLD 2.132. **Fails.**
+- **Gen188, commodity MAX / idiosyncratic vol XS (4 trials):** MAX best 0.10 / 0.65; IVOL best 0.29 / 0.54 (just below the 0.3 bar). Nothing enters.

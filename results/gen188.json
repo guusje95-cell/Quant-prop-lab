@@ -1,0 +1,21 @@
+{
+ "families": {
+  "MX": {
+   "best": {
+    "n": 3
+   },
+   "tune": 0.097,
+   "2023-26": 0.647,
+   "enters": false
+  },
+  "IV": {
+   "best": {
+    "n": 4
+   },
+   "tune": 0.287,
+   "2023-26": 0.541,
+   "enters": false
+  }
+ },
+ "entered": []
+}
