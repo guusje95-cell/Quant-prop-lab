@@ -1,0 +1,8 @@
+{
+  "generation": "Gen233",
+  "title": "Index-CFD book (Gen201) + P1 CFD leg (Gen232)",
+  "registered": "2026-10-20, after Gen232 showed the P1 leg's numbers (flagged like Gen201: component results known; only the combination is new)",
+  "rule": "EQR over {P6, R1, CAL, P1} with weights 1/sd fitted on 2020-01..2022-12; 10% vol target",
+  "pass": "2023-24 and 2025-26 Sharpe both not lower than Gen201's (1.247 / 0.988)",
+  "trials_added": 1
+}
