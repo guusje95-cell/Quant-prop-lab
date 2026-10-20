@@ -46,7 +46,7 @@ def cot():
         for c in d.columns:                                # CFTC files mix numbers and space-padded text across years
             if not pd.api.types.is_numeric_dtype(d[c]):
                 t = d[c].astype(str).str.strip(); num = pd.to_numeric(t, errors="coerce")
-                filled = ~t.isin(["", "nan", "None", "<NA>", "NaN", "."])
+                filled = t.notna() & ~t.isin(["", "nan", "None", "<NA>", "NaN", "."])
                 d[c] = num if num.notna().sum() >= 0.99 * filled.sum() else t
         d.to_parquet(OUT / f"cot_{tag}.parquet", index=False); print(f"-> cot_{tag}.parquet {len(d)} rows", flush=True)
 
