@@ -1,0 +1,10 @@
+{
+  "generation": "Gen231",
+  "title": "Prop settings for the index-CFD book (Gen201) on BrightFunded 2-Step swap-free, nested",
+  "registered": "2026-10-20, before any Gen231 number",
+  "book": "results/gen201_book.parquet (daily); daily stop not modelled (daily book; worst = 1.3 x negative day as in Gen191)",
+  "grid": "challenge {0.5, 1.0, 1.5, 2.0} x funded {0.5, 1.0, 1.5} (x 15% vol, normaliser 2022-24)",
+  "selection": "max mean net 2y subject to P(profit) >= 0.90 on a 2022-24 bootstrap",
+  "evaluation": "chosen vs the Gen201 suggestion (1.0 / 0.5) on a 2025-26 bootstrap, plus the halved-mean stress",
+  "trials_added": 12
+}
