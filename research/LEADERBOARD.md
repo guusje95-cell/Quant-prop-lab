@@ -500,3 +500,11 @@ Details are in `research/GEN113_ALLOCATION.md`.
 ## Gen118 (2026-10-19): on-chain signals (Coin Metrics), rejected (4 trials)
 - **O1 exchange net flow:** sleeve 2020-22 / 23-24 / 25-26 = -0.56 / 0.45 / 1.61; it would lift v6 2.46 -> 2.64 and bf 2.25 -> 2.44, but the sleeve fails its own DEV and TEST bars. **Rejected; watchlist only.** Extra caution: Coin Metrics re-labels exchange addresses after the fact, so historical flows can contain look-ahead that a live trader would not have seen.
 - **O2 exchange supply trend:** 0.00 / -0.22 / -0.41. **O3 fee mania:** -1.21 / -0.63 / no HOLD signals. **O4 hash ribbons:** 1.00 / 0.39 / -1.32.
+
+## Gen114-121 (2026-10-20): Databento futures, Binance extra coins, BrightFunded breadth (16 trials)
+Details are in `research/GEN114_121_NEW_DATA.md`.
+- **Futures:** all 12 rejected. T1 trend+carry 0.04 / -0.16 / -0.41 (after fixing a carry-ordering bug); best U5 XS momentum 0.50 / 0.23 / 0.36. No futures book.
+- **CME bitcoin:** basis momentum and the "CME gap fill" both rejected (gap fill TEST -2.34).
+- **Premium carry on 60 coins (Gen80):** v6 2.458 -> 2.539, HOLD 1.90 -> 2.39, robust to 2x costs and to dropping any top coin. But v6 TEST falls 3.44 -> 3.14, so it fails the strict book rule. **Forward-test candidate.**
+- **Premium carry on 42 BrightFunded coins (Gen121):** bf 2.252 -> 2.414, HOLD 1.55 -> 2.09, but TEST 3.45 -> 3.18. Same verdict.
+- **Bounce on all altcoins (Gen112):** DEV 2022 -0.30. Rejected; per-coin means replicate (+0.74% per episode on the extra coins).

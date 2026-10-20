@@ -1,0 +1,36 @@
+{
+ "current bf 2022-26": 2.252,
+ "breadth bf 2022-26": 2.414,
+ "current bf D/T/H": [
+  1.154,
+  3.45,
+  1.545
+ ],
+ "breadth bf D/T/H": [
+  1.509,
+  3.183,
+  2.092
+ ],
+ "sleeve current 2020/T/H": [
+  0.235,
+  1.203,
+  0.555
+ ],
+ "sleeve breadth 2020/T/H": [
+  0.863,
+  0.938,
+  2.101
+ ],
+ "sleeve current 2023-26": 0.924,
+ "sleeve breadth 2023-26": 1.433,
+ "2x spreads: bf current / breadth 2022-26": [
+  2.049,
+  2.176
+ ],
+ "2x spreads: breadth D/T/H": [
+  1.339,
+  2.925,
+  1.835
+ ],
+ "pass": false
+}
