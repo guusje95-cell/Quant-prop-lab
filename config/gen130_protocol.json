@@ -1,0 +1,14 @@
+{
+  "generation": "Gen130",
+  "title": "Treasury auction cycle in Treasury futures (Lou, Yan and Zhang 2013)",
+  "registered": "2026-10-20, before the auction calendar was downloaded",
+  "data": "research_data/more2/treasury_auctions.parquet (TreasuryDirect); Databento ZT ZF ZN ZB daily roll-safe returns 2010-2026",
+  "mapping": "2-year note auctions -> ZT, 5-year -> ZF, 10-year (incl. reopenings) -> ZN, 30-year bond (incl. reopenings) -> ZB",
+  "tests": {
+    "A1 pre-auction cheapening (PRIMARY)": "short the matching future from the close 5 trading days before the auction date to the close of the trading day BEFORE the auction (4 days), then flat; equal risk 0.10 / 60-day vol per contract",
+    "A2 post-auction recovery": "long the matching future from the close of the auction day to the close 4 trading days later",
+    "A3 round trip": "A1 and A2 together"
+  },
+  "rule": "DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3, costs 1 tick + $2.50 per side",
+  "trials_added": 3
+}
