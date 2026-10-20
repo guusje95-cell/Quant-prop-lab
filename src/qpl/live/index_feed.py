@@ -4,9 +4,9 @@ research cloud).
 
     python -m qpl.live.index_feed paper_trading/bf2/data
 
-Whole months come from the monthly hour-candle files (as in the research download); the last 48 hours are rebuilt from the
+Finished months come from the monthly hour-candle files (as in the research download); the current month is built from the
 hourly tick files (BID side), which Dukascopy publishes shortly after each hour, so the 13:00 and 15:00 ET signal bars are
-available the same day."""
+available the same day. The first run after a gap can take several minutes (one request per hour per index, paced)."""
 import lzma
 import sys
 from pathlib import Path
@@ -56,16 +56,31 @@ def update(data_dir: Path, now: pd.Timestamp | None = None, log=print) -> bool:
     out = Path(data_dir) / "dukascopy"; out.mkdir(parents=True, exist_ok=True); ok = True
     now = (pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)).floor("h")
     for s in SYMBOLS:
+        try:
+            ok &= _update_one(s, out, now, log)
+        except Exception as e:                                 # never stop the paper run: the cutoff waits at most 1 hour
+            log(f"  {s}: not updated ({e.__class__.__name__}: {e})"); ok = False
+    return ok
+
+
+def _update_one(s, out, now, log) -> bool:
+    ok = True
+    if True:
         f = out / f"{s}_1h.parquet"; base = ROOT / f"research_data/dukascopy/{s}_1h.parquet"
         old = pd.read_parquet(f) if f.exists() else None
         last = max(pd.read_parquet(p).index.max() for p in (f, base) if p.exists())
         parts = [old] if old is not None else []
-        recent = now - pd.Timedelta(hours=48)
-        if last < recent:                                      # whole hour candles for the gap (monthly files)
-            x = DL.duka_hourly(s, start=str(last.normalize()), end=str(now))
-            parts.append(x.set_index("time")[["open", "high", "low", "close", "volume"]])
-        rows = {}
-        for h in pd.date_range(max(recent, last - pd.Timedelta(hours=3)), now - pd.Timedelta(hours=1), freq="h"):
+        month0 = now.replace(day=1).normalize()
+        if last < month0 - pd.Timedelta(hours=1):              # finished months: monthly hour-candle files
+            try:
+                x = DL.duka_hourly(s, start=str(last.normalize()), end=str(month0 - pd.Timedelta(days=1)))
+                x = x.set_index("time")[["open", "high", "low", "close", "volume"]]; parts.append(x); last = max(last, x.index.max())
+            except Exception as e:
+                log(f"  {s}: month candles not available ({e})"); ok = False
+        rows = {}                                              # the current month (no monthly file yet): hourly tick files
+        for h in pd.date_range(max(month0, last - pd.Timedelta(hours=3)), now - pd.Timedelta(hours=1), freq="h"):
+            if h.dayofweek == 5 or (h.dayofweek == 4 and h.hour >= 22) or (h.dayofweek == 6 and h.hour < 21):
+                continue                                       # index CFDs are closed (no tick files to fetch)
             v = tick_hour(s, h)
             if isinstance(v, str):
                 log(f"  {s} {h}: {v}"); ok = False; break             # stop at the first failed hour: no gaps
