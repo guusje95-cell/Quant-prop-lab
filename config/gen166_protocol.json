@@ -1,0 +1,13 @@
+{
+  "generation": "Gen166",
+  "title": "Fundamental seasonal energy spreads",
+  "registered": "2026-10-20, before any Gen166 number",
+  "families": {
+    "SG spring gasoline crack": "long RB / short CL (each 0.05 / annualised 60d vol) from Feb 15 to Apr 30 (refinery maintenance + driving-season build)",
+    "SH autumn heating-oil crack": "long HO / short CL (same sizing) from Aug 1 to Oct 31 (distillate stock build before winter)"
+  },
+  "costs": "daily_book costs on both legs, roll-safe returns",
+  "selection": "each a single setting; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "current 13-sleeve book + entrants; ONE evaluation 2023-26 vs 1.041",
+  "trials_added": 2
+}
