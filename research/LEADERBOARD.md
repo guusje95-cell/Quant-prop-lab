@@ -821,3 +821,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **bf on a BrightFunded Classic $200k (fee ~$947 + swap-free $96, ASSUMED from a third-party listing; BrightFunded relaunched its plans in April 2026, verify):**
   - 2025-26 bootstrap net 2y **$124.4k** (p10 $68.8k, P(profit) 0.998); half-mean $45.7k (0.89).
   - About double the $100k account, as for v7.
+
+## Gen208 / Gen210 (2026-10-20): Databento extra roots (UB, TN, NKD, PL, EMD; 2010-26)
+- **Gen210:** BC + UB/TN tune 0.257 < 0.32 (current kept). Equity timing sleeves + NKD 0.696 < 0.785, appraisal 0.15 (current kept). **No change.**
+- **Gen208, gold/platinum ratio -> ES/NQ (CME PL):** best SCL 0.50 / 0.83, but **appraisal -0.19** (beta). **Rejected** under the refined rule. Gen208b (Dukascopy spot) is retired: same hypothesis, already judged.

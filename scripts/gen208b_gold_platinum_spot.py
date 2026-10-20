@@ -20,8 +20,8 @@ t = {k: round(S(p, TUNE), 3) for k, p in sl.items()}; ch = max(t, key=t.get)
 out = {"spot history": [str(gp.index.min().date()), str(gp.index.max().date())], "tune": t, "chosen": ch, "2023-26": round(S(sl[ch], JUDGE), 3),
        "2010-17 / 2018-22": [round(F.sharpe(sl[ch], *F.SPLITS[0]), 3), round(F.sharpe(sl[ch], *F.SPLITS[1]), 3)], "enters": bool(t[ch] > 0.3)}
 if out["enters"]:
-    bh = daily_book(pd.DataFrame({r: pd.Series(0.5, index=IX) for r in ("ES", "NQ")}), ["ES", "NQ"]); out["buy-and-hold tune"] = round(S(bh, TUNE), 3)
-    out["beats buy-and-hold (rule)"] = bool(t[ch] > out["buy-and-hold tune"])
+    out["appraisal (beta-adjusted Sharpe 2010-22)"] = round(B.appraisal(sl[ch]), 3)
+    out["beats buy-and-hold (rule)"] = bool(out["appraisal (beta-adjusted Sharpe 2010-22)"] > 0.3)
 if out["enters"] and out.get("beats buy-and-hold (rule)", False):
     out.update(B.judge({"GP": sl[ch]}, "gen208b"))
 print(json.dumps(out)); json.dump(out, open(ROOT / "results/gen208b.json", "w"), indent=1)

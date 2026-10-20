@@ -1,0 +1,19 @@
+{
+ "have": [
+  "NKD",
+  "TN",
+  "UB"
+ ],
+ "families": {
+  "BC+": {
+   "current": 0.32,
+   "with UB+TN": 0.257
+  },
+  "NKD": {
+   "ES+NQ": 0.785,
+   "ES+NQ+NKD": 0.696,
+   "appraisal ES+NQ+NKD": 0.149
+  }
+ },
+ "changes": []
+}

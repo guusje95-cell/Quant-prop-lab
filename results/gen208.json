@@ -1,0 +1,11 @@
+{
+ "tune": {
+  "BIN": 0.476,
+  "SCL": 0.497
+ },
+ "chosen": "SCL",
+ "2023-26": 0.826,
+ "enters": true,
+ "appraisal (beta-adjusted Sharpe 2010-22)": -0.188,
+ "beats buy-and-hold (rule)": false
+}
