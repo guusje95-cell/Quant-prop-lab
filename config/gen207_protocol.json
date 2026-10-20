@@ -1,0 +1,9 @@
+{
+  "generation": "Gen207",
+  "title": "Index-CFD book (Gen201): R1 component 24h (current) vs overnight-only (Gen149/150 hourly version)",
+  "registered": "2026-10-20, before any Gen207 number for the combination (component results known from Gen147/149/150)",
+  "variants": {"R24": "Gen201 as is", "RON": "R1 replaced by the Gen150 overnight sleeve (signal 15:00 ET, long 16:00 -> 10:00), same EQR fit"},
+  "selection": "higher book Sharpe on the 2020-22 fit period",
+  "report": "2023-24 / 2025-26 of the chosen book; adopt as the index-CFD book only if chosen = RON and both unseen periods >= Gen201's (1.247 / 0.988)",
+  "trials_added": 2
+}
