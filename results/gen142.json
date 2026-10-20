@@ -1,0 +1,87 @@
+{
+ "top 5 on 2010-22": [
+  [
+   0.142,
+   {
+    "markets": [
+     "ES",
+     "NQ",
+     "RTY",
+     "YM"
+    ],
+    "start": 20,
+    "end": 9
+   }
+  ],
+  [
+   0.139,
+   {
+    "markets": [
+     "ES",
+     "NQ",
+     "RTY",
+     "YM"
+    ],
+    "start": 22,
+    "end": 9
+   }
+  ],
+  [
+   0.121,
+   {
+    "markets": [
+     "ES",
+     "NQ",
+     "RTY",
+     "YM"
+    ],
+    "start": 0,
+    "end": 9
+   }
+  ],
+  [
+   0.07,
+   {
+    "markets": [
+     "ES",
+     "NQ"
+    ],
+    "start": 20,
+    "end": 9
+   }
+  ],
+  [
+   0.034,
+   {
+    "markets": [
+     "ES",
+     "NQ",
+     "RTY",
+     "YM"
+    ],
+    "start": 20,
+    "end": 6
+   }
+  ]
+ ],
+ "chosen": {
+  "markets": [
+   "ES",
+   "NQ",
+   "RTY",
+   "YM"
+  ],
+  "start": 20,
+  "end": 9
+ },
+ "tune 2010-22": 0.142,
+ "stand-alone 2023-26": 0.317,
+ "stand-alone 2010-17 / 2018-22": [
+  -0.259,
+  0.451
+ ],
+ "book with it 2023-26": 0.654,
+ "reference book": 0.661,
+ "(a) stand-alone pass": true,
+ "(b) adopt into book": false
+}

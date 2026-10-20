@@ -1,0 +1,16 @@
+{
+  "generation": "Gen143",
+  "title": "Nested tuning of the other futures families, entrants added to the optimised book, one judgement on 2023-26",
+  "registered": "2026-10-20, before any Gen143 number",
+  "grids": {
+    "U5 cross-sectional momentum (24)": "lookback {63, 126, 252} x names per side {4, 6}",
+    "H1 basis-momentum (12 commodities)": "lookback {63, 126, 252} x names per side {3, 4}",
+    "F1 post-FOMC drift (ZN/ZB)": "holding days {5, 10, 15}",
+    "K3 month-end pension rebalancing (ES)": "holding days {2, 3, 5}",
+    "C2 leveraged-funds extremes, financials (contrarian)": "z threshold {1.0, 1.5, 2.0}",
+    "C1 managed-money extremes, commodities (contrarian)": "z threshold {1.0, 1.5, 2.0}"
+  },
+  "selection": "per family the best setting on 2010-06..2022-12; it enters only if that Sharpe > 0.3",
+  "judgement": "book = Gen140 optimised sleeves + entrants, Sharpe-weighted on 2010-22, 10% vol target; ONE evaluation 2023-26 vs 0.661; adopt only if higher",
+  "trials_added": 36
+}

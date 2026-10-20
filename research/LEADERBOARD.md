@@ -575,3 +575,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Futures book (Gen135):** all 5 selected sleeves are positive in 2023-26, and the book is positive in every unseen year (0.35 / 0.62 / 0.60 / 0.83).
 - **Gen140 nested optimisation of the futures book:** settings and construction tuned on 2010-22 only (54 trials); judged once on 2023-26: **0.661 vs 0.579** (reference, same code). Adopted. Chosen: F5 vol window and cap per grid, P1 IBS long-only 0.3/0.7 (2023-26 0.94), A3 pre 5 / post 4, G1 126 days (2023-26 -0.66: an example of why we judge out of sample), Sharpe-weighted construction.
 - **Gen141 IBS per asset group:** only rates qualified on 2010-22 (0.46), and they were -0.34 in 2023-26. Book 0.577 < 0.661, **not adopted**.
+- **Gen142 overnight drift grid (Topstep-compatible):** chosen ES/NQ/RTY/YM 20:00-09:00 ET, tuned 0.14, 2023-26 0.32 stand-alone; book 0.654 < 0.661, not adopted.
