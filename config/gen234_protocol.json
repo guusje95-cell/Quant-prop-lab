@@ -1,0 +1,8 @@
+{
+  "generation": "Gen234",
+  "title": "bf: combine the two near-misses (ridge ML sleeve, Gen196; P1 CFD leg in the index sleeve, Gen232)",
+  "registered": "2026-10-20, after both components were tested (flagged as in Gen133: component results known, only the combination is new)",
+  "rule": "bf = crypto sleeves + ridge ML sleeve (CFD costs) + merged index sleeve (P6 + R1 + P1 CFD); portfolio_v5",
+  "pass": "strict bf rule vs 2.326 (TEST 3.698, HOLD 1.883)",
+  "trials_added": 1
+}
