@@ -1,0 +1,148 @@
+{
+ "for_hour_utc": "2026-10-20 19:00:00",
+ "made_at_utc": "2026-10-20 19:08:15.064824",
+ "data_cutoff_utc": "2026-10-20 19:00:00",
+ "equity": 98832.64,
+ "risk": 1.5,
+ "target_notional_usd": {
+  "ETH": -10867.71,
+  "BTC": -9177.73,
+  "BNB": -2672.21,
+  "ADA": -2672.21,
+  "CRV": -2672.21,
+  "DYDX": -2672.21,
+  "COMP": -2672.21,
+  "ALGO": -2672.21,
+  "EGLD": -2672.21,
+  "FIL": -2672.21,
+  "SOL": -2672.21,
+  "XTZ": -2672.21,
+  "OP": -2672.21,
+  "INJ": -2672.21,
+  "HBAR": -2672.21,
+  "GRT": -2672.21,
+  "DOT": 765.91,
+  "DASH": 2672.21,
+  "BCH": 2672.21,
+  "AVAX": 2672.21,
+  "ATOM": 2672.21,
+  "ARB": 2672.21,
+  "LDO": 2672.21,
+  "LINK": 2672.21,
+  "NEO": 2672.21,
+  "MANA": 2672.21,
+  "STX": 2672.21,
+  "SAND": 2672.21,
+  "TRX": 2672.21,
+  "XLM": 2672.21,
+  "XRP": 2672.21
+ },
+ "by_sleeve_usd": {
+  "ADA": {
+   "premium carry": -2672.21
+  },
+  "ALGO": {
+   "premium carry": -2672.21
+  },
+  "ARB": {
+   "premium carry": 2672.21
+  },
+  "ATOM": {
+   "premium carry": 2672.21
+  },
+  "AVAX": {
+   "premium carry": 2672.21
+  },
+  "BCH": {
+   "premium carry": 2672.21
+  },
+  "BNB": {
+   "premium carry": -2672.21
+  },
+  "BTC": {
+   "C*": 1689.98,
+   "coinbase premium": -10867.71
+  },
+  "COMP": {
+   "premium carry": -2672.21
+  },
+  "CRV": {
+   "premium carry": -2672.21
+  },
+  "DASH": {
+   "premium carry": 2672.21
+  },
+  "DOT": {
+   "C*": 765.91
+  },
+  "DYDX": {
+   "premium carry": -2672.21
+  },
+  "EGLD": {
+   "premium carry": -2672.21
+  },
+  "ETH": {
+   "coinbase premium": -10867.71
+  },
+  "FIL": {
+   "premium carry": -2672.21
+  },
+  "GRT": {
+   "premium carry": -2672.21
+  },
+  "HBAR": {
+   "premium carry": -2672.21
+  },
+  "INJ": {
+   "premium carry": -2672.21
+  },
+  "LDO": {
+   "premium carry": 2672.21
+  },
+  "LINK": {
+   "premium carry": 2672.21
+  },
+  "MANA": {
+   "premium carry": 2672.21
+  },
+  "NEO": {
+   "premium carry": 2672.21
+  },
+  "OP": {
+   "premium carry": -2672.21
+  },
+  "SAND": {
+   "premium carry": 2672.21
+  },
+  "SOL": {
+   "premium carry": -2672.21
+  },
+  "STX": {
+   "premium carry": 2672.21
+  },
+  "TRX": {
+   "premium carry": 2672.21
+  },
+  "XLM": {
+   "premium carry": 2672.21
+  },
+  "XRP": {
+   "premium carry": 2672.21
+  },
+  "XTZ": {
+   "premium carry": -2672.21
+  }
+ },
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "weiss": null,
+ "sleeve_multipliers": {
+  "C*": 0.6918,
+  "premium carry": 0.2524,
+  "trend 4h": 0.6295,
+  "Weiss expiry": 1.2705,
+  "delev bounce": 0.3428,
+  "coinbase premium": 0.1466
+ },
+ "note": "simulation only - no order is sent anywhere"
+}
