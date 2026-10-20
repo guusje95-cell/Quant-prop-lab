@@ -1,0 +1,10 @@
+{
+  "generation": "Gen257",
+  "title": "Betting-against-beta in bf2 (follow-up of the Gen253 D near miss; counted as a new trial)",
+  "registered": "2026-10-20, after Gen253-256, before any Gen257 number",
+  "rule": "Gen253 D unchanged in form, on the BrightFunded CFD altcoins (CB.CFD minus BTC: 10 coins): beta to BTC over 90 days, long the 3 lowest-beta, short the 3 highest, each leg scaled by 1 / its mean beta, then both scaled so the larger leg is 0.5 gross; >= 8 coins; CFD costs (spread + commission), no swap",
+  "replication": "same Gen253 D rule (4 per side of the 40 untouched extra Binance coins, 90-day beta to BTC, 10 bp per unit turnover, no funding): sleeve 2022 > 0 and 2023-26 > 0.5",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118) AND the replication bar",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

@@ -896,3 +896,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 ## Gen254 / Gen255 (2026-10-20): four more crypto XS ideas, then two post-hoc sign reversals (6 trials)
 - **Gen254:** OI growth (low long) -0.62 / -0.66 / -0.99; taker-imbalance momentum 1.79 / 0.58 / 0.34 (v7 2.619 but TEST 3.39); Amihud illiquidity 2.00 / 0.15 / -0.57; top-trader ratio change -1.20 / -0.61 / -0.57. All fail.
 - **Gen255 (sign reversals, registered after seeing Gen254, with extra bars):** reversed OI growth -0.10 / -0.39 / -0.16 and **-3.00 (2022) / -0.72 (2023-26) on the 40 untouched coins**; reversed top-trader change 0.78 / -0.68 / -1.18. Both fail: the Gen254 negatives were costs, not a reversed edge.
+- **Gen256, vol-managed long BTC/ETH (P6 rule on crypto):** v7 sleeve 0.58 / 1.53 / 0.00 (corr C* 0.54), v7 2.291; bf2 sleeve 0.82 / 1.74 / 0.09, bf2 2.116. **Fails** (crypto beta is already in the books through C*; no edge in 2025-26).
