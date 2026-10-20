@@ -1,0 +1,13 @@
+{
+  "generation": "Gen171",
+  "title": "Equity-flow calendar effects on BTC/ETH perps as a v7 sleeve",
+  "registered": "2026-10-20, before any Gen171 number",
+  "why": "turn of month, pre-holiday, FOMC weeks 2/4/6 and mid-month passed on equity futures (Gen146, Gen159); crypto trades as a risk asset",
+  "variants": {
+    "CC1": "long BTC and ETH 0.5 each during UTC days in FOMC-cycle weeks 2/4/6 (dates from Gen159 masks, US trading days)",
+    "CC2": "long BTC and ETH 0.5 each during UTC days in the union of T1 (2 before/3 after month turn), T2 (session before NYSE holiday), FC weeks 2/4/6, MM (15th +-1)"
+  },
+  "costs": "_from_daily_weights: 7.5 bp per unit turnover plus actual funding",
+  "pass": "sleeve D/T/H (2020-22 / 2023-24 / 2025-26) > 0 / >= 0.5 / >= 0.3 AND strict rule vs v7 (2.534; TEST 3.494, HOLD 2.240). If both pass, the higher 2022-26 book Sharpe",
+  "trials_added": 2
+}
