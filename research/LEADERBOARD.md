@@ -726,3 +726,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Sanity check, EQR exposure:** the book's leverage multiplier is at its 3x cap (realised vol about 6-7%, below the 10% target). The largest sleeves (BC 21%, SH 23%, T2 10%) are about 0.1-0.3x notional on active days. No hidden over-leverage.
 - **Gen207, index-CFD book R1 24h vs overnight (2 trials):** fit 0.97 vs 0.85, so the 24h version is kept (overnight would have scored 1.49 / 0.84).
 - **Gen211, issuance hedging in Treasuries (2 trials):** Wed-Fri long -0.01 / -0.85; early-month short 0.17 / -0.32. Rejected.
+- **Gen212, EQR static vs yearly expanding refit (walk-forward):** 2018-22 1.427 vs 1.426, so static is kept. **The fully point-in-time version scores 1.216 in 2023-26 (vs 1.231)**: the result does not depend on fitting weights through 2022.
