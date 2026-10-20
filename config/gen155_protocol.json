@@ -1,0 +1,13 @@
+{
+  "generation": "Gen155",
+  "title": "R1 refinement (executable 14:00 ET version), nested",
+  "registered": "2026-10-20, before any Gen155 number",
+  "grid": {
+    "indicators": "{base 4; base 4 + close < 20-day mean - 2 sd + 2-day return < -1.5 x 20-day daily sd (6)}",
+    "sizing": "{constant; x vol20/vol250 (more in high vol), capped 2; x vol250/vol20, capped 2}",
+    "hold": "{24h; 48h (position = max of today's and yesterday's signal)}"
+  },
+  "selection": "best of 12 on 2010-06..2022-12 (ES/NQ/RTY/YM pooled)",
+  "judgement": "chosen variant replaces R1 in the current 10-sleeve book; ONE evaluation 2023-26 vs 0.815; adopt only if higher",
+  "trials_added": 12
+}
