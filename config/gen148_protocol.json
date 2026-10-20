@@ -1,0 +1,10 @@
+{
+  "generation": "Gen148",
+  "title": "Where does R1's edge sit inside the 24h hold? Topstep-compatible next-session version",
+  "registered": "2026-10-20, before any Gen148 number",
+  "data": "ES and NQ 1-minute 2018-26, NQ 1-minute 2010-17",
+  "signal": "fixed from Gen146: RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3 (range 09:30-14:00 ET), computed on 14:00 ET prices; size = mean indicator",
+  "windows (reports)": {"A": "14:00 -> 16:00 same day", "B": "16:00 -> 09:30 next day (overnight)", "C": "09:30 -> 16:00 next day (Topstep-compatible)", "D": "09:30 -> 14:00 next day"},
+  "candidate": "C as a Topstep-compatible sleeve; pass = ES+NQ pooled 2018-20 / 2021-23 / 2024-26 > 0 / >= 0.5 / >= 0.3 AND NQ 2010-17 > 0; 2 x cost_frac per trade; same contract at both ends",
+  "trials_added": 1
+}
