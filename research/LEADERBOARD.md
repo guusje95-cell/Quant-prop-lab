@@ -574,3 +574,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen139 vol-managed gold:** bf+P6+gold 2.511 (TEST 3.75, HOLD 2.43) passes the strict bf rule, but the 16-year GC version fails DEV (-0.04 / 0.28 / 1.12). **Shadow only**: the strength is the 2023-26 gold rally.
 - **Futures book (Gen135):** all 5 selected sleeves are positive in 2023-26, and the book is positive in every unseen year (0.35 / 0.62 / 0.60 / 0.83).
 - **Gen140 nested optimisation of the futures book:** settings and construction tuned on 2010-22 only (54 trials); judged once on 2023-26: **0.661 vs 0.579** (reference, same code). Adopted. Chosen: F5 vol window and cap per grid, P1 IBS long-only 0.3/0.7 (2023-26 0.94), A3 pre 5 / post 4, G1 126 days (2023-26 -0.66: an example of why we judge out of sample), Sharpe-weighted construction.
+- **Gen141 IBS per asset group:** only rates qualified on 2010-22 (0.46), and they were -0.34 in 2023-26. Book 0.577 < 0.661, **not adopted**.

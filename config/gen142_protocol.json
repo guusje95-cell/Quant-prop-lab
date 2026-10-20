@@ -1,0 +1,9 @@
+{
+  "generation": "Gen142",
+  "title": "Overnight-session drift in equity index futures (Topstep/Lucid compatible: held inside one session), nested tuning",
+  "registered": "2026-10-20, before any Gen142 number (Gen114 T3 = long ES/NQ 18:00-09:00 ET: -0.22 / 0.54 / 0.56)",
+  "grid": "long only; window start {18, 20, 22, 0} ET x end {3, 6, 9} ET (bars [start, end), New York time, every session Sunday-Thursday evening) x markets {ES+NQ, ES+NQ+RTY+YM}; equal weight 1/n per market; costs 1 tick + micro commission per side on entry and exit",
+  "selection": "the setting with the highest Sharpe 2010-06..2022-12",
+  "judgement": "ONE evaluation 2023-01..2026-09: (a) stand-alone Sharpe >= 0.3; (b) added to the Gen140 optimised book (Sharpe-weighted on 2010-22) the book's 2023-26 Sharpe must exceed 0.661. Either passes -> reported as such; (b) decides adoption into the book",
+  "trials_added": 24
+}

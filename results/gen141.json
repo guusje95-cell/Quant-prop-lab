@@ -1,0 +1,64 @@
+{
+ "groups": {
+  "rates": {
+   "best": [
+    0.2,
+    0.8,
+    true
+   ],
+   "tune 2010-22": 0.459,
+   "2023-26": -0.335,
+   "enters": true
+  },
+  "fx": {
+   "best": [
+    0.1,
+    0.9,
+    false
+   ],
+   "tune 2010-22": 0.281,
+   "2023-26": -0.954,
+   "enters": false
+  },
+  "metals": {
+   "best": [
+    0.1,
+    0.9,
+    true
+   ],
+   "tune 2010-22": 0.103,
+   "2023-26": 0.589,
+   "enters": false
+  },
+  "energy": {
+   "best": [
+    0.1,
+    0.9,
+    true
+   ],
+   "tune 2010-22": -0.298,
+   "2023-26": 0.265,
+   "enters": false
+  },
+  "ags": {
+   "best": [
+    0.3,
+    0.7,
+    true
+   ],
+   "tune 2010-22": -0.647,
+   "2023-26": -0.595,
+   "enters": false
+  }
+ },
+ "entered": [
+  "IBS rates"
+ ],
+ "book 2023-26": 0.577,
+ "book 2010-17 / 2018-22": [
+  1.508,
+  1.169
+ ],
+ "reference Gen140": 0.661,
+ "adopt": false
+}
