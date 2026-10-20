@@ -1,0 +1,17 @@
+{
+  "generation": "Gen248",
+  "title": "Taker flow by trade size (BTC/ETH perps): large ('whale') vs small ('retail') buying",
+  "registered": "2026-10-20, before the data exists in the repo (download: get_trade_size_flow.bat on the user's PC)",
+  "definitions": "per coin and UTC day: big = trades >= $100k (buckets 100k_1m + ge1m), small = trades < $10k. imb_big = (buy - sell) / (buy + sell) over big trades; imb_small the same over small trades; spread = imb_big - imb_small",
+  "A_sleeve": {
+    "rule": "z = (7-day mean of spread - its 90-day mean) / its 90-day sd (min 60 days); long 0.5 per coin if z > 1, short 0.5 if z < -1, held the next UTC day; v7: perps 5 bp + funding; bf2: CFD costs",
+    "why": "large takers are better informed (they pay to trade size now); retail-heavy buying is noise that tends to reverse",
+    "pass": "v7: sleeve D 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v7 (2.534 / 3.494 / 2.240); bf2: sleeve D > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118)",
+    "trials_added": 1
+  },
+  "B_ridge": {
+    "model": "Gen108 ridge unchanged plus imb_big, imb_small, spread (daily) as features; same evaluation as Gen246 A",
+    "trials_added": 1
+  },
+  "no_changes_after_results": true
+}
