@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "src")
 from qpl.lab import propfirms as PF
 FIRM = PF.Firm("Swing futures firm 50k (ASSUMED)", 50_000, 150, (0.06,), 0.0, "initial", True, 0.04, "trailing_lock", False,
                2, 0, 0.90, 14, 0.0, False, 0.0, "ASSUMED terms", payout_min=250)
-b = pd.read_parquet(ROOT / "results/gen190_book.parquet")["book"]
+b = pd.read_parquet(ROOT / (sys.argv[1] if len(sys.argv) > 1 else "results/gen190_book.parquet"))["book"]
 
 
 def frame(a, z):

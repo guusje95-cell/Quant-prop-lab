@@ -727,3 +727,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen207, index-CFD book R1 24h vs overnight (2 trials):** fit 0.97 vs 0.85, so the 24h version is kept (overnight would have scored 1.49 / 0.84).
 - **Gen211, issuance hedging in Treasuries (2 trials):** Wed-Fri long -0.01 / -0.85; early-month short 0.17 / -0.32. Rejected.
 - **Gen212, EQR static vs yearly expanding refit (walk-forward):** 2018-22 1.427 vs 1.426, so static is kept. **The fully point-in-time version scores 1.216 in 2023-26 (vs 1.231)**: the result does not depend on fitting weights through 2022.
+- **Futures book now (Gen205, 15 sleeves, EQR): 2010-17 1.54 / 2018-22 1.49 / 2023-26 1.23.**
+  - 2023-26: 6.9% a year at its realised vol, max DD -4.6%, 34 of 45 months positive. Years 1.65 / 0.88 / 0.88 / 1.67.
+  - Prop (2023-26-only bootstrap, 50k swing, ASSUMED terms):
+    - 0.5 / 0.5: P(profit) 0.98, net 2y $5.2k (p10 +$1.5k).
+    - 1.0 / 0.5: P(profit) 0.94, net 2y $6.8k (p10 +$0.9k).
