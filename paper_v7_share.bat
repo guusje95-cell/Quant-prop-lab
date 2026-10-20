@@ -7,5 +7,6 @@ set QPL_PAPER=v7
 python scripts\paper_v5.py reconcile
 git add paper_trading/v7/ledger_hourly.csv paper_trading/v7/daily.csv paper_trading/v7/status.md paper_trading/v7/book_next_hour.json paper_trading/v7/events.jsonl paper_trading/v7/reconcile.csv paper_trading/v7/orders.csv
 git commit -m "Paper v7 results"
+git pull --no-edit
 git push
 pause
