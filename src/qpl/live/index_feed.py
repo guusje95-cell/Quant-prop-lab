@@ -4,11 +4,12 @@ research cloud).
 
     python -m qpl.live.index_feed paper_trading/bf2/data
 
-Finished months come from the monthly hour-candle files (as in the research download); the current month is built from the
-hourly tick files (BID side), which Dukascopy publishes shortly after each hour, so the 13:00 and 15:00 ET signal bars are
-available the same day. The first run after a gap can take several minutes (one request per hour per index, paced)."""
+Finished months come from the monthly hour-candle files (as in the research download), finished days of the current month
+from the daily 1-minute candle files (one request per day), and today's hours from the hourly tick files (BID side), which
+Dukascopy publishes shortly after each hour, so the 13:00 and 15:00 ET signal bars are available the same day."""
 import lzma
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -46,10 +47,23 @@ def tick_hour(symbol, hour: pd.Timestamp):
                 b = a["bid"].astype(float); s = _scale(float(np.median(b)), symbol); b = b / s
                 return (b[0], b.max(), b.min(), b[-1], float(a["bv"].sum()))
             reason = f"HTTP {r.status_code}"
-        except Exception as e:                                 # network error / bad file: cool down and retry
+        except Exception as e:                                 # network error / bad file: fresh connection, cool down, retry
             reason = type(e).__name__; DL._DUKA = None
-        DL._pace(False)
+        DL._pace(False); time.sleep(15 * (k + 1))
     return f"FAILED: {reason}"
+
+
+def minute_day(symbol, day: pd.Timestamp):
+    """One finished UTC day from the daily 1-minute candle file (ONE request) -> hourly bars, None (no trading) or 'FAILED: ...'."""
+    x = DL._duka_day(DL.DUKA_SYM[symbol], day)
+    if x is None or isinstance(x, str):
+        return x
+    x = x[x["volume"] > 0]
+    if x.empty:
+        return None
+    k = _scale(float(x["close"].median()), symbol)
+    x = x.set_index("time")[["open", "high", "low", "close", "volume"]]; x[["open", "high", "low", "close"]] /= k
+    return x.resample("1h").agg({"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna(subset=["close"])
 
 
 def update(data_dir: Path, now: pd.Timestamp | None = None, log=print) -> bool:
@@ -77,8 +91,18 @@ def _update_one(s, out, now, log) -> bool:
                 x = x.set_index("time")[["open", "high", "low", "close", "volume"]]; parts.append(x); last = max(last, x.index.max())
             except Exception as e:
                 log(f"  {s}: month candles not available ({e})"); ok = False
-        rows = {}                                              # the current month (no monthly file yet): hourly tick files
-        for h in pd.date_range(max(month0, last - pd.Timedelta(hours=3)), now - pd.Timedelta(hours=1), freq="h"):
+        today = now.normalize(); gap_ok = True
+        for d in pd.date_range(max(month0, last.normalize()), today - pd.Timedelta(days=1)):   # finished days: 1 file per day
+            if d.weekday() == 5:
+                continue
+            x = minute_day(s, d)
+            if isinstance(x, str):
+                log(f"  {s} {d.date()}: {x}"); ok = gap_ok = False; break
+            if x is not None and len(x):
+                parts.append(x); last = max(last, x.index.max())
+        rows = {}                                              # today: hourly tick files (published shortly after each hour)
+        hours = pd.date_range(max(today, last - pd.Timedelta(hours=3)), now - pd.Timedelta(hours=1), freq="h") if gap_ok else []
+        for h in hours:
             if h.dayofweek == 5 or (h.dayofweek == 4 and h.hour >= 22) or (h.dayofweek == 6 and h.hour < 21):
                 continue                                       # index CFDs are closed (no tick files to fetch)
             v = tick_hour(s, h)
