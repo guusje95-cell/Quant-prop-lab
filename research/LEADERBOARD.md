@@ -737,3 +737,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen215, K3 on ES+NQ:** tune 0.51 vs ES-only 0.56. Current kept.
 - **Gen216, TFF dealer positioning in ZN/ZB (2 trials):** -0.37 / 0.22 and -0.22 / -0.43. Rejected.
 - **Gen217, FOMC 3-day window in Treasuries (Hillenbrand):** 0.20 / 0.19 (2010-17 0.11, 2018-22 0.36). Positive throughout but below the 0.3 bar.
+- **Diagnostic, the two largest EQR sleeves by year (2010-26):**
+  - SH positive in 11 of 17 years (best 2012 1.97, worst 2014 / 2024 -0.65).
+  - BC positive in 12 of 17 (worst 2012 -1.08).
+  - Neither depends on a single year.
