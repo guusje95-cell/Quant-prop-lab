@@ -1,0 +1,11 @@
+{
+  "generation": "Gen198",
+  "title": "Intraday momentum in commodity futures (first hour predicts last hour; Gao, Han, Li and Zhou 2018, commodity replications), Topstep-compatible",
+  "registered": "2026-10-20, before any Gen198 number",
+  "rule": "hourly roll-safe bars (ET bar start): energy CL/NG/RB/HO first 09:00, last 13:00; metals GC/SI/HG first 08:00, last 12:00; grains ZC/ZS/ZW first 09:00, last 13:00; position sign(first-hour return) during the last bar (same contract); 2 x cost_frac per trade; equal weight 1/n per root per day",
+  "grid": "filter {none; only when |first-hour return| > 1 sd of the past 60 first-hour returns}",
+  "selection": "better on 2010-06..2022-12",
+  "pass (stand-alone Topstep sleeve)": "chosen 2010-17 > 0, 2018-22 >= 0.3, 2023-26 >= 0.3",
+  "if pass": "also judged as an entrant of the EQR book vs 1.143 (one evaluation)",
+  "trials_added": 2
+}
