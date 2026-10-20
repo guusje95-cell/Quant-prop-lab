@@ -641,3 +641,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Sensitivity (report only): neighbouring BC settings give a book of 0.926-0.982 (th 1.5 / 2.5, H 2 / 4 / 5), and BC's correlation with the book is -0.17. **The gain is robust in sign, but 1.04 is the lucky top end; expect about 0.95.**
 - **Gen164, flight-to-quality after ES drops (12 trials):** Treasuries best 0.18 / -0.10; gold best 0.04 / 0.73. Nothing enters.
 - **Gen165, big-move continuation (12 trials):** equity up-days EU 0.48 / 0.25 enters, but the book is 1.035 < 1.041 (not adopted); FX all negative. Nothing adopted.
+- **Gen166, seasonal energy spreads (2 trials):**
+  - **Autumn heating-oil crack (long HO / short CL, Aug-Oct): 0.45 / 0.32 (2010-17 0.37, 2018-22 0.59), enters.** Spring gasoline crack 0.10 / 0.09, no.
+  - **Book 2023-26 1.041 -> 1.102 (2010-17 1.63, 2018-22 1.56). Adopted, 14 sleeves.**
