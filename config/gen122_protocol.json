@@ -1,0 +1,15 @@
+{
+  "generation": "Gen122",
+  "title": "Futures round 2: literature effects not tested before (overnight drift at the European open, month-end Treasury demand, FX carry, volatility-managed equity)",
+  "registered": "2026-10-20, before any Gen122 number was computed",
+  "data_costs_splits": "Databento CME hourly via scripts/futures_db.py (roll-safe returns; 1 tick + commission per side, micro contracts where they exist); DEV 2010-06..2017, TEST 2018..2022, HOLD 2023..2026-09",
+  "tests": {
+    "F1 European-open overnight drift (Boyarchenko, Larsen and Whelan 2023, 'The Overnight Drift')": "long ES and NQ, 0.5 each, for the 02:00 and 03:00 New York bars (02:00-04:00 ET) every session; flat otherwise",
+    "F2 F1 after a down day (their dealer-inventory channel)": "as F1, only when the previous 09:00-16:00 ET return (close of the 15:00 bar vs close of the 08:00 bar) of that contract was negative",
+    "F3 month-end Treasury demand (index-extension rebalancing)": "long ZN, ZB and ZF at equal risk from the daily close 4 trading days before the month's last trading day until that last day's close (3 holding days); flat otherwise",
+    "F4 FX carry, cross-section": "6E 6J 6B 6A 6C 6S: monthly at month-end, carry = (near/far - 1) / 0.25 (order-safe); long the 2 highest, short the 2 lowest, inverse-vol weights, held one month",
+    "F5 volatility-managed equity (Moreira and Muir 2017)": "long ES and NQ, each with weight 0.15 / (trailing 20-day realised vol, annualised), capped at 2x, decided at the previous close; equal split; this is equity beta, reported as such"
+  },
+  "rule": "stand-alone: DEV > 0, TEST >= 0.5, HOLD >= 0.3 net. For every test also: correlation with the v6 book (daily, 2022-26) and prop-firm fit (in-session only = Topstep/Lucid; overnight/multi-day = MFFU/Tradeify).",
+  "trials_added": 5
+}
