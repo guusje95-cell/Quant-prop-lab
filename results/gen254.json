@@ -1,0 +1,70 @@
+{
+ "A OI growth (low long)": {
+  "sleeve D/T/H": [
+   -0.622,
+   -0.657,
+   -0.988
+  ],
+  "corr C*": -0.135,
+  "v7": [
+   2.297,
+   [
+    0.952,
+    3.348,
+    1.909
+   ]
+  ],
+  "pass": false
+ },
+ "B taker imbalance momentum": {
+  "sleeve D/T/H": [
+   1.786,
+   0.576,
+   0.339
+  ],
+  "corr C*": -0.069,
+  "v7": [
+   2.619,
+   [
+    1.75,
+    3.39,
+    2.369
+   ]
+  ],
+  "pass": false
+ },
+ "C Amihud illiquidity": {
+  "sleeve D/T/H": [
+   1.997,
+   0.149,
+   -0.571
+  ],
+  "corr C*": 0.104,
+  "v7": [
+   2.359,
+   [
+    1.605,
+    3.237,
+    1.852
+   ]
+  ],
+  "pass": false
+ },
+ "D top-trader ratio change": {
+  "sleeve D/T/H": [
+   -1.2,
+   -0.607,
+   -0.572
+  ],
+  "corr C*": 0.087,
+  "v7": [
+   2.218,
+   [
+    1.319,
+    3.148,
+    1.779
+   ]
+  ],
+  "pass": false
+ }
+}

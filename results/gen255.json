@@ -1,0 +1,49 @@
+{
+ "A reversed OI growth": {
+  "sleeve D/T/H": [
+   -0.096,
+   -0.386,
+   -0.164
+  ],
+  "corr C*": 0.137,
+  "v7": [
+   2.161,
+   [
+    1.04,
+    2.946,
+    1.99
+   ]
+  ],
+  "pass": false
+ },
+ "A replication on 40 extra coins (8 per side)": {
+  "2022": -2.999,
+  "2023-26": -0.719
+ },
+ "A pass": false,
+ "D reversed top-trader change": {
+  "sleeve D/T/H": [
+   0.778,
+   -0.681,
+   -1.177
+  ],
+  "corr C*": -0.089,
+  "v7": [
+   2.077,
+   [
+    1.394,
+    2.639,
+    1.895
+   ]
+  ],
+  "pass": false
+ },
+ "D by year": {
+  "2022": 1.33,
+  "2023": -0.91,
+  "2024": -0.54,
+  "2025": -1.17,
+  "2026": -1.2
+ },
+ "D pass": false
+}
