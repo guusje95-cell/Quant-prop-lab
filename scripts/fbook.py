@@ -31,3 +31,12 @@ def judge(entrants, tag, ref=REF):
     if out["adopt"]:
         base.to_parquet(ROOT / "results/book_sleeves_current.parquet"); b.to_frame("book").to_parquet(ROOT / f"results/{tag}_book.parquet")
     return out
+
+
+def appraisal(p, members=("ES", "NQ")):
+    """Sharpe (2010-06..2022-12) of the part of p not explained by equal-weight buy-and-hold of `members` (rule_timing_vs_buyhold.json)."""
+    bh = pd.concat([F.daily(r).r for r in members], axis=1).mean(axis=1)
+    x = pd.concat([p, bh], axis=1).dropna().loc[TUNE[0]:TUNE[1]]; x = x[x.index.weekday < 5]
+    b = np.cov(x.iloc[:, 0], x.iloc[:, 1])[0, 1] / x.iloc[:, 1].var()
+    res = x.iloc[:, 0] - b * x.iloc[:, 1]
+    return float(res.mean() / res.std() * np.sqrt(252))
