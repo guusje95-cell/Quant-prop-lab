@@ -30,34 +30,49 @@ def _scale(raw_median, symbol):
     raise RuntimeError(f"{symbol}: price scale not found (median raw {raw_median})")
 
 
-def tick_hour(symbol, hour: pd.Timestamp):
-    """One UTC hour of BID ticks -> (open, high, low, close, volume) or None (no ticks) or 'FAILED: ...'."""
-    url = URL.format(inst=DL.DUKA_SYM[symbol], y=hour.year, m=hour.month - 1, d=hour.day, h=hour.hour)
+_BLOCKED = {"on": False}                                       # set after a failed request: no more Dukascopy calls this run
+
+
+def _fetch(url):
+    """-> bytes, None (no data) or 'FAILED: ...'. Live use: 2 quick tries, never the long cool-downs of the history downloader,
+    so a throttled Dukascopy cannot delay the crypto part of the paper run (the next hourly run tries again)."""
+    if _BLOCKED["on"]:
+        return "FAILED: skipped (Dukascopy refused an earlier request this run)"
     reason = ""
-    for k in range(4):
+    for k in range(2):
         try:
             r = DL._duka_get(url)
             if r.status_code == 404 or (r.status_code == 200 and not r.content):
-                DL._pace(True); return None
+                time.sleep(0.5); return None
             if r.status_code == 200:
-                raw = lzma.decompress(r.content); DL._pace(True)
-                a = np.frombuffer(raw[: len(raw) // 20 * 20], dtype=np.dtype([("t", ">u4"), ("ask", ">i4"), ("bid", ">i4"), ("av", ">f4"), ("bv", ">f4")]))
-                if len(a) == 0:
-                    return None
-                b = a["bid"].astype(float); s = _scale(float(np.median(b)), symbol); b = b / s
-                return (b[0], b.max(), b.min(), b[-1], float(a["bv"].sum()))
+                time.sleep(0.5); return r.content
             reason = f"HTTP {r.status_code}"
-        except Exception as e:                                 # network error / bad file: fresh connection, cool down, retry
+        except Exception as e:
             reason = type(e).__name__; DL._DUKA = None
-        DL._pace(False); time.sleep(15 * (k + 1))
+        time.sleep(5)
+    _BLOCKED["on"] = True
     return f"FAILED: {reason}"
+
+
+def tick_hour(symbol, hour: pd.Timestamp):
+    """One UTC hour of BID ticks -> (open, high, low, close, volume) or None (no ticks) or 'FAILED: ...'."""
+    c = _fetch(URL.format(inst=DL.DUKA_SYM[symbol], y=hour.year, m=hour.month - 1, d=hour.day, h=hour.hour))
+    if c is None or isinstance(c, str):
+        return c
+    raw = lzma.decompress(c)
+    a = np.frombuffer(raw[: len(raw) // 20 * 20], dtype=np.dtype([("t", ">u4"), ("ask", ">i4"), ("bid", ">i4"), ("av", ">f4"), ("bv", ">f4")]))
+    if len(a) == 0:
+        return None
+    b = a["bid"].astype(float); b = b / _scale(float(np.median(b)), symbol)
+    return (b[0], b.max(), b.min(), b[-1], float(a["bv"].sum()))
 
 
 def minute_day(symbol, day: pd.Timestamp):
     """One finished UTC day from the daily 1-minute candle file (ONE request) -> hourly bars, None (no trading) or 'FAILED: ...'."""
-    x = DL._duka_day(DL.DUKA_SYM[symbol], day)
-    if x is None or isinstance(x, str):
-        return x
+    c = _fetch(f"https://datafeed.dukascopy.com/datafeed/{DL.DUKA_SYM[symbol]}/{day.year}/{day.month - 1:02d}/{day.day:02d}/BID_candles_min_1.bi5")
+    if c is None or isinstance(c, str):
+        return c
+    x = DL._duka_decode(c, day)
     x = x[x["volume"] > 0]
     if x.empty:
         return None
@@ -69,6 +84,7 @@ def minute_day(symbol, day: pd.Timestamp):
 def update(data_dir: Path, now: pd.Timestamp | None = None, log=print) -> bool:
     out = Path(data_dir) / "dukascopy"; out.mkdir(parents=True, exist_ok=True); ok = True
     now = (pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)).floor("h")
+    _BLOCKED["on"] = False
     for s in SYMBOLS:
         try:
             ok &= _update_one(s, out, now, log)
