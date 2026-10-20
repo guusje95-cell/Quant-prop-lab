@@ -568,3 +568,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Futures book (Gen135):** nested out-of-sample. 5 sleeves selected on 2010-22 only (F3, F5, G1, P1, A3); 2023-26 Sharpe **0.59** (pass), 6.4% a year at 10% vol, max DD -9.9%, corr v6 0.04. MFFU/Tradeify fit (overnight).
 - **bf + P6 vol-managed US100/US500 CFDs:** bf 2.252 -> **2.302**, TEST 3.45 -> 3.69, HOLD 1.55 -> 1.85. **Passes the strict rule** (2022 weaker: 1.15 -> 0.46).
 - **v7 (v6 + ridge ML):** 2.534, passes. The validated crypto improvement.
+- **Gen136 futures round 5:** basis-momentum -0.76 / 0.70 / 0.42; skewness -0.03 / 0.36 / 0.12; weekly XS reversal -0.50 / -0.57 / -0.12; bond trend -0.19 / 0.94 / 0.01; curve trend -0.47 / 0.01 / -0.13. All rejected.

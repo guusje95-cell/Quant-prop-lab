@@ -1,0 +1,18 @@
+{
+  "generation": "Gen137",
+  "title": "Proven crypto sleeves executed on CME bitcoin/ether futures (micro MBT/MET) for futures prop accounts",
+  "registered": "2026-10-20, before any Gen137 number",
+  "idea": "signals exactly as in v6/v7 (Binance/Coinbase data, frozen rules), execution in CME BTC/ETH front futures (roll-safe Databento hourly). CME trades about 23 hours on weekdays and is closed at weekends",
+  "sleeves": {
+    "S1 trend 4h (BTC, ETH legs)": "CS.trend4h positions",
+    "S2 deleveraging bounce": "CS.delev_bounce_weights (BTC, ETH)",
+    "S3 Coinbase premium": "cfd_book.coinbase_premium_w (BTC, ETH)",
+    "S4 Weiss expiry": "CS.weiss_expiry positions (last Friday 08-10 UTC)",
+    "S5 ridge ML": "Gen108 walk-forward ridge predictions x 0.5 (BTC, ETH)",
+    "S6 C* BTC/ETH legs": "CS.cstar_weights BTC and ETH columns"
+  },
+  "execution": "the position held during a CME hourly bar = the sleeve's target for that hour; after a closure (gap > 1 hour) the reopen bar earns the gap with the position held into the closure. Costs per side: 1 tick + $0.85 micro commission (futures_db), plus a round trip at each roll. Two variants for every sleeve: (a) positions held over weekends; (b) flat from the last bar before a closure of > 3 hours (weekend-flat)",
+  "splits": "DEV 2020-22 (ETH from 2021-02), TEST 2023-24, HOLD 2025-26/09; Sharpe on daily P&L (calendar days, as all crypto work)",
+  "rule": "a sleeve passes if variant (b) (weekend-flat, the prop-friendly one) has DEV > 0, TEST >= 0.5, HOLD >= 0.3. Passing sleeves form a CME crypto book (P1 equal risk, 30-day vol targeting as v5), reported with Topstep compatibility (needs flat 15:10-17:00 CT daily: variant (c) reported, not judged)",
+  "trials_added": 6
+}
