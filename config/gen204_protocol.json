@@ -1,0 +1,9 @@
+{
+  "generation": "Gen204",
+  "title": "Santa Claus rally: long ES/NQ in the last 5 trading days of December and the first 2 of January",
+  "registered": "2026-10-20, before any Gen204 number",
+  "rule": "ES/NQ 0.5 each on those days (known in advance), daily_book costs",
+  "selection": "single setting; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.187",
+  "trials_added": 1
+}
