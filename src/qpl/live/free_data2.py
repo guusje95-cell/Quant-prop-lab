@@ -93,13 +93,20 @@ def deribit(currency, start=datetime(2020, 1, 1, tzinfo=timezone.utc)):
             break
         f = OUT / f"deribit_{currency}_optflow_{m:%Y-%m}.parquet"
         if not f.exists():
-            rows, t = [], m
+            from concurrent.futures import ThreadPoolExecutor
+            hours = []
+            t = m
             while t < nxt:
+                hours.append(t); t += timedelta(hours=1)
+
+            def one(t):
                 a = int(t.timestamp() * 1000); b = int((t + timedelta(hours=1)).timestamp() * 1000)
                 url = ("https://history.deribit.com/api/v2/public/get_last_trades_by_currency_and_time?"
                        f"currency={currency}&kind=option&start_timestamp={a}&end_timestamp={b}&count=1000&sorting=asc")
-                rows.append(_hour_features(json.loads(fetch(url))["result"]["trades"], t))
-                t += timedelta(hours=1); time.sleep(0.25)
+                r = _hour_features(json.loads(fetch(url))["result"]["trades"], t); time.sleep(0.2); return r
+
+            with ThreadPoolExecutor(max_workers=4) as ex:          # 4 parallel requests: well under Deribit's public rate limit
+                rows = list(ex.map(one, hours))
             pd.DataFrame(rows).to_parquet(f, index=False); print(f"Deribit {currency} {m:%Y-%m}: {len(rows)} hours", flush=True)
         m = nxt
 
