@@ -1,61 +1,64 @@
 {
- "for_hour_utc": "2026-10-19 16:00:00",
- "made_at_utc": "2026-10-19 16:07:15.185748",
- "data_cutoff_utc": "2026-10-19 16:00:00",
- "equity": 100180.23,
+ "for_hour_utc": "2026-10-20 19:00:00",
+ "made_at_utc": "2026-10-20 19:07:08.011120",
+ "data_cutoff_utc": "2026-10-20 19:00:00",
+ "equity": 99691.23,
  "risk": 1.5,
  "target_notional_usd": {
-  "ETH": -9662.94,
-  "ADA": -8605.91,
-  "DOGE": -8605.91,
-  "SOL": -8605.91,
-  "BTC": -8160.31,
-  "BCH": 6454.43,
-  "LINK": 6454.43,
-  "XRP": 6454.43,
-  "AVAX": 6988.28
+  "ETH": -10570.36,
+  "ADA": -9414.07,
+  "DOGE": -9414.07,
+  "SOL": -9414.07,
+  "BTC": -8926.62,
+  "DOT": 744.96,
+  "BCH": 7060.55,
+  "AVAX": 7060.55,
+  "LINK": 7060.55,
+  "XRP": 7060.55
  },
  "by_sleeve_usd": {
   "ADA": {
-   "premium carry": -8605.91
+   "premium carry": -9414.07
   },
   "AVAX": {
-   "C*": 533.85,
-   "premium carry": 6454.43
+   "premium carry": 7060.55
   },
   "BCH": {
-   "premium carry": 6454.43
+   "premium carry": 7060.55
   },
   "BTC": {
-   "C*": 1502.63,
-   "coinbase premium": -9662.94
+   "C*": 1643.74,
+   "coinbase premium": -10570.36
   },
   "DOGE": {
-   "premium carry": -8605.91
+   "premium carry": -9414.07
+  },
+  "DOT": {
+   "C*": 744.96
   },
   "ETH": {
-   "coinbase premium": -9662.94
+   "coinbase premium": -10570.36
   },
   "LINK": {
-   "premium carry": 6454.43
+   "premium carry": 7060.55
   },
   "SOL": {
-   "premium carry": -8605.91
+   "premium carry": -9414.07
   },
   "XRP": {
-   "premium carry": 6454.43
+   "premium carry": 7060.55
   }
  },
  "cascade_limit_orders": [],
  "cascade_open_trades": [],
  "weiss": null,
  "sleeve_multipliers": {
-  "C*": 0.6068,
-  "premium carry": 0.1718,
-  "trend 4h": 0.5522,
-  "Weiss expiry": 1.1145,
-  "delev bounce": 0.3007,
-  "coinbase premium": 0.1286
+  "C*": 0.667,
+  "premium carry": 0.1889,
+  "trend 4h": 0.607,
+  "Weiss expiry": 1.2251,
+  "delev bounce": 0.3305,
+  "coinbase premium": 0.1414
  },
  "note": "simulation only - no order is sent anywhere"
 }
