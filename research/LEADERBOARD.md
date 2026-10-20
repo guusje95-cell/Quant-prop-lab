@@ -854,3 +854,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - Every day: -0.32 / 0.57 / 0.07.
 - **Caveat:** 2018-20 is only just above zero. **Confirmation on SPY -> ES ($25.87, ARCX.PILLAR) pre-registered as Gen243** before adoption.
 - **Gen244, overnight reversal of closing pressure (against the QQQ imbalance, NQ):** from 16:00 to 09:30: 0.65 / 0.03 / 0.53; from 18:00 to 09:30: 0.45 / 0.08 / 0.38. Positive in every period, but **2021-23 is below the 0.3 bar. Fails (near-miss).**
+- **Gen243, confirmation on SPY -> ES (NYSE Arca closing imbalance, same rule, no re-selection):** -1.81 / -1.38 / -0.85 (gross -0.32). **NOT confirmed.** Gen242 (QQQ) is most likely chance; the closing-auction sleeve is not adopted. (Flipping the sign would not help: gross +0.32 is below costs.)
