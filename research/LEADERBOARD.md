@@ -877,3 +877,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, USDT premium (Coinbase USDT-USD, z > 1 -> long BTC/ETH):** sleeve 0.98 / 1.81 / 1.14 (DEV from 2021-06), corr C* 0.07. Strong alone, but v7 2.534 -> 2.534 with TEST 3.494 -> 3.359; bf2 2.378 -> 2.282. **Fails the strict rule** (redundant with what the books already hold, most likely the ridge's Coinbase-premium feature).
 - **B, ETH-BTC Coinbase premium spread (market-neutral):** 1.32 / -0.24 / -0.26. **Fails.**
 - **C, Weiss reversal on every Friday (replacing last-Friday-only):** every-Friday sleeve -0.17 / 1.53 / -0.40 vs last-Friday 0.47 / 1.64 / 0.62; v7 2.421, bf2 2.314. **Fails** (weekly expiries carry no edge; the monthly effect stays).
+- **Gen250, ridge + USDT premium feature:** sleeve -0.15 / 1.32 / 1.35; v7 2.527 (< 2.534), bf2 2.360. **Fails.** The USDT premium's information is already in the books.
