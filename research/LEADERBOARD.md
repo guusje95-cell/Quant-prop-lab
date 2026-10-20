@@ -639,3 +639,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **BC rates ZF/ZN/ZB (|z| > 2, hold 3 days, 1-day execution lag): 0.32 / 0.46, enters.** Commodities CC: 0.25 / 0.20, no.
   - **Book 2023-26 0.908 -> 1.041 (2010-17 1.57, 2018-22 1.46). Adopted, 13 sleeves.**
   - Sensitivity (report only): neighbouring BC settings give a book of 0.926-0.982 (th 1.5 / 2.5, H 2 / 4 / 5), and BC's correlation with the book is -0.17. **The gain is robust in sign, but 1.04 is the lucky top end; expect about 0.95.**
+- **Gen164, flight-to-quality after ES drops (12 trials):** Treasuries best 0.18 / -0.10; gold best 0.04 / 0.73. Nothing enters.

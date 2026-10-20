@@ -1,0 +1,10 @@
+{
+  "generation": "Gen165",
+  "title": "Big-move continuation, remaining groups: equity big up-days and FX; nested",
+  "registered": "2026-10-20, before any Gen165 number",
+  "rule": "as Gen163 (z > th of own 60-day sd, sign of the move, next-close entry, hold H days, 0.10 / vol / n); EU = equity indices ES/NQ/RTY/YM, only UP moves (long); FX = 6E/6J/6B/6A/6C/6S, both directions",
+  "families": {"EU": "th {1.5, 2.0} x H {1, 3, 5}", "FX": "th {1.5, 2.0} x H {1, 3, 5}"},
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "current 13-sleeve book + entrants; ONE evaluation 2023-26 vs 1.041",
+  "trials_added": 12
+}
