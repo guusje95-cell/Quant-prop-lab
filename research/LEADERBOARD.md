@@ -881,3 +881,14 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen251 A, ridge 3-day horizon with overlapping holds:** sleeve 0.02 / 1.91 / 1.00; v7 2.463 (HOLD 1.98). **Fails.**
 - **Gen251 B, ridge alpha bag (1/10/100):** v7 2.536 / 3.496 / 2.237, bf2 2.377: the same model in effect. **Fails the strict rule (HOLD -0.003); no change.**
 - **Gen252, swap-free TSMOM on 12 FX / metals / energy CFDs (21/63/252-day sign blend, 10% vol):** 2014-19 0.13, then 0.06 / -0.35 / 0.17; corr with bf2 -0.10; bf2 2.378 -> 2.260. **Fails.** Even without swap, FX/commodity trend has had too little return since 2020 to help.
+
+## Gen253 (2026-10-20): six crypto cross-section / flow ideas (6 trials, `config/gen253_protocol.json`, `scripts/gen253_xs.py`)
+| Idea | sleeve D / T / H | corr C* | v7 2022-26 [2022, TEST, HOLD] | result |
+|---|---|---|---|---|
+| A volume shock | 0.39 / 1.18 / 0.16 | 0.13 | 2.505 | fails |
+| B residual momentum | 1.16 / 0.70 / 0.08 | 0.07 | 2.566 [1.54, 3.42, 2.31] | fails (TEST down) |
+| C near 90-day high | 1.57 / -0.04 / 0.30 | -0.09 | 2.642 [1.78, 3.34, 2.43] | fails (TEST down) |
+| **D betting against beta** | **1.44 / 1.49 / 0.57** | 0.25 | **2.704 [1.61, 3.73, 2.19]** | **near miss: sleeve passes its bars, book +0.17 and TEST up, but HOLD 2.190 < 2.240. Fails the strict rule.** |
+| E BTC-alt rotation | 1.11 / -0.60 / -0.49 | 0.05 | 2.379 | fails |
+| F pump fade | -0.65 / -3.02 / -1.76 | -0.42 | 1.865 | fails badly (pumps continue) |
+- Not done on purpose: combining C and D (their TEST / HOLD weaknesses offset) would be selection on the judging windows.
