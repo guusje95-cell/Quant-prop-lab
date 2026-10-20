@@ -1,0 +1,11 @@
+{
+  "generation": "Gen141",
+  "title": "IBS reversal per asset group, tuned on 2010-22, added to the optimised futures book, judged once on 2023-26",
+  "registered": "2026-10-20, after Gen140 (optimised book 2023-26 0.661), before any Gen141 number",
+  "groups": {"rates": ["ZT", "ZF", "ZN", "ZB"], "fx": ["6E", "6J", "6B", "6A", "6C", "6S"], "metals": ["GC", "SI", "HG"], "energy": ["CL", "NG", "RB", "HO"], "ags": ["ZC", "ZS", "ZW", "LE", "HE"]},
+  "grid_per_group": "(low, high) IBS thresholds {(0.1, 0.9), (0.2, 0.8), (0.3, 0.7)} x {long-short, long-only}; one-day hold; equal weight per contract (0.25 / group size x 4)",
+  "selection": "per group the best setting on 2010-06..2022-12; a group enters the pool only if that tuned Sharpe > 0.3",
+  "book": "the Gen140 optimised sleeves plus the entering groups, Sharpe-weighted on 2010-22 (Gen140's chosen construction), 10% vol target",
+  "judgement": "ONE evaluation: book 2023-26 Sharpe vs 0.661 (Gen140). Adopt only if higher",
+  "trials_added": 30
+}
