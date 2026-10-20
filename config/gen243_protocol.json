@@ -1,0 +1,8 @@
+{
+  "generation": "Gen243",
+  "title": "Confirmation of Gen242 on SPY -> ES, and adoption rule for the closing-auction sleeve",
+  "registered": "2026-10-20, after Gen242 passed (median variant: 0.00 / 0.82 / 0.90), BEFORE the SPY data is bought",
+  "confirmation": "identical rule (first closing imbalance message at/after 15:50, |dollar imbalance| > trailing 20-day median, side -> ES from 15:51 open to the last price before 16:00, 0.5 units, 2 x cost_frac): must be > 0 in all three splits 2018-20 / 2021-23 / 2024-26",
+  "if confirmed": "sleeve CA = 0.5 x QQQ->NQ + 0.5 x SPY->ES; enters (a) the swing EQR book and (b) the daily-flat book; each judged ONCE on 2023-26 vs its reference (1.218 / 0.835); EQR weights fit on 2018-06..2022-12 for CA (data start), 2010-22 for the rest",
+  "trials_added": 1
+}

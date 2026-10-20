@@ -1,0 +1,32 @@
+{
+ "data": {
+  "days with a closing imbalance": 2076,
+  "first day": "2018-06-01",
+  "last day": "2026-09-30",
+  "share buy side": 0.44
+ },
+ "variants": {
+  "median": {
+   "2018-20 / 21-23 / 24-26": [
+    0.004,
+    0.819,
+    0.895
+   ],
+   "sel": 0.356,
+   "gross 2018-26": 1.02,
+   "days traded": 1030
+  },
+  "all": {
+   "2018-20 / 21-23 / 24-26": [
+    -0.316,
+    0.568,
+    0.073
+   ],
+   "sel": 0.086,
+   "gross 2018-26": 0.765,
+   "days traded": 1705
+  }
+ },
+ "chosen": "median",
+ "pass": true
+}

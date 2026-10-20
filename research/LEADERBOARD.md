@@ -848,3 +848,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Fails** (2021-23 negative). A weak, inconsistent signal.
 - **Gen241, DIX timing:** 0.51 / 1.29 but **appraisal -0.21** (invested 65%). Beta, **rejected**.
 - Consequence: the exact-gamma purchase (ES options OI, ~$31) is **not** recommended; the free proxy did not show a consistent regime effect. Next: the closing-auction test (Gen242, ~$2.74 of data).
+
+## Gen242 (2026-10-20): closing-auction imbalance, QQQ -> NQ 15:51-16:00 (Databento XNAS.ITCH imbalance, 2018-06..2026-09)
+- **Median-filtered (|dollar imbalance| > 20-day median, about 125 days a year): 0.00 / 0.82 / 0.90 (2018-20 / 2021-23 / 2024-26), gross 1.02. PASSES** (the first intraday edge to pass; flat before 16:00, so it suits MFFU / Tradeify / Topstep).
+- Every day: -0.32 / 0.57 / 0.07.
+- **Caveat:** 2018-20 is only just above zero. **Confirmation on SPY -> ES ($25.87, ARCX.PILLAR) pre-registered as Gen243** before adoption.
