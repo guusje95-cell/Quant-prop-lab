@@ -1,0 +1,15 @@
+{
+  "generation": "Gen153",
+  "title": "Calendar premia: announcement days (Savor and Wilson 2013), Halloween (Bouman and Jacobsen 2002), options-expiry week (Stivers and Sun); nested",
+  "registered": "2026-10-20, before any Gen153 number",
+  "dates": "FOMC statement days from research_data/more2/fomc_dates.parquet; payroll (NFP) days computed by the BLS rule (third Friday after the week containing the 12th; holiday/shutdown shifts not modelled)",
+  "families": {
+    "AE announcement days, long ES/NQ/RTY/YM (0.25 each) close-to-close on the day": "day set {FOMC, NFP, FOMC+NFP}",
+    "AB announcement days, long ZT/ZF/ZN/ZB (vol-scaled 0.10/60d vol each)": "day set {FOMC, NFP, FOMC+NFP}",
+    "HW Halloween, long ES/NQ/RTY/YM Nov-Apr, flat May-Oct": "one setting",
+    "OX options-expiry week, long ES/NQ/RTY/YM Monday-Friday of the week with the third Friday": "one setting"
+  },
+  "selection": "best on 2010-06..2022-12 per family; enters only if > 0.3",
+  "judgement": "book = Gen146 executable book (10 sleeves) + entrants, Sharpe-weighted on 2010-22; ONE evaluation 2023-26 vs 0.815",
+  "trials_added": 8
+}
