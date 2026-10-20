@@ -1,0 +1,11 @@
+{
+  "generation": "Gen152",
+  "title": "R1 dip/rip ensemble by futures group (rates, metals, energy, FX, ags), executable version, nested",
+  "registered": "2026-10-20, before any Gen152 number",
+  "groups": {"rates": ["ZT", "ZF", "ZN", "ZB"], "metals": ["GC", "SI", "HG"], "energy": ["CL", "NG", "RB", "HO"], "fx": ["6E", "6J", "6B", "6A", "6C", "6S"], "ags": ["ZC", "ZS", "ZW", "LE", "HE"]},
+  "rule": "hourly roll-safe prices; per trade date the signal and fill use the close of the second-to-last hourly bar (one hour before the session end); range = hi/lo of closes up to then; indicators as R1 (RSI2 < 10, 5-day low, 3 down closes, IBS < 0.3; mirror for the short side: RSI2 > 90, 5-day high, 3 up closes, IBS > 0.7); size 0.10 / 60-day vol per root / n; held to the same snapshot next trade date; 2 x cost_frac per unit turnover",
+  "grid per group": "long only {yes, no (long-short mirror)}",
+  "selection": "best on 2010-06..2022-12 per group; enters only if > 0.3",
+  "judgement": "book = Gen146 executable book (10 sleeves) + entrants, Sharpe-weighted on 2010-22; ONE evaluation 2023-26 vs 0.815",
+  "trials_added": 10
+}
