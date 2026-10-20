@@ -1,0 +1,21 @@
+{
+  "generation": "Gen247",
+  "title": "Two untested information sources: kimchi premium on altcoins, and spot-led vs perp-led buying (Binance spot taker flow)",
+  "registered": "2026-10-20, before the data exists in the repo (download: get_flow_data2.bat on the user's PC)",
+  "A_alt_kimchi": {
+    "signal": "per altcoin c with an Upbit KRW market and a Binance perp: kimchi premium kp = Upbit KRW close / USD/KRW (Gen105 strict: London-dated, previous day) / Binance perp close - 1, at the 23:00 UTC hour; z = (kp - 30-day mean) / 30-day sd (min 20). z > 1 -> long 0.1, z < -1 -> short 0.1 (momentum direction, as Gen102/105 found for BTC/ETH), held the next UTC day",
+    "v7": "all such coins in the Binance perp universe, perp costs 5 bp + funding; sleeve D 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr with C* <= 0.3, AND strict rule vs v7 (2.534 / 3.494 / 2.240)",
+    "bf2": "only the BrightFunded CFD altcoins (LTC XRP ADA DOGE SOL DOT AVAX LINK BCH), CFD costs; sleeve D > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118)",
+    "trials_added": 1
+  },
+  "B_ridge_spot_flow": {
+    "model": "Gen108 ridge unchanged plus two features per coin (BTC/ETH): simb = daily Binance spot taker imbalance (2 x taker buy - volume) / volume, sdiv = simb - perp imbalance (imb). Replaces the ridge sleeve in v7 (perp) and bf2 (CFD); same bars and strict rules as Gen246 A",
+    "trials_added": 1
+  },
+  "C_spot_led_xs": {
+    "rule": "20 perp coins: score = 7-day mean of (spot taker imbalance - perp taker imbalance), daily; long the 4 highest, short the 4 lowest, 0.125 each, decided at 00:00 UTC, held the next day; perps 5 bp + funding. Hypothesis: spot-led buying is real demand, perp-led buying is leverage that unwinds",
+    "pass": "sleeve D 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v7",
+    "trials_added": 1
+  },
+  "no_changes_after_results": true
+}
