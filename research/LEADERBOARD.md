@@ -570,3 +570,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **v7 (v6 + ridge ML):** 2.534, passes. The validated crypto improvement.
 - **Gen136 futures round 5:** basis-momentum -0.76 / 0.70 / 0.42; skewness -0.03 / 0.36 / 0.12; weekly XS reversal -0.50 / -0.57 / -0.12; bond trend -0.19 / 0.94 / 0.01; curve trend -0.47 / 0.01 / -0.13. All rejected.
 - **Gen137 crypto sleeves on CME BTC/ETH futures:** all 6 fail. The code reproduces the Binance results (e.g. C* legs 1.91 / 2.02 / 0.67 on Binance vs 1.28 / 1.44 / 0.39 on CME weekend-hold, 0.80 / 0.81 / 0.19 weekend-flat). Topstep daily-flat is negative for all. Causes: weekend closure, thin off-hours CME prints.
+- **Gen138 walk-forward ridge across 24 futures:** 0.44 / -0.31 / -0.53. Rejected.
+- **Gen139 vol-managed gold:** bf+P6+gold 2.511 (TEST 3.75, HOLD 2.43) passes the strict bf rule, but the 16-year GC version fails DEV (-0.04 / 0.28 / 1.12). **Shadow only**: the strength is the 2023-26 gold rally.
+- **Futures book (Gen135):** all 5 selected sleeves are positive in 2023-26, and the book is positive in every unseen year (0.35 / 0.62 / 0.60 / 0.83).

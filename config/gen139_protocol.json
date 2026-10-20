@@ -1,0 +1,10 @@
+{
+  "generation": "Gen139",
+  "title": "Vol-managed long gold: bf-book sleeve (XAUUSD CFD) and futures sleeve (GC) for the nested futures book",
+  "registered": "2026-10-20, after P6 passed in bf and Gen135's book passed; before any gold number",
+  "tests": {
+    "Q1 bf sleeve": "XAUUSD Dukascopy hourly: weight 0.15 / 20-day vol (cap 2x), decided with days before d, 2 bp per side (gold CFD), swap-free; added to bf + P6 (the improved bf) as an extra sleeve; strict rule vs bf + P6",
+    "Q2 futures sleeve": "GC daily: 0.15 / 20-day vol (cap 2x), costs 1 tick + MGC commission; futures rule DEV 2010-17 > 0, TEST >= 0.5, HOLD >= 0.3; also re-run the Gen135 nested selection with GC added to the pool (selection still on 2010-22 only) and report the book's 2023-26 Sharpe"
+  },
+  "trials_added": 2
+}

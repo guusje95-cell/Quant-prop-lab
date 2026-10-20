@@ -44,3 +44,26 @@
 ## Next
 - Build paper traders for v7, bf + P6, and the futures book, each with its own no-look-ahead self-test.
 - The futures book needs a live data source for CME prices (prop platform feed, or a daily Databento pull).
+
+## Update (later on 2026-10-20)
+### Futures book: every selected sleeve is positive out of sample
+| Sleeve | 2010-17 | 2018-22 | 2023-26 (unseen in the selection) |
+|---|---|---|---|
+| F3 month-end Treasury demand | 0.97 | 0.94 | 0.05 |
+| F5 vol-managed long ES/NQ | 1.04 | 0.54 | 0.98 |
+| G1 TSMOM 12m, 24 markets | 0.26 | 0.42 | 0.39 |
+| P1 IBS reversal, index futures | 0.00 | 0.67 | 0.16 |
+| A3 Treasury auction round trip | 0.40 | 0.47 | 0.26 |
+| **Book** | 0.98 | 0.81 | **0.59** |
+
+- **Book Sharpe by unseen year:** 2023 0.35, 2024 0.62, 2025 0.60, 2026 (to Sep) 0.83.
+
+### Rounds that did not add a futures sleeve
+- **Gen136:** basis-momentum, skewness, weekly reversal, bond trend, curve trend.
+- **Gen137:** crypto sleeves on CME BTC/ETH (weekend closure and thin off-hours kill them; Topstep daily-flat is negative).
+- **Gen138:** walk-forward ridge over 24 futures (0.44 / -0.31 / -0.53).
+
+### Gen139: vol-managed long gold
+- **Q1, in the bf book (on top of P6):** 2.302 -> **2.511**, TEST 3.69 -> 3.75, HOLD 1.85 -> 2.43. Passes the registered strict rule.
+- **Q2, the same sleeve on 16 years of GC futures:** -0.04 / 0.28 / 1.12. It fails DEV: long gold lost in 2013-15, and its recent strength is the 2023-26 gold bull market.
+- **Decision:** the bf test window (2022-26) is too short to separate a gold edge from the gold rally, so **gold runs as a shadow sleeve only**. P6 (equities) has 16-year support from F5 (1.05 / 0.55 / 0.98) and is the recommended bf improvement.
