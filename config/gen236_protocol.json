@@ -1,0 +1,12 @@
+{
+  "generation": "Gen236",
+  "title": "Firm / account choice for the crypto-firm books, nested (settings and firm chosen on 2022-24, evaluated on 2025-26)",
+  "registered": "2026-10-20, before any Gen236 number",
+  "books": {"v7 (Binance-perp firms)": ["HyroTrader Two-Step $100k", "HyroTrader Two-Step $200k", "HyroTrader One-Step $100k", "Crypto Fund Trader 2-Phase $100k", "Crypto Fund Trader 2-Phase $100k + weekly payouts + 90% split", "Breakout Two-Step $100k"],
+            "bf Gen234 (CFD firms, swap-free)": ["BrightFunded Two-Step Classic $100k (+96 swap-free fee)", "BrightFunded Two-Step Bright $100k (+96 swap-free fee)", "FundedNext Stellar 2-Step $100k swap-free"]},
+  "grid per firm": "challenge {1.0, 1.5, 2.0} x funded {1.0, 1.5} x daily stop 0.5 of the firm's daily limit",
+  "selection": "per firm: max 2022-24 bootstrap mean net with P(profit) >= 0.90; then the firm with the highest 2022-24 mean net (per account fee included)",
+  "evaluation": "chosen firm + settings vs the current choice (HyroTrader 2-Step $100k / BrightFunded Classic, 2.0 / 1.5 / 0.5) on 2025-26 bootstrap and the halved-mean stress; adopt as the recommendation only if 2025-26 net is higher and P(profit) not lower by more than 0.02",
+  "caveat": "preset terms partly ASSUMED (see propfirms.py notes); the user must verify on the firms' sites",
+  "trials_added": 54
+}
