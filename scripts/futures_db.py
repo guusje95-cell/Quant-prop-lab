@@ -65,6 +65,8 @@ def front(root):
     id1 = s.instrument_id.reindex(f.index)
     later = first.reindex(id1).to_numpy() > first.reindex(f.instrument_id).to_numpy()
     f["near_far"] = np.where(later, f.close / f.close2, f.close2 / f.close)
+    f["id2"] = id1                                            # the second contract at that bar (Gen129 calendar spreads)
+    f["pair"] = np.where(id1.isna(), np.nan, f.instrument_id.astype(float) * 1e7 + id1.fillna(0).astype(float))   # identity of the pair
     return f
 
 
@@ -89,7 +91,7 @@ def daily(root):
     """Daily roll-safe returns, front/second closes at the daily close, roll flags and cost fraction, indexed by trade date."""
     f = front(root); td = trade_date(f.index)
     g = f.groupby(td)
-    out = pd.DataFrame({"r": g.r.apply(lambda x: float(np.prod(1 + x) - 1)), "close": g.close.last(), "close2": g.close2.last(), "near_far": g.near_far.last(),
+    out = pd.DataFrame({"r": g.r.apply(lambda x: float(np.prod(1 + x) - 1)), "close": g.close.last(), "close2": g.close2.last(), "near_far": g.near_far.last(), "pair": g.pair.last(),
                         "roll": g.roll.max()})
     out = out[out.index.weekday < 5]
     out["cost"] = cost_frac(root, out.close)

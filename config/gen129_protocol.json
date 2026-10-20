@@ -1,0 +1,15 @@
+{
+  "generation": "Gen129",
+  "title": "Front-running the Goldman roll (Mou 2011) on 2010-2026 CME data (entirely after the paper's sample)",
+  "registered": "2026-10-20, from the user-supplied paper, before any Gen129 number",
+  "paper": "Mou (2011), 'Limits to Arbitrage and Commodity Index Investment: Front-Running the Goldman Roll'. The S&P GSCI rolls from the 5th to the 9th business day of each month. Strategy 1 enters a calendar spread 10 business days before the roll (short the contract being rolled out of, long the one rolled into) and unwinds over the roll; Strategy 2 enters 5 business days before. 2000-2010 Sharpe up to 4.39; energy was the best sector; profits fell as arbitrage capital grew after 2004",
+  "implementation": "for each commodity, the two contracts are the volume-ranked front and second Databento contracts, ordered by listing date (near/far). Spread return = -(near/far at exit / near/far at entry - 1) (short near, long far, equal notional). A month is traded only if the SAME pair of contracts is held at entry and every exit. Exit = average of the unwinds at the closes of business days 5..9 (20% each). Costs: 2 legs x (1 tick + commission) in and out",
+  "tests": {
+    "R1 Strategy 1, energy (CL HO RB NG), PRIMARY": "enter at the close 10 business days before business day 5 of the month; equal weight across the commodities traded that month; 1x notional per spread",
+    "R2 Strategy 2, energy": "enter 5 business days before business day 5",
+    "R3 Strategy 1, all 12 GSCI commodities in our set (CL HO RB NG GC SI HG ZC ZS ZW LE HE)": "as R1"
+  },
+  "rule": "DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3 (daily P&L, Sharpe on business days)",
+  "caveat": "the paper reports decay as arbitrageurs entered; our whole sample is post-2010, so this is a strict out-of-sample test",
+  "trials_added": 3
+}
