@@ -695,3 +695,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - 2010-17 / 2018-22 / 2023-26: 1.11 / 0.82 / 1.25, vs NQ buy-and-hold 1.11 / 0.50 / 1.23. Max DD at 10% vol about 2-4 points smaller; correlation with NQ 0.85.
   - **A single-instrument NQ book does not get near 2.0. The futures book's gains come from the diversifiers (BC, SH, F3, A3).**
 - **Gen195 (2 trials):** gold autumn effect -0.49 / 0.68; yen fiscal-year-end -0.54 / -0.51. Rejected.
+- **Gen196, ridge ML sleeve in bf (+ merged index sleeve):** sleeve 0.22 / 1.49 / 1.49 (CFD costs). bf 2.326 -> 2.359, HOLD 1.883 -> 2.142, but **TEST 3.698 -> 3.681 (-0.017). Fails the strict rule (near-miss).** Not adopted; the rule is not relaxed after the fact.
