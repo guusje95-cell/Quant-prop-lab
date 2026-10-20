@@ -757,3 +757,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **These are buy-and-hold, not timing. Overridden conservatively: NOT adopted; the book stays at 1.240.**
 - The non-beta variants (VR1 36% invested: 0.51 / 0.93; TS1 8%: 0.25 / 0.22) are below buy-and-hold on tune.
 - **New rule (config/rule_timing_vs_buyhold.json):** equity-timing entrants must beat buy-and-hold of their instruments on 2010-22.
+- **Gen224, VIX refinements (6 trials):** F5 implied-vol sizing 0.79 vs 0.86 current; R1 x VIX 0.55 vs 0.56; VIX spike reversal 0.45 but **appraisal -0.07** (beta). No change.

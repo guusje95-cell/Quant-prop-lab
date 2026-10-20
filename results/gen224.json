@@ -1,0 +1,24 @@
+{
+ "families": {
+  "F5i": {
+   "current": 0.856,
+   "implied": 0.792
+  },
+  "VSR": {
+   "tune": {
+    "H10": 0.448,
+    "H5": 0.219
+   },
+   "chosen H": 10,
+   "appraisal": -0.066,
+   "time invested": 0.217,
+   "enters": false
+  },
+  "R1v": {
+   "current": 0.559,
+   "vix-scaled": 0.548,
+   "current check": 0.552
+  }
+ },
+ "changes": []
+}
