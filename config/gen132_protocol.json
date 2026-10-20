@@ -1,0 +1,9 @@
+{
+  "generation": "Gen132",
+  "title": "O1 order-flow cross-section as a 7th sleeve of the BrightFunded book (42 BF-listed coins)",
+  "registered": "2026-10-20, after Gen131 O1 (v6: 2.458 -> 2.557 but HOLD 1.901 -> 1.879, so rejected; sleeve by year 2024 0.10, 2026 -1.87), before any bf number",
+  "rule_frozen": "Gen131 O1 rule unchanged, universe = the 42 BrightFunded-listed coins with Binance data (Gen121 list), signals from Binance taker flow, traded as CFDs",
+  "costs": "BrightFunded: 1.2 bp commission + spread (BTC 0.4, ETH 2.7, other coins 10 bp) per side, swap-free",
+  "pass": "bf sleeve rule DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND the strict bf book rule (bf 2022-26 up, TEST and HOLD not lower)",
+  "trials_added": 1
+}

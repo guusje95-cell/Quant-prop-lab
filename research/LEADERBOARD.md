@@ -551,3 +551,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen128, clean-data check of P4 on CME BZ/CL:** -0.63 / -0.01 / -0.49. **P4 rejected: the Dukascopy result was a roll-gap artefact.**
 - **Gen129 Goldman-roll front-running (user paper):** rejected (energy -0.54 / -0.57 / -0.30; gross about 0). Details are in research/PAPERS_2026-10-20.md.
 - **Gen130 Treasury auction cycle (ZT/ZF/ZN/ZB, 1,076 auctions):** A1 short before 0.02 / 0.25 / 0.67; A2 long after 0.46 / 0.33 / -0.34; A3 round trip 0.40 / 0.47 / 0.26. Positive in every period but below the bar, so rejected (near-miss).
+- **Gen131-132 (user papers):**
+  - Crypto order-flow cross-section: sleeve 2.05 / 0.99 / 0.60, v6 2.458 -> 2.557, but HOLD 1.901 -> 1.879 (fails the strict rule). 2026 so far -1.87. In bf: HOLD -1.11. **Rejected; the effect is fading.**
+  - CME bitcoin retail positioning: rejected.
+  - Post-FOMC drift: waits for the FOMC dates.
