@@ -42,17 +42,34 @@ def meetings(html, year):
     return out
 
 
+def calendar_meetings(html, year):
+    """Current calendars page: 'fomc-meeting__month' ... 'fomc-meeting__date' pairs; unscheduled entries skipped."""
+    out = []
+    pat = rf"fomc-meeting__month[^>]*>(?:(?!fomc-meeting__date).)*?({MONTHS})(?:/({MONTHS}))?(?:(?!fomc-meeting__date).)*?fomc-meeting__date[^>]*>(.*?)</div>"
+    for m in re.finditer(pat, html, flags=re.S):
+        txt = re.sub(r"<[^>]+>", " ", m.group(3))
+        if "unscheduled" in txt.lower() or "notation" in txt.lower():
+            continue
+        dd = re.findall(r"\d{1,2}", txt)
+        if not dd:
+            continue
+        mon = m.group(2) or m.group(1)
+        try:
+            out.append(pd.Timestamp(f"{mon} {int(dd[-1])} {year}"))
+        except ValueError:
+            pass
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True); dates = []
     for y in range(2009, 2021):
         d = meetings(get(f"https://www.federalreserve.gov/monetarypolicy/fomchistorical{y}.htm"), y)
         dates += d; print(y, len(set(d)), flush=True); time.sleep(1)
     html = get("https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm")
-    for block in re.split(r"(\d{4}) FOMC Meetings", html)[1:]:
-        pass
     parts = re.split(r"(20\d\d) FOMC Meetings", html)
     for i in range(1, len(parts) - 1, 2):
-        y = int(parts[i]); d = meetings(parts[i + 1], y); dates += d; print(y, len(set(d)), flush=True)
+        y = int(parts[i]); d = calendar_meetings(parts[i + 1], y) or meetings(parts[i + 1], y); dates += d; print(y, len(set(d)), flush=True)
     s = pd.Series(sorted(set(dates)), name="statement_date")
     s = s[s <= pd.Timestamp.now().normalize()]
     s.to_frame().to_parquet(OUT / "fomc_dates.parquet", index=False)
