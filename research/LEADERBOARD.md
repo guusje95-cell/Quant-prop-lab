@@ -811,3 +811,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Other firms on 2022-24: CFT 2-Phase 90% split $81k > HyroTrader 2-Step $100k $74k > CFT 2-Phase $73k > HyroTrader 1-Step $70k > Breakout 2-Step $55k (P 0.93).
 - **bf (Gen234):** FundedNext Stellar 2-Step swap-free $64.1k vs BrightFunded Classic $62.1k (2025-26; half-mean $27.6k vs $25.8k). Marginal.
   - **Recommendation: stay with BrightFunded.** bf uses BrightFunded's crypto CFD list (40+ coins), which FundedNext may not offer; verify before switching.
+
+## Gen237 (2026-10-20): futures account size (MFFU-type, terms ASSUMED from third-party summaries; verify incl. overnight holding)
+- 2023-26 bootstrap at settings chosen on 2010-22:
+  - **50k (4% EOD trailing): 1.0 / 0.5, $6.7k, P(profit) 0.95** (half-mean 0.82).
+  - 100k (3%): $7.8k, 0.85 (0.65).
+  - 150k (3%): $11.8k, 0.85 (0.65).
+- **Several 50k accounts beat one large account** (the larger ones have a tighter percentage drawdown). Three 50k accounts: about $20k at P(profit) 0.95; they pass and fail together, every amount x3.
