@@ -1,0 +1,15 @@
+{
+  "generation": "Gen253",
+  "title": "Six untested crypto cross-section / flow ideas on the 20 Binance perps (batch)",
+  "registered": "2026-10-20, before any Gen253 number",
+  "common": "20 Binance perps (B.coins()), daily closes (UTC), decided at 00:00 UTC, held the next day, 5 bp per unit turnover + funding (CS._from_daily_weights). XS legs: long the 4 highest scores, short the 4 lowest, 0.125 each (gross 1.0), only on days with >= 10 coins scored",
+  "A_volume_shock": "score = log(7-day mean quote volume / 90-day mean quote volume) (Gervais-Kaniel-Mingelgrin high-volume premium): long high, short low",
+  "B_residual_momentum": "per coin, OLS of daily returns on BTC returns over the past 90 days; score = sum of the last 30 days' residuals (excluding the latest day) / residual sd; long high, short low (BTC excluded)",
+  "C_near_high": "score = close / max close of the past 90 days (George-Hwang 52-week-high idea on a crypto horizon); long nearest the high, short farthest",
+  "D_betting_against_beta": "beta to BTC over 90 days; long the 4 lowest-beta coins, short the 4 highest (BTC excluded); long leg scaled by 1 / its mean beta, short leg by 1 / its mean beta, each leg then scaled to 0.5 gross x (leg scale / max of the two scales) so the book is beta-neutral with gross <= 1",
+  "E_btc_alt_rotation": "alt index = equal-weight mean daily return of the other 19 coins; if BTC's 30-day return minus the alt index's 30-day return > 0: long BTC 0.5 / short alts 0.5 (0.5/19 each), else the reverse",
+  "F_pump_fade": "hourly, all 20 coins: hour return > 3 x the 30-day sd of hourly returns AND open interest value up > 3% over that hour -> short 0.2 from the next hour for 12 hours (max 3 open), 5 bp per side + funding; the mirror of the adopted cascade sleeve",
+  "pass": "each separately: sleeve DEV (2020-22, F: 2022) > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v7 (2.534 / 3.494 / 2.240). Only a passing idea is then checked in bf2",
+  "trials_added": 6,
+  "no_changes_after_results": true
+}
