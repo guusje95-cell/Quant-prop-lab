@@ -1,0 +1,10 @@
+{
+  "generation": "Gen177",
+  "title": "Book-level volatility estimator for the 10% target, walk-forward selection",
+  "registered": "2026-10-20, before any Gen177 number",
+  "candidates": {"R60": "60-day rolling sd (current)", "R20": "20-day rolling sd", "E30": "EWMA sd span 30", "R120": "120-day rolling sd", "MIX": "max(20-day, 60-day) sd"},
+  "mechanics": "Sharpe-weighted sleeves (14), leverage = 0.10 / annualised estimate, cap 3, lagged one day",
+  "selection": "weights fitted on 2010-06..2017-12, scored by book Sharpe 2018-22",
+  "judgement": "chosen estimator with weights from 2010-22; ONE evaluation 2023-26 vs 1.102; adopt only if not R60 and higher",
+  "trials_added": 5
+}

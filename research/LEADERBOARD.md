@@ -665,3 +665,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen175, international R1 legs in the bf index sleeve:**
   - DE40 -0.44 / 0.33 / 0.58, EU50 -0.51 / 0.74 / 0.51, UK100 -0.32 / -0.02 / 0.48, JP225 0.46 / 0.10 / 1.72.
   - Combined leg -0.31 / 0.36 / 1.07; book 2.331 but TEST 3.673 and HOLD 1.853. **Fails.**
+- **Gen176 (2 trials):** post-winter HO crack -0.39 / 0.36; small-cap January effect -0.42 / 0.03. Rejected.
