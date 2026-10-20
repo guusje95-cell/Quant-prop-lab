@@ -1,0 +1,12 @@
+{
+  "generation": "Gen162",
+  "title": "Upgrades to existing sleeves: trend filter on F5, quarter-end K3; nested",
+  "registered": "2026-10-20, before any Gen162 number",
+  "families": {
+    "F5 (Gen140 chosen window/cap)": "filter {none (current); hold only when the index close > 200-day mean; > 100-day mean} (Faber 2007), per index, decided at the previous close",
+    "K3 (Gen143 chosen 5 days)": "{monthly (current); quarter-ends only at 2x size}"
+  },
+  "selection": "per family the best on 2010-06..2022-12; replaces the current sleeve only if not the current setting",
+  "judgement": "ONE evaluation 2023-26 of the book with replacements vs 0.908; adopt only if higher",
+  "trials_added": 5
+}
