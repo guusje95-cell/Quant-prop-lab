@@ -688,3 +688,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Chosen: **challenge 1.0 / funded 0.5 (x15% vol)**. On a 2023-26-only bootstrap: **net 2y $6.2k per 50k account** (P(profit) 0.93, p10 +$398, P(funded) 0.97).
   - Default 0.5 / 0.5: net $4.7k (P(profit) 0.96, p10 +$889).
   - More payout, slightly worse tail: the user's choice. ASSUMED firm terms.
+- **Gen192, BC refinement (4 trials):** 1-day trigger on ZF/ZN/ZB (current) 0.32 is best; adding ZT 0.28; 3-day trigger 0.26 / 0.14. Current kept.

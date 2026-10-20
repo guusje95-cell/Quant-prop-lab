@@ -1,0 +1,12 @@
+{
+  "generation": "Gen193",
+  "title": "Quarter-end dollar demand (FX futures) and post-Lunar-New-Year copper restocking",
+  "registered": "2026-10-20, before any Gen193 number",
+  "families": {
+    "QD": "short 6E/6J/6B/6A/6C/6S (= long USD; 0.10 / vol / 6 each) on the last 5 trading days of Mar/Jun/Sep/Dec (balance-sheet window dressing, CIP deviations at quarter ends; Du, Tepper and Verdelhan 2018)",
+    "CNY": "long HG (0.10 / vol) for the 15 trading days starting the first trading day on/after Chinese New Year (hard-coded dates 2010-2026)"
+  },
+  "selection": "single settings; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrants; ONE evaluation 2023-26 vs 1.143",
+  "trials_added": 2
+}

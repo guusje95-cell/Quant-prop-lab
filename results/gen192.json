@@ -1,0 +1,37 @@
+{
+ "grid": [
+  [
+   0.32,
+   {
+    "win": 1,
+    "uni": "ZF+ZN+ZB"
+   }
+  ],
+  [
+   0.283,
+   {
+    "win": 1,
+    "uni": "ZT+ZF+ZN+ZB"
+   }
+  ],
+  [
+   0.255,
+   {
+    "win": 3,
+    "uni": "ZF+ZN+ZB"
+   }
+  ],
+  [
+   0.141,
+   {
+    "win": 3,
+    "uni": "ZT+ZF+ZN+ZB"
+   }
+  ]
+ ],
+ "chosen": {
+  "win": 1,
+  "uni": "ZF+ZN+ZB"
+ },
+ "current check (should equal Gen163 BC)": 0.32
+}
