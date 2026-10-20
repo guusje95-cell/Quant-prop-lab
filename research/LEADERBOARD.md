@@ -722,3 +722,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen204, Santa Claus rally on ES/NQ:** 0.29 / -0.86. Does not enter.
 - **Gen205, P1 IBS on ES+NQ instead of 4 indices (2 trials):** tune ALL4 0.69, **ESNQ 0.83**. **Book 2023-26 1.187 -> 1.231 (2010-17 1.54, 2018-22 1.49). Adopted.**
   - Note: the ES+NQ choice tilts the book to large-cap / tech. It was right in 2010-22 and stayed right in 2023-26, but it is a concentration risk.
+- **Gen206, A3 / F3 on ZN+ZB only (4 trials):** A3 long-end 0.36 vs 0.57; F3 0.87 vs 0.96. Current kept.
