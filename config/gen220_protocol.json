@@ -1,0 +1,10 @@
+{
+  "generation": "Gen220",
+  "title": "Dollar carry (Lustig, Roussanov and Verdelhan 2014): time the basket of foreign currencies vs USD by the average forward discount",
+  "registered": "2026-10-20, before any Gen220 number",
+  "signal": "AFD = mean over 6E/6J/6B/6A/6C/6S of log(near/far) / roll spacing (annualised forward discount from the futures curve; > 0 means foreign rates above US rates); 21-day mean at month end",
+  "rule": "next month long all six currency futures (0.10 / vol / 6 each) when AFD > 0, short all when AFD < 0; daily_book costs",
+  "selection": "single setting; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs 1.231",
+  "trials_added": 1
+}
