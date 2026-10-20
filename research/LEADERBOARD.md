@@ -745,3 +745,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen221, sleeve-level vol targeting of F5 / G1 / A3 / U5 (walk-forward):** 2018-22 RAW 1.427 vs SVT 1.430, so SVT is chosen. **Book 2023-26 1.231 -> 1.240. Adopted by the rule, but the gain is noise-level.**
 - **Gen222, grain weather premium (long Apr 15 - Jun 30):** -0.05 / -0.73. Rejected.
 - **Gen223, trend sleeves without equity indices (4 trials):** G1 0.35 -> 0.28, U5 0.36 -> 0.10 on tune. Current kept.
+
+## Gen120 run (2026-10-20): Deribit option flow (data 2020-01..2026-09, BTC + ETH)
+- **D1 put-skew contrarian (primary):** 0.01 / -0.79 / -0.12; lowers v6 and bf. **Fails.**
+- **D2 call-minus-put buying:** 0.35 / 0.81 / 0.05; v6 2.458 -> 2.512 but HOLD 1.90 -> 1.66; bf 2.252 -> 2.338 but HOLD 1.55 -> 1.42. **Fails** (HOLD).
+- Both fail against the books they were registered against (v6 / bf), so there is no case to test against v7.
