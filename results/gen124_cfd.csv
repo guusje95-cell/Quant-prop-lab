@@ -1,0 +1,4 @@
+test,DEV,TEST,HOLD,pass,trades,mean per trade bp
+J1 08:30 continuation [CFD 5m],0.756,-0.598,-0.84,False,516,-1.41
+J2 14:00 continuation [CFD 5m],-0.816,-0.812,-0.111,False,307,-15.29
+J3 RTH gap fade [CFD 5m],0.916,-1.084,0.816,False,2016,0.83
