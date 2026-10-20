@@ -1,0 +1,12 @@
+{
+  "generation": "Gen176",
+  "title": "Post-winter heating-oil crack and small-cap January effect",
+  "registered": "2026-10-20, before any Gen176 number",
+  "families": {
+    "SH2": "short HO / long CL (0.05 / vol each) Feb 1 - Apr 30 (distillate demand falls after the heating season; mirror of SH)",
+    "JAN": "long RTY / short ES (0.05 / vol each) Dec 15 - Jan 15 (Keim 1983 small-cap January effect)"
+  },
+  "selection": "single settings; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "current 14-sleeve book + entrants; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 2
+}

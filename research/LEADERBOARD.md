@@ -662,3 +662,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen172, FOMC cycle in Treasuries / gold (2 trials):** Treasuries 0.13 / -0.47; gold 0.08 / 1.21 (fails the tune bar). Rejected.
 - **Gen173, overnight-only calendar sleeves:** night 0.27 / -0.03 vs full 0.70 / 0.80. Full kept. **The calendar edge accrues in the session, not overnight.**
 - **Gen174, Topstep calendar book (session only, flat overnight):** 1-minute ES+NQ -0.34 / 0.66 / -0.13; hourly 4-index 2010-17 -0.03. **Fails.** The calendar effects need the full close-to-close hold, and splitting the hold multiplies costs.
+- **Gen175, international R1 legs in the bf index sleeve:**
+  - DE40 -0.44 / 0.33 / 0.58, EU50 -0.51 / 0.74 / 0.51, UK100 -0.32 / -0.02 / 0.48, JP225 0.46 / 0.10 / 1.72.
+  - Combined leg -0.31 / 0.36 / 1.07; book 2.331 but TEST 3.673 and HOLD 1.853. **Fails.**
