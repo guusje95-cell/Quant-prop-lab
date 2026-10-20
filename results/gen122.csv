@@ -1,0 +1,6 @@
+test,DEV,TEST,HOLD,pass,corr v6 2022-26,active days,prop fit
+F1 European-open overnight drift ES/NQ,-2.023,-0.397,-0.006,False,0.007,4194,in-session (Topstep/Lucid OK)
+F2 F1 after a down day,-1.021,0.016,0.27,False,-0.045,2169,in-session (Topstep/Lucid OK)
+F3 month-end Treasury demand,0.977,0.943,0.053,False,-0.016,780,multi-day (MFFU/Tradeify); in-session variant would pay 2 extra round trips
+F4 FX carry cross-section,0.106,-0.73,-0.03,False,0.024,4176,multi-day (MFFU/Tradeify)
+F5 volatility-managed equity ES/NQ (beta),1.048,0.546,0.979,True,0.085,4200,multi-day (MFFU/Tradeify); equity beta

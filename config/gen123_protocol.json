@@ -1,0 +1,13 @@
+{
+  "generation": "Gen123",
+  "title": "Futures round 3: time-series momentum, in-session vol-managed equity, risk parity",
+  "registered": "2026-10-20, after Gen122 (F5 passed but is equity beta: buy-and-hold has about the same Sharpe), before any Gen123 number",
+  "data_costs_splits": "as Gen122",
+  "tests": {
+    "G1 time-series momentum 12m (Moskowitz, Ooi and Pedersen 2012)": "24 non-crypto roots; at each month-end: sign of the trailing 252-day roll-safe return; position = sign x (0.40 / annualised 60-day EWMA vol) / N; held one month",
+    "G2 F5 in-session only (Topstep/Lucid compatible)": "F5 weights (0.5 x 0.15 / 20-day vol, cap 2x, ES and NQ) held only from 18:00 to 16:00 New York time; flat 16:00-18:00 every day (one round trip per day)",
+    "G3 risk parity ES / ZN / GC": "long ES, ZN and GC at equal risk (1 / 60-day vol), portfolio scaled to 10% with trailing 60-day realised vol (cap 3x), daily, decided at the previous close"
+  },
+  "rule": "stand-alone: DEV > 0, TEST >= 0.5, HOLD >= 0.3; also reported against buy-and-hold of the same markets at the same average exposure (beta check), correlation with v6, max drawdown",
+  "trials_added": 3
+}

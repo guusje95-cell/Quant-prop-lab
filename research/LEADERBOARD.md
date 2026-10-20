@@ -510,3 +510,8 @@ Details are in `research/GEN114_121_NEW_DATA.md`.
 - **Bounce on all altcoins (Gen112):** DEV 2022 -0.30. Rejected; per-coin means replicate (+0.74% per episode on the extra coins).
 - **Cascade on 60 coins (Gen80):** sleeve 2023-26 1.30 -> 0.90, v6 2.46 -> 2.32. Rejected.
 - **Shadow paper tests v6b and bf-b started** (premium carry breadth); v6 and bf stay the main books.
+
+## Gen122-123 (2026-10-20): futures rounds 2-3 (8 trials)
+Details are in `research/GEN122_123_FUTURES.md`.
+- **Only F5 (vol-managed long ES/NQ) passes:** 1.05 / 0.55 / 0.98. It is equity beta (buy-and-hold: 1.07 / 0.47 / 1.17) with a smaller drawdown (-22% vs -35%).
+- **Rejected:** European-open drift, month-end Treasuries (dead since 2023), FX carry, TSMOM 12m (0.26 / 0.42 / 0.39), in-session vol-managed equity, risk parity.
