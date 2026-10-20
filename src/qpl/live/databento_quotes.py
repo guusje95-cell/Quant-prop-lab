@@ -10,6 +10,13 @@ ITEMS = [  # (label, dataset, schema, symbols, stype_in, start, end)
     ("ES options (all strikes) daily bars, 2018-2026 (for gamma exposure)", "GLBX.MDP3", "ohlcv-1d", ["ES.OPT"], "parent", "2018-01-01", "2026-10-01"),
     ("ES options statistics incl. open interest, 2018-2026 (for gamma exposure)", "GLBX.MDP3", "statistics", ["ES.OPT"], "parent", "2018-01-01", "2026-10-01"),
     ("ES+NQ futures statistics (settlement, open interest, volume), 2010-2026", "GLBX.MDP3", "statistics", ["ES.FUT", "NQ.FUT"], "parent", "2010-06-06", "2026-10-01"),
+    # closing-auction imbalance (index funds / leveraged ETFs must trade at the close): Nasdaq-listed and NYSE-listed stocks, all symbols
+    ("Nasdaq closing-auction imbalance, ALL stocks, 2018-2026", "XNAS.ITCH", "imbalance", ["ALL_SYMBOLS"], "raw_symbol", "2018-06-01", "2026-10-01"),
+    ("Nasdaq closing-auction imbalance, ALL stocks, 2024-2026 only", "XNAS.ITCH", "imbalance", ["ALL_SYMBOLS"], "raw_symbol", "2024-01-01", "2026-10-01"),
+    ("NYSE closing-auction imbalance, ALL stocks, 2018-2026", "XNYS.PILLAR", "imbalance", ["ALL_SYMBOLS"], "raw_symbol", "2018-06-01", "2026-10-01"),
+    ("NYSE closing-auction imbalance, ALL stocks, 2024-2026 only", "XNYS.PILLAR", "imbalance", ["ALL_SYMBOLS"], "raw_symbol", "2024-01-01", "2026-10-01"),
+    ("SPY closing-auction imbalance (NYSE Arca), 2018-2026", "ARCX.PILLAR", "imbalance", ["SPY"], "raw_symbol", "2018-06-01", "2026-10-01"),
+    ("QQQ closing-auction imbalance (Nasdaq), 2018-2026", "XNAS.ITCH", "imbalance", ["QQQ"], "raw_symbol", "2018-06-01", "2026-10-01"),
 ]
 
 
