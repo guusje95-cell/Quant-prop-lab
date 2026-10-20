@@ -1,0 +1,10 @@
+{
+  "generation": "Gen191",
+  "title": "Prop sizing of the futures book: challenge vs funded risk, chosen on 2010-22 bootstrap, checked on 2023-26",
+  "registered": "2026-10-20, before any Gen191 number",
+  "firm": "same ASSUMED 50k swing firm as the overview (6% target, 4% EOD trailing locking at start, no daily limit, 90% split, $150 fee, payouts every 14 days)",
+  "grid": "challenge scale {0.33, 0.5, 0.75, 1.0} x funded scale {0.25, 0.33, 0.5} (x 15% vol)",
+  "selection": "maximise mean net 2-year P&L subject to P(profit) >= 0.85, block bootstrap (500 paths, block 20) of the Gen190 book 2010-06..2022-12",
+  "evaluation": "chosen pair on a bootstrap of 2023-01..2026-09 only, vs the overview default (0.5 / 0.5)",
+  "trials_added": 12
+}
