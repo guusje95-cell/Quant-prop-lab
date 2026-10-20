@@ -30,10 +30,10 @@ for c in ("BTC", "ETH"):
     f = flow(c)
     if f is None:
         continue
-    f = f.reindex(days); cover[c] = (str(f.dropna().index.min().date()), str(f.dropna().index.max().date()), int(f.skew.notna().sum()))
-    z1 = (f.skew - f.skew.rolling(90, min_periods=60).mean()) / f.skew.rolling(90, min_periods=60).std()
+    f = f.reindex(days); cover[c] = (str(f.dropna().index.min().date()), str(f.dropna().index.max().date()), int(f["skew"].notna().sum()))
+    z1 = (f["skew"] - f["skew"].rolling(90, min_periods=60).mean()) / f["skew"].rolling(90, min_periods=60).std()
     W1[c] = (0.5 * hold(z1 > 1.5, 2) - 0.5 * hold(z1 < -1.5, 2)).fillna(0.0)
-    z2 = (f.flow - f.flow.rolling(30, min_periods=20).mean()) / f.flow.rolling(30, min_periods=20).std()
+    z2 = (f["flow"] - f["flow"].rolling(30, min_periods=20).mean()) / f["flow"].rolling(30, min_periods=20).std()
     W2[c] = np.where(z2 > 1.5, 0.5, np.where(z2 < -1.5, -0.5, 0.0))
 print("coverage:", cover, flush=True)
 if SMOKE:
