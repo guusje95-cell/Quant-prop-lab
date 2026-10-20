@@ -1,0 +1,10 @@
+{
+  "generation": "Gen251",
+  "title": "Ridge model variants: 3-day horizon with overlapping holds; alpha bagging",
+  "registered": "2026-10-20, before any Gen251 number",
+  "A_three_day": "Gen108 features; target = next 3-day return; same monthly walk-forward (training rows need the full 3-day target before the month starts); prediction / in-sample sd clipped +-1; daily position = 0.5 x mean of the last 3 days' predictions (overlapping tranches)",
+  "B_alpha_bag": "Gen108 exactly, but the prediction is the mean of the scaled, clipped predictions of Ridge(alpha=1), Ridge(alpha=10), Ridge(alpha=100)",
+  "pass": "each replaces the ridge sleeve; same as Gen246 A (sleeve bars and strict rule vs v7 2.534 / 3.494 / 2.240 and bf2 2.378 / 3.699 / 2.118)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
