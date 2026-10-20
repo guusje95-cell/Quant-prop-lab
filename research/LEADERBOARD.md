@@ -623,3 +623,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Futures book unchanged: OOS 2023-26 0.815.**
 - **Gen155, R1 refinement (12 trials, executable 14:00 ET):** chosen: base 4 indicators, size x vol250/vol20 (capped 2), 24h hold (tune 0.56, 2023-26 1.04). The 6-indicator and 48h-hold variants were worse on tune. **Book 2023-26 0.815 -> 0.842 (2010-17 1.46, 2018-22 1.33). Adopted.**
 - **Gen156, book construction (walk-forward, 5 trials):** 2018-22 with 2010-17 weights: SW 1.21, MV50 1.29, MV80 1.26, SWC 1.26, HRP 1.12. Chosen MV50 -> 2023-26 **0.795 < 0.842. Not adopted**; Sharpe-weighting stays.
+- **Gen157, market-neutral relative reversal NQ/RTY/YM vs ES (6 trials):** all negative on 2010-22 (-0.23 to -1.01). Rejected.
+- **Gen158, flow effects (10 trials):**
+  - Gotobi (USD/JPY into the Tokyo fix, 6J): tune 0.24, **2023-26 -1.63** (all settings -1.6 to -2.3).
+  - Mid-month coupon reinvestment: best 0.19 / 0.23.
+  - Nothing enters.

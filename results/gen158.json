@@ -1,0 +1,23 @@
+{
+ "families": {
+  "GB": {
+   "best": {
+    "s": 21,
+    "rev": false
+   },
+   "tune 2010-22": 0.238,
+   "2023-26": -1.631,
+   "enters": false
+  },
+  "MC": {
+   "best": {
+    "k": 2,
+    "refund": true
+   },
+   "tune 2010-22": 0.192,
+   "2023-26": 0.227,
+   "enters": false
+  }
+ },
+ "entered": []
+}
