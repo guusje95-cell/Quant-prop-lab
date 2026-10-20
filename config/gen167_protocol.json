@@ -1,0 +1,12 @@
+{
+  "generation": "Gen167",
+  "title": "More fundamental seasonals: grain harvest pressure, gasoline post-summer grade switch",
+  "registered": "2026-10-20, before any Gen167 number",
+  "families": {
+    "HV harvest pressure": "short ZC and ZS (each 0.05 / annualised 60d vol) from Jul 1 to Sep 30 (new-crop supply)",
+    "GS gasoline grade switch": "short RB / long CL (each 0.05 / vol) from Sep 1 to Oct 31 (end of driving season, winter-grade RVP switch)"
+  },
+  "selection": "single settings; enters only if 2010-06..2022-12 Sharpe > 0.3",
+  "judgement": "current 14-sleeve book + entrants; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 2
+}
