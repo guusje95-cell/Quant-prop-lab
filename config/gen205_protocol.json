@@ -1,0 +1,9 @@
+{
+  "generation": "Gen205",
+  "title": "P1 IBS dip sleeve on ES+NQ instead of four indices (same logic as Gen203; P1 per-index 2023-26 results have not been looked at)",
+  "registered": "2026-10-20, before any Gen205 number",
+  "variants": {"ALL4": "current Gen140 P1 (IBS < 0.3 long only, 0.25 per index)", "ESNQ": "same on ES and NQ, 0.5 each"},
+  "selection": "higher 2010-06..2022-12 Sharpe",
+  "judgement": "if ESNQ, replaces P1; ONE evaluation 2023-26 of the EQR book vs 1.187",
+  "trials_added": 2
+}

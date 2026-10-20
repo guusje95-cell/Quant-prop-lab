@@ -719,3 +719,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Combined tune: ALL4 0.68, **ESNQ 0.79**.
   - **Book 2023-26 1.143 -> 1.187 (2010-17 1.54, 2018-22 1.44). Adopted.**
   - Not repeated for R1 / P1: their per-index 2023-26 results are known (Gen146), so that test would be contaminated.
+- **Gen204, Santa Claus rally on ES/NQ:** 0.29 / -0.86. Does not enter.
