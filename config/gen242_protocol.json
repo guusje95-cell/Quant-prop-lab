@@ -1,0 +1,12 @@
+{
+  "generation": "Gen242",
+  "title": "Closing-auction imbalance predicts the last minutes (index funds / leveraged ETFs must trade at the close): QQQ imbalance -> NQ, intraday-flat",
+  "registered": "2026-10-20, BEFORE the imbalance data is downloaded",
+  "data": "Databento XNAS.ITCH imbalance schema for QQQ 2018-06..2026-09 (Nasdaq closing cross: first publication 15:50 ET); NQ 1-minute 2018-26",
+  "signal": "the first QQQ closing-cross imbalance message at/after 15:50:00 ET each day: side (buy / sell) and paired/imbalance quantity; dollar imbalance = imbalance qty x reference price",
+  "rule": "if the dollar imbalance exceeds its trailing 20-day median (absolute), take the imbalance side in NQ from the open of the 15:51 bar to the last price before 16:00; 0.5 units; 2 x cost_frac (micro)",
+  "grid": "threshold {median, 0 (every day with an imbalance)}",
+  "selection": "better on 2018-06..2023-12",
+  "pass": "2018-20 > 0, 2021-23 >= 0.3, 2024-26 >= 0.3; if it passes, SPY imbalance -> ES ($25.87) is the confirmation test (pre-registered here: same rule, must be > 0 in all three splits)",
+  "trials_added": 2
+}
