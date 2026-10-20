@@ -1,0 +1,12 @@
+{
+  "generation": "Gen252",
+  "title": "Swap-free time-series momentum on BrightFunded FX / metals / energy CFDs as a bf2 sleeve",
+  "registered": "2026-10-20, before any Gen252 number",
+  "universe": "EURUSD GBPUSD USDJPY AUDUSD USDCAD USDCHF NZDUSD XAUUSD XAGUSD WTI BRENT NATGAS (Dukascopy hourly BID, 2013+)",
+  "rule": "daily close = last hourly close of the UTC day; signal = mean of sign(21-day), sign(63-day), sign(252-day) return (Moskowitz-Ooi-Pedersen style blend, not tuned); weight = signal x 0.10 / (60-day realised daily vol x sqrt(252)), capped at 2, divided by the number of assets with data; decided at the day's close, held the next day (hourly P&L on the bf hour grid). Costs per unit turnover: FX 1 bp, metals 2 bp, energy 3 bp; no swap (swap-free account)",
+  "why": "trend in FX/commodities is a different return source from crypto; earlier CFD trend tests paid swap; on a swap-free account the financing cost disappears",
+  "pass": "sleeve 2014-19 > 0 (pre-check, daily), DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 uncapped (2.378 / 3.699 / 2.118)",
+  "caveat": "requires that BrightFunded's swap-free add-on covers FX, metals and energy; otherwise the result does not apply",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
