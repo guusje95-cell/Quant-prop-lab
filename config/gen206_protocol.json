@@ -1,0 +1,9 @@
+{
+  "generation": "Gen206",
+  "title": "Treasury sleeve universes: A3 (auctions) and F3 (month-end) on the long end only",
+  "registered": "2026-10-20, before any Gen206 number (per-maturity 2023-26 results of A3/F3 have not been looked at)",
+  "variants": {"A3": "{ZT/ZF/ZN/ZB (current), ZN/ZB only} with Gen140 pre 5 / post 4", "F3": "{ZF/ZN/ZB (current), ZN/ZB only} with Gen140 k 3, same total risk"},
+  "selection": "per sleeve the higher 2010-06..2022-12 Sharpe; replaced only if the long-end version wins",
+  "judgement": "ONE evaluation 2023-26 of the EQR book with replacements vs 1.231",
+  "trials_added": 4
+}
