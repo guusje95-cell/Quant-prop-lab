@@ -578,3 +578,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen142 overnight drift grid (Topstep-compatible):** chosen ES/NQ/RTY/YM 20:00-09:00 ET, tuned 0.14, 2023-26 0.32 stand-alone; book 0.654 < 0.661, not adopted.
 - **Gen143 nested tuning of the other families:** entrants U5 XS momentum (252 days, 6 per side; tuned 0.36, 2023-26 0.36) and K3 pension rebalancing (5 days; 0.57 / 0.12). Book 2023-26 **0.674** > 0.661, **adopted**. Not entering: basis-momentum, post-FOMC hold, COT thresholds.
 - **Current futures book (7 sleeves: F3, F5, G1-126, P1 long-only IBS, A3, U5, K3), Sharpe-weighted on 2010-22:** out of sample 2023-26 **0.674**.
+- **Gen144 event effects (DEV / TEST / HOLD):**
+  - J8a pre-FOMC intraday: 0.34 / 0.20 / -0.54 (NQ 2010-17 -0.77)
+  - J8b post-FOMC continuation: -0.42 / -0.36 / 0.27
+  - J4 OPEX pinning fade: 0.17 / -0.51 / -0.82
+  - J5 leveraged-ETF rebalancing on big days: -0.06 / -1.14 / -1.16
+  - J8c daily pre-FOMC ES 2010-26: 0.21 / 0.21 / -0.53
+  - **All rejected.**

@@ -1,0 +1,6 @@
+test,DEV,TEST,HOLD,pass,events,mean bp/event,NQ 2010-17 (report)
+J8a pre-FOMC drift (intraday),0.344,0.199,-0.536,False,66,0.72,-0.774
+J8b post-FOMC continuation,-0.415,-0.357,0.269,False,66,-6.59,-0.409
+J4 options-expiry pinning fade,0.171,-0.512,-0.815,False,102,-5.81,-0.344
+"J5 leveraged-ETF rebalancing, big days",-0.057,-1.144,-1.158,False,535,-2.51,-0.829
+"J8c pre-FOMC drift, daily ES 2010-26",0.205,0.209,-0.526,False,125,,
