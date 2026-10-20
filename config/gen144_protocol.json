@@ -1,0 +1,15 @@
+{
+  "generation": "Gen144",
+  "title": "Intraday event effects on ES/NQ with real FOMC dates, options expiry and leveraged-ETF rebalancing (flat by 16:00: Topstep/Lucid compatible)",
+  "registered": "2026-10-20, before any Gen144 number",
+  "data": "Databento 1-minute ES/NQ front 2018-01..2026-09 (NQ also 2010-17 as an extra check); FOMC statement dates (research_data/more2/fomc_dates.parquet, 136 dates); costs futures_db.cost_frac per side",
+  "tests": {
+    "J8a pre-FOMC drift (Lucca and Moench 2015)": "FOMC days: long ES and NQ (0.5 each) from 09:30 ET to 13:55 ET",
+    "J8b post-FOMC continuation": "FOMC days: sign of the 14:00-14:05 ET move; hold in that direction from 14:05 to 15:55 ET",
+    "J4 options-expiry pinning": "monthly options expiry = third Friday of each month: fade the 09:30-11:00 ET move (opposite sign) from 11:00 to 15:00 ET",
+    "J5 leveraged-ETF rebalancing on big days": "every day: m = return from previous 16:00 ET close to 15:30 ET; if |m| > 1.5 x the 20-day mean of |close-to-close return|, hold in the direction of m from 15:30 to 15:58 ET",
+    "J8c pre-FOMC drift, daily 2010-26": "ES daily: long from the close the day before the FOMC statement to the close of the statement day (CME daily data, futures splits)"
+  },
+  "rule": "J4/J5/J8a/J8b: DEV 2018-20 > 0, TEST 2021-23 >= 0.5, HOLD 2024-26 >= 0.3 on the ES+NQ average, plus reported NQ 2010-17 (not judged). J8c: DEV 2010-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3. Event strategies trade few days: Sharpe is computed on all business days (zeros on non-event days)",
+  "trials_added": 5
+}
