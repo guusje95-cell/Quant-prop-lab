@@ -1,0 +1,19 @@
+{
+  "generation": "Gen209",
+  "title": "Variance risk premium and VIX term structure (Bollerslev, Tauchen and Zhou 2009; term-structure slope); PENDING the VIX download",
+  "registered": "2026-10-20, before the VIX data exists in the repo",
+  "signals (month end)": {
+    "VRP": "VIX^2 / 12 (monthly implied variance, in % ^2) minus realised variance of ES over the past 21 trading days (sum of squared daily returns x 1e4)",
+    "TS": "VIX3M / VIX - 1 (negative = inverted term structure, stress)"
+  },
+  "rules": {
+    "VR1": "long ES/NQ 0.5 each next month when VRP > its trailing 60-month median, else flat",
+    "VR2": "long ES/NQ next month when VRP > 0, else flat",
+    "TS1": "long ES/NQ next month when TS < 0 (buy inversion; mean reversion after stress), else flat",
+    "TS2": "long ES/NQ next month when TS > 0 (calm contango), else flat"
+  },
+  "families": "VRP {VR1, VR2}; TS {TS1, TS2}",
+  "selection": "per family the best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "EQR book + entrants; ONE evaluation 2023-26 vs the reference at run time",
+  "trials_added": 4
+}

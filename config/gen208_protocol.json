@@ -1,0 +1,10 @@
+{
+  "generation": "Gen208",
+  "title": "Gold-to-platinum ratio predicts stock returns (Huang and Kilic 2019, JFE): ES/NQ timing; PENDING the PL download",
+  "registered": "2026-10-20, before the PL data exists in the repo",
+  "signal": "GP = log(GC / PL) from roll-safe price indices built on the front-contract closes at month end (level: use the ratio of front closes, not cumulated returns); z = (GP - mean of GP over the past 60 months) / sd (past 60 months, min 36)",
+  "rule": "long ES/NQ 0.5 each for the next month when z > 0 (high disaster-risk premium -> higher expected returns), else flat; second variant: position = clip(z, 0, 2) / 2",
+  "selection": "better of the two on 2010-06..2022-12 (the first 36 months have no signal); enters only if > 0.3",
+  "judgement": "EQR book + entrant; ONE evaluation 2023-26 vs the reference at run time (currently 1.231)",
+  "trials_added": 2
+}
