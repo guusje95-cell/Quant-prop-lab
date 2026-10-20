@@ -1,0 +1,8 @@
+{
+  "generation": "Gen175",
+  "title": "International R1 legs (DE40, UK100, JP225, EU50) added to the merged bf index sleeve (P6 + R1 US)",
+  "registered": "2026-10-20, before any Gen175 number",
+  "rule": "R1 fixed indicators; snapshot = close of the bar ending 1 hour before the local cash close (DE40/EU50 Europe/Berlin bar 16:00-17:00 -> 16:30 is not on the grid, so the bar starting 15:00 local, close 16:00; UK100 Europe/London bar starting 15:00; JP225 Asia/Tokyo bar starting 13:00); range from bars from the local cash open hour (09 Berlin/London, 09 Tokyo) to the snapshot; long 0.25 x mean indicator from the next bar for 24h; 1 bp per side",
+  "pass": "international leg alone D/T/H > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs bf + (P6 + R1 US) = 2.326; TEST 3.698, HOLD 1.883",
+  "trials_added": 1
+}
