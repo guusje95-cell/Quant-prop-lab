@@ -1,0 +1,23 @@
+{
+  "generation": "Gen127",
+  "title": "Multi-sleeve round for futures and CFDs: IBS reversal, relative-value spreads, late-day intraday momentum, vol-managed index CFDs in the bf book",
+  "registered": "2026-10-20, after Gen126, before any Gen127 number",
+  "goal": "build a futures book and a non-crypto CFD extension the way the crypto book was built: several modest, independent sleeves, each passing its own rule, combined at equal risk",
+  "tests": {
+    "P1 IBS reversal, equity index futures (Pagonidis 2013)": "ES NQ RTY YM daily (CME trade date from hourly bars): IBS = (close - low) / (high - low) of day d; IBS < 0.2 -> long 0.25 for day d+1, IBS > 0.8 -> short 0.25; days where the front contract changed are skipped",
+    "P2 gold/silver ratio reversion": "z = (log(GC/SI) - 120-day mean) / 120-day std; z > 2 -> short GC / long SI, z < -2 -> long GC / short SI (each leg 0.5 / its 60-day vol x 0.10); exit when |z| < 0.5 or after 30 trading days",
+    "P3 gasoline crack reversion": "same rule on log(RB x 42 / CL) with a 60-day window, exit |z| < 0.5 or 20 days",
+    "P4 Brent-WTI reversion (CFD)": "Dukascopy BRENT and WTI daily (17:00 ET closes): same rule on log(BRENT/WTI) with a 60-day window, exit |z| < 0.5 or 20 days, 4 bp per side",
+    "P5 rest-of-day -> last half hour (Baltussen, Da, Lammers and Martens 2021)": "ES and NQ 1-minute: sign of the previous 16:00 close -> 15:30 return; hold 15:30-16:00 in that direction; 0.5 each",
+    "P6 vol-managed US100/US500 CFDs as a bf-book sleeve (swap-free)": "Dukascopy US100 and US500 daily: weight 0.5 x 0.15 / 20-day vol (cap 2x), daily, 1 bp per side, no swap; added to the BrightFunded book as a 7th sleeve",
+    "P7 IBS reversal on CFDs (replication of P1)": "US500 US100 US30 US2000 Dukascopy daily (17:00 ET), same IBS rule, 1 bp per side",
+    "P8 Nasdaq-vs-S&P style momentum": "weekly: if NQ/ES ratio rose over the last 20 trading days -> long NQ / short ES (vol-matched), else the reverse"
+  },
+  "rules": {
+    "futures sleeves (P1 P2 P3 P5 P8)": "DEV 2010-17 > 0 (P5: 2018-20), TEST 2018-22 >= 0.5 (P5: 2021-23), HOLD 2023-26 >= 0.3 (P5: 2024-26); costs 1 tick + micro commission per side (futures_db)",
+    "CFD sleeves (P4 P7)": "same splits on Dukascopy 2013-26 data: DEV 2013-17 > 0, TEST 2018-22 >= 0.5, HOLD 2023-26 >= 0.3",
+    "P6": "strict bf book rule: bf 2022-26 Sharpe up AND bf TEST and HOLD not lower",
+    "futures book": "all passing futures sleeves plus F5 (Gen122), equal risk (inverse 365-day vol, monthly, point-in-time), reported with its correlation to v6/bf"
+  },
+  "trials_added": 8
+}
