@@ -628,3 +628,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - Gotobi (USD/JPY into the Tokyo fix, 6J): tune 0.24, **2023-26 -1.63** (all settings -1.6 to -2.3).
   - Mid-month coupon reinvestment: best 0.19 / 0.23.
   - Nothing enters.
+- **Gen159, FOMC cycle + mid-month flow (5 trials):**
+  - FOMC-cycle weeks 2+4+6 long equities: 0.37 / 0.75 (all even weeks 0.19 / 0.83; week 0 only -0.24 / 0.38).
+  - Mid-month [-1, +1] around the 15th: 0.72 / 0.37.
+  - Both enter. **Book 2023-26 0.842 -> 0.908 (2010-17 1.53, 2018-22 1.36). Adopted. 12 sleeves.**
