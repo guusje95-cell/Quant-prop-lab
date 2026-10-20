@@ -84,3 +84,4 @@ All tests were pre-registered before the data arrived (Gen114, Gen115, Gen80, Ge
 - **Backtest reference files** were made by the paper trader itself (`results/cache_v6b_final.parquet` 2.539, `cache_bfb_final.parquet` 2.414), identical to the research numbers.
 - **Breadth mode trades only premium carry on the new coins:** C* stays on the original 11 CFD coins in bf-b. Without that, C* would have picked up BNB.
 - **Decision rule:** after >= 56 days, a shadow book replaces its main book only if it is not worse over the same hours and it reconciles.
+- **Self-test (2026-10-20):** v6b and bf-b both PASSED the no-look-ahead self-test. At 12 cutoffs (including moments inside bounce holds and Weiss windows), the frozen hours equal the final recomputation (max difference 0.0).
