@@ -1,0 +1,8 @@
+{
+  "generation": "Gen232",
+  "title": "P1 long-only IBS dip on US100/US500 CFDs, executed at 16:00 ET, merged into the bf index sleeve (P6 + R1)",
+  "registered": "2026-10-20, before any Gen232 number (only the long-short CFD version P7 was tested before)",
+  "rule": "Dukascopy hourly: snapshot = close of the bar ending 16:00 ET; IBS from bars 09:00-16:00 ET; IBS < 0.3 -> long 0.25 per index from the 16:00 bar for 24h; 1 bp per side; added to P6 + R1 inside the merged sleeve",
+  "pass": "leg D/T/H > 0 / >= 0.5 / >= 0.3 AND strict bf rule vs 2.326 (TEST 3.698, HOLD 1.883)",
+  "trials_added": 1
+}
