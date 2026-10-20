@@ -818,3 +818,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - 100k (3%): $7.8k, 0.85 (0.65).
   - 150k (3%): $11.8k, 0.85 (0.65).
 - **Several 50k accounts beat one large account** (the larger ones have a tighter percentage drawdown). Three 50k accounts: about $20k at P(profit) 0.95; they pass and fail together, every amount x3.
+- **bf on a BrightFunded Classic $200k (fee ~$947 + swap-free $96, ASSUMED from a third-party listing; BrightFunded relaunched its plans in April 2026, verify):**
+  - 2025-26 bootstrap net 2y **$124.4k** (p10 $68.8k, P(profit) 0.998); half-mean $45.7k (0.89).
+  - About double the $100k account, as for v7.
