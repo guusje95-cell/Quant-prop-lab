@@ -837,3 +837,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **User-checked terms:**
   - HyroTrader $200k 2-Step: $969 (refundable with the first payout), 10% / 5% targets, 5% daily, 10% max; trades on **Bybit / BloFin** (backtests use Binance perps: similar prices, funding differs slightly). A swing-drawdown upgrade (+$89) is advertised; check it.
   - BrightFunded Classic 2.0 $200k: EUR 697.90 promo (EUR 997 regular), 10% / 5%, 5% daily, 10% static, overnight / weekend allowed, swap-free add-on still listed (check it covers the bf coins).
+- **Gen238, daily-flat book with the 0.3 entry bar re-applied on 2010-22:** keeps F3, P1, R1, MM; 2023-26 **0.567 < 0.835**. Not adopted.
+- **Gen239, overnight return -> last half hour (intraday-flat):** ES+NQ -0.93 / -1.17 / -0.46, NQ 2010-17 -2.02 (k=0); k=0.5 also negative. **Rejected** (recent data shows reversal, not continuation).
+- **Flagged analysis, R1 overnight 18:00 -> 10:00 (ES+NQ) in the daily-flat book:** sleeve 0.70 / 0.74 / 0.46; book 0.52 / 0.84 / **0.76 < 0.835**. No improvement (not adopted; the window was found on ES/NQ in Gen148 anyway).

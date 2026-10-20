@@ -1,0 +1,18 @@
+{
+ "R1-ON sleeve 2010-17 / 2018-22 / 2023-26": [
+  0.701,
+  0.735,
+  0.461
+ ],
+ "daily-flat book (R1 24h)": [
+  0.36,
+  0.721,
+  0.835
+ ],
+ "daily-flat book (R1 overnight)": [
+  0.516,
+  0.835,
+  0.755
+ ],
+ "FLAG": "the overnight window was discovered on ES/NQ (Gen148); treat as weaker evidence than a clean test"
+}
