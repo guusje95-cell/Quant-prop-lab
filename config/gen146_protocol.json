@@ -1,0 +1,13 @@
+{
+  "generation": "Gen146",
+  "title": "Equity-index dip-buying ensemble and calendar effects on ES/NQ/RTY/YM; nested 2010-22 tuning, one 2023-26 judgement",
+  "registered": "2026-10-20, before any Gen146 number",
+  "grids": {
+    "R1 reversal ensemble (long only): mean of 4 indicators {RSI(2) < th, close = 5-day low, >= 3 down closes, IBS < 0.3}, 0.25 per index": "th {10, 25} x 200-day trend filter {off, on} x exit {next close, first close above 5-day mean}",
+    "T1 turn of month (Lakonishok and Smidt 1988; Ariel 1987), long ES/NQ/RTY/YM": "(days before month end, days after) {(1, 3), (2, 3), (1, 1)}",
+    "T2 pre-holiday (Ariel 1990), long the session(s) before an NYSE holiday": "sessions {1, 2}"
+  },
+  "selection": "per family the best setting on 2010-06..2022-12; it enters only if that Sharpe > 0.3",
+  "judgement": "book = Gen143 book sleeves (7) + entrants, Sharpe-weighted on 2010-22, 10% vol target; ONE evaluation 2023-26 vs 0.674; adopt only if higher",
+  "trials_added": 13
+}
