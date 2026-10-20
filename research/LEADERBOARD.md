@@ -840,3 +840,11 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen238, daily-flat book with the 0.3 entry bar re-applied on 2010-22:** keeps F3, P1, R1, MM; 2023-26 **0.567 < 0.835**. Not adopted.
 - **Gen239, overnight return -> last half hour (intraday-flat):** ES+NQ -0.93 / -1.17 / -0.46, NQ 2010-17 -2.02 (k=0); k=0.5 also negative. **Rejected** (recent data shows reversal, not continuation).
 - **Flagged analysis, R1 overnight 18:00 -> 10:00 (ES+NQ) in the daily-flat book:** sleeve 0.70 / 0.74 / 0.46; book 0.52 / 0.84 / **0.76 < 0.835**. No improvement (not adopted; the window was found on ES/NQ in Gen148 anyway).
+
+## Gen240 / Gen241 (2026-10-20): SqueezeMetrics GEX / DIX (2011-05..2026-10)
+- **Gen240, GEX-regime intraday (flat every day):**
+  - Low-gamma momentum (09:30-10:00 sign held to 15:55): **0.33 / -0.22 / 0.38**, NQ 2011-17 0.12 (69 days a year).
+  - Plus high-gamma reversal: 0.13 / -0.36 / -0.07.
+  - **Fails** (2021-23 negative). A weak, inconsistent signal.
+- **Gen241, DIX timing:** 0.51 / 1.29 but **appraisal -0.21** (invested 65%). Beta, **rejected**.
+- Consequence: the exact-gamma purchase (ES options OI, ~$31) is **not** recommended; the free proxy did not show a consistent regime effect. Next: the closing-auction test (Gen242, ~$2.74 of data).
