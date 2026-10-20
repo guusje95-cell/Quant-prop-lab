@@ -871,4 +871,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 ## Gen246 (2026-10-20): cross-asset ridge and international P6 (2 trials, `config/gen246_protocol.json`)
 - **A, ridge+ (Gen108 ridge + VIX daily change + US500 day return):** sleeve perp 0.04 / 1.11 / 1.57 (full ridge 0.13 / 1.28 / 1.36); v7 2.534 -> 2.538, HOLD 2.24 -> 2.30, but **TEST 3.494 -> 3.446**. bf2 2.378 -> 2.355. **Fails** (strict rule; DEV 0.04 also weak). The cross-asset inputs shift ridge value from 2023-24 to 2025-26 without adding to it overall.
 - **B, P6 on DE40 / UK100 / JP225 in bf2:** leg -0.25 / 1.20 / 1.10; bf2 2.378 -> 2.361 (TEST 3.699 -> 3.622). **Fails** (negative DEV 2020-22, like Gen175's international R1).
-- Status: crypto/CFD ideas tested since Gen63 now exceed 120 trials; the adopted books (v7, bf2) are unchanged.
+- Status: the adopted books (v7, bf2) are unchanged.
