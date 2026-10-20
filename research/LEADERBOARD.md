@@ -802,3 +802,12 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Diagnostic, crypto execution costs:** C* at 7.5 / 4 / 2 bp gives v7 2.534 / 2.554 / 2.565. Maker execution adds at most ~0.03; not a material lever.
   - Per-sleeve D/T/H: C* 2.03 / 2.32 / **0.60** (decayed in 2025-26), premium carry 0.87 / 0.68 / 1.15, cascade 0.40 / 1.73 / 0.79, trend 4h 0.77 / 1.43 / 0.44, Weiss 0.47 / 1.64 / 0.62, delev bounce 0.51 / 1.03 / 0.65, ridge 0.11 / 1.28 / 1.36. v7's HOLD comes from diversification.
 - **Gen235, P1 overnight-only vs 24h:** tune 0.29 vs 0.68. 24h kept (unlike R1, P1's edge is not overnight).
+
+## Gen236 (2026-10-20): firm / account choice (nested; terms partly ASSUMED, verify on the firms' sites)
+- **v7:** chosen on 2022-24: **HyroTrader 2-Step $200k** (2.0 / 1.5).
+  - 2025-26 net 2y **$123.5k** (p10 $68.2k, P(profit) 1.00) vs $100k account $61.6k (p10 $33.9k).
+  - Half-mean stress $53.5k vs $26.4k (P(profit) 0.93 vs 0.93).
+  - Fee ~$969 vs $579: one $200k account beats two $100k accounts. Losses in dollars double too.
+  - Other firms on 2022-24: CFT 2-Phase 90% split $81k > HyroTrader 2-Step $100k $74k > CFT 2-Phase $73k > HyroTrader 1-Step $70k > Breakout 2-Step $55k (P 0.93).
+- **bf (Gen234):** FundedNext Stellar 2-Step swap-free $64.1k vs BrightFunded Classic $62.1k (2025-26; half-mean $27.6k vs $25.8k). Marginal.
+  - **Recommendation: stay with BrightFunded.** bf uses BrightFunded's crypto CFD list (40+ coins), which FundedNext may not offer; verify before switching.

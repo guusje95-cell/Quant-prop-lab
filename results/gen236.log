@@ -1,0 +1,117 @@
+v7 HyroTrader Two-Step $100k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 74450, 'P 2022-24': 0.994}
+v7 HyroTrader Two-Step $200k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 149194, 'P 2022-24': 0.994}
+v7 HyroTrader One-Step $100k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 69571, 'P 2022-24': 0.992}
+v7 Crypto Fund Trader 2-Phase $100k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 73117, 'P 2022-24': 0.996}
+v7 Crypto Fund Trader 2-Phase $100k + weekly payouts + 90% split {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 81246, 'P 2022-24': 0.996}
+v7 Breakout Two-Step $100k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 54615, 'P 2022-24': 0.934}
+bf BrightFunded Two-Step Classic $100k {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 78968, 'P 2022-24': 0.996}
+bf BrightFunded Two-Step Bright $100k {'sc': 1.5, 'sf': 1.5, 'net 2022-24': 71603, 'P 2022-24': 0.994}
+bf FundedNext Stellar 2-Step $100k swap-free {'sc': 2.0, 'sf': 1.5, 'net 2022-24': 81454, 'P 2022-24': 0.996}
+{
+ "v7": {
+  "per firm (2022-24)": {
+   "HyroTrader Two-Step $100k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 74450,
+    "P 2022-24": 0.994
+   },
+   "HyroTrader Two-Step $200k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 149194,
+    "P 2022-24": 0.994
+   },
+   "HyroTrader One-Step $100k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 69571,
+    "P 2022-24": 0.992
+   },
+   "Crypto Fund Trader 2-Phase $100k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 73117,
+    "P 2022-24": 0.996
+   },
+   "Crypto Fund Trader 2-Phase $100k + weekly payouts + 90% split": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 81246,
+    "P 2022-24": 0.996
+   },
+   "Breakout Two-Step $100k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 54615,
+    "P 2022-24": 0.934
+   }
+  },
+  "chosen firm": "HyroTrader Two-Step $200k",
+  "2025-26 chosen": {
+   "net": 123473,
+   "p10": 68208,
+   "P_profit": 1.0
+  },
+  "2025-26 current": {
+   "net": 61636,
+   "p10": 33924,
+   "P_profit": 1.0
+  },
+  "half-mean chosen": {
+   "net": 53456,
+   "p10": 5673,
+   "P_profit": 0.934
+  },
+  "half-mean current": {
+   "net": 26433,
+   "p10": 2459,
+   "P_profit": 0.93
+  },
+  "adopt": true
+ },
+ "bf": {
+  "per firm (2022-24)": {
+   "BrightFunded Two-Step Classic $100k": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 78968,
+    "P 2022-24": 0.996
+   },
+   "BrightFunded Two-Step Bright $100k": {
+    "sc": 1.5,
+    "sf": 1.5,
+    "net 2022-24": 71603,
+    "P 2022-24": 0.994
+   },
+   "FundedNext Stellar 2-Step $100k swap-free": {
+    "sc": 2.0,
+    "sf": 1.5,
+    "net 2022-24": 81454,
+    "P 2022-24": 0.996
+   }
+  },
+  "chosen firm": "FundedNext Stellar 2-Step $100k swap-free",
+  "2025-26 chosen": {
+   "net": 64054,
+   "p10": 37359,
+   "P_profit": 0.998
+  },
+  "2025-26 current": {
+   "net": 62136,
+   "p10": 34330,
+   "P_profit": 0.998
+  },
+  "half-mean chosen": {
+   "net": 27577,
+   "p10": 2162,
+   "P_profit": 0.92
+  },
+  "half-mean current": {
+   "net": 25803,
+   "p10": 1298,
+   "P_profit": 0.916
+  },
+  "adopt": true
+ }
+}
