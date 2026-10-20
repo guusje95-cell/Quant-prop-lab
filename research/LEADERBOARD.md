@@ -793,3 +793,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   - **Not adopted** (Gen230 rule: P(profit) may drop by at most 0.02). The index-CFD book stays at 1.0 / 0.5; its edge is too thin for more risk.
 - **Gen232, P1 long-only IBS on US100/US500 CFDs (16:00 ET) in the bf index sleeve:** leg **1.18 / 1.22 / 1.08**; bf 2.326 -> 2.350, TEST 3.719, but **HOLD 1.864 < 1.883. Fails (near-miss).**
 - **Gen233, index-CFD book + P1 CFD leg:** fit 1.11, 2023-24 **1.168 < 1.247**, 2025-26 0.986 < 0.988. Fails. Gen201 stays.
+- **Gen234, bf + ridge ML sleeve + P1 CFD in the index sleeve (combination of the Gen196 / Gen232 near-misses; flagged as in Gen133):**
+  - **bf 2.326 -> 2.378, TEST 3.698 -> 3.699 (razor-thin), HOLD 1.883 -> 2.118; 2022 0.49 -> 0.37. Passes the strict rule; adopted.**
+  - New bf = 6 crypto sleeves + ridge ML (BTC/ETH CFDs) + merged index sleeve (P6 + R1 + P1 @16:00 ET).
