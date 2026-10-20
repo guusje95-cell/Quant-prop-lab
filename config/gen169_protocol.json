@@ -1,0 +1,9 @@
+{
+  "generation": "Gen169",
+  "title": "Betting against beta across Treasury maturities (Frazzini and Pedersen 2014)",
+  "registered": "2026-10-20, before any Gen169 number",
+  "variants": {"BAB1": "long ZT and ZF, short ZB; each long leg 0.025 / annualised 60d vol, short leg 0.05 / vol (equal-vol long vs short)", "BAB2": "long ZT 0.05 / vol, short ZN 0.05 / vol"},
+  "selection": "best on 2010-06..2022-12; enters only if > 0.3",
+  "judgement": "current 14-sleeve book + entrant; ONE evaluation 2023-26 vs 1.102",
+  "trials_added": 2
+}
