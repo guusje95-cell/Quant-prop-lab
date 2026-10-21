@@ -36,15 +36,15 @@ SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss exp
     + (["ridge ML"] if VER in ("v7", "v8", "v83") else []) + (["alt kimchi"] if VER in ("v8", "v83") else [])
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
-CFDBOOK = VER in ("bf", "bfb", "bf2")
+CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22")
 if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
     SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
-    if VER == "bf2":                                   # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
+    if VER in ("bf2", "bf22"):                         # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
         SLEEVES += ["ridge ML", "vol-managed indices"]
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -202,13 +202,15 @@ def compute_bf():
     """CFD book (BrightFunded): same outputs as compute(). Gross exposure is capped at the 1:5 crypto leverage at the paper risk."""
     import crypto_sleeves as CS
     import cfd_book as CB
+    if VER == "bf22":                                  # bf2.2 (Gen301 A + Gen302 A): measured BrightFunded spreads (+ spot-flow / VRP / calendar ridge below)
+        CB.measured_costs()
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END); h1 = END + pd.Timedelta(hours=1)
     R, pos, daily = CB.positions()
     CSL = [s for s in SLEEVES if s != "vol-managed indices"]                          # crypto CFD sleeves
     if RIDGE:
         import ridge_live as RL
-        pos["ridge ML"] = CB.d2h(RL.ridge_weights().reindex(columns=CB.CFD).fillna(0.0), pos["C*"].index)
+        pos["ridge ML"] = CB.d2h(RL.ridge_weights(spot=VER == "bf22", vrp=VER == "bf22", cal=VER == "bf22").reindex(columns=CB.CFD).fillna(0.0), pos["C*"].index)
     H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL})
     if INDEX:
         import index_sleeve as IS
@@ -314,7 +316,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=VER == "bf22"):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
@@ -547,7 +549,7 @@ def cmd_selftest(a):
     cuts = ["2026-09-01 01:00", "2026-09-14 00:00", "2026-09-21 13:00", "2026-09-25 09:00", "2026-09-25 10:00", "2026-09-25 11:00",
             "2026-09-28 05:00",
             "2026-09-30 17:00"]
-    if ALTK:                                          # around 00:00 UTC, when the altcoin kimchi weights change
+    if ALTK or VER == "bf22":                         # around 00:00 UTC, when the altcoin kimchi / spot-flow ridge weights change
         cuts += ["2026-09-29 23:00", "2026-09-30 00:00", "2026-09-30 01:00"]
     if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
         cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]

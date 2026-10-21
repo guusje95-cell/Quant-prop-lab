@@ -1,0 +1,9 @@
+{
+  "generation": "Gen303",
+  "title": "v8.3 ridge with the bf2.2 feature additions: A VRP + calendar; B VRP + calendar + Binance spot taker flow",
+  "registered": "2026-10-21, after Gen300-302 (in v8.3 VRP alone failed on HOLD, calendar alone failed the sleeve DEV bar; in bf2 both passed and their combination passed), before any Gen303 number",
+  "model": "v8.3 ridge (kimchi breadth, vol-scaled target, alpha 10, monthly walk-forward from 2021) + A: vrp, vrp7, wkend, mon (scripts/ridge_live.py vrp=True, cal=True); B: A + simb, sdiv (spot=True)",
+  "pass": "v-book sleeve bars (replace_ridge) and strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

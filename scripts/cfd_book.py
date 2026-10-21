@@ -20,6 +20,14 @@ if BREADTH:
     from qpl.lab.extra_pack import BF_NEW
     CFD = CFD + BF_NEW
 SPREAD = pd.Series({c: (0.4 if c == "BTC" else 2.7 if c == "ETH" else 10.0) for c in CFD})
+
+
+def measured_costs():
+    """From 2026-10-21 (bf2 cost check, bf2.1): half the measured BrightFunded MT5 spread per side (scripts/mt5_export_specs.py)."""
+    spec = pd.read_csv(sorted((ROOT / "research_data/firm_specs").glob("BrightFunded*20261021*.csv"))[-1], encoding="latin1")
+    meas = {s.split("/")[0].replace("XDG", "DOGE"): float(v) for s, v in zip(spec["symbol"], spec["spread_bp_median"]) if "/USD" in s}
+    for c in SPREAD.index:
+        SPREAD[c] = 0.5 * meas[c]
 COMM = 1.2
 LEVERAGE_CAP = 5.0
 

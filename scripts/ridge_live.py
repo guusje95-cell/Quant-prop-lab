@@ -122,9 +122,18 @@ def features(end, spot=False):
     return pd.concat(rows).reset_index().rename(columns={"index": "day"})
 
 
-def predictions(end, spot=False, kb=False, volscale=False):
-    """volscale=True (Gen288, v8.2): train on next-day return / 30-day vol instead of the raw return."""
+def predictions(end, spot=False, kb=False, volscale=False, vrp=False, cal=False):
+    """volscale=True (Gen288, v8.2): train on next-day return / 30-day vol instead of the raw return.
+    vrp=True (Gen301 A, bf2.1): + variance risk premium (DVOL daily vol minus 30-day realised vol) and its 7-day change.
+    cal=True (Gen302 A, bf2.2): + weekend and Monday dummies."""
     D = features(end, spot)
+    if vrp:
+        v = pd.Series(np.nan, index=D.index)
+        for c in COINS:
+            m = D["coin"] == c; v[m] = D.loc[m, "day"].map(dvol(c) / 100 / np.sqrt(365)).to_numpy() - D.loc[m, "vol30"].to_numpy()
+        D["vrp"] = v; D["vrp7"] = D.groupby("coin")["vrp"].diff(7)
+    if cal:                                                          # Gen302 A (bf2.2): the target day is a weekend day / a Monday
+        dow = D["day"].dt.dayofweek; D["wkend"] = dow.isin([4, 5]).astype(float); D["mon"] = (dow == 6).astype(float)
     if kb:                                                           # Gen268 (v8.1): Korean risk-appetite breadth = mean altcoin kimchi z
         import alt_kimchi as AK
         D["kb"] = D["day"].map(AK.zscores(pd.Timestamp(end).floor("D") + pd.Timedelta(hours=23)).mean(axis=1))
@@ -144,13 +153,13 @@ def predictions(end, spot=False, kb=False, volscale=False):
     return D
 
 
-def ridge_weights(end=None, spot=False, kb=False, volscale=False):
+def ridge_weights(end=None, spot=False, kb=False, volscale=False, vrp=False, cal=False):
     """Daily target weights for the 'ridge ML' sleeve (spot=True: bf2's Gen247 B ridge with spot taker features):
     row d is decided at the close of day d (only complete days count)."""
     import crypto_sleeves as CS
     end = pd.Timestamp(end or CS.END)
     last_full = (end + pd.Timedelta(hours=1)).floor("D") - pd.Timedelta(days=1)          # the last day whose close is known
-    D = predictions(last_full, spot, kb, volscale)
+    D = predictions(last_full, spot, kb, volscale, vrp, cal)
     return D.pivot(index="day", columns="coin", values="ridge").loc[:last_full].fillna(0.0) * 0.5
 
 

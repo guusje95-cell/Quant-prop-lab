@@ -74,11 +74,34 @@ def dvol(live: Path, log=print):
         log(f"  DVOL {c}: {_save(d.astype(float), live / name)} rows, last {d.index.max()}")
 
 
-def update(data_dir: Path, log=print, alts=False) -> bool:
-    """Update every ridge input in <data_dir>/ml (alts=True: also the Upbit altcoins for v8's alt kimchi sleeve).
-    Returns False if a source failed (the sleeves then use what they have)."""
+def spot(live: Path, log=print):
+    """Binance SPOT hourly BTC/ETH with taker-buy volume (bf2.2 ridge, Gen247 B features), research format, last bars re-fetched."""
+    from qpl.live import binance_public as BP
+    c = BP.Client(); now = pd.Timestamp.now("UTC").tz_localize(None).floor("h")
+    for coin in ("BTC", "ETH"):
+        name = f"spot/{coin}USDT_1h.parquet"; last = _last(live, ROOT / "research_data/binance_spot", f"{coin}USDT_1h.parquet")
+        if (live / name).exists():
+            last = pd.DatetimeIndex(pd.read_parquet(live / name).index).max()
+        start = (last - pd.Timedelta(hours=3)) if last is not None else now - pd.Timedelta(days=60)
+        k = None
+        for host in BP.SPOT:
+            try:
+                k = BP._klines(c, f"{host}/api/v3/klines", f"{coin}USDT", "1h", start, now, limit=1000); break
+            except BP.Restricted:
+                raise
+            except Exception:
+                k = None
+        if k is None or not len(k):
+            raise RuntimeError(f"spot {coin}: no data")
+        k = k[["close", "volume", "quote_volume", "taker_buy_volume", "taker_buy_quote_volume"]].astype("float32")
+        log(f"  spot {coin}: {_save(k, live / name)} rows, last {k.index.max()}")
+
+
+def update(data_dir: Path, log=print, alts=False, spot_flow=False) -> bool:
+    """Update every ridge input in <data_dir>/ml (alts=True: also the Upbit altcoins for v8's alt kimchi sleeve;
+    spot_flow=True: also Binance spot BTC/ETH for bf2.2's ridge). Returns False if a source failed (the sleeves then use what they have)."""
     live = Path(data_dir) / "ml"; ok = True
-    for fn in (upbit, usdkrw, dvol):
+    for fn in (upbit, usdkrw, dvol) + ((spot,) if spot_flow else ()):
         try:
             fn(live, log, alts) if fn is upbit else fn(live, log)
         except Exception as e:

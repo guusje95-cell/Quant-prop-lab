@@ -1006,3 +1006,15 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Round tally (Gen293-298, vs v8.3 / bf2): 6 pre-registered trials, none passes; Gen297 (vol-normalised ridge features, 2.704) to the watchlist.**
 - **Gen299, nested parameter tuning (each setting picked on 2020-22 only: alt-kimchi threshold 0.75, premium-carry window 3, ridge alpha 3; 12 trials):** 2.574 [1.24, 3.66, 2.20] vs v8.3 2.700. **Fails**; the DEV-optimal settings do not carry forward, so the v8.3 parameters stay.
 - **Gen300 (vs v8.3), ridge + one new feature family each:** A variance risk premium (DVOL minus 30-day realised vol, + 7-day change): ridge sleeve 0.48 / 1.90 / 1.39, book **2.746** [1.45, 3.878, 2.344]; **fails (HOLD lower)**, watchlist. B Korean breadth change: 2.675, fails. C weekend / Monday dummies: 2.711 [1.20, 3.841, 2.466] with TEST and HOLD up, but the sleeve's DEV is -0.07: **fails the sleeve bar**, watchlist.
+
+## Gen301 (2026-10-21): bf2 ridge + variance risk premium - ADOPTED (bf2.1)
+- **A, bf2's spot-flow ridge + VRP features (DVOL daily vol minus 30-day realised vol, and its 7-day change):** ridge sleeve 0.65 / 1.81 / 1.48 (old 0.4-ish DEV); **bf2 2.427 -> 2.464 [0.514, 3.804, 2.182]: every period up, passes the strict rule. Adopted: bf2.1.**
+- **B, bf2's ridge + weekend / Monday dummies:** sleeve 0.10 / 1.55 / 1.70; bf2 2.462 [0.381, 3.771, 2.240]: passes too, but lower book Sharpe (protocol: the higher one is adopted; a combination needs its own trial).
+- Honest caveat: in v8.3 the same VRP features gave 2.746 but HOLD 2.344 < 2.376 (Gen300 A, fail). Two passing bf2 trials out of five ridge-feature trials today; the gain is +0.04, small against noise.
+- **Reference after Gen301: bf2.1 2.464 / 0.514 / 3.804 / 2.182** (paper version folded into bf2.2 below before it started).
+
+## Gen302 (2026-10-21): bf2.1 + calendar - ADOPTED (bf2.2); ETH-BTC relative-value ridge fails (3 trials)
+- **A, bf2.1 ridge + weekend / Monday dummies (Gen301 A + B combined, its own trial):** ridge sleeve 0.51 / 1.86 / 1.67; **bf2.1 2.464 -> 2.501 [0.523, 3.812, 2.247]: every period up, passes. Adopted: bf2.2.**
+- **B, ETH-minus-BTC relative-value ridge (market neutral) in v8.3:** -0.45 / -0.43 / -0.21; v8.3 -> 2.453. **Fails.** **C, the same in bf2.1:** -0.34 / -0.11 / 0.15; 2.345. **Fails**: the features predict direction, not the ETH-BTC spread.
+- Paper version `bf22` (scripts/paper_v5.py, config/paper_bf22.json, scale 0.902): spot-flow + VRP + calendar ridge (scripts/ridge_live.py spot / vrp / cal), measured BrightFunded spreads (cfd_book.measured_costs), live Binance spot BTC/ETH feed (src/qpl/live/ml_feeds.py spot). With the 1:5 crypto cap at risk 2.0: 2.496 / 0.523 / 3.800 / 2.247.
+- **bf2 line: 2.427 (measured costs) -> bf2.1 2.464 -> bf2.2 2.501.** Reference from here: **bf2.2 2.501 / 0.523 / 3.812 / 2.247.**
