@@ -39,6 +39,8 @@ def fetch(c):
         if nxt >= to:
             break
         to = nxt; time.sleep(0.25)
+        if len(rows) % 4000 == 0:
+            print(f"  {m}: back to {to:%Y-%m-%d} ...", flush=True)
     if rows:
         d = pd.DataFrame(rows); d.index = pd.to_datetime(d["candle_date_time_utc"])
         d = d[["opening_price", "high_price", "low_price", "trade_price", "candle_acc_trade_volume"]].astype("float64")
@@ -52,5 +54,6 @@ def fetch(c):
 
 
 if __name__ == "__main__":
-    for c in coins():
+    cs = coins(); print(f"{len(cs)} coins, a few minutes each; progress every ~170 days of data", flush=True)
+    for c in cs:
         fetch(c)
