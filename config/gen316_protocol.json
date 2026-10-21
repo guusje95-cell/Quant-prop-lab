@@ -1,0 +1,10 @@
+{
+  "generation": "Gen316",
+  "title": "v8.4 + the Gen315 60-coin invvol premium carry as an ADDED sleeve (both carry sleeves kept) - follow-up after seeing Gen315 (1 trial, flagged)",
+  "registered": "2026-10-21, AFTER seeing Gen315 (replacement: 2.849, TEST 3.838 < 3.896); flagged as a result-driven follow-up and counted as its own trial",
+  "model": "v8.4 sleeves unchanged + 'premium carry 60' = crypto_sleeves.premium_carry_breadth(premium_breadth_weights(invvol=True)) as a ninth sleeve; equal-risk construction unchanged",
+  "why": "the two carry sleeves differ in universe (20 liquid vs 60 coins incl. the extra pack); keeping both splits the carry risk between them instead of moving all of it to the wide universe",
+  "pass": "v-book sleeve bars (corr C* <= 0.3) + strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428); a robustness check at 2x costs on the new sleeve is reported (descriptive)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
