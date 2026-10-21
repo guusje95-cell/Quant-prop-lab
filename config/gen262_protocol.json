@@ -1,0 +1,11 @@
+{
+  "generation": "Gen262",
+  "title": "Broader and regional demand premia (data: get_flow_data3.bat on the user's PC)",
+  "registered": "2026-10-21, before the data exists in the repo; judged against v8 (2.547 / 3.708 / 2.345)",
+  "A_alt_kimchi_extra": "the adopted Gen247 A rule unchanged (Upbit KRW / USD-KRW previous London day / Binance perp close - 1 at 23:00 UTC, 30-day z, z > 1 long 0.1, z < -1 short 0.1, next day) on the 40 extra Binance coins that Upbit lists, as a second sleeve 'alt kimchi extra'; perp costs 5 bp, funding where the extra funding files have it (else none, stated)",
+  "B_regional_usdt_premium": "USDT premium in Turkey and Brazil: p_X = Binance USDT/X close / Yahoo USD/X (previous London day) - 1, hourly; 24h mean; 30-day z (min 20) at 23:00 UTC; composite z = mean of the TRY and BRL z's; z > 1 -> long BTC and ETH 0.25 each, z < -1 -> short, next day",
+  "C_regional_btc_premium": "as B but with the BTC premium: Binance BTC/X / (Yahoo USD/X previous London day) / Binance BTCUSDT - 1, X in TRY, BRL; composite of the two z's; trades BTC and ETH 0.25 each",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}

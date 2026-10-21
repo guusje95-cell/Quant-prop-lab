@@ -34,8 +34,12 @@ def _save(df: pd.DataFrame, f: Path):
     return len(df)
 
 
-def upbit(live: Path, log=print):
-    for m in ("KRW-BTC", "KRW-ETH"):
+def upbit(live: Path, log=print, alts=False):
+    mk = ["KRW-BTC", "KRW-ETH"]
+    if alts:                                                   # v8: every altcoin with a research Upbit file (Gen247 A)
+        mk += sorted(p.stem.replace("upbit_", "").replace("_1h", "") for p in MORE.glob("upbit_KRW-*_1h.parquet")
+                     if p.stem not in ("upbit_KRW-BTC_1h", "upbit_KRW-ETH_1h"))
+    for m in mk:
         name = f"upbit_{m}_1h.parquet"; last = _last(live, MORE, name)
         stop = (last - pd.Timedelta(hours=3)).to_pydatetime().replace(tzinfo=timezone.utc) if last is not None else \
             datetime.now(timezone.utc) - timedelta(days=60)
@@ -70,12 +74,13 @@ def dvol(live: Path, log=print):
         log(f"  DVOL {c}: {_save(d.astype(float), live / name)} rows, last {d.index.max()}")
 
 
-def update(data_dir: Path, log=print) -> bool:
-    """Update every ridge input in <data_dir>/ml. Returns False if a source failed (the ridge then uses what it has)."""
+def update(data_dir: Path, log=print, alts=False) -> bool:
+    """Update every ridge input in <data_dir>/ml (alts=True: also the Upbit altcoins for v8's alt kimchi sleeve).
+    Returns False if a source failed (the sleeves then use what they have)."""
     live = Path(data_dir) / "ml"; ok = True
     for fn in (upbit, usdkrw, dvol):
         try:
-            fn(live, log)
+            fn(live, log, alts) if fn is upbit else fn(live, log)
         except Exception as e:
             log(f"  {fn.__name__}: not updated ({e.__class__.__name__}: {e})"); ok = False
     return ok

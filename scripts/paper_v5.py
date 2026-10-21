@@ -32,8 +32,9 @@ CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7") else []) \
-    + (["ridge ML"] if VER == "v7" else [])
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8") else []) \
+    + (["ridge ML"] if VER in ("v7", "v8") else []) + (["alt kimchi"] if VER == "v8" else [])
+ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
 CFDBOOK = VER in ("bf", "bfb", "bf2")
 if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
@@ -43,7 +44,7 @@ if CFDBOOK:                                            # CFD book for BrightFund
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -146,6 +147,9 @@ def compute():
     if RIDGE:
         import ridge_live as RL
         rw = RL.ridge_weights(); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+    if ALTK:
+        import alt_kimchi as AK
+        aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
     H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
     h1 = END + pd.Timedelta(hours=1)
     Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])          # makes the next day's weights computable
@@ -166,6 +170,9 @@ def compute():
     if RIDGE:
         prev = rw.loc[:d - pd.Timedelta(days=1)]
         expo["ridge ML"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    if ALTK:
+        prev = aw.loc[:d - pd.Timedelta(days=1)]
+        expo["alt kimchi"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -307,7 +314,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA):
+            if not ml_feeds.update(DATA, alts=ALTK):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
@@ -540,6 +547,8 @@ def cmd_selftest(a):
     cuts = ["2026-09-01 01:00", "2026-09-14 00:00", "2026-09-21 13:00", "2026-09-25 09:00", "2026-09-25 10:00", "2026-09-25 11:00",
             "2026-09-28 05:00",
             "2026-09-30 17:00"]
+    if ALTK:                                          # around 00:00 UTC, when the altcoin kimchi weights change
+        cuts += ["2026-09-29 23:00", "2026-09-30 00:00", "2026-09-30 01:00"]
     if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
         cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]
     if INDEX:                                         # around the index signals: R1 entry 14:00 ET and P1 entry 16:00 ET (EDT = UTC-4)
