@@ -1,0 +1,10 @@
+{
+  "generation": "Gen271",
+  "title": "Cheap BrightFunded crypto CFDs added to the bf2 universe (selection by measured cost only)",
+  "registered": "2026-10-21, before any Gen271 number; reference bf2 at measured costs (2.427 / 0.408 / 3.751 / 2.169)",
+  "A_bnb": "add BNB (measured spread 2.67 bp; in C*'s MAJ10 in v8) to the bf2 CFD universe (C* and premium carry can hold it), costs half measured spread + 1.2 bp",
+  "B_cheap4": "add BNB, UNI, NEAR, AAVE (all 20-pack coins with measured spread <= 10 bp not yet in bf2) to the bf2 CFD universe, same costs",
+  "pass": "strict rule vs bf2 at measured costs (book 2022-26 up, TEST and HOLD not lower)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
