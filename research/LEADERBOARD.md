@@ -999,3 +999,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Paper trader v8.3** (`QPL_PAPER=v83`, `paper_v83_start.bat`, `config/paper_v83.json`, scale 0.886): reproduces 2.700 / 1.293 / 3.828 / 2.376; self-test PASSED (no look-ahead).
 - **Gen293 (vs v8.3), inverse-vol sizing:** A cascade 2.681 [1.21, 3.891, 2.323]; B deleveraging bounce 2.659 [1.33, 3.779, 2.285]. **Both fail** (one period lower each).
 - **Gen294, pooled altcoin ridge with volatility-scaled targets (Gen263 rerun):** -0.02 / 1.26 / 0.06, corr C* 0.39; v8.3 -> 2.467. **Fails** (altcoin ML stays unstable in 2025-26, whatever the target).
+- **Gen295, bf2 with the v8.3 ridge (kimchi breadth + vol-scaled target, no spot features):** ridge sleeve 0.28 / 1.87 / 1.68 but bf2 2.401 [0.37, 3.72, 2.16]. **Fails**; bf2 keeps its spot-flow ridge.

@@ -1,0 +1,9 @@
+{
+  "generation": "Gen296",
+  "title": "Inverse-volatility sizing across US100 / US500 / US30 inside bf2's R1 and P1 index legs",
+  "registered": "2026-10-21, before any Gen296 number",
+  "rule": "R1 and P1 signals unchanged; each index's position multiplied by clip(ref / vol20_index, 0.5, 2), vol20 = 20-day realised daily vol of that index CFD (previous days), ref = the cross-index median vol20 that day; P6 (already vol-managed) unchanged; 1 bp costs as before",
+  "pass": "strict rule vs bf2 at measured costs (2.427 / 3.751 / 2.169)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
