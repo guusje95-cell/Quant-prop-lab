@@ -1,0 +1,189 @@
+{
+ "v8.4 without C*": {
+  "book": [
+   2.661,
+   [
+    1.502,
+    3.687,
+    2.324
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without premium carry": {
+  "book": [
+   2.486,
+   [
+    1.324,
+    3.612,
+    2.051
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without cascade limit strict": {
+  "book": [
+   2.481,
+   [
+    0.66,
+    3.723,
+    2.328
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without trend 4h": {
+  "book": [
+   2.494,
+   [
+    0.728,
+    3.863,
+    2.367
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without Weiss expiry": {
+  "book": [
+   2.582,
+   [
+    1.253,
+    3.581,
+    2.374
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without delev bounce": {
+  "book": [
+   2.675,
+   [
+    0.957,
+    3.916,
+    2.238
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without ridge ML": {
+  "book": [
+   2.676,
+   [
+    1.469,
+    3.845,
+    2.184
+   ]
+  ],
+  "pass": false
+ },
+ "v8.4 without alt kimchi": {
+  "book": [
+   2.666,
+   [
+    1.61,
+    3.634,
+    2.249
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without C*": {
+  "book": [
+   2.381,
+   [
+    0.531,
+    3.69,
+    2.141
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without premium carry": {
+  "book": [
+   2.301,
+   [
+    0.236,
+    3.754,
+    2.144
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without trend 4h": {
+  "book": [
+   2.266,
+   [
+    -0.175,
+    4.016,
+    2.14
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without Weiss expiry": {
+  "book": [
+   2.311,
+   [
+    0.218,
+    3.675,
+    2.181
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without delev bounce": {
+  "book": [
+   2.483,
+   [
+    -0.017,
+    3.978,
+    2.199
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without coinbase premium": {
+  "book": [
+   2.444,
+   [
+    0.222,
+    4.049,
+    2.125
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without vol-managed indices": {
+  "book": [
+   2.469,
+   [
+    0.77,
+    3.757,
+    2.224
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without ridge ML": {
+  "book": [
+   2.53,
+   [
+    0.582,
+    4.043,
+    2.086
+   ]
+  ],
+  "pass": false
+ },
+ "bf2.3 without alt kimchi": {
+  "book": [
+   2.501,
+   [
+    0.523,
+    3.812,
+    2.247
+   ]
+  ],
+  "pass": false
+ }
+}

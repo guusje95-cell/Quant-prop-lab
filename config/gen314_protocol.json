@@ -1,0 +1,10 @@
+{
+  "generation": "Gen314",
+  "title": "Deleveraging bounce on altcoins as its own sleeve (v8.4 perps; bf2.3 altcoin CFDs at measured spreads) - 2 trials",
+  "registered": "2026-10-21, before any Gen314 number",
+  "model": "the frozen Gen89 H4 rule (crypto_sleeves.delev_bounce_weights: OI value -10% over 24 h to 23:55 UTC and a falling price -> long 2 days) on the altcoins, size 0.1 per coin; v8.4: every B.coins() altcoin (perps, 5 bp + funding); bf2.3: the 14 cfd_book.ALT_CFD coins at half the measured spread + 1.2 bp per side",
+  "why": "Gen91 found the bounce positive on 7 of 9 altcoins and rejected it only for the then-assumed 10 bp CFD spreads; perps cost 5 bp and the measured CFD spreads are mostly 3-8 bp",
+  "pass": "v8.4: v-book sleeve bars (DEV from 2021-12) + strict rule vs 2.750 / 1.324 / 3.896 / 2.428; bf2.3: bf2 bars + strict rule vs 2.506 / 0.313 / 3.985 / 2.298",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
