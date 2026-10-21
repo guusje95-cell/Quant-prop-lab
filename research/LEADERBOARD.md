@@ -1002,3 +1002,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen295, bf2 with the v8.3 ridge (kimchi breadth + vol-scaled target, no spot features):** ridge sleeve 0.28 / 1.87 / 1.68 but bf2 2.401 [0.37, 3.72, 2.16]. **Fails**; bf2 keeps its spot-flow ridge.
 - **Gen296, inverse-vol sizing across US100 / US500 / US30 inside bf2's R1 / P1 legs:** 2.425 [0.42, 3.74, 2.17] vs 2.427. **Fails** (no effect).
 - **Gen297, v8.3 ridge with volatility-normalised return features:** 2.704 [1.37, 3.915, 2.218]. **Fails the strict rule (HOLD lower)**; watchlist.
+- **Gen298, deleveraging bounce with an OI-drop z-score trigger (< -2.5 sd):** 39 signals vs 98 episodes for the -10% rule; v8.3 -> 2.601 [0.94, 3.83, 2.13]. **Fails**; the fixed -10% trigger stays.
+- **Round tally (Gen293-298, vs v8.3 / bf2): 6 pre-registered trials, none passes; Gen297 (vol-normalised ridge features, 2.704) to the watchlist.**
