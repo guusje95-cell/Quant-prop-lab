@@ -1,0 +1,58 @@
+{
+ "reference bf2 at measured costs": [
+  2.427,
+  [
+   0.408,
+   3.751,
+   2.169
+  ]
+ ],
+ "coins": [
+  "AAVE",
+  "ADA",
+  "AVAX",
+  "BCH",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "NEAR",
+  "SOL",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "cost bp per side": {
+  "AAVE": 5.04,
+  "ADA": 5.63,
+  "AVAX": 7.36,
+  "BCH": 18.58,
+  "DOGE": 12.16,
+  "DOT": 22.8,
+  "ETC": 13.5,
+  "FIL": 15.52,
+  "LINK": 2.81,
+  "NEAR": 4.06,
+  "SOL": 3.07,
+  "UNI": 3.19,
+  "XLM": 17.44,
+  "XRP": 2.74
+ },
+ "alt kimchi at measured costs (bf2)": {
+  "sleeve D/T/H": [
+   0.12,
+   1.146,
+   0.646
+  ],
+  "bf2": [
+   2.423,
+   [
+    0.126,
+    3.939,
+    2.219
+   ]
+  ],
+  "pass": false
+ }
+}

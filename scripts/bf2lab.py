@@ -6,6 +6,13 @@ import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
 END = "2026-09-30"
+import os
+if os.environ.get("QPL_COSTS", "measured") == "measured":     # from 2026-10-21: half the measured BrightFunded spread per side (cost check)
+    import cfd_book as _CB
+    _spec = pd.read_csv(sorted((ROOT / "research_data/firm_specs").glob("BrightFunded*20261021*.csv"))[-1], encoding="latin1")
+    _meas = {s.split("/")[0].replace("XDG", "DOGE"): float(v) for s, v in zip(_spec["symbol"], _spec["spread_bp_median"]) if "/USD" in s}
+    for _c in _CB.SPREAD.index:
+        _CB.SPREAD[_c] = 0.5 * _meas[_c]
 _g = {"__file__": str(ROOT / "scripts/gen196_bf_ridge.py")}; exec(open(ROOT / "scripts/gen196_bf_ridge.py").read().split("\nIS = (P6 + R1)")[0], _g)
 CS, HB0, per, sh, HB_RIDGE, P6, R1, CB, IDXbf, sleeve = (_g[k] for k in ("CS", "HB0", "per", "sh", "hb", "P6", "R1", "CB", "IDXbf", "sleeve"))
 _q = {"__file__": str(ROOT / "scripts/gen232_bf_p1.py")}; exec(open(ROOT / "scripts/gen232_bf_p1.py").read().split("\nP6, R1, P1 =")[0], _q)
