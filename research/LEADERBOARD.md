@@ -960,3 +960,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen274 A, average trade size XS (20 perps, rising trade size long):** 1.29 / -0.34 / 0.52; v8.1 -> 2.456. **Fails.** **Gen274 B, altcoin OI share rotation:** -0.44 / -0.53 / -0.97. **Fails.**
 - **Gen275, Gen105 demand composite (Coinbase + Korean premium, BTC/ETH):** sleeve 1.17 / 1.29 / 1.06 (corr C* 0.04), but **A** added to v8.1: 2.437 (TEST 3.45); **B** replacing bf2's Coinbase-premium sleeve: 2.314 (2022 0.14). **Both fail**: redundant with the ridge, which already holds zc and zk.
 - **Gen276, v8.1 with the composite INSTEAD of the ridge:** **2.601** [1.62, 3.55, 2.19] vs 2.554 [1.00, 3.71, 2.35]. **Fails the strict rule** (TEST and HOLD lower; the overall gain comes from 2022). The ridge stays. Note: simpler (no DVOL / stablecoin / refit) at almost the same level, a fallback if the ridge's live feeds ever break.
+
+## Gen262 (2026-10-21): broader and regional demand premia (user download flow data 3; 3 trials vs v8)
+- **A, the Gen247 altcoin kimchi rule on 28 extra Upbit-listed coins (untouched by Gen247):** sleeve **0.19 / 1.07 / 0.57** (positive in every period, passes its own bars, corr C* -0.07), but v8 2.547 -> 2.408 (2022 and HOLD lower; overlaps the existing alt-kimchi sleeve). **Fails as an addition, but it is an out-of-sample replication of the v8 edge on new coins.**
+- **B, Turkish + Brazilian USDT premium (Binance USDT/TRY, USDT/BRL vs FX):** -0.06 / 0.84 / 0.26; v8 2.402. **Fails.**
+- **C, Turkish + Brazilian BTC premium:** -0.08 / 0.84 / 0.24; v8 2.400. **Fails.** Korea's premium is special (capital controls, Makarov-Schoar); other regions add nothing.
