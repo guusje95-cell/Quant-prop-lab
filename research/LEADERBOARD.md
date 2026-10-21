@@ -925,3 +925,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Reference from here: v8 2.547 / 3.708 / 2.345 (v7 + altcoin kimchi); bf2 2.383 / 3.702 / 2.125 (spot-flow ridge).**
 - **Gen261 (vs v8, 2 trials):** Upbit attention share XS -0.37 / 1.20 / -0.83; spot-vs-perp volume dominance XS 0.20 / 1.54 / -1.71. **Both fail** (strong 2023-24, negative 2025-26).
 - **Gen263, pooled altcoin ridge with kimchi / Coinbase / spot-flow features (vs v8):** -0.01 / 1.21 / -0.55, v8 -> 2.227. **Fails** (like Gen110: the altcoin ML does not hold in 2025-26; the simple kimchi rule does).
+- **v8 vs v7, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, same method as Gen236; descriptive):** 2025-26 mean net $123.5k -> **$133.1k** (p10 $68.2k -> $61.2k, P(profit) 1.00 -> 0.998); 2023-26 $168.6k -> **$177.1k** (p10 $100.5k -> $107.1k). Backtest-based, so optimistic in level; the difference is what matters.
+- **Paper trader v8** (`QPL_PAPER=v8`, `paper_v8_start.bat`, `config/paper_v8.json`, scale 0.882): reproduces 2.547 / 3.708 / 2.345 on the research pack.
