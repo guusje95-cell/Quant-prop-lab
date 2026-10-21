@@ -1,0 +1,11 @@
+{
+  "generation": "Gen267",
+  "title": "The v8 altcoin-kimchi sleeve (Gen247 A, unchanged) in bf2 on all 16 altcoins BrightFunded lists",
+  "registered": "2026-10-21, after Gen247 (where bf2 used only the 9 bf CFD altcoins and missed by 0.005), before any Gen267 number",
+  "why": "the BrightFunded MT5 export lists all 16 Upbit altcoins as CFDs (DOGE as XDG); Gen247's bf2 test was restricted to the 9 altcoins in the bf book's universe",
+  "rule": "Gen247 A weights unchanged (z > 1 long 0.1, z < -1 short 0.1, next day). CFD P&L on Binance perp hourly returns (as the bf book), cost per unit turnover = 10 bp spread + 1.2 bp commission (bf's altcoin assumption), no swap (swap-free)",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 (2.383 / 3.702 / 2.125)",
+  "caveat": "BrightFunded's swap-free add-on must cover these altcoin CFDs; spreads in the export were blank (weekend), so the 10 bp is an assumption",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
