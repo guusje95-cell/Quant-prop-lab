@@ -1,0 +1,10 @@
+{
+  "generation": "Gen275",
+  "title": "Gen105 demand composite (Coinbase + Korean premium, strict FX) in today's books",
+  "registered": "2026-10-21, before any Gen275 number",
+  "signal": "per coin (BTC, ETH): zc = Coinbase premium z (Gen108 feature, 23:00 UTC), zk = kimchi z (Gen105 strict); s = mean(zc, zk); composite z = (s - 30-day mean) / 30-day sd (min 20); z > 1 -> long 0.5, z < -1 -> short 0.5, next day (Gen105 rule unchanged)",
+  "A_v81": "added to v8.1 as a sleeve (perps 5 bp + funding); pass: sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "B_bf2": "replaces bf2's 'coinbase premium' sleeve (CFD, measured costs); pass: strict rule vs bf2 at measured costs (2.427 / 0.408 / 3.751 / 2.169). Gen105 failed in the old bf book (TEST); bf2 has changed since, counted as a new trial",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
