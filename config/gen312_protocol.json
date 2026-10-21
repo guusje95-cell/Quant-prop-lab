@@ -1,0 +1,10 @@
+{
+  "generation": "Gen312",
+  "title": "BTC/ETH kimchi premium sleeve (Gen102 P2 rule) re-tested on v8.4 and bf2.3 (2 trials)",
+  "registered": "2026-10-21, before any Gen312 number",
+  "model": "Gen105 strict kimchi z (ridge_live.zk_strict: Upbit KRW / previous-day USD-KRW / Binance hourly, 30-day z at 23:00 UTC) per coin; z > 1 long 0.5, z < -1 short 0.5, held the next day; v8.4: perps 5 bp + funding; bf2.3: BTC/ETH CFDs at measured costs",
+  "why": "Gen102 P2 passed alone (0.40 / 0.80 / 1.29, corr C* 0.00) but lowered the old book; the books changed since (alt kimchi works on altcoins, Gen247), and the BTC/ETH version was never re-judged",
+  "pass": "v8.4: v-book sleeve bars + strict rule vs 2.750 / 1.324 / 3.896 / 2.428; bf2.3: bf2 bars + strict rule vs 2.506 / 0.313 / 3.985 / 2.298",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
