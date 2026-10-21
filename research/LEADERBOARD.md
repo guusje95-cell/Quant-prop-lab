@@ -1038,3 +1038,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen308, Bitfinex margin positions (long/short ratio, 7-day changes) as ridge features:** v8.4 -> 2.690, bf2.3 -> 2.439. **Both fail.**
 - **Gen310, two-day smoothed ridge positions:** v8.4 -> 2.686 (HOLD 2.21), bf2.3 -> 2.425. **Both fail**: the ridge signal lives one day; smoothing loses more than the turnover it saves.
 - **Gen311, index ridge ML sleeve on US100 / US500 / US30 CFDs (index momentum / reversal / vol / IBS / RSI2 + VIX and equity VRP, vol-scaled target):** sleeve 0.09 / -0.15 / 0.57, corr with the index sleeve 0.44; bf2.3 -> 2.133. **Fails**: the ridge recipe does not transfer to US indices (as Gen138 on futures).
+- **Gen312, BTC/ETH kimchi sleeve (Gen102 P2 rule) on the new books:** sleeve 0.15 / 0.86 / 1.48; v8.4 -> 2.599 (HOLD 2.443 up, TEST 3.725 down), bf2.3 -> 2.416 (HOLD 2.37 up, TEST down). **Both fail**; the BTC/ETH kimchi information is already in the ridge.

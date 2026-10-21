@@ -1,0 +1,10 @@
+{
+  "generation": "Gen313",
+  "title": "Leave-one-sleeve-out: does any sleeve now dilute v8.4 or bf2.3? (17 trials)",
+  "registered": "2026-10-21, before any Gen313 number",
+  "model": "the book without one sleeve, every other part unchanged; v8.4: 8 sleeves (C*, premium carry, cascade limit strict, trend 4h, Weiss expiry, delev bounce, ridge ML, alt kimchi); bf2.3: 9 (C*, premium carry, trend 4h, Weiss expiry, delev bounce, coinbase premium, vol-managed indices, ridge ML, alt kimchi)",
+  "why": "sleeves were added one by one against older books; the ridge now carries the Coinbase, kimchi, flow and VRP information that some rule-based sleeves trade, so a sleeve may now only add cost and noise",
+  "pass": "a removal is adopted only if the book without it passes the strict rule vs the current book (v8.4 2.750 / 1.324 / 3.896 / 2.428; bf2.3 2.506 / 0.313 / 3.985 / 2.298); if several pass, only the best single removal (a second removal needs a new trial)",
+  "trials_added": 17,
+  "no_changes_after_results": true
+}
