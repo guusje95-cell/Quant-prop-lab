@@ -938,3 +938,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen268, ridge + Korean risk-appetite breadth (mean altcoin kimchi z):** v8 2.547 -> **2.554** [1.00, 3.709, 2.353]: **passes the strict rule (noise-level, +0.007); research reference v8.1.** Not pushed to the running v8 paper trader (a restart for +0.007 costs more than it gains); it is cheap to add at the next restart (the feature comes from the alt-kimchi z's v8 already computes). bf2: 2.377 < 2.383, fails.
 - **Reference from here: v8.1 2.554 / 3.709 / 2.353** (v8 + Gen268 ridge).
 - **Gen269, altcoin demand composite (mean of kimchi z and Coinbase premium z per altcoin, replacing the alt-kimchi sleeve):** 0.37 / 1.03 / 0.37; v8.1 -> 2.401. **Fails**: for altcoins the Korean premium carries the signal and the Coinbase premium adds noise (consistent with Gen102's failed Coinbase altcoin premium).
+
+## Gen265 (2026-10-21): Google search attention (user download, 7 terms 2020-26; 2 trials vs v8.1)
+- **A, attention momentum ('bitcoin' interest 7d vs 30d, z > 1 -> long BTC/ETH):** 0.41 / 1.14 / -0.46; v8.1 -> 2.416. **Fails** (2-day-delay version similar: 0.51 / 0.95 / -0.57).
+- **B, halve the book the day after an attention spike (> 2 sd, 185 days):** 2.403 [0.77, 3.64, 2.13]. **Fails**: spikes often come before rebounds, so de-risking cuts good days (2022 1.00 -> 0.77).

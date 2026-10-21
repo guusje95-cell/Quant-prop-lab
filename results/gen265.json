@@ -1,0 +1,68 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "A attention momentum": {
+  "sleeve D/T/H": [
+   0.411,
+   1.143,
+   -0.455
+  ],
+  "corr C*": 0.163,
+  "v7": [
+   2.416,
+   [
+    0.976,
+    3.509,
+    2.168
+   ]
+  ],
+  "pass": false
+ },
+ "A attention momentum [descriptive: values used 2 days later]": {
+  "sleeve D/T/H": [
+   0.511,
+   0.954,
+   -0.567
+  ],
+  "corr C*": 0.143,
+  "v7": [
+   2.391,
+   [
+    0.974,
+    3.462,
+    2.077
+   ]
+  ],
+  "pass": null
+ },
+ "B attention-spike de-risk": {
+  "spike days": 185,
+  "book": [
+   2.403,
+   [
+    0.769,
+    3.637,
+    2.128
+   ]
+  ],
+  "pass": false
+ },
+ "B attention-spike de-risk [descriptive: 2-day delay]": {
+  "spike days": 185,
+  "book": [
+   2.393,
+   [
+    0.713,
+    3.603,
+    2.24
+   ]
+  ],
+  "pass": null
+ }
+}
