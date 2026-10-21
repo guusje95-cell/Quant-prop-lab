@@ -1,6 +1,16 @@
 # To do on your PC (when home)
 
-**NEWEST (2026-10-21, latest) - v8.4 and bf2.3 found (ridge + variance risk premium + weekend features, CFD book + altcoin kimchi; v 2.700 -> 2.750, bf2 2.427 -> 2.506): switch BOTH paper traders:**
+**NEWEST (2026-10-21, latest) - v8.5 and bf2.4 found (wide premium carry with inverse-vol legs; v 2.750 -> 2.983, bf2 2.506 -> 2.787). Start these two paper traders (they replace every earlier v8.x / bf2.x):**
+   1. `git pull --no-edit`
+   2. Crypto: `paper_v8_share.bat` once (or `paper_v83_share.bat` / `paper_v84_share.bat` if you started those), close that window,
+      then double-click `paper_v85_start.bat`. First run: downloads the 40 extra coins (Binance perps) and Binance spot BTC/ETH.
+   3. CFD: `paper_bf2_share.bat` once, close the bf2 window, then double-click `paper_bf24_start.bat`.
+   4. CHECK ON BYBIT (HyroTrader): are these USDT perps listed? 1000PEPE, 1000SHIB, 1INCH, ALGO, APE, APT, ARB, AXS, CHZ, COMP, CRV,
+      DASH, DYDX, EGLD, ENJ, GALA, GRT, HBAR, ICP, IMX, INJ, IOTA, KSM, LDO, MANA, NEO, OP, RUNE, SAND, SNX, STX, SUI, SUSHI, THETA,
+      TIA, WLD, XTZ, YFI, ZEC, ZIL. Tell me any that are missing.
+   5. Push the Bithumb data when done; optional `get_deribit_options.bat` (options skew / flow, Gen309 ready).
+
+**OLDER:** NEWEST (2026-10-21, latest) - v8.4 and bf2.3 found (ridge + variance risk premium + weekend features, CFD book + altcoin kimchi; v 2.700 -> 2.750, bf2 2.427 -> 2.506): switch BOTH paper traders:**
    1. `git pull --no-edit`
    2. Crypto: `paper_v8_share.bat` once, close the v8 window (or v8.3 if you already started it: `paper_v83_share.bat`),
       then double-click `paper_v84_start.bat` (v8.4 = v8.3 + better ridge features, 2.700 -> 2.750; replaces v8.3).

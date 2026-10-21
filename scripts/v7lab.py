@@ -11,18 +11,22 @@ END = "2026-09-30"
 _v = {"__file__": str(ROOT / "scripts/gen109_ml_v6.py")}; exec(open(ROOT / "scripts/gen109_ml_v6.py").read().split("# X1")[0], _v)
 CS, B, H6, sh, per = (_v[k] for k in ("CS", "B", "H6", "sh", "per"))
 perp = lambda w, cost=5: CS._from_daily_weights(w, list(w.columns), cost).loc[:END + " 23:00"]
-_REF = os.environ.get("QPL_REF", "v8.4")
-_KB = _REF in ("v8.1", "v8.2", "v8.3", "v8.4")                                         # v8.1 (Gen268): ridge + kimchi breadth
-_VS = _REF in ("v8.2", "v8.3", "v8.4")                                           # v8.2 (Gen288): volatility-scaled ridge target
-_V84 = _REF == "v8.4"                                                            # v8.4 (Gen303 B): + spot flow, VRP, calendar features
+_REF = os.environ.get("QPL_REF", "v8.5")
+_KB = _REF in ("v8.1", "v8.2", "v8.3", "v8.4", "v8.5")                                         # v8.1 (Gen268): ridge + kimchi breadth
+_VS = _REF in ("v8.2", "v8.3", "v8.4", "v8.5")                                           # v8.2 (Gen288): volatility-scaled ridge target
+_V84 = _REF in ("v8.4", "v8.5")                                                            # v8.4 (Gen303 B): + spot flow, VRP, calendar features
 RIDGE = perp(RL.predictions(END, kb=_KB, volscale=_VS, spot=_V84, vrp=_V84, cal=_V84).pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5).rename("ridge ML")
-if _REF in ("v8", "v8.1", "v8.2", "v8.3", "v8.4"):                     # v8 (Gen247 A adopted): v7 + altcoin kimchi; QPL_REF=v7 for the old base
+if _REF in ("v8", "v8.1", "v8.2", "v8.3", "v8.4", "v8.5"):                     # v8 (Gen247 A adopted): v7 + altcoin kimchi; QPL_REF=v7 for the old base
     import alt_kimchi as AK
     ALTK = [perp(AK.weights(END + " 23:00")).rename("alt kimchi")]
 else:
     ALTK = []
-if _REF in ("v8.3", "v8.4"):                                         # v8.3 (Gen292): inverse-vol premium carry
+if _REF in ("v8.3", "v8.4", "v8.5"):                                         # v8.3 (Gen292): inverse-vol premium carry
     H6 = H6.copy(); H6["premium carry"] = CS._from_daily_weights(CS.premium_weights(invvol=True), B.coins(), 5).reindex(H6.index).fillna(0.0)
+PC60 = []
+if _REF == "v8.5":                                                    # v8.5 (Gen316): + 60-coin premium carry, inverse-vol legs
+    PC60 = [CS.premium_carry_breadth(w=CS.premium_breadth_weights(invvol=True)).loc[:END + " 23:00"].reindex(H6.index).fillna(0.0).rename("premium carry 60")]
+ALTK = ALTK + PC60                                                    # (kept with ALTK so judge()/replace_ridge books include it)
 book = lambda extra: CS.portfolio_v5(pd.concat([H6, RIDGE] + ALTK + list(extra), axis=1).fillna(0.0))[0]
 V7 = book([]); REF = (sh(V7, "2022-01-01", END), per(V7, "2022-01-01"))
 CST = H6["C*"].groupby(H6.index.floor("D")).sum()

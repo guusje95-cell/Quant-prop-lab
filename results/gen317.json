@@ -1,0 +1,64 @@
+{
+ "reference bf2.3": [
+  2.506,
+  [
+   0.313,
+   3.985,
+   2.298
+  ]
+ ],
+ "universe": [
+  "AAVE",
+  "ADA",
+  "ALGO",
+  "APT",
+  "ARB",
+  "AVAX",
+  "BCH",
+  "BNB",
+  "BTC",
+  "COMP",
+  "CRV",
+  "DASH",
+  "DOGE",
+  "DOT",
+  "EGLD",
+  "ETC",
+  "ETH",
+  "FIL",
+  "GRT",
+  "HBAR",
+  "ICP",
+  "INJ",
+  "LINK",
+  "LTC",
+  "MANA",
+  "NEAR",
+  "RUNE",
+  "SAND",
+  "SNX",
+  "SOL",
+  "SUI",
+  "UNI",
+  "XLM",
+  "XRP",
+  "XTZ"
+ ],
+ "n": 35,
+ "premium carry BF universe invvol (added) (bf2)": {
+  "sleeve D/T/H": [
+   1.087,
+   1.129,
+   2.052
+  ],
+  "bf2": [
+   2.787,
+   [
+    0.543,
+    4.043,
+    2.758
+   ]
+  ],
+  "pass": true
+ }
+}

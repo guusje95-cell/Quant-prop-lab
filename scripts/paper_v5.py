@@ -32,31 +32,37 @@ CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83", "v84") else []) \
-    + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84") else [])
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83", "v84", "v85") else []) \
+    + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84", "v85") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84", "v85") else []) \
+    + (["premium carry 60"] if VER == "v85" else [])
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
-CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22", "bf23")
-BFNEW = VER in ("bf22", "bf23")                         # bf2.2 / bf2.3: measured spreads, spot-flow + VRP + calendar ridge
+CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22", "bf23", "bf24")
+BFNEW = VER in ("bf22", "bf23", "bf24")                         # bf2.2 / bf2.3: measured spreads, spot-flow + VRP + calendar ridge
 if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
     SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
-    if VER in ("bf2", "bf22", "bf23"):                 # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
+    if VER in ("bf2", "bf22", "bf23", "bf24"):         # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
         SLEEVES += ["ridge ML", "vol-managed indices"]
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
-if VER == "bf23":                                      # bf2.3 (Gen306 C): + altcoin kimchi sleeve on 14 BrightFunded altcoin CFDs
+if VER in ("bf23", "bf24"):                            # bf2.3 (Gen306 C): + altcoin kimchi sleeve on 14 BrightFunded altcoin CFDs
     SLEEVES = SLEEVES + ["alt kimchi"]; ALTK = True
+if VER == "bf24":                                      # bf2.4 (Gen317): + inverse-vol premium carry on 35 BrightFunded crypto CFDs
+    SLEEVES = SLEEVES + ["premium carry BF"]
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "v85": "results/cache_v85_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf24": "results/cache_bf24_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
 def extra_coins() -> list[str]:
     """Extra Binance coins the shadow book reads (none for v5/v6/bf)."""
-    if not BREADTH:
+    if not BREADTH and VER not in ("v85", "bf24"):
         return []
     from qpl.lab import extra_pack as X
-    return X.coins() if VER == "v6b" else [c for c in X.BF_NEW if c in X.coins()]
+    if VER == "bf24":
+        import cfd_book as CB
+        return [c for c in CB.CARRY_CFD if c in X.coins()]
+    return X.coins() if VER in ("v6b", "v85") else [c for c in X.BF_NEW if c in X.coins()]
 STOP_FRACTION = CFG["frozen"].get("stop_fraction", 0.5)
 
 
@@ -138,7 +144,7 @@ def compute():
     import crypto_sleeves as CS
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END)
-    cw = CS.cstar_weights(); pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights(invvol=VER in ("v83", "v84"))
+    cw = CS.cstar_weights(); pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights(invvol=VER in ("v83", "v84", "v85"))
     cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
     tr, tpos = CS.trend4h(positions=True)
     we, wpos = CS.weiss_expiry(positions=True)
@@ -149,11 +155,13 @@ def compute():
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
     if RIDGE:
         import ridge_live as RL
-        v84 = VER == "v84"                             # v8.4 (Gen303 B): + spot flow, VRP and calendar features
-        rw = RL.ridge_weights(kb=VER in ("v83", "v84"), volscale=VER in ("v83", "v84"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+        v84 = VER in ("v84", "v85")                    # v8.4 (Gen303 B): + spot flow, VRP and calendar features
+        rw = RL.ridge_weights(kb=VER in ("v83", "v84", "v85"), volscale=VER in ("v83", "v84", "v85"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     if ALTK:
         import alt_kimchi as AK
         aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
+    if "premium carry 60" in SLEEVES:                  # v8.5 (Gen316): premium carry on the 60-coin universe, inverse-vol legs
+        pw60 = CS.premium_breadth_weights(invvol=True); cols["premium carry 60"] = CS.premium_carry_breadth(w=pw60)
     H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
     h1 = END + pd.Timedelta(hours=1)
     Hx = pd.concat([H, pd.DataFrame(0.0, index=[h1], columns=H.columns)])          # makes the next day's weights computable
@@ -177,6 +185,9 @@ def compute():
     if ALTK:
         prev = aw.loc[:d - pd.Timedelta(days=1)]
         expo["alt kimchi"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    if "premium carry 60" in SLEEVES:
+        prev = pw60.loc[:d - pd.Timedelta(days=1)]
+        expo["premium carry 60"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -223,7 +234,15 @@ def compute_bf():
         idx0 = pos["C*"].index; pos["alt kimchi"] = ap.reindex(idx0.floor("D")).set_axis(idx0).fillna(0.0)
         p_ = pos["alt kimchi"].reindex(R.index).fillna(0.0)
         acost = pd.Series({c: CB.ALT_SPREAD[c] + CB.COMM for c in ac}) / 1e4
-    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL if s != "alt kimchi"})
+    if "premium carry BF" in SLEEVES:                  # bf2.4 (Gen317): invvol premium carry on CB.CARRY_CFD, measured spreads, no swap
+        U = CB.CARRY_CFD; cw_ = CS.premium_breadth_weights(coins=U, invvol=True)
+        cr = CS._breadth_close(U).pct_change(fill_method=None).reindex(R.index).fillna(0.0)
+        cp = cw_.reindex(cw_.index.append(pd.DatetimeIndex([cw_.index[-1] + pd.Timedelta(days=1)]))).reindex(columns=U).shift(1)
+        idx0 = pos["C*"].index; pos["premium carry BF"] = cp.reindex(idx0.floor("D")).set_axis(idx0).fillna(0.0)
+        q_ = pos["premium carry BF"].reindex(R.index).fillna(0.0); ccost = (CB.CARRY_SPREAD + CB.COMM) / 1e4
+    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL if s not in ("alt kimchi", "premium carry BF")})
+    if "premium carry BF" in SLEEVES:
+        H["premium carry BF"] = (q_ * cr).sum(axis=1) - q_.diff().abs().fillna(q_.abs()).mul(ccost, axis=1).sum(axis=1)
     if ALTK:
         H["alt kimchi"] = (p_ * ar).sum(axis=1) - p_.diff().abs().fillna(p_.abs()).mul(acost, axis=1).sum(axis=1)
     if INDEX:
@@ -258,7 +277,7 @@ def compute_bf():
         if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
             part = expo[s].astype(float) * float(eff[s]); part = part[part.abs() > 1e-9]; by[s] = part
             book = book.add(part, fill_value=0.0)
-    g = float(book[book.index.isin(list(CB.CFD) + list(CB.ALT_CFD))].abs().sum()) if len(book) else 0.0     # the 1:5 cap counts crypto CFDs (whole book scaled, as ph)
+    g = float(book[book.index.isin(set(CB.CFD) | set(CB.ALT_CFD) | set(CB.CARRY_CFD))].abs().sum()) if len(book) else 0.0     # the 1:5 cap counts crypto CFDs (whole book scaled, as ph)
     if g > cap:
         book = book * cap / g; by = {k: v * cap / g for k, v in by.items()}
     effd = W.mul(mult.reindex(W.index), axis=0) * SCALE
@@ -333,7 +352,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER == "v84"):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER in ("v84", "v85")):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed

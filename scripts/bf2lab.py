@@ -19,15 +19,15 @@ cfd = lambda w: sleeve(CB.d2h(w.reindex(columns=CB.CFD).fillna(0.0), IDX1))
 
 
 import os
-_BREF = os.environ.get("QPL_BF_REF", "bf2.3")
+_BREF = os.environ.get("QPL_BF_REF", "bf2.4")
 if os.environ.get("QPL_REF", "v8") != "v7":                    # after Gen247: bf2's ridge uses the spot taker features (QPL_REF=v7: old)
     import ridge_live as _RL                                   # bf2.1 (Gen301 A): + VRP; bf2.2 (Gen302 A): + VRP + calendar
-    HB_RIDGE = cfd(_RL.predictions(END, spot=True, vrp=_BREF in ("bf2.1", "bf2.2", "bf2.3"), cal=_BREF in ("bf2.2", "bf2.3"))
+    HB_RIDGE = cfd(_RL.predictions(END, spot=True, vrp=_BREF in ("bf2.1", "bf2.2", "bf2.3", "bf2.4"), cal=_BREF in ("bf2.2", "bf2.3", "bf2.4"))
                    .pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5)
 
 
 ALTK_BF = []
-if _BREF == "bf2.3":                                           # bf2.3 (Gen306 C = Gen270 rule): altcoin kimchi on 14 altcoin CFDs
+if _BREF in ("bf2.3", "bf2.4"):                                # bf2.3 (Gen306 C = Gen270 rule): altcoin kimchi on 14 altcoin CFDs
     import alt_kimchi as _AK
     from qpl.lab import binance_pack as _B
     _aw = _AK.weights(END + " 23:00"); _ac = [c for c in _aw.columns if c in _CB.ALT_CFD]; _aw = _aw[_ac]
@@ -35,6 +35,13 @@ if _BREF == "bf2.3":                                           # bf2.3 (Gen306 C
     _r = _B.panel("close", "1h", _ac).loc[:END + " 23:00"].pct_change(fill_method=None).fillna(0.0)
     _held = _aw.reindex(_aw.index.append(pd.DatetimeIndex([_aw.index[-1] + pd.Timedelta(days=1)]))).shift(1).reindex(_r.index.floor("D")).set_axis(_r.index).fillna(0.0)
     ALTK_BF = [((_held * _r).sum(axis=1) - _held.diff().abs().fillna(_held.abs()).mul(_cost, axis=1).sum(axis=1)).reindex(IDXbf).fillna(0.0).rename("alt kimchi")]
+
+if _BREF == "bf2.4":                                           # bf2.4 (Gen317): invvol premium carry on cfd_book.CARRY_CFD
+    import crypto_sleeves as _CS
+    _U = _CB.CARRY_CFD; _cw = _CS.premium_breadth_weights(coins=_U, invvol=True); _H = _CS._breadth_close(_U)
+    _r2 = _H.pct_change(fill_method=None).fillna(0.0)
+    _h2 = _cw.reindex(_cw.index.append(pd.DatetimeIndex([_cw.index[-1] + pd.Timedelta(days=1)]))).reindex(columns=_U).shift(1).reindex(_H.index.floor("D")).set_axis(_H.index).fillna(0.0)
+    ALTK_BF = ALTK_BF + [((_h2 * _r2).sum(axis=1) - _h2.diff().abs().fillna(_h2.abs()).mul((_CB.CARRY_SPREAD + _CB.COMM) / 1e4, axis=1).sum(axis=1)).reindex(IDXbf).fillna(0.0).rename("premium carry BF")]
 
 
 def book(extra, ridge=None):

@@ -30,11 +30,16 @@ def measured_costs():
         SPREAD[c] = 0.5 * meas[c]
     for c in ALT_CFD:
         ALT_SPREAD[c] = 0.5 * meas[c]
+    for c in CARRY_CFD:
+        CARRY_SPREAD[c] = 0.5 * meas[c]
 
 
 # bf2.3 (Gen306 C / Gen270): altcoin kimchi CFDs (measured spread <= 50 bp; ATOM, TRX excluded), half the measured spread per side
 ALT_CFD = ["AAVE", "ADA", "AVAX", "BCH", "DOGE", "DOT", "ETC", "FIL", "LINK", "NEAR", "SOL", "UNI", "XLM", "XRP"]
 ALT_SPREAD = pd.Series(10.0, index=ALT_CFD)
+# bf2.4 (Gen317): inverse-vol premium carry on the BrightFunded crypto CFDs with Binance data and a measured spread in (0, 50] bp
+CARRY_CFD = ['AAVE', 'ADA', 'ALGO', 'APT', 'ARB', 'AVAX', 'BCH', 'BNB', 'BTC', 'COMP', 'CRV', 'DASH', 'DOGE', 'DOT', 'EGLD', 'ETC', 'ETH', 'FIL', 'GRT', 'HBAR', 'ICP', 'INJ', 'LINK', 'LTC', 'MANA', 'NEAR', 'RUNE', 'SAND', 'SNX', 'SOL', 'SUI', 'UNI', 'XLM', 'XRP', 'XTZ']
+CARRY_SPREAD = pd.Series(10.0, index=CARRY_CFD)
 COMM = 1.2
 LEVERAGE_CAP = 5.0
 
