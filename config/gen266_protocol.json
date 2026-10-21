@@ -1,0 +1,10 @@
+{
+  "generation": "Gen266",
+  "title": "Hourly Upbit -> Binance lead-lag (Korean demand moving first), judged against v8",
+  "registered": "2026-10-21, before any Gen266 number",
+  "rule": "18 coins with Upbit data (BTC, ETH + 16 altcoins). Hourly premium p = log(Upbit KRW close / USD-KRW (Gen105 strict) ) - log(Binance perp close); dp = p - p one hour earlier; sd = 30-day (720 h, min 480) sd of dp, shifted one hour. dp > 3 sd -> long the coin on Binance 0.1 from the next hour for 4 hours; dp < -3 sd -> short 0.1; overlapping signals do not add (max 0.1 per coin); 5 bp per side + funding",
+  "why": "Makarov-Schoar 2020: exchange-specific price deviations predict relative returns (convergence); the Korean price moving first is retail demand reaching Binance with a delay",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8 (2.547 / 3.708 / 2.345)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
