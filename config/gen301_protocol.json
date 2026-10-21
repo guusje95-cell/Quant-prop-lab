@@ -1,0 +1,9 @@
+{
+  "generation": "Gen301",
+  "title": "bf2 spot-flow ridge + the Gen300 VRP features (A) / calendar features (B)",
+  "registered": "2026-10-21, after Gen300 (v8.3: VRP 2.746 but HOLD lower; calendar 2.711 but sleeve DEV < 0), before any bf2 number",
+  "model": "bf2's ridge unchanged (Gen247 B spot taker features, raw target, monthly walk-forward from 2021, alpha 10) plus A: vrp and vrp7 exactly as Gen300 A; B: weekend and Monday dummies exactly as Gen300 C",
+  "pass": "bf2 bars (sleeve D 2021-22 > 0, TEST >= 0.5, HOLD >= 0.3) and strict rule vs bf2 at measured costs (2.427 / 0.408 / 3.751 / 2.169)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
