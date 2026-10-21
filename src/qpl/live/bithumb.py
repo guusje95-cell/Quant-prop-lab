@@ -54,6 +54,7 @@ def fetch(c):
 
 
 if __name__ == "__main__":
-    cs = coins(); print(f"{len(cs)} coins, a few minutes each; progress every ~170 days of data", flush=True)
+    import sys
+    cs = sys.argv[1:] or coins(); print(f"{len(cs)} coins, a few minutes each; progress every ~170 days of data", flush=True)
     for c in cs:
         fetch(c)
