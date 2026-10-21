@@ -1,0 +1,10 @@
+{
+  "generation": "Gen261",
+  "title": "Volume-share signals from the new data: Upbit attention share (altcoins), spot-vs-perp volume dominance (20 coins)",
+  "registered": "2026-10-21, before any Gen261 number; judged against v8 (2.547 / 3.708 / 2.345)",
+  "A_upbit_attention": "16 altcoins with an Upbit KRW market: share = Upbit daily turnover in USD (sum of hourly close x volume / USD-KRW, previous London day) / Binance perp daily quote volume; score = log(7-day mean share / 90-day mean share); long the 4 highest, short the 4 lowest, 0.125 each (>= 10 coins), daily at 00:00 UTC, perps 5 bp + funding",
+  "B_spot_dominance": "20 coins: score = log(7-day spot quote volume / 7-day perp quote volume) - log(90-day spot / 90-day perp); long the 4 highest (rising spot share), short the 4 lowest; as A",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
