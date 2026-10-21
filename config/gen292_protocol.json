@@ -1,0 +1,9 @@
+{
+  "generation": "Gen292",
+  "title": "Premium carry with inverse-volatility weights inside each leg (v8.2 and bf2)",
+  "registered": "2026-10-21, before any Gen292 number",
+  "rule": "premium carry unchanged (7-day mean premium index, long the lowest third / short the highest third, weekly rebalance) except that inside each leg weights are proportional to 1 / 30-day daily vol of each coin (known at the decision), each leg summing to 1 as before",
+  "pass": "replaces the premium-carry sleeve; strict rule vs v8.2 (2.636 / 1.203 / 3.764 / 2.357) and, separately, vs bf2 at measured costs (2.427 / 3.751 / 2.169)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
