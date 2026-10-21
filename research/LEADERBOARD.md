@@ -927,3 +927,9 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen263, pooled altcoin ridge with kimchi / Coinbase / spot-flow features (vs v8):** -0.01 / 1.21 / -0.55, v8 -> 2.227. **Fails** (like Gen110: the altcoin ML does not hold in 2025-26; the simple kimchi rule does).
 - **v8 vs v7, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, same method as Gen236; descriptive):** 2025-26 mean net $123.5k -> **$133.1k** (p10 $68.2k -> $61.2k, P(profit) 1.00 -> 0.998); 2023-26 $168.6k -> **$177.1k** (p10 $100.5k -> $107.1k). Backtest-based, so optimistic in level; the difference is what matters.
 - **Paper trader v8** (`QPL_PAPER=v8`, `paper_v8_start.bat`, `config/paper_v8.json`, scale 0.882): reproduces 2.547 / 3.708 / 2.345 on the research pack.
+
+## Gen264 (2026-10-21): kimchi refinements from the user's papers (2 trials, vs v8)
+- Papers read: Makarov & Schoar 2020 (JFE), Choi, Lehar & Stauffer 2022, Eom 2021 (FRL), Lee & Oh 2022, Koch & Dimpfl 2022.
+- **A, idiosyncratic altcoin premium (alt kimchi minus BTC kimchi, Makarov-Schoar), market-neutral XS:** -0.89 / -0.06 / -1.21. **Fails.** The tradable information is in the total premium (Gen247), not the coin-specific part.
+- **B, kimchi bubble reversal (kimchi z > 1 and Korean volume-share surge -> short, Eom):** -1.07 / -1.43 / 0.25. **Fails**: "bubbles" keep running, consistent with v8's momentum use of the premium.
+- Not testable here: Lee & Oh (confidential remittance data); Koch & Dimpfl (Google / Twitter attention, not available; the volume-share proxy failed in Gen261).

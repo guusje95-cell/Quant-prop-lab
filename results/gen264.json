@@ -1,0 +1,45 @@
+{
+ "reference v8": [
+  2.547,
+  [
+   0.993,
+   3.708,
+   2.345
+  ]
+ ],
+ "A idiosyncratic altcoin premium XS": {
+  "sleeve D/T/H": [
+   -0.891,
+   -0.058,
+   -1.209
+  ],
+  "corr C*": 0.04,
+  "v7": [
+   2.19,
+   [
+    0.551,
+    3.482,
+    1.868
+   ]
+  ],
+  "pass": false
+ },
+ "B bubble days (coin-days)": 991,
+ "B kimchi bubble reversal": {
+  "sleeve D/T/H": [
+   -1.071,
+   -1.426,
+   0.253
+  ],
+  "corr C*": -0.321,
+  "v7": [
+   2.374,
+   [
+    0.904,
+    3.241,
+    2.442
+   ]
+  ],
+  "pass": false
+ }
+}
