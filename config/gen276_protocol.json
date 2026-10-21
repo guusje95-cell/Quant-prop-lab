@@ -1,0 +1,10 @@
+{
+  "generation": "Gen276",
+  "title": "v8.1 with the demand composite INSTEAD of the ridge ML sleeve (follow-up of Gen275, counted as a new trial)",
+  "registered": "2026-10-21, after Gen275, before any Gen276 number",
+  "rule": "Gen275 composite sleeve (perps) replaces the ridge sleeve; all other v8.1 sleeves unchanged (the alt-kimchi sleeve stays)",
+  "why": "the composite is strong alone (1.17 / 1.29 / 1.06) and redundant with the ridge; it needs only Coinbase / Upbit / FX feeds (no DVOL, stablecoin or model refits)",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
