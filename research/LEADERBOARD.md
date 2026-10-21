@@ -953,3 +953,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen271, cheap BrightFunded CFDs added to the bf2 universe (measured costs; reference reproduced 2.427):** + BNB 2.408 [0.50, 3.77, 2.03]; + BNB, UNI, NEAR, AAVE 2.301. **Both fail** (HOLD lower); the bf2 universe stays at 11 coins.
 - **Gen272, intraday periodicity (Gen154 rule) on US100/US500/US30 CFDs at BrightFunded costs (full measured spread per side, 0 commission; 9-setting grid on 2018-22, CFD data starts 2018):** every setting negative (-0.97 to -2.66). **Fails**: the futures periodicity signal does not carry over to the CFDs even at near-zero costs.
 - Cost note: bf2's index sleeve at a realistic 0.3 bp per side (measured US index spreads 0.19-0.66 bp, zero commission) instead of 1 bp: bf2 2.427 -> 2.435 [0.42, 3.76, 2.18]. The 1 bp assumption is kept as a safety margin.
+
+## Gen273 (2026-10-21): CME asset-manager positioning; stablecoin dominance (2 trials vs v8.1)
+- **A, CFTC TFF asset-manager net long change (CME BTC / ETH, weekly, from the Monday after release):** -0.17 / 0.42 / 0.26; v8.1 -> 2.524. **Fails** (with Gen119's leveraged funds, CME positioning carries no usable signal).
+- **B, stablecoin dominance (USDT+USDC vs BTC+ETH caps, 30-day change, risk-off when rising):** 0.23 / 0.63 / 0.04 (caps to 2026-05); v8.1 -> 2.340. **Fails.**

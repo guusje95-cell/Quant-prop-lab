@@ -1,0 +1,10 @@
+{
+  "generation": "Gen274",
+  "title": "Participation structure: average trade size (20-coin XS) and altcoin share of open interest (vs v8.1)",
+  "registered": "2026-10-21, before any Gen274 number",
+  "A_avg_trade_size_xs": "per coin (20 perps): ats = daily quote volume / daily trade count; score = log(7-day mean ats / 90-day mean ats); long the 4 highest (larger trades: institutional participation rising), short the 4 lowest (retail influx), 0.125 each, >= 10 coins, next day, 5 bp + funding",
+  "B_alt_oi_share": "share = altcoin open-interest value (18 non-BTC/ETH perps) / total OI value (20 perps), daily; s = share - share 7 days earlier; z = 90-day z (min 60); z > 1 (leverage moving into altcoins: froth) -> long BTC 0.5 / short an equal-weight altcoin basket 0.5; z < -1 -> the reverse; next day, 5 bp + funding",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
