@@ -1,0 +1,15 @@
+{
+  "generation": "Gen311",
+  "title": "Index ridge ML sleeve on US100 / US500 / US30 CFDs in bf2.3 (1 trial)",
+  "registered": "2026-10-21, before any Gen311 number",
+  "model": {
+    "decision": "daily at the close of the 15:00-16:00 ET hourly bar (Dukascopy BID, as R1/P1), position from the next bar until the next decision, 1 bp per side",
+    "features": "per index: returns over 1, 5, 20 days (16:00 ET closes), 20-day realised vol, IBS of the RTH day (09:00-16:00 ET), distance to the 200-day mean, RSI(2); market: previous day's VIX close (Yahoo, lagged one day because VIX closes at 16:15 ET), its 1-day change, previous day's equity VRP = VIX^2/12 - 21-day realised US500 variance (x1e4); index dummies",
+    "target": "next-day 16:00-to-16:00 ET return / 20-day vol (the Gen288 idea)",
+    "fit": "pooled ridge (alpha 10, standardised, clip +-5), monthly walk-forward from 2019-01 on all earlier days (data from 2018); position 0.5 x clip(prediction / training sd, -1, 1) per index",
+    "why": "R1/P1 are hand-made dip rules and P6 is vol-managed long; a ridge can weigh momentum, reversal, volatility and the equity VRP jointly (the crypto ridge's lesson); Gen138 tested a ridge across 24 futures without VIX / VRP inputs"
+  },
+  "pass": "bf2 sleeve bars (DEV 2020-21 > 0, TEST >= 0.5, HOLD >= 0.3) + strict rule vs bf2.3 (2.506 / 0.313 / 3.985 / 2.298)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

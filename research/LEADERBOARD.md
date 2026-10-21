@@ -1036,3 +1036,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Reference from here: bf2.3 2.506 / 0.313 / 3.985 / 2.298.**
 - **Gen307, v8.4 + the Coinbase premium sleeve on perps (the bf rule):** sleeve 0.73 / 1.30 / 0.66, corr C* -0.04; v8.4 -> 2.668 [1.44, 3.80, 2.25]. **Fails**: with the Coinbase z inside the ridge the separate sleeve now costs TEST and HOLD.
 - **Gen308, Bitfinex margin positions (long/short ratio, 7-day changes) as ridge features:** v8.4 -> 2.690, bf2.3 -> 2.439. **Both fail.**
+- **Gen310, two-day smoothed ridge positions:** v8.4 -> 2.686 (HOLD 2.21), bf2.3 -> 2.425. **Both fail**: the ridge signal lives one day; smoothing loses more than the turnover it saves.
