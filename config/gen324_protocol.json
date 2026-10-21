@@ -1,0 +1,8 @@
+{
+  "generation": "Gen324",
+  "title": "bf2.6 under BrightFunded's balance-or-equity daily rule (MT5 accounting simulation; descriptive)",
+  "registered": "2026-10-21, before any Gen324 number",
+  "what": "A daily reference = equity at rollover (current model); B = max(balance, equity) (BrightFunded support, 2026-10-21); C = B with floating losers closed and reopened before the rollover. Count daily stops (2.5%) and breaches (5%), Sharpe and the cost of C",
+  "decision": "if B has more stops / breaches than A and C removes most of the difference at a cost below 0.05 Sharpe, the EA realises floating losses before every rollover",
+  "trials_added": 0
+}

@@ -102,3 +102,19 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
 | without the cascade (no hourly orders) | 2.893 / 0.92 / 3.79 / 3.06 |
 | manual: without cascade and trend 4h (one batch a day + monthly Weiss) | **2.613** / 0.31 / 3.63 / 3.08 |
 | manual, daily batch only | 2.445 / 0.25 / 3.32 / 3.00 |
+
+## 7. Update 2026-10-21 (later): HyroTrader bots ALLOWED; Gen324 balance/equity simulation
+- **HyroTrader official FAQ (found by the user):** "Can I create a Bybit API key to trade on a different platform?" and "Are trading
+  bots allowed during the challenge and funded phase?" -> yes: an API key on the Bybit (demo) account may run your OWN bot;
+  third-party signal bots, copied strategies and copy trading are prohibited. **v8.6 can therefore run in full (3.11, incl. the
+  hourly cascade limit orders).** The manual variants in section 6 are only a fallback.
+- **Gen324 (MT5 accounting, bf2.6, risk 2.0; `results/gen324.json`):**
+  - A (reference = equity, our model): 67 daily stops; B (BrightFunded: max(balance, equity) at the rollover): 89 stops, same
+    breaches, Sharpe not lower (2.488 vs 2.458 in this stop simulation). Gap between balance and equity at the rollover: mean $278,
+    p95 $1,822, above $4,000 on 10 days in 4.7 years. **The balance rule costs little for this book.**
+  - C (close and reopen floating losers before every rollover): costs $193k over 2022-26, Sharpe 1.78. **Rejected: do not do this.**
+  - **Gap risk:** with an HOURLY 2.5% stop, single hours that jump past the 5% daily limit: bf2.6 at risk 2.0 on 2025-10-10
+    (the October 2025 liquidation crash), v8.6 at risk 2.0 on 2023-03-22 and 2024-03-05; none at risk 1.5 in either book.
+    The prop simulations already count these as failures (to_daily_stop keeps the hourly path's worst point).
+  - **Bot requirement:** monitor equity continuously (every minute, not every hour) and flatten at the 2.5% daily stop; that
+    catches most of these hours midway. A crash within minutes can still pass the limit: that is the residual risk of risk 2.0.
