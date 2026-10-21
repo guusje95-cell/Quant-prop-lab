@@ -1,0 +1,28 @@
+{
+ "reference v8.2": [
+  2.636,
+  [
+   1.203,
+   3.764,
+   2.357
+  ]
+ ],
+ "training rows per month (last)": 40488,
+ "pooled-training ridge": {
+  "sleeve D/T/H": [
+   -0.418,
+   1.259,
+   1.293
+  ],
+  "corr C*": 0.0,
+  "v7": [
+   2.445,
+   [
+    0.777,
+    3.7,
+    2.201
+   ]
+  ],
+  "pass": false
+ }
+}
