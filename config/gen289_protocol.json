@@ -1,0 +1,10 @@
+{
+  "generation": "Gen289",
+  "title": "Inverse-volatility position sizing for the v8.2 ridge and altcoin-kimchi sleeves",
+  "registered": "2026-10-21, after Gen288, before any Gen289 number",
+  "A_ridge_invvol": "v8.2 ridge positions = 0.5 x prediction x clip(ref / vol30_coin, 0.5, 2), ref = the 365-day rolling median of vol30 across BTC and ETH (known at the decision). The prediction is in volatility units since Gen288, so dividing by vol is the consistent size. Replaces the ridge sleeve",
+  "B_altkimchi_invvol": "v8.2 alt-kimchi sign rule unchanged; size per coin = 0.1 x clip(ref / vol30_coin, 0.5, 2), ref = 365-day rolling median of vol30 across the 16 altcoins (known at the decision). Replaces the alt-kimchi sleeve",
+  "pass": "each separately: strict rule vs v8.2 (2.636 / 1.203 / 3.764 / 2.357)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
