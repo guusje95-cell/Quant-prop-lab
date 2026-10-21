@@ -1,0 +1,10 @@
+{
+  "generation": "Gen293",
+  "title": "Inverse-volatility sizing for the remaining fixed-size sleeves: cascade (20 coins) and deleveraging bounce (BTC / ETH), vs v8.3",
+  "registered": "2026-10-21, after Gen288 / Gen292 (risk-based sizing worked), before any Gen293 number",
+  "A_cascade": "cascade limit strict unchanged except trade size = 0.2 x clip(ref / vol_coin, 0.5, 2): vol_coin = the coin's 30-day daily vol at the signal day (previous days only), ref = 365-day rolling median of the cross-coin median vol30 (20 coins)",
+  "B_delev_bounce": "deleveraging bounce unchanged except size = 0.5 x clip(ref / vol30_coin, 0.5, 2), ref = 365-day rolling median of the BTC / ETH median vol30 (known at the decision)",
+  "pass": "each replaces its sleeve: strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

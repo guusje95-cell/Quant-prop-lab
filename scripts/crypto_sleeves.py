@@ -117,7 +117,7 @@ def premium_carry_breadth(coins=None, w=None):
 
 
 def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0, doi_th=0.05, positions=False, live=False,
-            coins=None, maker_fee=2.0, cost_map=None):
+            coins=None, maker_fee=2.0, cost_map=None, size_fn=None):
     """Liquidation-cascade buy. live=True (paper trading): the entry fee is booked in the fill hour (known then) instead of the
     signal hour; P&L is otherwise identical. positions=True also returns hourly notional per coin and, in .attrs, the trades
     still open at the end of the data and the signals of the last hour (limit orders for the next hour)."""
@@ -160,20 +160,21 @@ def cascade(hold=12, k=3.0, cost=5, max_open=3, size=0.2, limit=0.0, through=0.0
         open_ex = [e for e in open_ex if e > t0]
         if len(open_ex) >= max_open:
             continue
+        sz = size * (size_fn(coin, t0) if size_fn else 1.0)              # Gen293: optional per-trade size multiplier
         open_ex.append(pd.Timestamp.max if still_open else t1)
         if still_open:
-            open_now.append({**info, "size": size})
+            open_now.append({**info, "size": sz})
         if positions:
-            pos.loc[t0 + pd.Timedelta(hours=1):t1, coin] += size        # hours whose return the trade earns
+            pos.loc[t0 + pd.Timedelta(hours=1):t1, coin] += sz          # hours whose return the trade earns
         t_fee = t0 + pd.Timedelta(hours=1) if live else t0
         c_in = (cost_map or {}).get(coin, maker_fee if maker else cost); c_out = (cost_map or {}).get(coin, cost)
         if t_fee in pnl.index:
-            pnl.loc[t_fee] -= size * c_in / 1e4
+            pnl.loc[t_fee] -= sz * c_in / 1e4
         for ts, rr in path:
             if ts in pnl.index:
-                pnl.loc[ts] += size * rr
+                pnl.loc[ts] += sz * rr
         if t1 in pnl.index and not still_open:
-            pnl.loc[t1] -= size * c_out / 1e4
+            pnl.loc[t1] -= sz * c_out / 1e4
     if positions:
         free = max_open - len(open_now)
         pos.attrs = {"open_trades": open_now, "pending_signals": pending[:max(free, 0)]}
