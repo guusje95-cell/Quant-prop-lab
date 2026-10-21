@@ -6,6 +6,7 @@
 Uses Bithumb's Upbit-style public API (api.bithumb.com/v1/candles/minutes/60, 200 candles per request, paged backwards), paced
 well under the public limit; resumable. Output: research_data/more/bithumb_KRW-<COIN>_1h.parquet (same format as the Upbit files)."""
 import time
+from urllib.parse import quote
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -28,9 +29,9 @@ def fetch(c):
     to = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0); rows = []
     while to > stop:
         try:
-            js = get(f"https://api.bithumb.com/v1/candles/minutes/60?market={m}&count=200&to={to:%Y-%m-%d %H:%M:%S}")
+            js = get(f"https://api.bithumb.com/v1/candles/minutes/60?market={m}&count=200&to={quote(f'{to:%Y-%m-%d %H:%M:%S}')}")
         except Exception as e:
-            print(f"  {m}: {e.__class__.__name__}, stopping here (run again later)", flush=True); break
+            print(f"  {m}: {e.__class__.__name__}: {str(e)[:160]} - stopping here (run again later)", flush=True); break
         if not js or not isinstance(js, list):
             break
         rows += js
