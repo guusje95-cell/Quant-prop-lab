@@ -1023,7 +1023,7 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, v8.3 ridge + VRP + weekend / Monday dummies:** ridge sleeve 0.27 / 1.91 / 1.55; v8.3 -> **2.748** [1.330, 3.882, 2.427]: passes.
 - **B, A + Binance spot taker flow (simb, sdiv):** sleeve 0.28 / 1.94 / 1.54; v8.3 -> **2.750 [1.324, 3.896, 2.428]: passes. Adopted (higher book Sharpe, the standing rule): v8.4.** A and B differ by noise; B uses the same live spot feed as bf2.2.
 - Same pattern in both books: VRP alone or calendar alone fell short on one period in v8.3, the combination lifts every period in both v8.3 and bf2. Caveat: 7 ridge-feature trials today (Gen300 3, Gen301 2, Gen303 2), 4 pass; selection among them is part of the count.
-- Paper version `v84` (config/paper_v84.json, scale 0.895): reproduces 2.750 / 1.324 / 3.895 / 2.428 on the research pack.
+- Paper version `v84` (config/paper_v84.json, scale 0.895): reproduces 2.750 / 1.324 / 3.895 / 2.428 on the research pack. **Self-tests PASSED for v84 and bf22** (no look-ahead, frozen hours equal the final recomputation).
 - **v line: v8.3 2.700 -> v8.4 2.750.** Reference from here: **v8.4 2.750 / 1.324 / 3.896 / 2.428.**
 - **Gen304 (6 trials, ridge features in v8.4 / bf2.2):** A positioning (top-trader and all-account long/short ratios): v8.4 **2.815** [1.68, 3.94, 2.284], bf2.2 2.521 [0.74, 3.82, 2.142]; both **fail (HOLD lower)**, watchlist. B realised skewness / downside variance share: 2.718 / 2.486, fail. C US500 previous-day return + vol: 2.718 / 2.495 [0.57, 3.76, 2.26], fail.
 - **Gen305 (4 trials, ridge estimation):** A weekly refit: v8.4 2.709, bf2.2 2.486; B alpha ensemble (3/10/30/100): v8.4 2.747, bf2.2 2.500. **All fail**; the monthly alpha-10 ridge stays (the ensemble is practically identical).
