@@ -5,6 +5,8 @@
    2. Crypto: `paper_v8_share.bat` once (or `paper_v83_share.bat` / `paper_v84_share.bat` if you started those), close that window,
       then double-click `paper_v86_start.bat` (v8.6; not v85). First run: downloads the 40 extra coins (Binance perps) and Binance spot BTC/ETH.
    3. CFD: `paper_bf2_share.bat` once, close the bf2 window, then double-click `paper_bf26_start.bat` (bf2.6; not bf24).
+   3b. NEW: send the support questions in research/FIRM_RULES_EXECUTION.md (section 4) to HyroTrader and BrightFunded and paste me
+      the answers - especially HyroTrader's daily drawdown (4% or 5%) and whether API automation is allowed.
    4. CHECK ON BYBIT (HyroTrader): are these USDT perps listed? 1000PEPE, 1000SHIB, 1INCH, ALGO, APE, APT, ARB, AXS, CHZ, COMP, CRV,
       DASH, DYDX, EGLD, ENJ, GALA, GRT, HBAR, ICP, IMX, INJ, IOTA, KSM, LDO, MANA, NEO, OP, RUNE, SAND, SNX, STX, SUI, SUSHI, THETA,
       TIA, WLD, XTZ, YFI, ZEC, ZIL. Tell me any that are missing.

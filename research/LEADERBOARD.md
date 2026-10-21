@@ -1066,3 +1066,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **bf2.4 2.787 -> 2.829 [0.430, 4.067, 2.925]: TEST and HOLD up (2022 lower). Adopted: bf2.6** (bf2.5 = Gen320's research-only note).
 - Paper versions (**both self-tests PASSED**) `v86` (scale 0.902; reproduces 3.110 / 1.542 / 3.968 / 3.111) and `bf26` (scale 0.908; capped 2.822 / 0.430 / 4.052 / 2.925). Harness defaults v8.6 / bf2.6.
 - **References from here: v8.6 3.110 / 1.542 / 3.968 / 3.111; bf2.6 2.829 / 0.430 / 4.067 / 2.925.**
+
+## Gen323 (2026-10-21): execution and firm-rule study of v8.6 (descriptive; `research/FIRM_RULES_EXECUTION.md`)
+- Netting all sleeves into one position per coin (cascade and Weiss kept as their own orders): **3.158** [1.58, 4.02, 3.16] vs 3.110 sleeve by sleeve; but **62 orders a day, median $366**.
+- No-trade band $1,000: 3.140, **22 orders a day** (median $1,800); band $2,500: 3.194, 12 a day.
+- **HyroTrader funded cap of 2x initial balance on open notional: at risk 2.0 the book exceeds it in 29% of hours.** Funded setting changed to **risk 1.5 + cap 1.9x + band $1,000: 3.138 [1.71, 4.00, 3.06], 19.5 orders a day, never above 2x.** Gen318's funded 2.0 is withdrawn (it did not know the cap).
+- 3% per-position loss cap: 3 coin-days above $6,000 in 4.7 years at risk 2.0 (BTC / ETH). 40% best-day rule (evaluation): 101 of 182 walks need a median 5 extra days. **HyroTrader daily drawdown 4% instead of 5% would cut the 2025-26 two-year mean from $235k to $193k** (to confirm with support).
+- BrightFunded: the funded 5-minute news rule hits the R1 index entry on FOMC days (14:00 ET); place it at 14:06 ET on those days.

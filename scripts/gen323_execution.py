@@ -41,9 +41,16 @@ for s, w in daily.items():
     wd = w.reindex(w.index.append(pd.DatetimeIndex([w.index[-1] + pd.Timedelta(days=1)]))).shift(1)
     held = wd.reindex(idx.floor("D")).set_axis(idx).reindex(columns=U).fillna(0.0)
     net = net + held.mul(Wh[s] * mh, axis=0)
+EVENT = ("cascade limit strict", "Weiss expiry")                             # own order streams (limit entries / expiry trades)
+ev_pos = pd.DataFrame(0.0, index=idx, columns=U)
 for s, p in intraday.items():
-    net = net + p.reindex(index=idx, columns=U).fillna(0.0).mul(Wh[s] * mh, axis=0)
-net = net * SCALE                                                            # fraction of equity at risk 1.0 (15% vol book)
+    x = p.reindex(index=idx, columns=U).fillna(0.0).mul(Wh[s] * mh, axis=0)
+    if s in EVENT:
+        ev_pos = ev_pos + x
+    else:
+        net = net + x
+net, ev_pos = net * SCALE, ev_pos * SCALE                                    # fraction of equity at risk 1.0 (15% vol book)
+ev_pnl = sum(Hs[s].reindex(idx).fillna(0.0) * Wh[s] * mh for s in EVENT) * SCALE   # event sleeves at their own backtest P&L
 out = {"reference v8.6": [round(L.REF[0], 3), np.round(L.REF[1], 3).tolist()]}
 
 
@@ -57,8 +64,9 @@ def run(target, band_usd=0.0, dust_usd=0.0, cap=None, cost_bp=5.0, risk=RISK):
     """Execute target positions hour by hour: dust filter, exposure cap, no-trade band (all in dollars at `risk` on $200k)."""
     usd = ACCT * risk
     T = target.copy()
+    capf = pd.Series(1.0, index=T.index)
     if cap is not None:
-        g = T.abs().sum(axis=1) * risk; T = T.mul((cap / g).clip(upper=1.0).fillna(1.0), axis=0)
+        g = (T + ev_pos).abs().sum(axis=1) * risk; capf = (cap / g).clip(upper=1.0).fillna(1.0); T = T.mul(capf, axis=0)
     if dust_usd > 0:
         T = T.where(T.abs() * usd >= dust_usd, 0.0)
     A = T.to_numpy(); E = np.zeros_like(A); cur = np.zeros(A.shape[1]); b = band_usd / usd
@@ -68,11 +76,11 @@ def run(target, band_usd=0.0, dust_usd=0.0, cap=None, cost_bp=5.0, risk=RISK):
         cur = np.where(ch, A[i], cur); E[i] = cur
     E = pd.DataFrame(E, index=T.index, columns=T.columns)
     dE = E.diff().fillna(E)
-    pnl = (E * r.reindex(E.index)).sum(axis=1) - (E * fund.reindex(E.index)).sum(axis=1) - dE.abs().sum(axis=1) * cost_bp / 1e4
+    pnl = (E * r.reindex(E.index)).sum(axis=1) - (E * fund.reindex(E.index)).sum(axis=1) - dE.abs().sum(axis=1) * cost_bp / 1e4 + ev_pnl * capf
     trades = (dE.abs() * usd > 1.0)
     per_day = trades.groupby(trades.index.floor("D")).sum().sum(axis=1)
     sizes = (dE.abs() * usd)[trades].stack()
-    gross = E.abs().sum(axis=1) * risk
+    gross = (E + ev_pos.mul(capf, axis=0)).abs().sum(axis=1) * risk
     return {"sharpe D/T/H": sharpe(pnl), "orders per day (mean)": round(float(per_day.mean()), 1), "orders per day (p90)": float(per_day.quantile(0.9)),
             "median order $": round(float(sizes.median())), "share of orders < $1k": round(float((sizes < 1000).mean()), 3),
             "gross / balance p50": round(float(gross.median()), 2), "gross p99": round(float(gross.quantile(0.99)), 2),
@@ -80,16 +88,18 @@ def run(target, band_usd=0.0, dust_usd=0.0, cap=None, cost_bp=5.0, risk=RISK):
 
 
 base, pnl0, E0 = run(net)
-out["A netted, every change traded (5 bp)"] = base; print("A", base, flush=True)
+out["A netted (cascade / Weiss as own orders), every change traded (5 bp)"] = base; print("A", base, flush=True)
 for nm, kw in (("B band $500", dict(band_usd=500)), ("C band $1,000", dict(band_usd=1000)), ("D band $2,500", dict(band_usd=2500)),
                ("E band $1,000 + dust < $500 dropped", dict(band_usd=1000, dust_usd=500)),
                ("F band $1,000 + exposure cap 1.9x", dict(band_usd=1000, cap=1.9)),
                ("G band $1,000 + dust $500 + cap 1.9x", dict(band_usd=1000, dust_usd=500, cap=1.9)),
-               ("H funded risk 2.0: band $1,000 + dust $500 + cap 1.9x", dict(band_usd=1000, dust_usd=500, cap=1.9, risk=2.0))):
+               ("H funded risk 1.5: band $1,000 + cap 1.9x", dict(band_usd=1000, cap=1.9, risk=1.5)),
+               ("I funded risk 1.5: band $1,000, no cap", dict(band_usd=1000, risk=1.5))):
     o, _, _ = run(net, **kw); out[nm] = o; print(nm, o, flush=True)
 
 # ---- HyroTrader single-position loss (3% of the initial balance = $6,000) -----------------------------------------------
 cp = (E0 * r.reindex(E0.index)) * ACCT * RISK
+out["worst coins (single-coin daily loss > $6,000)"] = sorted({c for c in E0.columns if ((cp[c].groupby(cp.index.floor("D")).sum()) < -6000).any()})
 dl = cp.groupby(cp.index.floor("D")).sum()
 out["worst single-coin daily loss $ (risk 2.0)"] = round(float(dl.min().min()))
 out["coin-days with a loss > $6,000"] = int((dl < -6000).sum().sum())

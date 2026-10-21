@@ -1,0 +1,174 @@
+{
+ "reference v8.6": [
+  3.11,
+  [
+   1.542,
+   3.968,
+   3.111
+  ]
+ ],
+ "A netted (cascade / Weiss as own orders), every change traded (5 bp)": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day (mean)": 62.6,
+  "orders per day (p90)": 71.0,
+  "median order $": 366,
+  "share of orders < $1k": 0.032,
+  "gross / balance p50": 1.66,
+  "gross p99": 3.39,
+  "hours gross > 2.0": 0.2932,
+  "positions held (mean)": 53.6
+ },
+ "B band $500": {
+  "sharpe D/T/H": [
+   3.152,
+   1.588,
+   4.015,
+   3.148
+  ],
+  "orders per day (mean)": 30.1,
+  "orders per day (p90)": 40.0,
+  "median order $": 1140,
+  "share of orders < $1k": 0.009,
+  "gross / balance p50": 1.66,
+  "gross p99": 3.4,
+  "hours gross > 2.0": 0.2933,
+  "positions held (mean)": 53.1
+ },
+ "C band $1,000": {
+  "sharpe D/T/H": [
+   3.14,
+   1.583,
+   4.011,
+   3.122
+  ],
+  "orders per day (mean)": 21.6,
+  "orders per day (p90)": 30.0,
+  "median order $": 1800,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.65,
+  "gross p99": 3.39,
+  "hours gross > 2.0": 0.286,
+  "positions held (mean)": 52.0
+ },
+ "D band $2,500": {
+  "sharpe D/T/H": [
+   3.194,
+   1.688,
+   4.101,
+   3.084
+  ],
+  "orders per day (mean)": 11.5,
+  "orders per day (p90)": 18.0,
+  "median order $": 3618,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.59,
+  "gross p99": 3.34,
+  "hours gross > 2.0": 0.2619,
+  "positions held (mean)": 48.5
+ },
+ "E band $1,000 + dust < $500 dropped": {
+  "sharpe D/T/H": [
+   3.134,
+   1.531,
+   4.006,
+   3.142
+  ],
+  "orders per day (mean)": 21.6,
+  "orders per day (p90)": 31.0,
+  "median order $": 1799,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.65,
+  "gross p99": 3.38,
+  "hours gross > 2.0": 0.2848,
+  "positions held (mean)": 49.1
+ },
+ "F band $1,000 + exposure cap 1.9x": {
+  "sharpe D/T/H": [
+   3.017,
+   1.647,
+   3.888,
+   2.948
+  ],
+  "orders per day (mean)": 24.5,
+  "orders per day (p90)": 36.0,
+  "median order $": 1742,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.65,
+  "gross p99": 1.96,
+  "hours gross > 2.0": 0.0005,
+  "positions held (mean)": 51.9
+ },
+ "G band $1,000 + dust $500 + cap 1.9x": {
+  "sharpe D/T/H": [
+   3.021,
+   1.606,
+   3.902,
+   2.967
+  ],
+  "orders per day (mean)": 24.6,
+  "orders per day (p90)": 36.0,
+  "median order $": 1738,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.64,
+  "gross p99": 1.96,
+  "hours gross > 2.0": 0.0,
+  "positions held (mean)": 48.7
+ },
+ "H funded risk 1.5: band $1,000 + cap 1.9x": {
+  "sharpe D/T/H": [
+   3.138,
+   1.706,
+   4.001,
+   3.058
+  ],
+  "orders per day (mean)": 19.5,
+  "orders per day (p90)": 28.0,
+  "median order $": 1674,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.23,
+  "gross p99": 1.95,
+  "hours gross > 2.0": 0.0,
+  "positions held (mean)": 51.3
+ },
+ "I funded risk 1.5: band $1,000, no cap": {
+  "sharpe D/T/H": [
+   3.203,
+   1.681,
+   4.095,
+   3.124
+  ],
+  "orders per day (mean)": 18.1,
+  "orders per day (p90)": 26.0,
+  "median order $": 1680,
+  "share of orders < $1k": 0.0,
+  "gross / balance p50": 1.23,
+  "gross p99": 2.54,
+  "hours gross > 2.0": 0.0889,
+  "positions held (mean)": 51.3
+ },
+ "worst coins (single-coin daily loss > $6,000)": [
+  "BTC",
+  "ETH"
+ ],
+ "worst single-coin daily loss $ (risk 2.0)": -11612,
+ "coin-days with a loss > $6,000": 3,
+ "coin-days with a loss > $4,000": 16,
+ "HyroTrader 2025-26, daily loss 5% (modelled)": {
+  "net": 235396,
+  "p10": 139780,
+  "P_profit": 0.998
+ },
+ "HyroTrader 2025-26, daily loss 4%": {
+  "net": 192904,
+  "p10": 90696,
+  "P_profit": 0.994
+ },
+ "40% rule: phase-1 walks reaching +10%": 182,
+ "40% rule: of those, best day > 40% of profit at the target day": 101,
+ "40% rule: extra days until compliant (median)": 5.0
+}
