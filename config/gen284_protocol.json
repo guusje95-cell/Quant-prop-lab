@@ -1,0 +1,11 @@
+{
+  "generation": "Gen284",
+  "title": "Korean-session premium change -> rest-of-day trade on Binance (18 coins), vs v8.1",
+  "registered": "2026-10-21, before any Gen284 number",
+  "signal": "per coin (BTC, ETH + 16 Upbit altcoins): kimchi premium kp (Gen247 recipe) at 09:00 UTC (end of Korean daytime) minus kp at 00:00 UTC the same day = dk; z = (dk - 30-day mean) / 30-day sd of dk (min 20, prior days only)",
+  "rule": "z > 1 -> long the coin 0.1 from 09:00 to 24:00 UTC; z < -1 -> short 0.1; flat otherwise; perps 5 bp per side + funding (a full round trip each trading day)",
+  "why": "Korean retail demand concentrates in Korean daytime; Gen266 showed the hourly lead is gone, but a session-level imbalance may be absorbed by global markets more slowly",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
