@@ -1,0 +1,10 @@
+{
+  "generation": "Gen305",
+  "title": "Ridge estimation changes, judged in v8.4 and bf2.2 (4 trials): A weekly refit; B alpha ensemble",
+  "registered": "2026-10-21, before any Gen305 number",
+  "model": "the book's current ridge features and target unchanged; A: refit every Monday on all data up to two days before (instead of monthly); B: mean of the clipped predictions of four ridges with alpha 3, 10, 30, 100 (no selection among them), monthly refit",
+  "why": "A: uses the newest information sooner (a month-end refit can be up to 30 days stale); B: removes the dependence on one shrinkage choice (Gen299 showed the DEV-best alpha does not carry forward), averaging is the no-selection alternative",
+  "pass": "book bars + strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428) or bf2.2 (2.501 / 0.523 / 3.812 / 2.247); per book the higher passing book Sharpe is adopted",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
