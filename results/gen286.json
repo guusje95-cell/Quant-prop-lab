@@ -1,0 +1,20 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "share of sleeve-days at half weight": 0.4,
+ "book": [
+  2.341,
+  [
+   0.429,
+   3.645,
+   2.094
+  ]
+ ],
+ "pass": false
+}
