@@ -1,5 +1,17 @@
 # To do on your PC (when home)
 
+**NEWEST (2026-10-21) - v8 found (v7 + kimchi premium on altcoins), and the next free data:**
+   1. `git pull --no-edit`.
+   2. Switch the crypto paper trader from v7 to v8 (v8 contains every v7 sleeve, logged per sleeve):
+      `paper_v7_share.bat` once (keeps v7's record), close the v7 window, then double-click `paper_v8_start.bat`.
+      The first run downloads Upbit history for 16 altcoins (a few minutes).
+   3. Leave bf2 running unchanged (its research gain, +0.005, is too small to restart the paper run for).
+   4. Double-click `get_flow_data3.bat` (free, ~30-60 min, resumable): Upbit for the 40 extra coins + Binance TRY/BRL/EUR pairs + FX.
+      Then `git pull --no-edit`, `git add research_data/more research_data/binance_fiat`, `git commit -m "flow data 3"`, `git push`.
+   5. Papers that would help (PDF in the chat; not committed): Makarov & Schoar 2020 "Trading and arbitrage in cryptocurrency
+      markets" (JFE); Choi, Lehar & Stauffer 2022 "Bitcoin microstructure and the kimchi premium"; any paper on retail /
+      regional crypto demand or on Upbit/Bithumb flows.
+
 **NEWEST - free data for the next crypto test (Gen247, ~30-45 min, resumable):** double-click `get_flow_data2.bat`
    (Upbit KRW hourly for the altcoins + Binance spot hourly with taker-buy volume). Then:
    `git pull --no-edit`, `git add research_data/more research_data/binance_spot`, `git commit -m "flow data 2"`, `git push`.
