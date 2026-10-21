@@ -924,3 +924,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen248 A, whale-minus-retail taker flow sleeve:** 0.66 / 1.03 / -0.00. Fails. **Gen248 B, ridge + trade-size features:** v7 2.545 / HOLD 2.182, bf2 2.384 / HOLD 2.080. Fails.
 - **Reference from here: v8 2.547 / 3.708 / 2.345 (v7 + altcoin kimchi); bf2 2.383 / 3.702 / 2.125 (spot-flow ridge).**
 - **Gen261 (vs v8, 2 trials):** Upbit attention share XS -0.37 / 1.20 / -0.83; spot-vs-perp volume dominance XS 0.20 / 1.54 / -1.71. **Both fail** (strong 2023-24, negative 2025-26).
+- **Gen263, pooled altcoin ridge with kimchi / Coinbase / spot-flow features (vs v8):** -0.01 / 1.21 / -0.55, v8 -> 2.227. **Fails** (like Gen110: the altcoin ML does not hold in 2025-26; the simple kimchi rule does).
