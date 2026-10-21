@@ -1,0 +1,10 @@
+{
+  "generation": "Gen323",
+  "title": "Execution and firm-rule study of v8.6 (descriptive engineering; no new signal)",
+  "registered": "2026-10-21, before any Gen323 number",
+  "what": "rebuild v8.6 as net positions per coin per hour (all sleeves netted), trade them at a uniform 5 bp + funding, and measure orders per day, order sizes, gross exposure vs HyroTrader's funded 2x-notional cap, worst single-coin daily loss vs the 3%-of-balance per-trade cap, the evaluation's 40% best-day rule, and the 4% vs 5% daily-loss reading",
+  "variants": "A every change traded; B/C/D no-trade bands $500 / $1,000 / $2,500; E band $1,000 + positions under $500 dropped; F band $1,000 + exposure cap 1.9x; G band + dust + cap; H = G at funded risk 2.0",
+  "choice rule": "the execution setting for the paper/real book = the variant with the fewest orders per day whose 2022-26, TEST and HOLD Sharpe are each within 0.10 of variant A AND whose gross exposure stays <= 2.0x the balance in >= 99.9% of hours (funded cap)",
+  "trials_added": 0,
+  "note": "descriptive: changes how the book is executed, not what it trades; not counted as an alpha trial"
+}
