@@ -1,0 +1,11 @@
+{
+  "generation": "Gen278",
+  "title": "One altcoin-kimchi sleeve over all 44 Upbit-listed coins (16 + 28), replacing v8.1's 16-coin sleeve at the same total size",
+  "registered": "2026-10-21, after Gen262 (which replicated the rule on the 28 extra coins), before any Gen278 number",
+  "rule": "Gen247 A rule unchanged per coin (z > 1 long, z < -1 short, next day) on the 16 original and 28 extra coins; per-coin size 0.1 x 16 / 44 so the sleeve's total size matches v8's; costs 5 bp per side on the 16 (perps + funding), 10 bp on the 28 extras (less liquid; their funding files are incomplete, so no funding)",
+  "why": "the same signal on more coins diversifies coin-specific noise; Gen262 A showed it works on the extras (0.19 / 1.07 / 0.57) but adding a second sleeve double-counts",
+  "deployability": "HyroTrader trades Bybit USDT perps (700+ pairs), which list these coins",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
