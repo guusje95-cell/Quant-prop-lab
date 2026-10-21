@@ -922,3 +922,5 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen247 B, ridge + Binance spot taker imbalance features:** v7 2.539 but TEST 3.492 < 3.494 (fails); **bf2 2.378 -> 2.383, TEST 3.702, HOLD 2.125: passes the strict rule. Adopted for bf2 by the rule; the gain is noise-level (+0.005).**
 - **Gen247 C, spot-led XS:** -0.17 / 0.01 / 0.74. Fails.
 - **Gen248 A, whale-minus-retail taker flow sleeve:** 0.66 / 1.03 / -0.00. Fails. **Gen248 B, ridge + trade-size features:** v7 2.545 / HOLD 2.182, bf2 2.384 / HOLD 2.080. Fails.
+- **Reference from here: v8 2.547 / 3.708 / 2.345 (v7 + altcoin kimchi); bf2 2.383 / 3.702 / 2.125 (spot-flow ridge).**
+- **Gen261 (vs v8, 2 trials):** Upbit attention share XS -0.37 / 1.20 / -0.83; spot-vs-perp volume dominance XS 0.20 / 1.54 / -1.71. **Both fail** (strong 2023-24, negative 2025-26).
