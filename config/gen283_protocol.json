@@ -1,0 +1,11 @@
+{
+  "generation": "Gen283",
+  "title": "Upbit listing decay: short the coin on Binance perps after it starts trading on Upbit, vs v8.1",
+  "registered": "2026-10-21, after counting events (listing dates only, no returns looked at), before any Gen283 number",
+  "evidence": "industry studies (Four Pillars, Blockmedia 2025): buying every new Upbit listing at the day-1 close lost about 70%, median -81%",
+  "events": "the first Upbit KRW candle of each coin in our files after 2020-01-10 = listing time (31 coins: 14 in 2020-22, 9 in 2023-24, 8 in 2025-26)",
+  "rule": "short 0.1 of the coin's Binance perp from the start of the UTC day after the listing day (after the day-1 close) for 30 days; overlapping events add; costs 5 bp per side + funding for the 20-pack coins, 10 bp and no funding for the extra coins (1000-prefixed perps for SHIB / PEPE)",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
