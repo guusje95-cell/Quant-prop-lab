@@ -7,6 +7,9 @@
    3. CFD: `paper_bf2_share.bat` once (keeps bf2's record), close the bf2 window, double-click `paper_bf23_start.bat` (bf2.3; not bf22).
       The first run downloads Binance spot BTC/ETH hours since 2026-10-20 (a few seconds) - Binance works from your PC.
    4. Push the Bithumb data when its download is done.
+   5. NEW free data (30-90 min, resumable): double-click `get_deribit_options.bat` - Deribit options trade history (BTC, ETH,
+      2020-today) reduced to daily put/call flow and implied vol by strike: options skew and options flow, never tested
+      (history.deribit.com is blocked from the cloud). Then `git add research_data/deribit_options`, commit, push.
 
 **NEWEST (2026-10-21, later) - v8.3 found (volatility-scaled ridge + inverse-vol premium carry): switch the crypto paper trader v8 -> v8.3:**
    1. `git pull --no-edit`
