@@ -1,0 +1,56 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "reference bf2": [
+  2.427,
+  [
+   0.408,
+   3.751,
+   2.169
+  ]
+ ],
+ "A demand composite in v8.1": {
+  "sleeve D/T/H": [
+   1.169,
+   1.292,
+   1.058
+  ],
+  "corr C*": 0.04,
+  "v7": [
+   2.437,
+   [
+    0.995,
+    3.452,
+    2.26
+   ]
+  ],
+  "pass": false
+ },
+ "B bf2, composite replaces the Coinbase premium sleeve": {
+  "composite sleeve D/T/H (CFD)": [
+   1.199,
+   1.363,
+   1.104
+  ],
+  "old Coinbase sleeve D/T/H": [
+   0.721,
+   1.331,
+   0.693
+  ],
+  "bf2": [
+   2.314,
+   [
+    0.143,
+    3.611,
+    2.18
+   ]
+  ],
+  "pass": false
+ }
+}
