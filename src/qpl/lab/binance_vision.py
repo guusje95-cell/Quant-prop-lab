@@ -195,9 +195,38 @@ def build_extra(symbols):
     print("extra pack ->", pack, "(commit: git add research_data && git commit && git push)")
 
 
+def all_um_symbols() -> list[str]:
+    """Every USDT-margined perp that ever had monthly klines in the archive (delisted ones included), from the public S3 listing."""
+    import re
+    url = "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision"; out, marker = [], ""
+    while True:
+        r = requests.get(url, params={"delimiter": "/", "prefix": "data/futures/um/monthly/klines/", "marker": marker}, headers=HDR, timeout=60)
+        r.raise_for_status()
+        pre = re.findall(r"<Prefix>data/futures/um/monthly/klines/([^/<]+)/</Prefix>", r.text); out += pre
+        if "<IsTruncated>true</IsTruncated>" not in r.text or not pre:
+            break
+        marker = f"data/futures/um/monthly/klines/{pre[-1]}/"
+    return sorted({x for x in out if x.endswith("USDT") and "_" not in x})
+
+
+def build_pit(symbols):
+    """Point-in-time pack (Gen321): research_data/binance_pit/<SYM>_1h / _funding / _premium_1h, same format as binance_extra."""
+    pack = ROOT / "research_data" / "binance_pit"; pack.mkdir(parents=True, exist_ok=True)
+    for sym in symbols:
+        k = OUT / f"{sym}_1h.parquet"
+        if not k.exists():
+            continue
+        d = pd.read_parquet(k).set_index("time")[["close", "quote_volume"]].astype("float32"); d.to_parquet(pack / f"{sym}_1h.parquet", compression="zstd")
+        for extra in ("funding", "premium_1h"):
+            f = OUT / f"{sym}_{extra}.parquet"
+            if f.exists():
+                pd.read_parquet(f).to_parquet(pack / f"{sym}_{extra}.parquet", compression="zstd")
+    print("point-in-time pack ->", pack, "(commit: git add research_data/binance_pit && git commit && git push)")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build", "extra"])
+    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build", "extra", "pit"])
     ap.add_argument("--symbols", nargs="*", default=RESEARCH_SET)
     ap.add_argument("--start", default=None)
     ap.add_argument("--interval", default="1m")
@@ -205,6 +234,18 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     if a.what == "build":
         build(); return
+    if a.what == "pit":                                     # Gen321: every USDT perp ever listed (delisted too), hourly close/volume, funding, premium
+        have = set(RESEARCH_SET) | set(EXTRA_SET)
+        syms = [x for x in all_um_symbols() if x not in have]
+        print(len(syms), "symbols to fetch (resumable; finished months are cached)", flush=True)
+        for i, s_ in enumerate(syms):
+            try:
+                klines(s_, "2020-01", "1h"); funding(s_, "2020-01"); klines(s_, "2020-01", "1h", kind="premiumIndexKlines")
+            except Exception as e:
+                print(s_, "FAILED:", e, flush=True)
+            if i % 25 == 0:
+                print(f"{i}/{len(syms)} done", flush=True)
+        build_pit(syms); return
     if a.what == "extra":                                   # Gen80: hourly klines, metrics (open interest), funding, premium
         for s in EXTRA_SET:
             try:

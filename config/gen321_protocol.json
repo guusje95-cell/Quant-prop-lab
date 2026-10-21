@@ -1,0 +1,9 @@
+{
+  "generation": "Gen321",
+  "title": "Survivorship check of the wide premium carry (v8.5 / bf2.4): point-in-time universe incl. delisted perps - registered BEFORE the data exists",
+  "registered": "2026-10-21, before research_data/binance_pit was downloaded (get_binance_pit.bat)",
+  "model": "each month, the universe = the 60 USDT perps (pack + extra + pit, delisted included) with the highest quote volume over the previous 30 days and >= 60 days of history; the frozen Gen316 sleeve (7-day mean premium, top / bottom third, 7-day hold, 1 / 30-day vol legs) on that universe; a coin that stops trading is closed at its last close (P&L until then counts); 5 bp + funding",
+  "judgement": "v8.5 is CONFIRMED if v8.4 + this point-in-time sleeve (added, as Gen316) still passes the strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428); otherwise v8.5 is WITHDRAWN and v8.4 is the reference again. bf2.4 is not affected (its CFD universe is the BrightFunded list) but its result is reported with the same PIT sleeve restricted to coins BrightFunded lists today, descriptive",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

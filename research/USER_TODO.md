@@ -9,6 +9,9 @@
       DASH, DYDX, EGLD, ENJ, GALA, GRT, HBAR, ICP, IMX, INJ, IOTA, KSM, LDO, MANA, NEO, OP, RUNE, SAND, SNX, STX, SUI, SUSHI, THETA,
       TIA, WLD, XTZ, YFI, ZEC, ZIL. Tell me any that are missing.
    5. Push the Bithumb data when done; optional `get_deribit_options.bat` (options skew / flow, Gen309 ready).
+   6. IMPORTANT for trusting v8.5 (overnight, free, a few hours, resumable): `get_binance_pit.bat` - every Binance USDT perp ever
+      listed, delisted ones too. It tests whether the wide-carry gain survives without survivorship bias (Gen321 pre-registered).
+      Then `git add research_data/binance_pit`, commit, push.
 
 **OLDER:** NEWEST (2026-10-21, latest) - v8.4 and bf2.3 found (ridge + variance risk premium + weekend features, CFD book + altcoin kimchi; v 2.700 -> 2.750, bf2 2.427 -> 2.506): switch BOTH paper traders:**
    1. `git pull --no-edit`
