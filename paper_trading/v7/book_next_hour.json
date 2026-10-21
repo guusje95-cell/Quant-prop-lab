@@ -1,0 +1,100 @@
+{
+ "for_hour_utc": "2026-10-21 08:00:00",
+ "made_at_utc": "2026-10-21 08:07:33.656068",
+ "data_cutoff_utc": "2026-10-21 08:00:00",
+ "equity": 199453.35,
+ "risk": 2.0,
+ "target_notional_usd": {
+  "ETH": -31598.13,
+  "ADA": -14386.64,
+  "ETC": -14386.64,
+  "FIL": -14386.64,
+  "NEAR": -14386.64,
+  "SOL": -13064.13,
+  "BNB": -12821.9,
+  "BTC": -4765.83,
+  "DOGE": 863.71,
+  "DOT": 1774.03,
+  "BCH": 12331.41,
+  "ATOM": 12331.41,
+  "AVAX": 12331.41,
+  "LINK": 12331.41,
+  "TRX": 12331.41,
+  "XLM": 12331.41,
+  "XRP": 13553.59
+ },
+ "by_sleeve_usd": {
+  "AAVE": {},
+  "ADA": {
+   "premium carry": -14386.64
+  },
+  "ATOM": {
+   "premium carry": 12331.41
+  },
+  "AVAX": {
+   "premium carry": 12331.41
+  },
+  "BCH": {
+   "premium carry": 12331.41
+  },
+  "BNB": {
+   "C*": 1564.74,
+   "premium carry": -14386.64
+  },
+  "BTC": {
+   "C*": 5476.59,
+   "ridge ML": -10242.43
+  },
+  "DOGE": {
+   "C*": 863.71
+  },
+  "DOT": {
+   "C*": 1774.03
+  },
+  "ETC": {
+   "premium carry": -14386.64
+  },
+  "ETH": {
+   "C*": 1564.74,
+   "ridge ML": -33162.87
+  },
+  "FIL": {
+   "premium carry": -14386.64
+  },
+  "LINK": {
+   "premium carry": 12331.41
+  },
+  "LTC": {},
+  "NEAR": {
+   "premium carry": -14386.64
+  },
+  "SOL": {
+   "C*": 1322.52,
+   "premium carry": -14386.64
+  },
+  "TRX": {
+   "premium carry": 12331.41
+  },
+  "UNI": {},
+  "XLM": {
+   "premium carry": 12331.41
+  },
+  "XRP": {
+   "C*": 1222.18,
+   "premium carry": 12331.41
+  }
+ },
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "weiss": null,
+ "sleeve_multipliers": {
+  "C*": 0.5951,
+  "premium carry": 0.2164,
+  "cascade limit strict": 0.349,
+  "trend 4h": 0.6519,
+  "Weiss expiry": 1.3547,
+  "delev bounce": 0.3544,
+  "ridge ML": 0.1945
+ },
+ "note": "simulation only - no order is sent anywhere"
+}
