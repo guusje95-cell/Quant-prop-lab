@@ -1074,3 +1074,14 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - 3% per-position loss cap: 3 coin-days above $6,000 in 4.7 years at risk 2.0 (BTC / ETH). 40% best-day rule (evaluation): 101 of 182 walks need a median 5 extra days. **HyroTrader daily drawdown 4% instead of 5% would cut the 2025-26 two-year mean from $235k to $193k** (to confirm with support).
 - BrightFunded: the funded 5-minute news rule hits the R1 index entry on FOMC days (14:00 ET); place it at 14:06 ET on those days.
 - **Gen324 (descriptive), bf2.6 under BrightFunded's "max(balance, equity) at rollover" daily rule (MT5 accounting):** more daily stops (89 vs 67) but no extra breaches and no Sharpe loss; realising floating losers nightly would cost $193k (rejected). Hourly-gap breaches of the 5% limit at risk 2.0: bf2.6 2025-10-10, v8.6 2023-03-22 / 2024-03-05; none at risk 1.5. **HyroTrader allows your own Bybit API bot (official FAQ): v8.6 runs in full.**
+
+## Gen325 (2026-10-21): how much to believe, and both accounts together (descriptive; `results/gen325.json`)
+- **Deflated Sharpe** (Bailey & Lopez de Prado), 1,734 days, skew +1.2, kurtosis 12-15. Expected best-of-N luck SR0: N = 50 -> 1.04, 300 -> 1.33, 1,559 (all trials in this project) -> 1.55 (annual).
+  - v8.6 3.11 -> **planning Sharpe 1.78** (N = 300; 1.56 at N = 1,559); bf2.6 2.82 -> **1.49** (1.27). DSR > 0.998 for both: the edge is very likely real, its size is very likely smaller than the backtest.
+- **The two books are nearly the same bet: daily correlation 0.81.** Two accounts double the money, not the safety.
+- **Both accounts together, 2 years (2025-26 sample, risk 2.0 / 1.5, fees and failed attempts included):**
+  | returns used | HyroTrader mean (p10) | BrightFunded mean (p10) | both: mean / p10 / per month | P(net loss) |
+  |---|---|---|---|---|
+  | backtest | $186k ($114k) | $174k ($111k) | $360k / $232k / $15.0k | 0.0% |
+  | **planning (deflated, N = 300)** | **$91k ($21k)** | **$79k ($19k)** | **$170k / $59k / $7.1k** | **1.0%** |
+  | half the backtest Sharpe | $78k ($14k) | $73k ($17k) | $151k / $44k / $6.3k | 2.4% |

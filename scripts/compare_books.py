@@ -19,11 +19,13 @@ BOOKS = [("v5", "Crypto", "gen72", "Gen72 base: C*, premium carry, cascade, tren
          ("v8.3", "Crypto", "v83", "v8 + kimchi breadth, vol-scaled ridge, inverse-vol carry"),
          ("v8.4", "Crypto", "v84", "v8.3 + spot flow, variance risk premium and weekend features in the ridge"),
          ("v8.5", "Crypto", "v85", "v8.4 + premium carry on 60 coins with inverse-vol legs (added sleeve)"),
+         ("v8.6", "Crypto", "v86", "v8.5 + carry sleeves rebalanced in 7 daily tranches"),
          ("bf", "CFD", "bf_measured", "crypto CFD book: C*, carry, trend, Weiss, delev bounce, Coinbase premium"),
          ("bf2", "CFD", "bf2_measured", "bf + ridge ML + index CFDs (US100/US500/US30)"),
          ("bf2.2", "CFD", "bf22", "bf2 + spot flow, variance risk premium and weekend features in the ridge"),
          ("bf2.3", "CFD", "bf23", "bf2.2 + altcoin kimchi premium on 14 altcoin CFDs"),
-         ("bf2.4", "CFD", "bf24", "bf2.3 + premium carry on 35 crypto CFDs with inverse-vol legs (added sleeve)")]
+         ("bf2.4", "CFD", "bf24", "bf2.3 + premium carry on 35 crypto CFDs with inverse-vol legs (added sleeve)"),
+         ("bf2.6", "CFD", "bf26", "bf2.4 + carry sleeves rebalanced in 7 daily tranches")]
 P = [("2022-26", "2022-01-01", "2026-09-30"), ("2022", "2022-01-01", "2022-12-31"), ("2023-24", "2023-01-01", "2024-12-31"), ("2025-26", "2025-01-01", "2026-09-30")]
 stats, eq, mon, prop = [], [], [], []
 for name, fam, f, what in BOOKS:

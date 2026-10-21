@@ -1,0 +1,154 @@
+{
+ "v8.6": {
+  "backtest Sharpe (annual)": 3.109,
+  "days": 1734,
+  "skew": 1.25,
+  "kurtosis": 14.54,
+  "N=50": {
+   "SR0 (annual)": 1.044,
+   "DSR (prob. true Sharpe > 0)": 1.0,
+   "planning Sharpe = SR - SR0": 2.065
+  },
+  "N=300": {
+   "SR0 (annual)": 1.328,
+   "DSR (prob. true Sharpe > 0)": 1.0,
+   "planning Sharpe = SR - SR0": 1.781
+  },
+  "N=1559": {
+   "SR0 (annual)": 1.55,
+   "DSR (prob. true Sharpe > 0)": 0.9998,
+   "planning Sharpe = SR - SR0": 1.559
+  }
+ },
+ "bf2.6": {
+  "backtest Sharpe (annual)": 2.822,
+  "days": 1734,
+  "skew": 1.18,
+  "kurtosis": 12.01,
+  "N=50": {
+   "SR0 (annual)": 1.044,
+   "DSR (prob. true Sharpe > 0)": 1.0,
+   "planning Sharpe = SR - SR0": 1.778
+  },
+  "N=300": {
+   "SR0 (annual)": 1.328,
+   "DSR (prob. true Sharpe > 0)": 0.9997,
+   "planning Sharpe = SR - SR0": 1.494
+  },
+  "N=1559": {
+   "SR0 (annual)": 1.55,
+   "DSR (prob. true Sharpe > 0)": 0.9984,
+   "planning Sharpe = SR - SR0": 1.272
+  }
+ },
+ "joint, backtest returns, sample 2023-26": {
+  "daily return correlation": 0.823,
+  "HyroTrader v8.6 net: mean / p10 / P(loss)": [
+   214618,
+   137352,
+   0.0
+  ],
+  "BrightFunded bf2.6 net: mean / p10 / P(loss)": [
+   223738,
+   155243,
+   0.0
+  ],
+  "both accounts: mean / p10 / p50 / p90": [
+   438356,
+   300244,
+   439457,
+   583199
+  ],
+  "P(both lose money)": 0.0,
+  "P(combined loss)": 0.0,
+  "combined per month (mean)": 18265
+ },
+ "joint, backtest returns, sample 2025-26": {
+  "daily return correlation": 0.806,
+  "HyroTrader v8.6 net: mean / p10 / P(loss)": [
+   185726,
+   113541,
+   0.0
+  ],
+  "BrightFunded bf2.6 net: mean / p10 / P(loss)": [
+   174350,
+   110946,
+   0.0
+  ],
+  "both accounts: mean / p10 / p50 / p90": [
+   360076,
+   232096,
+   360222,
+   490866
+  ],
+  "P(both lose money)": 0.0,
+  "P(combined loss)": 0.0,
+  "combined per month (mean)": 15003
+ },
+ "joint, planning Sharpe (N=300), sample 2023-26": {
+  "daily return correlation": 0.823,
+  "HyroTrader v8.6 net: mean / p10 / P(loss)": [
+   118645,
+   45170,
+   0.014
+  ],
+  "BrightFunded bf2.6 net: mean / p10 / P(loss)": [
+   127002,
+   57297,
+   0.014
+  ],
+  "both accounts: mean / p10 / p50 / p90": [
+   245647,
+   114204,
+   246847,
+   375472
+  ],
+  "P(both lose money)": 0.006,
+  "P(combined loss)": 0.006,
+  "combined per month (mean)": 10235
+ },
+ "joint, planning Sharpe (N=300), sample 2025-26": {
+  "daily return correlation": 0.806,
+  "HyroTrader v8.6 net: mean / p10 / P(loss)": [
+   90932,
+   20939,
+   0.038
+  ],
+  "BrightFunded bf2.6 net: mean / p10 / P(loss)": [
+   78751,
+   19397,
+   0.03
+  ],
+  "both accounts: mean / p10 / p50 / p90": [
+   169683,
+   59023,
+   165179,
+   289718
+  ],
+  "P(both lose money)": 0.01,
+  "P(combined loss)": 0.01,
+  "combined per month (mean)": 7070
+ },
+ "joint, half the backtest Sharpe (Harvey-Liu-style 50% haircut), sample 2025-26": {
+  "daily return correlation": 0.806,
+  "HyroTrader v8.6 net: mean / p10 / P(loss)": [
+   78091,
+   13548,
+   0.056
+  ],
+  "BrightFunded bf2.6 net: mean / p10 / P(loss)": [
+   73123,
+   16661,
+   0.048
+  ],
+  "both accounts: mean / p10 / p50 / p90": [
+   151213,
+   43721,
+   142840,
+   268079
+  ],
+  "P(both lose money)": 0.02,
+  "P(combined loss)": 0.024,
+  "combined per month (mean)": 6301
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "generation": "Gen325",
+  "title": "Deflated Sharpe of v8.6 / bf2.6 and a joint two-account prop simulation (descriptive)",
+  "registered": "2026-10-21, before any Gen325 number",
+  "what": "DSR (Bailey & Lopez de Prado) for N = 50 / 300 / 1559 trials; planning Sharpe = backtest - expected best-of-N null Sharpe; joint HyroTrader + BrightFunded bootstrap on shared day paths at backtest, planning (N=300) and half Sharpe",
+  "trials_added": 0
+}
