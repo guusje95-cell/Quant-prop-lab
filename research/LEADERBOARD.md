@@ -971,3 +971,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, follow whale long changes (7-day change of margin longs, z > 1 long):** 0.05 / -0.49 / -0.78; v8.1 -> 2.209. **Fails.**
 - **B, follow the long/short ratio:** -0.03 / 0.69 / -1.17; v8.1 -> 2.403. **Fails.** Not reversed after the fact (Gen255 lesson).
 - **Gen280, continuous alt-kimchi sizing (0.1 x clip(z/2)) instead of the threshold:** sleeve 0.26 / 0.97 / 0.75 vs threshold 0.25 / 1.24 / 0.77; v8.1 -> 2.520. **Fails**: the edge sits in the strong-signal days; small z's add noise.
+- **Gen281, CME futures basis level (annualised, vs Coinbase spot; z > 1 long BTC / ETH):** 0.48 / -0.00 / 1.57 (BTC median basis 6.5% a year); v8.1 -> 2.570 [1.33, 3.35, 2.47]. **Fails** (TEST lower). Watchlist: strong in 2025-26 (ETF era), nothing in 2023-24.

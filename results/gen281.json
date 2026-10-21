@@ -1,0 +1,37 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "basis": {
+  "BTC": {
+   "basis median %/yr": 6.45,
+   "days": 2119
+  },
+  "ETH": {
+   "basis median %/yr": 5.76,
+   "days": 1777
+  }
+ },
+ "CME basis level": {
+  "sleeve D/T/H": [
+   0.481,
+   -0.001,
+   1.572
+  ],
+  "corr C*": 0.154,
+  "v7": [
+   2.57,
+   [
+    1.334,
+    3.345,
+    2.474
+   ]
+  ],
+  "pass": false
+ }
+}
