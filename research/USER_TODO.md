@@ -1,10 +1,10 @@
 # To do on your PC (when home)
 
-**NEWEST (2026-10-21, latest) - v8.4 and bf2.2 found (ridge + variance risk premium + weekend features; v 2.700 -> 2.750, bf2 2.427 -> 2.501): switch BOTH paper traders:**
+**NEWEST (2026-10-21, latest) - v8.4 and bf2.3 found (ridge + variance risk premium + weekend features, CFD book + altcoin kimchi; v 2.700 -> 2.750, bf2 2.427 -> 2.506): switch BOTH paper traders:**
    1. `git pull --no-edit`
    2. Crypto: `paper_v8_share.bat` once, close the v8 window (or v8.3 if you already started it: `paper_v83_share.bat`),
       then double-click `paper_v84_start.bat` (v8.4 = v8.3 + better ridge features, 2.700 -> 2.750; replaces v8.3).
-   3. CFD: `paper_bf2_share.bat` once (keeps bf2's record), close the bf2 window, double-click `paper_bf22_start.bat`.
+   3. CFD: `paper_bf2_share.bat` once (keeps bf2's record), close the bf2 window, double-click `paper_bf23_start.bat` (bf2.3; not bf22).
       The first run downloads Binance spot BTC/ETH hours since 2026-10-20 (a few seconds) - Binance works from your PC.
    4. Push the Bithumb data when its download is done.
 

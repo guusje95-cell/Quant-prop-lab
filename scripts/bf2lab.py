@@ -19,16 +19,27 @@ cfd = lambda w: sleeve(CB.d2h(w.reindex(columns=CB.CFD).fillna(0.0), IDX1))
 
 
 import os
-_BREF = os.environ.get("QPL_BF_REF", "bf2.2")
+_BREF = os.environ.get("QPL_BF_REF", "bf2.3")
 if os.environ.get("QPL_REF", "v8") != "v7":                    # after Gen247: bf2's ridge uses the spot taker features (QPL_REF=v7: old)
     import ridge_live as _RL                                   # bf2.1 (Gen301 A): + VRP; bf2.2 (Gen302 A): + VRP + calendar
-    HB_RIDGE = cfd(_RL.predictions(END, spot=True, vrp=_BREF in ("bf2.1", "bf2.2"), cal=_BREF == "bf2.2")
+    HB_RIDGE = cfd(_RL.predictions(END, spot=True, vrp=_BREF in ("bf2.1", "bf2.2", "bf2.3"), cal=_BREF in ("bf2.2", "bf2.3"))
                    .pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5)
+
+
+ALTK_BF = []
+if _BREF == "bf2.3":                                           # bf2.3 (Gen306 C = Gen270 rule): altcoin kimchi on 14 altcoin CFDs
+    import alt_kimchi as _AK
+    from qpl.lab import binance_pack as _B
+    _aw = _AK.weights(END + " 23:00"); _ac = [c for c in _aw.columns if c in _CB.ALT_CFD]; _aw = _aw[_ac]
+    _cost = pd.Series({c: _CB.ALT_SPREAD[c] + _CB.COMM for c in _ac}) / 1e4
+    _r = _B.panel("close", "1h", _ac).loc[:END + " 23:00"].pct_change(fill_method=None).fillna(0.0)
+    _held = _aw.reindex(_aw.index.append(pd.DatetimeIndex([_aw.index[-1] + pd.Timedelta(days=1)]))).shift(1).reindex(_r.index.floor("D")).set_axis(_r.index).fillna(0.0)
+    ALTK_BF = [((_held * _r).sum(axis=1) - _held.diff().abs().fillna(_held.abs()).mul(_cost, axis=1).sum(axis=1)).reindex(IDXbf).fillna(0.0).rename("alt kimchi")]
 
 
 def book(extra, ridge=None):
     r = HB_RIDGE if ridge is None else ridge
-    return CS.portfolio_v5(pd.concat([HB0, IS0, r.rename("ridge ML")] + list(extra), axis=1).fillna(0.0))[0]
+    return CS.portfolio_v5(pd.concat([HB0, IS0, r.rename("ridge ML")] + ALTK_BF + list(extra), axis=1).fillna(0.0))[0]
 
 
 BF2 = book([]); REF = (sh(BF2, "2022-01-01", END), per(BF2, "2022-01-01"))

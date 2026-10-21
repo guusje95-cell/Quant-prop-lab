@@ -36,15 +36,18 @@ SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss exp
     + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84") else [])
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
-CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22")
+CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22", "bf23")
+BFNEW = VER in ("bf22", "bf23")                         # bf2.2 / bf2.3: measured spreads, spot-flow + VRP + calendar ridge
 if CFDBOOK:                                            # CFD book for BrightFunded 2-Step Classic swap-free (scripts/cfd_book.py)
     SLEEVES = ["C*", "premium carry", "trend 4h", "Weiss expiry", "delev bounce", "coinbase premium"]
-    if VER in ("bf2", "bf22"):                         # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
+    if VER in ("bf2", "bf22", "bf23"):                 # Gen234: + ridge ML (CFD costs) + index CFD sleeve P6 + R1 + P1 (scripts/index_sleeve.py)
         SLEEVES += ["ridge ML", "vol-managed indices"]
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
+if VER == "bf23":                                      # bf2.3 (Gen306 C): + altcoin kimchi sleeve on 14 BrightFunded altcoin CFDs
+    SLEEVES = SLEEVES + ["alt kimchi"]; ALTK = True
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -203,7 +206,7 @@ def compute_bf():
     """CFD book (BrightFunded): same outputs as compute(). Gross exposure is capped at the 1:5 crypto leverage at the paper risk."""
     import crypto_sleeves as CS
     import cfd_book as CB
-    if VER == "bf22" or os.environ.get("QPL_MEASURED_COSTS"):   # bf2.2 (QPL_MEASURED_COSTS=1: older CFD books at measured costs, comparisons) (Gen301 A + Gen302 A): measured BrightFunded spreads (+ spot-flow / VRP / calendar ridge below)
+    if BFNEW or os.environ.get("QPL_MEASURED_COSTS"):   # bf2.2 (QPL_MEASURED_COSTS=1: older CFD books at measured costs, comparisons) (Gen301 A + Gen302 A): measured BrightFunded spreads (+ spot-flow / VRP / calendar ridge below)
         CB.measured_costs()
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END); h1 = END + pd.Timedelta(hours=1)
@@ -211,8 +214,18 @@ def compute_bf():
     CSL = [s for s in SLEEVES if s != "vol-managed indices"]                          # crypto CFD sleeves
     if RIDGE:
         import ridge_live as RL
-        pos["ridge ML"] = CB.d2h(RL.ridge_weights(spot=VER == "bf22", vrp=VER == "bf22", cal=VER == "bf22").reindex(columns=CB.CFD).fillna(0.0), pos["C*"].index)
-    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL})
+        pos["ridge ML"] = CB.d2h(RL.ridge_weights(spot=BFNEW, vrp=BFNEW, cal=BFNEW).reindex(columns=CB.CFD).fillna(0.0), pos["C*"].index)
+    if ALTK:                                           # bf2.3 (Gen306 C = Gen270 rule): altcoin CFDs with measured spread <= 50 bp
+        import alt_kimchi as AK
+        aw = AK.weights(); ac = [c for c in aw.columns if c in CB.ALT_CFD]; aw = aw[ac]
+        ar = B.panel("close", "1h", ac).loc[:END].pct_change(fill_method=None).reindex(R.index).fillna(0.0)
+        ap = aw.reindex(aw.index.append(pd.DatetimeIndex([aw.index[-1] + pd.Timedelta(days=1)]))).shift(1)
+        idx0 = pos["C*"].index; pos["alt kimchi"] = ap.reindex(idx0.floor("D")).set_axis(idx0).fillna(0.0)
+        p_ = pos["alt kimchi"].reindex(R.index).fillna(0.0)
+        acost = pd.Series({c: CB.ALT_SPREAD[c] + CB.COMM for c in ac}) / 1e4
+    H = pd.DataFrame({s: CB.sleeve_pnl(pos[s], R) for s in CSL if s != "alt kimchi"})
+    if ALTK:
+        H["alt kimchi"] = (p_ * ar).sum(axis=1) - p_.diff().abs().fillna(p_.abs()).mul(acost, axis=1).sum(axis=1)
     if INDEX:
         import index_sleeve as IS
         ipos, ipnl = IS.sleeve(pos["C*"].index); pos["vol-managed indices"] = ipos; H["vol-managed indices"] = ipnl.reindex(R.index)
@@ -221,7 +234,10 @@ def compute_bf():
     ph0, W, mult = CS.portfolio_v5(Hx)
     idx = ph0.index
     Wh = W.reindex(idx.floor("D")).set_axis(idx); mh = mult.reindex(idx.floor("D")).set_axis(idx)
-    net = sum(pos[s].reindex(idx).fillna(0.0) * Wh[s].to_numpy()[:, None] for s in CSL).mul(mh * SCALE, axis=0)   # crypto 1:5 cap
+    net = pd.DataFrame(0.0, index=idx, columns=[])
+    for s in CSL:
+        net = net.add(pos[s].reindex(idx).fillna(0.0) * Wh[s].to_numpy()[:, None], fill_value=0.0)
+    net = net.mul(mh * SCALE, axis=0)                                                # crypto 1:5 cap
     cap = CB.LEVERAGE_CAP / float(CFG["frozen"]["risk"])
     capf = (cap / net.abs().sum(axis=1)).clip(upper=1.0).fillna(1.0)
     ph = (ph0 * SCALE * capf).loc[:END]
@@ -242,7 +258,7 @@ def compute_bf():
         if len(expo[s]) and np.isfinite(eff.get(s, np.nan)):
             part = expo[s].astype(float) * float(eff[s]); part = part[part.abs() > 1e-9]; by[s] = part
             book = book.add(part, fill_value=0.0)
-    g = float(book[book.index.isin(CB.CFD)].abs().sum()) if len(book) else 0.0     # the 1:5 cap counts crypto CFDs (whole book scaled, as ph)
+    g = float(book[book.index.isin(list(CB.CFD) + list(CB.ALT_CFD))].abs().sum()) if len(book) else 0.0     # the 1:5 cap counts crypto CFDs (whole book scaled, as ph)
     if g > cap:
         book = book * cap / g; by = {k: v * cap / g for k, v in by.items()}
     effd = W.mul(mult.reindex(W.index), axis=0) * SCALE
@@ -317,7 +333,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=VER in ("bf22", "v84")):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER == "v84"):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
@@ -550,7 +566,7 @@ def cmd_selftest(a):
     cuts = ["2026-09-01 01:00", "2026-09-14 00:00", "2026-09-21 13:00", "2026-09-25 09:00", "2026-09-25 10:00", "2026-09-25 11:00",
             "2026-09-28 05:00",
             "2026-09-30 17:00"]
-    if ALTK or VER == "bf22":                         # around 00:00 UTC, when the altcoin kimchi / spot-flow ridge weights change
+    if ALTK or BFNEW:                         # around 00:00 UTC, when the altcoin kimchi / spot-flow ridge weights change
         cuts += ["2026-09-29 23:00", "2026-09-30 00:00", "2026-09-30 01:00"]
     if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
         cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]

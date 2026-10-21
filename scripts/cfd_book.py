@@ -28,6 +28,13 @@ def measured_costs():
     meas = {s.split("/")[0].replace("XDG", "DOGE"): float(v) for s, v in zip(spec["symbol"], spec["spread_bp_median"]) if "/USD" in s}
     for c in SPREAD.index:
         SPREAD[c] = 0.5 * meas[c]
+    for c in ALT_CFD:
+        ALT_SPREAD[c] = 0.5 * meas[c]
+
+
+# bf2.3 (Gen306 C / Gen270): altcoin kimchi CFDs (measured spread <= 50 bp; ATOM, TRX excluded), half the measured spread per side
+ALT_CFD = ["AAVE", "ADA", "AVAX", "BCH", "DOGE", "DOT", "ETC", "FIL", "LINK", "NEAR", "SOL", "UNI", "XLM", "XRP"]
+ALT_SPREAD = pd.Series(10.0, index=ALT_CFD)
 COMM = 1.2
 LEVERAGE_CAP = 5.0
 
