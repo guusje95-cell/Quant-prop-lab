@@ -1,0 +1,10 @@
+{
+  "generation": "Gen288",
+  "title": "Ridge trained on volatility-scaled targets (next-day return / 30-day vol), in v8.1 and bf2",
+  "registered": "2026-10-21, before any Gen288 number",
+  "model": "each book's current ridge (v8.1: Gen108 features + kimchi breadth; bf2: Gen108 + spot taker features) unchanged except the training target = next-day return / that coin's 30-day daily vol (known at the decision); prediction scaled by its in-sample sd and clipped +-1 as before; position 0.5 x prediction",
+  "why": "raw-return targets let the most volatile days dominate the fit; volatility-scaled targets are the usual remedy in return-prediction work",
+  "pass": "v8.1: sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8.1 (2.554 / 3.709 / 2.353); bf2: sleeve D > 0, TEST >= 0.5, HOLD >= 0.3 and strict rule vs bf2 at measured costs (2.427 / 3.751 / 2.169)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
