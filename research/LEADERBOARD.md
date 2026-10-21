@@ -1018,3 +1018,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **B, ETH-minus-BTC relative-value ridge (market neutral) in v8.3:** -0.45 / -0.43 / -0.21; v8.3 -> 2.453. **Fails.** **C, the same in bf2.1:** -0.34 / -0.11 / 0.15; 2.345. **Fails**: the features predict direction, not the ETH-BTC spread.
 - Paper version `bf22` (scripts/paper_v5.py, config/paper_bf22.json, scale 0.902): spot-flow + VRP + calendar ridge (scripts/ridge_live.py spot / vrp / cal), measured BrightFunded spreads (cfd_book.measured_costs), live Binance spot BTC/ETH feed (src/qpl/live/ml_feeds.py spot). With the 1:5 crypto cap at risk 2.0: 2.496 / 0.523 / 3.800 / 2.247.
 - **bf2 line: 2.427 (measured costs) -> bf2.1 2.464 -> bf2.2 2.501.** Reference from here: **bf2.2 2.501 / 0.523 / 3.812 / 2.247.**
+
+## Gen303 (2026-10-21): v8.3 ridge + the bf2.2 features - ADOPTED (v8.4)
+- **A, v8.3 ridge + VRP + weekend / Monday dummies:** ridge sleeve 0.27 / 1.91 / 1.55; v8.3 -> **2.748** [1.330, 3.882, 2.427]: passes.
+- **B, A + Binance spot taker flow (simb, sdiv):** sleeve 0.28 / 1.94 / 1.54; v8.3 -> **2.750 [1.324, 3.896, 2.428]: passes. Adopted (higher book Sharpe, the standing rule): v8.4.** A and B differ by noise; B uses the same live spot feed as bf2.2.
+- Same pattern in both books: VRP alone or calendar alone fell short on one period in v8.3, the combination lifts every period in both v8.3 and bf2. Caveat: 7 ridge-feature trials today (Gen300 3, Gen301 2, Gen303 2), 4 pass; selection among them is part of the count.
+- Paper version `v84` (config/paper_v84.json, scale 0.895): reproduces 2.750 / 1.324 / 3.895 / 2.428 on the research pack.
+- **v line: v8.3 2.700 -> v8.4 2.750.** Reference from here: **v8.4 2.750 / 1.324 / 3.896 / 2.428.**

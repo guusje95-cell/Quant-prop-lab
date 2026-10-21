@@ -19,9 +19,11 @@ cfd = lambda w: sleeve(CB.d2h(w.reindex(columns=CB.CFD).fillna(0.0), IDX1))
 
 
 import os
+_BREF = os.environ.get("QPL_BF_REF", "bf2.2")
 if os.environ.get("QPL_REF", "v8") != "v7":                    # after Gen247: bf2's ridge uses the spot taker features (QPL_REF=v7: old)
-    import ridge_live as _RL
-    HB_RIDGE = cfd(_RL.predictions(END, spot=True).pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5)
+    import ridge_live as _RL                                   # bf2.1 (Gen301 A): + VRP; bf2.2 (Gen302 A): + VRP + calendar
+    HB_RIDGE = cfd(_RL.predictions(END, spot=True, vrp=_BREF in ("bf2.1", "bf2.2"), cal=_BREF == "bf2.2")
+                   .pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5)
 
 
 def book(extra, ridge=None):

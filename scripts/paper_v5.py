@@ -32,8 +32,8 @@ CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83") else []) \
-    + (["ridge ML"] if VER in ("v7", "v8", "v83") else []) + (["alt kimchi"] if VER in ("v8", "v83") else [])
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83", "v84") else []) \
+    + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84") else [])
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
 CFDBOOK = VER in ("bf", "bfb", "bf2", "bf22")
@@ -44,7 +44,7 @@ if CFDBOOK:                                            # CFD book for BrightFund
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -135,7 +135,7 @@ def compute():
     import crypto_sleeves as CS
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END)
-    cw = CS.cstar_weights(); pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights(invvol=VER == "v83")
+    cw = CS.cstar_weights(); pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights(invvol=VER in ("v83", "v84"))
     cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
     tr, tpos = CS.trend4h(positions=True)
     we, wpos = CS.weiss_expiry(positions=True)
@@ -146,7 +146,8 @@ def compute():
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
     if RIDGE:
         import ridge_live as RL
-        rw = RL.ridge_weights(kb=VER == "v83", volscale=VER == "v83"); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+        v84 = VER == "v84"                             # v8.4 (Gen303 B): + spot flow, VRP and calendar features
+        rw = RL.ridge_weights(kb=VER in ("v83", "v84"), volscale=VER in ("v83", "v84"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     if ALTK:
         import alt_kimchi as AK
         aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
@@ -316,7 +317,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=VER == "bf22"):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=VER in ("bf22", "v84")):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
