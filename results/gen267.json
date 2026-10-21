@@ -1,0 +1,44 @@
+{
+ "reference bf2": [
+  2.383,
+  [
+   0.373,
+   3.702,
+   2.125
+  ]
+ ],
+ "coins": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "NEAR",
+  "SOL",
+  "TRX",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "alt kimchi, 16 BrightFunded altcoins (bf2)": {
+  "sleeve D/T/H": [
+   0.105,
+   1.068,
+   0.599
+  ],
+  "bf2": [
+   2.366,
+   [
+    0.08,
+    3.869,
+    2.162
+   ]
+  ],
+  "pass": false
+ }
+}

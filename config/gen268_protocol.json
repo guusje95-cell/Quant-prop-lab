@@ -1,0 +1,10 @@
+{
+  "generation": "Gen268",
+  "title": "Ridge + Korean risk-appetite breadth (mean altcoin kimchi z), in v8 and bf2",
+  "registered": "2026-10-21, before any Gen268 number",
+  "model": "the current ridge of each book (v8: Gen108 features; bf2: Gen108 + spot taker features) plus one daily feature kb = mean of the 16 altcoin kimchi z-scores (Gen247 z, 23:00 UTC; NaN coins skipped), same value for the BTC and ETH rows. Replaces the book's ridge sleeve",
+  "why": "the altcoin kimchi premia carry Korean retail risk appetite (Gen247 passed); as a market-wide state it may help predict BTC/ETH",
+  "pass": "v8: sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8 (2.547 / 3.708 / 2.345); bf2: sleeve D > 0, TEST >= 0.5, HOLD >= 0.3 and strict rule vs bf2 (2.383 / 3.702 / 2.125)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
