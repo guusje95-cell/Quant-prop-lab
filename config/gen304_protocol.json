@@ -1,0 +1,15 @@
+{
+  "generation": "Gen304",
+  "title": "Three more feature families for the ridge, each judged in v8.4 and in bf2.2 (6 trials)",
+  "registered": "2026-10-21, after Gen303 (v8.4) and Gen302 (bf2.2), before any Gen304 number",
+  "model": "the book's current ridge unchanged (v8.4: kimchi breadth, spot flow, VRP, calendar, vol-scaled target; bf2.2: spot flow, VRP, calendar, raw target; alpha 10, monthly walk-forward from 2021) plus ONE feature set per trial",
+  "trials": {
+    "A": "positioning: log top-trader position long/short ratio and log all-account long/short ratio (Binance metrics, day's last value) and the 7-day change of the top-trader one (data from 2021-12; earlier rows 0 after standardising, as the OI features)",
+    "B": "realised higher moments from 5-minute perp returns: day's realised skewness, its 7-day mean, and the downside share of realised variance (sum of squared negative returns / sum of squared returns), 7-day mean",
+    "C": "US equity spillover: US500 CFD return over the UTC day (Dukascopy hourly, last bar of day d vs last bar of day d-1; 0 on days without a bar) and its 20-trading-day realised vol"
+  },
+  "why": "A: positioning failed as stand-alone sleeves (Gen153-style rules) but was never offered to the ridge; B: realised skewness predicts returns negatively in stocks (Amaya et al. 2015) and in crypto (Jia et al. 2021); C: equity-to-crypto spillover failed as a sleeve rule, never as a ridge input",
+  "pass": "per trial and book: book bars + strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428) or bf2.2 (2.501 / 0.523 / 3.812 / 2.247); per book the highest passing book Sharpe is adopted, combinations only as new registered trials",
+  "trials_added": 6,
+  "no_changes_after_results": true
+}
