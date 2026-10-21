@@ -1,0 +1,15 @@
+{
+  "generation": "Gen306",
+  "title": "bf2.2 ridge + kimchi breadth (A) / vol-scaled target (B); bf2.2 + alt kimchi sleeve (C); v8.4 + ridge signal applied to an altcoin basket (D)",
+  "registered": "2026-10-21, before any Gen306 number",
+  "trials": {
+    "A": "bf2.2 ridge (spot flow, VRP, calendar, raw target) + kb (mean altcoin kimchi z, the v8.1 feature); replaces the bf2.2 ridge",
+    "B": "bf2.2 ridge with the Gen288 vol-scaled target (next-day return / vol30); replaces the bf2.2 ridge",
+    "C": "bf2.2 + the Gen270 alt kimchi sleeve exactly as Gen270 (coins with measured spread <= 50 bp, half spread + 1.2 bp per side); a re-test on the new base (Gen270 failed vs bf2 2.427 with TEST and HOLD up, book 2.423)",
+    "D": "new sleeve in v8.4: the v8.4 ridge's BTC and ETH predictions averaged, applied to an equal-weight basket of the Bybit/Binance altcoin perps (all B.coins() except BTC, ETH): each alt weight = 2 x 0.5 x mean prediction / number of alts (same gross as the ridge sleeve), 5 bp + funding",
+    "why D": "altcoins have higher beta to the crypto factor the ridge forecasts; a second set of instruments for the same forecast"
+  },
+  "pass": "A/B/C: bf2 bars + strict rule vs bf2.2 (2.501 / 0.523 / 3.812 / 2.247); D: v-book sleeve bars (DEV 2021-22) + strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428)",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
