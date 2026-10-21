@@ -1,0 +1,215 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "events": [
+  {
+   "coin": "1INCH",
+   "perp": "1INCH",
+   "short from": "2021-10-28",
+   "30d coin return %": -28.7
+  },
+  {
+   "coin": "AAVE",
+   "perp": "AAVE",
+   "short from": "2021-10-28",
+   "30d coin return %": -25.9
+  },
+  {
+   "coin": "ALGO",
+   "perp": "ALGO",
+   "short from": "2021-11-19",
+   "30d coin return %": -26.8
+  },
+  {
+   "coin": "APT",
+   "perp": "APT",
+   "short from": "2022-10-20",
+   "30d coin return %": -32.6
+  },
+  {
+   "coin": "ARB",
+   "perp": "ARB",
+   "short from": "2023-03-31",
+   "30d coin return %": -1.8
+  },
+  {
+   "coin": "AVAX",
+   "perp": "AVAX",
+   "short from": "2022-02-09",
+   "30d coin return %": -16.6
+  },
+  {
+   "coin": "AXS",
+   "perp": "AXS",
+   "short from": "2021-04-06",
+   "30d coin return %": -4.2
+  },
+  {
+   "coin": "CHZ",
+   "perp": "CHZ",
+   "short from": "2020-04-18",
+   "30d coin return %": null
+  },
+  {
+   "coin": "COMP",
+   "perp": "COMP",
+   "short from": "2025-04-02",
+   "30d coin return %": -9.9
+  },
+  {
+   "coin": "CRV",
+   "perp": "CRV",
+   "short from": "2026-08-22",
+   "30d coin return %": 5.1
+  },
+  {
+   "coin": "DOGE",
+   "perp": "DOGE",
+   "short from": "2021-02-25",
+   "30d coin return %": -6.0
+  },
+  {
+   "coin": "DOT",
+   "perp": "DOT",
+   "short from": "2020-10-06",
+   "30d coin return %": -1.4
+  },
+  {
+   "coin": "EGLD",
+   "perp": "EGLD",
+   "short from": "2023-04-28",
+   "30d coin return %": -16.5
+  },
+  {
+   "coin": "FIL",
+   "perp": "FIL",
+   "short from": "2025-04-05",
+   "30d coin return %": -3.3
+  },
+  {
+   "coin": "GRT",
+   "perp": "GRT",
+   "short from": "2023-06-02",
+   "30d coin return %": -15.1
+  },
+  {
+   "coin": "ICP",
+   "perp": "ICP",
+   "short from": "2026-03-12",
+   "30d coin return %": -3.0
+  },
+  {
+   "coin": "IMX",
+   "perp": "IMX",
+   "short from": "2023-07-29",
+   "30d coin return %": -24.9
+  },
+  {
+   "coin": "INJ",
+   "perp": "INJ",
+   "short from": "2024-10-18",
+   "30d coin return %": 25.2
+  },
+  {
+   "coin": "LINK",
+   "perp": "LINK",
+   "short from": "2020-08-05",
+   "30d coin return %": 22.3
+  },
+  {
+   "coin": "NEAR",
+   "perp": "NEAR",
+   "short from": "2021-12-16",
+   "30d coin return %": 96.7
+  },
+  {
+   "coin": "OP",
+   "perp": "OP",
+   "short from": "2025-07-29",
+   "30d coin return %": -5.3
+  },
+  {
+   "coin": "PEPE",
+   "perp": "1000PEPE",
+   "short from": "2024-11-15",
+   "30d coin return %": 10.4
+  },
+  {
+   "coin": "SAND",
+   "perp": "SAND",
+   "short from": "2021-01-22",
+   "30d coin return %": null
+  },
+  {
+   "coin": "SHIB",
+   "perp": "1000SHIB",
+   "short from": "2023-01-19",
+   "30d coin return %": 21.2
+  },
+  {
+   "coin": "SOL",
+   "perp": "SOL",
+   "short from": "2021-10-16",
+   "30d coin return %": 50.4
+  },
+  {
+   "coin": "STX",
+   "perp": "STX",
+   "short from": "2021-04-06",
+   "30d coin return %": null
+  },
+  {
+   "coin": "SUI",
+   "perp": "SUI",
+   "short from": "2023-05-05",
+   "30d coin return %": -28.8
+  },
+  {
+   "coin": "TIA",
+   "perp": "TIA",
+   "short from": "2025-05-09",
+   "30d coin return %": -25.5
+  },
+  {
+   "coin": "UNI",
+   "perp": "UNI",
+   "short from": "2024-10-23",
+   "30d coin return %": 16.7
+  },
+  {
+   "coin": "WLD",
+   "perp": "WLD",
+   "short from": "2025-09-10",
+   "30d coin return %": -36.9
+  },
+  {
+   "coin": "XTZ",
+   "perp": "XTZ",
+   "short from": "2020-08-05",
+   "30d coin return %": -18.8
+  }
+ ],
+ "short after Upbit listing": {
+  "sleeve D/T/H": [
+   -0.489,
+   -0.026,
+   0.762
+  ],
+  "corr C*": -0.241,
+  "v7": [
+   2.72,
+   [
+    1.166,
+    3.849,
+    2.453
+   ]
+  ],
+  "pass": false
+ }
+}
