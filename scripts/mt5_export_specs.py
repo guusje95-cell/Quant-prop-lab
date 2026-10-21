@@ -37,6 +37,20 @@ for s in mt5.symbols_get() or []:
                  "volume_min": i.volume_min, "volume_max": i.volume_max, "trade_mode": i.trade_mode, "bid": bid, "ask": ask,
                  "spread_bp": (ask - bid) / mid * 1e4 if mid else None,
                  "notional_1lot_usd": mid * i.trade_contract_size if mid else None})
+# spreads: one snapshot is noisy, so sample every symbol 10 times over ~5 minutes and keep the median (and the max)
+import time
+samples = {r["symbol"]: [] for r in rows}
+for k in range(10):
+    for r in rows:
+        t = mt5.symbol_info_tick(r["symbol"])
+        if t and t.bid and t.ask:
+            samples[r["symbol"]].append((t.ask - t.bid) / ((t.ask + t.bid) / 2) * 1e4)
+    print(f"spread sample {k + 1}/10", flush=True)
+    if k < 9:
+        time.sleep(30)
+for r in rows:
+    v = sorted(samples[r["symbol"]])
+    r["spread_bp_median"] = v[len(v) // 2] if v else None; r["spread_bp_max"] = v[-1] if v else None; r["spread_samples"] = len(v)
 mt5.shutdown()
 df = pd.DataFrame(rows)
 df["is_crypto"] = df["path"].str.contains("crypt", case=False) | df["symbol"].str.contains("BTC|ETH|XRP|SOL|ADA|DOG|LNK|LINK|LTC|AVAX|DOT|BCH", case=False)
@@ -50,4 +64,5 @@ df.to_csv(f, index=False)
 print(f"{len(df)} symbols, account leverage 1:{lev}, saved to {f}")
 c = df[df["is_crypto"]]
 print(f"\ncrypto symbols ({len(c)}):")
-print(c[["symbol", "swap_mode", "swap_long", "swap_short", "swap_bp_per_day_if_points", "leverage_from_margin", "spread_bp"]].round(2).to_string(index=False))
+print(c[["symbol", "swap_mode", "swap_long", "swap_short", "swap_bp_per_day_if_points", "leverage_from_margin", "spread_bp_median"]].round(2).to_string(index=False))
+print(f"\naccount swap-free? if swap_long / swap_short above are all 0 this account is swap-free; non-zero values mean swap is charged")
