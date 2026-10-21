@@ -1,0 +1,9 @@
+{
+  "generation": "Gen294",
+  "title": "Pooled altcoin ridge with volatility-scaled targets (Gen263 rerun with the Gen288 target), vs v8.3",
+  "registered": "2026-10-21, before any Gen294 number; counted as a new trial (Gen263 used raw targets and failed)",
+  "model": "Gen263 unchanged (16 altcoins, same features incl. zk / zc / spot flow / BTC r1 and zc, alpha 10, monthly walk-forward, prediction / in-sample sd clipped +-1, position 0.1 x prediction per coin, perps 5 bp + funding) except the training target = next-day return / that coin's 30-day vol",
+  "pass": "sleeve DEV 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

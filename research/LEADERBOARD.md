@@ -997,3 +997,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Reference from here: v8.3 2.700 / 1.293 / 3.828 / 2.376.**
 - v8.3 vs v8, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, descriptive): 2025-26 mean net $133.1k -> **$137.7k** (p10 $61.2k -> **$70.6k**); 2023-26 $177.1k -> **$183.1k**.
 - **Paper trader v8.3** (`QPL_PAPER=v83`, `paper_v83_start.bat`, `config/paper_v83.json`, scale 0.886): reproduces 2.700 / 1.293 / 3.828 / 2.376; self-test PASSED (no look-ahead).
+- **Gen293 (vs v8.3), inverse-vol sizing:** A cascade 2.681 [1.21, 3.891, 2.323]; B deleveraging bounce 2.659 [1.33, 3.779, 2.285]. **Both fail** (one period lower each).
