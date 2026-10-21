@@ -1,0 +1,10 @@
+{
+  "generation": "Gen317",
+  "title": "bf2.3 + inverse-vol premium carry on the BrightFunded crypto CFD universe as an ADDED sleeve (the Gen316 construction in the CFD book; 1 trial)",
+  "registered": "2026-10-21, after Gen316 (v8.5), before any Gen317 number",
+  "model": "crypto_sleeves.premium_breadth_weights(coins=U, invvol=True) with U = BrightFunded crypto CFDs that have Binance perp data (pack + extra) and a measured MT5 spread in (0, 50] bp (the Gen270 filter; LDO's 0 bp reading excluded as a data error); traded as CFDs: half the measured spread + 1.2 bp commission per side, swap-free (no funding); added as a sleeve to bf2.3, everything else unchanged",
+  "why": "the same carry signal on a wide universe with inverse-vol legs passed in v8.4 (Gen316); Gen121 breadth on 42 BrightFunded coins raised HOLD 1.55 -> 2.09 with equal weights and estimated 10 bp costs",
+  "pass": "bf2 sleeve bars + strict rule vs bf2.3 (2.506 / 0.313 / 3.985 / 2.298)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
