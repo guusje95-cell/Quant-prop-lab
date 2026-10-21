@@ -1,0 +1,9 @@
+{
+  "generation": "Gen298",
+  "title": "Deleveraging bounce with a volatility-relative trigger (OI-drop z-score instead of a fixed -10%), vs v8.3",
+  "registered": "2026-10-21, before any Gen298 number",
+  "rule": "per coin (BTC, ETH): d = 24h change of open-interest value to 23:55 UTC; z = d / (90-day sd of daily d, previous days); trigger when z < -2.5 AND price fell over the same 24h; long 0.5 for 2 days (unchanged otherwise). The threshold -2.5 sd is fixed a priori (about the frequency of the current -10% rule is NOT checked)",
+  "pass": "replaces the delev-bounce sleeve: strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
