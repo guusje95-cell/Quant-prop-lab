@@ -1,0 +1,10 @@
+{
+  "generation": "Gen264",
+  "title": "Paper-based kimchi refinements (Makarov-Schoar 2020; Eom 2021), judged against v8 (2.547 / 3.708 / 2.345)",
+  "registered": "2026-10-21, after reading the 5 user-supplied papers, before any Gen264 number",
+  "A_idiosyncratic_alt_premium": "Makarov-Schoar: premia have a large common (country / capital-control) component; the coin-specific part is local demand for that coin. For the 16 altcoins: ip = alt kimchi premium - BTC kimchi premium (same hour 23:00 UTC, same FX); z = 30-day z (min 20); cross-section: long the 4 highest z, short the 4 lowest, 0.125 each, >= 10 coins, next day; perps 5 bp + funding. Added to v8 as a new sleeve",
+  "B_bubble_reversal": "Eom: a high kimchi premium WITH high Korean trading volume marks a speculative bubble. For the 16 altcoins: kimchi z > 1 (Gen247 z) AND Upbit turnover share z > 1 (share = Upbit daily USD turnover / Binance perp quote volume; z = (7-day mean share - 90-day mean) / 90-day sd) -> short 0.1 the next day. Added to v8 as a new sleeve (it offsets v8's alt-kimchi long in bubble cases)",
+  "pass": "each: sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
