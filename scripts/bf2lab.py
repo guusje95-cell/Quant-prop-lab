@@ -14,6 +14,12 @@ IDX1 = IDXbf.append(pd.DatetimeIndex([IDXbf[-1] + pd.Timedelta(hours=1)]))
 cfd = lambda w: sleeve(CB.d2h(w.reindex(columns=CB.CFD).fillna(0.0), IDX1))
 
 
+import os
+if os.environ.get("QPL_REF", "v8") != "v7":                    # after Gen247: bf2's ridge uses the spot taker features (QPL_REF=v7: old)
+    import ridge_live as _RL
+    HB_RIDGE = cfd(_RL.predictions(END, spot=True).pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5)
+
+
 def book(extra, ridge=None):
     r = HB_RIDGE if ridge is None else ridge
     return CS.portfolio_v5(pd.concat([HB0, IS0, r.rename("ridge ML")] + list(extra), axis=1).fillna(0.0))[0]

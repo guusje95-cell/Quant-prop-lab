@@ -78,7 +78,14 @@ def zk_strict(c, bn_hourly):
     return (kd - kd.rolling(30, min_periods=20).mean()) / kd.rolling(30, min_periods=20).std()
 
 
-def features(end):
+def spot_hourly(c):
+    """Binance SPOT hourly klines with taker-buy volume (Gen247 B, bf2 ridge): research copy + QPL_LIVE_PACK/ml/spot overlay, cut."""
+    s = _overlay(ROOT / f"research_data/binance_spot/{c}USDT_1h.parquet", f"spot/{c}USDT_1h.parquet")
+    cut = _cut()
+    return s[s.index + pd.Timedelta(hours=1) <= cut] if cut is not None else s
+
+
+def features(end, spot=False):
     from qpl.lab import binance_pack as B
     from qpl.lab.data import stablecoin_caps
     import cfd_book as CB
@@ -107,12 +114,16 @@ def features(end):
         dv = dvol(c); f["dvol1"] = (dv / dv.shift(1) - 1).reindex(days)
         f["stab"] = stab; f["is_eth"] = 1.0 if c == "ETH" else 0.0
         f["target"] = ret.shift(-1); f["coin"] = c
+        if spot:                                                     # Gen247 B: spot taker imbalance and spot - perp divergence
+            sp = spot_hourly(c).loc[:pd.Timestamp(end).floor("D") + pd.Timedelta(hours=23)]; sd = sp.resample("1D").sum()
+            simb = ((2 * sd["taker_buy_volume"] - sd["volume"]) / sd["volume"]).replace([np.inf, -np.inf], np.nan).reindex(days)
+            f["simb"] = simb; f["sdiv"] = simb - f["imb"].replace([np.inf, -np.inf], np.nan)
         rows.append(f)
     return pd.concat(rows).reset_index().rename(columns={"index": "day"})
 
 
-def predictions(end):
-    D = features(end); feats = [x for x in D.columns if x not in ("day", "target", "coin")]
+def predictions(end, spot=False):
+    D = features(end, spot); feats = [x for x in D.columns if x not in ("day", "target", "coin")]
     out = pd.Series(np.nan, index=D.index)
     for m in pd.date_range("2021-01-01", pd.Timestamp(end).floor("D"), freq="MS"):
         tr = D[(D["day"] >= "2020-03-01") & (D["day"] < m - pd.Timedelta(days=1))].dropna(subset=["target"])
@@ -127,12 +138,13 @@ def predictions(end):
     return D
 
 
-def ridge_weights(end=None):
-    """Daily target weights for the v7 'ridge ML' sleeve: row d is decided at the close of day d (only complete days count)."""
+def ridge_weights(end=None, spot=False):
+    """Daily target weights for the 'ridge ML' sleeve (spot=True: bf2's Gen247 B ridge with spot taker features):
+    row d is decided at the close of day d (only complete days count)."""
     import crypto_sleeves as CS
     end = pd.Timestamp(end or CS.END)
     last_full = (end + pd.Timedelta(hours=1)).floor("D") - pd.Timedelta(days=1)          # the last day whose close is known
-    D = predictions(last_full)
+    D = predictions(last_full, spot)
     return D.pivot(index="day", columns="coin", values="ridge").loc[:last_full].fillna(0.0) * 0.5
 
 
