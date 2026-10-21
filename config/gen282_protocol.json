@@ -1,0 +1,9 @@
+{
+  "generation": "Gen282",
+  "title": "Euro-area demand premium (Binance BTC/EUR and ETH/EUR vs EUR/USD), vs v8.1",
+  "registered": "2026-10-21, before any Gen282 number (flow data 3 already in the repo; EUR was not part of Gen262)",
+  "signal": "per coin: p = Binance coin/EUR close x Yahoo EUR/USD (previous London day) / Binance coin/USDT close - 1, hourly; 24h mean; 720h z (min 480) at 23:00 UTC; z > 1 -> long the coin 0.25, z < -1 -> short 0.25, next day; perps 5 bp + funding",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
