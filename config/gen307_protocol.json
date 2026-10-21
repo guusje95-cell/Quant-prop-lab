@@ -1,0 +1,10 @@
+{
+  "generation": "Gen307",
+  "title": "v8.4 + the Coinbase premium sleeve (the bf rule, Gen88) on BTC/ETH perps",
+  "registered": "2026-10-21, before any Gen307 number",
+  "model": "cfd_book.coinbase_premium_w (24h mean Coinbase-vs-Binance premium, z over 720 h; z > 1 long 0.5, z < -1 short 0.5, next day) traded on Bybit/Binance perps at 5 bp + funding",
+  "why": "the sleeve runs in every CFD book since Gen88; in v6 it passed but was left out for adding only 0.01; v8.4 has a ridge with the same Coinbase z as a feature, so it may now be redundant or complementary",
+  "pass": "v-book sleeve bars + strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
