@@ -1,0 +1,11 @@
+{
+  "generation": "Gen265",
+  "title": "Retail attention (Google search interest; Koch & Dimpfl 2022), judged against v8",
+  "registered": "2026-10-21, before the data exists (get_google_trends.bat on the user's PC)",
+  "data_note": "daily Google Trends for 'bitcoin' stitched from 260-day windows overlapping 60 days; each later window is rescaled to the earlier one (no rescaling of the past by future windows); a day's value is used from the next UTC day on",
+  "A_attention_momentum": "a = log Google interest for 'bitcoin'; s = 7-day mean of a minus 30-day mean of a (shifted 1 day); z = 90-day z of s (min 60); z > 1 -> long BTC and ETH 0.25 each, z < -1 -> short, held the next day; perps 5 bp + funding",
+  "B_attention_spike_derisk": "Koch & Dimpfl: attention spikes raise next-day co-movement (diversification fails). Overlay on the whole v8 book: on days after 'bitcoin' interest is > 2 sd above its 30-day mean (log, shifted 1 day), multiply every sleeve's exposure by 0.5 for that day",
+  "pass": "A: sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8; B: strict rule vs v8 (book 2022-26 up, TEST and HOLD not lower)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

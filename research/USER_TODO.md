@@ -8,6 +8,8 @@
    3. Leave bf2 running unchanged (its research gain, +0.005, is too small to restart the paper run for).
    4. Double-click `get_flow_data3.bat` (free, ~30-60 min, resumable): Upbit for the 40 extra coins + Binance TRY/BRL/EUR pairs + FX.
       Then `git pull --no-edit`, `git add research_data/more research_data/binance_fiat`, `git commit -m "flow data 3"`, `git push`.
+   4b. OPTIONAL (free, 30-90 min, Google rate-limits): `get_google_trends.bat` - daily Google search interest for crypto terms
+      (retail attention, from the Koch & Dimpfl paper). Then `git add research_data/attention`, commit, push.
    5. Papers that would help (PDF in the chat; not committed): Makarov & Schoar 2020 "Trading and arbitrage in cryptocurrency
       markets" (JFE); Choi, Lehar & Stauffer 2022 "Bitcoin microstructure and the kimchi premium"; any paper on retail /
       regional crypto demand or on Upbit/Bithumb flows.
