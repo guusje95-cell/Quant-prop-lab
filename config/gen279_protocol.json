@@ -1,0 +1,12 @@
+{
+  "generation": "Gen279",
+  "title": "Bitfinex margin positions ('Bitfinex whales'), BTC and ETH, judged against v8.1",
+  "registered": "2026-10-21, after downloading the data (public Bitfinex API, hourly from 2021-02-22), before any Gen279 number",
+  "data": "stats1 pos.size long / short, hourly; the 23:00 UTC value is used for the decision at the close of that day",
+  "A_whale_long_change": "per coin: s = log(long size) - log(long size 7 days earlier); z = 90-day z (min 60); z > 1 -> long the coin 0.25, z < -1 -> short 0.25, next day; perps 5 bp + funding",
+  "B_long_short_ratio": "per coin: q = log(long size / short size); z = (q - 30-day mean) / 30-day sd (min 20); z > 1 -> long 0.25, z < -1 -> short 0.25, next day",
+  "direction_note": "both follow the margin traders (Bitfinex margin positions are widely read as informed 'whale' money); fixed before results",
+  "pass": "sleeve DEV (2021-05..2022-12, data start + warm-up) > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
