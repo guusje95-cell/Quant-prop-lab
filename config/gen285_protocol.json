@@ -1,0 +1,9 @@
+{
+  "generation": "Gen285",
+  "title": "Slower altcoin kimchi: weekly signal (7-day mean premium), weekly rebalance, replacing v8.1's daily sleeve",
+  "registered": "2026-10-21, after Gen266 / Gen284 (faster versions fail), before any Gen285 number",
+  "rule": "per altcoin: kd = daily 23:00 UTC kimchi premium (Gen247 recipe); m = 7-day mean of kd; z = (m - 90-day mean of kd) / 90-day sd of kd (min 60); decided every Sunday at 23:00 UTC (z > 1 long 0.1, z < -1 short 0.1), held Monday-Sunday; perps 5 bp + funding",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
