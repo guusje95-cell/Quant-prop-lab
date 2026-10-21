@@ -1000,3 +1000,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen293 (vs v8.3), inverse-vol sizing:** A cascade 2.681 [1.21, 3.891, 2.323]; B deleveraging bounce 2.659 [1.33, 3.779, 2.285]. **Both fail** (one period lower each).
 - **Gen294, pooled altcoin ridge with volatility-scaled targets (Gen263 rerun):** -0.02 / 1.26 / 0.06, corr C* 0.39; v8.3 -> 2.467. **Fails** (altcoin ML stays unstable in 2025-26, whatever the target).
 - **Gen295, bf2 with the v8.3 ridge (kimchi breadth + vol-scaled target, no spot features):** ridge sleeve 0.28 / 1.87 / 1.68 but bf2 2.401 [0.37, 3.72, 2.16]. **Fails**; bf2 keeps its spot-flow ridge.
+- **Gen296, inverse-vol sizing across US100 / US500 / US30 inside bf2's R1 / P1 legs:** 2.425 [0.42, 3.74, 2.17] vs 2.427. **Fails** (no effect).

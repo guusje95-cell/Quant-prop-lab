@@ -1,0 +1,10 @@
+{
+  "generation": "Gen297",
+  "title": "v8.3 ridge with volatility-normalised return features (r1 / r3 / r7 / r30 divided by vol30 x sqrt(horizon))",
+  "registered": "2026-10-21, before any Gen297 number",
+  "model": "v8.3 ridge unchanged (kimchi breadth, vol-scaled target, monthly walk-forward, alpha 10) except the four return features are replaced by r_n / (vol30 x sqrt(n)) (z-score-like moves); all other features unchanged",
+  "why": "consistent with the Gen288 target: a 5% move means different things at 2% and at 6% daily vol",
+  "pass": "sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
