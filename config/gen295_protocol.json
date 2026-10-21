@@ -1,0 +1,9 @@
+{
+  "generation": "Gen295",
+  "title": "bf2 with the v8.3 ridge (kimchi breadth + volatility-scaled target, no spot features) at CFD costs",
+  "registered": "2026-10-21, before any Gen295 number",
+  "rule": "bf2's ridge sleeve (Gen247 B: spot features, raw target) replaced by the v8.3 ridge (Gen108 features + kimchi breadth, volatility-scaled target), CFD measured costs; everything else in bf2 unchanged",
+  "pass": "strict rule vs bf2 at measured costs (2.427 / 3.751 / 2.169)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
