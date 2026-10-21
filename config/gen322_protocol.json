@@ -1,0 +1,10 @@
+{
+  "generation": "Gen322",
+  "title": "Tranched (staggered) rebalancing of the carry sleeves: 7 tranches with day offsets 0..6, averaged (removes rebalance timing luck; 2 trials)",
+  "registered": "2026-10-21, before any Gen322 number",
+  "model": "for every premium-carry sleeve of the book, the 7-day-hold weights are computed for each start offset 0..6 and averaged (each tranche rebalances once a week on its own day); signal, universe, leg weights and costs unchanged. v8.5: 'premium carry' (20 coins, invvol) and 'premium carry 60'; bf2.4: 'premium carry' (11 CFD coins, equal legs as in bf2.4) and 'premium carry BF'",
+  "why": "a fixed weekly rebalance day is arbitrary; its luck (Hoffstein, 'rebalance timing luck') adds noise that tranching removes at no extra turnover in expectation",
+  "pass": "strict rule vs v8.5 (2.983 / 1.205 / 3.915 / 3.089) and vs bf2.4 (2.787 / 0.543 / 4.043 / 2.758)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
