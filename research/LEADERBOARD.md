@@ -933,3 +933,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, idiosyncratic altcoin premium (alt kimchi minus BTC kimchi, Makarov-Schoar), market-neutral XS:** -0.89 / -0.06 / -1.21. **Fails.** The tradable information is in the total premium (Gen247), not the coin-specific part.
 - **B, kimchi bubble reversal (kimchi z > 1 and Korean volume-share surge -> short, Eom):** -1.07 / -1.43 / 0.25. **Fails**: "bubbles" keep running, consistent with v8's momentum use of the premium.
 - Not testable here: Lee & Oh (confidential remittance data); Koch & Dimpfl (Google / Twitter attention, not available; the volume-share proxy failed in Gen261).
+- **Gen266, hourly Upbit -> Binance lead-lag (premium jump > 3 sd -> follow for 4 h, 18 coins):** 1.05 / -1.34 / -1.31, v8 -> 2.030. **Fails**: the lead existed in 2020-22 and has been arbitraged away since; only the slower daily premium signal (Gen247) survives.
