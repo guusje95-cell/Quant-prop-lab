@@ -1,0 +1,14 @@
+{
+  "generation": "Gen302",
+  "title": "A: bf2.1 ridge + calendar dummies (combination of Gen301 A and B); B/C: ETH-minus-BTC relative-value ridge sleeve",
+  "registered": "2026-10-21, after Gen301, before any Gen302 number",
+  "trials": {
+    "A": "bf2.1 ridge (spot flow + VRP) + Gen300 C weekend / Monday dummies, replacing the bf2.1 ridge; vs bf2.1",
+    "B": "new sleeve in v8.3: ridge (alpha 10, monthly walk-forward from 2021, train from 2020-03) predicting the next-day ETH return minus BTC return divided by the 30-day vol of that spread; features = ETH-feature minus BTC-feature for every v8.3 ridge feature (+ kb, + vrp difference); position = 0.5 x clip(prediction / training sd, -1, 1) long ETH and the same short BTC (market neutral), perps 5 bp + funding; vs v8.3",
+    "C": "the same sleeve in bf2.1 (CFD costs); vs bf2.1"
+  },
+  "why": "B/C: a market-neutral relative-value model uses the same information but is nearly uncorrelated to trend (C*) and to the directional ridge; Gen249 tested only the raw ETH-BTC premium spread",
+  "pass": "A: bf2 bars + strict rule vs bf2.1 (2.464 / 0.514 / 3.804 / 2.182); B: v-book sleeve bars + strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376); C: bf2 bars + strict rule vs bf2.1",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
