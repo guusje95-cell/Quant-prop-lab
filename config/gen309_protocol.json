@@ -1,0 +1,16 @@
+{
+  "generation": "Gen309",
+  "title": "Deribit options skew and options flow as ridge features (v8.4 and bf2.3; 2 trials) - registered BEFORE the data exists",
+  "registered": "2026-10-21, before research_data/deribit_options was downloaded (src/qpl/live/deribit_options.py, user PC)",
+  "features": {
+    "skew": "amount-weighted implied vol of OTM puts (K/S 0.85-0.95, tenor 8-45 d) minus that of OTM calls (K/S 1.05-1.15, 8-45 d), per coin per UTC day; and its 7-day change",
+    "pcr": "log(put amount / call amount), all strikes and tenors, per day",
+    "callflow": "(taker-bought call amount - taker-sold call amount) / total call amount, per day",
+    "missing": "a bucket with no trades that day -> NaN -> 0 after standardising (as every ridge feature)"
+  },
+  "model": "the book's current ridge (v8.4: kb, spot flow, VRP, calendar, vol-scaled target; bf2.3: spot flow, VRP, calendar, raw target) + these 5 features (skew, skew 7d change, pcr, callflow, and pcr 7d change); alpha 10, monthly walk-forward from 2021",
+  "why": "option skew and option order flow carry information on future crypto returns (e.g. Alexander et al. on Deribit order flow; skew as crash-risk pricing); the VRP (Gen301/303) already showed Deribit implied vols add to the ridge",
+  "pass": "v8.4: v-book bars (replace_ridge) + strict rule vs 2.750 / 1.324 / 3.896 / 2.428; bf2.3: bf2 bars + strict rule vs 2.506 / 0.313 / 3.985 / 2.298",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

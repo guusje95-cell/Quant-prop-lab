@@ -1,0 +1,10 @@
+{
+  "generation": "Gen310",
+  "title": "Two-day smoothing of the ridge position (v8.4 and bf2.3; 2 trials)",
+  "registered": "2026-10-21, before any Gen310 number",
+  "model": "ridge position on day d+1 = 0.5 x (prediction decided at the close of d + prediction decided at the close of d-1), times 0.5 as now; the book's current ridge otherwise unchanged",
+  "why": "daily ridge predictions are noisy and turn over a lot (5 bp perps, larger CFD spreads); averaging two days halves the noise in the position and the turnover at little loss if the signal persists for more than a day",
+  "pass": "v8.4: v-book bars (replace_ridge) + strict rule vs 2.750 / 1.324 / 3.896 / 2.428; bf2.3: bf2 bars + strict rule vs 2.506 / 0.313 / 3.985 / 2.298",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
