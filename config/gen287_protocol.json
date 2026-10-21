@@ -1,0 +1,11 @@
+{
+  "generation": "Gen287",
+  "title": "Liquidation flush bounce from Kraken Futures liquidation volume (BTC, daily, 2022-03+), vs v8.1",
+  "registered": "2026-10-21, after downloading the data (public Kraken Futures analytics), before any Gen287 number",
+  "rule": "lv = Kraken PF_XBTUSD daily liquidation volume; z = (log(1 + lv) - 60-day mean) / 60-day sd (min 40, prior days); if z > 2 and BTC's daily return that day < 0 -> long BTC 0.25 for the next 2 days; perps 5 bp + funding",
+  "data_note": "history starts 2022-03-23, so DEV is 2022-04..2022-12 only",
+  "why": "forced selling exhausts itself (the cascade and deleveraging-bounce sleeves use OI / price proxies); a direct liquidation measure is new to the books",
+  "pass": "sleeve DEV (available 2022) > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
