@@ -67,3 +67,38 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
 **BrightFunded support:**
 1. "On the funded 2-Step Classic: which news events fall under the 5-minute rule, and is FOMC (14:00 ET) one of them?"
 2. "Is there any limit on total open exposure or number of open positions for crypto CFDs?"
+
+## 5. Update 2026-10-21: BrightFunded support answers (written, for the funded $200k 2-Step Classic on MT5)
+- **News rule:** high-impact (red-folder) events of the Help Center calendar (Forex Factory times). FOMC decisions / statements
+  affect **all USD instruments, crypto USD pairs included**. No execution (opens, closes, limit / stop / SL / TP fills) from
+  5 minutes before to 5 minutes after (FOMC 14:00 ET -> 13:55-14:05 ET; a separately listed press conference has its own window).
+  Positions opened earlier may be held. TPs on trades held >= 48 h are exempt. **Soft breach: that trade's profit is removed.**
+  -> book impact: crypto rebalances happen at 00:00 UTC and trend trades at 4-hour UTC boundaries (never at 8:30 / 10:00 / 14:00 ET);
+  the R1 index entry (14:00 ET) and any other order must skip red-folder windows: the EA needs a news-calendar guard.
+- **Exposure:** no numerical cap on crypto notional or on the number of positions; margin (1:5) is the limit. The risk team's
+  overexposure review treats correlated same-direction crypto positions as one position (judged after the evaluation).
+  -> the carry sleeves are long-short (direction-neutral); the directional part (C*, trend, ridge, delev bounce, Coinbase
+  premium) is what they would look at.
+- **EAs:** allowed in challenge and funded; hourly limit orders without martingale / HFT / signals "does not sound like a grid";
+  no pre-approval (risk review after the evaluation).
+- **Swap-free:** +10% of the fee at checkout, all instruments incl. index and crypto CFDs, no replacement charge; only at purchase.
+- **Commissions:** crypto 0.012% per side, indices 0 (model uses 1 bp per side on indices: conservative).
+- **Weekend holding allowed;** drawdown on real-time equity incl. floating P&L; **daily limit = 5% of the initial balance measured
+  from the HIGHER of balance or equity at the daily rollover**; max loss static 10%; gaps through a limit count.
+  -> **NEW RISK:** MT5 "balance" only moves when trades close. Our book holds most positions for days to weeks, so a floating
+  loss at the rollover leaves balance above equity and the day's floor is set from the (higher) balance: e.g. floating -3% at
+  the rollover leaves only 2% room that day. Mitigation for the EA: shortly before the rollover, close and reopen positions
+  that are in a floating loss (realises the loss, balance = equity on them; cost = spread on those positions only).
+
+## 6. HyroTrader: published rules (read by the user from the official pages, NOT a support answer)
+- Daily drawdown 5% of initial balance, static from 00:00 UTC equity, evaluation and funded (FAQ and rules page).
+- 2x notional / 25% margin: funded only. Stop-loss not required. 3% max loss per trade (definition unclear).
+- **Automation on Bybit: NOT established.** HyroTrader's own relaunch material says its platform agents cannot trade on Bybit;
+  permission for a self-written Bybit API bot needs a written answer. Until then plan for MANUAL execution.
+
+| v8.6 variant (research, sleeve-level) | Sharpe 2022-26 / 2022 / TEST / HOLD |
+|---|---|
+| full (needs automation: hourly cascade limit orders) | 3.110 / 1.54 / 3.97 / 3.11 |
+| without the cascade (no hourly orders) | 2.893 / 0.92 / 3.79 / 3.06 |
+| manual: without cascade and trend 4h (one batch a day + monthly Weiss) | **2.613** / 0.31 / 3.63 / 3.08 |
+| manual, daily batch only | 2.445 / 0.25 / 3.32 / 3.00 |
