@@ -1,0 +1,10 @@
+{
+  "generation": "Gen326",
+  "title": "Wider premium carry: the Gen316/Gen322 sleeve on a point-in-time top-100 and top-150 universe (by trailing 30-day volume, delisted perps included) - registered BEFORE the data exists",
+  "registered": "2026-10-21, before research_data/binance_pit was downloaded; runs after Gen321",
+  "model": "exactly the Gen321 construction (pack + extra + pit coins, >= 60 days listed, top-K by trailing 30-day quote volume, 7-day mean premium, top / bottom third, inverse-vol legs, 7 staggered tranches as Gen322, 5 bp + funding; a delisted coin is closed at its last price), K = 100 (A) and K = 150 (B), replacing the 'premium carry 60' sleeve of v8.6",
+  "why": "carry breadth was the largest gain of the project (20 -> 60 coins); Bybit (HyroTrader) lists 700+ USDT perps, so a wider point-in-time universe is tradable; delisted coins remove the survivorship bias",
+  "pass": "stricter bar for post-paper-start changes: strict rule vs v8.6 (or vs v8.4 + tranching if Gen321 withdraws v8.5/v8.6) with EVERY period (2022, TEST, HOLD) not lower and the 2022-26 Sharpe at least +0.05; descriptive checks at 2x costs and without the top coin; if A and B both pass, the higher book Sharpe; the result is a candidate (v8.7), not pushed into the running paper trader before the paper review",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

@@ -1085,3 +1085,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   | backtest | $186k ($114k) | $174k ($111k) | $360k / $232k / $15.0k | 0.0% |
   | **planning (deflated, N = 300)** | **$91k ($21k)** | **$79k ($19k)** | **$170k / $59k / $7.1k** | **1.0%** |
   | half the backtest Sharpe | $78k ($14k) | $73k ($17k) | $151k / $44k / $6.3k | 2.4% |
+- **Research rules from 2026-10-21 (paper trading v86 / bf26 running):** a change is adopted only with EVERY period not lower and the 2022-26 Sharpe +0.05 or more; adopted changes are collected as candidates (v8.7 / bf2.7) and go live only after the paper review. Check (descriptive): making the BrightFunded book different from v8.6 lowers the two-account Sharpe (bf2.6 as is 3.13 combined; indices + Coinbase premium only 2.76): diversification needs an uncorrelated book with a Sharpe of about 1.7+. **Gen326** (carry on a point-in-time top-100 / top-150 universe) registered before the data.
