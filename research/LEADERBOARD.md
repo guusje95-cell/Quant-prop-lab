@@ -988,3 +988,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Paper trader v8.2** (`QPL_PAPER=v82`, `paper_v82_start.bat`, `config/paper_v82.json`, scale 0.881): reproduces 2.636 / 1.203 / 3.764 / 2.357 on the research pack; self-test PASSED (no look-ahead).
 - **Gen289 (vs v8.2), inverse-vol position sizing:** A ridge 2.652 [1.20, 3.761, 2.344]; B alt kimchi 2.627 [1.23, 3.75, 2.31]. **Both fail** (TEST / HOLD a hair lower).
 - **Gen290, v8.2 ridge trained on 18 coins (BTC, ETH + 16 altcoins), traded on BTC / ETH:** sleeve -0.42 / 1.26 / 1.29; v8.2 -> 2.445. **Fails**: altcoin rows add noise to the BTC / ETH model (consistent with Gen110 / Gen263).
+- **Gen291 (vs v8.2):** A Huber regression instead of ridge 2.553; B raw + vol-scaled ridge ensemble 2.603 [1.11, 3.75, 2.37]. **Both fail**; the v8.2 ridge stays.
