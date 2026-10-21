@@ -1,0 +1,14 @@
+{
+  "generation": "Gen299",
+  "title": "Nested parameter tuning of v8.3's three newest components, selected on 2020-22 ONLY (Gen140 method)",
+  "registered": "2026-10-21, before any Gen299 number",
+  "grids": {
+    "alt kimchi threshold": [0.75, 1.0, 1.25, 1.5],
+    "premium carry look = hold (days, inverse-vol legs)": [3, 7, 14, 21],
+    "ridge alpha (kimchi breadth, vol-scaled target)": [3, 10, 30, 100]
+  },
+  "selection": "for each component separately, the setting with the highest stand-alone sleeve Sharpe over 2020-01..2022-12 (ridge: 2021-01..2022-12, its first predictions); no 2023-26 number is used in selection; ties -> the current setting",
+  "judgement": "the book with all three selected settings, ONE evaluation: strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376). If every selected setting equals the current one, the result is 'no change'",
+  "trials_added": 12,
+  "no_changes_after_results": true
+}
