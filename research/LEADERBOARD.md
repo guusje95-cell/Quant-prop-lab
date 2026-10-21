@@ -942,3 +942,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 ## Gen265 (2026-10-21): Google search attention (user download, 7 terms 2020-26; 2 trials vs v8.1)
 - **A, attention momentum ('bitcoin' interest 7d vs 30d, z > 1 -> long BTC/ETH):** 0.41 / 1.14 / -0.46; v8.1 -> 2.416. **Fails** (2-day-delay version similar: 0.51 / 0.95 / -0.57).
 - **B, halve the book the day after an attention spike (> 2 sd, 185 days):** 2.403 [0.77, 3.64, 2.13]. **Fails**: spikes often come before rebounds, so de-risking cuts good days (2022 1.00 -> 0.77).
+- **BrightFunded commission (support answer, 2026-10-21, user-verified):** crypto 0.012% per side (= the 1.2 bp in bf2), indices $0, FX $3 / lot, commodities 0.001% of volume; same in Challenge and Funded. bf2's cost model is confirmed. **Open:** whether the swap-free add-on covers index and crypto CFDs (follow-up question sent).
