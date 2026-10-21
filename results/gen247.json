@@ -1,0 +1,132 @@
+{
+ "reference": {
+  "v7": [
+   2.534,
+   [
+    1.38,
+    3.494,
+    2.24
+   ]
+  ],
+  "bf2": [
+   2.378,
+   [
+    0.367,
+    3.699,
+    2.118
+   ]
+  ]
+ },
+ "A alt kimchi": {
+  "coins": [
+   "AAVE",
+   "ADA",
+   "ATOM",
+   "AVAX",
+   "BCH",
+   "DOGE",
+   "DOT",
+   "ETC",
+   "FIL",
+   "LINK",
+   "NEAR",
+   "SOL",
+   "TRX",
+   "UNI",
+   "XLM",
+   "XRP"
+  ],
+  "sleeve perp D/T/H": [
+   0.246,
+   1.239,
+   0.771
+  ],
+  "corr C*": -0.042,
+  "sleeve CFD D/T/H": [
+   0.153,
+   1.035,
+   0.635
+  ],
+  "v7": {
+   "book": [
+    2.547,
+    [
+     0.993,
+     3.708,
+     2.345
+    ]
+   ],
+   "strict": true
+  },
+  "bf2": {
+   "book": [
+    2.373,
+    [
+     0.154,
+     3.845,
+     2.17
+    ]
+   ],
+   "strict": false
+  },
+  "pass v7": true,
+  "pass bf2": false
+ },
+ "B ridge + spot flow": {
+  "sleeve perp D/T/H": [
+   0.129,
+   1.273,
+   1.364
+  ],
+  "sleeve CFD D/T/H": [
+   0.269,
+   1.48,
+   1.497
+  ],
+  "v7": {
+   "book": [
+    2.539,
+    [
+     1.394,
+     3.492,
+     2.249
+    ]
+   ],
+   "strict": false
+  },
+  "bf2": {
+   "book": [
+    2.383,
+    [
+     0.373,
+     3.702,
+     2.125
+    ]
+   ],
+   "strict": true
+  },
+  "pass v7": false,
+  "pass bf2": true
+ },
+ "C spot-led XS": {
+  "coins": 20,
+  "sleeve D/T/H": [
+   -0.171,
+   0.01,
+   0.74
+  ],
+  "corr C*": 0.034,
+  "v7": {
+   "book": [
+    2.581,
+    [
+     1.494,
+     3.36,
+     2.411
+    ]
+   ],
+   "strict": false
+  },
+  "pass": false
+ }
+}
