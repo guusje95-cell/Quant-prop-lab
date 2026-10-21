@@ -1,0 +1,72 @@
+{
+ "reference v8.4": [
+  2.75,
+  [
+   1.324,
+   3.896,
+   2.428
+  ]
+ ],
+ "reference bf2.3": [
+  2.506,
+  [
+   0.313,
+   3.985,
+   2.298
+  ]
+ ],
+ "coins": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "BNB",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "LTC",
+  "NEAR",
+  "SOL",
+  "TRX",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "signal coin-days": 3527,
+ "delev bounce alts v8.4": {
+  "sleeve D/T/H": [
+   -0.117,
+   1.115,
+   0.735
+  ],
+  "corr C*": 0.182,
+  "v7": [
+   2.662,
+   [
+    1.173,
+    3.832,
+    2.454
+   ]
+  ],
+  "pass": false
+ },
+ "delev bounce alts bf2.3 (bf2)": {
+  "sleeve D/T/H": [
+   -0.434,
+   1.129,
+   0.694
+  ],
+  "bf2": [
+   2.467,
+   [
+    0.189,
+    3.995,
+    2.372
+   ]
+  ],
+  "pass": false
+ }
+}

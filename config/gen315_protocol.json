@@ -1,0 +1,10 @@
+{
+  "generation": "Gen315",
+  "title": "v8.4 premium carry on the 60-coin universe (Gen80 breadth) WITH the Gen292 inverse-vol leg weights, replacing the 20-coin invvol carry (1 trial)",
+  "registered": "2026-10-21, before any Gen315 number",
+  "model": "crypto_sleeves.premium_breadth_weights(invvol=True): the frozen Gen61 rule (7-day mean premium, top / bottom third, 7-day hold) on pack + extra coins (Gen80 universe), legs weighted by 1 / 30-day vol; P&L via premium_carry_breadth (5 bp + funding); replaces the 'premium carry' sleeve of v8.4",
+  "why": "breadth raised HOLD a lot (v6 1.90 -> 2.39) but cut TEST (3.44 -> 3.14) with equal weights, where volatile small coins dominate the legs; inverse-vol weights (adopted in v8.3) shrink exactly those",
+  "pass": "strict rule vs v8.4 (2.750 / 1.324 / 3.896 / 2.428); sleeve bars as for v-books",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

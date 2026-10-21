@@ -87,8 +87,9 @@ def _breadth_close(coins):
     return H.sort_index().loc[:END][list(coins)]
 
 
-def premium_breadth_weights(coins=None, look=7, hold=7):
-    """Gen80 breadth: the frozen Gen61 premium-carry rule on pack + extra coins (row d = decided at the close of day d)."""
+def premium_breadth_weights(coins=None, look=7, hold=7, invvol=False):
+    """Gen80 breadth: the frozen Gen61 premium-carry rule on pack + extra coins (row d = decided at the close of day d).
+    invvol=True (Gen315): inside each leg, weights proportional to 1 / 30-day daily vol (as premium_weights, Gen292)."""
     from qpl.lab import extra_pack as X
     coins = _breadth_universe() if coins is None else list(coins)
     P = _breadth_close(coins).resample("1D").last()
@@ -96,7 +97,12 @@ def premium_breadth_weights(coins=None, look=7, hold=7):
                         ).reindex(P.index).rolling(look).mean()
     listed = P.notna().cumsum() >= 60
     rk = (-prem).where(listed).rank(axis=1, pct=True)
-    w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
+    if invvol:
+        iv = (1 / P.pct_change(fill_method=None).rolling(30).std()).where(listed)
+        wl, ws = iv.where(rk > 2 / 3, 0.0), iv.where(rk <= 1 / 3, 0.0)
+        w = wl.div(wl.sum(axis=1), axis=0) - ws.div(ws.sum(axis=1), axis=0)
+    else:
+        w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
     return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
 
 
