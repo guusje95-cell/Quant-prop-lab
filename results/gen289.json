@@ -1,0 +1,32 @@
+{
+ "reference v8.2": [
+  2.636,
+  [
+   1.203,
+   3.764,
+   2.357
+  ]
+ ],
+ "A ridge inverse-vol sizing": {
+  "book": [
+   2.652,
+   [
+    1.201,
+    3.761,
+    2.344
+   ]
+  ],
+  "pass": false
+ },
+ "B alt-kimchi inverse-vol sizing": {
+  "book": [
+   2.627,
+   [
+    1.229,
+    3.75,
+    2.31
+   ]
+  ],
+  "pass": false
+ }
+}

@@ -986,3 +986,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Reference from here: v8.2 2.636 / 3.764 / 2.357.**
 - **v8.2 vs v8, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, descriptive):** 2025-26 mean net $133.1k -> **$138.7k** (p10 $61.2k -> **$68.9k**); 2023-26 $177.1k -> **$181.4k** (p10 $107.1k -> $109.7k). Better on both the average and the unlucky tail.
 - **Paper trader v8.2** (`QPL_PAPER=v82`, `paper_v82_start.bat`, `config/paper_v82.json`, scale 0.881): reproduces 2.636 / 1.203 / 3.764 / 2.357 on the research pack; self-test PASSED (no look-ahead).
+- **Gen289 (vs v8.2), inverse-vol position sizing:** A ridge 2.652 [1.20, 3.761, 2.344]; B alt kimchi 2.627 [1.23, 3.75, 2.31]. **Both fail** (TEST / HOLD a hair lower).

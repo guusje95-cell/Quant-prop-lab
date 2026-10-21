@@ -1,0 +1,10 @@
+{
+  "generation": "Gen290",
+  "title": "Pooled training for the v8.2 ridge: learn from 18 coins (BTC, ETH + 16 Upbit altcoins), trade BTC / ETH only",
+  "registered": "2026-10-21, after Gen288 / 289, before any Gen290 number",
+  "model": "v8.2 ridge unchanged (features, kimchi breadth, volatility-scaled target, monthly walk-forward, alpha 10, prediction / in-sample sd clipped +-1, position 0.5 x prediction for BTC / ETH) except the training rows: BTC and ETH plus the 16 altcoins, with the same features computed per coin (zc where a Coinbase USD market exists, zk = the coin's own kimchi z, dvol1 missing for altcoins -> standardised 0, is_eth 0 for altcoins). Predictions are made and traded for BTC and ETH only",
+  "why": "with volatility-scaled targets the coins' returns are comparable, so 9x more training rows can stabilise the coefficients",
+  "pass": "sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8.2 (2.636 / 1.203 / 3.764 / 2.357)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
