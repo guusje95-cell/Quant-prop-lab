@@ -1,0 +1,44 @@
+hour_utc,coin,side,usd,from_usd,to_usd,type,because
+2026-10-20 18:00:00,ADA,SELL,23994.9,0.0,-23994.9,initial position,"premium carry -23,995"
+2026-10-20 18:00:00,AVAX,BUY,17996.17,0.0,17996.17,initial position,"premium carry +17,996"
+2026-10-20 18:00:00,BCH,BUY,17996.17,0.0,17996.17,initial position,"premium carry +17,996"
+2026-10-20 18:00:00,BTC,BUY,11786.28,0.0,11786.28,initial position,"ridge ML +34,539, coinbase premium -26,942, C* +4,190"
+2026-10-20 18:00:00,DOGE,SELL,23994.9,0.0,-23994.9,initial position,"premium carry -23,995"
+2026-10-20 18:00:00,DOT,BUY,1898.77,0.0,1898.77,initial position,"C* +1,899"
+2026-10-20 18:00:00,ETH,BUY,2290.58,0.0,2290.58,initial position,"ridge ML +29,233, coinbase premium -26,942"
+2026-10-20 18:00:00,LINK,BUY,17996.17,0.0,17996.17,initial position,"premium carry +17,996"
+2026-10-20 18:00:00,SOL,SELL,23994.9,0.0,-23994.9,initial position,"premium carry -23,995"
+2026-10-20 18:00:00,US100,BUY,63230.03,0.0,63230.03,initial position,"vol-managed indices +63,230"
+2026-10-20 18:00:00,US30,BUY,5320.8,0.0,5320.8,initial position,"vol-managed indices +5,321"
+2026-10-20 18:00:00,US500,BUY,111085.27,0.0,111085.27,initial position,"vol-managed indices +111,085"
+2026-10-20 18:00:00,XRP,BUY,17996.17,0.0,17996.17,initial position,"premium carry +17,996"
+2026-10-20 20:00:00,US500,BUY,61.25,111065.8,111127.05,rebalance,vol-managed indices +61
+2026-10-20 21:00:00,US100,BUY,19794.0,63253.81,83047.81,rebalance,"vol-managed indices +19,794"
+2026-10-20 21:00:00,US500,SELL,205.09,111127.05,110921.96,rebalance,vol-managed indices -205
+2026-10-21 00:00:00,ADA,SELL,980.33,-23954.08,-24934.41,rebalance,premium carry -980
+2026-10-21 00:00:00,AVAX,BUY,735.25,17965.56,18700.81,rebalance,premium carry +735
+2026-10-21 00:00:00,BCH,BUY,735.25,17965.56,18700.81,rebalance,premium carry +735
+2026-10-21 00:00:00,BTC,SELL,43714.67,11766.23,-31948.44,rebalance,"ridge ML -46,558, C* +3,944, coinbase premium -1,101"
+2026-10-21 00:00:00,DOGE,SELL,980.33,-23954.08,-24934.41,rebalance,premium carry -980
+2026-10-21 00:00:00,DOT,BUY,736.99,1895.54,2632.53,rebalance,C* +737
+2026-10-21 00:00:00,ETH,SELL,61249.71,2286.68,-58963.03,rebalance,"ridge ML -62,471, C* +2,322, coinbase premium -1,101"
+2026-10-21 00:00:00,LINK,BUY,735.25,17965.56,18700.81,rebalance,premium carry +735
+2026-10-21 00:00:00,SOL,BUY,982.18,-23954.08,-22971.9,rebalance,"C* +1,963, premium carry -980"
+2026-10-21 00:00:00,US100,SELL,41418.57,83028.59,41610.02,rebalance,"vol-managed indices -41,419"
+2026-10-21 00:00:00,US30,SELL,5311.75,5311.75,0.0,rebalance,"vol-managed indices -5,312"
+2026-10-21 00:00:00,US500,SELL,32423.91,110896.28,78472.37,rebalance,"vol-managed indices -32,424"
+2026-10-21 00:00:00,XRP,BUY,2548.87,17965.56,20514.43,rebalance,"C* +1,814, premium carry +735"
+2026-10-21 02:00:00,BTC,BUY,543.39,-31948.44,-31405.05,rebalance,"ridge ML +2,593, C* -2,027, coinbase premium -22"
+2026-10-21 02:00:00,DOT,SELL,656.55,2632.53,1975.98,rebalance,C* -657
+2026-10-21 02:00:00,ETH,BUY,1974.07,-58963.03,-56988.96,rebalance,"ridge ML +2,576, C* -579, coinbase premium -22"
+2026-10-21 02:00:00,SOL,SELL,509.48,-22971.9,-23481.38,rebalance,"C* -489, premium carry -20"
+2026-10-21 02:00:00,US500,BUY,63.06,78472.37,78535.43,rebalance,vol-managed indices +63
+2026-10-21 02:00:00,XRP,SELL,437.29,20514.43,20077.14,rebalance,"C* -452, premium carry +15"
+2026-10-21 03:00:00,BTC,SELL,52.99,-31405.05,-31458.04,rebalance,"coinbase premium -47, ridge ML -16, C* +10"
+2026-10-21 03:00:00,ETH,SELL,96.15,-56988.96,-57085.11,rebalance,"ridge ML -52, coinbase premium -47, C* +3"
+2026-10-21 03:00:00,US100,BUY,70.26,41643.45,41713.71,rebalance,vol-managed indices +70
+2026-10-21 03:00:00,US500,BUY,132.5,78535.43,78667.93,rebalance,vol-managed indices +132
+2026-10-21 08:00:00,BTC,BUY,62.06,-31456.88,-31394.82,rebalance,"coinbase premium +55, ridge ML +19, C* -12"
+2026-10-21 08:00:00,ETH,BUY,112.63,-57083.02,-56970.39,rebalance,"ridge ML +61, coinbase premium +55, C* -3"
+2026-10-21 08:00:00,US100,SELL,82.3,41712.18,41629.88,rebalance,vol-managed indices -82
+2026-10-21 08:00:00,US500,SELL,155.22,78665.05,78509.83,rebalance,vol-managed indices -155

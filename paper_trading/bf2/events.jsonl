@@ -1,0 +1,34 @@
+{"wall_utc": "2026-10-20 19:12:47.655253", "event": "ERROR", "msg": "RuntimeError('no Dukascopy hourly data for US100')"}
+{"wall_utc": "2026-10-20 19:35:55.430124", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-20 19:36:10.219187", "event": "START", "first_hour": "2026-10-20 18:00:00", "cutoff": "2026-10-20 18:00:00"}
+{"wall_utc": "2026-10-20 19:36:10.684206", "event": "RUN", "cutoff": "2026-10-20 18:00:00", "new_hours": 0, "seconds": 11.5}
+{"wall_utc": "2026-10-20 20:07:34.247102", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-20 20:07:48.435179", "event": "RUN", "cutoff": "2026-10-20 19:00:00", "new_hours": 1, "seconds": 10.4}
+{"wall_utc": "2026-10-20 21:07:38.948554", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-20 21:07:53.657702", "event": "RUN", "cutoff": "2026-10-20 20:00:00", "new_hours": 1, "seconds": 11.2}
+{"wall_utc": "2026-10-20 22:08:19.549874", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-20 22:08:34.002358", "event": "RUN", "cutoff": "2026-10-20 21:00:00", "new_hours": 1, "seconds": 10.6}
+{"wall_utc": "2026-10-20 23:07:14.843859", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-20 23:07:41.815299", "event": "RUN", "cutoff": "2026-10-20 22:00:00", "new_hours": 1, "seconds": 18.9}
+{"wall_utc": "2026-10-21 00:08:06.471180", "event": "RUN", "cutoff": "2026-10-21 00:00:00", "new_hours": 2, "seconds": 23.7}
+{"wall_utc": "2026-10-21 01:07:38.493947", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 01:08:02.692671", "event": "RUN", "cutoff": "2026-10-21 00:00:00", "new_hours": 0, "seconds": 16.5}
+{"wall_utc": "2026-10-21 02:09:00.136102", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 02:09:13.421332", "event": "RUN", "cutoff": "2026-10-21 02:00:00", "new_hours": 2, "seconds": 9.6}
+{"wall_utc": "2026-10-21 03:07:35.821804", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 03:07:48.889092", "event": "RUN", "cutoff": "2026-10-21 02:00:00", "new_hours": 0, "seconds": 9.6}
+{"wall_utc": "2026-10-21 04:07:45.801891", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 04:08:00.764357", "event": "RUN", "cutoff": "2026-10-21 03:00:00", "new_hours": 1, "seconds": 10.3}
+{"wall_utc": "2026-10-21 05:07:07.621198", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 05:07:25.622766", "event": "RUN", "cutoff": "2026-10-21 04:00:00", "new_hours": 1, "seconds": 14.3}
+{"wall_utc": "2026-10-21 06:07:14.890683", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 06:07:29.484219", "event": "RUN", "cutoff": "2026-10-21 05:00:00", "new_hours": 1, "seconds": 10.8}
+{"wall_utc": "2026-10-21 07:09:24.621985", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 07:09:37.919853", "event": "RUN", "cutoff": "2026-10-21 07:00:00", "new_hours": 2, "seconds": 9.7}
+{"wall_utc": "2026-10-21 08:07:09.282511", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 08:07:35.472044", "event": "RUN", "cutoff": "2026-10-21 07:00:00", "new_hours": 0, "seconds": 21.1}
+{"wall_utc": "2026-10-21 09:07:36.416756", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 09:07:58.819730", "event": "RUN", "cutoff": "2026-10-21 08:00:00", "new_hours": 1, "seconds": 17.8}
+{"wall_utc": "2026-10-21 10:07:32.397853", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-21 10:07:51.259835", "event": "RUN", "cutoff": "2026-10-21 09:00:00", "new_hours": 1, "seconds": 14.4}
+{"wall_utc": "2026-10-21 15:55:18.448391", "event": "RECONCILE", "ok": "False", "corr": 0.9532382699835472, "cum": 0.0011908267904883832}

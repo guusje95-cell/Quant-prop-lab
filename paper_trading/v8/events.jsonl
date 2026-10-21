@@ -1,0 +1,10 @@
+{"wall_utc": "2026-10-21 08:12:32.569685", "event": "START", "first_hour": "2026-10-21 08:00:00", "cutoff": "2026-10-21 08:00:00"}
+{"wall_utc": "2026-10-21 08:12:33.257419", "event": "RUN", "cutoff": "2026-10-21 08:00:00", "new_hours": 0, "seconds": 38.2}
+{"wall_utc": "2026-10-21 09:08:11.208001", "event": "RUN", "cutoff": "2026-10-21 09:00:00", "new_hours": 1, "seconds": 28.2}
+{"wall_utc": "2026-10-21 10:08:31.918687", "event": "RUN", "cutoff": "2026-10-21 10:00:00", "new_hours": 1, "seconds": 21.6}
+{"wall_utc": "2026-10-21 11:09:41.395728", "event": "RUN", "cutoff": "2026-10-21 11:00:00", "new_hours": 1, "seconds": 57.6}
+{"wall_utc": "2026-10-21 12:09:37.177388", "event": "RUN", "cutoff": "2026-10-21 12:00:00", "new_hours": 1, "seconds": 54.1}
+{"wall_utc": "2026-10-21 13:09:45.803388", "event": "RUN", "cutoff": "2026-10-21 13:00:00", "new_hours": 1, "seconds": 54.9}
+{"wall_utc": "2026-10-21 14:06:15.183206", "event": "ERROR", "msg": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'fapi.binance.com\\', port=443): Max retries exceeded with url: /fapi/v1/klines?symbol=AAVEUSDT&interval=5m&startTime=1792587900000&limit=1500 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'fapi.binance.com\\', port=443): Failed to resolve \\'fapi.binance.com\\' ([Errno 11001] getaddrinfo failed)\"))'))"}
+{"wall_utc": "2026-10-21 15:06:15.144280", "event": "ERROR", "msg": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'fapi.binance.com\\', port=443): Max retries exceeded with url: /fapi/v1/klines?symbol=AAVEUSDT&interval=5m&startTime=1792587900000&limit=1500 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'fapi.binance.com\\', port=443): Failed to resolve \\'fapi.binance.com\\' ([Errno 11001] getaddrinfo failed)\"))'))"}
+{"wall_utc": "2026-10-21 15:55:39.172495", "event": "RECONCILE", "ok": "True", "corr": 1.0, "cum": -2.1301862183908948e-16}
