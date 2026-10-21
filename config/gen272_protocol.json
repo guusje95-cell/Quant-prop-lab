@@ -1,0 +1,12 @@
+{
+  "generation": "Gen272",
+  "title": "Intraday return periodicity (Gen154 / Heston-Korajczyk-Sadka) on US100 / US500 / US30 CFDs at BrightFunded costs, as a bf2 sleeve",
+  "registered": "2026-10-21, before any Gen272 number",
+  "why": "Gen154 found the signal real (gross) but untradeable at futures costs (1-2.6 bp per side vs an edge of 0.1-0.8 bp per unit turnover on NQ). BrightFunded index CFDs have zero commission and measured spreads of 0.19-0.66 bp",
+  "rule": "Gen154 unchanged: per index and New-York hour bar, t = mean / (sd / sqrt(N)) of that hour's returns over the previous N trading days (strictly before today); hold sign(t) during that hour when |t| > k; size 0.10 / (60-day hourly vol x sqrt(24 x 252)) / 3",
+  "costs": "conservative: the FULL measured median spread per side (US100 0.31, US500 0.66, US30 0.19 bp), zero commission, swap-free",
+  "selection": "grid N {20, 60, 250} x k {0, 1, 2} chosen on 2014-01..2022-12 (Dukascopy hourly); enters only if that Sharpe > 0.3",
+  "pass": "chosen setting: sleeve DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 at measured costs (2.427 / 0.408 / 3.751 / 2.169)",
+  "trials_added": 9,
+  "no_changes_after_results": true
+}
