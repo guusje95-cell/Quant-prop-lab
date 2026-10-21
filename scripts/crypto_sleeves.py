@@ -58,13 +58,19 @@ def premium_carry(look=7, hold=7):
     return _from_daily_weights(premium_weights(look, hold), B.coins(), 5)
 
 
-def premium_weights(look=7, hold=7):
-    """Daily target weights of premium carry (row d = decided at the close of day d)."""
+def premium_weights(look=7, hold=7, invvol=False):
+    """Daily target weights of premium carry (row d = decided at the close of day d). invvol=True (Gen292, v8.3): inside each leg,
+    weights proportional to 1 / 30-day daily vol instead of equal."""
     C = B.coins(); P = B.panel("close", "1D", C)
     prem = pd.DataFrame({c: B.premium(c)["close"].resample("1D").mean() for c in C}).reindex(P.index).rolling(look).mean()
     listed = P.notna().cumsum() >= 60
     rk = (-prem).where(listed).rank(axis=1, pct=True)
-    w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
+    if invvol:
+        iv = (1 / P.pct_change(fill_method=None).rolling(30).std()).where(listed)
+        wl, ws = iv.where(rk > 2 / 3, 0.0), iv.where(rk <= 1 / 3, 0.0)
+        w = wl.div(wl.sum(axis=1), axis=0) - ws.div(ws.sum(axis=1), axis=0)
+    else:
+        w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
     return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
 
 

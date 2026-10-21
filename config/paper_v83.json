@@ -1,6 +1,6 @@
 {
- "name": "Paper trading of crypto portfolio v8.2 (v8 + Gen268 kimchi-breadth feature + Gen288 volatility-scaled ridge target)",
- "registered": "2026-10-21, before the first v8.2 paper hour; replaces the v8 paper run (same sleeves; only the ridge model changes)",
+ "name": "Paper trading of crypto portfolio v8.3 (v8 + Gen268 kimchi breadth + Gen288 volatility-scaled ridge + Gen292 inverse-vol premium carry)",
+ "registered": "2026-10-21, before the first v8.3 paper hour; replaces the v8 paper run (same sleeves; ridge model and premium-carry weighting change)",
  "what": "Hourly forward test of v8 = v7 (v6 + Gen108/109 ridge ML) + the Gen247 altcoin kimchi sleeve (16 altcoins: Upbit KRW / USD-KRW / Binance perp premium z > 1 long 0.1, < -1 short 0.1, held next day, 5 bp + funding). The ridge ML sleeve is (BTC/ETH perps: ridge regression on 17 daily features, refit monthly on all earlier data, prediction / training sd clipped to +-1, position 0.5 x prediction, decided at the 00:00 UTC close, 5 bp taker + funding). Same construction as v6: point-in-time equal risk (Weiss half weight), 30-day vol targeting. Simulation only.",
  "frozen": {
   "account": 200000,
@@ -12,15 +12,15 @@
   "stop_fraction": 0.5,
   "risk_note": "Gen230/236: 2.0 in the challenge, 1.5 once funded; the paper ledger runs at the challenge risk",
   "ridge_inputs": "Binance 5m/funding/premium/open interest (as v6), Coinbase BTC/ETH hourly, Upbit KRW hourly + Yahoo USD/KRW (kimchi, Gen105 strict London dating, previous day's FX), Deribit DVOL daily, Coin Metrics USDT+USDC caps (2-day lag); scripts/ridge_live.py, live feeds src/qpl/live/ml_feeds.py; v8 adds Upbit KRW hourly for 16 altcoins (src/qpl/live/ml_feeds.py, alts=True)",
-  "v82_scale": 0.881,
-  "v82_scale_note": "0.15 / realised vol of the point-in-time v8.2 series 2022-26 (computed 2026-10-21 by paper_v5.py _dump on the research pack; reproduces Gen288: 2.636 / 1.203 / 3.764 / 2.357)"
+  "v83_scale": 0.886,
+  "v83_scale_note": "0.15 / realised vol of the point-in-time v8.3 series 2022-26 (computed 2026-10-21 by paper_v5.py _dump on the research pack; reproduces Gen292: 2.700 / 1.293 / 3.828 / 2.376)"
  },
  "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
  "gate": {
   "minimum": "56 days of paper results and at least 2 Weiss expiry events",
   "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
   "operations": "late or missed hours <= 5% of hours; no data errors",
-  "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v8.2 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
+  "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v8.3 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
   "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
  },
  "changes": []

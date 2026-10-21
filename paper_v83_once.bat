@@ -3,7 +3,7 @@ REM One paper-trading update (used by the hourly scheduled task). Catches up any
 cd /d "%~dp0"
 if exist .venv\Scripts\activate.bat call .venv\Scripts\activate.bat
 set PYTHONPATH=%~dp0src
-set QPL_PAPER=v82
+set QPL_PAPER=v83
 python -c "import sklearn" 2>nul || pip install -q scikit-learn
-if not exist paper_trading\v82 mkdir paper_trading\v82
-python scripts\paper_v5.py run >> paper_trading\v82\run_log.txt 2>&1
+if not exist paper_trading\v83 mkdir paper_trading\v83
+python scripts\paper_v5.py run >> paper_trading\v83\run_log.txt 2>&1

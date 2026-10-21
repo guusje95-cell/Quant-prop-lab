@@ -985,7 +985,15 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - Checks (`results/gen288_check.json`, descriptive): without kimchi breadth 2.635; 7-day vol scaling 2.657; ridge alpha 3 / 30: 2.637 / 2.636; **2x costs 2.574** (still above v8.1); **entry 1 day late 2.360** (HOLD 1.71): the signal lives about one day, so it must be traded on time (the paper trader does, at 00:00 UTC).
 - **Reference from here: v8.2 2.636 / 3.764 / 2.357.**
 - **v8.2 vs v8, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, descriptive):** 2025-26 mean net $133.1k -> **$138.7k** (p10 $61.2k -> **$68.9k**); 2023-26 $177.1k -> **$181.4k** (p10 $107.1k -> $109.7k). Better on both the average and the unlucky tail.
-- **Paper trader v8.2** (`QPL_PAPER=v82`, `paper_v82_start.bat`, `config/paper_v82.json`, scale 0.881): reproduces 2.636 / 1.203 / 3.764 / 2.357 on the research pack; self-test PASSED (no look-ahead).
+- Paper trader v8.2 was built and self-tested, then superseded by v8.3 before it was started (files removed).
 - **Gen289 (vs v8.2), inverse-vol position sizing:** A ridge 2.652 [1.20, 3.761, 2.344]; B alt kimchi 2.627 [1.23, 3.75, 2.31]. **Both fail** (TEST / HOLD a hair lower).
 - **Gen290, v8.2 ridge trained on 18 coins (BTC, ETH + 16 altcoins), traded on BTC / ETH:** sleeve -0.42 / 1.26 / 1.29; v8.2 -> 2.445. **Fails**: altcoin rows add noise to the BTC / ETH model (consistent with Gen110 / Gen263).
 - **Gen291 (vs v8.2):** A Huber regression instead of ridge 2.553; B raw + vol-scaled ridge ensemble 2.603 [1.11, 3.75, 2.37]. **Both fail**; the v8.2 ridge stays.
+- **Gen290 / Gen291** see above. 
+
+## Gen292 (2026-10-21): premium carry with inverse-volatility weights inside each leg - ADOPTED (v8.3)
+- **v8.2 2.636 [1.20, 3.764, 2.357] -> v8.3 2.700 [1.29, 3.828, 2.376]: passes the strict rule (every period up).** bf2: 2.427 -> 2.437 [0.38, 3.752, 2.214] passes too, but noise-level; research reference only (the running bf2 paper trader is not restarted for it).
+- Checks (`results/gen292_check.json`, descriptive): 60-day vol 2.691; weight cap 2x equal 2.698; 2x costs 2.655 (above v8.2); 14-day vol 2.630 (weaker). Equal weights (current) 2.636.
+- **Reference from here: v8.3 2.700 / 1.293 / 3.828 / 2.376.**
+- v8.3 vs v8, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, descriptive): 2025-26 mean net $133.1k -> **$137.7k** (p10 $61.2k -> **$70.6k**); 2023-26 $177.1k -> **$183.1k**.
+- **Paper trader v8.3** (`QPL_PAPER=v83`, `paper_v83_start.bat`, `config/paper_v83.json`, scale 0.886): reproduces 2.700 / 1.293 / 3.828 / 2.376; self-test PASSED (no look-ahead).
