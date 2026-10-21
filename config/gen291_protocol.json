@@ -1,0 +1,10 @@
+{
+  "generation": "Gen291",
+  "title": "Ridge model refinements after Gen288: robust (Huber) regression; raw + vol-scaled ensemble (vs v8.2)",
+  "registered": "2026-10-21, before any Gen291 number",
+  "A_huber": "v8.2 ridge unchanged (features incl. kimchi breadth, vol-scaled target, monthly walk-forward, standardised features) but fitted with sklearn HuberRegressor(epsilon=1.35, alpha=10 / n_train, max_iter=500) instead of Ridge(alpha=10)",
+  "B_ensemble": "prediction = mean of the v8.1 ridge (raw target) and the v8.2 ridge (vol-scaled target) scaled / clipped predictions; position 0.5 x mean",
+  "pass": "each replaces the ridge sleeve: sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8.2 (2.636 / 1.203 / 3.764 / 2.357)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
