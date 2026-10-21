@@ -1,0 +1,10 @@
+{
+  "generation": "Gen318",
+  "title": "Prop risk settings for v8.5 (HyroTrader 2-Step $200k) and bf2.4 (BrightFunded Classic $200k swap-free), nested (Gen236 method)",
+  "registered": "2026-10-21, before any Gen318 number",
+  "model": "grid: challenge risk {1.5, 2.0, 2.5, 3.0} x funded risk {1.0, 1.5, 2.0} (multiples of the 15%-vol book), daily stop at half the daily loss limit, 500 block-bootstrap paths of 730 days, up to 5 challenges; book series = results/cache_v85_final / cache_bf24_final scaled to 15% vol on 2022-24 only",
+  "selection": "on 2022-24 only: the highest mean net with P(profit) >= 0.9",
+  "judgement": "2025-26 bootstrap: the chosen setting replaces 2.0 / 1.5 only if its mean net is higher AND its P(profit) is not more than 0.02 lower AND its 10th-percentile net is not lower",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
