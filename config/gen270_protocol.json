@@ -1,0 +1,11 @@
+{
+  "generation": "Gen270",
+  "title": "Altcoin kimchi in bf2 at MEASURED BrightFunded costs (new cost information, 2026-10-21 MT5 export); counted as a new trial",
+  "registered": "2026-10-21, after the cost check, before any Gen270 number",
+  "costs": "every crypto CFD: half the measured median spread + 1.2 bp commission per side (the realistic case of the cost check); indices unchanged (1 bp). The reference is bf2 at the same costs: 2.427 / 0.408 / 3.751 / 2.169",
+  "universe": "the 16 Upbit altcoins (Gen247) minus those with a measured spread > 50 bp (ATOM 204, TRX 54): cost-based exclusion fixed before results",
+  "rule": "Gen247 A weights unchanged (z > 1 long 0.1, z < -1 short 0.1, next day); CFD P&L on Binance perp hourly returns, no swap",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.5, HOLD >= 0.3 AND strict rule vs bf2 at measured costs",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
