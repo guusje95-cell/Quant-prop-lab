@@ -1,0 +1,14 @@
+{
+  "generation": "Gen319",
+  "title": "Cross-sectional momentum (A) and short-term reversal (B) on the 60-coin universe with inverse-vol legs, as ADDED sleeves in v8.5 (2 trials)",
+  "registered": "2026-10-21, before any Gen319 number",
+  "model": {
+    "A": "score = return over the 28 days to the close of d-1 (skipping the last day); long the top third, short the bottom third, legs weighted 1 / 30-day vol (each leg sums to 1), rebalanced every 7 days (as premium carry); coins listed >= 60 days",
+    "B": "score = minus the 7-day return to the close of d; same construction, rebalanced every 7 days",
+    "costs": "perps 5 bp + funding, via the premium_carry_breadth accounting (pack + extra coins)"
+  },
+  "why": "the wide inverse-vol construction turned premium carry from a failed replacement into an added sleeve that works (Gen316/317); momentum (Liu, Tsyvinski and Wu 2022) and short-term reversal are the other documented cross-sectional crypto factors, rejected here before only as equal-weight 20-coin sleeves",
+  "pass": "v-book sleeve bars (corr C* <= 0.3) + strict rule vs v8.5 (2.983 / 1.205 / 3.915 / 3.089)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
