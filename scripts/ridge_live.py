@@ -122,33 +122,35 @@ def features(end, spot=False):
     return pd.concat(rows).reset_index().rename(columns={"index": "day"})
 
 
-def predictions(end, spot=False, kb=False):
+def predictions(end, spot=False, kb=False, volscale=False):
+    """volscale=True (Gen288, v8.2): train on next-day return / 30-day vol instead of the raw return."""
     D = features(end, spot)
     if kb:                                                           # Gen268 (v8.1): Korean risk-appetite breadth = mean altcoin kimchi z
         import alt_kimchi as AK
         D["kb"] = D["day"].map(AK.zscores(pd.Timestamp(end).floor("D") + pd.Timedelta(hours=23)).mean(axis=1))
     feats = [x for x in D.columns if x not in ("day", "target", "coin")]
+    D["y"] = D["target"] / D["vol30"].replace(0, np.nan) if volscale else D["target"]
     out = pd.Series(np.nan, index=D.index)
     for m in pd.date_range("2021-01-01", pd.Timestamp(end).floor("D"), freq="MS"):
-        tr = D[(D["day"] >= "2020-03-01") & (D["day"] < m - pd.Timedelta(days=1))].dropna(subset=["target"])
+        tr = D[(D["day"] >= "2020-03-01") & (D["day"] < m - pd.Timedelta(days=1))].dropna(subset=["y"])
         te = D[(D["day"] >= m) & (D["day"] < m + pd.offsets.MonthBegin(1))]
         if len(te) == 0:
             continue
         mu, sd = tr[feats].mean(), tr[feats].std().replace(0, 1)
         Xtr = ((tr[feats] - mu) / sd).fillna(0.0).clip(-5, 5); Xte = ((te[feats] - mu) / sd).fillna(0.0).clip(-5, 5)
-        mdl = Ridge(alpha=10.0).fit(Xtr, tr["target"]); s = np.std(mdl.predict(Xtr)) or 1.0
+        mdl = Ridge(alpha=10.0).fit(Xtr, tr["y"]); s = np.std(mdl.predict(Xtr)) or 1.0
         out.loc[te.index] = np.clip(mdl.predict(Xte) / s, -1, 1)
     D["ridge"] = out
     return D
 
 
-def ridge_weights(end=None, spot=False, kb=False):
+def ridge_weights(end=None, spot=False, kb=False, volscale=False):
     """Daily target weights for the 'ridge ML' sleeve (spot=True: bf2's Gen247 B ridge with spot taker features):
     row d is decided at the close of day d (only complete days count)."""
     import crypto_sleeves as CS
     end = pd.Timestamp(end or CS.END)
     last_full = (end + pd.Timedelta(hours=1)).floor("D") - pd.Timedelta(days=1)          # the last day whose close is known
-    D = predictions(last_full, spot, kb)
+    D = predictions(last_full, spot, kb, volscale)
     return D.pivot(index="day", columns="coin", values="ridge").loc[:last_full].fillna(0.0) * 0.5
 
 

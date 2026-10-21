@@ -1,5 +1,10 @@
 # To do on your PC (when home)
 
+**NEWEST (2026-10-21, later) - v8.2 found (volatility-scaled ridge): switch the crypto paper trader v8 -> v8.2:**
+   1. `git pull --no-edit`
+   2. `paper_v8_share.bat` once (keeps v8's record), close the v8 window, then double-click `paper_v82_start.bat`.
+   3. bf2 keeps running unchanged. Push the Bithumb data when its download is done.
+
 **NEWEST (2026-10-21) - v8 found (v7 + kimchi premium on altcoins), and the next free data:**
    1. `git pull --no-edit`.
    2. Switch the crypto paper trader from v7 to v8 (v8 contains every v7 sleeve, logged per sleeve):

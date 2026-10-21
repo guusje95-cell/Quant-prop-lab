@@ -978,3 +978,11 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen285, weekly altcoin kimchi (7-day mean premium, weekly rebalance) replacing the daily sleeve:** sleeve 0.11 / 0.97 / 0.66; v8.1 2.554 -> **2.618** [1.28, 3.78, 2.10]. **Fails the strict rule (HOLD lower)**; the daily version stays.
 - **Gen286, strategy momentum (sleeve at half weight while its trailing 90-day P&L is negative; 40% of sleeve-days):** v8.1 2.554 -> 2.341 [0.43, 3.65, 2.09]. **Fails**: crypto sleeve P&L mean-reverts over 90 days rather than trending; with Gen113, performance-based reweighting does not help.
 - **Gen287, liquidation-flush bounce from Kraken Futures liquidation volume (new data, public analytics, 2022-03+; 33 signal days):** -0.90 / -0.08 / 0.31; v8.1 2.552. **Fails** (Kraken is a small venue; forced flows are already covered by the cascade / deleveraging-bounce sleeves). Kraken also publishes order-book depth / liquidity / long-short / top-trader history, but only from 2023-05 (no DEV period under our rules) - revisit when a pre-2023 source exists.
+
+## Gen288 (2026-10-21): ridge trained on volatility-scaled targets - ADOPTED (v8.2)
+- **Change:** the ridge's training target is next-day return / 30-day vol (instead of the raw return); everything else unchanged.
+- **v8.1 2.554 [1.00, 3.709, 2.353] -> v8.2 2.636 [1.20, 3.764, 2.357]: passes the strict rule (every period up).** Ridge sleeve 0.16 / 1.65 / 1.55 (was about 0.06 / 1.30 / 1.38). In bf2: 2.406 < 2.427, not adopted there.
+- Checks (`results/gen288_check.json`, descriptive): without kimchi breadth 2.635; 7-day vol scaling 2.657; ridge alpha 3 / 30: 2.637 / 2.636; **2x costs 2.574** (still above v8.1); **entry 1 day late 2.360** (HOLD 1.71): the signal lives about one day, so it must be traded on time (the paper trader does, at 00:00 UTC).
+- **Reference from here: v8.2 2.636 / 3.764 / 2.357.**
+- **v8.2 vs v8, HyroTrader 2-Step $200k at 2.0 / 1.5 (bootstrap, descriptive):** 2025-26 mean net $133.1k -> **$138.7k** (p10 $61.2k -> **$68.9k**); 2023-26 $177.1k -> **$181.4k** (p10 $107.1k -> $109.7k). Better on both the average and the unlucky tail.
+- **Paper trader v8.2** (`QPL_PAPER=v82`, `paper_v82_start.bat`, `config/paper_v82.json`, scale 0.881): reproduces 2.636 / 1.203 / 3.764 / 2.357 on the research pack.

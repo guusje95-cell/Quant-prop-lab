@@ -32,8 +32,8 @@ CFG = json.loads((ROOT / f"config/paper_{VER}.json").read_text())
 OUT = ROOT / "paper_trading" / VER
 DATA = OUT / "data"
 PACK = ROOT / "research_data" / "binance"
-SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8") else []) \
-    + (["ridge ML"] if VER in ("v7", "v8") else []) + (["alt kimchi"] if VER == "v8" else [])
+SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v82") else []) \
+    + (["ridge ML"] if VER in ("v7", "v8", "v82") else []) + (["alt kimchi"] if VER in ("v8", "v82") else [])
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
 CFDBOOK = VER in ("bf", "bfb", "bf2")
@@ -44,7 +44,7 @@ if CFDBOOK:                                            # CFD book for BrightFund
     RIDGE = "ridge ML" in SLEEVES
 INDEX = "vol-managed indices" in SLEEVES
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v82": "results/cache_v82_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -146,7 +146,7 @@ def compute():
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
     if RIDGE:
         import ridge_live as RL
-        rw = RL.ridge_weights(); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+        rw = RL.ridge_weights(kb=VER == "v82", volscale=VER == "v82"); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     if ALTK:
         import alt_kimchi as AK
         aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
