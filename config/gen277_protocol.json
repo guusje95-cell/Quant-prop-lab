@@ -1,0 +1,10 @@
+{
+  "generation": "Gen277",
+  "title": "Two-venue Korean premium (Upbit + Bithumb) for the v8 altcoin-kimchi sleeve",
+  "registered": "2026-10-21, before the Bithumb data exists (get_bithumb.bat on the user's PC)",
+  "rule": "per altcoin: kp_u (Upbit) and kp_b (Bithumb) computed exactly as Gen247 A (KRW close at 23:00 UTC / USD-KRW previous London day / Binance perp close - 1); kp = mean(kp_u, kp_b) where both exist, kp_u otherwise; 30-day z (min 20); z > 1 long 0.1, z < -1 short 0.1, next day. REPLACES the alt-kimchi sleeve of v8.1",
+  "why": "two venues measure the same Korean demand; averaging cuts venue-specific noise (Makarov-Schoar: the common component dominates)",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

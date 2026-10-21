@@ -10,6 +10,8 @@
       Then `git pull --no-edit`, `git add research_data/more research_data/binance_fiat`, `git commit -m "flow data 3"`, `git push`.
    4b. OPTIONAL (free, 30-90 min, Google rate-limits): `get_google_trends.bat` - daily Google search interest for crypto terms
       (retail attention, from the Koch & Dimpfl paper). Then `git add research_data/attention`, commit, push.
+   4c. OPTIONAL (free, 20-40 min): `get_bithumb.bat` - Bithumb (second Korean exchange) hourly candles; tests a two-venue
+      Korean premium (Gen277). Then `git add research_data/more`, commit, push.
    5. Papers that would help (PDF in the chat; not committed): Makarov & Schoar 2020 "Trading and arbitrage in cryptocurrency
       markets" (JFE); Choi, Lehar & Stauffer 2022 "Bitcoin microstructure and the kimchi premium"; any paper on retail /
       regional crypto demand or on Upbit/Bithumb flows.
