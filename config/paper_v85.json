@@ -10,7 +10,7 @@
   "costs": "as in research: C* 7.5 bp, premium carry / trend / Weiss 5 bp taker, cascade 2 bp maker entry + 5 bp exit, real funding; deleveraging bounce and ridge ML 5 bp taker + funding",
   "booking": "cascade entry fee in the fill hour and Weiss legs as each bar closes (live=True); same totals as research",
   "stop_fraction": 0.5,
-  "risk_note": "Gen230/236: 2.0 in the challenge, 1.5 once funded; the paper ledger runs at the challenge risk",
+  "risk_note": "Gen318 (nested, chosen on 2022-24): 2.0 in the challenge, 2.0 once funded (2025-26 bootstrap mean net $202k vs $173k at 2.0 / 1.5, p10 $112k vs $110k); the paper ledger runs at the challenge risk",
   "ridge_inputs": "Binance 5m/funding/premium/open interest (as v6), Coinbase BTC/ETH hourly, Upbit KRW hourly + Yahoo USD/KRW (kimchi, Gen105 strict London dating, previous day's FX), Deribit DVOL daily, Coin Metrics USDT+USDC caps (2-day lag); scripts/ridge_live.py, live feeds src/qpl/live/ml_feeds.py; v8 adds Upbit KRW hourly for 16 altcoins (src/qpl/live/ml_feeds.py, alts=True); v8.4 adds Binance spot BTC/ETH hourly with taker-buy volume (src/qpl/live/ml_feeds.py spot) and the DVOL level",
   "v85_scale": 0.904,
   "extra_data": "Binance perps of the 40 extra coins (qpl.lab.extra_pack, live via binance_public.update_extra, as the v6b shadow run)",

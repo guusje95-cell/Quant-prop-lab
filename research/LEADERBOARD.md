@@ -1052,3 +1052,6 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - Paper versions (**both self-tests PASSED**): `v85` (config/paper_v85.json, scale 0.904; reproduces 2.983 / 1.205 / 3.915 / 3.089) and `bf24` (config/paper_bf24.json, scale 0.910; capped 2.781 / 0.543 / 4.029 / 2.758). Both read the extra coins live (extra_pack, as the v6b / bfb shadow runs did).
 - **References from here: v8.5 2.983 / 1.205 / 3.915 / 3.089; bf2.4 2.787 / 0.543 / 4.043 / 2.758** (v7lab / bf2lab defaults).
 - Lesson: breadth carry failed for a year as a REPLACEMENT with equal weights (TEST loss); as an ADDITION with inverse-vol legs it diversifies the 20-coin carry instead of replacing it.
+- **Gen318, prop risk settings re-chosen for the new books (nested: choose on 2022-24, judge on 2025-26; Gen236 method):**
+  - **v8.5 on HyroTrader 2-Step $200k: 2.0 challenge / 2.0 funded (was 2.0 / 1.5). 2025-26 mean net $173k -> $202k, p10 $110k -> $112k, P(profit) 1.00. Adopted.**
+  - bf2.4 on BrightFunded Classic $200k: chosen 2.5 / 2.0 gives $186k vs $167k but p10 $87k < $108k. **Not adopted**; stays 2.0 / 1.5.
