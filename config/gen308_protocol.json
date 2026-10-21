@@ -1,0 +1,10 @@
+{
+  "generation": "Gen308",
+  "title": "Bitfinex margin positions as ridge features, in v8.4 and bf2.3 (2 trials)",
+  "registered": "2026-10-21, before any Gen308 number",
+  "model": "the book's current ridge plus, per coin: log(margin longs / margin shorts) at 23:00 UTC, 7-day log change of longs, 7-day log change of shorts (research_data/bitfinex, hourly from 2021-02; earlier rows 0 after standardising)",
+  "why": "Gen279 tested Bitfinex positioning only as stand-alone rules (fade / follow); the ridge can weigh it against the other features",
+  "pass": "v8.4: v-book bars (replace_ridge) + strict rule vs 2.750 / 1.324 / 3.896 / 2.428; bf2.3: bf2 bars + strict rule vs 2.506 / 0.313 / 3.985 / 2.298",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

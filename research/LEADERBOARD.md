@@ -1027,3 +1027,11 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **v line: v8.3 2.700 -> v8.4 2.750.** Reference from here: **v8.4 2.750 / 1.324 / 3.896 / 2.428.**
 - **Gen304 (6 trials, ridge features in v8.4 / bf2.2):** A positioning (top-trader and all-account long/short ratios): v8.4 **2.815** [1.68, 3.94, 2.284], bf2.2 2.521 [0.74, 3.82, 2.142]; both **fail (HOLD lower)**, watchlist. B realised skewness / downside variance share: 2.718 / 2.486, fail. C US500 previous-day return + vol: 2.718 / 2.495 [0.57, 3.76, 2.26], fail.
 - **Gen305 (4 trials, ridge estimation):** A weekly refit: v8.4 2.709, bf2.2 2.486; B alpha ensemble (3/10/30/100): v8.4 2.747, bf2.2 2.500. **All fail**; the monthly alpha-10 ridge stays (the ensemble is practically identical).
+
+## Gen306 (2026-10-21, 4 trials): altcoin kimchi in the CFD book - ADOPTED (bf2.3)
+- **A, bf2.2 ridge + kimchi breadth:** 2.491. **B, bf2.2 ridge with the vol-scaled target:** 2.465. **Both fail.**
+- **C, bf2.2 + the Gen270 alt kimchi sleeve (14 altcoin CFDs, measured spreads):** sleeve 0.12 / 1.15 / 0.65; **bf2.2 2.501 -> 2.506 [0.313, 3.985, 2.298]: TEST +0.17, HOLD +0.05, passes. Adopted: bf2.3.** The full-period gain is noise-level (2022 falls 0.52 -> 0.31; the rule judges TEST and HOLD); the same sleeve already runs in v8 since Gen247.
+- **D, the v8.4 ridge forecast applied to an altcoin basket:** sleeve 0.49 / 1.84 / 0.65 but corr C* 0.32 > 0.3; v8.4 -> 2.554. **Fails.**
+- Paper version `bf23` (config/paper_bf23.json, scale 0.893; alt sleeve in scripts/paper_v5.py compute_bf, cfd_book.ALT_CFD): with the 1:5 cap at risk 2.0 2.502 / 0.313 / 3.977 / 2.298. Harness reference (bf2lab QPL_BF_REF) now bf2.3.
+- **Reference from here: bf2.3 2.506 / 0.313 / 3.985 / 2.298.**
+- **Gen307, v8.4 + the Coinbase premium sleeve on perps (the bf rule):** sleeve 0.73 / 1.30 / 0.66, corr C* -0.04; v8.4 -> 2.668 [1.44, 3.80, 2.25]. **Fails**: with the Coinbase z inside the ridge the separate sleeve now costs TEST and HOLD.
