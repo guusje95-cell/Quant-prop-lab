@@ -1,0 +1,11 @@
+{
+  "generation": "Gen273",
+  "title": "Two untested families: CME asset-manager positioning (BTC / ETH) and stablecoin dominance, judged against v8.1",
+  "registered": "2026-10-21, before any Gen273 number",
+  "A_asset_manager_cme": "CFTC TFF, BITCOIN (CME) for BTC and ETHER CASH SETTLED (CME) for ETH: am = (asset-manager long - short) / open interest at the Tuesday as-of date; s = am - am 4 weeks earlier; z = (s - 52-week mean) / 52-week sd (min 26); used from the Monday after the Friday release (as-of + 6 days) for the whole week: z > 1 -> long that coin 0.25, z < -1 -> short 0.25; perps 5 bp + funding. Gen119 tested leveraged funds only",
+  "B_stablecoin_dominance": "Coin Metrics caps: dom = (USDT + USDC) / (USDT + USDC + BTC + ETH); s = dom / dom 30 days earlier - 1, known 2 days later (as the ridge's stab); z = 365-day z (min 180); z > 1 (stablecoins gaining share: risk-off) -> short BTC and ETH 0.25 each, z < -1 -> long 0.25, next day",
+  "data_note": "COT data ends 2026-01, Coin Metrics caps 2026-05: HOLD is shorter; stated with the result",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
