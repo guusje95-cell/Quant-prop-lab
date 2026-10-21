@@ -6,13 +6,14 @@ import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
 import ridge_live as RL
+import os
 END = "2026-09-30"
 _v = {"__file__": str(ROOT / "scripts/gen109_ml_v6.py")}; exec(open(ROOT / "scripts/gen109_ml_v6.py").read().split("# X1")[0], _v)
 CS, B, H6, sh, per = (_v[k] for k in ("CS", "B", "H6", "sh", "per"))
 perp = lambda w, cost=5: CS._from_daily_weights(w, list(w.columns), cost).loc[:END + " 23:00"]
-RIDGE = perp(RL.predictions(END).pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5).rename("ridge ML")
-import os
-if os.environ.get("QPL_REF", "v8") == "v8":                     # v8 (Gen247 A adopted): v7 + altcoin kimchi; QPL_REF=v7 for the old base
+_KB = os.environ.get("QPL_REF", "v8.1") == "v8.1"                   # v8.1 (Gen268): ridge + kimchi breadth
+RIDGE = perp(RL.predictions(END, kb=_KB).pivot(index="day", columns="coin", values="ridge").fillna(0.0) * 0.5).rename("ridge ML")
+if os.environ.get("QPL_REF", "v8.1") in ("v8", "v8.1"):                     # v8 (Gen247 A adopted): v7 + altcoin kimchi; QPL_REF=v7 for the old base
     import alt_kimchi as AK
     ALTK = [perp(AK.weights(END + " 23:00")).rename("alt kimchi")]
 else:

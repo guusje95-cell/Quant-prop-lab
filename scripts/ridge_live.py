@@ -122,8 +122,12 @@ def features(end, spot=False):
     return pd.concat(rows).reset_index().rename(columns={"index": "day"})
 
 
-def predictions(end, spot=False):
-    D = features(end, spot); feats = [x for x in D.columns if x not in ("day", "target", "coin")]
+def predictions(end, spot=False, kb=False):
+    D = features(end, spot)
+    if kb:                                                           # Gen268 (v8.1): Korean risk-appetite breadth = mean altcoin kimchi z
+        import alt_kimchi as AK
+        D["kb"] = D["day"].map(AK.zscores(pd.Timestamp(end).floor("D") + pd.Timedelta(hours=23)).mean(axis=1))
+    feats = [x for x in D.columns if x not in ("day", "target", "coin")]
     out = pd.Series(np.nan, index=D.index)
     for m in pd.date_range("2021-01-01", pd.Timestamp(end).floor("D"), freq="MS"):
         tr = D[(D["day"] >= "2020-03-01") & (D["day"] < m - pd.Timedelta(days=1))].dropna(subset=["target"])
@@ -138,13 +142,13 @@ def predictions(end, spot=False):
     return D
 
 
-def ridge_weights(end=None, spot=False):
+def ridge_weights(end=None, spot=False, kb=False):
     """Daily target weights for the 'ridge ML' sleeve (spot=True: bf2's Gen247 B ridge with spot taker features):
     row d is decided at the close of day d (only complete days count)."""
     import crypto_sleeves as CS
     end = pd.Timestamp(end or CS.END)
     last_full = (end + pd.Timedelta(hours=1)).floor("D") - pd.Timedelta(days=1)          # the last day whose close is known
-    D = predictions(last_full, spot)
+    D = predictions(last_full, spot, kb)
     return D.pivot(index="day", columns="coin", values="ridge").loc[:last_full].fillna(0.0) * 0.5
 
 
