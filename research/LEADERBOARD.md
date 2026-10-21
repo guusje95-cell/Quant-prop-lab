@@ -943,3 +943,8 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **A, attention momentum ('bitcoin' interest 7d vs 30d, z > 1 -> long BTC/ETH):** 0.41 / 1.14 / -0.46; v8.1 -> 2.416. **Fails** (2-day-delay version similar: 0.51 / 0.95 / -0.57).
 - **B, halve the book the day after an attention spike (> 2 sd, 185 days):** 2.403 [0.77, 3.64, 2.13]. **Fails**: spikes often come before rebounds, so de-risking cuts good days (2022 1.00 -> 0.77).
 - **BrightFunded commission (support answer, 2026-10-21, user-verified):** crypto 0.012% per side (= the 1.2 bp in bf2), indices $0, FX $3 / lot, commodities 0.001% of volume; same in Challenge and Funded. bf2's cost model is confirmed. **Swap-free add-on: support confirms it "eliminates all swap fees"** (all instruments, incl. index and crypto CFDs). bf2's no-swap assumption is confirmed; buy the add-on with the challenge.
+
+## bf2 cost reality check (2026-10-21, BrightFunded MT5 export: median of 10 spread samples, weekday 11:30 NL; descriptive)
+- Measured spreads (bp): BTC 0.36, ETH 6.2, SOL 3.7, XRP 3.1, LINK 3.2, LTC 4.9, ADA 8.9, AVAX 12.3, DOGE (XDG) 21.9, BCH 34.8, DOT 43.2; US100 0.31, US500 0.66, US30 0.19 (bf2 assumes BTC 0.4, ETH 2.7, altcoins 10, indices 1 bp). Swaps on the exported (non-swap-free) account are non-zero, as expected.
+- **bf2 with measured spreads: whole spread per side (pessimistic) 2.286 [0.31, 3.61, 2.01]; half spread per side (realistic) 2.427 [0.41, 3.75, 2.17]; model 2.383.** The cost model is fair: real costs land between the two.
+- Cost cap (drop DOT and BCH, spreads > 25 bp; half-spread costs): 2.361 (HOLD 1.95). **Not applied**: their trades are rare and still pay.
