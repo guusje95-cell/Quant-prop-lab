@@ -203,7 +203,7 @@ def compute_bf():
     """CFD book (BrightFunded): same outputs as compute(). Gross exposure is capped at the 1:5 crypto leverage at the paper risk."""
     import crypto_sleeves as CS
     import cfd_book as CB
-    if VER == "bf22":                                  # bf2.2 (Gen301 A + Gen302 A): measured BrightFunded spreads (+ spot-flow / VRP / calendar ridge below)
+    if VER == "bf22" or os.environ.get("QPL_MEASURED_COSTS"):   # bf2.2 (QPL_MEASURED_COSTS=1: older CFD books at measured costs, comparisons) (Gen301 A + Gen302 A): measured BrightFunded spreads (+ spot-flow / VRP / calendar ridge below)
         CB.measured_costs()
     from qpl.lab import binance_pack as B
     END = pd.Timestamp(CS.END); h1 = END + pd.Timedelta(hours=1)
