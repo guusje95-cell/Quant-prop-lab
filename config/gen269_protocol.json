@@ -1,0 +1,11 @@
+{
+  "generation": "Gen269",
+  "title": "Altcoin demand composite: Korean + US (Coinbase) premium per altcoin (Makarov-Schoar common demand component), judged against v8.1",
+  "registered": "2026-10-21, before any Gen269 number (Coinbase altcoin hourly fetched from the public API in the cloud)",
+  "rule": "per altcoin: zk = Gen247 kimchi z; zc = Coinbase premium z (Coinbase USD close / Binance perp close - 1, 24h mean, 720h z, read at 23:00 UTC, as the BTC/ETH Coinbase premium). Composite z = mean(zk, zc) where both exist, zk alone otherwise. z > 1 long 0.1, z < -1 short 0.1, next day, perps 5 bp + funding. REPLACES the v8 alt-kimchi sleeve",
+  "why": "premia across regions share a common buying-pressure component (Makarov-Schoar); averaging two regional measurements of it should cut idiosyncratic noise (friction, FX)",
+  "reference": "v8.1 = v8 + Gen268 ridge (2.554 / 3.709 / 2.353)",
+  "pass": "sleeve DEV 2020-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
