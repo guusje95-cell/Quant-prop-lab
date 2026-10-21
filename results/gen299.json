@@ -1,0 +1,44 @@
+{
+ "reference v8.3": [
+  2.7,
+  [
+   1.293,
+   3.828,
+   2.376
+  ]
+ ],
+ "grid (selection metric: sleeve Sharpe on DEV only)": {
+  "alt kimchi threshold": {
+   "0.75": 0.489,
+   "1.0": 0.246,
+   "1.25": 0.013,
+   "1.5": -0.241
+  },
+  "premium carry look = hold": {
+   "3": 0.925,
+   "7": 0.663,
+   "14": 0.31,
+   "21": 0.656
+  },
+  "ridge alpha": {
+   "3.0": 0.181,
+   "10.0": 0.16,
+   "30.0": 0.128,
+   "100.0": 0.018
+  }
+ },
+ "selected": {
+  "alt kimchi threshold": 0.75,
+  "premium carry window": 3,
+  "ridge alpha": 3.0
+ },
+ "book with selected settings": [
+  2.574,
+  [
+   1.242,
+   3.66,
+   2.199
+  ]
+ ],
+ "pass": false
+}

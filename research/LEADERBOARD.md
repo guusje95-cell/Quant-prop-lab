@@ -1004,3 +1004,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen297, v8.3 ridge with volatility-normalised return features:** 2.704 [1.37, 3.915, 2.218]. **Fails the strict rule (HOLD lower)**; watchlist.
 - **Gen298, deleveraging bounce with an OI-drop z-score trigger (< -2.5 sd):** 39 signals vs 98 episodes for the -10% rule; v8.3 -> 2.601 [0.94, 3.83, 2.13]. **Fails**; the fixed -10% trigger stays.
 - **Round tally (Gen293-298, vs v8.3 / bf2): 6 pre-registered trials, none passes; Gen297 (vol-normalised ridge features, 2.704) to the watchlist.**
+- **Gen299, nested parameter tuning (each setting picked on 2020-22 only: alt-kimchi threshold 0.75, premium-carry window 3, ridge alpha 3; 12 trials):** 2.574 [1.24, 3.66, 2.20] vs v8.3 2.700. **Fails**; the DEV-optimal settings do not carry forward, so the v8.3 parameters stay.
