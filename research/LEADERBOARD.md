@@ -950,3 +950,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - Cost cap (drop DOT and BCH, spreads > 25 bp; half-spread costs): 2.361 (HOLD 1.95). **Not applied**: their trades are rare and still pay.
 - **Gen270, altcoin kimchi in bf2 at measured costs (14 altcoins; ATOM, TRX excluded on cost):** sleeve 0.12 / 1.15 / 0.65; bf2 2.427 -> 2.423 with **TEST 3.751 -> 3.939, HOLD 2.169 -> 2.219**, 2022 0.41 -> 0.13. **Fails by 0.004 overall.** Third time the same pattern (Gen247 bf2, Gen267, Gen270): the signal helps 2023-26 clearly and hurts 2022; the strict rule is not relaxed.
 - **bf2 research reference from here: measured costs (half spread per side), 2.427 / 0.408 / 3.751 / 2.169** (`QPL_COSTS=model` restores the old one).
+- **Gen271, cheap BrightFunded CFDs added to the bf2 universe (measured costs; reference reproduced 2.427):** + BNB 2.408 [0.50, 3.77, 2.03]; + BNB, UNI, NEAR, AAVE 2.301. **Both fail** (HOLD lower); the bf2 universe stays at 11 coins.
