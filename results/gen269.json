@@ -1,0 +1,44 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "coins with Coinbase": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "NEAR",
+  "SOL",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "alt demand composite (replaces alt kimchi)": {
+  "sleeve D/T/H": [
+   0.373,
+   1.027,
+   0.373
+  ],
+  "corr C*": -0.096,
+  "book": [
+   2.401,
+   [
+    1.157,
+    3.45,
+    2.098
+   ]
+  ],
+  "pass": false
+ }
+}
