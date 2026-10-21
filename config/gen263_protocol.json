@@ -1,0 +1,10 @@
+{
+  "generation": "Gen263",
+  "title": "Pooled altcoin ridge with the new demand features (kimchi, Coinbase premium, spot flow), judged against v8",
+  "registered": "2026-10-21, before any Gen263 number",
+  "model": "16 altcoins with Upbit data, one pooled daily ridge (alpha 10), monthly walk-forward refit on data before the month (from 2020-03), standardised features clipped +-5, prediction / in-sample sd clipped +-1, position 0.1 x prediction per coin, next day, perps 5 bp + funding. Features per coin: r1 r3 r7 r30 vol7 vol30 fund1 fund7 prem oi1 oi7 imb (perp), zk (Gen247 alt kimchi z), zc (Coinbase premium z where a Coinbase USD market exists, else missing -> 0), simb sdiv (spot taker imbalance, spot - perp), plus market features BTC r1 and BTC zc",
+  "why": "Gen110's pooled altcoin ridge used price/flow features only (HOLD -0.32); the altcoin kimchi premium is the first altcoin signal that passed (Gen247)",
+  "pass": "sleeve DEV 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
