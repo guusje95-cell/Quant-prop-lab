@@ -1,0 +1,15 @@
+{
+  "generation": "Gen300",
+  "title": "v8.3 ridge + three untested feature families (each its own trial, judged separately)",
+  "registered": "2026-10-21, before any Gen300 number",
+  "model": "v8.3 ridge unchanged (kimchi breadth, vol-scaled target, monthly walk-forward from 2021, alpha 10) plus ONE added feature set per trial",
+  "trials": {
+    "A": "variance risk premium: vrp = DVOL/100/sqrt(365) - vol30 (implied minus realised daily vol, per coin), and its 7-day change",
+    "B": "change in Korean risk appetite: kb - kb 7 days earlier (kb = mean altcoin kimchi z, already a feature)",
+    "C": "calendar: weekend dummy (decision day Fri/Sat, i.e. the target day is Sat/Sun) and Monday-target dummy"
+  },
+  "why": "A: the VRP predicts returns in equities (Bollerslev-Tauchen-Zhou) and only DVOL changes are in the ridge so far; B: the ridge has the breadth level but not its momentum; C: crypto weekend returns differ (lower liquidity), never offered to the ridge",
+  "pass": "per trial: sleeve D 2021-22 > 0, TEST >= 0.8, HOLD >= 0.5 and strict rule vs v8.3 (2.700 / 1.293 / 3.828 / 2.376); if more than one passes, the higher book Sharpe is adopted, combination only as a new registered trial",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
