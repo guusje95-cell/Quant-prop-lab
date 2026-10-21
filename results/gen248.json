@@ -1,0 +1,84 @@
+{
+ "reference v7": [
+  2.534,
+  [
+   1.38,
+   3.494,
+   2.24
+  ]
+ ],
+ "reference bf2": [
+  2.378,
+  [
+   0.367,
+   3.699,
+   2.118
+  ]
+ ],
+ "A whale-minus-retail sleeve": {
+  "sleeve D/T/H": [
+   0.661,
+   1.029,
+   -0.004
+  ],
+  "corr C*": 0.027,
+  "v7": [
+   2.449,
+   [
+    1.394,
+    3.373,
+    2.048
+   ]
+  ],
+  "pass": false
+ },
+ "A whale-minus-retail sleeve (bf2)": {
+  "sleeve D/T/H": [
+   0.68,
+   1.077,
+   0.053
+  ],
+  "bf2": [
+   2.258,
+   [
+    0.38,
+    3.515,
+    1.941
+   ]
+  ],
+  "pass": false
+ },
+ "B ridge + trade-size flow": {
+  "sleeve D/T/H": [
+   0.227,
+   1.447,
+   1.341
+  ],
+  "corr C*": 0.0,
+  "v7": [
+   2.545,
+   [
+    1.43,
+    3.535,
+    2.182
+   ]
+  ],
+  "pass": false
+ },
+ "B ridge + trade-size flow (bf2)": {
+  "sleeve D/T/H": [
+   0.352,
+   1.647,
+   1.481
+  ],
+  "bf2": [
+   2.384,
+   [
+    0.412,
+    3.729,
+    2.08
+   ]
+  ],
+  "pass": false
+ }
+}

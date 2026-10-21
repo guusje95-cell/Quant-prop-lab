@@ -913,3 +913,12 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Session tally (Gen246-259): 27 pre-registered trials on existing data, none passes.**
 - **Gen260, session-range breakouts on index CFDs (5-minute, 2018+):** DE40 30-minute opening range 2018-19 -0.76, then 0.50 / -1.42 / 0.13, bf2 2.263; US500+US30 pre-market range 0.10, then 0.12 / -0.12 / -0.43, bf2 2.180. **Both fail.**
 - **Session tally (Gen246-260): 29 pre-registered trials on existing data, none passes.**
+
+## Gen247 / Gen248 (2026-10-21): new data from the user's PC (Upbit altcoins, Binance spot taker flow, trade-size flow; 5 trials)
+- **Gen247 A, Korean (kimchi) premium on 16 altcoins (z > 1 long 0.1, z < -1 short 0.1, perps): PASSES v7.**
+  - Sleeve 0.25 / 1.24 / 0.77, corr C* -0.04. **v7 2.534 -> 2.547; TEST 3.494 -> 3.708, HOLD 2.240 -> 2.345** (2022 1.38 -> 0.99).
+  - Checks (`results/gen247_check.json`, descriptive): 15 of 16 coins positive; 30-day block placebo p = 0.01 (actual 0.66 vs placebo mean -0.16, p95 0.39); z > 0.75 also passes (2.571), z > 1.25 2.509; entry 1 day late, FX lagged 2 days and 2x costs keep TEST / HOLD positive.
+  - **ADOPTED: v8 = v7 + altcoin kimchi.** In bf2 (CFD altcoins only) 2.373 < 2.378: not adopted there.
+- **Gen247 B, ridge + Binance spot taker imbalance features:** v7 2.539 but TEST 3.492 < 3.494 (fails); **bf2 2.378 -> 2.383, TEST 3.702, HOLD 2.125: passes the strict rule. Adopted for bf2 by the rule; the gain is noise-level (+0.005).**
+- **Gen247 C, spot-led XS:** -0.17 / 0.01 / 0.74. Fails.
+- **Gen248 A, whale-minus-retail taker flow sleeve:** 0.66 / 1.03 / -0.00. Fails. **Gen248 B, ridge + trade-size features:** v7 2.545 / HOLD 2.182, bf2 2.384 / HOLD 2.080. Fails.
