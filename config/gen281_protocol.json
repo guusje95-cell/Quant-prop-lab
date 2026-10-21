@@ -1,0 +1,10 @@
+{
+  "generation": "Gen281",
+  "title": "CME futures basis LEVEL (US institutional demand), BTC and ETH, vs v8.1",
+  "registered": "2026-10-21, before any Gen281 number (Gen-earlier 'CME basis momentum' was a different rule)",
+  "signal": "per coin: CME front contract by volume (Databento .v.0) hourly close and Coinbase spot at the same hour; last common hour of each UTC day; days to expiry = days to the last Friday of the contract month (front month; after the expiry Friday the next month); annualised basis b = (F / S - 1) x 365 / max(dte, 3); z = 90-day z of b (min 60); z > 1 -> long the coin 0.25, z < -1 -> short 0.25, next day; perps 5 bp + funding",
+  "why": "the CME basis is what US institutions pay for leveraged long exposure; unusually high basis = strong institutional demand (a US analogue of the premia that work)",
+  "pass": "sleeve DEV 2020-22 > 0 (ETH from 2021-03), TEST >= 0.8, HOLD >= 0.5, corr C* <= 0.3 AND strict rule vs v8.1",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
