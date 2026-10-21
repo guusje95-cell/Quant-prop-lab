@@ -1,0 +1,10 @@
+{
+  "generation": "Gen280",
+  "title": "Continuous sizing of the v8 altcoin-kimchi signal (replaces the threshold rule)",
+  "registered": "2026-10-21, before any Gen280 number",
+  "rule": "same Gen247 z per altcoin; weight = 0.1 x clip(z / 2, -1, 1) (full size at |z| >= 2, half at |z| = 1, small near 0); next day; perps 5 bp + funding. Replaces v8.1's threshold alt-kimchi sleeve",
+  "why": "a threshold throws away the size of the signal; proportional sizing is the standard alternative (no parameter chosen from results: the scale 2 is fixed so that the old threshold point z = 1 gets half size)",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
