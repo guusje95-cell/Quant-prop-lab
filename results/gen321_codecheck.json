@@ -1,0 +1,27 @@
+{
+ "pit coins available": 0,
+ "universe size (mean)": 54.81705574082897,
+ "coins ever in the universe": 60,
+ "reference v8.5": [
+  2.983,
+  [
+   1.205,
+   3.915,
+   3.089
+  ]
+ ],
+ "sleeve D/T/H": [
+  0.826,
+  1.05,
+  2.715
+ ],
+ "v8.4 + point-in-time carry": [
+  2.983,
+  [
+   1.205,
+   3.915,
+   3.089
+  ]
+ ],
+ "v8.5 confirmed": true
+}
