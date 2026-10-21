@@ -1,0 +1,28 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "signal days": 33,
+ "Kraken liquidation flush bounce": {
+  "sleeve D/T/H": [
+   -0.895,
+   -0.075,
+   0.306
+  ],
+  "corr C*": 0.037,
+  "v7": [
+   2.552,
+   [
+    1.004,
+    3.709,
+    2.346
+   ]
+  ],
+  "pass": false
+ }
+}
