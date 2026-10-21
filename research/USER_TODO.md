@@ -1,10 +1,10 @@
 # To do on your PC (when home)
 
-**NEWEST (2026-10-21, latest) - v8.5 and bf2.4 found (wide premium carry with inverse-vol legs; v 2.750 -> 2.983, bf2 2.506 -> 2.787). Start these two paper traders (they replace every earlier v8.x / bf2.x):**
+**NEWEST (2026-10-21, latest) - v8.6 and bf2.6 (wide premium carry with inverse-vol legs + tranched rebalancing; v 2.750 -> 3.110, bf2 2.506 -> 2.829). Start these two paper traders (they replace every earlier v8.x / bf2.x):**
    1. `git pull --no-edit`
    2. Crypto: `paper_v8_share.bat` once (or `paper_v83_share.bat` / `paper_v84_share.bat` if you started those), close that window,
-      then double-click `paper_v85_start.bat`. First run: downloads the 40 extra coins (Binance perps) and Binance spot BTC/ETH.
-   3. CFD: `paper_bf2_share.bat` once, close the bf2 window, then double-click `paper_bf24_start.bat`.
+      then double-click `paper_v86_start.bat` (v8.6; not v85). First run: downloads the 40 extra coins (Binance perps) and Binance spot BTC/ETH.
+   3. CFD: `paper_bf2_share.bat` once, close the bf2 window, then double-click `paper_bf26_start.bat` (bf2.6; not bf24).
    4. CHECK ON BYBIT (HyroTrader): are these USDT perps listed? 1000PEPE, 1000SHIB, 1INCH, ALGO, APE, APT, ARB, AXS, CHZ, COMP, CRV,
       DASH, DYDX, EGLD, ENJ, GALA, GRT, HBAR, ICP, IMX, INJ, IOTA, KSM, LDO, MANA, NEO, OP, RUNE, SAND, SNX, STX, SUI, SUSHI, THETA,
       TIA, WLD, XTZ, YFI, ZEC, ZIL. Tell me any that are missing.

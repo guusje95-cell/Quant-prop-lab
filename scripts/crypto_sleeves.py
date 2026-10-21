@@ -58,7 +58,16 @@ def premium_carry(look=7, hold=7):
     return _from_daily_weights(premium_weights(look, hold), B.coins(), 5)
 
 
-def premium_weights(look=7, hold=7, invvol=False):
+def _hold(w, hold, tranched):
+    """Weekly holding of daily-recomputed weights: one rebalance day (index % hold == 0), or (tranched=True, Gen322) the mean of the
+    `hold` staggered tranches with offsets 0..hold-1 (removes rebalance timing luck)."""
+    k = np.arange(len(w)) % hold
+    if not tranched:
+        return w.where(pd.Series(k == 0, index=w.index), np.nan).ffill().fillna(0.0)
+    return sum(w.where(pd.Series(k == o, index=w.index), np.nan).ffill().fillna(0.0) for o in range(hold)) / hold
+
+
+def premium_weights(look=7, hold=7, invvol=False, tranched=False):
     """Daily target weights of premium carry (row d = decided at the close of day d). invvol=True (Gen292, v8.3): inside each leg,
     weights proportional to 1 / 30-day daily vol instead of equal."""
     C = B.coins(); P = B.panel("close", "1D", C)
@@ -71,7 +80,7 @@ def premium_weights(look=7, hold=7, invvol=False):
         w = wl.div(wl.sum(axis=1), axis=0) - ws.div(ws.sum(axis=1), axis=0)
     else:
         w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
-    return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
+    return _hold(w, hold, tranched)
 
 
 def _breadth_universe(extra=None):
@@ -87,7 +96,7 @@ def _breadth_close(coins):
     return H.sort_index().loc[:END][list(coins)]
 
 
-def premium_breadth_weights(coins=None, look=7, hold=7, invvol=False):
+def premium_breadth_weights(coins=None, look=7, hold=7, invvol=False, tranched=False):
     """Gen80 breadth: the frozen Gen61 premium-carry rule on pack + extra coins (row d = decided at the close of day d).
     invvol=True (Gen315): inside each leg, weights proportional to 1 / 30-day daily vol (as premium_weights, Gen292)."""
     from qpl.lab import extra_pack as X
@@ -103,7 +112,7 @@ def premium_breadth_weights(coins=None, look=7, hold=7, invvol=False):
         w = wl.div(wl.sum(axis=1), axis=0) - ws.div(ws.sum(axis=1), axis=0)
     else:
         w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
-    return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
+    return _hold(w, hold, tranched)
 
 
 def premium_carry_breadth(coins=None, w=None):

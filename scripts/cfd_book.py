@@ -41,6 +41,7 @@ ALT_SPREAD = pd.Series(10.0, index=ALT_CFD)
 CARRY_CFD = ['AAVE', 'ADA', 'ALGO', 'APT', 'ARB', 'AVAX', 'BCH', 'BNB', 'BTC', 'COMP', 'CRV', 'DASH', 'DOGE', 'DOT', 'EGLD', 'ETC', 'ETH', 'FIL', 'GRT', 'HBAR', 'ICP', 'INJ', 'LINK', 'LTC', 'MANA', 'NEAR', 'RUNE', 'SAND', 'SNX', 'SOL', 'SUI', 'UNI', 'XLM', 'XRP', 'XTZ']
 CARRY_SPREAD = pd.Series(10.0, index=CARRY_CFD)
 COMM = 1.2
+TRANCHED = False                                       # bf2.6 (Gen322): the paper trader sets this for tranched carry
 LEVERAGE_CAP = 5.0
 
 
@@ -74,7 +75,7 @@ def cstar_w():
     return cw.where(a.ge(m * 0.5, axis=0), 0.0).reindex(columns=CFD_BASE).reindex(columns=CFD).fillna(0.0)
 
 
-def premium_carry_w(look=7, hold=7):
+def premium_carry_w(look=7, hold=7, tranched=False):
     if BREADTH:
         return CS.premium_breadth_weights(CFD, look, hold).reindex(columns=CFD).fillna(0.0)
     P = B.panel("close", "1D", CFD)
@@ -82,7 +83,7 @@ def premium_carry_w(look=7, hold=7):
     listed = P.notna().cumsum() >= 60
     rk = (-prem).where(listed).rank(axis=1, pct=True)
     w = (rk > 2 / 3).astype(float).div((rk > 2 / 3).sum(axis=1), axis=0) - (rk <= 1 / 3).astype(float).div((rk <= 1 / 3).sum(axis=1), axis=0)
-    return w.where(pd.Series(np.arange(len(w)) % hold == 0, index=w.index), np.nan).ffill().fillna(0.0)
+    return CS._hold(w, hold, tranched or TRANCHED)
 
 
 def coinbase_premium_w(end):

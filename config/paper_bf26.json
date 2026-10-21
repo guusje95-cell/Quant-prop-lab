@@ -1,0 +1,30 @@
+{
+ "name": "Paper trading of the CFD book bf2.6 (bf2.3 + Gen317 inverse-vol premium carry on 35 BrightFunded crypto CFDs) - with the carry sleeves rebalanced in 7 staggered tranches (Gen322)",
+ "registered": "2026-10-21, before the first bf2.6 paper hour; replaces every earlier paper version of this book",
+ "what": "Hourly forward test of bf2 = bf (C*, premium carry, trend 4h, Weiss expiry, deleveraging bounce, Coinbase premium on crypto CFDs) + Gen301 A ridge ML (Gen196 features + Gen247 B Binance spot taker flow + variance risk premium = Deribit DVOL minus 30-day realised vol + weekend / Monday dummies; BTC/ETH CFDs, 0.5 x clipped ridge prediction, decided at 00:00 UTC) + Gen234 'vol-managed indices' on US100/US500/US30 CFDs (P6 vol-managed long, R1 dip ensemble entered 14:00 ET, P1 IBS<0.3 entered 16:00 ET). Point-in-time equal risk, 30-day vol targeting. Simulation only. bf2.3 adds the Gen247 A / Gen270 altcoin kimchi sleeve (Upbit KRW vs USD/KRW vs Binance perp premium z > 1 long 0.1, < -1 short 0.1, held next day) on AAVE, ADA, AVAX, BCH, DOGE, DOT, ETC, FIL, LINK, NEAR, SOL, UNI, XLM, XRP CFDs at half the measured spread + 1.2 bp commission per side. bf2.4 adds 'premium carry BF': the Gen61 premium-carry rule (7-day mean perp premium, top / bottom third, 7-day hold) with inverse-vol legs on the 35 BrightFunded crypto CFDs of cfd_book.CARRY_CFD, half the measured spread + 1.2 bp per side, no swap.",
+ "frozen": {
+  "account": 200000,
+  "risk": 2.0,
+  "firm": "BrightFunded Two-Step Classic $200k",
+  "stop_fraction": 0.5,
+  "daily_stop": "flat for the rest of the UTC day once the day's loss reaches 50% of the 5% daily loss limit (2.5%), exit 10 bp worse (Gen230 setting)",
+  "costs": "commission 1.2 bp per side + half the measured BrightFunded MT5 spread per side (research_data/firm_specs/BrightFunded*20261021*.csv: BTC 0.36, ETH 6.2, SOL 3.7 ... bp full spread); no swap (swap-free add-on); index CFDs 1 bp per side",
+  "booking": "every sleeve as hourly positions x hourly returns; Weiss legs in their bars",
+  "risk_note": "Gen230/236: 2.0 in the challenge, 1.5 once funded; the paper ledger runs at the challenge risk",
+  "index_data": "Dukascopy hourly BID bars (research copy + src/qpl/live/index_feed.py: monthly hour candles, last 48 h from tick files); the cutoff waits at most 1 hour for a late bar",
+  "ridge_inputs_extra": "Binance spot BTC/ETH hourly klines with taker-buy volume (src/qpl/live/ml_feeds.py spot), Deribit DVOL level",
+  "extra_data": "Binance perps of the extra coins in cfd_book.CARRY_CFD (qpl.lab.extra_pack, live via binance_public.update_extra)",
+  "bf26_scale": 0.908,
+  "reference": "Gen322: 2.829 / 0.430 / 4.067 / 2.925 (uncapped)",
+  "bf26_scale_note": "0.15 / realised vol 2022-26 of the point-in-time bf2.6 book (computed 2026-10-21 by paper_v5.py _dump on the research pack, with the 1:5 crypto cap at risk 2.0): 2.822 / 0.430 / 4.052 / 2.925, vol 0.150"
+ },
+ "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
+ "gate": {
+  "minimum": "56 days of paper results and at least 2 Weiss expiry events",
+  "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
+  "operations": "late or missed hours <= 5% of hours; no data errors",
+  "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = the bf2.6 book 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
+  "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
+ },
+ "changes": []
+}

@@ -1058,3 +1058,11 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen319, 60-coin inverse-vol cross-sectional factors as added sleeves in v8.5:** A 28-day momentum 0.60 / 0.10 / 0.63, v8.5 -> 2.926 (TEST 3.70); B 7-day reversal -0.43 / -1.01 / -0.94, 2.632. **Both fail**: only the carry factor survives the wide construction.
 - **Gen320, bf2.4's 11-coin CFD premium carry with inverse-vol legs:** sleeve 0.07 / 1.30 / 0.69 (equal legs 0.26 / 1.29 / 0.61); bf2.4 2.787 -> **2.789 [0.500, 4.046, 2.790]: passes the strict rule at noise level** (+0.002). Research reference **bf2.5**; NOT built into the paper version (bf24 stays, as with v8.1: too small to justify a change).
 - Survivorship note on Gen316/317: the 40 extra coins are Binance perps listed when Gen80 downloaded them (2026-10), so coins delisted before then are missing. For a long-short carry sleeve the bias direction is unclear (delisted coins would have been both shorted high-premium names and losing longs); treat the wide-carry gain as optimistic until the paper run confirms it.
+- **Gen318-320** see above. **Gen321** (survivorship check of the wide carry on a point-in-time universe incl. delisted perps) is registered and its script is ready (code check reproduces Gen316 exactly); it waits for `get_binance_pit.bat`. If it fails, v8.5 / v8.6 fall back to v8.4 + tranching.
+
+## Gen322 (2026-10-21): tranched carry rebalancing - ADOPTED (v8.6, bf2.6)
+- Every premium-carry sleeve rebalanced in 7 staggered weekly tranches (offsets 0..6, averaged) instead of on one arbitrary weekday; signal, universe, weights and costs unchanged (removes rebalance timing luck).
+- **v8.5 2.983 -> 3.110 [1.542, 3.968, 3.111]: every period up. Adopted: v8.6.**
+- **bf2.4 2.787 -> 2.829 [0.430, 4.067, 2.925]: TEST and HOLD up (2022 lower). Adopted: bf2.6** (bf2.5 = Gen320's research-only note).
+- Paper versions (**both self-tests PASSED**) `v86` (scale 0.902; reproduces 3.110 / 1.542 / 3.968 / 3.111) and `bf26` (scale 0.908; capped 2.822 / 0.430 / 4.052 / 2.925). Harness defaults v8.6 / bf2.6.
+- **References from here: v8.6 3.110 / 1.542 / 3.968 / 3.111; bf2.6 2.829 / 0.430 / 4.067 / 2.925.**
