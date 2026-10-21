@@ -1,0 +1,9 @@
+{
+  "generation": "Gen320",
+  "title": "bf2.4: the 11-coin CFD premium carry with inverse-vol legs (the v8.3 / Gen292 change) instead of equal legs (1 trial)",
+  "registered": "2026-10-21, before any Gen320 number (an earlier informal bf2 run gave 2.437 vs 2.427 and was never judged)",
+  "model": "cfd_book.premium_carry_w with legs weighted 1 / 30-day vol (CS.premium_breadth_weights(coins=CFD, invvol=True)), replacing the 'premium carry' sleeve of bf2.4; everything else unchanged",
+  "pass": "strict rule vs bf2.4 (2.787 / 0.543 / 4.043 / 2.758)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

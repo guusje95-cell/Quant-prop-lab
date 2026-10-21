@@ -1055,3 +1055,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen318, prop risk settings re-chosen for the new books (nested: choose on 2022-24, judge on 2025-26; Gen236 method):**
   - **v8.5 on HyroTrader 2-Step $200k: 2.0 challenge / 2.0 funded (was 2.0 / 1.5). 2025-26 mean net $173k -> $202k, p10 $110k -> $112k, P(profit) 1.00. Adopted.**
   - bf2.4 on BrightFunded Classic $200k: chosen 2.5 / 2.0 gives $186k vs $167k but p10 $87k < $108k. **Not adopted**; stays 2.0 / 1.5.
+- **Gen319, 60-coin inverse-vol cross-sectional factors as added sleeves in v8.5:** A 28-day momentum 0.60 / 0.10 / 0.63, v8.5 -> 2.926 (TEST 3.70); B 7-day reversal -0.43 / -1.01 / -0.94, 2.632. **Both fail**: only the carry factor survives the wide construction.
