@@ -1,0 +1,10 @@
+{
+  "generation": "Gen286",
+  "title": "Time-series strategy momentum on v8.1's sleeves (Ehsani-Linnainmaa factor momentum)",
+  "registered": "2026-10-21, before any Gen286 number",
+  "rule": "for each sleeve s and day d: m = 1.0 if the sleeve's summed daily P&L over days d-90..d-1 is > 0, else 0.5; the sleeve's hourly P&L on day d is multiplied by m BEFORE the usual v8.1 construction (equal risk on trailing vol, Weiss half weight, 30-day vol targeting), so everything stays point-in-time",
+  "why": "factor momentum: strategies with positive trailing returns keep outperforming; Gen113's continuous Sharpe tilt lost, this is the simpler on/off form from the paper",
+  "pass": "strict rule vs v8.1 (2.554 / 3.709 / 2.353)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
