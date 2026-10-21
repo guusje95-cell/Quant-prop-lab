@@ -957,3 +957,4 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 ## Gen273 (2026-10-21): CME asset-manager positioning; stablecoin dominance (2 trials vs v8.1)
 - **A, CFTC TFF asset-manager net long change (CME BTC / ETH, weekly, from the Monday after release):** -0.17 / 0.42 / 0.26; v8.1 -> 2.524. **Fails** (with Gen119's leveraged funds, CME positioning carries no usable signal).
 - **B, stablecoin dominance (USDT+USDC vs BTC+ETH caps, 30-day change, risk-off when rising):** 0.23 / 0.63 / 0.04 (caps to 2026-05); v8.1 -> 2.340. **Fails.**
+- **Gen274 A, average trade size XS (20 perps, rising trade size long):** 1.29 / -0.34 / 0.52; v8.1 -> 2.456. **Fails.** **Gen274 B, altcoin OI share rotation:** -0.44 / -0.53 / -0.97. **Fails.**
