@@ -1,0 +1,79 @@
+{
+ "for_hour_utc": "2026-10-21 09:00:00",
+ "made_at_utc": "2026-10-21 10:07:50.582347",
+ "data_cutoff_utc": "2026-10-21 09:00:00",
+ "equity": 200820.96,
+ "risk": 2.0,
+ "target_notional_usd": {
+  "ETH": -56981.65,
+  "BTC": -31401.02,
+  "DOGE": -24951.25,
+  "ADA": -24951.25,
+  "SOL": -23478.37,
+  "DOT": 1975.73,
+  "BCH": 18713.44,
+  "AVAX": 18713.44,
+  "LINK": 18713.44,
+  "XRP": 20074.57,
+  "US100": 41638.11,
+  "US500": 78525.35
+ },
+ "by_sleeve_usd": {
+  "ADA": {
+   "premium carry": -24951.25
+  },
+  "AVAX": {
+   "premium carry": 18713.44
+  },
+  "BCH": {
+   "premium carry": 18713.44
+  },
+  "BTC": {
+   "C*": 6099.24,
+   "coinbase premium": -28015.91,
+   "ridge ML": -9484.35
+  },
+  "DOGE": {
+   "premium carry": -24951.25
+  },
+  "DOT": {
+   "C*": 1975.73
+  },
+  "ETH": {
+   "C*": 1742.64,
+   "coinbase premium": -28015.91,
+   "ridge ML": -30708.38
+  },
+  "LINK": {
+   "premium carry": 18713.44
+  },
+  "SOL": {
+   "C*": 1472.88,
+   "premium carry": -24951.25
+  },
+  "US100": {
+   "vol-managed indices": 41638.11
+  },
+  "US500": {
+   "vol-managed indices": 78525.35
+  },
+  "XRP": {
+   "C*": 1361.13,
+   "premium carry": 18713.44
+  }
+ },
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "weiss": null,
+ "sleeve_multipliers": {
+  "C*": 0.6582,
+  "premium carry": 0.1864,
+  "trend 4h": 0.599,
+  "Weiss expiry": 1.2089,
+  "delev bounce": 0.3261,
+  "coinbase premium": 0.1395,
+  "ridge ML": 0.1788,
+  "vol-managed indices": 0.2204
+ },
+ "note": "simulation only - no order is sent anywhere"
+}
