@@ -1,0 +1,9 @@
+{
+  "generation": "Gen277b",
+  "title": "The Gen277 two-venue (Upbit + Bithumb) alt-kimchi sleeve, judged against the CURRENT books v8.6 and bf2.6 (2 trials)",
+  "registered": "2026-10-22, after the Bithumb data arrived but before any Gen277 / Gen277b number",
+  "model": "Gen277 rule unchanged; replaces the 'alt kimchi' sleeve of v8.6 (perps) and of bf2.6 (14 altcoin CFDs at measured costs)",
+  "pass": "stricter post-paper-start bar: every period (2022, TEST, HOLD) not lower and 2022-26 Sharpe +0.05 or more vs v8.6 (3.110 / 1.542 / 3.968 / 3.111) or bf2.6 (2.829 / 0.430 / 4.067 / 2.925); a pass is a candidate (v8.7 / bf2.7), not pushed live before the paper review",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
