@@ -1,0 +1,36 @@
+{
+ "reference v8.6": [
+  3.11,
+  [
+   1.542,
+   3.968,
+   3.111
+  ]
+ ],
+ "reference bf2.6": [
+  2.829,
+  [
+   0.43,
+   4.067,
+   2.925
+  ]
+ ],
+ "v8.6 with two-venue alt kimchi": [
+  3.13,
+  [
+   1.567,
+   3.974,
+   3.137
+  ]
+ ],
+ "v8.6 pass (strict)": false,
+ "bf2.6 with two-venue alt kimchi": [
+  2.824,
+  [
+   0.387,
+   4.062,
+   2.945
+  ]
+ ],
+ "bf2.6 pass (strict)": false
+}

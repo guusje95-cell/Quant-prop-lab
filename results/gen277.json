@@ -1,0 +1,37 @@
+{
+ "reference v8.1": [
+  2.554,
+  [
+   1.004,
+   3.709,
+   2.353
+  ]
+ ],
+ "coins with Bithumb": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "NEAR",
+  "SOL",
+  "TRX",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "two-venue alt kimchi": [
+  2.586,
+  [
+   1.046,
+   3.719,
+   2.385
+  ]
+ ],
+ "pass": true
+}

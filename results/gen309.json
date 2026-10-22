@@ -1,0 +1,58 @@
+{
+ "books": [
+  "v8.4",
+  "bf2.3"
+ ],
+ "reference v": [
+  2.75,
+  [
+   1.324,
+   3.896,
+   2.428
+  ]
+ ],
+ "reference bf": [
+  2.506,
+  [
+   0.313,
+   3.985,
+   2.298
+  ]
+ ],
+ "feature coverage (share of days with skew)": 1.0,
+ "check v ridge": 0.0,
+ "check bf ridge": 0.0,
+ "options features (v)": {
+  "sleeve D/T/H": [
+   0.22,
+   2.064,
+   1.727
+  ],
+  "corr C*": 0.0,
+  "v7": [
+   2.672,
+   [
+    1.094,
+    3.812,
+    2.463
+   ]
+  ],
+  "pass": false
+ },
+ "options features (bf) (bf2)": {
+  "sleeve D/T/H": [
+   0.491,
+   1.973,
+   1.7
+  ],
+  "bf2": [
+   2.461,
+   [
+    0.309,
+    3.93,
+    2.288
+   ]
+  ],
+  "pass": false
+ }
+}

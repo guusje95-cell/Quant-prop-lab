@@ -1,0 +1,9 @@
+{
+  "generation": "Gen309b",
+  "title": "The Gen309 options features (skew, skew 7d change, put/call log ratio and its 7d change, taker call flow) judged against v8.6 and bf2.6 (2 trials)",
+  "registered": "2026-10-22, after the options data arrived but before any Gen309 / Gen309b number",
+  "model": "Gen309 features unchanged, added to the v8.6 ridge (kb, spot, VRP, calendar, vol-scaled target) and to the bf2.6 ridge (spot, VRP, calendar, raw target)",
+  "pass": "stricter bar: every period not lower and 2022-26 Sharpe +0.05 or more vs v8.6 / bf2.6; a pass is a candidate (v8.7 / bf2.7)",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
