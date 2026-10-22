@@ -1,0 +1,175 @@
+hour_utc,coin,side,usd,from_usd,to_usd,type,because
+2026-10-21 15:00:00,1000PEPE,BUY,1281.67,0.0,1281.67,initial position,"premium carry 60 +1,282"
+2026-10-21 15:00:00,1000SHIB,SELL,1384.27,0.0,-1384.27,initial position,"premium carry 60 -1,384"
+2026-10-21 15:00:00,1INCH,SELL,1148.8,0.0,-1148.8,initial position,"premium carry 60 -1,149"
+2026-10-21 15:00:00,AAVE,BUY,5416.69,0.0,5416.69,initial position,"premium carry 60 +3,221, premium carry +2,195"
+2026-10-21 15:00:00,ADA,SELL,3978.78,0.0,-3978.78,initial position,"premium carry -2,098, premium carry 60 -1,881"
+2026-10-21 15:00:00,ALGO,SELL,1672.21,0.0,-1672.21,initial position,"premium carry 60 -1,672"
+2026-10-21 15:00:00,APE,SELL,5880.09,0.0,-5880.09,initial position,"premium carry 60 -5,880"
+2026-10-21 15:00:00,ARB,BUY,4686.84,0.0,4686.84,initial position,"premium carry 60 +4,687"
+2026-10-21 15:00:00,ATOM,BUY,14194.08,0.0,14194.08,initial position,"premium carry +8,450, premium carry 60 +5,744"
+2026-10-21 15:00:00,AVAX,SELL,5555.99,0.0,-5555.99,initial position,"premium carry -6,143, premium carry 60 +587"
+2026-10-21 15:00:00,AXS,SELL,4410.65,0.0,-4410.65,initial position,"premium carry 60 -4,411"
+2026-10-21 15:00:00,BCH,BUY,3225.73,0.0,3225.73,initial position,"premium carry 60 +1,659, premium carry +1,567"
+2026-10-21 15:00:00,BNB,SELL,47220.65,0.0,-47220.65,initial position,"premium carry -30,927, premium carry 60 -17,898, C* +1,604"
+2026-10-21 15:00:00,BTC,BUY,47348.15,0.0,47348.15,initial position,"trend 4h +27,111, ridge ML +21,222, premium carry -9,527, C* +5,614, premium carry 60 +2,929"
+2026-10-21 15:00:00,CHZ,SELL,3593.82,0.0,-3593.82,initial position,"premium carry 60 -3,594"
+2026-10-21 15:00:00,COMP,SELL,8018.18,0.0,-8018.18,initial position,"premium carry 60 -8,018"
+2026-10-21 15:00:00,CRV,SELL,6456.14,0.0,-6456.14,initial position,"premium carry 60 -6,456"
+2026-10-21 15:00:00,DASH,SELL,2779.25,0.0,-2779.25,initial position,"premium carry 60 -2,779"
+2026-10-21 15:00:00,DOGE,BUY,885.36,0.0,885.36,initial position,C* +885
+2026-10-21 15:00:00,DOT,BUY,14769.52,0.0,14769.52,initial position,"premium carry +7,713, premium carry 60 +5,238, C* +1,818"
+2026-10-21 15:00:00,DYDX,SELL,6473.37,0.0,-6473.37,initial position,"premium carry 60 -6,473"
+2026-10-21 15:00:00,EGLD,SELL,2854.27,0.0,-2854.27,initial position,"premium carry 60 -2,854"
+2026-10-21 15:00:00,ENJ,SELL,7583.98,0.0,-7583.98,initial position,"premium carry 60 -7,584"
+2026-10-21 15:00:00,ETC,BUY,6956.91,0.0,6956.91,initial position,"premium carry 60 +4,030, premium carry +2,927"
+2026-10-21 15:00:00,ETH,BUY,10827.18,0.0,10827.18,initial position,"ridge ML +13,164, premium carry -8,623, premium carry 60 +4,682, C* +1,604"
+2026-10-21 15:00:00,FIL,SELL,2446.7,0.0,-2446.7,initial position,"premium carry -3,318, premium carry 60 +871"
+2026-10-21 15:00:00,GALA,BUY,4083.4,0.0,4083.4,initial position,"premium carry 60 +4,083"
+2026-10-21 15:00:00,GRT,BUY,2273.14,0.0,2273.14,initial position,"premium carry 60 +2,273"
+2026-10-21 15:00:00,HBAR,SELL,2711.05,0.0,-2711.05,initial position,"premium carry 60 -2,711"
+2026-10-21 15:00:00,ICP,SELL,3659.43,0.0,-3659.43,initial position,"premium carry 60 -3,659"
+2026-10-21 15:00:00,IMX,SELL,4847.06,0.0,-4847.06,initial position,"premium carry 60 -4,847"
+2026-10-21 15:00:00,INJ,SELL,4439.5,0.0,-4439.5,initial position,"premium carry 60 -4,440"
+2026-10-21 15:00:00,IOTA,BUY,1262.4,0.0,1262.4,initial position,"premium carry 60 +1,262"
+2026-10-21 15:00:00,KSM,BUY,5255.68,0.0,5255.68,initial position,"premium carry 60 +5,256"
+2026-10-21 15:00:00,LDO,SELL,1623.99,0.0,-1623.99,initial position,"premium carry 60 -1,624"
+2026-10-21 15:00:00,LINK,BUY,9533.99,0.0,9533.99,initial position,"premium carry +4,940, premium carry 60 +4,594"
+2026-10-21 15:00:00,LTC,BUY,8576.39,0.0,8576.39,initial position,"premium carry +4,301, premium carry 60 +4,275"
+2026-10-21 15:00:00,MANA,BUY,6198.97,0.0,6198.97,initial position,"premium carry 60 +6,199"
+2026-10-21 15:00:00,NEAR,SELL,8692.74,0.0,-8692.74,initial position,"premium carry -6,494, premium carry 60 -2,199"
+2026-10-21 15:00:00,NEO,SELL,565.39,0.0,-565.39,initial position,premium carry 60 -565
+2026-10-21 15:00:00,OP,BUY,3308.89,0.0,3308.89,initial position,"premium carry 60 +3,309"
+2026-10-21 15:00:00,RUNE,SELL,67.92,0.0,-67.92,initial position,premium carry 60 -68
+2026-10-21 15:00:00,SAND,BUY,2478.78,0.0,2478.78,initial position,"premium carry 60 +2,479"
+2026-10-21 15:00:00,SNX,BUY,4457.78,0.0,4457.78,initial position,"premium carry 60 +4,458"
+2026-10-21 15:00:00,SOL,SELL,12641.83,0.0,-12641.83,initial position,"premium carry -13,998, C* +1,356"
+2026-10-21 15:00:00,STX,BUY,5220.57,0.0,5220.57,initial position,"premium carry 60 +5,221"
+2026-10-21 15:00:00,SUI,SELL,2017.67,0.0,-2017.67,initial position,"premium carry 60 -2,018"
+2026-10-21 15:00:00,SUSHI,SELL,4855.15,0.0,-4855.15,initial position,"premium carry 60 -4,855"
+2026-10-21 15:00:00,THETA,SELL,6680.98,0.0,-6680.98,initial position,"premium carry 60 -6,681"
+2026-10-21 15:00:00,TIA,BUY,1170.33,0.0,1170.33,initial position,"premium carry 60 +1,170"
+2026-10-21 15:00:00,TRX,BUY,53951.2,0.0,53951.2,initial position,"premium carry +31,585, premium carry 60 +22,366"
+2026-10-21 15:00:00,UNI,SELL,3946.09,0.0,-3946.09,initial position,"premium carry -3,946"
+2026-10-21 15:00:00,WLD,SELL,1890.56,0.0,-1890.56,initial position,"premium carry 60 -1,891"
+2026-10-21 15:00:00,XLM,BUY,17320.34,0.0,17320.34,initial position,"premium carry +10,310, premium carry 60 +7,010"
+2026-10-21 15:00:00,XRP,BUY,20863.58,0.0,20863.58,initial position,"premium carry +11,084, premium carry 60 +8,526, C* +1,253"
+2026-10-21 15:00:00,XTZ,SELL,5730.39,0.0,-5730.39,initial position,"premium carry 60 -5,730"
+2026-10-21 15:00:00,YFI,SELL,1704.38,0.0,-1704.38,initial position,"premium carry 60 -1,704"
+2026-10-21 15:00:00,ZEC,SELL,4883.18,0.0,-4883.18,initial position,"premium carry 60 -4,883"
+2026-10-21 15:00:00,ZIL,BUY,2498.41,0.0,2498.41,initial position,"premium carry 60 +2,498"
+2026-10-21 16:00:00,BNB,BUY,75.23,-47220.65,-47145.42,rebalance,"premium carry +49, premium carry 60 +29, C* -3"
+2026-10-21 16:00:00,BTC,BUY,2519.45,47348.15,49867.6,rebalance,"trend 4h +2,552, ridge ML -34, premium carry +15, C* -9, premium carry 60 -5"
+2026-10-21 16:00:00,ETH,BUY,19552.83,10827.18,30380.01,rebalance,"trend 4h +19,570, ridge ML -21, premium carry +14, premium carry 60 -7, C* -3"
+2026-10-21 16:00:00,SOL,BUY,16838.3,-12641.83,4196.47,rebalance,"trend 4h +16,818, premium carry +22, C* -2"
+2026-10-21 16:00:00,TRX,SELL,85.94,53951.2,53865.26,rebalance,"premium carry -50, premium carry 60 -36"
+2026-10-21 18:00:00,BTC,BUY,52.87,49908.47,49961.34,rebalance,"trend 4h +31, ridge ML +22, premium carry -10, C* +6, premium carry 60 +3"
+2026-10-21 18:00:00,TRX,BUY,57.11,53909.4,53966.51,rebalance,"premium carry +33, premium carry 60 +24"
+2026-10-21 20:00:00,BTC,SELL,64.95,49948.54,49883.59,rebalance,"trend 4h -45, ridge ML -21, premium carry +10, C* -6, premium carry 60 -3"
+2026-10-21 20:00:00,ETH,SELL,142.14,30429.32,30287.18,rebalance,"trend 4h -131, ridge ML -13, premium carry +9, premium carry 60 -5, C* -2"
+2026-10-21 20:00:00,SOL,SELL,56.74,4203.28,4146.54,rebalance,"trend 4h -69, premium carry +14, C* -1"
+2026-10-21 20:00:00,TRX,SELL,54.05,53952.69,53898.64,rebalance,"premium carry -32, premium carry 60 -22"
+2026-10-21 21:00:00,BNB,BUY,90.43,-47174.64,-47084.21,rebalance,"premium carry +59, premium carry 60 +34, C* -3"
+2026-10-21 21:00:00,BTC,SELL,95.63,49883.59,49787.96,rebalance,"trend 4h -57, ridge ML -41, premium carry +18, C* -11, premium carry 60 -6"
+2026-10-21 21:00:00,ETH,SELL,58.06,30287.18,30229.12,rebalance,"trend 4h -37, ridge ML -25, premium carry +17, premium carry 60 -9, C* -3"
+2026-10-21 21:00:00,TRX,SELL,103.32,53898.64,53795.32,rebalance,"premium carry -60, premium carry 60 -43"
+2026-10-21 23:00:00,BNB,BUY,125.52,-47088.2,-46962.68,rebalance,"premium carry +82, premium carry 60 +48, C* -4"
+2026-10-21 23:00:00,BTC,SELL,132.72,49792.17,49659.45,rebalance,"trend 4h -79, ridge ML -56, premium carry +25, C* -15, premium carry 60 -8"
+2026-10-21 23:00:00,ETH,SELL,80.59,30231.68,30151.09,rebalance,"trend 4h -52, ridge ML -35, premium carry +23, premium carry 60 -12, C* -4"
+2026-10-21 23:00:00,TRX,SELL,143.41,53799.87,53656.46,rebalance,"premium carry -84, premium carry 60 -59"
+2026-10-21 23:00:00,XRP,SELL,55.46,20805.06,20749.6,rebalance,"premium carry -29, premium carry 60 -23, C* -3"
+2026-10-22 00:00:00,1000PEPE,SELL,1292.4,1274.67,-17.73,rebalance,"premium carry 60 -1,292"
+2026-10-22 00:00:00,1000SHIB,BUY,156.34,-1376.7,-1220.36,rebalance,premium carry 60 +156
+2026-10-22 00:00:00,1INCH,BUY,3450.01,-1142.53,2307.48,rebalance,"premium carry 60 +3,450"
+2026-10-22 00:00:00,AAVE,BUY,1281.78,5387.1,6668.88,rebalance,"premium carry +2,074, premium carry 60 -792"
+2026-10-22 00:00:00,ADA,BUY,3067.05,-3957.05,-890.0,rebalance,"premium carry +2,022, premium carry 60 +1,045"
+2026-10-22 00:00:00,ALGO,BUY,1950.99,-1663.08,287.91,rebalance,"premium carry 60 +1,951"
+2026-10-22 00:00:00,APE,BUY,297.53,-5847.97,-5550.44,rebalance,premium carry 60 +298
+2026-10-22 00:00:00,ARB,BUY,406.67,4661.23,5067.9,rebalance,premium carry 60 +407
+2026-10-22 00:00:00,ATOM,BUY,932.46,14116.53,15048.99,rebalance,"premium carry +696, premium carry 60 +236"
+2026-10-22 00:00:00,AVAX,SELL,2295.15,-5525.64,-7820.79,rebalance,"premium carry -1,711, premium carry 60 -584"
+2026-10-22 00:00:00,AXS,BUY,1792.21,-4386.55,-2594.34,rebalance,"premium carry 60 +1,792"
+2026-10-22 00:00:00,BCH,SELL,1379.24,3208.1,1828.86,rebalance,"premium carry -816, premium carry 60 -563"
+2026-10-22 00:00:00,BNB,BUY,6133.82,-46962.68,-40828.86,rebalance,"premium carry +2,835, C* +2,651, premium carry 60 +648"
+2026-10-22 00:00:00,BTC,BUY,17853.59,49659.45,67513.04,rebalance,"ridge ML +16,683, C* +8,217, premium carry 60 -4,269, premium carry -2,816, trend 4h +40"
+2026-10-22 00:00:00,CHZ,BUY,2504.58,-3574.19,-1069.61,rebalance,"premium carry 60 +2,505"
+2026-10-22 00:00:00,COMP,BUY,606.35,-7974.37,-7368.02,rebalance,premium carry 60 +606
+2026-10-22 00:00:00,CRV,BUY,357.2,-6420.87,-6063.67,rebalance,premium carry 60 +357
+2026-10-22 00:00:00,DASH,SELL,1230.12,-2764.06,-3994.18,rebalance,"premium carry 60 -1,230"
+2026-10-22 00:00:00,DOGE,BUY,2311.56,880.53,3192.09,rebalance,"C* +2,312"
+2026-10-22 00:00:00,DOT,BUY,3559.24,14688.83,18248.07,rebalance,"premium carry +1,860, premium carry 60 +1,023, C* +677"
+2026-10-22 00:00:00,DYDX,BUY,920.75,-6438.01,-5517.26,rebalance,premium carry 60 +921
+2026-10-22 00:00:00,EGLD,BUY,2407.21,-2838.68,-431.47,rebalance,"premium carry 60 +2,407"
+2026-10-22 00:00:00,ENJ,BUY,382.18,-7542.55,-7160.37,rebalance,premium carry 60 +382
+2026-10-22 00:00:00,ETC,BUY,5005.47,6918.9,11924.37,rebalance,"premium carry +5,013, premium carry 60 -7"
+2026-10-22 00:00:00,ETH,BUY,23710.33,30151.09,53861.42,rebalance,"ridge ML +24,696, C* +2,651, premium carry -2,054, premium carry 60 -1,527, trend 4h -56"
+2026-10-22 00:00:00,FIL,BUY,2890.3,-2433.33,456.97,rebalance,"premium carry +2,892, premium carry 60 -2"
+2026-10-22 00:00:00,GALA,BUY,801.34,4061.09,4862.43,rebalance,premium carry 60 +801
+2026-10-22 00:00:00,HBAR,BUY,666.79,-2696.24,-2029.45,rebalance,premium carry 60 +667
+2026-10-22 00:00:00,ICP,SELL,635.34,-3639.44,-4274.78,rebalance,premium carry 60 -635
+2026-10-22 00:00:00,IMX,BUY,823.76,-4820.58,-3996.82,rebalance,premium carry 60 +824
+2026-10-22 00:00:00,INJ,SELL,589.57,-4415.25,-5004.82,rebalance,premium carry 60 -590
+2026-10-22 00:00:00,IOTA,BUY,1960.16,1255.51,3215.67,rebalance,"premium carry 60 +1,960"
+2026-10-22 00:00:00,KSM,BUY,1179.2,5226.97,6406.17,rebalance,"premium carry 60 +1,179"
+2026-10-22 00:00:00,LDO,SELL,1036.92,-1615.12,-2652.04,rebalance,"premium carry 60 -1,037"
+2026-10-22 00:00:00,LINK,BUY,241.61,9481.91,9723.52,rebalance,"C* +2,434, premium carry -1,297, premium carry 60 -896"
+2026-10-22 00:00:00,LTC,BUY,2550.73,8529.54,11080.27,rebalance,"premium carry +2,215, premium carry 60 +336"
+2026-10-22 00:00:00,MANA,BUY,200.35,6165.1,6365.45,rebalance,premium carry 60 +200
+2026-10-22 00:00:00,NEAR,BUY,115.26,-8645.25,-8529.99,rebalance,"premium carry +536, premium carry 60 -421"
+2026-10-22 00:00:00,NEO,SELL,1740.18,-562.3,-2302.48,rebalance,"premium carry 60 -1,740"
+2026-10-22 00:00:00,OP,BUY,645.31,3290.81,3936.12,rebalance,premium carry 60 +645
+2026-10-22 00:00:00,RUNE,SELL,610.12,-67.55,-677.67,rebalance,premium carry 60 -610
+2026-10-22 00:00:00,SAND,BUY,77.63,2465.24,2542.87,rebalance,premium carry 60 +78
+2026-10-22 00:00:00,SNX,BUY,349.02,4433.43,4782.45,rebalance,premium carry 60 +349
+2026-10-22 00:00:00,SOL,BUY,5519.46,4127.9,9647.36,rebalance,"C* +2,854, premium carry +2,691, trend 4h -25"
+2026-10-22 00:00:00,STX,BUY,282.03,5192.05,5474.08,rebalance,premium carry 60 +282
+2026-10-22 00:00:00,THETA,BUY,264.93,-6644.48,-6379.55,rebalance,premium carry 60 +265
+2026-10-22 00:00:00,TIA,BUY,546.59,1163.93,1710.52,rebalance,premium carry 60 +547
+2026-10-22 00:00:00,TRX,SELL,24415.64,53656.46,29240.82,rebalance,"premium carry -13,765, premium carry 60 -10,651"
+2026-10-22 00:00:00,WLD,BUY,245.45,-1880.23,-1634.78,rebalance,premium carry 60 +245
+2026-10-22 00:00:00,XLM,BUY,1620.28,17225.71,18845.99,rebalance,"premium carry +1,155, premium carry 60 +465"
+2026-10-22 00:00:00,XRP,BUY,253.04,20749.6,21002.64,rebalance,"C* +2,851, premium carry -1,537, premium carry 60 -1,061"
+2026-10-22 00:00:00,XTZ,SELL,96.05,-5699.09,-5795.14,rebalance,premium carry 60 -96
+2026-10-22 00:00:00,ZEC,BUY,156.78,-4856.51,-4699.73,rebalance,premium carry 60 +157
+2026-10-22 00:00:00,ZIL,BUY,808.26,2484.76,3293.02,rebalance,premium carry 60 +808
+2026-10-22 02:00:00,AAVE,SELL,54.88,6667.97,6613.09,rebalance,"premium carry -35, premium carry 60 -20"
+2026-10-22 02:00:00,ATOM,SELL,123.85,15046.93,14923.08,rebalance,"premium carry -75, premium carry 60 -49"
+2026-10-22 02:00:00,AVAX,BUY,64.37,-7819.72,-7755.35,rebalance,premium carry +64
+2026-10-22 02:00:00,BNB,BUY,336.0,-40823.28,-40487.28,rebalance,"premium carry +230, premium carry 60 +141, C* -35"
+2026-10-22 02:00:00,BTC,SELL,555.61,67503.81,66948.2,rebalance,"ridge ML -311, trend 4h -243, C* -114, premium carry +101, premium carry 60 +11"
+2026-10-22 02:00:00,COMP,BUY,60.63,-7367.01,-7306.38,rebalance,premium carry 60 +61
+2026-10-22 02:00:00,DOT,SELL,150.18,18245.58,18095.4,rebalance,"premium carry -78, premium carry 60 -51, C* -20"
+2026-10-22 02:00:00,ENJ,BUY,58.93,-7159.39,-7100.46,rebalance,premium carry 60 +59
+2026-10-22 02:00:00,ETC,SELL,98.13,11922.74,11824.61,rebalance,"premium carry -65, premium carry 60 -33"
+2026-10-22 02:00:00,ETH,SELL,443.26,53854.06,53410.8,rebalance,"ridge ML -311, trend 4h -159, premium carry +87, C* -35, premium carry 60 -26"
+2026-10-22 02:00:00,KSM,SELL,52.72,6405.29,6352.57,rebalance,premium carry 60 -53
+2026-10-22 02:00:00,LINK,SELL,80.02,9722.19,9642.17,rebalance,"premium carry 60 -30, premium carry -30, C* -20"
+2026-10-22 02:00:00,LTC,SELL,91.19,11078.76,10987.57,rebalance,"premium carry -53, premium carry 60 -38"
+2026-10-22 02:00:00,MANA,SELL,52.38,6364.58,6312.2,rebalance,premium carry 60 -52
+2026-10-22 02:00:00,NEAR,BUY,70.2,-8528.82,-8458.62,rebalance,"premium carry +49, premium carry 60 +21"
+2026-10-22 02:00:00,SOL,SELL,79.39,9646.04,9566.65,rebalance,"trend 4h -137, premium carry +92, C* -35"
+2026-10-22 02:00:00,THETA,BUY,52.5,-6378.68,-6326.18,rebalance,premium carry 60 +52
+2026-10-22 02:00:00,TRX,SELL,240.65,29236.83,28996.18,rebalance,"premium carry -145, premium carry 60 -95"
+2026-10-22 02:00:00,XLM,SELL,155.1,18843.42,18688.32,rebalance,"premium carry -94, premium carry 60 -61"
+2026-10-22 02:00:00,XRP,SELL,172.84,20999.77,20826.93,rebalance,"premium carry -78, premium carry 60 -61, C* -34"
+2026-10-22 03:00:00,ATOM,SELL,55.02,14923.08,14868.06,rebalance,"premium carry -33, premium carry 60 -22"
+2026-10-22 03:00:00,BNB,BUY,149.28,-40487.28,-40338.0,rebalance,"premium carry +102, premium carry 60 +63, C* -16"
+2026-10-22 03:00:00,BTC,SELL,246.84,66948.2,66701.36,rebalance,"ridge ML -138, trend 4h -108, C* -50, premium carry +45, premium carry 60 +5"
+2026-10-22 03:00:00,DOT,SELL,66.71,18095.4,18028.69,rebalance,"premium carry -35, premium carry 60 -23, C* -9"
+2026-10-22 03:00:00,ETH,SELL,196.92,53410.8,53213.88,rebalance,"ridge ML -138, trend 4h -71, premium carry +39, C* -16, premium carry 60 -11"
+2026-10-22 03:00:00,TRX,SELL,106.9,28996.18,28889.28,rebalance,"premium carry -65, premium carry 60 -42"
+2026-10-22 03:00:00,XLM,SELL,68.9,18688.32,18619.42,rebalance,"premium carry -42, premium carry 60 -27"
+2026-10-22 03:00:00,XRP,SELL,76.79,20826.93,20750.14,rebalance,"premium carry -35, premium carry 60 -27, C* -15"
+2026-10-22 05:00:00,BNB,SELL,57.5,-40361.53,-40419.03,rebalance,"premium carry -39, premium carry 60 -24, C* +6"
+2026-10-22 05:00:00,BTC,BUY,95.02,66702.87,66797.89,rebalance,"ridge ML +53, trend 4h +42, C* +19, premium carry -17, premium carry 60 -2"
+2026-10-22 05:00:00,ETH,BUY,75.83,53229.34,53305.17,rebalance,"ridge ML +53, trend 4h +27, premium carry -15, C* +6, premium carry 60 +4"
+2026-10-22 06:00:00,BNB,BUY,83.53,-40419.03,-40335.5,rebalance,"premium carry +57, premium carry 60 +35, C* -9"
+2026-10-22 06:00:00,BTC,SELL,138.03,66797.89,66659.86,rebalance,"ridge ML -77, trend 4h -60, C* -28, premium carry +25, premium carry 60 +3"
+2026-10-22 06:00:00,ETH,SELL,110.15,53305.17,53195.02,rebalance,"ridge ML -77, trend 4h -40, premium carry +22, C* -9, premium carry 60 -6"
+2026-10-22 06:00:00,TRX,SELL,59.81,28947.3,28887.49,rebalance,"premium carry -36, premium carry 60 -24"
+2026-10-22 07:00:00,BNB,BUY,110.85,-40335.5,-40224.65,rebalance,"premium carry +76, premium carry 60 +47, C* -12"
+2026-10-22 07:00:00,BTC,SELL,183.21,66659.86,66476.65,rebalance,"ridge ML -103, trend 4h -80, C* -37, premium carry +33, premium carry 60 +4"
+2026-10-22 07:00:00,ETH,SELL,146.2,53195.02,53048.82,rebalance,"ridge ML -103, trend 4h -52, premium carry +29, C* -12, premium carry 60 -8"
+2026-10-22 07:00:00,TRX,SELL,79.4,28887.49,28808.09,rebalance,"premium carry -48, premium carry 60 -31"
+2026-10-22 07:00:00,XLM,SELL,51.17,18618.26,18567.09,rebalance,"premium carry -31, premium carry 60 -20"
+2026-10-22 07:00:00,XRP,SELL,57.02,20748.85,20691.83,rebalance,"premium carry -26, premium carry 60 -20, C* -11"
