@@ -1086,3 +1086,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
   | **planning (deflated, N = 300)** | **$91k ($21k)** | **$79k ($19k)** | **$170k / $59k / $7.1k** | **1.0%** |
   | half the backtest Sharpe | $78k ($14k) | $73k ($17k) | $151k / $44k / $6.3k | 2.4% |
 - **Research rules from 2026-10-21 (paper trading v86 / bf26 running):** a change is adopted only with EVERY period not lower and the 2022-26 Sharpe +0.05 or more; adopted changes are collected as candidates (v8.7 / bf2.7) and go live only after the paper review. Check (descriptive): making the BrightFunded book different from v8.6 lowers the two-account Sharpe (bf2.6 as is 3.13 combined; indices + Coinbase premium only 2.76): diversification needs an uncorrelated book with a Sharpe of about 1.7+. **Gen326** (carry on a point-in-time top-100 / top-150 universe) registered before the data.
+
+## Gen277 / Gen277b / Gen309 / Gen309b (2026-10-22): Bithumb and Deribit options data (user download)
+- **Gen277 (as registered, vs v8.1): Upbit + Bithumb two-venue Korean premium replacing the alt-kimchi sleeve: 2.554 -> 2.586 [1.046, 3.719, 2.385]: passes.**
+- **Gen277b (vs the current books, stricter bar: every period up and +0.05):** v8.6 3.110 -> 3.130 [1.567, 3.974, 3.137]: every period up but only +0.02: **not adopted** (noted as a consistent small gain); bf2.6 -> 2.824 (2022 lower): fails.
+- **Gen309 (as registered, vs v8.4 / bf2.3): options skew, put/call ratio, taker call flow in the ridge:** ridge sleeve 0.22 / 2.06 / 1.73 (TEST and HOLD up, 2021-22 down); v8.4 -> 2.672 (2022 1.09), bf2.3 -> 2.461. **Both fail.**
+- **Gen309b (vs v8.6 / bf2.6):** v8.6 -> 3.056 [1.32, 3.90, 3.18]; bf2.6 -> 2.786. **Both fail** (2022 and TEST lower; the options information mostly duplicates the VRP feature).
+- Nothing adopted; the books stay v8.6 / bf2.6. The paper traders are unchanged.
