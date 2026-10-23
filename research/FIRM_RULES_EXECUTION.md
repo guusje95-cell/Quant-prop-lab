@@ -145,3 +145,7 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
   and market orders, read positions and equity every minute, and its rate limits); Hyro fees and funding treatment not published.
   Trading a related strategy at ANOTHER prop firm is allowed if the accounts are run independently and never used to hedge,
   arbitrage or offset each other. -> v8.6 at HyroTrader + bf2.6 at BrightFunded is fine in principle (confirm in writing).
+- Follow-up 2 (published docs): Hyro MCP trading is live (2FA + agent token, trading access separate from read access, native platform
+  only, 700+ USDT perps on live Bybit data); NOT published: the MCP tool schema (amend / cancel orders, positions / equity fields and
+  refresh), rate limits, Hyro's own fees and its funding treatment. Section 10.2(m): only offsetting / hedging against external
+  positions is prohibited; independent trading elsewhere is allowed. -> these open points go to HyroTrader support in writing.
