@@ -1,0 +1,23 @@
+{
+ "A fills": 61907,
+ "A crash limit buys": {
+  "sleeve DEV / TEST / HOLD": [
+   4.383,
+   4.481,
+   2.804
+  ],
+  "corr v8.6": 0.234,
+  "corr premium spike": 0.111,
+  "pass": false
+ },
+ "B USDT premium hourly spike": {
+  "sleeve DEV / TEST / HOLD": [
+   0.659,
+   0.728,
+   1.334
+  ],
+  "corr v8.6": -0.047,
+  "corr premium spike": -0.156,
+  "pass": false
+ }
+}

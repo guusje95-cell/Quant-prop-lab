@@ -1,0 +1,61 @@
+{
+ "a Binance fill, f = 1.0%": {
+  "D/T/H": [
+   4.337,
+   4.365,
+   2.386
+  ],
+  "mean size (unit 0.1 = full)": 0.0911
+ },
+ "b OKX-confirmed, f = 1.0%": {
+  "D/T/H": [
+   3.47,
+   3.559,
+   1.919
+  ],
+  "mean size (unit 0.1 = full)": 0.0931
+ },
+ "c pack, 5-minute close, f = 1.0%": {
+  "D/T/H": [
+   2.715,
+   2.707,
+   0.876
+  ],
+  "mean size (unit 0.1 = full)": 0.0975
+ },
+ "a Binance fill, f = 0.5%": {
+  "D/T/H": [
+   4.17,
+   4.139,
+   2.101
+  ],
+  "mean size (unit 0.1 = full)": 0.0835
+ },
+ "b OKX-confirmed, f = 0.5%": {
+  "D/T/H": [
+   3.335,
+   3.361,
+   1.713
+  ],
+  "mean size (unit 0.1 = full)": 0.0864
+ },
+ "c pack, 5-minute close, f = 0.5%": {
+  "D/T/H": [
+   2.724,
+   2.681,
+   0.856
+  ],
+  "mean size (unit 0.1 = full)": 0.0935
+ },
+ "corr v8.6 (a, 1%)": 0.232,
+ "v8.6 + capped sleeve (a, 1%)": {
+  "D/T/H": [
+   3.519,
+   1.565,
+   4.727,
+   3.541
+  ],
+  "strict pass": true
+ },
+ "VERDICT capacity-real": true
+}

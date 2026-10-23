@@ -1,0 +1,14 @@
+{
+ "generation": "Gen354",
+ "title": "Fast premium rank with low turnover (FLAGGED follow-up: registered after seeing Gen353 C's gross 3.9 / 2.6 / 1.0 and net loss from turnover; 3 trials)",
+ "registered": "2026-10-23, before any Gen354 number",
+ "signal": "hourly perp premium z vs its trailing 720 h (lagged), sampled at 23:00 UTC; long the most negative third / short the most positive third, inverse-vol legs (60 coins), 0.5 gross scale as Gen353 C",
+ "trials": {
+  "A daily": "rebalanced once a day at 00:00 UTC, held 24 h",
+  "B 3 tranches": "daily signal, 3-day hold in 3 staggered tranches (CS._hold)",
+  "C daily with a no-trade band": "as A, but a coin's weight is only changed when the new target differs by more than 0.02 (else kept)"
+ },
+ "costs": "5 bp per side + funding (premium_carry_breadth accounting)",
+ "bars": "DEV (2020-22) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5; plus a correlation report vs the two carry sleeves",
+ "trials_added": 3
+}

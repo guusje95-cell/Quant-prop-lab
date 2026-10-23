@@ -1,0 +1,95 @@
+{
+ "base (Gen352 A)": {
+  "D/T/H": [
+   4.383,
+   4.481,
+   2.804
+  ],
+  "fills": 61907
+ },
+ "1 trade-through 20 bp": {
+  "D/T/H": [
+   3.339,
+   2.923,
+   0.966
+  ],
+  "fills": 51879
+ },
+ "2 OKX low confirms": {
+  "D/T/H": [
+   3.472,
+   3.669,
+   2.077
+  ],
+  "fills": 51330
+ },
+ "2b same coins without the OKX filter": {
+  "D/T/H": [
+   4.325,
+   4.498,
+   3.049
+  ],
+  "fills": 58893
+ },
+ "3 5-minute close below (pack coins)": {
+  "D/T/H": [
+   2.595,
+   2.709,
+   0.891
+  ],
+  "fills": 15520
+ },
+ "3b pack coins, wick fill": {
+  "D/T/H": [
+   3.369,
+   4.346,
+   1.75
+  ],
+  "fills": 24816
+ },
+ "4 costs x2": {
+  "D/T/H": [
+   4.02,
+   3.743,
+   2.143
+  ],
+  "fills": 61907
+ },
+ "5 Bybit exit cost": {
+  "D/T/H": [
+   4.29,
+   4.285,
+   2.618
+  ],
+  "fills": 61907
+ },
+ "7 by year": {
+  "2020": 2.76,
+  "2021": 8.16,
+  "2022": 1.91,
+  "2023": 4.59,
+  "2024": 4.43,
+  "2025": 2.65,
+  "2026": 3.0
+ },
+ "7 corr cascade / delev": [
+  0.216,
+  0.177
+ ],
+ "6 v8.6 + sleeve": {
+  "D/T/H": [
+   3.591,
+   1.624,
+   4.757,
+   3.665
+  ],
+  "reference": [
+   3.11,
+   1.542,
+   3.968,
+   3.111
+  ],
+  "strict pass": true
+ },
+ "VERDICT real edge (2 and 3 >= 1.0 every period)": false
+}

@@ -1,0 +1,57 @@
+{
+ "A Binance vs OKX perp": {
+  "sleeve DEV / TEST / HOLD": [
+   0.93,
+   0.217,
+   -1.032
+  ],
+  "corr v8.6": 0.118,
+  "corr premium spike": 0.526,
+  "pass": false,
+  "gross": [
+   1.18,
+   0.727,
+   0.295
+  ]
+ },
+ "B Upbit hourly kimchi": {
+  "sleeve DEV / TEST / HOLD": [
+   1.142,
+   0.757,
+   -0.438
+  ],
+  "corr v8.6": 0.092,
+  "corr premium spike": 0.434,
+  "pass": false,
+  "gross": [
+   1.257,
+   0.914,
+   -0.334
+  ]
+ },
+ "C ETH/BTC hourly ratio spike": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.957,
+   -2.086,
+   -2.436
+  ],
+  "corr v8.6": -0.081,
+  "corr premium spike": -0.046,
+  "pass": false,
+  "gross": [
+   0.656,
+   0.128,
+   -0.776
+  ]
+ },
+ "D DVOL spike (daily)": {
+  "sleeve DEV / TEST / HOLD": [
+   0.037,
+   0.181,
+   -0.249
+  ],
+  "corr v8.6": 0.16,
+  "corr premium spike": 0.203,
+  "pass": false
+ }
+}

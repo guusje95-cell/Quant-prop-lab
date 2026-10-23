@@ -1,0 +1,32 @@
+{
+ "generation": "Gen352b",
+ "title": "Verification of Gen352 A (crash limit buys: 4.38 / 4.48 / 2.80, corr v8.6 0.234 - fails the 0.2 correlation bar narrowly; result too strong to trust without checks). Registered after Gen352, before running.",
+ "checks": {
+  "1 deeper trade-through": "fill only if the low trades 20 bp through the limit (instead of 2 bp)",
+  "2 cross-venue confirmation": "fill only if the OKX hourly low of the same coin also trades through the same limit price (bad Binance prints excluded); coins without OKX data excluded",
+  "3 5-minute close (pack coins)": "fill only if a 5-minute bar CLOSES below the limit within the hour (not just a wick); entry at that 5-minute close (worse than the limit)",
+  "4 costs x2": "maker 4 bp, exit 10 bp",
+  "5 Bybit costs": "exit at Bybit taker + half spread, Bybit funding",
+  "6 in v8.6": "as a 10th sleeve, strict rule",
+  "7 overlap": "correlation with the cascade and delev-bounce sleeves; by year",
+  "8 size": "fills per year, average hold exposure"
+ },
+ "verdict rule": "a real edge only if checks 2 AND 3 each keep every period >= 1.0 (the effect must survive excluding single-venue wicks and requiring a 5-minute close)",
+ "Gen352c capacity check (registered after Gen352b, before running)": {
+  "sizing": "each fill's size = min(0.1, f x that hour's quote volume / (account $200k x risk 2.0)) with f = 1% and 0.5% of the hour's traded volume; the rest of the rule unchanged",
+  "variants": "(a) Binance wick fill, (b) OKX-confirmed fill, (c) pack coins with a 5-minute close below the limit; each at f = 1% and 0.5%",
+  "also": "the 1%-capped sleeve inside v8.6 (strict rule) and its correlation with v8.6",
+  "verdict": "capacity-real if (b) at f = 1% keeps every period >= 1.0 and (c) at f = 1% keeps every period >= 0.5"
+ },
+ "Gen352d independent replications (registered after Gen352c, before running)": {
+  "R1 OKX only": "signal (previous OKX close, OKX 720 h hourly sd), fill (OKX hourly low, 2 bp through) and P&L (OKX closes) all from OKX USDT swaps (57 coins); Binance funding as the funding proxy",
+  "R2 Binance spot": "the 20 pack coins on Binance SPOT hourly data (high/low from 1h spot? not stored: the spot files hold close/volume only -> R2 uses spot closes for the signal and the perp low for the fill is NOT independent; R2 dropped if spot lows are missing)",
+  "neighbourhood": "k {2.5, 3, 3.5} sd x hold {2, 4, 8} h on the base version",
+  "verdict": "replicated if R1 keeps every period >= 1.0 and the neighbourhood median keeps every period >= 1.5"
+ },
+ "Gen352f realistic execution (registered after Gen352e, before running)": {
+  "rule": "20 pack coins (5-minute data): during hour t, the first 5-minute bar that CLOSES below previous-hour close x (1 - 3 x hourly sd) triggers a MARKET buy at that 5-minute close (variant L: at the NEXT 5-minute close, latency); hold to the close 4 h after hour t; 0.1 per coin, at most 5 open",
+  "costs": "entry 20 bp (taker + crash spread), exit 10 bp, funding",
+  "verdict": "tradable edge if the base variant keeps every period >= 0.8 and the latency variant every period >= 0.5"
+ }
+}

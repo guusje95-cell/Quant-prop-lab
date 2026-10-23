@@ -1,0 +1,13 @@
+{
+ "generation": "Gen356",
+ "title": "Venue-share flows and the euro premium (3 trials)",
+ "registered": "2026-10-23, before any Gen356 number",
+ "trials": {
+  "A OKX volume share XS": "57 coins: OKX perp quote volume / (OKX + Binance perp quote volume), daily; score = log(7-day mean share / 90-day mean share); long the third whose OKX share rose most, short the third whose share fell most; inverse-vol legs, 3 tranches",
+  "B Coinbase volume share XS": "18 coins with Coinbase USD data (BTC/ETH incl.): Coinbase USD volume x price / Binance perp quote volume, daily; same score and construction as A (rising US share -> long)",
+  "C euro premium hourly spike": "BTC: premium = BTCEUR / (EURUSDT x BTCUSDT perp) - 1 on Binance hourly closes; z vs 720 h (lagged) > 3 -> long BTC and ETH perps 0.25 each for 4 h, < -3 -> short"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "DEV (2020-22 or from the data start) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5",
+ "trials_added": 3
+}

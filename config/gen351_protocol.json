@@ -1,0 +1,13 @@
+{
+ "generation": "Gen351",
+ "title": "Slower market-neutral relative value on the 60-coin universe (3 trials)",
+ "registered": "2026-10-23, before any Gen351 number",
+ "trials": {
+  "A distance pairs (Gatev, Goetzmann and Rouwenhorst 2006)": "on the first day of each month: normalised (start = 1) price paths over the last 120 days for coins listed >= 120 days; the 10 pairs with the smallest sum of squared distances (each coin in at most 2 pairs); during the month, daily spread = log(p1/p2) - its 120-day formation mean, z by the formation sd; open when |z| > 2 (short the rich leg 0.1, long the cheap leg 0.1), close when the spread crosses zero, after 20 days, or at month end",
+  "B weekday seasonality XS (Heston-Sadka style)": "score for tomorrow = the coin's mean return on the same weekday over the last 8 weeks; long the top third / short the bottom third for that one day, inverse-vol legs",
+  "C long-term reversal XS": "score = -(return from t-180 to t-30 days); long the long-term losers / short the winners, inverse-vol legs, 7 tranches (as the wide carry)"
+ },
+ "costs": "5 bp per side + funding (premium_carry_breadth accounting for B and C; per-leg for A)",
+ "bars": "as Gen349: DEV (2020-22) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5",
+ "trials_added": 3
+}

@@ -1,0 +1,14 @@
+{
+ "generation": "Gen349",
+ "title": "Dislocation family (after Gen348 A): spikes in other price gaps that should close (4 trials)",
+ "registered": "2026-10-23, before any Gen349 number",
+ "engine": "as Gen348 A: z of the gap vs its trailing 720 h (lagged one bar); when |z| > 3 the Binance perp position for the next 4 h is set toward closing the gap, 0.1 per coin (C: 0.25 per leg); 5 bp per side + funding",
+ "trials": {
+  "A Binance vs OKX perp": "gap = Binance perp close / OKX perp close - 1 (57 coins); Binance rich -> short Binance, cheap -> long",
+  "B Upbit hourly kimchi": "gap = Upbit KRW close / USD-KRW (previous London day) / Binance perp close - 1 (coins with Upbit data); Upbit rich (gap spike up) -> long Binance, down -> short",
+  "C ETH/BTC hourly ratio spike": "z of the 1-hour log change of ETH/BTC vs its trailing 720 h; spike up -> short ETH / long BTC 0.25 each for 4 h, down -> the reverse",
+  "D DVOL spike (daily)": "BTC DVOL daily log change z vs 90 days > 2 (fear spike) -> long BTC and ETH 0.5 each for the next 3 days"
+ },
+ "bars": "DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5, |daily corr with v8.6| <= 0.2, AND |corr with the Gen348 A sleeve| <= 0.5 (a new edge, not the same one); passing trials get the Gen348b checks",
+ "trials_added": 4
+}

@@ -1,0 +1,50 @@
+{
+ "A open-interest spike fade": {
+  "first trade": "2021-12-22",
+  "sleeve DEV / TEST / HOLD": [
+   0.31,
+   -0.261,
+   -1.061
+  ],
+  "corr v8.6": -0.0,
+  "corr premium spike": 0.095,
+  "gross": [
+   0.975,
+   0.75,
+   -0.351
+  ],
+  "pass": false
+ },
+ "B top-trader crowding": {
+  "first trade": "2021-12-22",
+  "sleeve DEV / TEST / HOLD": [
+   -0.134,
+   -1.631,
+   -2.705
+  ],
+  "corr v8.6": -0.012,
+  "corr premium spike": 0.006,
+  "gross": [
+   0.435,
+   0.526,
+   -1.003
+  ],
+  "pass": false
+ },
+ "C taker volume ratio spike": {
+  "first trade": "2021-12-21",
+  "sleeve DEV / TEST / HOLD": [
+   -0.467,
+   -2.819,
+   -1.744
+  ],
+  "corr v8.6": -0.044,
+  "corr premium spike": -0.044,
+  "gross": [
+   1.088,
+   -0.501,
+   0.598
+  ],
+  "pass": false
+ }
+}

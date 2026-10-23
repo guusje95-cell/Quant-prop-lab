@@ -1,0 +1,35 @@
+{
+ "A OKX volume share XS": {
+  "first": "2020-03-01",
+  "sleeve DEV / TEST / HOLD": [
+   -0.222,
+   1.626,
+   -0.334
+  ],
+  "corr v8.6": 0.004,
+  "corr premium spike": 0.028,
+  "pass": false
+ },
+ "B Coinbase volume share XS": {
+  "first": "2020-03-01",
+  "sleeve DEV / TEST / HOLD": [
+   1.228,
+   0.25,
+   -0.642
+  ],
+  "corr v8.6": -0.024,
+  "corr premium spike": -0.086,
+  "pass": false
+ },
+ "C euro premium hourly spike": {
+  "first": "2020-02-06",
+  "sleeve DEV / TEST / HOLD": [
+   0.582,
+   -1.355,
+   -0.797
+  ],
+  "corr v8.6": 0.054,
+  "corr premium spike": 0.006,
+  "pass": false
+ }
+}

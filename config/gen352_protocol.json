@@ -1,0 +1,11 @@
+{
+ "generation": "Gen352",
+ "title": "Forced-flow family (after Gen348 A): liquidity provision in crashes and USDT premium spikes (2 trials)",
+ "registered": "2026-10-23, before any Gen352 number",
+ "trials": {
+  "A crash limit buys (liquidity provision)": "60 coins, every hour: a resting limit buy at the previous close x (1 - 3 x the coin's trailing 720 h hourly sd, lagged); filled if the hour's low trades 2 bp through it; entry at the limit price with a 2 bp maker fee; held to the close 4 h after the fill hour, exit 5 bp taker; 0.1 per coin, at most 5 open; long only (the short side, pump fading, already failed in Gen341 C)",
+  "B USDT premium hourly spike": "Coinbase USDT-USD hourly close - 1, z vs 720 h (lagged); z > 3 -> long BTC and ETH perps 0.25 each for 4 h, z < -3 -> short 0.25 each for 4 h; 5 bp per side + funding"
+ },
+ "bars": "as Gen349 (DEV > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5)",
+ "trials_added": 2
+}

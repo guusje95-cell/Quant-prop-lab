@@ -1,0 +1,13 @@
+{
+ "generation": "Gen355",
+ "title": "New data for signals: Bybit-vs-Binance funding spread, retail positioning, extreme negative funding (3 trials)",
+ "registered": "2026-10-23, before any Gen355 number",
+ "trials": {
+  "A cross-venue funding spread XS": "60 coins: 7-day mean Bybit funding minus 7-day mean Binance funding (daily); short the third where Bybit is most above Binance (Bybit longs more eager), long the third most below; inverse-vol legs, 7 tranches",
+  "B retail positioning contrarian XS": "20 pack coins: daily mean of count_long_short_ratio (all accounts, metrics, from 2021-12), z vs its own 90 days; long the third with the lowest z (retail most short), short the highest; inverse-vol legs, 3 tranches",
+  "C extreme negative funding": "60 coins: a Binance funding settlement below -0.10% (per 8 h) -> long that coin 0.1 for the next 24 h (at most 5 open)"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "DEV (2020-22 or from the data start) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5",
+ "trials_added": 3
+}

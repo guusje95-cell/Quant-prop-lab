@@ -1,0 +1,47 @@
+{
+ "A daily": {
+  "sleeve DEV / TEST / HOLD": [
+   0.076,
+   0.322,
+   -1.799
+  ],
+  "corr v8.6": 0.037,
+  "corr premium spike": 0.078,
+  "corr carry 20 / carry 60": [
+   -0.038,
+   -0.088
+  ],
+  "daily turnover": 1.189,
+  "pass": false
+ },
+ "B 3 tranches": {
+  "sleeve DEV / TEST / HOLD": [
+   0.79,
+   2.026,
+   -0.881
+  ],
+  "corr v8.6": 0.087,
+  "corr premium spike": 0.033,
+  "corr carry 20 / carry 60": [
+   0.021,
+   -0.02
+  ],
+  "daily turnover": 0.413,
+  "pass": false
+ },
+ "C daily with a no-trade band": {
+  "sleeve DEV / TEST / HOLD": [
+   0.109,
+   0.92,
+   -1.229
+  ],
+  "corr v8.6": 0.022,
+  "corr premium spike": 0.055,
+  "corr carry 20 / carry 60": [
+   -0.055,
+   -0.097
+  ],
+  "daily turnover": 1.074,
+  "pass": false
+ }
+}

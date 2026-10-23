@@ -1,0 +1,19 @@
+{
+ "share of P&L from the fill hour": NaN,
+ "fill hour only D/T/H": [
+  7.276,
+  8.602,
+  6.953
+ ],
+ "the 4 h after only D/T/H": [
+  1.715,
+  0.991,
+  -0.119
+ ],
+ "enter at the fill hour's close (market) D/T/H": [
+  1.399,
+  0.391,
+  -0.674
+ ],
+ "mean fill-hour gain per fill (bp)": 78.5
+}

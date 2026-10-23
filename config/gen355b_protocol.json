@@ -1,0 +1,14 @@
+{
+ "generation": "Gen355b",
+ "title": "Robustness of Gen355 C (extreme negative funding -> long 24 h). Registered after Gen355, before running; descriptive checks (no new adoption trial)",
+ "checks": {
+  "1 Bybit costs + Bybit funding": "taker 5.5 bp + half the Bybit spread per side; funding paid / received at Bybit rates",
+  "2 Bybit signal": "trigger on BYBIT funding settlements < -0.10% (independent venue signal), Bybit costs and funding",
+  "3 OKX prices": "same positions, OKX hourly returns (57 coins)",
+  "4 neighbourhood": "threshold {-0.05%, -0.10%, -0.15%} x hold {12, 24, 48} h",
+  "5 one hour later": "entry one hour after the settlement",
+  "6 price vs funding": "P&L split into price return and funding received",
+  "7 by year, events per year, corr with cascade / delev bounce / premium spike"
+ },
+ "candidate rule": "stays a candidate if 1 and 2 keep every period >= 0.4, the neighbourhood median every period > 0.3, the price part alone is positive in every period, and OKX keeps the sign"
+}

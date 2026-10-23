@@ -1,0 +1,32 @@
+{
+ "A distance pairs": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.64,
+   0.461,
+   -0.636
+  ],
+  "corr v8.6": -0.049,
+  "corr premium spike": 0.003,
+  "pass": false
+ },
+ "B weekday seasonality XS": {
+  "sleeve DEV / TEST / HOLD": [
+   0.283,
+   -1.064,
+   -1.437
+  ],
+  "corr v8.6": -0.025,
+  "corr premium spike": 0.027,
+  "pass": false
+ },
+ "C long-term reversal XS": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.3,
+   1.017,
+   -0.674
+  ],
+  "corr v8.6": 0.114,
+  "corr premium spike": -0.027,
+  "pass": false
+ }
+}

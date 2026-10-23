@@ -1,0 +1,13 @@
+{
+ "generation": "Gen350",
+ "title": "Positioning spikes (rare hourly events, Gen348 engine: z vs trailing 720 h lagged, |z| > 3, 4 h hold, 0.1 per coin) - 3 trials",
+ "registered": "2026-10-23, before any Gen350 number",
+ "trials": {
+  "A open-interest spike fade": "hourly log change of open interest value (20 pack coins from metrics, 40 extra coins from their hourly OI files); |z| > 3 -> position = -sign(that hour's price return) (fade the move that came with the leverage jump)",
+  "B top-trader crowding": "20 pack coins, hourly change of sum_toptrader_long_short_ratio (metrics, from 2021-12); z > 3 -> short, z < -3 -> long",
+  "C taker volume ratio spike": "20 pack coins, hourly mean of sum_taker_long_short_vol_ratio; z > 3 -> short, z < -3 -> long"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "as Gen349 (DEV is 2020-22 or from the data start; TEST >= 0.8; HOLD >= 0.5; |corr v8.6| <= 0.2; |corr premium-spike sleeve| <= 0.5)",
+ "trials_added": 3
+}

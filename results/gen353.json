@@ -1,0 +1,47 @@
+{
+ "A spot-volume surge": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.084,
+   -1.922,
+   -2.098
+  ],
+  "corr v8.6": 0.014,
+  "corr premium spike": 0.307,
+  "gross": [
+   0.354,
+   -0.214,
+   -0.439
+  ],
+  "pass": false
+ },
+ "B BTC-shock laggards": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.715,
+   -0.613,
+   0.209
+  ],
+  "corr v8.6": -0.079,
+  "corr premium spike": -0.153,
+  "gross": [
+   -0.277,
+   0.114,
+   0.803
+  ],
+  "pass": false
+ },
+ "C hourly premium rank": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.03,
+   -3.645,
+   -6.562
+  ],
+  "corr v8.6": 0.057,
+  "corr premium spike": 0.05,
+  "gross": [
+   3.908,
+   2.628,
+   1.042
+  ],
+  "pass": false
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "generation": "Gen353",
+ "title": "Hourly-close signals only (no intrabar fills), round after Gen352 (3 trials)",
+ "registered": "2026-10-23, before any Gen353 number",
+ "trials": {
+  "A spot-volume surge": "18 pack coins with Binance spot data (BTC, ETH included = 20): z (vs 720 h, lagged) of log(spot quote volume / perp quote volume) in the hour > 3 -> position sign(that hour's spot return) x 0.1 on the perp for the next 4 h",
+  "B BTC-shock laggards": "when BTC's hourly return z (vs 720 h, lagged) < -3: short 0.05 each the third of the other universe coins with the SMALLEST drop that hour, for 3 h; z > +3: long 0.05 each the third with the smallest rise",
+  "C hourly premium rank (fast carry)": "60 coins, every 8 hours: long the third with the lowest (most negative) hourly premium z (vs 720 h), short the highest third, inverse-vol legs, held 8 h"
+ },
+ "costs": "5 bp per side + funding; all entries at the signal hour's close (market)",
+ "bars": "DEV (2020-22) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5",
+ "trials_added": 3
+}

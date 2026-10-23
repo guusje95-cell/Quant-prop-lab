@@ -1,0 +1,36 @@
+{
+ "C events": 3400,
+ "A cross-venue funding spread XS": {
+  "first": "2020-10-26",
+  "sleeve DEV / TEST / HOLD": [
+   -0.424,
+   0.165,
+   -2.478
+  ],
+  "corr v8.6": -0.063,
+  "corr premium spike": 0.101,
+  "pass": false
+ },
+ "B retail positioning contrarian XS": {
+  "first": "2022-02-18",
+  "sleeve DEV / TEST / HOLD": [
+   1.423,
+   0.909,
+   0.118
+  ],
+  "corr v8.6": 0.072,
+  "corr premium spike": -0.046,
+  "pass": false
+ },
+ "C extreme negative funding": {
+  "first": "2020-01-04",
+  "sleeve DEV / TEST / HOLD": [
+   1.537,
+   0.966,
+   0.727
+  ],
+  "corr v8.6": 0.174,
+  "corr premium spike": 0.166,
+  "pass": true
+ }
+}
