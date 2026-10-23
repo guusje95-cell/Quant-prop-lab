@@ -140,3 +140,8 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
   account with v8.6; scaling must come from other firms (with their own rules checked), not from copies at HyroTrader.
 - Still to confirm in writing: Dutch access / Hyro-platform API; whether running v8.6 at HyroTrader and bf2.6 (a related crypto
   book) at BrightFunded counts as "coordinated multi-account trading" (the wording targets HyroTrader's own accounts).
+- Follow-up (same day, published documentation, not a support answer): the **Hyro platform** trades USDT perpetuals on live Bybit
+  market data; **automation is offered through Hyro's MCP integration** (not established: whether it can place / amend / cancel limit
+  and market orders, read positions and equity every minute, and its rate limits); Hyro fees and funding treatment not published.
+  Trading a related strategy at ANOTHER prop firm is allowed if the accounts are run independently and never used to hedge,
+  arbitrage or offset each other. -> v8.6 at HyroTrader + bf2.6 at BrightFunded is fine in principle (confirm in writing).
