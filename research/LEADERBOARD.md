@@ -1283,3 +1283,15 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
   - **A, month-end fix rebalancing (Melvin & Prins):** net 0.07 / -1.21 / -0.08 (gross 0.31 / -1.03 / 0.19). Fails.
   - **B, local-hours depreciation (Breedon & Ranaldo):** gross 0.80 / 0.14 / 0.15 (the effect has faded since 2019); net -1.15 / -1.60 / -1.74. Fails.
 - **Conclusion:** no tradable independent edge with a Sharpe near v8.6's exists in our data. The futures book is the only real one; it is small in prop dollars and needs a swing + bot futures firm.
+
+## Gen341 (2026-10-23): crypto sleeves meant to be uncorrelated with v8.6 (3 trials; `results/gen341.json`)
+
+| Trial | Sleeve DEV / TEST / HOLD | Corr with v8.6 | v8.6 with it |
+|---|---|---|---|
+| A, funding-settlement pressure (short high-funding coins in the hour before settlement) | -1.70 / -1.58 / -2.09 | 0.10 | 2.581 |
+| B, 1-day residual reversal vs BTC (60 coins, 3-day tranched hold) | -1.87 / -1.45 / -0.43 | -0.01 | 2.683 |
+| C, pump reversal (short after a +4 sd hour, 12 h) | -2.22 / -2.20 / -1.63 | -0.23 | 2.694 |
+
+- **All fail clearly.** The short-horizon effects are either absent or eaten by costs; pumps keep going rather than reverting.
+- With Gen334 (funding change, low beta, seasonality), Gen319 (XS momentum / reversal) and Gen261 / Gen274 (attention, trade size, OI), the crypto ideas left in our Binance data either correlate with v8.6 or lose money.
+- **No orthogonal crypto sleeve found.**

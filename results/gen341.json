@@ -1,0 +1,56 @@
+{
+ "reference v8.6": [
+  3.11,
+  1.542,
+  3.968,
+  3.111
+ ],
+ "A funding-settlement pressure": {
+  "sleeve DEV / TEST / HOLD": [
+   -1.702,
+   -1.578,
+   -2.091
+  ],
+  "corr with v8.6 (daily 2020-26)": 0.101,
+  "orthogonal candidate": false,
+  "v8.6 with it D/T/H": [
+   2.581,
+   1.359,
+   3.427,
+   2.425
+  ],
+  "strict pass": false
+ },
+ "B residual reversal": {
+  "sleeve DEV / TEST / HOLD": [
+   -1.874,
+   -1.446,
+   -0.43
+  ],
+  "corr with v8.6 (daily 2020-26)": -0.005,
+  "orthogonal candidate": false,
+  "v8.6 with it D/T/H": [
+   2.683,
+   1.218,
+   3.444,
+   2.748
+  ],
+  "strict pass": false
+ },
+ "C pump reversal": {
+  "sleeve DEV / TEST / HOLD": [
+   -2.224,
+   -2.195,
+   -1.63
+  ],
+  "corr with v8.6 (daily 2020-26)": -0.23,
+  "orthogonal candidate": false,
+  "v8.6 with it D/T/H": [
+   2.694,
+   1.776,
+   3.43,
+   2.392
+  ],
+  "strict pass": false
+ }
+}

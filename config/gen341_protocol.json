@@ -1,0 +1,12 @@
+{
+ "generation": "Gen341",
+ "title": "Crypto sleeves meant to be UNCORRELATED with v8.6 (different horizon / driver), 3 trials",
+ "registered": "2026-10-23, before any Gen341 number",
+ "trials": {
+  "A funding-settlement pressure": "20 pack coins; at every funding settlement T (00/08/16 UTC), using the PREVIOUS settlement's rate (known): short 0.1 if it was > 0.03%, long 0.1 if < -0.01%, held only during the hour bar before T (T-1h..T); 5 bp per side, no funding paid (flat at T)",
+  "B residual reversal": "60-coin universe, daily: residual = 1-day return minus 60-day beta x BTC 1-day return; long the lowest third, short the highest third (inverse-vol legs), 3-day hold in 3 staggered tranches; 5 bp + funding",
+  "C pump reversal": "60 coins hourly: an hour with return > +4 x the coin's trailing 720-hour sd (lagged) -> short 0.2 from that hour's close for 12 hours, at most 3 open; 5 bp per side + funding"
+ },
+ "bars": "sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5 AND |daily correlation with the v8.6 portfolio 2020-26| <= 0.2 -> 'orthogonal candidate'; then also the strict rule for adding it to v8.6 (every period not lower, +0.05)",
+ "trials_added": 3
+}
