@@ -1,0 +1,156 @@
+{
+ "band $1,000 (current)": {
+  "taker D/T/H": [
+   3.027,
+   1.514,
+   3.891,
+   2.988
+  ],
+  "maker D/T/H": [
+   3.079,
+   1.613,
+   3.928,
+   3.027
+  ],
+  "orders per day": 21.6,
+  "tracking: corr of positions with target": 0.9993
+ },
+ "band $500": {
+  "taker D/T/H": [
+   3.035,
+   1.515,
+   3.89,
+   3.01
+  ],
+  "maker D/T/H": [
+   3.092,
+   1.621,
+   3.928,
+   3.057
+  ],
+  "orders per day": 30.1,
+  "tracking: corr of positions with target": 0.9999,
+  "adopt (every period up under both models)": false
+ },
+ "band $2,000": {
+  "taker D/T/H": [
+   3.042,
+   1.577,
+   3.96,
+   2.886
+  ],
+  "maker D/T/H": [
+   3.091,
+   1.678,
+   3.99,
+   2.922
+  ],
+  "orders per day": 13.7,
+  "tracking: corr of positions with target": 0.9964,
+  "adopt (every period up under both models)": false
+ },
+ "band $4,000": {
+  "taker D/T/H": [
+   3.019,
+   1.623,
+   3.944,
+   2.856
+  ],
+  "maker D/T/H": [
+   3.056,
+   1.701,
+   3.964,
+   2.885
+  ],
+  "orders per day": 7.5,
+  "tracking: corr of positions with target": 0.985,
+  "adopt (every period up under both models)": false
+ },
+ "cost-aware band": {
+  "taker D/T/H": [
+   3.051,
+   1.605,
+   3.89,
+   3.001
+  ],
+  "maker D/T/H": [
+   3.102,
+   1.708,
+   3.924,
+   3.037
+  ],
+  "orders per day": 21.0,
+  "tracking: corr of positions with target": 0.999,
+  "adopt (every period up under both models)": false
+ },
+ "to band edge $1,000": {
+  "taker D/T/H": [
+   3.06,
+   1.645,
+   3.957,
+   2.895
+  ],
+  "maker D/T/H": [
+   3.103,
+   1.733,
+   3.986,
+   2.928
+  ],
+  "orders per day": 33.2,
+  "tracking: corr of positions with target": 0.9968,
+  "adopt (every period up under both models)": false
+ },
+ "to band edge $2,000": {
+  "taker D/T/H": [
+   3.03,
+   1.659,
+   3.947,
+   2.824
+  ],
+  "maker D/T/H": [
+   3.066,
+   1.731,
+   3.972,
+   2.85
+  ],
+  "orders per day": 24.8,
+  "tracking: corr of positions with target": 0.9891,
+  "adopt (every period up under both models)": false
+ },
+ "per-sleeve turnover cost (15%-vol units per year, median cost)": {
+  "C*": {
+   "turnover cost per year": 0.0053,
+   "gross P&L per year": 0.0755,
+   "cost / gross": 0.071
+  },
+  "premium carry": {
+   "turnover cost per year": 0.0106,
+   "gross P&L per year": 0.039,
+   "cost / gross": 0.271
+  },
+  "delev bounce": {
+   "turnover cost per year": 0.0028,
+   "gross P&L per year": 0.0354,
+   "cost / gross": 0.078
+  },
+  "ridge ML": {
+   "turnover cost per year": 0.0133,
+   "gross P&L per year": 0.0784,
+   "cost / gross": 0.17
+  },
+  "alt kimchi": {
+   "turnover cost per year": 0.0084,
+   "gross P&L per year": 0.0332,
+   "cost / gross": 0.252
+  },
+  "premium carry 60": {
+   "turnover cost per year": 0.014,
+   "gross P&L per year": 0.0518,
+   "cost / gross": 0.27
+  }
+ },
+ "netting: sum of sleeve costs vs netted + band cost": [
+  0.0543,
+  0.0499
+ ]
+}

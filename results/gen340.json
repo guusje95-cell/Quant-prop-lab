@@ -1,0 +1,30 @@
+{
+ "A month-end fix": {
+  "net Sharpe DEV / TEST / HOLD": [
+   0.073,
+   -1.21,
+   -0.084
+  ],
+  "corr v8.6": 0.035,
+  "pass": false
+ },
+ "B local-hours depreciation": {
+  "net Sharpe DEV / TEST / HOLD": [
+   -1.145,
+   -1.596,
+   -1.744
+  ],
+  "corr v8.6": 0.083,
+  "pass": false
+ },
+ "A gross": [
+  0.311,
+  -1.026,
+  0.19
+ ],
+ "B gross": [
+  0.803,
+  0.142,
+  0.152
+ ]
+}

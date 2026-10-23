@@ -1,0 +1,14 @@
+{
+ "generation": "Gen340",
+ "title": "Second edge outside crypto, part 1: two literature FX effects on BrightFunded-tradable FX CFDs (swap-free), on data never used in this project's crypto research",
+ "registered": "2026-10-23, before any Gen340 number",
+ "data": "Dukascopy hourly EURUSD, GBPUSD, USDJPY, EU50, UK100, JP225 (2013-2026, bars stamped at the open, UTC); US equities = CME ES daily returns (futures_db)",
+ "periods": "DEV 2013-2019, TEST 2020-2022, HOLD 2023-2026-09",
+ "costs": "1.0 bp per side on each FX trade (BrightFunded measured spreads 0-0.6 bp on these majors + commission allowance); swap-free (no financing)",
+ "trials": {
+  "A month-end fix rebalancing (Melvin and Prins 2015)": "signal = month-to-date return of US equities (ES) minus the foreign index (EU50 for EUR, UK100 for GBP, JP225 for JPY) through the close two trading days before month end; on the LAST trading day of the month, from 00:00 UTC to the 16:00 London fix, sell USD against that currency if the signal is positive and buy USD if negative; position 1 per pair, pairs equal weight",
+  "B local-hours depreciation (Breedon and Ranaldo 2013)": "EURUSD and GBPUSD: short the foreign currency in the European morning (bars 07-11 UTC) and long it in US hours (bars 13-19 UTC); USDJPY: long USD in Tokyo hours (bars 00-05 UTC) and short USD in US hours (bars 13-19 UTC); weekdays only; position 1 per leg, pairs equal weight"
+ },
+ "bars": "a trial passes if net Sharpe DEV > 0, TEST >= 0.5, HOLD >= 0.3 and |daily corr with v8.6 2022-26| <= 0.3; the combined FX book is built only from passing trials",
+ "trials_added": 2
+}

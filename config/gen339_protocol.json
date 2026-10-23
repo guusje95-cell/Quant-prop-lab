@@ -1,0 +1,14 @@
+{
+ "generation": "Gen339",
+ "title": "Lower execution cost for v8.6: no-trade band size, cost-aware band, rebalancing to the band edge; per-sleeve cost decomposition (execution design, not alpha)",
+ "registered": "2026-10-23, before any Gen339 number",
+ "baseline": "Gen327 E: net positions, Bybit funding, per-coin Bybit cost, $1,000 band to target (3.027); also under the Gen337 maker model (limit at the previous close, 2 bp trade-through, else taker one hour later)",
+ "variants": {
+  "band $500 / $2,000 / $4,000 (to target)": "as now with another band",
+  "cost-aware band": "band per coin = $1,000 x coin cost / median cost (expensive coins trade less)",
+  "to band edge $1,000 / $2,000": "when outside the band, trade only to the band edge (|target - position| = band) instead of to the target (optimal rule for proportional costs); a zero target still closes fully"
+ },
+ "adopt": "a variant replaces the $1,000 band only if it raises the Sharpe in every period (2022, TEST, HOLD) under BOTH cost models; otherwise the current band stays",
+ "decomposition": "gross turnover cost of each daily sleeve before netting (at the median Bybit cost) vs its gross P&L, and the saving from netting",
+ "trials_added": 0
+}

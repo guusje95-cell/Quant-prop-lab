@@ -1241,3 +1241,45 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
 - EWMA vol target: 3.088 (2022 1.37). Fails.
 - Blended 30/90-day vol: 3.096 (TEST lower). Fails.
 - Equal risk contribution (shrunk covariance): 3.146 [1.708, 4.006, 3.039]. HOLD lower; fails. The simple inverse-vol equal risk stays.
+
+## Gen339-340 (2026-10-23): lower costs, weekly paper report, a second edge outside crypto
+
+**Gen339, execution cost (`results/gen339.json`):**
+- Current $1,000 band to target: taker 3.027, maker 3.079.
+
+| Variant | Taker | Maker | Note |
+|---|---|---|---|
+| $500 band | 3.035 | 3.092 | 30 orders a day |
+| $2,000 band | 3.042 | 3.091 | HOLD lower |
+| $4,000 band | 3.019 | 3.056 | |
+| cost-aware band | 3.051 | 3.102 | TEST lower by 0.001-0.004 |
+| to band edge $1,000 | 3.060 | 3.103 | HOLD lower |
+| to band edge $2,000 | 3.030 | 3.066 | |
+
+- **None is better in every period under both cost models, so the $1,000 band stays.** Differences are within ±0.05: the cost lever is used up once limit orders are in (total execution cost about 0.017 a year in 15%-vol units vs a 0.45 return).
+- Turnover cost / price P&L by sleeve:
+  - C* 7%, delev 8%, ridge 17%, alt kimchi 25%, carry 20 27%, carry 60 27%.
+  - Netting saves about 8% of the summed sleeve costs.
+  - The carry sleeves are the cost-heavy part; maker execution matters most there.
+
+**Weekly paper report:** `scripts/paper_report.py` -> `research/PAPER_REPORT.md`.
+- Contents: the gate numbers, every alert in `config/paper_monitor.json` (sleeve -3 sd using `results/paper_sleeve_sd.json`, drawdown, stops in 14 days, late hours, reconcile) and the per-firm accounts.
+- First run: v86 reconcile OK; bf26 reconcile INVESTIGATE (the known index-feed issue, waiting for the user's files); no other alert.
+
+**Second edge outside crypto:**
+- **Existing futures book (Gen205-238, 15 sleeves): daily correlation with v8.6 0.04** (monthly 0.14).
+  - 2022-26 Sharpe 1.24; out of sample 2023-26 1.22 (about 0.5 after removing ES/NQ beta).
+  - On v8.6's 20 worst days it lost 0.13% on average (no protection, no harm).
+- Equal-risk mixes (backtest Sharpe):
+  - v8.6 + futures 3.02 (vs 3.11 alone); v8.6 + bf2.6 + futures 3.15.
+  - At planning levels (v8.6 1.78, futures 0.8): 1.79.
+  - Optimal weights: at most about 1.95, i.e. +0.1 to +0.15.
+- **A second edge adds safety more than Sharpe, and only if its own Sharpe is at least about half of v8.6's.**
+- The futures book needs a futures firm that allows overnight holding AND bots: PropShop Trader swing accounts (bots via Tickblaze per reviews, conflicting) or similar.
+  - Topstep / Apex / MFFU / Tradeify / FTMO Futures / FundedNext Futures all flatten at the close.
+  - Value per 50k account is only about $6.7k over 2 years (Gen237). Low priority.
+- BrightFunded lists no bond CFDs, so the Treasury sleeves (BC, F3) cannot move to CFDs; the equity sleeves overlap bf2.6's index sleeve. Index-CFD book (Gen201): 0.86, corr bf2.6 0.37; adding it lowers the mix.
+- **Gen340, two FX effects on unused 2013-26 Dukascopy data (pre-registered, 2 trials):**
+  - **A, month-end fix rebalancing (Melvin & Prins):** net 0.07 / -1.21 / -0.08 (gross 0.31 / -1.03 / 0.19). Fails.
+  - **B, local-hours depreciation (Breedon & Ranaldo):** gross 0.80 / 0.14 / 0.15 (the effect has faded since 2019); net -1.15 / -1.60 / -1.74. Fails.
+- **Conclusion:** no tradable independent edge with a Sharpe near v8.6's exists in our data. The futures book is the only real one; it is small in prop dollars and needs a swing + bot futures firm.
