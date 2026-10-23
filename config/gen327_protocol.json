@@ -1,0 +1,8 @@
+{
+  "generation": "Gen327",
+  "title": "Bybit reality check of v8.6 (descriptive; registered before the Bybit data exists)",
+  "registered": "2026-10-23, before research_data/bybit was downloaded (get_bybit_check.bat)",
+  "what": "1) which v8.6 coins are not tradable on Bybit (removed from the universe, book recomputed); 2) Bybit funding instead of Binance funding in every perp sleeve's P&L; 3) costs = Bybit taker fee 5.5 bp (standard tier, HyroTrader's fee to be confirmed) + half the measured Bybit spread per side, instead of the flat 5 bp (cascade entries keep the maker fee 2 bp); report v8.6 under 1, 1+2, 1+2+3",
+  "decision": "if v8.6 under 1+2+3 falls below v8.4 + tranching (the fallback) in 2022-26 Sharpe, the wide carry is dropped for HyroTrader; otherwise the realistic numbers replace the backtest numbers in the prop plans",
+  "trials_added": 0
+}
