@@ -1,0 +1,13 @@
+{
+ "generation": "Gen359",
+ "title": "Final rules for the stress book, decided on 2020-24 only (program config/gen359_program.json)",
+ "registered": "2026-10-23, before any Gen359 number",
+ "decisions (each by the 2020-24 Sharpe of the sleeve / book with Bybit costs)": {
+  "D1 premium spike": "side {both, long only} x execution {market, limit (Gen337 rule)}",
+  "D2 crash reversal": "filter {none, only when BTC is above its 200-day mean} x execution {market, limit}",
+  "D3 negative funding": "in or out of the book (book 2020-24 Sharpe); execution {market, limit}",
+  "D4 book vol targeting": "{none, 30-day vol target}"
+ },
+ "report": "the chosen book with the program's EXPECTED LIVE number, 2025-26 shown once",
+ "trials_added": 4
+}

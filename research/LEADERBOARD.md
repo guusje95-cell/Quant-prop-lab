@@ -1364,3 +1364,26 @@ Bar for every trial (pre-registered): DEV > 0, TEST >= 0.8, HOLD >= 0.5, |corr v
 - Inside v8.6 (weight chosen on 2022-24 = 0.25): 3.095. Fails the strict rule.
 - As a separate account: book B's 2022-26 Sharpe is 0.84 with corr 0.18, so at planning levels the best mix lifts v8.6 only from 1.78 to 1.79.
 - **The stress family is real and independent of v8.6, but too small to move the combined Sharpe much.** Its value is a second, different edge if v8.6's carry decays.
+
+## Gen359 (2026-10-23): stress book, final rules -> EXPECTED LIVE Sharpe 1.04 (program `config/gen359_program.json`)
+Fixed definition (registered before any number): **expected live = 0.6 x the book's 2020-26 Sharpe with per-coin Bybit costs and funding.** Target >= 1.0 with corr v8.6 <= 0.25. Every choice is made on 2020-24 only.
+
+**Decisions on 2020-24 (Gen359):**
+- **D1, premium spike:** long side only, with limit orders (2020-24 1.31; both sides with market orders 0.73). Periods 1.28 / 1.61 / 0.53.
+- **D2, crash reversal:** only when BTC is above its 200-day mean, with limit orders (2020-24 0.79 vs 0.39 unfiltered). Periods 0.74 / 0.86 / 1.70.
+- **D3, negative funding:** in, with limit orders (book 2020-24 1.47 -> 1.82).
+- **D4, vol targeting:** none (1.82 vs 1.30).
+
+**Final book:**
+- **1.95 / 1.60 / 1.49** (2025-26 unused for every decision); 2020-26 1.736 -> **EXPECTED LIVE 1.04**.
+- **Corr v8.6 0.22.** Every year positive (2020 2.15, 2021 3.27, 2022 0.52, 2023 2.39, 2024 1.10, 2025 1.30, 2026 1.86).
+
+**Checks (Gen359b, registered before running):**
+- **Neighbourhood** (premium threshold 2.5-3.5 x crash threshold 2.5-3.5): expected live 0.87-1.21, **median 1.04**.
+- **Costs x2:** 1.03 (the book trades with limit orders).
+- **OKX:** 0.90 over all cells; but **on the same coins and hours Binance 0.88 vs OKX 0.87**. The venue replicates; the gap comes from cells without OKX data (EGLD, HBAR, RUNE and early listing periods). Realistic range about 0.9-1.05.
+- **Risk at 15% vol:** max drawdown -10.9%, worst month -3.7%, **worst day -9.4%** (a tail day: the bot's daily stop must cap it).
+- **With v8.6 at planning levels** (v8.6 1.78, book 1.04, corr 0.22): equal risk 1.81; **best weight 0.4 x the book's risk -> 1.90**.
+- **Inside v8.6 as a 10th sleeve:** weight chosen on 2022-24 = 0.25 -> 3.106 [1.46, 4.00, 3.17]. Fails the strict rule (the backtest v8.6 is too strong for a 1.7 sleeve to lift on paper).
+- **Use:** as its own book / account at about 0.4 x v8.6's risk, not merged.
+- **Next:** paper trading. Trials in the whole orthogonal search: about 56.

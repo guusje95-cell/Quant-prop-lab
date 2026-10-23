@@ -1,0 +1,13 @@
+{
+ "generation": "Gen359b",
+ "title": "Checks of the final stress book (Gen359), registered after Gen359 before running; descriptive",
+ "checks": {
+  "1 OKX": "the three sleeves' positions valued with OKX hourly returns (coins with OKX data)",
+  "2 neighbourhood": "premium threshold {2.5, 3, 3.5} x crash threshold {2.5, 3, 3.5} (other rules as chosen): expected live per cell and the median",
+  "3 risk": "max drawdown, worst day, worst month at 15% vol",
+  "4 with v8.6 (planning)": "v8.6 at 1.78 and the book at its expected live Sharpe, daily correlation as measured; equal risk, and the best weight",
+  "5 inside v8.6": "the book as a 10th sleeve, weight multiplier {0.25, 0.5, 1.0} chosen on 2022-24, strict rule",
+  "6 costs x2": "all Bybit costs doubled"
+ },
+ "pass": "the target stands if the neighbourhood median expected live >= 0.9 and OKX expected live >= 0.9"
+}
