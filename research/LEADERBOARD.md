@@ -1198,3 +1198,46 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
   - **Fails the strict rule.** Watchlist (second near-miss after Gen315). No variants will be tried: that would be fitting.
 - **C, late-UTC BTC/ETH seasonality (literature):** -1.83 / -1.62 / -2.88. Fails badly (the effect is gone after costs).
 - **No change to v8.6 / bf2.6.**
+
+## Gen335-338 (2026-10-23): robustness round - luck audit, parameter ensembles, limit-order execution, portfolio construction
+
+**Gen335, parameter luck audit (each sleeve varied inside v8.6; `results/gen335.json`):**
+
+| Sleeve | Grid | Chosen setting's percentile | Grid median minus chosen | Worst grid point | Verdict |
+|---|---|---|---|---|---|
+| premium carry 20 | 25 points | 64th | -0.02 | 3.00 | not lucky |
+| premium carry 60 | 25 points | 12th | +0.045 | 3.09 | not lucky |
+| trend 4h | 5 points | 40th | 0.00 | 2.95 | not lucky |
+| alt kimchi | 3 points | 33rd | 0.00 | 3.08 | not lucky |
+| cascade | 9 points | **89th** | **-0.10** | 2.86 | **lucky choice** |
+| delev bounce | 9 points | **89th** | **-0.15** | 2.74 | **lucky choice** |
+
+- Every carry grid point keeps v8.6 >= 3.0.
+- The cascade and deleveraging-bounce settings are lucky. They were fixed in early generations; expect about 0.1-0.15 less from them live. (The planning Sharpe already deflates far more than this.)
+
+**Gen336, neighbourhood ensembles (strict rule, 7 trials; `results/gen336.json`):**
+- premium carry 20: 3.096
+- premium carry 60: **3.154 [1.661, 3.991, 3.123]** (every period up, +0.044)
+- trend 4h: **3.151 [1.633, 3.977, 3.156]** (every period up, +0.041)
+- cascade: 2.979
+- delev bounce: 2.990 (2022 0.91)
+- alt kimchi: 3.116
+- all six together: 2.921
+- **None passes** (the two best miss the +0.05 by a hair). The cascade and delev ensembles fall because of the lucky originals.
+- **Gen336b (FLAGGED post hoc):** carry 60 + trend 4h + alt kimchi ensembles together: **3.200 [1.763, 4.005, 3.167]**, passes the strict rule, but it was registered after seeing Gen336.
+- **Gen336c (registered before running): the same idea in bf2.6** (carry BF + alt kimchi ensembles): 2.840 [0.424, 4.115, 2.900]. Neutral, so the replication does not hold (2022 and HOLD slightly lower).
+- -> **v8.7 candidate (low confidence): the Gen336b ensembles.** Their value is less dependence on one parameter choice, not +0.09 of real alpha; decided at the paper review.
+
+**Gen337, limit-order (maker) execution on Bybit (cost, not alpha; `results/gen337.json`):**
+- Taker baseline: 3.027 [1.514, 3.891, 2.988].
+- Limit at the previous close for the whole hour:
+  - fill on a touch: 3.224 (unrealistic, 99% fills);
+  - fill only on a 2 bp trade-through: **3.079 [1.613, 3.928, 3.027]** (95% filled);
+  - fill only on a 5 bp trade-through: 2.954 (the missed moves cost more than the fees saved).
+- **Gen337b (refinement registered after Gen337):** limit valid 15 minutes, then market (5-minute data, pack coins): **3.069 [1.588, 3.934, 3.010]**, 91% filled. Every period above taker.
+- -> **Execution plan adopted: post limit orders at the previous close for 15 minutes, then go to market.** About +0.04 Sharpe, and the risk is bounded to 15 minutes of drift. Real fill rates must be measured in the first live weeks.
+
+**Gen338, portfolio construction (strict rule, 3 trials; `results/gen338.json`):**
+- EWMA vol target: 3.088 (2022 1.37). Fails.
+- Blended 30/90-day vol: 3.096 (TEST lower). Fails.
+- Equal risk contribution (shrunk covariance): 3.146 [1.708, 4.006, 3.039]. HOLD lower; fails. The simple inverse-vol equal risk stays.

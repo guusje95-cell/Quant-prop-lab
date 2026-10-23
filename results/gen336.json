@@ -1,0 +1,104 @@
+{
+ "reference v8.6": [
+  3.11,
+  1.542,
+  3.968,
+  3.111
+ ],
+ "ensemble premium carry": {
+  "v8.6 D/T/H": [
+   3.096,
+   1.541,
+   3.958,
+   3.075
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": false
+ },
+ "ensemble premium carry 60": {
+  "v8.6 D/T/H": [
+   3.154,
+   1.661,
+   3.991,
+   3.123
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": true
+ },
+ "ensemble trend 4h": {
+  "v8.6 D/T/H": [
+   3.151,
+   1.633,
+   3.977,
+   3.156
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": true
+ },
+ "ensemble cascade limit strict": {
+  "v8.6 D/T/H": [
+   2.979,
+   1.131,
+   3.899,
+   3.108
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": false
+ },
+ "ensemble delev bounce": {
+  "v8.6 D/T/H": [
+   2.99,
+   0.911,
+   4.013,
+   3.096
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": false
+ },
+ "ensemble alt kimchi": {
+  "v8.6 D/T/H": [
+   3.116,
+   1.558,
+   3.973,
+   3.107
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": true
+ },
+ "all six ensembles": {
+  "v8.6 D/T/H": [
+   2.921,
+   0.679,
+   3.964,
+   3.094
+  ],
+  "strict pass": false,
+  "robustness swap (every period within -0.03)": false
+ },
+ "Gen336b three robust ensembles together (post hoc)": {
+  "v8.6 D/T/H": [
+   3.2,
+   1.763,
+   4.005,
+   3.167
+  ],
+  "strict pass": true,
+  "flag": "post hoc"
+ },
+ "Gen336c bf2.6 carry BF + alt kimchi ensembles": {
+  "reference bf2.6": [
+   2.829,
+   0.43,
+   4.067,
+   2.925
+  ],
+  "bf2.6 D/T/H": [
+   2.84,
+   0.424,
+   4.115,
+   2.9
+  ],
+  "every period not lower": false,
+  "strict pass": false
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "baseline taker (Gen327 E) Sharpe D/T/H": [
+  3.027,
+  1.514,
+  3.891,
+  2.988
+ ],
+ "maker, trade-through 0 bp": {
+  "sharpe D/T/H": [
+   3.224,
+   1.676,
+   4.079,
+   3.217
+  ],
+  "fill rate (by notional)": 0.995,
+  "fill rate (by order)": 0.994,
+  "cost per year 15%-vol units: taker vs this": [
+   0.0465,
+   0.0152
+  ],
+  "missed-move cost per year": 0.0011
+ },
+ "maker, trade-through 2 bp": {
+  "sharpe D/T/H": [
+   3.079,
+   1.613,
+   3.928,
+   3.027
+  ],
+  "fill rate (by notional)": 0.951,
+  "fill rate (by order)": 0.96,
+  "cost per year 15%-vol units: taker vs this": [
+   0.0465,
+   0.0165
+  ],
+  "missed-move cost per year": 0.0155
+ },
+ "maker, trade-through 5 bp": {
+  "sharpe D/T/H": [
+   2.954,
+   1.53,
+   3.791,
+   2.886
+  ],
+  "fill rate (by notional)": 0.909,
+  "fill rate (by order)": 0.927,
+  "cost per year 15%-vol units: taker vs this": [
+   0.0465,
+   0.0178
+  ],
+  "missed-move cost per year": 0.0279
+ },
+ "adopt as execution plan (2 bp variant better in every period)": true,
+ "Gen337b limit 15 min then market (pack coins), 2 bp": {
+  "sharpe D/T/H": [
+   3.069,
+   1.588,
+   3.934,
+   3.01
+  ],
+  "fill rate (by notional)": 0.914
+ }
+}

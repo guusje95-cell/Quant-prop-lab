@@ -1,0 +1,20 @@
+{
+ "generation": "Gen335 / Gen336",
+ "title": "Luck audit of the chosen sleeve parameters (Gen335, descriptive) and parameter-neighbourhood ensembles (Gen336, strict rule)",
+ "registered": "2026-10-23, before any Gen335 / Gen336 number",
+ "Gen335 grids (one sleeve varied at a time inside v8.6; everything else unchanged)": {
+  "premium carry (20 coins)": "look {3,5,7,10,14} x hold {3,5,7,10,14}, inverse-vol, tranched",
+  "premium carry 60": "look {3,5,7,10,14} x hold {3,5,7,10,14}, inverse-vol, tranched",
+  "trend 4h": "entry channel {10,15,20,30,40} bars, exit = half",
+  "cascade limit strict": "k {2.5,3,3.5} sd x hold {6,12,24} h",
+  "delev bounce": "OI drop {7,10,13}% x hold {1,2,3} days",
+  "alt kimchi": "z threshold {0.75,1.0,1.25}",
+  "not varied": "C* (already an average of 19 rules), ridge ML (refit model), Weiss expiry (event rule)"
+ },
+ "Gen335 outputs": "per grid point: sleeve Sharpe 2022-26 and v8.6 Sharpe D/T/H; percentile of the chosen point in its grid; grid median / chosen; share of grid points with v8.6 >= 3.0",
+ "Gen336 trials (7)": "each sleeve replaced by the average of its 3 x 3 (or 3) neighbourhood around the chosen point: carry look {5,7,10} x hold {5,7,10} (20 and 60 coins), trend 4h {15,20,30}, cascade k {2.5,3,3.5} x hold {6,12,24}, delev {7,10,13}% x {1,2,3}, alt kimchi {0.75,1.0,1.25}; and all six together",
+ "Gen336 rule": "strict: every period (2022, TEST, HOLD) not lower and 2022-26 +0.05; additionally reported: 'robustness swap' = every period within -0.03 (would be a candidate only for removing parameter luck, decided at the v8.7 review)",
+ "trials_added": 7,
+ "Gen336b (FLAGGED: registered 2026-10-23 AFTER seeing Gen336)": "the three ensembles that kept every period within -0.03 (premium carry 60, trend 4h, alt kimchi) together; same strict rule; counts as 1 extra trial and is labelled post hoc",
+ "Gen336c (registered 2026-10-23 before running; out-of-book replication of Gen336b)": "in bf2.6: 'premium carry BF' (35 CFDs) replaced by the average over look {5,7,10} x hold {5,7,10}, and the BF alt kimchi by the average over z {0.75,1.0,1.25} (trend 4h is inside the CFD core and is not varied). Same strict rule vs bf2.6 2.829 [0.430, 4.067, 2.925]. Replication if every period is not lower."
+}

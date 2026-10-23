@@ -1,0 +1,11 @@
+{
+ "generation": "Gen337",
+ "title": "Limit-order (maker) execution for v8.6 on Bybit: a cost improvement, not an alpha trial",
+ "registered": "2026-10-23, before any Gen337 number",
+ "baseline": "Gen327 E: net positions, Bybit funding, taker 5.5 bp + half the measured Bybit spread, $1,000 band = 3.027",
+ "maker rule": "every trade decided for hour t is posted as a limit order at the previous hour's close (the price the backtest already assumes). It fills only if the hour trades THROUGH it by `through` (buy: low <= limit x (1 - through); sell: high >= limit x (1 + through)); filled -> maker fee 2 bp (Bybit 0.02%), P&L as baseline; not filled -> the order is replaced by a market order at the hour's close (taker cost) and the position misses that hour's move (adverse selection is therefore fully charged)",
+ "variants": "through 0 / 2 / 5 bp; hourly high / low from Binance 5-minute klines (pack coins) and hourly klines (extra coins)",
+ "adopt": "as the execution plan (not the strategy) if the 2 bp variant raises the Sharpe in every period (2022, TEST, HOLD); reported with the fill rate",
+ "trials_added": 0,
+ "Gen337b (registered 2026-10-23 after the Gen337 numbers; design refinement, not an alpha trial)": "limit valid only 15 minutes: pack coins (5-minute klines) fill if a 5-minute low (buy) / high (sell) in the first 15 minutes trades 2 bp through the previous close; otherwise a market order at the 15-minute close (taker) and P&L from that price. Extra coins (hourly data only) keep the Gen337 hourly 2 bp rule."
+}

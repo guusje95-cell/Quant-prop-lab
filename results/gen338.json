@@ -1,0 +1,35 @@
+{
+ "reference v8.6": [
+  3.11,
+  1.542,
+  3.968,
+  3.111
+ ],
+ "A EWMA vol target": {
+  "v8.6 D/T/H": [
+   3.088,
+   1.365,
+   4.052,
+   3.045
+  ],
+  "strict pass": false
+ },
+ "B blended 30/90-day vol target": {
+  "v8.6 D/T/H": [
+   3.096,
+   1.417,
+   3.934,
+   3.155
+  ],
+  "strict pass": false
+ },
+ "C equal risk contribution": {
+  "v8.6 D/T/H": [
+   3.146,
+   1.708,
+   4.006,
+   3.039
+  ],
+  "strict pass": false
+ }
+}

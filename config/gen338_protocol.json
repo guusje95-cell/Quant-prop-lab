@@ -1,0 +1,12 @@
+{
+ "generation": "Gen338",
+ "title": "Portfolio construction of v8.6: three standard, low-parameter alternatives (strict rule)",
+ "registered": "2026-10-23, before any Gen338 number",
+ "trials": {
+  "A EWMA vol target": "the 30-day vol-targeting multiplier uses an exponentially weighted daily vol (half-life 10 days) instead of the 30-day window (same 15% target, cap 1.5, lagged one day)",
+  "B blended vol target": "the multiplier uses the mean of the 30-day and 90-day realised vol (less noise, slower)",
+  "C equal risk contribution": "monthly sleeve weights from equal risk contribution on the trailing-365-day daily covariance shrunk 50% toward its diagonal (Weiss expiry keeps half weight), instead of inverse-vol equal risk; same level and vol-target multipliers"
+ },
+ "rule": "strict: every period (2022, TEST, HOLD) not lower and 2022-26 Sharpe +0.05 vs v8.6 3.110",
+ "trials_added": 3
+}
