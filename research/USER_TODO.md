@@ -11,6 +11,8 @@
       DASH, DYDX, EGLD, ENJ, GALA, GRT, HBAR, ICP, IMX, INJ, IOTA, KSM, LDO, MANA, NEO, OP, RUNE, SAND, SNX, STX, SUI, SUSHI, THETA,
       TIA, WLD, XTZ, YFI, ZEC, ZIL. Tell me any that are missing.
    5. Push the Bithumb data when done; optional `get_deribit_options.bat` (options skew / flow, Gen309 ready).
+   5b. NEW (15-30 min, free): `get_bybit_check.bat` - Bybit listings, order sizes, funding history and spreads for our 60 coins
+      (what v8.6 really costs on HyroTrader). Then `git add research_data/bybit`, commit, push.
    6. IMPORTANT for trusting v8.5 (overnight, free, a few hours, resumable): `get_binance_pit.bat` - every Binance USDT perp ever
       listed, delisted ones too. It tests whether the wide-carry gain survives without survivorship bias (Gen321 pre-registered).
       Then `git add research_data/binance_pit`, commit, push.
