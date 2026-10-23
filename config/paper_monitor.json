@@ -1,0 +1,15 @@
+{
+ "name": "Monitoring rules for the v86 / bf26 paper runs (registered 2026-10-23, before any verdict; complement the gates in config/paper_v86.json and config/paper_bf26.json)",
+ "weekly (each share)": {
+  "reconcile": "hourly correlation paper vs recomputation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find the cause before anything else (data gap, code change, late hours)",
+  "late hours": "share of hours computed late <= 5% over the run; crashes / restarts are logged in research/PAPER_LOG.md"
+ },
+ "alerts (look closer, no action yet)": {
+  "drawdown": "paper drawdown worse than -8% at risk 2.0",
+  "sleeve": "a sleeve with a cumulative unit-size paper loss worse than -3 times its backtest daily sd x sqrt(days)",
+  "daily stops": "more than 3 daily-stop days in any 14-day window"
+ },
+ "stop (as the gate)": "drawdown worse than -12%, or after >= 56 days z < -2; then: no purchase, find the cause",
+ "go": "after >= 56 days and >= 2 Weiss expiries: z > -1, reconcile clean, late hours <= 5%, AND Gen321 (survivorship) passed",
+ "never": "no change to the running paper code or parameters because of paper results; changes only as new versions after the review"
+}
