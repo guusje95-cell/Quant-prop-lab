@@ -7,7 +7,8 @@
  "alerts (look closer, no action yet)": {
   "drawdown": "paper drawdown worse than -8% at risk 2.0",
   "sleeve": "a sleeve with a cumulative unit-size paper loss worse than -3 times its backtest daily sd x sqrt(days)",
-  "daily stops": "more than 3 daily-stop days in any 14-day window"
+  "daily stops": "more than 3 daily-stop days in any 14-day window",
+  "sleeve decay (Gen328)": "a sleeve's trailing 12-month Sharpe below 0 AND below its own historical 10th percentile -> review that sleeve (none triggered on 2026-09-30; weakest: C*, alt kimchi)"
  },
  "stop (as the gate)": "drawdown worse than -12%, or after >= 56 days z < -2; then: no purchase, find the cause",
  "go": "after >= 56 days and >= 2 Weiss expiries: z > -1, reconcile clean, late hours <= 5%, AND Gen321 (survivorship) passed",

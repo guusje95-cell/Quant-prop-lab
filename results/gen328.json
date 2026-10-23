@@ -1,0 +1,555 @@
+{
+ "1 sleeve decay v8.6": {
+  "C*": {
+   "since": "2020-01-01",
+   "full Sharpe": 1.8,
+   "last 12 m": 0.36,
+   "last 6 m": 1.65,
+   "percentile of last 12 m in its history": 0.26,
+   "share of 12-m windows < 0": 0.09,
+   "10th pct of 12-m Sharpe": 0.05,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "premium carry": {
+   "since": "2020-03-01",
+   "full Sharpe": 0.87,
+   "last 12 m": 1.33,
+   "last 6 m": 0.24,
+   "percentile of last 12 m in its history": 0.7,
+   "share of 12-m windows < 0": 0.14,
+   "10th pct of 12-m Sharpe": -0.11,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "cascade limit strict": {
+   "since": "2021-12-04",
+   "full Sharpe": 1.15,
+   "last 12 m": 1.79,
+   "last 6 m": 2.41,
+   "percentile of last 12 m in its history": 0.77,
+   "share of 12-m windows < 0": 0.0,
+   "10th pct of 12-m Sharpe": 0.66,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "trend 4h": {
+   "since": "2020-01-31",
+   "full Sharpe": 0.87,
+   "last 12 m": 1.13,
+   "last 6 m": 1.35,
+   "percentile of last 12 m in its history": 0.57,
+   "share of 12-m windows < 0": 0.22,
+   "10th pct of 12-m Sharpe": -0.27,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "Weiss expiry": {
+   "since": "2020-01-31",
+   "full Sharpe": 0.61,
+   "last 12 m": 1.41,
+   "last 6 m": 1.13,
+   "percentile of last 12 m in its history": 0.76,
+   "share of 12-m windows < 0": 0.09,
+   "10th pct of 12-m Sharpe": 0.0,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "delev bounce": {
+   "since": "2021-12-05",
+   "full Sharpe": 0.74,
+   "last 12 m": 0.69,
+   "last 6 m": 0.63,
+   "percentile of last 12 m in its history": 0.27,
+   "share of 12-m windows < 0": 0.0,
+   "10th pct of 12-m Sharpe": 0.34,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "ridge ML": {
+   "since": "2021-01-02",
+   "full Sharpe": 1.0,
+   "last 12 m": 1.81,
+   "last 6 m": 2.49,
+   "percentile of last 12 m in its history": 0.79,
+   "share of 12-m windows < 0": 0.07,
+   "10th pct of 12-m Sharpe": 0.08,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "alt kimchi": {
+   "since": "2020-01-25",
+   "full Sharpe": 0.66,
+   "last 12 m": 0.44,
+   "last 6 m": 0.9,
+   "percentile of last 12 m in its history": 0.43,
+   "share of 12-m windows < 0": 0.13,
+   "10th pct of 12-m Sharpe": -0.05,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "premium carry 60": {
+   "since": "2020-03-01",
+   "full Sharpe": 1.74,
+   "last 12 m": 3.04,
+   "last 6 m": 2.46,
+   "percentile of last 12 m in its history": 0.71,
+   "share of 12-m windows < 0": 0.14,
+   "10th pct of 12-m Sharpe": -0.63,
+   "WARNING (12 m < 0 and < own p10)": false
+  }
+ },
+ "1 sleeve decay bf2.6": {
+  "C*": {
+   "since": "2020-01-06",
+   "full Sharpe": 2.0,
+   "last 12 m": 0.38,
+   "last 6 m": 1.75,
+   "percentile of last 12 m in its history": 0.25,
+   "share of 12-m windows < 0": 0.09,
+   "10th pct of 12-m Sharpe": 0.07,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "premium carry": {
+   "since": "2020-03-01",
+   "full Sharpe": 0.67,
+   "last 12 m": 1.2,
+   "last 6 m": 1.08,
+   "percentile of last 12 m in its history": 0.7,
+   "share of 12-m windows < 0": 0.1,
+   "10th pct of 12-m Sharpe": -0.01,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "trend 4h": {
+   "since": "2020-01-31",
+   "full Sharpe": 1.03,
+   "last 12 m": 1.2,
+   "last 6 m": 1.42,
+   "percentile of last 12 m in its history": 0.52,
+   "share of 12-m windows < 0": 0.17,
+   "10th pct of 12-m Sharpe": -0.15,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "Weiss expiry": {
+   "since": "2020-01-31",
+   "full Sharpe": 0.71,
+   "last 12 m": 1.59,
+   "last 6 m": 1.3,
+   "percentile of last 12 m in its history": 0.71,
+   "share of 12-m windows < 0": 0.06,
+   "10th pct of 12-m Sharpe": 0.22,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "delev bounce": {
+   "since": "2021-12-05",
+   "full Sharpe": 0.76,
+   "last 12 m": 0.7,
+   "last 6 m": 0.64,
+   "percentile of last 12 m in its history": 0.27,
+   "share of 12-m windows < 0": 0.0,
+   "10th pct of 12-m Sharpe": 0.37,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "coinbase premium": {
+   "since": "2020-01-22",
+   "full Sharpe": 0.85,
+   "last 12 m": 1.53,
+   "last 6 m": 1.74,
+   "percentile of last 12 m in its history": 0.84,
+   "share of 12-m windows < 0": 0.12,
+   "10th pct of 12-m Sharpe": -0.07,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "vol-managed indices": {
+   "since": "2020-01-02",
+   "full Sharpe": 1.06,
+   "last 12 m": 1.09,
+   "last 6 m": 2.15,
+   "percentile of last 12 m in its history": 0.41,
+   "share of 12-m windows < 0": 0.12,
+   "10th pct of 12-m Sharpe": -0.1,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "ridge ML": {
+   "since": "2021-01-02",
+   "full Sharpe": 1.12,
+   "last 12 m": 1.61,
+   "last 6 m": 2.05,
+   "percentile of last 12 m in its history": 0.62,
+   "share of 12-m windows < 0": 0.05,
+   "10th pct of 12-m Sharpe": 0.2,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "alt kimchi": {
+   "since": "2020-01-25",
+   "full Sharpe": 0.56,
+   "last 12 m": 0.29,
+   "last 6 m": 0.67,
+   "percentile of last 12 m in its history": 0.36,
+   "share of 12-m windows < 0": 0.21,
+   "10th pct of 12-m Sharpe": -0.25,
+   "WARNING (12 m < 0 and < own p10)": false
+  },
+  "premium carry BF": {
+   "since": "2020-03-01",
+   "full Sharpe": 1.56,
+   "last 12 m": 1.28,
+   "last 6 m": 0.73,
+   "percentile of last 12 m in its history": 0.32,
+   "share of 12-m windows < 0": 0.09,
+   "10th pct of 12-m Sharpe": 0.05,
+   "WARNING (12 m < 0 and < own p10)": false
+  }
+ },
+ "3 worst 10 days v8.6 (risk 2.0)": [
+  {
+   "day": "2022-05-09",
+   "book %": -11.58,
+   "BTC %": -11.7
+  },
+  {
+   "day": "2022-11-09",
+   "book %": -10.78,
+   "BTC %": -14.2
+  },
+  {
+   "day": "2024-03-05",
+   "book %": -8.37,
+   "BTC %": -6.7
+  },
+  {
+   "day": "2022-04-06",
+   "book %": -4.35,
+   "BTC %": -5.1
+  },
+  {
+   "day": "2024-08-05",
+   "book %": -4.22,
+   "BTC %": -7.1
+  },
+  {
+   "day": "2023-03-18",
+   "book %": -4.17,
+   "BTC %": -1.7
+  },
+  {
+   "day": "2022-04-05",
+   "book %": -3.9,
+   "BTC %": -2.4
+  },
+  {
+   "day": "2023-04-19",
+   "book %": -3.76,
+   "BTC %": -5.2
+  },
+  {
+   "day": "2022-06-12",
+   "book %": -3.66,
+   "BTC %": -6.5
+  },
+  {
+   "day": "2026-07-23",
+   "book %": -3.63,
+   "BTC %": -1.5
+  }
+ ],
+ "3 named events v8.6": {
+  "Luna 2022-05-09..12": {
+   "book %": -2.81,
+   "worst day %": -11.58,
+   "BTC %": -14.7
+  },
+  "3AC / Celsius 2022-06-13..18": {
+   "book %": 17.11,
+   "worst day %": 0.18,
+   "BTC %": -28.6
+  },
+  "FTX 2022-11-08..10": {
+   "book %": -2.83,
+   "worst day %": -10.78,
+   "BTC %": -14.5
+  },
+  "yen-carry unwind 2024-08-05": {
+   "book %": -4.22,
+   "worst day %": -4.22,
+   "BTC %": -7.1
+  },
+  "liquidation crash 2025-10-10..11": {
+   "book %": 0.39,
+   "worst day %": -2.44,
+   "BTC %": -9.0
+  }
+ },
+ "3 brakes v8.6": {
+  "none": {
+   "sharpe D/T/H": [
+    3.109,
+    1.542,
+    3.968,
+    3.111
+   ],
+   "worst day %": -11.58,
+   "max drawdown %": -18.3,
+   "2.5% stop days": 56,
+   "breach days (hour jumped past 5%)": 2
+  },
+  "B1 half risk 2 days after a stop day": {
+   "sharpe D/T/H": [
+    2.987,
+    1.271,
+    3.863,
+    3.029
+   ],
+   "worst day %": -11.58,
+   "max drawdown %": -20.6,
+   "2.5% stop days": 49,
+   "breach days (hour jumped past 5%)": 2,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false,
+   "days at half risk": 108
+  },
+  "B2 half risk after a 3-sd BTC day": {
+   "sharpe D/T/H": [
+    3.164,
+    1.555,
+    4.086,
+    3.083
+   ],
+   "worst day %": -11.58,
+   "max drawdown %": -18.4,
+   "2.5% stop days": 52,
+   "breach days (hour jumped past 5%)": 1,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false,
+   "days at half risk": 49
+  }
+ },
+ "3 worst 10 days bf2.6 (risk 2.0)": [
+  {
+   "day": "2022-11-09",
+   "book %": -11.17,
+   "BTC %": -14.2
+  },
+  {
+   "day": "2022-09-15",
+   "book %": -6.5,
+   "BTC %": -2.6
+  },
+  {
+   "day": "2024-03-05",
+   "book %": -6.14,
+   "BTC %": -6.7
+  },
+  {
+   "day": "2025-04-04",
+   "book %": -4.77,
+   "BTC %": 0.8
+  },
+  {
+   "day": "2024-11-14",
+   "book %": -4.76,
+   "BTC %": -3.4
+  },
+  {
+   "day": "2022-04-05",
+   "book %": -4.75,
+   "BTC %": -2.4
+  },
+  {
+   "day": "2024-07-07",
+   "book %": -4.57,
+   "BTC %": -4.1
+  },
+  {
+   "day": "2026-07-23",
+   "book %": -4.53,
+   "BTC %": -1.5
+  },
+  {
+   "day": "2022-02-11",
+   "book %": -4.46,
+   "BTC %": -2.5
+  },
+  {
+   "day": "2022-09-13",
+   "book %": -4.33,
+   "BTC %": -9.9
+  }
+ ],
+ "3 named events bf2.6": {
+  "Luna 2022-05-09..12": {
+   "book %": -0.38,
+   "worst day %": -1.65,
+   "BTC %": -14.7
+  },
+  "3AC / Celsius 2022-06-13..18": {
+   "book %": 3.18,
+   "worst day %": -4.03,
+   "BTC %": -28.6
+  },
+  "FTX 2022-11-08..10": {
+   "book %": -3.07,
+   "worst day %": -11.17,
+   "BTC %": -14.5
+  },
+  "yen-carry unwind 2024-08-05": {
+   "book %": -0.71,
+   "worst day %": -0.71,
+   "BTC %": -7.1
+  },
+  "liquidation crash 2025-10-10..11": {
+   "book %": -4.27,
+   "worst day %": -4.31,
+   "BTC %": -9.0
+  }
+ },
+ "3 brakes bf2.6": {
+  "none": {
+   "sharpe D/T/H": [
+    2.822,
+    0.43,
+    4.052,
+    2.925
+   ],
+   "worst day %": -11.17,
+   "max drawdown %": -23.7,
+   "2.5% stop days": 68,
+   "breach days (hour jumped past 5%)": 1
+  },
+  "B1 half risk 2 days after a stop day": {
+   "sharpe D/T/H": [
+    2.838,
+    0.483,
+    4.047,
+    2.882
+   ],
+   "worst day %": -11.17,
+   "max drawdown %": -20.7,
+   "2.5% stop days": 62,
+   "breach days (hour jumped past 5%)": 0,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false,
+   "days at half risk": 129
+  },
+  "B2 half risk after a 3-sd BTC day": {
+   "sharpe D/T/H": [
+    2.882,
+    0.531,
+    4.139,
+    2.9
+   ],
+   "worst day %": -6.5,
+   "max drawdown %": -24.0,
+   "2.5% stop days": 67,
+   "breach days (hour jumped past 5%)": 1,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false,
+   "days at half risk": 49
+  }
+ },
+ "2 per-coin caps v8.6": {
+  "largest single-coin position (share of equity, risk 2.0): median / p90 / p99 / max": [
+   0.173,
+   0.364,
+   0.528,
+   0.962
+  ],
+  "coin most often largest": {
+   "BTC": 17160,
+   "ETH": 8692,
+   "TRX": 8404
+  },
+  "no cap": {
+   "sharpe D/T/H": [
+    3.14,
+    1.583,
+    4.011,
+    3.122
+   ],
+   "orders per day (mean)": 21.6,
+   "orders per day (p90)": 30.0,
+   "median order $": 1800,
+   "share of orders < $1k": 0.0,
+   "gross / balance p50": 1.65,
+   "gross p99": 3.39,
+   "hours gross > 2.0": 0.286,
+   "positions held (mean)": 52.0,
+   "worst day %": -11.35,
+   "max drawdown %": -18.1,
+   "worst single-coin day %": -5.77,
+   "coin-days losing > 3% of the account": 3
+  },
+  "cap 40% of equity per coin": {
+   "sharpe D/T/H": [
+    3.122,
+    1.557,
+    3.978,
+    3.133
+   ],
+   "orders per day (mean)": 21.5,
+   "orders per day (p90)": 30.0,
+   "median order $": 1799,
+   "share of orders < $1k": 0.0,
+   "gross / balance p50": 1.65,
+   "gross p99": 3.31,
+   "hours gross > 2.0": 0.2854,
+   "positions held (mean)": 52.0,
+   "worst day %": -11.35,
+   "max drawdown %": -18.1,
+   "worst single-coin day %": -5.77,
+   "coin-days losing > 3% of the account": 3,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false
+  },
+  "cap 30% of equity per coin": {
+   "sharpe D/T/H": [
+    3.097,
+    1.551,
+    3.894,
+    3.171
+   ],
+   "orders per day (mean)": 21.4,
+   "orders per day (p90)": 30.0,
+   "median order $": 1794,
+   "share of orders < $1k": 0.0,
+   "gross / balance p50": 1.64,
+   "gross p99": 3.24,
+   "hours gross > 2.0": 0.2714,
+   "positions held (mean)": 52.0,
+   "worst day %": -11.35,
+   "max drawdown %": -18.1,
+   "worst single-coin day %": -5.57,
+   "coin-days losing > 3% of the account": 3,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false
+  },
+  "cap 25% of equity per coin": {
+   "sharpe D/T/H": [
+    3.115,
+    1.62,
+    3.867,
+    3.207
+   ],
+   "orders per day (mean)": 21.3,
+   "orders per day (p90)": 30.0,
+   "median order $": 1787,
+   "share of orders < $1k": 0.0,
+   "gross / balance p50": 1.64,
+   "gross p99": 3.14,
+   "hours gross > 2.0": 0.2635,
+   "positions held (mean)": 52.0,
+   "worst day %": -11.35,
+   "max drawdown %": -18.2,
+   "worst single-coin day %": -4.64,
+   "coin-days losing > 3% of the account": 2,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false
+  },
+  "cap 20% of equity per coin": {
+   "sharpe D/T/H": [
+    3.112,
+    1.673,
+    3.806,
+    3.245
+   ],
+   "orders per day (mean)": 21.1,
+   "orders per day (p90)": 29.700000000000045,
+   "median order $": 1776,
+   "share of orders < $1k": 0.0,
+   "gross / balance p50": 1.62,
+   "gross p99": 3.01,
+   "hours gross > 2.0": 0.2413,
+   "positions held (mean)": 52.0,
+   "worst day %": -11.51,
+   "max drawdown %": -18.1,
+   "worst single-coin day %": -3.71,
+   "coin-days losing > 3% of the account": 2,
+   "adopt (Sharpe >= base - 0.05, worst day and max DD better)": false
+  }
+ }
+}
