@@ -1,0 +1,10 @@
+{
+ "program": "Gen359+ : stress / orthogonal book to an EXPECTED LIVE Sharpe >= 1.0 (user goal 2026-10-23)",
+ "registered": "2026-10-23, before any Gen359 number",
+ "expected live Sharpe (fixed definition)": "0.6 x the book's daily Sharpe 2020-01-01..2026-09-30 with per-coin Bybit costs (taker 5.5 bp + half the measured Bybit spread, or 2 bp maker where the rule is a limit order with the Gen337 fill test) and Bybit funding; the 0.6 is the search discount and is NOT changed later",
+ "target": ">= 1.0, i.e. book Sharpe 2020-26 >= 1.67, with |daily corr with v8.6 2022-26| <= 0.25",
+ "how decisions are made": "every choice (sleeve in / out, side, filter, weight, sizing) is decided on 2020-01..2024-12 data only; 2025-26 is reported once per decision and never used to choose",
+ "entry of a new sleeve": "pre-registered protocol; bar DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5, |corr v8.6| <= 0.2, |corr with the current book| <= 0.5; plus robustness (Bybit costs, OKX prices, neighbourhood median, one hour later) with every period > 0",
+ "book construction": "sleeves at equal risk by their 2020-24 daily sd (Bybit-cost versions), summed; optional 30-day vol targeting decided on 2020-24",
+ "honesty": "the trial count is logged; if the target is reached, the book still goes to paper trading before any use"
+}
