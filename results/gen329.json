@@ -1,0 +1,190 @@
+{
+ "realistic (Bybit costs, Sharpe 3.03)": {
+  "HyroTrader 2-Step $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    2.5,
+    2.0
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 222341,
+    "p10": 106673,
+    "P_profit": 0.988,
+    "P_funded": 0.995,
+    "days_to_funded": 52.0,
+    "challenges": 3.69
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 176880,
+    "p10": 105281,
+    "P_profit": 1.0,
+    "P_funded": 1.0,
+    "days_to_funded": 61.5,
+    "challenges": 2.52
+   },
+   "rules": "as $100k"
+  },
+  "Crypto Fund Trader 2-Phase $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    2.0,
+    2.0
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 224751,
+    "p10": 125122,
+    "P_profit": 1.0,
+    "P_funded": 1.0,
+    "days_to_funded": 49.5,
+    "challenges": 2.92
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 174793,
+    "p10": 108209,
+    "P_profit": 1.0,
+    "P_funded": 1.0,
+    "days_to_funded": 49.5,
+    "challenges": 2.25
+   },
+   "rules": "ASSUMED fee ~2x the $100k price; targets 8% / 4% from the firm's evaluation page; 5% daily (balance 00:05 UTC); 10% static"
+  },
+  "Propr 2-Step $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    1.5,
+    1.0
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 111310,
+    "p10": 51066,
+    "P_profit": 0.955,
+    "P_funded": 0.968,
+    "days_to_funded": 80.0,
+    "challenges": 2.96
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 40653,
+    "p10": -5000,
+    "P_profit": 0.647,
+    "P_funded": 0.762,
+    "days_to_funded": 71.0,
+    "challenges": 4.98
+   },
+   "rules": "rulebook: 5% daily (start-of-day balance), 8% TRAILING on equity; fee and targets ASSUMED"
+  },
+  "MyFundedPerps Signature $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    1.5,
+    1.5
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 132971,
+    "p10": 41191,
+    "P_profit": 0.993,
+    "P_funded": 1.0,
+    "days_to_funded": 35.5,
+    "challenges": 4.7
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 113366,
+    "p10": 19500,
+    "P_profit": 0.958,
+    "P_funded": 0.99,
+    "days_to_funded": 32.0,
+    "challenges": 4.9
+   },
+   "rules": "reviews: 3% daily, 6% static (Signature); fee, size and target ASSUMED"
+  }
+ },
+ "planning (deflated, Sharpe 1.78)": {
+  "HyroTrader 2-Step $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    2.0,
+    1.5
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 89918,
+    "p10": 25138,
+    "P_profit": 0.97,
+    "P_funded": 0.983,
+    "days_to_funded": 83.0,
+    "challenges": 3.88
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 89918,
+    "p10": 25138,
+    "P_profit": 0.97,
+    "P_funded": 0.983,
+    "days_to_funded": 83.0,
+    "challenges": 3.88
+   },
+   "rules": "as $100k"
+  },
+  "Crypto Fund Trader 2-Phase $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    2.0,
+    2.0
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 112129,
+    "p10": 24304,
+    "P_profit": 0.965,
+    "P_funded": 0.995,
+    "days_to_funded": 63.5,
+    "challenges": 4.36
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 92720,
+    "p10": 31080,
+    "P_profit": 0.978,
+    "P_funded": 0.995,
+    "days_to_funded": 63.5,
+    "challenges": 3.69
+   },
+   "rules": "ASSUMED fee ~2x the $100k price; targets 8% / 4% from the firm's evaluation page; 5% daily (balance 00:05 UTC); 10% static"
+  },
+  "Propr 2-Step $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    1.0,
+    1.0
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 56107,
+    "p10": 15432,
+    "P_profit": 0.978,
+    "P_funded": 0.993,
+    "days_to_funded": 143.0,
+    "challenges": 3.17
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 7479,
+    "p10": -5000,
+    "P_profit": 0.318,
+    "P_funded": 0.455,
+    "days_to_funded": 76.0,
+    "challenges": 5.0
+   },
+   "rules": "rulebook: 5% daily (start-of-day balance), 8% TRAILING on equity; fee and targets ASSUMED"
+  },
+  "MyFundedPerps Signature $200k": {
+   "chosen on 2022-24 (challenge risk, funded risk)": [
+    1.5,
+    1.5
+   ],
+   "2025-26 at the chosen risk": {
+    "net": 53709,
+    "p10": 2092,
+    "P_profit": 0.922,
+    "P_funded": 0.988,
+    "days_to_funded": 47.0,
+    "challenges": 4.98
+   },
+   "2025-26 at 2.0 / 1.5": {
+    "net": 44982,
+    "p10": -5000,
+    "P_profit": 0.848,
+    "P_funded": 0.95,
+    "days_to_funded": 36.0,
+    "challenges": 5.0
+   },
+   "rules": "reviews: 3% daily, 6% static (Signature); fee, size and target ASSUMED"
+  }
+ }
+}

@@ -4,6 +4,7 @@
    1. `git pull --no-edit`
    2. bf26 index-feed check: `git add -f paper_trading/bf26/data/dukascopy` then `git commit -m "bf26 index feed files"` and `git push`
    3. Run `paper_v86_share.bat` and `paper_bf26_share.bat`; push `research_data/binance_pit` when get_binance_pit.bat is done.
+   4. Crypto Fund Trader: ask support (research/FIRM_RULES_EXECUTION.md section 10): NL accepted, Bybit route for NL, which of the 60 coins, swaps/commissions, multi-account rules.
 
 **NEWEST (2026-10-21, latest) - v8.6 and bf2.6 (wide premium carry with inverse-vol legs + tranched rebalancing; v 2.750 -> 3.110, bf2 2.506 -> 2.829). Start these two paper traders (they replace every earlier v8.x / bf2.x):**
    1. `git pull --no-edit`

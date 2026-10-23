@@ -149,3 +149,13 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
   only, 700+ USDT perps on live Bybit data); NOT published: the MCP tool schema (amend / cancel orders, positions / equity fields and
   refresh), rate limits, Hyro's own fees and its funding treatment. Section 10.2(m): only offsetting / hedging against external
   positions is prohibited; independent trading elsewhere is allowed. -> these open points go to HyroTrader support in writing.
+
+## 10. Other crypto prop firms for v8.6 (Gen329, 2026-10-23; published pages / reviews, NOT support answers)
+| Firm | Rules used | Bot / API | Fit | Open points (ask before buying) |
+|---|---|---|---|---|
+| Crypto Fund Trader 2-Phase | 5% daily (balance 00:05 UTC), 10% static, 8% / 4%, 80% split | EAs allowed; MT5, Match-Trader or Bybit route | **best alternative**; risk 2.0 challenge / 1.5-2.0 funded | NL accepted? Bybit route available for NL? which of the 60 coins are tradable; MT5 crypto swaps and commissions; multi-account / copy rules |
+| Propr 2-Step | 5% daily, 8% TRAILING | API-first (Python SDK), copying between own accounts allowed | reserve; risk 1.0 only | Hyperliquid coin list vs the 60 coins; 2x leverage cap on non-majors (v8.6 gross can exceed it); fees |
+| MyFundedPerps | 3% daily, 3/5/6% static | REST / CLI / MCP | not recommended (daily limit too tight) | NL in the 30 restricted countries? |
+| Breakout | 3% daily | bots banned | excluded | - |
+| SizeProp | - | frontend-only automation | excluded | - |
+Risk per firm is the only setting changed: at a 3% daily limit the daily stop moves to 1.5%, at a trailing 8% the risk drops to 1.0. Strategy parameters stay as v8.6 (re-fitting them per firm would be fitting to rules, not to markets).

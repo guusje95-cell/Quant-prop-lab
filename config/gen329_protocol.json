@@ -1,0 +1,8 @@
+{
+  "generation": "Gen329",
+  "title": "v8.6 at other crypto prop firms (HyroTrader, Crypto Fund Trader 2-Phase, Propr 2-Step, MyFundedPerps Signature): firm rules and per-firm risk settings (descriptive)",
+  "registered": "2026-10-23, before any Gen329 number",
+  "model": "the v8.6 book unchanged (no strategy parameter is re-fitted per firm); returns shifted to Sharpe 3.03 (Bybit-realistic, Gen327) and 1.78 (deflated, Gen325); per firm the challenge / funded risk is chosen on 2022-24 from {0.75..2.5} x {0.75..2.0} (highest mean net with P(profit) >= 0.9), judged on 2025-26; daily stop at half the firm's daily limit",
+  "assumptions": "fees, account sizes and some targets are not published for every firm and are marked ASSUMED in the results; trailing drawdown modelled with the propfirms engine",
+  "trials_added": 0
+}

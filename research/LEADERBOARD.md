@@ -1107,3 +1107,17 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Per-coin caps (v8.6 net positions):** the largest single-coin position is 17% of equity at the median (p99 53%, max 96%). Caps of 40 / 30 / 25 / 20% leave the worst day (-11.4%) and the max drawdown (-18%) unchanged: crash days hit all coins at once. **Not adopted** (rule: worst day and drawdown must improve). Note for HyroTrader's 3%-per-trade rule: a 25% cap cuts the worst single-coin day from -5.8% to -4.6% at -0.025 Sharpe; a 20% cap to -3.7% (optional for the bot).
 - **Crash stress (risk 2.0, daily sums without the daily stop):** worst days v8.6 -11.6% (Luna 2022-05) and -10.8% (FTX 2022-11); bf2.6 -11.2% (FTX). The 2.5% daily stop catches these days in the hour they cross it (2 / 1 days in 4.7 years jumped past 5% within one hour, Gen324). The 3AC / Celsius crash (BTC -29%) was +17% for v8.6. 2025-10-10: v8.6 +0.4%, bf2.6 -4.3%.
 - **Emergency brakes:** B1 (half risk for 2 days after a stop day) and B2 (half risk after a 3-sd BTC day) are **not adopted**: neither improves both the worst day and the max drawdown (B2 raises the Sharpe slightly, 3.16 / 2.88, but leaves the worst day). **The 2.5% daily stop, checked every minute by the bot, stays the only emergency brake.**
+
+## Gen329 (2026-10-23): v8.6 at other crypto prop firms (descriptive; `results/gen329.json`, `scripts/gen329_firms.py`)
+Same book everywhere (no strategy parameter re-fitted per firm); per firm the challenge / funded risk is chosen on 2022-24 (highest net with P(profit) >= 0.9) and judged on 2025-26; 2-year bootstrap, $200k accounts.
+
+| Firm (rules) | Risk chosen | Net 2 y @ Sharpe 3.03 (p10, P profit) | Net 2 y @ Sharpe 1.78 (p10, P profit) |
+|---|---|---|---|
+| HyroTrader 2-Step (5% daily, 10% static) | 2.5/2.0 (planning 2.0/1.5) | $222k ($107k, 0.99) | $90k ($25k, 0.97) |
+| **Crypto Fund Trader 2-Phase** (5% daily, 10% static, 8% / 4% targets) | 2.0/2.0 | **$225k ($125k, 1.00)** | **$112k ($24k, 0.97)** |
+| Propr 2-Step (5% daily, **8% trailing**) | 1.5/1.0 (planning 1.0/1.0) | $111k ($51k, 0.96) | $56k ($15k, 0.98) |
+| MyFundedPerps Signature (**3% daily**, 6% static) | 1.5/1.5 | $133k ($41k, 0.99) | $54k ($2k, 0.92) |
+
+- Verdict: CFT 2-Phase is the best alternative to HyroTrader (equal or better); Propr loses half (trailing 8% forces risk 1.0 and 143 days to funded); MyFundedPerps' 3% daily limit makes the bad tail thin (p10 $2k). Breakout (bots banned) and SizeProp (frontend-only automation) excluded.
+- ASSUMED: CFT $200k fee $1,100, Propr / MFP fees and targets; platform costs equal to Bybit at every firm (CFT MT5 / Match-Trader swaps and commissions, Propr Hyperliquid fees and coin list unknown). NL access at CFT / MFP not confirmed.
+- Per-firm paper accounts: `scripts/paper_firms.py` replays the v86 paper ledger through each firm's rules (HyroTrader 2.0, CFT 2.0, Propr 1.0 as a watch). No separate paper process: the signals are identical.
