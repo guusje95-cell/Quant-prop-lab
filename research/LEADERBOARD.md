@@ -1327,3 +1327,40 @@ Bar for every trial (pre-registered): sleeve DEV (2020-22) > 0, TEST (2023-24) >
   - The backtest Sharpe of v8.6 (3.1) is so high that a 1.0 sleeve barely adds. At planning levels (v8.6 1.78), an uncorrelated 0.7-0.9 sleeve would add about +0.1-0.2.
 - **Status: orthogonal candidate (not adopted).** Next step: paper-trade it as its own small book next to v86.
 - Planning Sharpe after costs about 0.6-0.8 (backtest 0.9-1.0 minus the 22-trial search).
+
+## Gen349-358 (2026-10-23): orthogonal search continued (about 30 more trials; total in the search about 52)
+Bar for every trial (pre-registered): DEV > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, and from Gen349 also |corr premium-spike sleeve| <= 0.5.
+
+**Failed:**
+- **Gen349, dislocations:** Binance-OKX gap 0.93 / 0.22 / -1.03; Upbit hourly kimchi 1.14 / 0.76 / -0.44 (both decayed by 2025-26); ETH/BTC hourly spikes -0.96 / -2.09 / -2.44; DVOL spike 0.04 / 0.18 / -0.25.
+- **Gen350, positioning spikes:** OI-spike fade, top-trader crowding, taker ratio spikes. All fail.
+- **Gen351, relative value:** distance pairs -0.64 / 0.46 / -0.64; weekday seasonality; long-term reversal -0.30 / 1.02 / -0.67. All fail.
+- **Gen353:** spot-volume surge, BTC-shock laggards, hourly premium rank. The last has gross 3.91 / 2.63 / 1.04, corr 0.06, but turnover kills it.
+- **Gen354 (FLAGGED follow-up):** the same premium rank at daily, 3-tranche or banded turnover is negative in HOLD. Fails.
+- **Gen355 A / B:** cross-venue funding spread -0.42 / 0.17 / -2.48; retail long/short contrarian 1.42 / 0.91 / 0.12. Fail.
+- **Gen356:** OKX volume share, Coinbase volume share, euro premium spikes. All fail.
+- **Gen357 A / B:** intraday momentum fails (cost); volume-shock momentum 0.10 / 0.75 / 0.86 is a near-miss.
+
+**Gen352, crash limit buys (resting limit 3 sd below the last close):**
+- Raw result 4.38 / 4.48 / 2.80, corr 0.23.
+- Verification (Gen352b-g):
+  - OKX-only replication 4.40 / 4.60 / 2.27; volume caps barely bind.
+  - **The profit is the rebound inside the fill hour (+78 bp per fill), i.e. buying wicks.**
+  - As a market order on the first 5-minute close below the level (realistic): 1.82 / 1.10 / -0.68.
+  - Strictest resting-limit version (20 bp through on both Binance and OKX, volume cap, Bybit exit): 2.47 / 2.16 / -0.13.
+- **Not adopted:** it depends on wick fills a backtest cannot verify, and it fades in 2025-26.
+
+**Gen355 C, extreme negative funding (< -0.10% per 8 h -> long 24 h): passes** 1.54 / 0.97 / 0.73, corr 0.17.
+- Checks: Bybit costs 1.52 / 0.91 / 0.71; Bybit signal 0.64 / 1.23 / 0.96; OKX 0.85 / 1.02 / 1.00; neighbourhood median 1.53 / 0.93 / 0.98; one hour later 1.62 / 0.96 / 1.01; every year positive.
+- **But the price part alone is -0.38 in HOLD: the profit there is the funding received.** Fails its own pre-registered candidate rule. Near-candidate ("event carry").
+
+**Gen357 C, daily crash reversal (daily return < -3 sd -> long 3 days, 60 coins): passes and is a CANDIDATE** 0.14 / 1.00 / 1.17, corr v8.6 0.14.
+- Checks: Bybit costs 0.14 / 0.98 / 1.14; OKX 0.11 / 0.94 / 1.05; neighbourhood median 0.14 / 0.83 / 1.06; one hour later 0.24 / 0.84 / 0.98; 6 of 7 years positive (2022 -0.78).
+- Correlations: delev bounce 0.50, negative funding 0.38, premium spike 0.19.
+
+**Gen358, stress-reversion book:**
+- Book A (premium spike + crash reversal): 0.78 / 1.22 / 1.45, corr 0.15.
+- Book B (+ negative funding): **1.29 / 1.42 / 1.46**, every year 2020-26 >= 0 except 2022 (-0.02), max DD -16% at 15% vol, corr 0.18.
+- Inside v8.6 (weight chosen on 2022-24 = 0.25): 3.095. Fails the strict rule.
+- As a separate account: book B's 2022-26 Sharpe is 0.84 with corr 0.18, so at planning levels the best mix lifts v8.6 only from 1.78 to 1.79.
+- **The stress family is real and independent of v8.6, but too small to move the combined Sharpe much.** Its value is a second, different edge if v8.6's carry decays.

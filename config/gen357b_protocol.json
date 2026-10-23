@@ -1,0 +1,12 @@
+{
+ "generation": "Gen357b",
+ "title": "Robustness of Gen357 C (daily crash reversal: 0.14 / 1.00 / 1.17). Registered after Gen357, before running; descriptive",
+ "checks": {
+  "1 Bybit costs + Bybit funding": "per-coin Bybit taker + half spread, Bybit funding",
+  "2 OKX prices": "same positions on OKX hourly returns",
+  "3 neighbourhood": "threshold {2.5, 3, 3.5} sd x hold {2, 3, 5} days",
+  "4 one hour later": "entry at 01:00 UTC instead of 00:00",
+  "5 by year; events; corr with delev bounce, cascade, premium spike, negative-funding sleeve"
+ },
+ "candidate rule": "stays a candidate if (1) has DEV > 0 and TEST, HOLD >= 0.5, the neighbourhood median has every period > 0 and TEST, HOLD >= 0.5, OKX keeps the sign in every period, and at least 5 of the 7 years are positive"
+}

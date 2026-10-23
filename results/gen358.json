@@ -1,0 +1,155 @@
+{
+ "sleeve corr": {
+  "premium spike": {
+   "premium spike": 1.0,
+   "crash reversal": 0.191,
+   "negative funding": 0.166
+  },
+  "crash reversal": {
+   "premium spike": 0.191,
+   "crash reversal": 1.0,
+   "negative funding": 0.376
+  },
+  "negative funding": {
+   "premium spike": 0.166,
+   "crash reversal": 0.376,
+   "negative funding": 1.0
+  }
+ },
+ "Book A (2 candidates)": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   0.777,
+   1.221,
+   1.452
+  ],
+  "by year": {
+   "2020": 2.35,
+   "2021": 1.06,
+   "2022": -0.28,
+   "2023": 1.58,
+   "2024": 1.12,
+   "2025": 1.75,
+   "2026": 1.01
+  },
+  "max drawdown at 15% vol": -0.194,
+  "corr v8.6 2022-26": 0.15,
+  "separate accounts v8.6 + 1.0 x book (backtest) 2022-26 / 2022 / TEST / HOLD": [
+   2.617,
+   0.633,
+   3.77,
+   3.231
+  ],
+  "separate accounts v8.6 + 0.5 x book (backtest) 2022-26 / 2022 / TEST / HOLD": [
+   2.977,
+   1.014,
+   4.053,
+   3.31
+  ],
+  "planning: v8.6 alone / + 0.5 x book / + 1.0 x book": [
+   1.78,
+   1.712,
+   1.511
+  ],
+  "inside v8.6": {
+   "by multiplier": {
+    "0.25": {
+     "D/T/H": [
+      3.09,
+      1.428,
+      3.963,
+      3.185
+     ],
+     "2022-24": 3.036
+    },
+    "0.5": {
+     "D/T/H": [
+      3.054,
+      1.308,
+      3.938,
+      3.239
+     ],
+     "2022-24": 2.947
+    },
+    "1.0": {
+     "D/T/H": [
+      2.949,
+      1.076,
+      3.853,
+      3.294
+     ],
+     "2022-24": 2.751
+    }
+   },
+   "chosen on 2022-24": 0.25,
+   "strict pass": false
+  }
+ },
+ "Book B (+ negative funding)": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   1.289,
+   1.415,
+   1.463
+  ],
+  "by year": {
+   "2020": 2.33,
+   "2021": 2.05,
+   "2022": -0.02,
+   "2023": 2.02,
+   "2024": 1.1,
+   "2025": 1.6,
+   "2026": 1.28
+  },
+  "max drawdown at 15% vol": -0.155,
+  "corr v8.6 2022-26": 0.182,
+  "separate accounts v8.6 + 1.0 x book (backtest) 2022-26 / 2022 / TEST / HOLD": [
+   2.64,
+   0.778,
+   3.897,
+   3.182
+  ],
+  "separate accounts v8.6 + 0.5 x book (backtest) 2022-26 / 2022 / TEST / HOLD": [
+   2.982,
+   1.106,
+   4.087,
+   3.279
+  ],
+  "planning: v8.6 alone / + 0.5 x book / + 1.0 x book": [
+   1.78,
+   1.716,
+   1.525
+  ],
+  "inside v8.6": {
+   "by multiplier": {
+    "0.25": {
+     "D/T/H": [
+      3.095,
+      1.44,
+      3.966,
+      3.189
+     ],
+     "2022-24": 3.041
+    },
+    "0.5": {
+     "D/T/H": [
+      3.059,
+      1.327,
+      3.945,
+      3.241
+     ],
+     "2022-24": 2.955
+    },
+    "1.0": {
+     "D/T/H": [
+      2.96,
+      1.113,
+      3.876,
+      3.293
+     ],
+     "2022-24": 2.77
+    }
+   },
+   "chosen on 2022-24": 0.25,
+   "strict pass": false
+  }
+ }
+}

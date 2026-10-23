@@ -1,0 +1,47 @@
+{
+ "A intraday momentum": {
+  "sleeve DEV / TEST / HOLD": [
+   -1.68,
+   -4.618,
+   -4.646
+  ],
+  "corr v8.6": 0.034,
+  "corr premium spike": 0.036,
+  "gross": [
+   0.212,
+   0.25,
+   0.384
+  ],
+  "pass": false
+ },
+ "B volume-shock momentum": {
+  "sleeve DEV / TEST / HOLD": [
+   0.103,
+   0.752,
+   0.86
+  ],
+  "corr v8.6": 0.071,
+  "corr premium spike": -0.16,
+  "gross": [
+   0.157,
+   0.845,
+   0.941
+  ],
+  "pass": false
+ },
+ "C daily crash reversal": {
+  "sleeve DEV / TEST / HOLD": [
+   0.143,
+   0.999,
+   1.173
+  ],
+  "corr v8.6": 0.143,
+  "corr premium spike": 0.191,
+  "gross": [
+   0.158,
+   1.035,
+   1.206
+  ],
+  "pass": true
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "generation": "Gen358",
+ "title": "Stress-reversion book: the two candidates (Gen348 A premium spike, Gen357 C daily crash reversal) combined; variant with the near-candidate Gen355 C (negative funding)",
+ "registered": "2026-10-23, before computing any combination",
+ "book": "each sleeve scaled to equal risk by its 2020-24 daily sd, summed, scaled to 15% vol on 2020-24 (no vol targeting); Book A = 2 candidates, Book B = + negative funding",
+ "reports": "Sharpe 2020-22 / 2023-24 / 2025-26, by year, max drawdown, corr with v8.6; v8.6 + book as separate accounts (equal risk and half risk), at backtest and at planning levels (v8.6 1.78; book shifted to 0.8 x its backtest Sharpe... no: book shifted to 60% of its own backtest Sharpe as its planning level)",
+ "also": "the book as an 11th / 10th sleeve inside v8.6 with the weight multiplier chosen on 2022-24 from {0.25, 0.5, 1.0} (strict rule, as Gen348d)",
+ "trials_added": 2
+}

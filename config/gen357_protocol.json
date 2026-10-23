@@ -1,0 +1,13 @@
+{
+ "generation": "Gen357",
+ "title": "Intraday momentum, volume-shock momentum, daily crash reversal (3 trials)",
+ "registered": "2026-10-23, before any Gen357 number",
+ "trials": {
+  "A intraday momentum (Wen et al. 2022)": "BTC and ETH: sign of the 00:00-01:00 UTC bar's return -> position 0.5 x sign held during the 23:00-24:00 UTC bar of the same day",
+  "B volume-shock momentum": "60 coins, daily: quote volume z vs its own 90 days (lagged) > 3 -> position 0.1 x sign(that day's return) for the next 3 days (at most 8 open)",
+  "C daily crash reversal": "60 coins, daily: a day's return below -3 x the coin's 90-day daily sd (lagged) -> long 0.1 for the next 3 days (at most 8 open)"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "DEV (2020-22) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr premium-spike sleeve| <= 0.5",
+ "trials_added": 3
+}
