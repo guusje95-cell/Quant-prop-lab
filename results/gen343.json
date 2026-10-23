@@ -1,0 +1,49 @@
+{
+ "A dollar timing": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.131,
+   0.564,
+   -0.018
+  ],
+  "corr v8.6 2022-26": 0.237,
+  "share of days invested": 0.52,
+  "orthogonal candidate": false
+ },
+ "B rates timing": {
+  "sleeve DEV / TEST / HOLD": [
+   1.276,
+   1.076,
+   -0.429
+  ],
+  "corr v8.6 2022-26": 0.163,
+  "share of days invested": 0.46,
+  "orthogonal candidate": false
+ },
+ "C macro agreement": {
+  "sleeve DEV / TEST / HOLD": [
+   0.376,
+   0.715,
+   -0.689
+  ],
+  "corr v8.6 2022-26": 0.111,
+  "share of days invested": 0.31,
+  "orthogonal candidate": false
+ },
+ "D ETH/BTC relative trend": {
+  "sleeve DEV / TEST / HOLD": [
+   0.389,
+   -0.781,
+   1.708
+  ],
+  "corr v8.6 2022-26": 0.046,
+  "share of days invested": 0.98,
+  "orthogonal candidate": false
+ },
+ "reference: buy and hold BTC/ETH": {
+  "DEV / TEST / HOLD": [
+   0.821,
+   1.454,
+   0.045
+  ]
+ }
+}

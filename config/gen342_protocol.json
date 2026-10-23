@@ -1,0 +1,11 @@
+{
+ "generation": "Gen342",
+ "title": "Orthogonal crypto book: catalogue of every earlier crypto sleeve with FROZEN definitions, selected on 2020-24 only, judged once on 2025-26",
+ "registered": "2026-10-23, before computing the catalogue's correlations or any combined number",
+ "catalogue (frozen definitions, rebuilt from their scripts)": ["Gen249 A USDT premium", "Gen249 B ETH-BTC premium spread", "Gen202 VM vol-managed long", "Gen202 BCX big-move continuation", "Gen202 R1X dip ensemble", "Gen187 oil timing", "Gen171 CC1 FOMC weeks", "Gen171 CC2 calendar union", "Gen312 kimchi BTC/ETH", "Gen120 D1 put-skew contrarian", "Gen120 D2 call-minus-put flow", "Gen279 A Bitfinex long change", "Gen279 B Bitfinex long/short ratio", "Gen265 A Google attention momentum", "Gen261 A Upbit attention share XS", "Gen261 B spot dominance XS", "Gen274 A trade size XS", "Gen274 B altcoin OI share rotation", "Gen334 A funding-change XS", "Gen334 B low-beta XS", "Gen334 C late-UTC seasonality", "Gen341 A funding-settlement pressure", "Gen341 B residual reversal", "Gen341 C pump reversal"],
+ "selection (uses only data to 2024-12-31)": "sleeve Sharpe DEV (start..2022) > 0 AND TEST (2023-24) >= 0.5 AND |daily correlation with the v8.6 portfolio 2022-24| <= 0.25",
+ "book": "selected sleeves, each scaled to equal risk by its 2020-24 daily sd, summed, then scaled to 15% vol on 2020-24 (no vol targeting)",
+ "judge (2025-01..2026-09, once)": "book Sharpe >= 0.8 AND |correlation with v8.6| <= 0.25 -> 'orthogonal book found'; also reported: v8.6 + book (equal risk) at both levels",
+ "honesty": "every catalogue sleeve was evaluated on 2025-26 before (as an addition to the books); the selection rule and the combination are new and use only pre-2025 data, but this is not a clean out-of-sample test: a found book still needs the paper run",
+ "trials_added": 1
+}

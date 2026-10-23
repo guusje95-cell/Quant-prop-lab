@@ -1,0 +1,14 @@
+{
+ "generation": "Gen345",
+ "title": "Orthogonal crypto sleeves, round 4: mechanical flows (4 trials)",
+ "registered": "2026-10-23, before any Gen345 number",
+ "trials": {
+  "A stablecoin mint shock": "USDT+USDC market cap (Coin Metrics, used with the 2-day publication lag as C*): daily growth > +0.5% -> long BTC and ETH 0.5 each for the next 3 days (data to 2026-05-23 in the research file; flat after)",
+  "B leverage crowding": "BTC and ETH separately: 7-day open-interest value change > +15% AND 7-day mean funding > 0.03% per 8 h -> short that coin 0.5 for the next 3 days",
+  "C weekend reversal XS": "60 coins: weekend return (Fri 00:00 -> Mon 00:00 UTC) ranked; long the losing third / short the winning third with inverse-vol legs, held Monday to Thursday",
+  "D US-open seasonality": "short BTC and ETH 0.5 each during the 13:00 and 14:00 UTC bars on US weekdays"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "orthogonal candidate: sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5 and |daily corr with v8.6 2022-26| <= 0.2",
+ "trials_added": 4
+}

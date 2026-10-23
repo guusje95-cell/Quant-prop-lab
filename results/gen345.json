@@ -1,0 +1,38 @@
+{
+ "A stablecoin mint shock": {
+  "sleeve DEV / TEST / HOLD": [
+   0.889,
+   1.777,
+   0.383
+  ],
+  "corr v8.6 2022-26": 0.194,
+  "orthogonal candidate": false
+ },
+ "B leverage crowding": {
+  "sleeve DEV / TEST / HOLD": [
+   NaN,
+   1.213,
+   NaN
+  ],
+  "corr v8.6 2022-26": -0.111,
+  "orthogonal candidate": false
+ },
+ "C weekend reversal XS": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.699,
+   -0.679,
+   -0.105
+  ],
+  "corr v8.6 2022-26": -0.082,
+  "orthogonal candidate": false
+ },
+ "D US-open seasonality": {
+  "sleeve DEV / TEST / HOLD": [
+   -1.681,
+   -0.534,
+   -0.431
+  ],
+  "corr v8.6 2022-26": -0.119,
+  "orthogonal candidate": false
+ }
+}

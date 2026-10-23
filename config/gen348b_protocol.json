@@ -1,0 +1,17 @@
+{
+ "generation": "Gen348b",
+ "title": "Robustness of Gen348 A (premium-spike reversion) - descriptive checks registered after Gen348, before running them; no new trial counted for adoption, the sleeve is only a candidate",
+ "registered": "2026-10-23",
+ "checks": {
+  "1 Bybit costs": "taker 5.5 bp + half the measured Bybit spread per coin (Gen327), Bybit funding",
+  "2 maker execution": "entries and exits as limit orders at the previous close, filled on a 2 bp trade-through (2 bp maker fee), else market at the hour's close one hour late with Bybit taker cost (Gen337 rule)",
+  "3 sides": "only the shorts after positive spikes / only the longs after negative spikes",
+  "4 neighbourhood": "z threshold {2.5, 3, 3.5} x hold {2, 4, 6} h (luck audit as Gen335)",
+  "5 OKX prices": "the same positions valued with OKX hourly closes (57 coins)",
+  "6 by year": "net Sharpe per calendar year",
+  "7 activity": "events per year, average gross exposure"
+ },
+ "candidate rule": "the sleeve stays a candidate only if 1 AND (2 or a maker-only design) keep every period >= 0.3, the neighbourhood median keeps every period > 0, and OKX reproduces the sign in every period",
+ "follow-up Gen348c (registered before running)": "the registered Gen348 A sleeve (both sides, z 3, hold 4 h) added to v8.6 as a 10th sleeve, strict rule (every period not lower, +0.05) -> v8.7 candidate if it passes",
+ "follow-up Gen348d (registered before running)": "weight of the Gen348 A sleeve inside v8.6: its equal-risk weight x {0.25, 0.5, 0.75} (the v5_weights equal risk scaled down for this sleeve only), chosen by the 2022-24 Sharpe, then judged on 2025-26: adopt as v8.7 candidate if 2025-26 is not lower than v8.6 and 2022-26 is +0.05 with no period lower; also reported: separate-book mixes"
+}

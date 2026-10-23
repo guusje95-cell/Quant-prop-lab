@@ -1,0 +1,13 @@
+{
+ "generation": "Gen344",
+ "title": "Orthogonal crypto sleeves, round 3: cross-sectional size, MAX (lottery) and illiquidity factors on the 60-coin universe (3 trials)",
+ "registered": "2026-10-23, before any Gen344 number",
+ "construction": "as the wide carry: listed >= 60 days, long top third / short bottom third of the score, inverse-vol legs, 7-day hold in 7 tranches, 5 bp + funding (premium_carry_breadth accounting)",
+ "trials": {
+  "A size (Liu, Tsyvinski and Wu 2022)": "score = -log(30-day mean daily quote volume): long the smallest third, short the largest",
+  "B MAX (lottery; Li et al. 2021)": "score = -(maximum daily return over the last 30 days): long low-MAX, short high-MAX",
+  "C illiquidity (Amihud)": "score = 30-day mean of |daily return| / daily quote volume: long the most illiquid third, short the most liquid"
+ },
+ "bars": "orthogonal candidate: sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5, |daily corr with v8.6 2022-26| <= 0.2; also reported: v8.6 with the sleeve (strict rule)",
+ "trials_added": 3
+}

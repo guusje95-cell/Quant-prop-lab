@@ -1295,3 +1295,35 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
 - **All fail clearly.** The short-horizon effects are either absent or eaten by costs; pumps keep going rather than reverting.
 - With Gen334 (funding change, low beta, seasonality), Gen319 (XS momentum / reversal) and Gen261 / Gen274 (attention, trade size, OI), the crypto ideas left in our Binance data either correlate with v8.6 or lose money.
 - **No orthogonal crypto sleeve found.**
+
+## Gen342-348 (2026-10-23): search for a crypto edge UNCORRELATED with v8.6 (22 trials incl. Gen341)
+Bar for every trial (pre-registered): sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5 and |daily corr with v8.6| <= 0.2.
+
+**Failed rounds:**
+- **Gen342, catalogue of 24 earlier crypto sleeves, selected on 2020-24 only:**
+  - Selected: USDT premium, kimchi BTC/ETH, Google attention, spot dominance, R1X dip, FOMC weeks, options flow D2.
+  - Orthogonal book 1.03 / 2.72 / **0.76**, corr 0.38 / 0.23. Just misses (HOLD < 0.8).
+- **Gen343, macro timing:** dollar -0.13 / 0.56 / -0.02; rates 1.28 / 1.08 / -0.43; both -0.69 in HOLD; ETH/BTC trend 0.39 / -0.78 / 1.71. Fails. BTC buy-and-hold had HOLD 0.05, so directional timing has little to work with in 2025-26.
+- **Gen344, factors:** size 1.69 / 0.27 / -1.57; MAX -0.91 / -0.69 / 0.11; illiquidity 1.89 / 0.40 / -1.29. The classic crypto factors have decayed.
+- **Gen345, mechanical flows:** stablecoin mint shock **0.89 / 1.78 / 0.38** (corr 0.19, near-miss); leverage crowding too few events; weekend reversal -0.70 / -0.68 / -0.11; US-open seasonality -1.68 / -0.53 / -0.43.
+- **Gen346, hourly flows:** Coinbase hourly premium **1.45 / 0.62 / 0.26** (corr 0.11, near-miss); Upbit volume spikes -0.82 / -0.92 / -0.75; spot taker imbalance -1.38 / -2.57 / -4.06.
+- **Gen347, taker-flow reversal on independent data:** perps -2.20 / -4.57 / -5.30; spot -3.52 / -5.53 / -6.20. Both directions lose: it was trading cost (10x turnover a day), not signal.
+
+**Gen348 A, premium-spike reversion: PASSES the bar** (60 coins; hourly perp premium z vs 720 h > 3 -> short 0.1 for 4 h, < -3 -> long 0.1 for 4 h).
+- Result: **1.11 / 0.80 / 1.02, corr v8.6 0.09**; gross 1.54 / 1.61 / 1.82.
+- **Robustness (Gen348b, registered before running):**
+  - Bybit costs + funding: 0.91 / 0.41 / 0.61.
+  - Limit orders (96% filled): 0.97 / 0.68 / 0.70.
+  - OKX prices: 0.64 / 0.69 / 0.73.
+  - Neighbourhood median (z 2.5-3.5 x hold 2-6 h): 1.11 / 0.66 / 0.87.
+  - **Every calendar year 2020-2026 positive** (3.44, 1.27, 0.33, 0.67, 0.92, 1.13, 0.89).
+  - About 3,800 entries a year, mean gross exposure 0.22.
+  - **Weak spots:** costs x2 -> 0.69 / -0.01 / 0.21; execution one hour late -> 0.05 / -0.01 / 0.66. The bot must act within minutes after the hour, with limit orders.
+  - Sides: the longs after negative spikes carry it (1.33 / 1.70 / 0.86); the shorts lose (-0.79 / -0.66 / 0.66).
+- **Long-only version (Gen348e, FLAGGED post hoc):** Bybit costs 1.21 / 1.39 / 0.46, corr v8.6 0.18 (with delev bounce 0.36). Positive every year, but more correlated: kept as information only.
+- **Inside v8.6 (Gen348c / d):**
+  - Equal risk: 3.055 [1.325, 3.921, 3.294]. Fails (2022 / TEST lower).
+  - Weight chosen on 2022-24 (x0.25): 3.115 [1.494, 3.988, 3.173]. Fails (+0.005, 2022 lower).
+  - The backtest Sharpe of v8.6 (3.1) is so high that a 1.0 sleeve barely adds. At planning levels (v8.6 1.78), an uncorrelated 0.7-0.9 sleeve would add about +0.1-0.2.
+- **Status: orthogonal candidate (not adopted).** Next step: paper-trade it as its own small book next to v86.
+- Planning Sharpe after costs about 0.6-0.8 (backtest 0.9-1.0 minus the 22-trial search).

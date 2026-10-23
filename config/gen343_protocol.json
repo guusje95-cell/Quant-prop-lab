@@ -1,0 +1,14 @@
+{
+ "generation": "Gen343",
+ "title": "Orthogonal crypto sleeves, round 2: macro timing of BTC/ETH and ETH/BTC relative trend (4 trials)",
+ "registered": "2026-10-23, before any Gen343 number",
+ "trials": {
+  "A dollar timing": "USD index proxy = mean daily log change of USDJPY, USDCAD, USDCHF, 1/EURUSD, 1/GBPUSD, 1/AUDUSD (Dukascopy, day = UTC); if its 21-day change < 0 (dollar weakening) -> long BTC and ETH 0.5 each the next day, else flat",
+  "B rates timing": "CME 10-year note (ZN) 21-day return > 0 (yields falling) -> long BTC and ETH 0.5 each the next day (signal from the last completed US session), else flat",
+  "C macro agreement": "long BTC/ETH 0.5 only on days where A and B both signal",
+  "D ETH/BTC relative trend": "ETH/BTC ratio above its 50-day mean -> long ETH 0.5 / short BTC 0.5, below -> the reverse; daily"
+ },
+ "costs": "5 bp per side + funding (perps)",
+ "bars": "orthogonal candidate: sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5 and |daily correlation with v8.6 2022-26| <= 0.2",
+ "trials_added": 4
+}

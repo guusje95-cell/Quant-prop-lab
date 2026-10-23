@@ -1,0 +1,10 @@
+{
+ "generation": "Gen347",
+ "title": "Replication of the taker-flow REVERSAL hinted by Gen346 C, on independent data (BTC and ETH, the discovery coins, are excluded)",
+ "registered": "2026-10-23, after seeing Gen346 C (following BTC/ETH SPOT taker imbalance lost in every period); before any Gen347 number",
+ "rule (same parameters as Gen346 C, sign reversed)": "hourly taker-buy share of volume, z vs its trailing 720 h (lagged one bar); z > 2 -> SHORT the coin's perp for the next 3 h, z < -2 -> LONG; position 0.1 per coin; 5 bp per side + funding",
+ "R1": "PERP taker flow (Binance USD-M klines) of the 58 universe coins other than BTC and ETH",
+ "R2": "SPOT taker flow (Binance spot hourly) of the 18 pack coins other than BTC and ETH, traded on their perps",
+ "bars": "both R1 and R2: DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5, |daily corr with v8.6 2022-26| <= 0.2 -> orthogonal edge found; then stress: costs x2 and execution one hour later",
+ "trials_added": 2
+}

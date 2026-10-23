@@ -1,0 +1,13 @@
+{
+ "generation": "Gen346",
+ "title": "Orthogonal crypto sleeves, round 5: HOURLY versions of flow signals that work daily (3 trials)",
+ "registered": "2026-10-23, before any Gen346 number",
+ "timing": "a signal from the hour bar t (stamped at its open, known at t+1h) sets the position for bars t+1 .. t+k; perp returns, 5 bp per side + funding",
+ "trials": {
+  "A Coinbase hourly premium": "BTC and ETH: premium = Coinbase USD close / Binance spot USDT close - 1; z vs its trailing 720 h (lagged one bar); z > 2 -> long 0.5 for 4 h, z < -2 -> short 0.5 for 4 h",
+  "B Upbit volume spike": "coins with Upbit KRW data and in the 60-coin universe: Upbit hourly volume > 5 x its trailing 168 h median (lagged) AND the Upbit hourly return > 0 -> long 0.1 on the Binance perp for 6 h, at most 5 open",
+  "C spot taker imbalance": "BTC and ETH: Binance spot taker-buy share of volume in the hour; z vs 720 h (lagged) > 2 -> long 0.5 for 3 h, < -2 -> short 0.5 for 3 h"
+ },
+ "bars": "orthogonal candidate: sleeve DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5 and |daily corr with v8.6 2022-26| <= 0.2",
+ "trials_added": 3
+}

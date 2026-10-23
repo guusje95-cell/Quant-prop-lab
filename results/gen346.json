@@ -1,0 +1,30 @@
+{
+ "B Upbit spike events": 47062,
+ "A Coinbase hourly premium": {
+  "sleeve DEV / TEST / HOLD": [
+   1.45,
+   0.624,
+   0.261
+  ],
+  "corr v8.6 2022-26": 0.11,
+  "orthogonal candidate": false
+ },
+ "B Upbit volume spike": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.816,
+   -0.917,
+   -0.75
+  ],
+  "corr v8.6 2022-26": 0.235,
+  "orthogonal candidate": false
+ },
+ "C spot taker imbalance": {
+  "sleeve DEV / TEST / HOLD": [
+   -1.379,
+   -2.571,
+   -4.057
+  ],
+  "corr v8.6 2022-26": 0.002,
+  "orthogonal candidate": false
+ }
+}

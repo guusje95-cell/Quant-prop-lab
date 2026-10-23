@@ -1,0 +1,51 @@
+{
+ "B events": 32,
+ "A premium-spike reversion": {
+  "sleeve DEV / TEST / HOLD": [
+   1.113,
+   0.803,
+   1.021
+  ],
+  "corr v8.6 2022-26": 0.093,
+  "pass": true,
+  "stress costs x2": [
+   0.687,
+   -0.01,
+   0.21
+  ],
+  "stress one hour later": [
+   0.047,
+   -0.006,
+   0.662
+  ],
+  "gross (no costs)": [
+   1.535,
+   1.608,
+   1.82
+  ]
+ },
+ "B short-squeeze fade": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.396,
+   -0.988,
+   -0.813
+  ],
+  "corr v8.6 2022-26": -0.023,
+  "pass": false,
+  "stress costs x2": [
+   -0.405,
+   -1.081,
+   -0.82
+  ],
+  "stress one hour later": [
+   -0.416,
+   -0.451,
+   -0.845
+  ],
+  "gross (no costs)": [
+   -0.387,
+   -0.893,
+   -0.806
+  ]
+ }
+}

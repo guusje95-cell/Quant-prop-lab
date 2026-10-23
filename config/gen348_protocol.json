@@ -1,0 +1,12 @@
+{
+ "generation": "Gen348",
+ "title": "Orthogonal crypto sleeves, round 6: rare hourly events (2 trials)",
+ "registered": "2026-10-23, before any Gen348 number",
+ "trials": {
+  "A premium-spike reversion": "60 coins, hourly perp premium index (close); z vs its trailing 720 h (lagged) > 3 -> short the perp 0.1 for the next 4 h; z < -3 -> long 0.1 for 4 h",
+  "B short-squeeze fade (mirror of the cascade sleeve)": "20 pack coins: hourly return > +3 x trailing 720 h sd AND open interest down > 5% in the hour AND volume above its trailing 720 h 95th percentile (all lagged as the cascade) -> short 0.2 from the close for 12 h, at most 3 open"
+ },
+ "costs": "5 bp per side + funding",
+ "bars": "orthogonal candidate: DEV (2020-22) > 0, TEST (2023-24) >= 0.8, HOLD (2025-26) >= 0.5, |daily corr with v8.6 2022-26| <= 0.2; then stress (costs x2, one hour later)",
+ "trials_added": 2
+}

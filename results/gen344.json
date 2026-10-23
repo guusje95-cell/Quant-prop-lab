@@ -1,0 +1,59 @@
+{
+ "reference v8.6": [
+  3.11,
+  1.542,
+  3.968,
+  3.111
+ ],
+ "A size": {
+  "sleeve DEV / TEST / HOLD": [
+   1.685,
+   0.27,
+   -1.569
+  ],
+  "corr v8.6": -0.009,
+  "corr carry 60": -0.035,
+  "orthogonal candidate": false,
+  "v8.6 with it": [
+   2.88,
+   1.506,
+   3.817,
+   2.612
+  ],
+  "strict pass": false
+ },
+ "B MAX": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.912,
+   -0.69,
+   0.109
+  ],
+  "corr v8.6": -0.216,
+  "corr carry 60": 0.08,
+  "orthogonal candidate": false,
+  "v8.6 with it": [
+   3.149,
+   1.69,
+   3.933,
+   3.104
+  ],
+  "strict pass": false
+ },
+ "C illiquidity": {
+  "sleeve DEV / TEST / HOLD": [
+   1.894,
+   0.404,
+   -1.292
+  ],
+  "corr v8.6": 0.047,
+  "corr carry 60": -0.081,
+  "orthogonal candidate": false,
+  "v8.6 with it": [
+   2.836,
+   1.357,
+   3.793,
+   2.628
+  ],
+  "strict pass": false
+ }
+}

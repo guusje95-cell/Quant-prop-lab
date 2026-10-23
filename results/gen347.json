@@ -1,0 +1,43 @@
+{
+ "R1 perp flow, 58 coins": {
+  "sleeve DEV / TEST / HOLD": [
+   -2.197,
+   -4.568,
+   -5.296
+  ],
+  "corr v8.6 2022-26": -0.015,
+  "daily turnover (x unit)": 10.55,
+  "pass": false,
+  "stress costs x2": [
+   -5.273,
+   -11.357,
+   -11.026
+  ],
+  "stress one hour later": [
+   -3.607,
+   -6.396,
+   -5.745
+  ]
+ },
+ "R2 spot flow, 18 coins": {
+  "sleeve DEV / TEST / HOLD": [
+   -3.52,
+   -5.525,
+   -6.198
+  ],
+  "corr v8.6 2022-26": -0.069,
+  "daily turnover (x unit)": 3.62,
+  "pass": false,
+  "stress costs x2": [
+   -6.774,
+   -10.949,
+   -11.932
+  ],
+  "stress one hour later": [
+   -4.547,
+   -5.457,
+   -5.636
+  ]
+ },
+ "FOUND (both pass)": false
+}
