@@ -1093,3 +1093,10 @@ Details are in `research/GEN124_126_INTRADAY_FUTURES.md`.
 - **Gen309 (as registered, vs v8.4 / bf2.3): options skew, put/call ratio, taker call flow in the ridge:** ridge sleeve 0.22 / 2.06 / 1.73 (TEST and HOLD up, 2021-22 down); v8.4 -> 2.672 (2022 1.09), bf2.3 -> 2.461. **Both fail.**
 - **Gen309b (vs v8.6 / bf2.6):** v8.6 -> 3.056 [1.32, 3.90, 3.18]; bf2.6 -> 2.786. **Both fail** (2022 and TEST lower; the options information mostly duplicates the VRP feature).
 - Nothing adopted; the books stay v8.6 / bf2.6. The paper traders are unchanged.
+
+## Gen327 (2026-10-23): Bybit reality check of v8.6 (descriptive; user download `get_bybit_check.bat`)
+- **All 60 coins trade as USDT perpetuals on Bybit** (min order $5; max leverage 25-150x). Median spread 2.3 bp (max 11 bp, ENJ).
+- On the Gen323 net-position model: baseline 3.158 -> **Bybit funding 3.104** -> **+ Bybit costs (5.5 bp taker + half spread) 3.038** -> **+ $1,000 band 3.027 [1.51, 3.89, 2.99]**, 22 orders a day.
+- Protocol decision: the fallback (v8.4 + tranching, without the wide carry) is 2.786 even before any Bybit penalty, so **v8.6 stays** for HyroTrader.
+- **Thin order books:** 42 of 60 coins show less than $500 at the best bid / ask (top level only). Stress, descriptive: +10 bp impact per side on those coins 2.896; +25 bp 2.699. **Execution requirement: rebalance the daily / carry sleeves with passive limit (maker) orders spread over the first hours of the day** (carry is weekly and tranched, so a few hours of delay costs little); market orders only for the trend / Weiss / stop exits.
+- Planning numbers for HyroTrader are now based on about 3.0 (backtest) instead of 3.11.

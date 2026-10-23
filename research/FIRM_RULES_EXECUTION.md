@@ -118,3 +118,10 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
     The prop simulations already count these as failures (to_daily_stop keeps the hourly path's worst point).
   - **Bot requirement:** monitor equity continuously (every minute, not every hour) and flatten at the 2.5% daily stop; that
     catches most of these hours midway. A crash within minutes can still pass the limit: that is the residual risk of risk 2.0.
+
+## 8. Bybit reality check (Gen327, 2026-10-23)
+- All 60 v8.6 coins trade on Bybit (min order $5). Bybit funding + taker 5.5 bp + half spread + $1,000 band: 3.027 instead of 3.158.
+- Thin books (42 of 60 coins under $500 at the best price): the bot must place the daily / carry rebalances as **post-only limit
+  orders** (Bybit maker fee 0.02%), re-quoted for a few hours, and only cross the spread at the end of the window; trend, Weiss and
+  the daily stop use market orders. A deeper order-book measurement (50 levels, cost of a $2k / $5k order) can be added to
+  get_bybit_check.bat before the bot is built.

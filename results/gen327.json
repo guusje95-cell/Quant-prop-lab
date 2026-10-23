@@ -1,0 +1,74 @@
+{
+ "Bybit data": true,
+ "coins not on Bybit": [],
+ "Bybit funding history starts (median)": "2021-10-12 07:00:00",
+ "mean annual funding Binance vs Bybit (sum over coins, %)": [
+  2.28,
+  3.47
+ ],
+ "median cost per side bp (Bybit)": 6.66,
+ "A Gen323 baseline": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "B only Bybit-listed coins": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "C + Bybit funding": {
+  "sharpe D/T/H": [
+   3.104,
+   1.553,
+   3.961,
+   3.095
+  ],
+  "orders per day": 62.6
+ },
+ "D + Bybit costs (5.5 bp + half spread)": {
+  "sharpe D/T/H": [
+   3.038,
+   1.501,
+   3.897,
+   3.019
+  ],
+  "orders per day": 62.6
+ },
+ "E = D with the $1,000 band": {
+  "sharpe D/T/H": [
+   3.027,
+   1.514,
+   3.891,
+   2.988
+  ],
+  "orders per day": 21.6
+ },
+ "coins with top-of-book depth < $500": 42,
+ "F = E with +10 bp impact per side on the thin-book coins": {
+  "sharpe D/T/H": [
+   2.896,
+   1.41,
+   3.764,
+   2.834
+  ],
+  "orders per day": 21.6
+ },
+ "F = E with +25 bp impact per side on the thin-book coins": {
+  "sharpe D/T/H": [
+   2.699,
+   1.255,
+   3.574,
+   2.603
+  ],
+  "orders per day": 21.6
+ }
+}

@@ -58,4 +58,11 @@ for nm, args in (("A Gen323 baseline", (net, fund, flat)), ("B only Bybit-listed
                  ("C + Bybit funding", (tgtB, fund_by, flat)), ("D + Bybit costs (5.5 bp + half spread)", (tgtB, fund_by, cost)),
                  ("E = D with the $1,000 band", (tgtB, fund_by, cost, 1000.0))):
     out[nm] = sim(*args); print(nm, out[nm], flush=True)
+if HAVE:                                                                       # descriptive stress (added after the first run):
+    Dp = pd.read_csv(BY / "spreads.csv").set_index("symbol")["top_depth_usd_median"]   # thin books -> extra impact for $1-5k orders
+    thin = [c for c in U if c in listed and float(Dp.get(sym.get(c, ""), 0)) < 500]
+    out["coins with top-of-book depth < $500"] = len(thin)
+    for extra in (10.0, 25.0):
+        cst = cost.copy(); cst[thin] = cst[thin] + extra
+        nm = f"F = E with +{extra:.0f} bp impact per side on the thin-book coins"; out[nm] = sim(tgtB, fund_by, cst, 1000.0); print(nm, out[nm], flush=True)
 json.dump(out, open(ROOT / ("results/gen327.json" if HAVE else "results/gen327_codecheck.json"), "w"), indent=1, default=str)
