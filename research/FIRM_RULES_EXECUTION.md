@@ -194,3 +194,4 @@ Risk per firm is the only setting changed: at a 3% daily limit the daily stop mo
 - **The bot must trade within the hour:** 1 hour late costs 0.18 Sharpe.
 - **OKX prices reproduce the backtest exactly**, so any venue with normal perp prices (Bybit, OKX-like, Hyperliquid) is fine. The coin list and costs decide, not the venue.
 - **Propr / Hyperliquid:** run `get_hyperliquid_check.bat` (public data, no wallet) to get the real coin list, leverage, funding and spreads. 60 coins -> 3.11; 51 coins -> 2.87.
+- **Order type (Gen337b):** each hourly trade is first posted as a limit order at the previous hour's close for 15 minutes, then sent as a market order. This gives about +0.04 Sharpe over always using market orders; measure the real fill rate in the first live weeks.
