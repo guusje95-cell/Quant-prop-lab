@@ -1,0 +1,98 @@
+{
+ "H1 all 60, altcoin cap 2x": {
+  "sharpe D/T/H": [
+   3.113,
+   1.574,
+   3.99,
+   3.098
+  ],
+  "hours the cap binds at risk 1.5": 0.0934,
+  "annual return 15%-vol units": 0.458,
+  "Propr 2 x $100k, 2025-26, realistic": {
+   "net": 137186,
+   "p10": 60483,
+   "P_profit": 1.0,
+   "days_to_funded": 116.5
+  },
+  "Propr 2 x $100k, 2025-26, planning": {
+   "net": 52802,
+   "p10": 3051,
+   "P_profit": 0.917,
+   "days_to_funded": 168.5
+  }
+ },
+ "H1 all 60, altcoin cap 3x": {
+  "sharpe D/T/H": [
+   3.13,
+   1.574,
+   4.0,
+   3.113
+  ],
+  "hours the cap binds at risk 1.5": 0.0,
+  "annual return 15%-vol units": 0.47
+ },
+ "H2 51 coins, altcoin cap 2x": {
+  "sharpe D/T/H": [
+   2.873,
+   1.429,
+   3.895,
+   2.712
+  ],
+  "hours the cap binds at risk 1.5": 0.0552,
+  "annual return 15%-vol units": 0.438,
+  "Propr 2 x $100k, 2025-26, realistic": {
+   "net": 96517,
+   "p10": 29459,
+   "P_profit": 0.993,
+   "days_to_funded": 126.0
+  },
+  "Propr 2 x $100k, 2025-26, planning": {
+   "net": 32808,
+   "p10": -5992,
+   "P_profit": 0.795,
+   "days_to_funded": 203.0
+  }
+ },
+ "H2 51 coins, altcoin cap 3x": {
+  "sharpe D/T/H": [
+   2.88,
+   1.429,
+   3.903,
+   2.715
+  ],
+  "hours the cap binds at risk 1.5": 0.0,
+  "annual return 15%-vol units": 0.444
+ },
+ "H3 core 20, altcoin cap 2x": {
+  "sharpe D/T/H": [
+   2.588,
+   0.93,
+   3.845,
+   2.288
+  ],
+  "hours the cap binds at risk 1.5": 0.0,
+  "annual return 15%-vol units": 0.417,
+  "Propr 2 x $100k, 2025-26, realistic": {
+   "net": 68940,
+   "p10": 8038,
+   "P_profit": 0.955,
+   "days_to_funded": 139.0
+  },
+  "Propr 2 x $100k, 2025-26, planning": {
+   "net": 18493,
+   "p10": -7490,
+   "P_profit": 0.675,
+   "days_to_funded": 212.0
+  }
+ },
+ "H3 core 20, altcoin cap 3x": {
+  "sharpe D/T/H": [
+   2.588,
+   0.93,
+   3.845,
+   2.288
+  ],
+  "hours the cap binds at risk 1.5": 0.0,
+  "annual return 15%-vol units": 0.417
+ }
+}

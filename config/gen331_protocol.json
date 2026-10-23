@@ -1,0 +1,10 @@
+{
+ "generation": "Gen331",
+ "title": "Venue and timing robustness of v8.6 (OKX prices, one-hour execution delay) and the CFD swap cost with MEASURED MT5 swap rates (descriptive validation; no alpha trials)",
+ "registered": "2026-10-23, before any Gen331 number",
+ "A OKX replication": "the v8.6 net positions (Gen323 reconstruction, signals from Binance data) valued with OKX USDT-swap hourly closes (data/raw/okx, 57 of the 60 coins; 1000PEPE / 1000SHIB = PEPE / SHIB; positions in coins without OKX data set to zero in BOTH runs), Binance funding and a flat 5 bp in both runs, event sleeves excluded from both; PASS if the OKX Sharpe 2022-26 >= 90% of the Binance Sharpe on the same coins and hourly P&L correlation >= 0.9",
+ "A2 OKX funding": "recent OKX funding history (API, about 3 months) vs Binance funding on the same coins and hours: mean annualised difference on the v8.6 positions",
+ "B execution delay": "Binance prices, every target executed one hour later (positions lagged 1 h); report the Sharpe loss (a robustness check for late hours / slow bots)",
+ "C measured MT5 swaps": "BrightFunded MT5 export 2026-10-21 (normal, non-swap-free schedule): swap long / short in bp per day per coin, charged on positions held at 00:00 UTC; CFT MT5 route = 0.0325% per side + half the measured BrightFunded spread + measured swaps, no funding, only coins listed in the export; compared with the swap-free variant",
+ "trials_added": 0
+}

@@ -1,0 +1,16 @@
+{
+ "generation": "Gen332",
+ "title": "All firm accounts together: one JOINT bootstrap (same days for every account), total capital, total fees at risk, the all-fail case and the order in which to add firms (descriptive, no alpha trials)",
+ "registered": "2026-10-23, before any Gen332 number",
+ "accounts (settings from Gen330: challenge risk / funded risk / daily stop fraction)": {
+  "1 HyroTrader 2-Step $200k": "v8.6 Bybit P&L, 2.0 / 1.5 / 0.5",
+  "2 CFT 2-Phase $200k (Bybit route)": "v8.6 Bybit P&L, 2.0 / 1.5 / 0.5 (second CFT account not added: Ascend accounts may not copy each other)",
+  "3 BrightFunded 2-Step Classic $200k": "bf2.6 P&L (measured BF costs, swap-free: fee x 1.1), 2.0 / 1.5 / 0.5, trading day from 22:00 UTC",
+  "4 Propr 3 x $100k": "v8.6 Hyperliquid P&L (Gen333 H2 51 coins, altcoin cap 2x), 1.0 / 1.5 / 0.6; copying between own accounts allowed, cap $300k",
+  "5 MyFundedPerps 1 x $100k": "v8.6 Bybit P&L (assumed), 1.0 / 2.0 / 0.4, day from 04:00 UTC; one account (multi-account rules unknown)"
+ },
+ "levels": "realistic (each platform's own Sharpe) and planning (v8.6 series minus 1.25 Sharpe, bf2.6 shifted to its planning Sharpe 1.49)",
+ "method": "2025-01..2026-09 daily results, 2-year horizon, 400 block-bootstrap paths (block 20) drawn ONCE and used for every account, up to 5 challenges per account slot",
+ "outputs": "per account and in total: mean net, p10, p5, P(total < 0), fees spent; P(every account loses money) and the loss then; cumulative stack in the order 1..5 (marginal mean and p10)",
+ "trials_added": 0
+}

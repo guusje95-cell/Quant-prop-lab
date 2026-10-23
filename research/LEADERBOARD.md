@@ -1148,3 +1148,53 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
 
 - **Conclusion: no strategy re-fit per firm.** At the static 10% firms, the risk "optimised" on 2022-24 did worse out of sample (planning level: −$17k mean, p10 below zero), so the default stays. Only at firms with tighter rules does the firm-specific setting add money, and there it means lower challenge risk (1.0–1.5).
 - `scripts/paper_firms.py` now uses these settings: HyroTrader and CFT 2.0 / 2.5% stop; Propr $100k 1.0 / 3% stop with a trailing loss that locks at the starting balance; MFP $100k 1.0 / 1.2% stop.
+
+## Gen331-334 (2026-10-23): validation round, Hyperliquid, all firms together, three new sleeves
+
+**Gen331, venue and timing (`results/gen331.json`):**
+- **OKX prices PASS.**
+  - Setup: the same v8.6 net positions on OKX hourly closes (57 coins, 94% of position-hours), event sleeves left out of both runs.
+  - Sharpe 2.597 vs 2.598 on Binance, every period within 0.03; hourly P&L correlation 0.997; annual return 35.3% vs 35.3%.
+  - So the profit does not come from Binance's prices.
+- **OKX funding (2026-07-20..09-30):** the book earns 2.1% a year on OKX vs 3.2% on Binance (15%-vol units). Small.
+- **Execution 1 hour late:** 3.158 -> 2.977 (-0.18). The bot must trade on time; late hours cost real Sharpe.
+- **Measured MT5 swaps (BrightFunded's normal schedule, 42 coins): median -13.4 bp a day on both long and short (-49% a year).**
+  - BTC -5.7% a year; ETH -104% a year.
+  - CFD route: swap-free 2.61 -> with swaps **-1.80**. The swap cost (0.69 a year) exceeds the whole book return (about 0.45).
+  - **A CFD route works ONLY swap-free** (BrightFunded has that add-on; CFT MT5 does not as far as published -> CFT only via its Bybit route).
+
+**Gen333, Hyperliquid for Propr (`results/gen333.json`; coin list not readable from the cloud -> `get_hyperliquid_check.bat`):**
+
+| Scenario | Sharpe | Propr 2 x $100k, 2025-26 (realistic / planning) |
+|---|---|---|
+| All 60 coins | 3.11 | $137k / $53k |
+| 51 coins (the 9 unconfirmed coins removed) | 2.87 | $97k / $33k (P profit 0.80) |
+| Core 20 coins | 2.59 | $69k / $18k |
+
+- Altcoin leverage cap 2x vs 3x hardly matters (0.02).
+- **The Hyperliquid coin list decides Propr.**
+
+**Gen332, all accounts together (`results/gen332.json`; one joint bootstrap 2025-26):**
+- Accounts: HyroTrader $200k + CFT $200k (Bybit) + BrightFunded $200k (bf2.6) + Propr 3 x $100k (51 coins) + MyFundedPerps $100k.
+
+| Account | 2-year net, realistic | 2-year net, planning (p10) |
+|---|---|---|
+| HyroTrader | $173k | $87k ($19k) |
+| CFT | $169k | $86k ($23k) |
+| BrightFunded | $171k | $69k ($17k) |
+| Propr | $145k | $49k (-$9k) |
+| MyFundedPerps | $77k | $35k ($4k) |
+| **Total** | **$735k (p10 $440k)** | **$326k (p10 $89k)** |
+
+- Planning level: P(total < 0) 1.5%; P(every account loses) 0.3% (then about -$29.5k = the fees); fees mean $25k, max $30k.
+- Account outcomes are correlated 0.72-0.78.
+- Stack order by planning p10 added: HyroTrader $19k -> + CFT $46k -> + BrightFunded $77k -> + Propr $78k -> + MFP $89k.
+- **Propr (on 51 coins) adds mean but no safety.**
+
+**Gen334, three new sleeves for v8.6 (strict rule; 3 trials):**
+- **A, funding-change XS:** sleeve 0.15 / -0.84 / 1.70; v8.6 -> 2.788. Fails.
+- **B, low-beta XS (betting against beta, 60 coins):** sleeve 0.32 / -0.65 / 0.86, corr C* -0.19; **v8.6 -> 3.228 [1.749, 3.898, 3.318]**.
+  - 2022 and HOLD up, +0.12, but TEST lower (3.968 -> 3.898) and the sleeve's TEST is negative.
+  - **Fails the strict rule.** Watchlist (second near-miss after Gen315). No variants will be tried: that would be fitting.
+- **C, late-UTC BTC/ETH seasonality (literature):** -1.83 / -1.62 / -2.88. Fails badly (the effect is gone after costs).
+- **No change to v8.6 / bf2.6.**

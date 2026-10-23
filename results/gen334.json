@@ -1,0 +1,64 @@
+{
+ "reference v8.6": [
+  3.11,
+  [
+   1.542,
+   3.968,
+   3.111
+  ]
+ ],
+ "A funding-change XS": {
+  "sleeve D/T/H": [
+   0.15,
+   -0.841,
+   1.703
+  ],
+  "corr C*": -0.038,
+  "v7": [
+   2.788,
+   [
+    1.054,
+    3.375,
+    3.226
+   ]
+  ],
+  "pass": false,
+  "strict": false
+ },
+ "B low-beta XS": {
+  "sleeve D/T/H": [
+   0.318,
+   -0.653,
+   0.864
+  ],
+  "corr C*": -0.194,
+  "v7": [
+   3.228,
+   [
+    1.749,
+    3.898,
+    3.318
+   ]
+  ],
+  "pass": false,
+  "strict": false
+ },
+ "C late-UTC BTC/ETH seasonality": {
+  "sleeve D/T/H": [
+   -1.826,
+   -1.617,
+   -2.884
+  ],
+  "corr C*": 0.186,
+  "v7": [
+   2.202,
+   [
+    0.73,
+    3.246,
+    1.925
+   ]
+  ],
+  "pass": false,
+  "strict": false
+ }
+}

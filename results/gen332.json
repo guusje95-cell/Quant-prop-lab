@@ -1,0 +1,155 @@
+{
+ "platform Sharpe 2022-26": {
+  "v8.6 Bybit": 3.027,
+  "v8.6 Hyperliquid 51": 2.873,
+  "bf2.6 BrightFunded": 2.822
+ },
+ "realistic": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 173097,
+    "p10": 104174,
+    "P_profit": 1.0,
+    "fees mean": 2515
+   },
+   "2 CFT $200k (Bybit)": {
+    "mean": 169093,
+    "p10": 102068,
+    "P_profit": 1.0,
+    "fees mean": 2823
+   },
+   "3 BrightFunded $200k (bf2.6)": {
+    "mean": 170885,
+    "p10": 115379,
+    "P_profit": 1.0,
+    "fees mean": 1759
+   },
+   "4 Propr 3 x $100k": {
+    "mean": 144775,
+    "p10": 44188,
+    "P_profit": 0.993,
+    "fees mean": 8353
+   },
+   "5 MyFundedPerps $100k": {
+    "mean": 77493,
+    "p10": 31744,
+    "P_profit": 1.0,
+    "fees mean": 3113
+   }
+  },
+  "total": {
+   "mean": 735344,
+   "p5": 350261,
+   "p10": 440474,
+   "p50": 719139,
+   "p90": 1059794,
+   "P(total < 0)": 0.0,
+   "fees mean": 18563,
+   "fees max": 29724
+  },
+  "P(every account loses money)": 0.0,
+  "mean total when every account loses": null,
+  "correlation of account outcomes (mean pairwise)": 0.784,
+  "stack (accounts 1..k)": {
+   "HyroTrader": {
+    "mean": 173097,
+    "p10": 104174,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT": {
+    "mean": 342190,
+    "p10": 206040,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT + BrightFunded": {
+    "mean": 513075,
+    "p10": 331010,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT + BrightFunded + Propr": {
+    "mean": 657851,
+    "p10": 397599,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT + BrightFunded + Propr + MyFundedPerps": {
+    "mean": 735344,
+    "p10": 440474,
+    "P_loss": 0.0
+   }
+  }
+ },
+ "planning": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 86790,
+    "p10": 18900,
+    "P_profit": 0.965,
+    "fees mean": 3852
+   },
+   "2 CFT $200k (Bybit)": {
+    "mean": 85812,
+    "p10": 22905,
+    "P_profit": 0.958,
+    "fees mean": 4542
+   },
+   "3 BrightFunded $200k (bf2.6)": {
+    "mean": 69432,
+    "p10": 17382,
+    "P_profit": 0.953,
+    "fees mean": 3493
+   },
+   "4 Propr 3 x $100k": {
+    "mean": 49212,
+    "p10": -8988,
+    "P_profit": 0.795,
+    "fees mean": 9870
+   },
+   "5 MyFundedPerps $100k": {
+    "mean": 34798,
+    "p10": 3909,
+    "P_profit": 0.963,
+    "fees mean": 3292
+   }
+  },
+  "total": {
+   "mean": 326045,
+   "p5": 35183,
+   "p10": 88929,
+   "p50": 304296,
+   "p90": 584519,
+   "P(total < 0)": 0.015,
+   "fees mean": 25049,
+   "fees max": 29724
+  },
+  "P(every account loses money)": 0.003,
+  "mean total when every account loses": -29496,
+  "correlation of account outcomes (mean pairwise)": 0.724,
+  "stack (accounts 1..k)": {
+   "HyroTrader": {
+    "mean": 86790,
+    "p10": 18900,
+    "P_loss": 0.035
+   },
+   "HyroTrader + CFT": {
+    "mean": 172602,
+    "p10": 45967,
+    "P_loss": 0.033
+   },
+   "HyroTrader + CFT + BrightFunded": {
+    "mean": 242034,
+    "p10": 76817,
+    "P_loss": 0.022
+   },
+   "HyroTrader + CFT + BrightFunded + Propr": {
+    "mean": 291246,
+    "p10": 78262,
+    "P_loss": 0.015
+   },
+   "HyroTrader + CFT + BrightFunded + Propr + MyFundedPerps": {
+    "mean": 326045,
+    "p10": 88929,
+    "P_loss": 0.015
+   }
+  }
+ }
+}

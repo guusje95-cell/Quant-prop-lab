@@ -1,0 +1,71 @@
+{
+ "A coins without OKX data": [
+  "EGLD",
+  "HBAR",
+  "RUNE"
+ ],
+ "A share of position-hours with OKX data": 0.9422,
+ "A Binance prices (same cells) Sharpe D/T/H": [
+  2.598,
+  0.449,
+  3.357,
+  2.965
+ ],
+ "A OKX prices Sharpe D/T/H": [
+  2.597,
+  0.48,
+  3.348,
+  2.958
+ ],
+ "A hourly P&L correlation": 0.9974,
+ "A daily P&L correlation": 0.9992,
+ "A annual return (15%-vol units) Binance vs OKX": [
+  0.3531,
+  0.3529
+ ],
+ "A PASS": true,
+ "A2 OKX funding window": [
+  "2026-07-20 15:00:00",
+  "2026-09-30 23:00:00",
+  57
+ ],
+ "A2 funding paid by the book per year (15%-vol units): Binance vs OKX": [
+  -0.032,
+  -0.0211
+ ],
+ "B Binance, on time Sharpe D/T/H": [
+  3.158,
+  1.577,
+  4.024,
+  3.16
+ ],
+ "B Binance, every target 1 h late Sharpe D/T/H": [
+  2.977,
+  1.528,
+  3.738,
+  3.007
+ ],
+ "C coins with a BrightFunded MT5 CFD": 42,
+ "C swap bp/day on these coins: median long / short": [
+  -13.37,
+  -13.37
+ ],
+ "C swap % per year, long side: BTC / ETH / median": [
+  -5.7,
+  -103.7,
+  -48.8
+ ],
+ "C CFD route, swap-free Sharpe D/T/H": [
+  2.612,
+  1.13,
+  3.773,
+  2.251
+ ],
+ "C CFD route, measured swaps Sharpe D/T/H": [
+  -1.804,
+  -1.741,
+  -1.066,
+  -2.651
+ ],
+ "C swap cost per year (15%-vol units, book return about 0.45)": 0.687
+}

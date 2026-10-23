@@ -4,7 +4,8 @@
    1. `git pull --no-edit`
    2. bf26 index-feed check: `git add -f paper_trading/bf26/data/dukascopy` then `git commit -m "bf26 index feed files"` and `git push`
    3. Run `paper_v86_share.bat` and `paper_bf26_share.bat`; push `research_data/binance_pit` when get_binance_pit.bat is done.
-   4. Ask support (questions in research/FIRM_RULES_EXECUTION.md sections 10-11):
+   4. NEW: double-click `get_hyperliquid_check.bat` (free public data, no wallet/key; 15-30 min), then push research_data/hyperliquid.
+   5. Ask support (questions in research/FIRM_RULES_EXECUTION.md sections 10-11):
       - CFT: NL accepted? Bybit route for NL residents? MT5 crypto swap rates (the deciding number), which of the 60 coins, Ascend vs Break copy rules.
       - Propr: is the NL accepted, and which of the 60 coins with what leverage?
       - HyroTrader: does CLEO get API access, and does the Hyro platform MCP work from the NL?

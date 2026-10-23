@@ -188,3 +188,9 @@ Risk per firm is the only setting changed: at a 3% daily limit the daily stop mo
 - **Hypernova (Hyperliquid):** single step up to $200k; 3–5% daily and 6–8% static by tier; developer API "coming soon"; only self-written bots allowed. Not usable yet.
 - **Bitfunded:** bot policy conflicts between sources. Not considered.
 - **CFD firms (FTMO and others):** about 30 crypto CFDs, leverage about 1:3.3, swaps charged and no swap-free option. Weaker than BrightFunded (swap-free) for bf2.6.
+
+## 12. Consequences of Gen331-333 for the platform choice (2026-10-23)
+- **CFD platforms without swap-free are excluded for v8.6.** Measured normal MT5 crypto swaps are about -49% a year (median), which wipes out the book. CFT therefore only via its Bybit route, unless CFT confirms a swap-free option.
+- **The bot must trade within the hour:** 1 hour late costs 0.18 Sharpe.
+- **OKX prices reproduce the backtest exactly**, so any venue with normal perp prices (Bybit, OKX-like, Hyperliquid) is fine. The coin list and costs decide, not the venue.
+- **Propr / Hyperliquid:** run `get_hyperliquid_check.bat` (public data, no wallet) to get the real coin list, leverage, funding and spreads. 60 coins -> 3.11; 51 coins -> 2.87.

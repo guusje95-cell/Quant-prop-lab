@@ -1,0 +1,14 @@
+{
+ "generation": "Gen333",
+ "title": "Hyperliquid version of v8.6 for Propr (coin list and leverage sensitivity; descriptive, no alpha trials)",
+ "registered": "2026-10-23, before any Gen333 number",
+ "note": "the Hyperliquid API is blocked from the research cloud; the coin list could not be read. Scenarios bracket it until research_data/hyperliquid (get_hyperliquid_check.bat) arrives",
+ "scenarios": {
+  "H1 all 60 coins": "as Gen330",
+  "H2 51 coins": "drop the 9 coins no source confirmed as Hyperliquid perps (ALGO, CHZ, EGLD, ENJ, IOTA, KSM, THETA, XTZ, ZIL); positions in them set to zero, nothing re-weighted",
+  "H3 core 20": "only the 20 original pack coins"
+ },
+ "platform": "4.5 bp taker + half the measured Bybit spread (proxy), Binance funding (proxy), $1,000 band, event sleeves at their backtest P&L; leverage caps 5x BTC/ETH and 2x others (margin <= 90% of equity at the funded risk 1.5; positions scaled down above); sensitivity: altcoin cap 3x",
+ "prop": "Propr Classic 2-Step 2 x $100k (Gen330 rules), challenge / funded risk 1.0 / 1.5, stop 0.6 of the 5% daily limit; realistic and planning (-1.25 Sharpe) levels, 2025-26 bootstrap",
+ "trials_added": 0
+}

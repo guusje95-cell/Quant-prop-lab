@@ -1,0 +1,14 @@
+{
+ "generation": "Gen334",
+ "title": "New sleeves for v8.6 not tested before (3 trials), strict rule",
+ "registered": "2026-10-23, before any Gen334 number",
+ "reference": "v8.6 3.110 [1.542, 3.968, 3.111] (2022-26 / 2022 / 2023-24 / 2025-26)",
+ "trials": {
+  "A funding-change XS": "60-coin universe (as the wide carry), score = -(7-day mean funding today - 7-day mean funding 7 days ago): long the third whose funding FELL most, short the third whose funding ROSE most (crowding unwinds), inverse-vol legs, 7 tranches (as premium carry 60), 5 bp + funding",
+  "B low-beta XS": "60-coin universe, 60-day daily beta to BTC: long the lowest-beta third, short the highest-beta third, inverse-vol legs, 7 tranches, 5 bp + funding (betting-against-beta, Frazzini-Pedersen; not tested in crypto here before)",
+  "C intraday seasonality": "BTC and ETH perps long during the 22:00 and 23:00 UTC hours only (literature: Bitcoin intraday seasonality, strongest returns late in the UTC day), 0.5 each, 5 bp per side, funding"
+ },
+ "rule": "sleeve DEV (2020-21) > 0, TEST >= 0.8, HOLD >= 0.5, corr with C* <= 0.3 (v7lab.judge), AND the strict rule: v8.6 with the sleeve has every period (2022, TEST, HOLD) not lower and the 2022-26 Sharpe at least +0.05 higher",
+ "bf2.6": "a trial is tested in bf2.6 only if it passes in v8.6",
+ "trials_added": 3
+}

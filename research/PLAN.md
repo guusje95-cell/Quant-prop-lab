@@ -23,10 +23,14 @@ Backtest Sharpe 3.11 / 2.83; planning Sharpe (deflated) about 1.8 / 1.5. Rules a
   crypto prop firm (rules to be checked as for HyroTrader) or BrightFunded only.
 
 ## Phase 3 - first account
-- User decides and buys: HyroTrader 2-Step $200k first (stronger book, bot allowed). Challenge risk 2.0, funded risk 1.5.
+- User decides and buys the first v8.6 account at whichever of HyroTrader / CFT (Bybit route) confirms NL access + bot in writing
+  (equal in Gen330/332). Challenge risk 2.0, funded risk 1.5, daily stop 2.5%. No MT5 route without swap-free (Gen331).
 - Expectation (planning, deflated): about $90k over 2 years for this account, bad case about $20k, small chance of a net loss.
 
 ## Phase 4 - scale up
 - After the first payout and live results in line with paper: add BrightFunded (bf2.6). HyroTrader allows ONE account per program
   and prohibits mirror trading across accounts (terms v1.16), so more capital comes from other firms, each checked first. Both books are about the same bet (correlation 0.8): more accounts = more money, not more safety.
+- Order (Gen332, by what each adds to the planning bad case): HyroTrader / CFT -> the other of the two -> BrightFunded (bf2.6)
+  -> MyFundedPerps -> Propr (only if research_data/hyperliquid shows most of the 60 coins). All five: planning mean about $326k
+  over 2 years, p10 about $89k, fees at risk about $25-30k, P(total loss) about 1.5%.
 - Research then: an edge that does NOT move with crypto (not a higher backtest Sharpe).
