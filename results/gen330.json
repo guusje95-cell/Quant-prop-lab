@@ -1,0 +1,341 @@
+{
+ "platform Sharpe D/T/H (2022-26 / 2022 / 2023-24 / 2025-26)": {
+  "Bybit": [
+   3.027,
+   1.514,
+   3.891,
+   2.988
+  ],
+  "CFT CFD all 60, swap 0%": [
+   2.977,
+   1.359,
+   3.9,
+   2.939
+  ],
+  "CFT CFD 35 coins, swap 0%": [
+   2.963,
+   1.533,
+   4.097,
+   2.607
+  ],
+  "CFT CFD all 60, swap 10%": [
+   2.417,
+   0.948,
+   3.322,
+   2.304
+  ],
+  "CFT CFD 35 coins, swap 10%": [
+   2.556,
+   1.225,
+   3.67,
+   2.162
+  ],
+  "CFT CFD all 60, swap 20%": [
+   1.855,
+   0.537,
+   2.742,
+   1.667
+  ],
+  "CFT CFD 35 coins, swap 20%": [
+   2.148,
+   0.917,
+   3.241,
+   1.715
+  ],
+  "Propr Hyperliquid (cap at risk 1.5)": [
+   3.113,
+   1.574,
+   3.99,
+   3.098
+  ]
+ },
+ "Hyperliquid margin use at risk 1.0: median / p99 / share of hours > 90%": [
+  0.38,
+  0.73,
+  0.0
+ ],
+ "Hyperliquid margin use at risk 1.5: median / p99 / share of hours > 90%": [
+  0.57,
+  1.09,
+  0.0934
+ ],
+ "Hyperliquid margin use at risk 2.0: median / p99 / share of hours > 90%": [
+  0.76,
+  1.46,
+  0.2894
+ ],
+ "realistic (platform Sharpe)": {
+  "HyroTrader 2-Step $200k (Bybit)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.5,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 188471,
+    "p10": 77882,
+    "P_profit": 0.977,
+    "P_funded": 0.993,
+    "days_to_funded": 53.0,
+    "challenges": 4.09
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 172437,
+    "p10": 101623,
+    "P_profit": 1.0,
+    "P_funded": 1.0,
+    "days_to_funded": 63.5,
+    "challenges": 2.57
+   },
+   "2022-24 chosen vs default net": [
+    208380,
+    175268
+   ]
+  },
+  "CFT 2-Phase $200k (Bybit route)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.5,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 190340,
+    "p10": 94607,
+    "P_profit": 0.987,
+    "P_funded": 0.99,
+    "days_to_funded": 46.0,
+    "challenges": 3.73
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 167916,
+    "p10": 97752,
+    "P_profit": 1.0,
+    "P_funded": 1.0,
+    "days_to_funded": 56.0,
+    "challenges": 2.33
+   },
+   "2022-24 chosen vs default net": [
+    207818,
+    169062
+   ]
+  },
+  "CFT 2-Phase $200k (MT5 CFDs, 35 coins, swap 10%)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.5,
+    2.0,
+    0.6
+   ],
+   "2025-26 chosen": {
+    "net": 125709,
+    "p10": 16595,
+    "P_profit": 0.937,
+    "P_funded": 0.977,
+    "days_to_funded": 48.0,
+    "challenges": 4.56
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 113448,
+    "p10": 46355,
+    "P_profit": 0.973,
+    "P_funded": 0.99,
+    "days_to_funded": 62.0,
+    "challenges": 3.51
+   },
+   "2022-24 chosen vs default net": [
+    187851,
+    150802
+   ]
+  },
+  "Propr 2-Step 2 x $100k (Hyperliquid)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    1.5,
+    1.5,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 131118,
+    "p10": 33593,
+    "P_profit": 0.97,
+    "P_funded": 0.99,
+    "days_to_funded": 82.0,
+    "challenges": 8.45
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 95790,
+    "p10": -7490,
+    "P_profit": 0.837,
+    "P_funded": 0.89,
+    "days_to_funded": 69.0,
+    "challenges": 9.55
+   },
+   "2022-24 chosen vs default net": [
+    145761,
+    133125
+   ]
+  },
+  "MyFundedPerps Signature 2 x $100k": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    1.5,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 152486,
+    "p10": 39694,
+    "P_profit": 0.99,
+    "P_funded": 0.997,
+    "days_to_funded": 42.0,
+    "challenges": 9.79
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 147939,
+    "p10": 49714,
+    "P_profit": 0.983,
+    "P_funded": 0.993,
+    "days_to_funded": 32.5,
+    "challenges": 9.05
+   },
+   "2022-24 chosen vs default net": [
+    139799,
+    125663
+   ]
+  }
+ },
+ "planning (minus 1.25 Sharpe)": {
+  "HyroTrader 2-Step $200k (Bybit)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.5,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 69283,
+    "p10": -3821,
+    "P_profit": 0.88,
+    "P_funded": 0.95,
+    "days_to_funded": 69.0,
+    "challenges": 4.92
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 85839,
+    "p10": 17700,
+    "P_profit": 0.96,
+    "P_funded": 0.98,
+    "days_to_funded": 89.0,
+    "challenges": 4.0
+   },
+   "2022-24 chosen vs default net": [
+    102801,
+    85408
+   ]
+  },
+  "CFT 2-Phase $200k (Bybit route)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.5,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 73510,
+    "p10": -6000,
+    "P_profit": 0.86,
+    "P_funded": 0.97,
+    "days_to_funded": 62.0,
+    "challenges": 4.84
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 84045,
+    "p10": 19273,
+    "P_profit": 0.947,
+    "P_funded": 0.987,
+    "days_to_funded": 77.0,
+    "challenges": 3.8
+   },
+   "2022-24 chosen vs default net": [
+    107726,
+    85484
+   ]
+  },
+  "CFT 2-Phase $200k (MT5 CFDs, 35 coins, swap 10%)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    2.0,
+    2.0,
+    0.6
+   ],
+   "2025-26 chosen": {
+    "net": 35704,
+    "p10": -6000,
+    "P_profit": 0.733,
+    "P_funded": 0.933,
+    "days_to_funded": 89.5,
+    "challenges": 4.96
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 38252,
+    "p10": -6000,
+    "P_profit": 0.783,
+    "P_funded": 0.947,
+    "days_to_funded": 87.5,
+    "challenges": 4.76
+   },
+   "2022-24 chosen vs default net": [
+    77200,
+    71956
+   ]
+  },
+  "Propr 2-Step 2 x $100k (Hyperliquid)": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    1.0,
+    1.5,
+    0.6
+   ],
+   "2025-26 chosen": {
+    "net": 52777,
+    "p10": 4085,
+    "P_profit": 0.923,
+    "P_funded": 0.987,
+    "days_to_funded": 171.5,
+    "challenges": 8.27
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 24607,
+    "p10": -7490,
+    "P_profit": 0.55,
+    "P_funded": 0.667,
+    "days_to_funded": 84.5,
+    "challenges": 10.0
+   },
+   "2022-24 chosen vs default net": [
+    57732,
+    41424
+   ]
+  },
+  "MyFundedPerps Signature 2 x $100k": {
+   "chosen (challenge risk, funded risk, stop fraction)": [
+    1.0,
+    2.0,
+    0.4
+   ],
+   "2025-26 chosen": {
+    "net": 69367,
+    "p10": 7662,
+    "P_profit": 0.95,
+    "P_funded": 0.997,
+    "days_to_funded": 101.0,
+    "challenges": 9.45
+   },
+   "2025-26 default 2.0 / 1.5 / 0.5": {
+    "net": 55216,
+    "p10": -3977,
+    "P_profit": 0.873,
+    "P_funded": 0.973,
+    "days_to_funded": 37.0,
+    "challenges": 9.93
+   },
+   "2022-24 chosen vs default net": [
+    62158,
+    48966
+   ]
+  }
+ }
+}

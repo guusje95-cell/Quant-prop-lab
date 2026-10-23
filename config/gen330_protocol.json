@@ -1,0 +1,20 @@
+{
+ "generation": "Gen330",
+ "title": "v8.6 per prop firm with each firm's PLATFORM (costs, financing, coin list, leverage) and RULES (published, Oct 2026), plus per-firm risk tools chosen nested (descriptive)",
+ "registered": "2026-10-23, before any Gen330 number; supersedes the Gen329 firm presets where the web research changed a rule",
+ "platforms": {
+  "Bybit (HyroTrader; CFT Bybit route)": "Gen327 E: Bybit funding, 5.5 bp taker + half the measured Bybit spread, $1,000 band",
+  "CFT MT5 / Match-Trader CFDs": "0.0325% commission per side (CFT FAQ) + half the measured Bybit spread (proxy; CFD spreads unknown); NO funding; swap scenarios 0 / -10% / -20% a year on |notional|; coins: all 60 (A) or only the 35 coins BrightFunded lists as CFDs (B, proxy for a CFD list)",
+  "Hyperliquid (Propr)": "4.5 bp taker + half the Bybit spread (proxy), Binance funding (proxy), all 60 coins ASSUMED listed; leverage cap 5x BTC/ETH, 2x others (margin = sum |notional| / leverage <= 90% of equity, positions scaled down when above)",
+  "MyFundedPerps": "Bybit costs and funding ASSUMED; trading day resets at midnight New York (04:00 UTC used)"
+ },
+ "firms": {
+  "HyroTrader 2-Step $200k": "unchanged (Gen329)",
+  "CFT 2-Phase $200k": "fee $1,200 (reviews $1,150-1,250), targets 8% / 5%, 5% daily of the initial balance, 10% static, 80% split; per-user allocation cap $300k",
+  "Propr Classic 2-Step $100k": "fee $749, targets 5% then 10%, 5% daily, 8% trailing on equity that STOPS at the starting balance (trailing_lock), 90% split ASSUMED; aggregate cap $300k; copying between own accounts allowed -> 2 accounts = $200k",
+  "MyFundedPerps Signature $100k": "fee $696, target 10%, 3% daily of the starting balance, 6% static; 2 accounts = $200k (multi-account rules unknown)"
+ },
+ "per-firm settings (chosen on 2022-24, judged on 2025-26)": "challenge risk {1.0,1.5,2.0,2.5} x funded risk {1.0,1.5,2.0} x daily stop {0.4,0.5,0.6,0.75} of the firm's daily limit; highest mean net with P(profit) >= 0.9",
+ "levels": "each platform's own Sharpe (realistic) and the same minus the Gen325 deflation haircut (3.027 -> 1.78, i.e. -1.25 Sharpe)",
+ "strategy parameters": "NOT re-fitted per firm (no alpha trials); trials_added 0"
+}

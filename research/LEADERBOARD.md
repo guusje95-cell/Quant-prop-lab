@@ -1121,3 +1121,30 @@ Same book everywhere (no strategy parameter re-fitted per firm); per firm the ch
 - Verdict: CFT 2-Phase is the best alternative to HyroTrader (equal or better); Propr loses half (trailing 8% forces risk 1.0 and 143 days to funded); MyFundedPerps' 3% daily limit makes the bad tail thin (p10 $2k). Breakout (bots banned) and SizeProp (frontend-only automation) excluded.
 - ASSUMED: CFT $200k fee $1,100, Propr / MFP fees and targets; platform costs equal to Bybit at every firm (CFT MT5 / Match-Trader swaps and commissions, Propr Hyperliquid fees and coin list unknown). NL access at CFT / MFP not confirmed.
 - Per-firm paper accounts: `scripts/paper_firms.py` replays the v86 paper ledger through each firm's rules (HyroTrader 2.0, CFT 2.0, Propr 1.0 as a watch). No separate paper process: the signals are identical.
+
+## Gen330 (2026-10-23): v8.6 per firm with each firm's PLATFORM and published RULES (`results/gen330.json`, `scripts/gen330_firm_platforms.py`)
+**Platform Sharpe (2022-26 / 2022 / 2023-24 / 2025-26):**
+- Bybit (HyroTrader; CFT Bybit route): 3.027 / 1.51 / 3.89 / 2.99
+- Hyperliquid (Propr; 4.5 bp taker; leverage cap 5x BTC/ETH, 2x others): 3.113 / 1.57 / 3.99 / 3.10. The cap binds in 9% of hours at risk 1.5 and in 29% at risk 2.0.
+- CFT MT5 CFDs (0.0325% per side, no funding; swap per year on |notional|):
+
+  | Swap | All 60 coins | 35-coin CFD list |
+  |---|---|---|
+  | 0% | 2.98 | 2.96 |
+  | 10% | 2.42 | 2.56 |
+  | 20% | 1.86 | 2.15 |
+
+  The CFD swap rate decides this route.
+
+**Per-firm risk tools (challenge risk, funded risk, daily-stop fraction) chosen on 2022-24 and judged on 2025-26.** Net over 2 years at the platform Sharpe and at the planning level (minus 1.25):
+
+| Firm | Default 2.0 / 1.5 / 0.5 | Chosen setting | Chosen result | Verdict |
+|---|---|---|---|---|
+| HyroTrader $200k | $172k (p10 $102k) / planning $86k | 2.5 / 2.0 / 0.4 | $188k (p10 $78k) / planning $69k | **keep default** |
+| CFT $200k, Bybit route | $168k (p10 $98k) / planning $84k | 2.5 / 2.0 / 0.4 | $190k / planning $74k | **keep default** |
+| CFT $200k, MT5 CFDs, swap 10% | $113k / planning $38k (P profit 0.78) | — | — | weak |
+| Propr 2 × $100k | $96k (P profit 0.84) / planning $25k (0.55) | 1.0–1.5 / 1.5 / 0.4–0.6 | $131k / planning $53k (0.92) | **lower risk needed** |
+| MyFundedPerps 2 × $100k | $148k / planning $55k (0.87) | 1.0–1.5 / 2.0 / 0.4 | $152k / planning $69k (0.95) | **lower challenge risk** |
+
+- **Conclusion: no strategy re-fit per firm.** At the static 10% firms, the risk "optimised" on 2022-24 did worse out of sample (planning level: −$17k mean, p10 below zero), so the default stays. Only at firms with tighter rules does the firm-specific setting add money, and there it means lower challenge risk (1.0–1.5).
+- `scripts/paper_firms.py` now uses these settings: HyroTrader and CFT 2.0 / 2.5% stop; Propr $100k 1.0 / 3% stop with a trailing loss that locks at the starting balance; MFP $100k 1.0 / 1.2% stop.

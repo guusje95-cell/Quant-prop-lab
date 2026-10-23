@@ -1,0 +1,4 @@
+day,ret,equity,intraday_low,daily_stop_hit,firm_daily_breach,firm_max_breach,max_loss_floor,target_1_reached
+2026-10-21,-0.004115485933589569,99588.45,99588.45,False,False,False,94000.0,False
+2026-10-22,-0.013840505875099662,98210.1,98210.1,True,False,False,94000.0,False
+2026-10-23,0.0012993285152076428,98337.7,98195.97,False,False,False,94000.0,False

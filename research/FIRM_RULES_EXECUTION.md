@@ -159,3 +159,32 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
 | Breakout | 3% daily | bots banned | excluded | - |
 | SizeProp | - | frontend-only automation | excluded | - |
 Risk per firm is the only setting changed: at a 3% daily limit the daily stop moves to 1.5%, at a trailing 8% the risk drops to 1.0. Strategy parameters stay as v8.6 (re-fitting them per firm would be fitting to rules, not to markets).
+
+## 11. Web research 2026-10-23 (published pages and reviews, NOT support answers; container cannot open the firms' own sites)
+- **Crypto Fund Trader:**
+  - Platforms: MT5 / Match-Trader (simulated), plus a Bybit route on Bybit sub-accounts. On the Bybit route, Bybit's own fees and funding apply, there is no markup, and the API connection must not be modified.
+  - MT5 crypto commission: 0.0325% per side.
+  - Swaps on MT5 are charged on positions open at 00:00 UTC. The rate is unknown, and Gen330 shows it decides the MT5 route.
+  - EAs are allowed. Banned: HFT, tick scalping, arbitrage, news-scalping and multi-account reverse EAs.
+  - Copying between accounts: Ascend accounts may not copy each other; Break accounts may copy only during the evaluation.
+  - Allocation cap: $300k per user combined. The $200k 2-phase costs about $1,150–1,250. Split 80% (90% as an add-on).
+  - No published country list. The Bybit route from the NL is likely affected by Bybit's EEA restriction (since 2026-06-29), so ask.
+- **Propr (official rulebook as quoted by reviews):**
+  - Classic 2-Step $100k: $749; targets 5% then 10%; 5% daily loss.
+  - 8% trailing drawdown on equity (open profit raises the high-water mark), which never rises above the starting balance and resets after a payout.
+  - Equity-based checks; a breach closes the account.
+  - Altcoins 2x leverage; BTC/ETH 5x or 10x (sources conflict).
+  - Python SDK `propr_sdk`, API at api.propr.xyz/v1. Bots allowed; uncustomised shared bots may be flagged.
+  - Aggregate cap $300k.
+- **MyFundedPerps:**
+  - Select / Prime / Signature at $10k–100k. Signature: 10% target, 3% daily of the starting balance from midnight New York, 6% static.
+  - $100k Signature costs $696 (launch price).
+  - The NL is not on the restricted lists found (30 countries).
+- **HyroTrader routes:**
+  - Bybit: Bybit's terms restrict EEA users.
+  - Tealstreet: the FAQ conflicts on whether country restrictions apply.
+  - CLEO: Binance prices, no country restrictions, B-booked. CLEO's documentation says API trading is not supported at the moment.
+  - So the NL + bot route at HyroTrader is the Hyro platform with MCP (section 9) or CLEO if API access is added. Ask.
+- **Hypernova (Hyperliquid):** single step up to $200k; 3–5% daily and 6–8% static by tier; developer API "coming soon"; only self-written bots allowed. Not usable yet.
+- **Bitfunded:** bot policy conflicts between sources. Not considered.
+- **CFD firms (FTMO and others):** about 30 crypto CFDs, leverage about 1:3.3, swaps charged and no swap-free option. Weaker than BrightFunded (swap-free) for bf2.6.
