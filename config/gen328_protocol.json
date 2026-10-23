@@ -1,0 +1,13 @@
+{
+  "generation": "Gen328",
+  "title": "Robustness round for live use (no new signals): sleeve decay, per-coin caps, crash stress and emergency brakes",
+  "registered": "2026-10-23, before any Gen328 number",
+  "parts": {
+    "1 sleeve decay": "rolling 182- and 365-day Sharpe of every sleeve of v8.6 and bf2.6 (sleeve-level P&L, 2020-2026); per sleeve: last-12-month Sharpe, its percentile in the sleeve's own history, share of 12-month windows below 0. Warning signal for paper/live (fixed now): a sleeve's 12-month Sharpe below 0 AND below its own 10th percentile -> review",
+    "2 per-coin caps": "v8.6 net positions (Gen323 model, 5 bp, $1,000 band, risk 2.0): cap every coin's position at c x equity, c = 40% / 30% / 25% / 20% (excess cut, not redistributed); report Sharpe D/T/H, worst day, worst single-coin day loss, max drawdown",
+    "3 crash stress + brakes": "worst 10 days of each book at risk 2.0 with the BTC move that day; named events (2022-05 Luna, 2022-06 3AC/Celsius, 2022-11 FTX, 2024-08-05, 2025-10-10). Brakes, each decided only from data up to the previous day: B1 = half risk for 2 days after a day that hit the 2.5% daily stop; B2 = half risk the next day when BTC's absolute daily move exceeded 3x its 30-day daily sd"
+  },
+  "adoption rule (risk rules, parts 2 and 3)": "a cap or brake is adopted for the bots / live only if the 2022-26 Sharpe is not more than 0.05 lower than without it AND the worst day and the max drawdown both improve; otherwise it is reported and not used",
+  "trials_added": 0,
+  "note": "risk-management study; no new alpha trial; the running paper trades are not changed"
+}
