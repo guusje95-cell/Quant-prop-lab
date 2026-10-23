@@ -17,11 +17,16 @@ Backtest Sharpe 3.11 / 2.83; planning Sharpe (deflated) about 1.8 / 1.5. Rules a
   and MT5 EA for bf2.6 (same + news-window guard); keys and passwords stay on the user's PC.
 - User: test on a free demo (Bybit demo if available from NL; any MT5 demo), compare orders with the paper trader.
 
+## Phase 2b - access check (before buying)
+- Written answer from HyroTrader: can a Dutch resident use the Bybit-connected Two-Step (Bybit is limiting EEA access since 2026-06)?
+  If not: does the Hyro platform allow an own API bot, with the same coins, fees and funding? If neither: v8.6 at another
+  crypto prop firm (rules to be checked as for HyroTrader) or BrightFunded only.
+
 ## Phase 3 - first account
 - User decides and buys: HyroTrader 2-Step $200k first (stronger book, bot allowed). Challenge risk 2.0, funded risk 1.5.
 - Expectation (planning, deflated): about $90k over 2 years for this account, bad case about $20k, small chance of a net loss.
 
 ## Phase 4 - scale up
-- After the first payout and live results in line with paper: add BrightFunded (bf2.6), then more accounts, preferably paid
-  from payouts. Both books are about the same bet (correlation 0.8): more accounts = more money, not more safety.
+- After the first payout and live results in line with paper: add BrightFunded (bf2.6). HyroTrader allows ONE account per program
+  and prohibits mirror trading across accounts (terms v1.16), so more capital comes from other firms, each checked first. Both books are about the same bet (correlation 0.8): more accounts = more money, not more safety.
 - Research then: an edge that does NOT move with crypto (not a higher backtest Sharpe).

@@ -125,3 +125,18 @@ always closes). Netting alone saves cost (A 3.158 vs 3.110 sleeve by sleeve).
   orders** (Bybit maker fee 0.02%), re-quoted for a few hours, and only cross the spread at the end of the window; trend, Weiss and
   the daily stop use market orders. A deeper order-book measurement (50 levels, cost of a $2k / $5k order) can be added to
   get_bybit_check.bat before the bot is built.
+
+## 9. Update 2026-10-23: HyroTrader terms v1.16 (effective 2026-09-29) and help pages, as read by the user's assistant (published documents, NOT a support answer)
+- **Netherlands:** not on HyroTrader's blocked-country list, but **Bybit announced (2026-06-29) a progressive limitation of Bybit Global
+  services for EEA residents, incl. the Netherlands.** HyroTrader's FAQ names its own platform ("Hyro") as the route for people
+  who cannot use Bybit. -> OPEN, decisive: can a Dutch resident use the Bybit-connected Two-Step; if not, does the Hyro platform
+  offer API access for an own bot, the same 60 USDT perps, maker / taker fees and funding?
+- **Fees (Bybit, VIP 0, USDT contracts): maker 0.0200%, taker 0.0550%** - exactly the Gen327 assumptions.
+- **No 3%-per-trade rule found for the Two-Step:** 5% daily drawdown (floor = start-of-day equity - 5% of the initial balance,
+  equity incl. floating P&L and fees, reset 00:00 UTC) and 10% max loss. The per-coin cap from Gen328 is therefore not needed for
+  this rule (still optional).
+- **Multiple accounts: section 4.5 - one account per program type at a time; section 10.2(b) - coordinated multi-account
+  trading and mirror trading are prohibited; 10.2(e) - automating your own strategy is allowed.** -> at HyroTrader plan for ONE
+  account with v8.6; scaling must come from other firms (with their own rules checked), not from copies at HyroTrader.
+- Still to confirm in writing: Dutch access / Hyro-platform API; whether running v8.6 at HyroTrader and bf2.6 (a related crypto
+  book) at BrightFunded counts as "coordinated multi-account trading" (the wording targets HyroTrader's own accounts).
