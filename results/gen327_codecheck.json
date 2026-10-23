@@ -1,0 +1,48 @@
+{
+ "Bybit data": false,
+ "A Gen323 baseline": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "B only Bybit-listed coins": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "C + Bybit funding": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "D + Bybit costs (5.5 bp + half spread)": {
+  "sharpe D/T/H": [
+   3.158,
+   1.577,
+   4.024,
+   3.16
+  ],
+  "orders per day": 62.6
+ },
+ "E = D with the $1,000 band": {
+  "sharpe D/T/H": [
+   3.14,
+   1.583,
+   4.011,
+   3.122
+  ],
+  "orders per day": 21.6
+ }
+}
