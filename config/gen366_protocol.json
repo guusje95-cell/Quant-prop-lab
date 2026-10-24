@@ -1,0 +1,13 @@
+{
+ "generation": "Gen366",
+ "title": "Construction of the stress book from ALL robust sleeves (premium spike, crash reversal, negative funding [Gen359-363 versions], daily premium discount [Gen364 B], 8-hour crash reversal [Gen365]) - construction chosen on 2020-24",
+ "registered": "2026-10-24, before any Gen366 number",
+ "options": {
+  "C0": "current book: 3 sleeves at equal risk (reference)",
+  "C1": "all 5 sleeves at equal risk",
+  "C2": "all 5 sleeves, risk weight proportional to each sleeve's 2020-24 Sharpe (negative -> 0), i.e. weight_i = SR_i / sd_i",
+  "C3": "all 5 sleeves, inverse-variance weights from a 50%-shrunk 2020-24 covariance (minimum variance)"
+ },
+ "choice": "highest 2020-24 Sharpe; 2025-26 reported once; expected live and v8.6 mix reported",
+ "trials_added": 3
+}

@@ -1,0 +1,12 @@
+{
+ "generation": "Gen364",
+ "title": "Long-reversal sleeves under the book's BTC-trend design rule (BTC > 200-day mean, fixed in Gen359 D2): 2 trials (A is a FLAGGED re-test of Gen314 with the filter)",
+ "registered": "2026-10-24, before any Gen364 number",
+ "trials": {
+  "A altcoin deleveraging bounce + BTC filter": "60 coins with open-interest data: OI value down > 15% over the 24 h to the daily close AND price down over the same 24 h, BTC above its 200-day mean -> long 0.1 for 2 days, at most 8 open (BTC/ETH excluded: they are in v8.6's delev sleeve)",
+  "B daily premium discount + BTC filter": "60 coins: daily mean perp premium z vs its own 90 days (lagged) < -3, BTC above its 200-day mean -> long 0.1 for 3 days, at most 8 open"
+ },
+ "execution": "limit orders (Gen337 rule), Bybit costs and funding",
+ "bars": "program entry bar (vs the Gen363 book) + robustness (thresholds +-, one day later; every period > 0); passing sleeves enter the book only if the book's 2020-24 Sharpe rises",
+ "trials_added": 2
+}

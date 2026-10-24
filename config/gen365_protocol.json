@@ -1,0 +1,8 @@
+{
+ "generation": "Gen365",
+ "title": "8-hour crash reversal under the BTC-trend rule (1 trial)",
+ "registered": "2026-10-24, before any Gen365 number",
+ "rule": "60 coins, at 00/08/16 UTC: the last 8 h return < -3 x (trailing 720 h hourly sd x sqrt 8) (lagged), BTC above its 200-day mean (previous day) -> long 0.1 from the next hour for 24 h, at most 8 open; limit-order execution, Bybit costs and funding",
+ "bars": "program entry bar vs the Gen364 book + robustness (k 2.5 / 3.5, one bar later); enters the book only if the book's 2020-24 Sharpe rises",
+ "trials_added": 1
+}

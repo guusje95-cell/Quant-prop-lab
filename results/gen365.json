@@ -1,0 +1,62 @@
+{
+ "sleeve DEV / TEST / HOLD": [
+  0.673,
+  1.377,
+  2.939
+ ],
+ "corr v8.6": 0.071,
+ "corr book": 0.213,
+ "corr daily crash reversal": 0.279,
+ "entry bar": true,
+ "robustness": [
+  [
+   0.224,
+   1.104,
+   2.094
+  ],
+  [
+   0.731,
+   1.004,
+   1.924
+  ],
+  [
+   0.474,
+   1.099,
+   2.507
+  ]
+ ],
+ "robust": true,
+ "book 2020-24 without / with": [
+  2.157,
+  2.152
+ ],
+ "BOOK": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.209,
+   2.086,
+   1.416
+  ],
+  "Sharpe 2020-24 (decisions)": 2.157,
+  "Sharpe 2020-26": 1.968,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.181,
+  "corr v8.6 2022-26": 0.155,
+  "by year": {
+   "2020": 2.12,
+   "2021": 3.26,
+   "2022": 1.04,
+   "2023": 2.5,
+   "2024": 1.71,
+   "2025": 1.35,
+   "2026": 1.84
+  },
+  "sleeves": [
+   "premium spike",
+   "crash reversal",
+   "negative funding"
+  ]
+ },
+ "mix with v8.6": {
+  "best weight": 0.55,
+  "best": 2.002
+ }
+}

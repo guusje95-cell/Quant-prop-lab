@@ -1,0 +1,132 @@
+{
+ "sleeve 2020-24 Sharpe": {
+  "premium spike": 1.711,
+  "crash reversal": 0.788,
+  "negative funding": 1.511,
+  "daily premium discount": 0.976,
+  "crash 8h": 0.959
+ },
+ "sleeve corr": {
+  "premium spike": {
+   "premium spike": 1.0,
+   "crash reversal": 0.03,
+   "negative funding": 0.12,
+   "daily premium discount": 0.18,
+   "crash 8h": -0.02
+  },
+  "crash reversal": {
+   "premium spike": 0.03,
+   "crash reversal": 1.0,
+   "negative funding": 0.12,
+   "daily premium discount": 0.17,
+   "crash 8h": 0.28
+  },
+  "negative funding": {
+   "premium spike": 0.12,
+   "crash reversal": 0.12,
+   "negative funding": 1.0,
+   "daily premium discount": 0.19,
+   "crash 8h": 0.17
+  },
+  "daily premium discount": {
+   "premium spike": 0.18,
+   "crash reversal": 0.17,
+   "negative funding": 0.19,
+   "daily premium discount": 1.0,
+   "crash 8h": 0.02
+  },
+  "crash 8h": {
+   "premium spike": -0.02,
+   "crash reversal": 0.28,
+   "negative funding": 0.17,
+   "daily premium discount": 0.02,
+   "crash 8h": 1.0
+  }
+ },
+ "C0 3 sleeves equal risk": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.209,
+   2.086,
+   1.416
+  ],
+  "Sharpe 2020-24 (decisions)": 2.157,
+  "Sharpe 2020-26": 1.968,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.181,
+  "corr v8.6 2022-26": 0.155,
+  "by year": {
+   "2020": 2.12,
+   "2021": 3.26,
+   "2022": 1.04,
+   "2023": 2.5,
+   "2024": 1.71,
+   "2025": 1.35,
+   "2026": 1.84
+  }
+ },
+ "C1 5 sleeves equal risk": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.169,
+   2.233,
+   2.086
+  ],
+  "Sharpe 2020-24 (decisions)": 2.194,
+  "Sharpe 2020-26": 2.166,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.3,
+  "corr v8.6 2022-26": 0.176,
+  "by year": {
+   "2020": 1.75,
+   "2021": 3.36,
+   "2022": 1.04,
+   "2023": 2.78,
+   "2024": 1.69,
+   "2025": 2.28,
+   "2026": 2.23
+  }
+ },
+ "C2 5 sleeves Sharpe-weighted": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.352,
+   2.332,
+   1.793
+  ],
+  "Sharpe 2020-24 (decisions)": 2.342,
+  "Sharpe 2020-26": 2.196,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.317,
+  "corr v8.6 2022-26": 0.168,
+  "by year": {
+   "2020": 1.99,
+   "2021": 3.53,
+   "2022": 1.04,
+   "2023": 2.64,
+   "2024": 2.0,
+   "2025": 1.94,
+   "2026": 1.96
+  }
+ },
+ "C3 5 sleeves minimum variance": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   1.565,
+   1.632,
+   1.906
+  ],
+  "Sharpe 2020-24 (decisions)": 1.591,
+  "Sharpe 2020-26": 1.679,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.007,
+  "corr v8.6 2022-26": 0.154,
+  "by year": {
+   "2020": 1.34,
+   "2021": 2.37,
+   "2022": 1.04,
+   "2023": 2.56,
+   "2024": 0.6,
+   "2025": 2.19,
+   "2026": 2.07
+  }
+ },
+ "chosen": "C2 5 sleeves Sharpe-weighted",
+ "mix with v8.6": {
+  "corr": 0.168,
+  "best weight": 0.65,
+  "best": 2.058
+ }
+}
