@@ -1,0 +1,172 @@
+{
+ "HyroTrader 2022-24": {
+  "P0 baseline": {
+   "net": 184445,
+   "p10": 105747,
+   "P_profit": 0.998,
+   "days_to_funded": 62.0
+  },
+  "P2a stop-day brake": {
+   "net": 174998,
+   "p10": 104373,
+   "P_profit": 1.0,
+   "days_to_funded": 65.5
+  },
+  "P2b volatility brake": {
+   "net": 183677,
+   "p10": 115774,
+   "P_profit": 1.0,
+   "days_to_funded": 63.0
+  },
+  "P1 capped stress book w 0.1": {
+   "net": 177942,
+   "p10": 105067,
+   "P_profit": 1.0,
+   "days_to_funded": 65.0
+  },
+  "P1 capped stress book w 0.2": {
+   "net": 185412,
+   "p10": 110542,
+   "P_profit": 1.0,
+   "days_to_funded": 66.0
+  },
+  "P1 capped stress book w 0.3": {
+   "net": 182924,
+   "p10": 109250,
+   "P_profit": 1.0,
+   "days_to_funded": 67.0
+  },
+  "P2c target brake": {
+   "net": 183742,
+   "p10": 110913,
+   "P_profit": 0.998,
+   "days_to_funded": 66.0
+  },
+  "P3 funded cushion": {
+   "net": 164137,
+   "p10": 93760,
+   "P_profit": 0.998,
+   "days_to_funded": 62.0
+  }
+ },
+ "HyroTrader chosen": "P1 capped stress book w 0.2",
+ "HyroTrader combination 2022-24": {
+  "net": 185412,
+  "p10": 110542,
+  "P_profit": 1.0,
+  "days_to_funded": 66.0
+ },
+ "HyroTrader 2025-26 backtest": {
+  "baseline": {
+   "net": 182863,
+   "p10": 112422,
+   "P_profit": 1.0,
+   "days_to_funded": 61.0
+  },
+  "chosen": {
+   "net": 194715,
+   "p10": 123174,
+   "P_profit": 1.0,
+   "days_to_funded": 58.0
+  }
+ },
+ "HyroTrader 2025-26 planning": {
+  "baseline": {
+   "net": 89918,
+   "p10": 25138,
+   "P_profit": 0.97,
+   "days_to_funded": 83.0
+  },
+  "chosen": {
+   "net": 94479,
+   "p10": 23503,
+   "P_profit": 0.963,
+   "days_to_funded": 80.5
+  }
+ },
+ "CFT 2022-24": {
+  "P0 baseline": {
+   "net": 177886,
+   "p10": 106668,
+   "P_profit": 1.0,
+   "days_to_funded": 51.0
+  },
+  "P2a stop-day brake": {
+   "net": 168103,
+   "p10": 99189,
+   "P_profit": 1.0,
+   "days_to_funded": 53.0
+  },
+  "P2b volatility brake": {
+   "net": 179731,
+   "p10": 111251,
+   "P_profit": 1.0,
+   "days_to_funded": 52.0
+  },
+  "P1 capped stress book w 0.1": {
+   "net": 171997,
+   "p10": 102495,
+   "P_profit": 1.0,
+   "days_to_funded": 52.0
+  },
+  "P1 capped stress book w 0.2": {
+   "net": 179068,
+   "p10": 109521,
+   "P_profit": 1.0,
+   "days_to_funded": 54.0
+  },
+  "P1 capped stress book w 0.3": {
+   "net": 177674,
+   "p10": 109523,
+   "P_profit": 1.0,
+   "days_to_funded": 57.0
+  },
+  "P2c target brake": {
+   "net": 178509,
+   "p10": 106847,
+   "P_profit": 1.0,
+   "days_to_funded": 53.0
+  },
+  "P3 funded cushion": {
+   "net": 161817,
+   "p10": 89196,
+   "P_profit": 1.0,
+   "days_to_funded": 51.0
+  }
+ },
+ "CFT chosen": "P2b volatility brake",
+ "CFT combination 2022-24": {
+  "net": 178968,
+  "p10": 111804,
+  "P_profit": 1.0,
+  "days_to_funded": 53.0
+ },
+ "CFT 2025-26 backtest": {
+  "baseline": {
+   "net": 178030,
+   "p10": 112314,
+   "P_profit": 1.0,
+   "days_to_funded": 52.0
+  },
+  "chosen": {
+   "net": 172480,
+   "p10": 107490,
+   "P_profit": 1.0,
+   "days_to_funded": 52.0
+  }
+ },
+ "CFT 2025-26 planning": {
+  "baseline": {
+   "net": 89950,
+   "p10": 28047,
+   "P_profit": 0.975,
+   "days_to_funded": 69.0
+  },
+  "chosen": {
+   "net": 87114,
+   "p10": 24238,
+   "P_profit": 0.978,
+   "days_to_funded": 69.5
+  }
+ }
+}

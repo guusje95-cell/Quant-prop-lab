@@ -1,0 +1,16 @@
+{
+ "generation": "Gen370",
+ "title": "Prop-driven improvements of a v8.6 account (judged in dollars, not Sharpe): 1 small capped stress-book weight, 2 risk brakes, 3 funded behaviour",
+ "registered": "2026-10-24, before any Gen370 number",
+ "account": "HyroTrader 2-Step $200k and CFT 2-Phase $200k; v8.6 hourly book (Gen322 cache, research costs) scaled to 15% vol on 2022-24; challenge 2.0 / funded 1.5; daily stop at 50% of the daily limit (hourly path)",
+ "criterion": "2022-24 block bootstrap (400 paths, block 20, seed 11): highest mean 2-year net with P(profit) >= 0.9 and p10 not lower than the baseline's p10 - 10%; each option vs the baseline, then the chosen options combined (kept only if the combination also wins on 2022-24)",
+ "options": {
+  "P1 capped stress book in the account": "account = unit(v8.6 + w x unit(stress book with the Gen369 T2 exposure cap)), w in {0.1, 0.2, 0.3}",
+  "P2a stop-day brake": "risk x 0.5 on the UTC day after a day on which the 2.5% daily stop was hit (in the original series)",
+  "P2b volatility brake": "risk x 0.5 on the day after a BTC daily move > 3 x its 30-day sd",
+  "P2c target brake": "in a challenge phase, once equity >= 1 + 0.7 x the phase target, risk x 0.5 (engine option tgt_brake)",
+  "P3 funded cushion": "on the funded account only, size x clip((equity - max-loss floor) / max loss, 0.25, 1) (engine cushion_scale, funded only)"
+ },
+ "report": "2025-26 once, at backtest level and at planning level (v8.6 shifted to 1.78 Sharpe), baseline vs chosen",
+ "trials_added": 7
+}

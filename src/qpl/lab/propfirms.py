@@ -61,6 +61,10 @@ class Firm:
     # payout rules:
     payout_min: float = 0.0                # minimum payout (USD); smaller profits stay in the account
     first_payout_days: int = 0             # days after funding before the first payout (0 = payout_every)
+    # Gen370 trader risk tools (defaults off = earlier results unchanged):
+    tgt_brake: float = 0.0                 # in a challenge phase, once equity >= 1 + tgt_brake x target, scale the day by tgt_brake_scale
+    tgt_brake_scale: float = 0.5
+    cushion_funded_only: bool = False      # apply cushion_scale only on the funded account
 
 
 PRESETS = {
@@ -131,11 +135,11 @@ def _floor(f: Firm, hwm: float) -> float:
     return 1 - f.max_loss if f.max_type == "static" else (hwm - f.max_loss if f.max_type == "trailing" else min(hwm - f.max_loss, 1.0))
 
 
-def _day(f: Firm, D: float, hwm: float, r: float, lo: float, hi: float):
+def _day(f: Firm, D: float, hwm: float, r: float, lo: float, hi: float, funded: bool = False):
     """One day for the trader: optional cushion scaling and daily equity stop. Returns (low, close, high) as multiples of
     start-of-day equity D."""
     m = 1.0
-    if f.cushion_scale and f.max_loss > 0:
+    if f.cushion_scale and f.max_loss > 0 and (funded or not f.cushion_funded_only):
         m = min(1.0, max(f.cushion_min, (D - _floor(f, hwm)) / f.max_loss))
     r, lo, hi = r * m, lo * m, hi * m
     if f.stop_frac > 0 and f.daily_loss > 0:
@@ -155,7 +159,8 @@ def _phase(r, lo, hi, cal, t, end, target, f: Firm):
         if f.max_days and cal[j] - t0 >= f.max_days:
             return FAIL_TIME, j
         D = E
-        low, close, high = _day(f, D, hwm, r[j], lo[j], hi[j])
+        k = f.tgt_brake_scale if (f.tgt_brake > 0 and E >= 1 + f.tgt_brake * target) else 1.0
+        low, close, high = _day(f, D, hwm, r[j] * k, lo[j] * k, hi[j] * k)
         if f.max_type != "static" and f.trailing_intraday:
             hwm = max(hwm, high)
         if f.daily_loss > 0:
@@ -244,7 +249,7 @@ def _ledger(rc, loc, hic, rf, lof, hif, cal, s, end, f: Firm, budget: int):
         E = 1.0; hwm = 1.0; last = cal[t]; f_start = cal[t]; first_cycle = True
         while t < end:
             D = E
-            low, close, high = _day(f, D, hwm, rf[t], lof[t], hif[t])
+            low, close, high = _day(f, D, hwm, rf[t], lof[t], hif[t], funded=True)
             if f.max_type != "static" and f.trailing_intraday:
                 hwm = max(hwm, high)
             lvl = (D * (1 - f.daily_loss) if f.daily_basis == "day_start" else D - f.daily_loss) if f.daily_loss > 0 else -np.inf

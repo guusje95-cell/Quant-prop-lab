@@ -1418,3 +1418,38 @@ Fixed definition (registered before any number): **expected live = 0.6 x the boo
   - The stress book raises the continuous Sharpe of a combined portfolio (1.78 -> 2.06), but **in prop accounts a second v8.6 account earns far more**. The book only wins a little on the chance of a total loss.
   - Use the book only where v8.6 cannot be run (capacity / one-account rules), or as insurance if v8.6's carry decays.
   - **Never in the same account as v8.6 without the exposure cap.**
+
+## Gen370 (2026-10-24): prop-driven improvements of a v8.6 account, judged in DOLLARS (7 trials; engine options added to `qpl.lab.propfirms`, defaults off, 170 tests pass)
+Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% of the baseline), judged once on 2025-26. 2-year net, $200k.
+
+**HyroTrader 2022-24:**
+
+| Option | Net 2 y |
+|---|---|
+| baseline | $184.4k (p10 $105.7k) |
+| capped stress book w 0.1 / **0.2** / 0.3 | $177.9k / **$185.4k** / $182.9k |
+| stop-day brake | $175.0k |
+| volatility brake | $183.7k (p10 $115.8k) |
+| target brake | $183.7k |
+| funded cushion | $164.1k |
+
+- Chosen: stress book w 0.2.
+- **2025-26: backtest $182.9k -> $194.7k; planning $89.9k -> $94.5k (p10 $25.1k -> $23.5k).**
+
+**CFT 2022-24:**
+
+| Option | Net 2 y |
+|---|---|
+| baseline | $177.9k |
+| volatility brake | $179.7k |
+| stress book w 0.2 | $179.1k |
+| target brake | $178.5k |
+| stop-day brake | $168.1k |
+| funded cushion | $161.8k |
+
+- Chosen: volatility brake (the combination was not better).
+- **2025-26: backtest $178.0k -> $172.5k; planning $90.0k -> $87.1k.** Worse.
+
+**Conclusion:** every option moves the 2-year net by at most about ±5%, within bootstrap noise, and the 2022-24 winner does not carry over consistently (HyroTrader slightly up, CFT slightly down). The stop-day brake and the funded cushion clearly cost money (they cut risk exactly when the book recovers).
+- **The current prop settings (2.0 / 1.5, 2.5% daily stop) stay.**
+- The capped stress book at 20% weight is the only option positive at both levels at HyroTrader. Optional, not adopted (the gain is noise-sized and the p10 falls).
