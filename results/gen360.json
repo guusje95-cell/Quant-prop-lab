@@ -1,0 +1,47 @@
+{
+ "events": {
+  "B": 80,
+  "C": 73,
+  "D hours": 317
+ },
+ "A residual crash reversal": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.028,
+   0.837,
+   0.78
+  ],
+  "corr v8.6": 0.062,
+  "corr Gen359 book": 0.392,
+  "pass": false
+ },
+ "B equity-stress buy": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.578,
+   -0.606,
+   0.248
+  ],
+  "corr v8.6": 0.027,
+  "corr Gen359 book": 0.21,
+  "pass": false
+ },
+ "C VIX-spike buy": {
+  "sleeve DEV / TEST / HOLD": [
+   -0.138,
+   -0.641,
+   0.079
+  ],
+  "corr v8.6": 0.091,
+  "corr Gen359 book": 0.241,
+  "pass": false
+ },
+ "D market-wide capitulation": {
+  "sleeve DEV / TEST / HOLD": [
+   0.127,
+   0.834,
+   -0.117
+  ],
+  "corr v8.6": 0.123,
+  "corr Gen359 book": 0.488,
+  "pass": false
+ }
+}

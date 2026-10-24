@@ -1,0 +1,14 @@
+{
+ "generation": "Gen360",
+ "title": "Stress-family sleeves, round 2 (program config/gen359_program.json): 4 trials",
+ "registered": "2026-10-24, before any Gen360 number",
+ "trials": {
+  "A residual crash reversal (BTC-hedged)": "60 coins, daily residual = coin return - 60-day beta x BTC return (beta lagged); residual < -3 x its 90-day sd (lagged) -> long the coin 0.1 and short beta x 0.1 BTC for 3 days (at most 8 open); BTC itself excluded",
+  "B equity-stress buy": "CME ES daily return (US trade date d) < -2.5 x its 250-day sd (lagged) -> long BTC and ETH 0.25 each from 00:00 UTC of d+1 for 3 days",
+  "C VIX-spike buy": "VIX daily close up > 25% vs the previous close -> long BTC and ETH 0.25 each from 00:00 UTC of the next day for 3 days",
+  "D market-wide capitulation": "an hour in which at least 8 of the 60 coins have a perp premium z < -3 -> long BTC and ETH 0.25 each for the next 12 h"
+ },
+ "costs": "per-coin Bybit costs and Bybit funding (stressbook.pnl), limit-order execution (Gen337 rule) for every trial",
+ "bars": "program entry bar: DEV (2020-22) > 0, TEST >= 0.8, HOLD >= 0.5, |corr v8.6| <= 0.2, |corr with the Gen359 book| <= 0.5; passing trials get robustness checks before any book decision",
+ "trials_added": 4
+}

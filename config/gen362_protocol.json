@@ -1,0 +1,14 @@
+{
+ "generation": "Gen362",
+ "title": "Two new stress sleeves (A new, B FLAGGED follow-up of Gen360 A) and BTC-trend filters on the existing sleeves (book decisions on 2020-24)",
+ "registered": "2026-10-24, before any Gen362 number",
+ "trials": {
+  "A weekly crash reversal": "60 coins: 7-day return < -3 x (90-day daily sd x sqrt 7) (lagged), only when BTC is above its 200-day mean -> long 0.1 for 7 days, at most 8 open",
+  "B residual crash reversal with the BTC filter (FLAGGED)": "Gen360 A unchanged, only when BTC is above its 200-day mean"
+ },
+ "book decisions (Gen361 book, 2020-24 Sharpe)": {"F1": "premium spike only when BTC > 200-day mean: yes / no", "F2": "negative funding only when BTC > 200-day mean: yes / no",
+                                                  "F3": "add a passing trial from A / B: yes / no (only trials that pass the entry bar and the robustness checks)"},
+ "execution": "limit orders (Gen337 rule), Bybit costs / funding",
+ "bars": "program entry bar; robustness: Bybit costs (already), OKX same-cells sign, neighbourhood median > 0, one day later > 0",
+ "trials_added": 5
+}

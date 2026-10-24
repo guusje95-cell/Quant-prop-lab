@@ -1,0 +1,13 @@
+{
+ "generation": "Gen361",
+ "title": "Book-level refinements of the Gen359 stress book, each chosen on 2020-24 (book Sharpe), applied in order (4 decisions)",
+ "registered": "2026-10-24, before any Gen361 number",
+ "decisions": {
+  "R1 negative funding: at most {5, 10, 20} open": "",
+  "R2 crash reversal: at most {8, 16} open": "",
+  "R3 premium spike sizing": "{flat 0.1, 0.1 x min(|z| / 3, 2)}",
+  "R4 premium spike hold": "{4, 8} hours"
+ },
+ "report": "the refined book with the program's EXPECTED LIVE number (2025-26 shown, never used); decisions so far in the program: 4 (Gen359) + 4",
+ "trials_added": 4
+}

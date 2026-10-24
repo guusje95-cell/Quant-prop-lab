@@ -1,0 +1,8 @@
+{
+ "generation": "Gen363",
+ "title": "Negative-funding signal from either venue (Binance OR Bybit settlement < -0.10%) instead of Binance only - book decision on 2020-24; plus the v8.6 mix of the current book",
+ "registered": "2026-10-24, before any Gen363 number",
+ "decision": "replace the negative-funding sleeve by the union version if the book's 2020-24 Sharpe rises",
+ "mix": "v8.6 at 1.78 and the book at its expected live Sharpe with the measured correlation: best weight and combined Sharpe",
+ "trials_added": 1
+}

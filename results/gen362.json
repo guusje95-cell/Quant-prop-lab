@@ -1,0 +1,75 @@
+{
+ "A weekly crash reversal": {
+  "sleeve DEV / TEST / HOLD": [
+   NaN,
+   1.125,
+   0.027
+  ],
+  "corr v8.6": 0.118,
+  "corr book": 0.206,
+  "entry bar": false
+ },
+ "B residual crash reversal + BTC filter": {
+  "sleeve DEV / TEST / HOLD": [
+   0.539,
+   0.943,
+   1.144
+  ],
+  "corr v8.6": 0.041,
+  "corr book": 0.337,
+  "entry bar": true,
+  "robustness": {
+   "k 2.5 / 3.5": [
+    [
+     0.416,
+     0.617,
+     0.938
+    ],
+    [
+     0.422,
+     0.946,
+     1.515
+    ]
+   ],
+   "one day later": [
+    -0.567,
+    1.047,
+    0.45
+   ]
+  },
+  "robust": false
+ },
+ "F1 premium spike BTC filter (2020-24 no / yes)": [
+  1.875,
+  2.084
+ ],
+ "F2 negative funding BTC filter (2020-24 no / yes)": [
+  2.084,
+  1.955
+ ],
+ "BOOK v3": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.132,
+   2.02,
+   1.296
+  ],
+  "Sharpe 2020-24 (decisions)": 2.084,
+  "Sharpe 2020-26": 1.882,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.129,
+  "corr v8.6 2022-26": 0.149,
+  "by year": {
+   "2020": 2.21,
+   "2021": 3.13,
+   "2022": 0.58,
+   "2023": 2.46,
+   "2024": 1.64,
+   "2025": 1.2,
+   "2026": 1.81
+  },
+  "sleeves": [
+   "premium spike",
+   "crash reversal",
+   "negative funding"
+  ]
+ }
+}
