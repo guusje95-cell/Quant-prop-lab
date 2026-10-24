@@ -1,0 +1,94 @@
+{
+ "T0 at CFT": {
+  "chosen on 2022-24": [
+   2.0,
+   1.5
+  ],
+  "worst hour": -0.089,
+  "2025-26 backtest": {
+   "net": 26404,
+   "p10": -6000,
+   "P_profit": 0.787
+  },
+  "2025-26 planning": {
+   "net": 3421,
+   "p10": -6000,
+   "P_profit": 0.415
+  }
+ },
+ "T0 at HyroTrader": {
+  "chosen on 2022-24": [
+   2.0,
+   1.5
+  ],
+  "worst hour": -0.089,
+  "2025-26 backtest": {
+   "net": 29253,
+   "p10": -4845,
+   "P_profit": 0.81
+  },
+  "2025-26 planning": {
+   "net": 4849,
+   "p10": -4845,
+   "P_profit": 0.463
+  }
+ },
+ "T2 cap at CFT": {
+  "chosen on 2022-24": [
+   1.5,
+   1.0
+  ],
+  "worst hour": -0.0361,
+  "2025-26 backtest": {
+   "net": 38825,
+   "p10": 3732,
+   "P_profit": 0.93
+  },
+  "2025-26 planning": {
+   "net": 22301,
+   "p10": -6000,
+   "P_profit": 0.815
+  }
+ },
+ "T2 cap at HyroTrader": {
+  "chosen on 2022-24": [
+   1.5,
+   1.0
+  ],
+  "worst hour": -0.0361,
+  "2025-26 backtest": {
+   "net": 42273,
+   "p10": 6594,
+   "P_profit": 0.943
+  },
+  "2025-26 planning": {
+   "net": 24277,
+   "p10": -3876,
+   "P_profit": 0.833
+  }
+ },
+ "joint 2025-26 backtest: v8.6 @ HyroTrader + v8.6 @ CFT": {
+  "mean": 360893,
+  "p10": 221615,
+  "P_loss": 0.0,
+  "corr of the two accounts": 0.982
+ },
+ "joint 2025-26 backtest: v8.6 @ HyroTrader + book @ CFT": {
+  "mean": 221688,
+  "p10": 138539,
+  "P_loss": 0.0,
+  "corr of the two accounts": 0.246
+ },
+ "joint 2025-26 planning: v8.6 @ HyroTrader + v8.6 @ CFT": {
+  "mean": 179868,
+  "p10": 54836,
+  "P_loss": 0.028,
+  "corr of the two accounts": 0.97
+ },
+ "joint 2025-26 planning: v8.6 @ HyroTrader + book @ CFT": {
+  "mean": 112219,
+  "p10": 35508,
+  "P_loss": 0.018,
+  "corr of the two accounts": 0.216
+ }
+}

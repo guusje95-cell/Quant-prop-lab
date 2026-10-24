@@ -1,0 +1,11 @@
+{
+ "generation": "Gen367",
+ "title": "More crash-reversal horizons under the BTC-trend rule (2 trials) and rebuild with the Gen366 C2 construction (fixed: Sharpe-weighted on 2020-24)",
+ "registered": "2026-10-24, before any Gen367 number",
+ "trials": {
+  "A 4-hour crash reversal": "every 4 h (00/04/08/...): last 4 h return < -3 x (720 h hourly sd x sqrt 4) -> long 0.1 for 12 h, at most 8 open",
+  "B 3-day crash reversal": "daily: last 3-day return < -3 x (90-day daily sd x sqrt 3) -> long 0.1 for 5 days, at most 8 open"
+ },
+ "rules": "BTC above its 200-day mean; limit orders; Bybit costs / funding; program entry bar vs the Gen366 book; robustness (k 2.5 / 3.5, one bar later); enter the C2 rebuild only if the rebuilt book's 2020-24 Sharpe rises",
+ "trials_added": 2
+}

@@ -1,0 +1,59 @@
+{
+ "1 rebuild": {
+  "Sharpe 2020-22 / 2023-24 / 2025-26": [
+   2.352,
+   2.332,
+   1.793
+  ],
+  "Sharpe 2020-24 (decisions)": 2.342,
+  "Sharpe 2020-26": 2.196,
+  "EXPECTED LIVE (0.6 x 2020-26)": 1.317,
+  "corr v8.6 2022-26": 0.168,
+  "by year": {
+   "2020": 1.99,
+   "2021": 3.53,
+   "2022": 1.04,
+   "2023": 2.64,
+   "2024": 2.0,
+   "2025": 1.94,
+   "2026": 1.96
+  }
+ },
+ "1 max diff vs Gen366 (daily)": 2.6020852139652106e-17,
+ "2 costs x2 expected live": 1.309,
+ "3 tail": {
+  "worst day": -0.0702,
+  "worst hour": -0.081,
+  "max drawdown": -0.086
+ },
+ "4 prop (HyroTrader $200k, 2025-26 bootstrap)": {
+  "backtest: v8.6 alone": {
+   "Sharpe 2022-26": 3.109,
+   "net 2y": 182863,
+   "p10": 112422,
+   "P_profit": 1.0,
+   "days to funded": 61.0
+  },
+  "backtest: v8.6 + 0.65 x stress book": {
+   "Sharpe 2022-26": 3.387,
+   "net 2y": 129745,
+   "p10": 21752,
+   "P_profit": 0.953,
+   "days to funded": 65.0
+  },
+  "planning: v8.6 alone": {
+   "Sharpe 2022-26": 1.78,
+   "net 2y": 89918,
+   "p10": 25138,
+   "P_profit": 0.97,
+   "days to funded": 83.0
+  },
+  "planning: v8.6 + 0.65 x stress book": {
+   "Sharpe 2022-26": 1.967,
+   "net 2y": 48905,
+   "p10": -4845,
+   "P_profit": 0.818,
+   "days to funded": 93.0
+  }
+ }
+}

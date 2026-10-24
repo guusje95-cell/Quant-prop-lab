@@ -1,0 +1,6 @@
+{
+ "generation": "Gen369b",
+ "title": "The stress book as its OWN prop account (descriptive; registered after Gen369, before running)",
+ "setups": "book T0 (no tail control) and T2 (gross exposure cap 0.15 per unit), each scaled to 15% vol on 2022-24; CFT 2-Phase $200k (5% daily of the initial balance, 10% static) and HyroTrader 2-Step $200k; challenge / funded risk chosen on 2022-24 from {1.0, 1.5, 2.0} x {1.0, 1.5}, daily stop 50% of the daily limit; 2025-26 bootstrap at backtest level and at planning level (0.6 x its own Sharpe)",
+ "joint": "total of a v8.6 account (HyroTrader) + a stress-book account (CFT) in one joint 2025-26 bootstrap vs two v8.6 accounts (HyroTrader + CFT)"
+}

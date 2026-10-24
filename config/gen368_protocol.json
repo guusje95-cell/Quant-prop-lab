@@ -1,0 +1,11 @@
+{
+ "generation": "Gen368",
+ "title": "Final checks of the 5-sleeve stress book (Gen366 C2) and its value next to v8.6 in a prop account (descriptive)",
+ "registered": "2026-10-24, before running",
+ "checks": {
+  "1 hourly rebuild": "all five sleeves rebuilt hourly, C2 weights (2020-24 Sharpe / sd), must reproduce Gen366",
+  "2 costs x2 / OKX same cells": "expected live with doubled Bybit costs; Binance vs OKX on the cells with OKX data",
+  "3 tail": "worst day / worst hour at 15% vol",
+  "4 prop": "HyroTrader 2-Step $200k, 2.0 / 1.5, daily stop 2.5%, 2025-26 bootstrap: (a) v8.6 alone, (b) v8.6 + stress book in the SAME account at the best planning weight (book risk = 0.65 x v8.6 risk), both scaled to 15% vol on 2022-24; at backtest level and at planning level (v8.6 shifted to 1.78, book to 0.6 x its own Sharpe)"
+ }
+}

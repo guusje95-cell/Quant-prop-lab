@@ -1387,3 +1387,34 @@ Fixed definition (registered before any number): **expected live = 0.6 x the boo
 - **Inside v8.6 as a 10th sleeve:** weight chosen on 2022-24 = 0.25 -> 3.106 [1.46, 4.00, 3.17]. Fails the strict rule (the backtest v8.6 is too strong for a 1.7 sleeve to lift on paper).
 - **Use:** as its own book / account at about 0.4 x v8.6's risk, not merged.
 - **Next:** paper trading. Trials in the whole orthogonal search: about 56.
+
+## Gen360-369 (2026-10-24): stress book to expected live 1.32 - and what that means in prop accounts
+**Search / refinement (all choices on 2020-24):**
+- Gen360 (4 trials): residual crash reversal (-0.03 / 0.84 / 0.78), equity-stress buy, VIX-spike buy, market-wide capitulation. All fail.
+- **Gen361:** premium spike sized by |z| (2020-24 1.815 -> 1.875). Caps and holds unchanged. Expected live 1.085.
+- **Gen362:** BTC-trend filter on the premium spike (1.875 -> 2.084); not on negative funding. Weekly crash reversal and residual + filter fail (one day later). Expected live 1.13, corr 0.15.
+- **Gen363:** negative funding from either venue (Binance OR Bybit): 2.084 -> 2.157. Expected live 1.18.
+- **Gen364 B, daily premium discount + BTC filter:** 1.05 / 0.88 / 1.26, robust (the alt delev bounce fails).
+- **Gen365, 8-hour crash reversal + BTC filter:** 0.67 / 1.38 / 2.94, corr v8.6 0.07, robust.
+- Neither of the two raised the equal-risk book on its own.
+- **Gen366, construction chosen on 2020-24 among {3 equal, 5 equal, 5 Sharpe-weighted, 5 minimum-variance}:** 5 Sharpe-weighted. **2.35 / 2.33 / 1.79, expected live 1.32, corr v8.6 0.17**, every year >= 1.04.
+  - Continuous mix with v8.6 at planning levels: **1.78 -> 2.06** (book at 0.65 x v8.6 risk).
+- Gen367: 4-hour and 3-day crash reversal fail.
+- **Gen368 checks:** costs x2 -> 1.31; worst day -7.0%, **worst hour -8.1%** (2025-10-10, premium spike buying a market-wide crash), max DD -8.6% (15% vol).
+
+**Prop reality (Gen368 / 369 / 369b, HyroTrader / CFT $200k, 2.0 / 1.5, 2.5% stop, 2025-26 bootstrap, planning level):**
+
+| Setup | Profit over 2 years | Bad case (p10) | P(profit) |
+|---|---|---|---|
+| v8.6 alone | $90k | $25k | 0.97 |
+| **v8.6 + 0.65 x book in the SAME account** | **$49k** | **-$5k** | **0.82** |
+
+- The book's crash-hour jumps break the 5% daily limit before an hourly stop can act.
+- Tail controls (Gen369, chosen on 2022-24 by prop net): none / systemic-crash filter / exposure cap / 4% position stop / filter + cap.
+  - 2022-24 picks "none". **The exposure cap cuts the worst hour to -1.9% (-3.6% scaled)** at little cost on 2022-24.
+- **The book as its OWN account (cap version):** about $22-24k over 2 years, P(profit) 0.82-0.83.
+- **Joint, two accounts (planning):** v8.6 @ HyroTrader + v8.6 @ CFT = **$180k (p10 $55k, P loss 2.8%)** vs v8.6 @ HyroTrader + book @ CFT = $112k (p10 $36k, P loss 1.8%).
+- **Conclusion:**
+  - The stress book raises the continuous Sharpe of a combined portfolio (1.78 -> 2.06), but **in prop accounts a second v8.6 account earns far more**. The book only wins a little on the chance of a total loss.
+  - Use the book only where v8.6 cannot be run (capacity / one-account rules), or as insurance if v8.6's carry decays.
+  - **Never in the same account as v8.6 without the exposure cap.**

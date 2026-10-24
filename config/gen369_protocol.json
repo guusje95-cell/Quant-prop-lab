@@ -1,0 +1,15 @@
+{
+ "generation": "Gen369",
+ "title": "Tail control of the stress book for prop use - chosen on 2022-24 with the prop simulation itself",
+ "registered": "2026-10-24, after seeing Gen368 (the book raises Sharpe but lowers prop results through crash-hour losses), before any Gen369 number",
+ "book as one position matrix": "the five sleeves' hourly positions x their C2 weights (Gen366) x the 15%-vol scale; executed with limit orders, Bybit costs",
+ "options": {
+  "T0": "none",
+  "T1 systemic-crash filter": "no NEW stress entries in an hour where BTC's hourly return z (720 h, lagged) < -3 or where >= 5 coins trigger the premium-spike rule in that hour",
+  "T2 exposure cap": "sum of absolute stress positions <= 0.15 of equity (scaled down proportionally above)",
+  "T3 position stop": "each coin's stress position is closed when that coin's hourly low falls 4% below the close at which the position was opened (fill 10 bp below the stop)",
+  "T4": "T1 + T2"
+ },
+ "choice": "account = v8.6 + 0.65 x book (equal-vol units, rescaled to 15% vol on 2022-24); HyroTrader 2-Step $200k 2.0 / 1.5 / 2.5% stop; 2022-24 block bootstrap (n 400); highest mean net with P(profit) >= 0.9; then 2025-26 reported at backtest and planning levels next to v8.6 alone",
+ "trials_added": 4
+}
