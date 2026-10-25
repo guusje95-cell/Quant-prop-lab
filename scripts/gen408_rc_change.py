@@ -7,7 +7,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
 src = open(ROOT / "scripts/gen401_rc_freq.py").read().split("\nout = {")[0]
 g = {"__file__": str(ROOT / "scripts/gen401_rc_freq.py")}; exec(compile(src, "g401", "exec"), g)
-dd, shp, per, unit, END, CS, V, B, pnl, days, C6, z, daily, rc6, a, bsm = (g[k] for k in ("dd", "shp", "per", "unit", "END", "CS", "V", "B", "pnl", "days", "C6", "z", "daily", "rc6", "a", "bsm"))
+dd, shp, per, unit, END, CS, V, B, pnl, days, C6, rc6, a, bsm = (g[k] for k in ("dd", "shp", "per", "unit", "END", "CS", "V", "B", "pnl", "days", "C6", "rc6", "a", "bsm"))
+z = lambda x, w: (x - x.rolling(w, min_periods=int(w * 0.7)).mean()) / x.rolling(w, min_periods=int(w * 0.7)).std()
+def daily(s, how="last"):
+    s = s.copy(); s.index = pd.DatetimeIndex(s.index).floor("D"); s = getattr(s.groupby(level=0), how)()
+    return s.reindex(days).ffill().shift(1)
 rc95 = (rc6 + a + bsm) / 3; V5 = V.assign(**{"relative crowding 6": rc95}); v95 = unit(CS.portfolio_v5(V5)[0]); REF = (shp(v95), per(v95))
 def chg(col):
     Z = pd.DataFrame({c: z(daily(B.metrics(c)[col], "mean").diff(7), 90) for c in C6}); Zd = Z.sub(Z.mean(axis=1), axis=0)

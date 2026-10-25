@@ -1619,3 +1619,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen407 (2026-10-25): risk tuning inside relative crowding (`results/gen407.json`)
 - Beta-neutral: sleeve 1.07 / 1.27 / 0.67, book 2.802; inverse-vol: sleeve 0.99 / 1.39 / 1.39, book 2.900. **Both fail** (v9.5 rebuilt 2.976 exactly).
+
+## Gen408 (2026-10-25): crowding change (`results/gen408.json`)
+- Relative 7-day crowding change: sleeve 1.38 / 0.78 / 0.39 (corr 0.45 with the v9.5 sleeve); as an added sleeve 2.830, mixed with the level 2.915. **Both fail.** (CFD transfer of the futures book for the BrightFunded account not re-tested: 31 earlier CFD ideas failed and bonds are not listed.)

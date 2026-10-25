@@ -1,0 +1,40 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "C1 sleeve": [
+  1.379,
+  0.78,
+  0.391
+ ],
+ "corr C1 vs v9.5 sleeve": 0.447,
+ "trials": {
+  "C1 crowding change as an added sleeve": {
+   "book": [
+    2.83,
+    [
+     2.24,
+     3.676,
+     2.306
+    ]
+   ],
+   "pass": false
+  },
+  "C2 level + change": {
+   "book": [
+    2.915,
+    [
+     2.353,
+     3.755,
+     2.361
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
