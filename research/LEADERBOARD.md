@@ -1503,3 +1503,14 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - `QPL_PAPER=v90`: Gen373 K1 sleeves; C\* = `CS.cstar_pit_weights()` (point-in-time top-10 by 30-day volume, monthly; live candidates = the 60 pack + extra coins, so a brand-new coin outside them cannot enter). Research-pack _dump: 2.423 [1.104, 3.588, 2.051], corr 0.997 with Gen373 (2.394 incl. delisted candidates, the planning reference); scale 0.885.
 - **Selftest PASSED** (15 cutoffs, incl. a month start: max |difference| 1.7e-18). v86 output unchanged after the code changes (max diff 0.0). Runs next to v86 / bf26; paper_report includes it.
 - **New data downloader** `get_new_data.bat` (DefiLlama, Blockchain.com, Bybit public BTC/ETH OI and long/short): Gen376 (4 trials) registered before the data exists.
+
+## Gen377 (2026-10-25): K1 robustness, honest BrightFunded book, joint account plan (`config/gen377_protocol.json`, `results/gen377.json`)
+- **Deflated Sharpe of K1 (2.394):** DSR 0.994 (N = 300) / 0.976 (N = 1,600): the edge is very likely real. **Planning Sharpe by the project's own method (SR - SR0): 1.07 (N = 300) / 0.84 (N = 1,600).** The 1.37 used since Gen373 scaled v8.6's haircut by a ratio; the haircut is an absolute amount, so a lower backtest Sharpe loses relatively more. **Correction: plan with about 0.85-1.1, not 1.37.**
+- Bootstrap 90% interval of the 2022-26 backtest Sharpe: 1.64-3.15.
+- **Leave one out:** every sleeve adds except C\* (K1 without C\* 2.402 vs 2.394: better 2022, worse 2023-26; kept, below the +0.05 bar). Biggest contributors: cascade (2.09 without), trend 4h (2.13), Weiss (2.23), delev bounce (2.25).
+- **C\* plateau:** top-8 / 10 / 12 give K1 2.364 / 2.394 / 2.409. Not fragile.
+- **Honest BrightFunded book (bf2.6 without carry):** 2.301 [0.24, 3.75, 2.14] (bf2.6 2.829), corr 0.82 with K1: mostly the same bet on another platform.
+- **Joint account plan (2025-26 days, 730-day bootstrap):**
+  - Backtest level: HyroTrader $120k, CFT $117k, BrightFunded $117k, MFP $35k; all four $389k (p10 $171k), outcome corr 0.80.
+  - **Planning level (K1 0.84, bf 0.75): per account $25-27k mean, p10 about -$5k, P(profit) 0.70-0.74; all four $85k mean, p10 -$16k, P(total loss) 0.21, P(every account loses) 0.115.**
+- Consequence: at an honest planning Sharpe the prop plan is a positive-expectation bet with a real chance of losing the fees. The paper / early-live Sharpe decides how many accounts make sense: start with ONE account; add more only after live results support Sharpe >= 1.5.

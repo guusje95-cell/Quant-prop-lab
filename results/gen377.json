@@ -1,0 +1,239 @@
+{
+ "K1": [
+  2.394,
+  [
+   1.053,
+   3.548,
+   2.055
+  ]
+ ],
+ "1 deflated Sharpe": {
+  "N=300": {
+   "SR0": 1.328,
+   "DSR": 0.9938,
+   "planning Sharpe = SR - SR0": 1.066
+  },
+  "N=1600": {
+   "SR0": 1.554,
+   "DSR": 0.9757,
+   "planning Sharpe = SR - SR0": 0.84
+  }
+ },
+ "1 bootstrap 90% interval 2022-26": [
+  1.64,
+  3.15
+ ],
+ "1 leave one out": {
+  "C*": [
+   2.402,
+   [
+    1.407,
+    3.442,
+    2.005
+   ]
+  ],
+  "cascade limit strict": [
+   2.09,
+   [
+    0.305,
+    3.354,
+    1.961
+   ]
+  ],
+  "trend 4h": [
+   2.134,
+   [
+    0.446,
+    3.504,
+    1.977
+   ]
+  ],
+  "Weiss expiry": [
+   2.225,
+   [
+    0.997,
+    3.215,
+    1.992
+   ]
+  ],
+  "delev bounce": [
+   2.245,
+   [
+    0.575,
+    3.487,
+    1.85
+   ]
+  ],
+  "ridge ML": [
+   2.29,
+   [
+    1.261,
+    3.498,
+    1.687
+   ]
+  ],
+  "alt kimchi": [
+   2.312,
+   [
+    1.347,
+    3.263,
+    1.92
+   ]
+  ]
+ },
+ "1 C* plateau": {
+  "top-8": {
+   "C* alone": [
+    -2.3,
+    1.918,
+    0.699
+   ],
+   "K1": [
+    2.364,
+    [
+     0.963,
+     3.529,
+     2.052
+    ]
+   ]
+  },
+  "top-12": {
+   "C* alone": [
+    -2.026,
+    2.217,
+    0.728
+   ],
+   "K1": [
+    2.409,
+    [
+     1.02,
+     3.556,
+     2.107
+    ]
+   ]
+  }
+ },
+ "2 BrightFunded": {
+  "bf2.6 rebuilt (no cap)": [
+   2.829,
+   [
+    0.43,
+    4.067,
+    2.925
+   ]
+  ],
+  "honest bf (no carry)": [
+   2.301,
+   [
+    0.236,
+    3.754,
+    2.144
+   ]
+  ],
+  "corr honest bf vs K1 (daily 2022-26)": 0.816
+ },
+ "3 account plan, backtest": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 119516,
+    "p10": 53828,
+    "P_profit": 0.998
+   },
+   "2 CFT $200k": {
+    "mean": 116712,
+    "p10": 49321,
+    "P_profit": 0.995
+   },
+   "3 BrightFunded $200k": {
+    "mean": 117381,
+    "p10": 61824,
+    "P_profit": 0.998
+   },
+   "4 MyFundedPerps $100k": {
+    "mean": 35455,
+    "p10": 7969,
+    "P_profit": 0.985
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 119516,
+    "p10": 53828,
+    "p50": 118726,
+    "P_loss": 0.003
+   },
+   "HyroTrader + CFT": {
+    "mean": 236228,
+    "p10": 101481,
+    "p50": 236930,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT + BrightFunded": {
+    "mean": 353609,
+    "p10": 158374,
+    "p50": 352197,
+    "P_loss": 0.0
+   },
+   "HyroTrader + CFT + BrightFunded + MyFundedPerps": {
+    "mean": 389064,
+    "p10": 171213,
+    "p50": 387520,
+    "P_loss": 0.0
+   }
+  },
+  "P(every account loses)": 0.0,
+  "mean pairwise corr of outcomes": 0.803
+ },
+ "3 account plan, planning (K1 0.84, bf 0.75)": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 27402,
+    "p10": -4845,
+    "P_profit": 0.74
+   },
+   "2 CFT $200k": {
+    "mean": 25369,
+    "p10": -6000,
+    "P_profit": 0.698
+   },
+   "3 BrightFunded $200k": {
+    "mean": 26064,
+    "p10": -4164,
+    "P_profit": 0.74
+   },
+   "4 MyFundedPerps $100k": {
+    "mean": 5873,
+    "p10": -3480,
+    "P_profit": 0.615
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 27402,
+    "p10": -4845,
+    "p50": 19295,
+    "P_loss": 0.26
+   },
+   "HyroTrader + CFT": {
+    "mean": 52771,
+    "p10": -10845,
+    "p50": 36348,
+    "P_loss": 0.263
+   },
+   "HyroTrader + CFT + BrightFunded": {
+    "mean": 78835,
+    "p10": -15008,
+    "p50": 57343,
+    "P_loss": 0.217
+   },
+   "HyroTrader + CFT + BrightFunded + MyFundedPerps": {
+    "mean": 84708,
+    "p10": -15937,
+    "p50": 59155,
+    "P_loss": 0.21
+   }
+  },
+  "P(every account loses)": 0.115,
+  "mean pairwise corr of outcomes": 0.712
+ }
+}
