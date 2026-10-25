@@ -1535,3 +1535,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen382 (2026-10-25): how much risk for the basket (`results/gen382.json`)
 - Chosen on 2022-24: A the 10 members as separate sleeves (2022-24 3.04) -> **2.711 [2.804, 3.132, 2.178]**; B basket x2 2.707 [2.467, 3.253, 2.232]; C x3 2.640. **Fails** (2023-24 lower; 2022-26 flat): more basket weight moves Sharpe from 2023-24 to 2022 without raising the total. v9.1 unchanged.
+
+## Gen383 (2026-10-25): neighbourhood ensembles in v9.1 (`results/gen383.json`)
+- trend 4h ensemble 2.732 [2.249, 3.441, 2.249]; alt kimchi ensemble 2.717; **both 2.743 [2.269, 3.453, 2.255]: every period up but +0.036 < +0.05. Fails** (second time after Gen336 that these ensembles give a small consistent gain; noted as a robustness candidate for the paper review).

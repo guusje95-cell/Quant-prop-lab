@@ -1,0 +1,18 @@
+{
+  "gen": 384,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.1 2.707 [2.205, 3.438, 2.215]",
+  "idea": "Binance positioning / premium / funding / OI as TIME-SERIES signals on BTC and ETH only (earlier tests used cross-sections on today's coins or spikes only); directions fixed by rationale",
+  "signals": {
+    "M1 retail crowding": "daily mean count_long_short_ratio (all accounts), z 90 d, 1-day lag; per coin -0.125 x clip(z, -2, 2) / 2",
+    "M2 top-trader position crowding": "daily mean sum_toptrader_long_short_ratio, z 90 d; per coin -0.125 x clip / 2",
+    "M3 premium discount": "7-day mean of the perp premium index, z 90 d; per coin -0.125 x clip / 2 (perp below index -> long)",
+    "M4 funding contrarian": "7-day mean funding, z 90 d; per coin -0.125 x clip / 2",
+    "M5 leverage build-up": "7-day change of log open-interest value, z 90 d; per coin -0.125 x clip / 2",
+    "M6 spot-led demand": "log(Binance spot quote volume / perp quote volume), 7-day mean, z 90 d; per coin +0.125 x clip / 2"
+  },
+  "selection": "the Gen380 rule on the pool Gen380 (26) + Gen381 (10) + these 6",
+  "pass": "K1 + new basket vs v9.1: strict rule (2022-26 +0.05 and every period not lower)",
+  "trials_added": 6,
+  "no_changes_after_results": true
+}

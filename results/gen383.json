@@ -1,0 +1,46 @@
+{
+ "reference v9.1": [
+  2.707,
+  [
+   2.205,
+   3.438,
+   2.215
+  ]
+ ],
+ "check alt kimchi th=1.0 vs book sleeve (corr)": 1.0,
+ "trials": {
+  "A trend 4h ensemble": {
+   "2022-26 [periods]": [
+    2.732,
+    [
+     2.249,
+     3.441,
+     2.249
+    ]
+   ],
+   "pass": false
+  },
+  "B alt kimchi ensemble": {
+   "2022-26 [periods]": [
+    2.717,
+    [
+     2.221,
+     3.45,
+     2.219
+    ]
+   ],
+   "pass": false
+  },
+  "C both": {
+   "2022-26 [periods]": [
+    2.743,
+    [
+     2.269,
+     3.453,
+     2.255
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
