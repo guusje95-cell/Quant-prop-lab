@@ -1,0 +1,84 @@
+{
+ "reference v9.2": [
+  2.771,
+  [
+   2.342,
+   3.486,
+   2.247
+  ]
+ ],
+ "new": {
+  "Q1 squeeze fade": {
+   "2022 / 2023-24 / 2025-26": [
+    1.71,
+    -0.814,
+    0.383
+   ],
+   "event days": 13
+  },
+  "Q2 trapped shorts": {
+   "2022 / 2023-24 / 2025-26": [
+    -1.526,
+    -0.439,
+    0.4
+   ],
+   "event days": 13
+  },
+  "Q3 euphoria fade": {
+   "2022 / 2023-24 / 2025-26": [
+    -0.926,
+    -0.982,
+    0.281
+   ],
+   "event days": 246
+  }
+ },
+ "steps": [
+  [
+   "Gen249 A USDT premium",
+   1.533
+  ],
+  [
+   "mint shock",
+   2.057
+  ],
+  [
+   "Gen120 D2 call-minus-put flow",
+   2.348
+  ],
+  [
+   "kimchi BTC/ETH v8.4",
+   2.666
+  ],
+  [
+   "S6 top-trader crowding",
+   2.831
+  ],
+  [
+   "M5 leverage build-up",
+   3.019
+  ],
+  [
+   "stablecoin impulse",
+   3.084
+  ],
+  [
+   "fee pressure",
+   3.165
+  ]
+ ],
+ "basket": [
+  3.358,
+  3.08,
+  1.41
+ ],
+ "book": [
+  2.829,
+  [
+   2.298,
+   3.598,
+   2.309
+  ]
+ ],
+ "pass": false
+}

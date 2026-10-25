@@ -1566,3 +1566,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen391 (2026-10-25, FLAGGED): forward-stepwise basket selection on 2022-24 (`results/gen391.json`)
 - Steps (basket 2022-24 Sharpe): USDT premium 1.53, + mint shock 2.06, + call-minus-put flow 2.35, + kimchi BTC/ETH 2.67, + top-trader crowding 2.83, + leverage build-up 3.02, + stablecoin impulse 3.08, + fee pressure 3.17; stop.
 - Basket **3.36 / 3.08 / 1.41** (2025-26 out of sample), 2.54 overall. v9.2 structure + it **2.829 [2.298, 3.598, 2.309]**: +0.058, 2023-24 and 2025-26 up, 2022 -0.044 -> **fails the strict rule by 0.04 in 2022**. By year 2.30 / 3.41 / 3.80 / 1.65 / 3.16. **v9.3 candidate (flagged), for the user's decision.**
+
+## Gen392 (2026-10-25): OI / price divergences on BTC, ETH, SOL (`results/gen392.json`)
+- Squeeze fade 1.71 / -0.81 / 0.38 (13 events); trapped shorts -1.53 / -0.44 / 0.40 (13 events); euphoria fade -0.93 / -0.98 / 0.28. **All fail**; the stepwise basket is unchanged.
+- **Gen391b (robustness of the v9.3 candidate):** basket positive every year (3.36 / 2.60 / 3.50 / 1.28 / 1.66); leaving out any one of the 8 members keeps the book at 2.757-2.841 (v9.2 2.771). Not driven by one signal.

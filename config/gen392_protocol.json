@@ -1,0 +1,15 @@
+{
+  "gen": 392,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.2 2.771 [2.342, 3.486, 2.247] (also reported vs the Gen391 candidate 2.829)",
+  "idea": "open-interest / price divergences on BTC, ETH, SOL, the mirror images of the deleveraging bounce (Gen90: OI -10% and price down -> long 2 days), same 24-hour measurement at 23:55 UTC",
+  "trials": {
+    "Q1 squeeze fade": "OI value -10% or more AND price up over 24 h -> short 0.5 per coin for 2 days (short covering exhausts)",
+    "Q2 trapped shorts": "OI value +10% or more AND price down -> long 0.5 for 2 days",
+    "Q3 euphoria fade": "OI value +10% or more AND price up -> short 0.5 for 2 days"
+  },
+  "use": "each enters the pool; the Gen391 forward-stepwise selection on 2022-24 is rerun on the enlarged pool",
+  "pass": "strict rule vs v9.2; flagged (it reuses the Gen391 procedure)",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
