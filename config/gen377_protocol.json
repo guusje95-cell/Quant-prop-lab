@@ -1,0 +1,14 @@
+{
+  "gen": 377,
+  "date": "2026-10-25",
+  "registered": "before running; descriptive (no adoption decisions except where stated)",
+  "part_1_robustness_of_K1": {
+    "deflated_sharpe": "Bailey & Lopez de Prado DSR of K1 (2022-26 daily) for N = 300 and N = 1,600 trials; planning Sharpe = SR - SR0 (the method behind the old 1.78)",
+    "bootstrap": "90% interval of the 2022-26 Sharpe, 20-day block bootstrap, 2,000 draws",
+    "leave_one_out": "K1 without each sleeve (7 books)",
+    "c_star_plateau": "point-in-time C* with top-8 and top-12 instead of top-10 (descriptive: a fragile choice shows as a large drop)"
+  },
+  "part_2_honest_brightfunded_book": "bf2.6 without its carry sleeves ('premium carry', 'premium carry BF'), C* kept on today's 10 majors (CFD list), leverage cap not re-applied: Sharpe and corr with K1 (descriptive; candidate bf3.0)",
+  "part_3_account_plan": "joint 730-day block bootstrap (as Gen332, 2025-26 days, 400 paths): HyroTrader 2-Step $200k (K1, 2.0/1.5/0.5), CFT 2-Phase $200k (K1, 2.0/1.5/0.5), BrightFunded Classic $200k swap-free (honest bf, 2.0/1.5/0.5, reset -2h), MyFundedPerps Signature $100k (K1, 1.0/2.0/0.4); at the backtest level and at the planning level from part 1 (N = 1,600); per account and stacked totals",
+  "no_changes_after_results": true
+}
