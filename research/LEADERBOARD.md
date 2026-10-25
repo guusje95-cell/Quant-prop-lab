@@ -1532,3 +1532,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen381 (2026-10-25): 10 more BTC/ETH signals for the basket (`results/gen381.json`)
 - 2022 / 2023-24 / 2025-26: VIX term structure -0.12 / -0.82 / 0.13; VIX shock 0.74 / -0.90 / 0.18; CME asset managers -0.38 / 0.19 / 0.38; CME leveraged funds -0.75 / -0.40 / -0.23; fear & greed contrarian -0.48 / -0.28 / -0.25; **top-trader crowding 1.56 / 0.88 / 0.32**; taker flow momentum 1.84 / -1.26 / -0.81; network activity -1.04 / -0.94 / -0.43; buy-bitcoin attention -0.61 / 0.57 / 0.04; ethereum attention -0.90 / 0.75 / -0.20.
 - Only top-trader crowding enters; the 11-member basket gives K1 2.695 [2.202, 3.423, 2.194] < v9.1 2.707. **Fails; v9.1 unchanged.**
+
+## Gen382 (2026-10-25): how much risk for the basket (`results/gen382.json`)
+- Chosen on 2022-24: A the 10 members as separate sleeves (2022-24 3.04) -> **2.711 [2.804, 3.132, 2.178]**; B basket x2 2.707 [2.467, 3.253, 2.232]; C x3 2.640. **Fails** (2023-24 lower; 2022-26 flat): more basket weight moves Sharpe from 2023-24 to 2022 without raising the total. v9.1 unchanged.

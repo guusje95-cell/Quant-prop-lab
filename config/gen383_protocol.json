@@ -1,0 +1,13 @@
+{
+  "gen": 383,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.1 2.707 [2.205, 3.438, 2.215]",
+  "trials": {
+    "A trend 4h ensemble": "trend 4h as the mean of n_in = 15 / 20 / 30 (n_out = n_in / 2), the Gen336 neighbourhood",
+    "B alt kimchi ensemble": "alt kimchi as the mean of thresholds 0.75 / 1.0 / 1.25 (Gen336)",
+    "C both": "A + B together"
+  },
+  "pass": "each judged with the strict rule vs v9.1; with several passes, the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}

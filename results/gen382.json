@@ -1,0 +1,63 @@
+{
+ "reference v9.1": [
+  2.707,
+  [
+   2.205,
+   3.438,
+   2.215
+  ]
+ ],
+ "check: x1 reproduces v9.1": 2.707,
+ "trials": {
+  "A members as sleeves": {
+   "2022-24": 3.027,
+   "2022-26 [periods]": [
+    2.711,
+    [
+     2.804,
+     3.132,
+     2.178
+    ]
+   ],
+   "worst day at risk 2": -0.0614
+  },
+  "B basket x2": {
+   "2022-24": 2.991,
+   "2022-26 [periods]": [
+    2.707,
+    [
+     2.467,
+     3.253,
+     2.232
+    ]
+   ],
+   "worst day at risk 2": -0.0893
+  },
+  "C basket x3": {
+   "2022-24": 2.915,
+   "2022-26 [periods]": [
+    2.64,
+    [
+     2.537,
+     3.096,
+     2.18
+    ]
+   ],
+   "worst day at risk 2": -0.1012
+  }
+ },
+ "chosen": "A members as sleeves",
+ "pass": false,
+ "chosen prop (HyroTrader 2022-24 / 2025-26)": [
+  {
+   "net": 195575,
+   "p10": 123987,
+   "P_profit": 1.0
+  },
+  {
+   "net": 125627,
+   "p10": 58885,
+   "P_profit": 0.988
+  }
+ ]
+}
