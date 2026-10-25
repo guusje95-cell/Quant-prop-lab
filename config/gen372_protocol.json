@@ -1,0 +1,15 @@
+{
+  "gen": 372,
+  "date": "2026-10-25",
+  "registered": "after Gen321/Gen326 (wide carry fails on the point-in-time universe), before running anything below",
+  "question": "Gen321 withdrew v8.5/v8.6 (wide carry was survivorship). The pre-registered fallback is v8.4 + tranching. Its 20-coin carry is also on coins chosen today (all survivors). How much of the fallback's Sharpe survives a point-in-time top-20 carry?",
+  "books": {
+    "F0": "fallback as registered: v8.6 sleeves minus 'premium carry 60' (20-coin tranched invvol carry kept)",
+    "F1": "F0 with the 20-coin carry replaced by the same construction on the point-in-time top-20 by trailing 30-day volume (delisted included, Gen326 loaders, tranched)",
+    "F2": "F0 without any premium carry sleeve",
+    "v86": "reference (survivorship-inflated)"
+  },
+  "decision": "the candidate book for paper/live is F0 unless F1 is lower by more than 0.10 Sharpe on 2022-26: then F2 vs F1 by the strict rule (every period not lower and +0.05) decides whether a carry sleeve is kept at all; the 2022-26 Sharpe of the chosen honest version is the new backtest number for planning (planning = backtest x 1.78/3.11, the same haircut ratio as before)",
+  "also": "HyroTrader prop 2022-24 / 2025-26 for each book (challenge 2.0 / funded 1.5, stop 0.5 x daily, bootstrap)",
+  "no_changes_after_results": true
+}
