@@ -1460,3 +1460,13 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - **HyroTrader prop 2022-24:** net $166k vs **$184k**, p10 $89k vs $106k. Holdout: $167k vs $183k.
 - Ridge sleeve Sharpe by year: 2022 -0.28, 2023 1.66, 2024 2.19, 2025 1.26, 2026 1.97. Corr with the rest of the book 0.29. 10% of its 4-day windows lose 3.7% unit or more, so the paper loss is ordinary.
 - **Fails. Ridge ML stays.** Paper code unchanged.
+
+## Gen321 / Gen326 / Gen372 (2026-10-25): survivorship check on the point-in-time Binance universe (705 perps, delisted included)
+- **Gen321 (registered before the data):** the Gen316 wide carry on a point-in-time top-60 (444 coins ever in it): sleeve **0.76 / 0.08 / 0.23** (survivor version 0.83 / 1.05 / 2.72); v8.4 + this sleeve 2.732 < 2.750. **v8.5 WITHDRAWN** (and with it the wide-carry part of v8.6). Data checks: no missing months; exact-zero premiums also occur in the pack (10-30%, Binance's premium index is 0 inside the impact spread), not a bug.
+- Decomposition (K = 60, tranched): survivor coins earn in every period (+0.22 / +0.38 / +0.38), the coins that are not in today's pack lose in every period (-0.23 / -0.18 / -0.36). The wide carry gain was survivorship.
+- **Gen326:** v8.6 with point-in-time carry: K = 60 2.638, K = 100 2.736, K = 150 2.535 (v8.6 3.110). **All fail.**
+- **Gen372 (registered after Gen321):** fallback F0 (v8.6 minus wide carry) 2.786 [1.46, 3.92, 2.40]; F1 (20-coin carry on a point-in-time top-20) **2.290** [0.87, 4.01, 1.40], carry sleeve -1.10 / 1.83 / -1.31; F2 (no carry sleeve) **2.486** [1.32, 3.61, 2.05]. The registered rule picks F1 (F2 is lower in 2023-24), planning Sharpe 2.29 x 1.78 / 3.11 = **1.31**.
+  - Caveat, stated here and not used to change the result: the rule only asked whether dropping carry passes the strict bar, so it keeps a sleeve that is negative in two of three periods; and a top-20-by-volume universe is hype-heavy, not the same kind of coin as the 20 established pack coins. A fair answer needs the same point-in-time treatment of every sleeve (Gen373).
+  - HyroTrader 2025-26 (holdout) net / p10: v8.6 $183k / $112k, F0 $139k / $69k, F2 $118k / $53k, F1 $67k / $5k.
+- **Honest range for the book now: backtest 2.3-2.5 instead of 3.1; planning Sharpe about 1.3-1.4 instead of 1.78.** The other sleeves (C*, trend, Weiss, ridge on MAJ10 / BTC-ETH) also use coins chosen today: Gen373 checks them.
+- Paper traders unchanged (they are a superset; every subset book can be recomputed from the frozen sleeve ledger).
