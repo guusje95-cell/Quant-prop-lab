@@ -1453,3 +1453,10 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 **Conclusion:** every option moves the 2-year net by at most about ±5%, within bootstrap noise, and the 2022-24 winner does not carry over consistently (HyroTrader slightly up, CFT slightly down). The stop-day brake and the funded cushion clearly cost money (they cut risk exactly when the book recovers).
 - **The current prop settings (2.0 / 1.5, 2.5% daily stop) stay.**
 - The capped stress book at 20% weight is the only option positive at both levels at HyroTrader. Optional, not adopted (the gain is noise-sized and the p10 falls).
+
+## Gen371 (2026-10-25): v8.6 without the ridge ML sleeve (`config/gen371_protocol.json`)
+- Prompted by about 4% unit loss of ridge ML in the first paper days. Paper code first checked: `paper_v5.py _dump` over 2020 to Sep 2026 equals `cache_v86_final` exactly (32,856 hours, max diff 0).
+- **Without ridge:** Sharpe 2022 1.69 vs 1.54, 2023-24 3.78 vs 3.97, 2022-24 3.05 vs **3.11**; holdout 2025-26 3.00 vs 3.11.
+- **HyroTrader prop 2022-24:** net $166k vs **$184k**, p10 $89k vs $106k. Holdout: $167k vs $183k.
+- Ridge sleeve Sharpe by year: 2022 -0.28, 2023 1.66, 2024 2.19, 2025 1.26, 2026 1.97. Corr with the rest of the book 0.29. 10% of its 4-day windows lose 3.7% unit or more, so the paper loss is ordinary.
+- **Fails. Ridge ML stays.** Paper code unchanged.
