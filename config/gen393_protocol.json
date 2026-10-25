@@ -1,0 +1,14 @@
+{
+  "gen": 393,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.3 2.829 [2.298, 3.598, 2.309]",
+  "question": "C* adds the least (K1 leave-one-out 2.402 without vs 2.394 with); is a narrower, survivorship-free C* or no C* better inside v9.3?",
+  "trials": {
+    "A no C*": "v9.3 without the C* sleeve",
+    "B C* BTC/ETH": "the frozen C* own-size rule (Gen373) on BTC and ETH only (n = 2)",
+    "C C* BTC/ETH/SOL": "the same on BTC, ETH, SOL (SOL was in the point-in-time top-10 every month 2022-26; n = 3)"
+  },
+  "choice": "highest 2022-24 Sharpe of the book; then the strict rule vs v9.3",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}

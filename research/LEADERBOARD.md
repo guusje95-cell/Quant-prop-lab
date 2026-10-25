@@ -1570,3 +1570,4 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen392 (2026-10-25): OI / price divergences on BTC, ETH, SOL (`results/gen392.json`)
 - Squeeze fade 1.71 / -0.81 / 0.38 (13 events); trapped shorts -1.53 / -0.44 / 0.40 (13 events); euphoria fade -0.93 / -0.98 / 0.28. **All fail**; the stepwise basket is unchanged.
 - **Gen391b (robustness of the v9.3 candidate):** basket positive every year (3.36 / 2.60 / 3.50 / 1.28 / 1.66); leaving out any one of the 8 members keeps the book at 2.757-2.841 (v9.2 2.771). Not driven by one signal.
+- **2026-10-25: the user ACCEPTED v9.3 = v9.2 structure with the Gen391 stepwise basket** (flagged: 2022 -0.04). **Reference from here: v9.3 2.829 [2.298, 3.598, 2.309], planning about 1.27.**
