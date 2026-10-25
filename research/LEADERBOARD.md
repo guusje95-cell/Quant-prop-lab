@@ -1586,3 +1586,9 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen396 (2026-10-25, FLAGGED): relative crowding as a sleeve (`results/gen396.json`)
 - 3-coin sleeve 1.30 / 0.17 / 0.91 (by year 1.30, -0.05, 0.46, 1.19, 0.29), corr v9.3 -0.09. v9.3 + it 2.779 [1.730, 3.684, 2.413] -> **fails** (2022 falls while the new sleeve warms up in the risk weights).
 - Robustness: BTC/ETH only 1.79 / -0.73 / 0.58; **6 coins (BTC, ETH, SOL, XRP, BNB, DOGE) 1.32 / 1.26 / 1.33**; costs x2 1.20 / -0.03 / 0.63; one day later 0.30 / -0.10 / 0.88; z 60 0.92 / 0.32 / 0.94; z 180 1.13 / 0.49 / 0.62.
+
+## Gen397 / 397b (2026-10-25, FLAGGED): 6-coin relative crowding (`results/gen397*.json`)
+- Sleeve (BTC, ETH, SOL, XRP, BNB, DOGE; market neutral; mean of relative top-trader and retail crowding) **1.32 / 1.26 / 1.33**; point-in-time top-6 (pack coins, monthly) version 0.66 / 1.05 / 1.32.
+- A in the basket: 2.897 [2.297, 3.715, 2.376]; **B as its own sleeve (chosen on 2022-24): 2.932 [2.246, 3.813, 2.408]**: +0.10, 2022 -0.05 -> fails the strict rule by 0.05 in 2022.
+- Gen397b: planning **1.37 vs 1.27**; max DD at risk 2 **-16.1% vs -19.6%**; worst day -8.2% vs -8.0%; HyroTrader 2022-24 $190k / $110k vs $177k / $105k; **2025-26 $162k / $78k vs $141k / $61k**. Book robustness (sleeve variant): costs x2 2.852, one day later 2.863, z 60 2.924, z 180 3.073 (all >= v9.3).
+- **v9.4 candidate (v9.3 + 6-coin relative crowding sleeve), flagged: needs the user's OK.**
