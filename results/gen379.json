@@ -1,0 +1,97 @@
+{
+ "reference K1": [
+  2.394,
+  [
+   1.053,
+   3.548,
+   2.055
+  ]
+ ],
+ "pool": {
+  "mint shock": {
+   "2022 / 2023-24 / 2025-26": [
+    0.406,
+    1.777,
+    0.383
+   ],
+   "corr K1": 0.25,
+   "max corr with kept": 0.0,
+   "kept": true
+  },
+  "Coinbase hourly premium": {
+   "2022 / 2023-24 / 2025-26": [
+    1.642,
+    0.624,
+    0.261
+   ],
+   "corr K1": 0.079,
+   "max corr with kept": 0.041,
+   "kept": true
+  },
+  "stablecoin impulse": {
+   "2022 / 2023-24 / 2025-26": [
+    1.206,
+    0.966,
+    0.235
+   ],
+   "corr K1": 0.075,
+   "max corr with kept": 0.146,
+   "kept": true
+  },
+  "fee pressure": {
+   "2022 / 2023-24 / 2025-26": [
+    0.46,
+    0.383,
+    0.273
+   ],
+   "corr K1": 0.016,
+   "max corr with kept": 0.173,
+   "kept": true
+  },
+  "Bybit crowding": {
+   "2022 / 2023-24 / 2025-26": [
+    0.015,
+    0.519,
+    0.468
+   ],
+   "corr K1": 0.172,
+   "max corr with kept": 0.273,
+   "kept": true
+  },
+  "crash 8h pit": {
+   "2022 / 2023-24 / 2025-26": [
+    NaN,
+    0.543,
+    0.916
+   ],
+   "corr K1": 0.087,
+   "max corr with kept": 0.121,
+   "kept": false
+  }
+ },
+ "basket": {
+  "members": [
+   "mint shock",
+   "Coinbase hourly premium",
+   "stablecoin impulse",
+   "fee pressure",
+   "Bybit crowding"
+  ],
+  "basket 2022 / 2023-24 / 2025-26": [
+   1.851,
+   2.013,
+   0.641
+  ],
+  "basket 2022-26": 1.483,
+  "corr K1": 0.265,
+  "K1 + basket": [
+   2.536,
+   [
+    1.6,
+    3.515,
+    2.079
+   ]
+  ],
+  "pass": false
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "gen": "379b",
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after seeing Gen379 (K1 + basket 2.536 [1.600, 3.515, 2.079], 2023-24 0.033 below K1)",
+  "part_1_weight": "basket risk multiplier m in {0.25, 0.5, 0.75, 1.0} on top of the equal-risk weight (portfolio_v5 weight x m), m chosen by the 2022-24 Sharpe of K1 + basket ONLY; then the strict rule vs K1 on 2022 / 2023-24 / 2025-26 and 2022-26",
+  "part_2_robustness_of_the_basket_alone": "every calendar year 2022-2026; costs x2; every position one hour later; each member left out once (basket 2022-26 Sharpe)",
+  "candidate_rule": "adopted as a v9.1 candidate only if part 1 passes AND the basket is positive in at least 4 of 5 calendar years AND costs x2 and one-hour-later keep the basket 2022-26 Sharpe >= 0.8",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
