@@ -1562,3 +1562,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen390 (2026-10-25): SOL breadth, autocorrelation regime, hash ribbons (`results/gen390.json`)
 - 2022 / 2023-24 / 2025-26: top-trader crowding incl. SOL 0.53 / 1.15 / 0.21; retail crowding incl. SOL 0.47 / 1.14 / 0.01; leverage build-up incl. SOL 0.90 / 0.06 / -0.21; autocorrelation regime -1.22 / -0.79 / 0.18; hash ribbons 0.22 / 0.10 / -1.08.
 - The loose rule keeps 16 members (incl. hash ribbons, put/call); basket 2.07; book 2.711 < 2.771. **Fails.** Weak members dilute the basket.
+
+## Gen391 (2026-10-25, FLAGGED): forward-stepwise basket selection on 2022-24 (`results/gen391.json`)
+- Steps (basket 2022-24 Sharpe): USDT premium 1.53, + mint shock 2.06, + call-minus-put flow 2.35, + kimchi BTC/ETH 2.67, + top-trader crowding 2.83, + leverage build-up 3.02, + stablecoin impulse 3.08, + fee pressure 3.17; stop.
+- Basket **3.36 / 3.08 / 1.41** (2025-26 out of sample), 2.54 overall. v9.2 structure + it **2.829 [2.298, 3.598, 2.309]**: +0.058, 2023-24 and 2025-26 up, 2022 -0.044 -> **fails the strict rule by 0.04 in 2022**. By year 2.30 / 3.41 / 3.80 / 1.65 / 3.16. **v9.3 candidate (flagged), for the user's decision.**

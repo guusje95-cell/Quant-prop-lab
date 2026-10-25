@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
-src = open(ROOT / "scripts/gen390_breadth_regime.py").read().split("ref_book = pd.read_parquet")[0]
+src = open(ROOT / "scripts/gen390_breadth_regime.py").read().split("\nref_book = pd.read_parquet(ROOT")[0]
 g = {"__file__": str(ROOT / "scripts/gen390_breadth_regime.py")}; exec(compile(src, "g390", "exec"), g)
 POOL, idx, dd, shp, per, unit, END, CS, base, K1 = (g[k] for k in ("POOL", "idx", "dd", "shp", "per", "unit", "END", "CS", "base", "K1"))
 ref_book = pd.read_parquet(ROOT / "results/gen385_book_hourly.parquet")["book"]; REF = (shp(ref_book), per(ref_book))

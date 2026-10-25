@@ -1,0 +1,68 @@
+{
+ "reference v9.2": [
+  2.771,
+  [
+   2.342,
+   3.486,
+   2.247
+  ]
+ ],
+ "pool size": 52,
+ "candidates (corr filter)": 49,
+ "steps (member, basket 2022-24 Sharpe)": [
+  [
+   "Gen249 A USDT premium",
+   1.533
+  ],
+  [
+   "mint shock",
+   2.057
+  ],
+  [
+   "Gen120 D2 call-minus-put flow",
+   2.348
+  ],
+  [
+   "kimchi BTC/ETH v8.4",
+   2.666
+  ],
+  [
+   "S6 top-trader crowding",
+   2.831
+  ],
+  [
+   "M5 leverage build-up",
+   3.019
+  ],
+  [
+   "stablecoin impulse",
+   3.084
+  ],
+  [
+   "fee pressure",
+   3.165
+  ]
+ ],
+ "basket 2022 / 2023-24 / 2025-26": [
+  3.358,
+  3.08,
+  1.41
+ ],
+ "basket 2022-26": 2.537,
+ "book": [
+  2.829,
+  [
+   2.298,
+   3.598,
+   2.309
+  ]
+ ],
+ "by year": {
+  "2022": 2.3,
+  "2023": 3.41,
+  "2024": 3.8,
+  "2025": 1.65,
+  "2026": 3.16
+ },
+ "pass": false
+}
