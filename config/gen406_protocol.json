@@ -1,0 +1,14 @@
+{
+  "gen": 406,
+  "date": "2026-10-25",
+  "registered": "before the data exists (get_new_data.bat, Bybit positioning for 15 coins + Hyperliquid funding); reference v9.5",
+  "trials": {
+    "Y1 Bybit relative crowding": "the v9.4 relative crowding rule (6 coins, 90-day z, demeaned, -0.15 x clip / 2) on the Bybit account long ratio (buyRatio), daily",
+    "Y2 two-venue relative crowding": "the mean of the Binance (v9.5 sleeve) and Y1 relative crowding",
+    "Y3 Bybit relative crowding 15 coins": "Y1 on the 15 coins of the download that have >= 365 days of history at each date",
+    "Y4 Hyperliquid funding relative": "relative 7-day mean Hyperliquid funding across the 6 coins, contrarian (from 2023; descriptive only: no 2022 period)"
+  },
+  "pass": "Y1 / Y3 as an added sleeve, Y2 replacing the v9.5 sleeve: strict rule vs v9.5",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}

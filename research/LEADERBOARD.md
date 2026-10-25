@@ -1615,3 +1615,4 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen405 (2026-10-25): smart vs retail divergence (`results/gen405.json`)
 - Directional BTC/ETH 1.01 / 0.48 / -0.17 (book 2.774); relative 6 coins 1.68 / -0.49 / 0.75 (2.807). **Both fail.**
+- **2026-10-25: the user ACCEPTED v9.5 = v9.4 with the Gen404 frequency-ensemble relative crowding sleeve** (flagged: +0.044, every period up). **Reference from here: v9.5 2.976 [2.355, 3.832, 2.447], planning about 1.41.**

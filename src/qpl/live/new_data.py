@@ -87,8 +87,62 @@ def bybit():
             save(d.astype(float).sort_index()[~d.index.duplicated()], f"bybit_{coin}_account_ratio_1d")
 
 
+POS_COINS = ("BTC", "ETH", "SOL", "XRP", "BNB", "DOGE", "ADA", "AVAX", "LINK", "LTC", "TRX", "DOT", "BCH", "NEAR", "SUI")
+
+
+def bybit_positioning():
+    """Gen406: Bybit daily account long/short ratio and open interest for the 15 largest coins (v9.5 relative crowding on a second venue)."""
+    B = "https://api.bybit.com/v5/market"
+    for coin in POS_COINS:
+        if (OUT / f"bybit_{coin}_account_ratio_1d.parquet").exists() and coin not in ("BTC", "ETH"):
+            continue
+        sym = f"{coin}USDT"
+        for kind, path, lim, keycol in (("account_ratio", "account-ratio", 500, "period=1d"), ("oi", "open-interest", 200, "intervalTime=1d")):
+            rows = []; end = None
+            for _ in range(60):
+                u = f"{B}/{path}?category=linear&symbol={sym}&{keycol}&limit={lim}" + (f"&endTime={end}" if end else "")
+                try:
+                    lst = get(u)["result"]["list"]
+                except Exception as e:                           # noqa: BLE001
+                    print(f"  {coin} {kind}: {e}"); break
+                if not lst:
+                    break
+                rows += lst; end = int(lst[-1]["timestamp"]) - 1
+                if len(lst) < lim:
+                    break
+                time.sleep(0.2)
+            if rows:
+                d = pd.DataFrame(rows).drop(columns=["symbol"], errors="ignore"); d.index = pd.to_datetime(d.pop("timestamp").astype("int64"), unit="ms")
+                save(d.astype(float).sort_index()[~d.index.duplicated()], f"bybit_{coin}_{kind}_1d")
+
+
+def hyperliquid_positioning():
+    """Gen406: Hyperliquid daily funding history for the same coins (public info API; no wallet)."""
+    API = "https://api.hyperliquid.xyz/info"
+    for coin in POS_COINS:
+        if (OUT / f"hl_{coin}_funding.parquet").exists():
+            continue
+        rows, start = [], 1672531200000                             # 2023-01-01
+        for _ in range(200):
+            req = urllib.request.Request(API, data=json.dumps({"type": "fundingHistory", "coin": coin, "startTime": start}).encode(), headers={**UA, "Content-Type": "application/json"})
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    lst = json.loads(r.read().decode())
+            except Exception as e:                               # noqa: BLE001
+                print(f"  {coin}: {e}"); break
+            if not lst:
+                break
+            rows += lst; start = int(lst[-1]["time"]) + 1
+            if len(lst) < 500:
+                break
+            time.sleep(0.3)
+        if rows:
+            d = pd.DataFrame(rows); d.index = pd.to_datetime(d.pop("time"), unit="ms")
+            save(d[["fundingRate", "premium"]].astype(float), f"hl_{coin}_funding")
+
+
 def main():
-    for name, fn in (("DefiLlama", defillama), ("Blockchain.com", blockchain_com), ("Bybit", bybit)):
+    for name, fn in (("DefiLlama", defillama), ("Blockchain.com", blockchain_com), ("Bybit", bybit), ("Bybit positioning (15 coins)", bybit_positioning), ("Hyperliquid funding", hyperliquid_positioning)):
         print(name)
         try:
             fn()
