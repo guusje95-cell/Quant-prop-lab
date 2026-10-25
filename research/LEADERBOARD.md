@@ -1558,3 +1558,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen389 (2026-10-25): multi-timeframe trend (`results/gen389.json`)
 - 1h breakout alone and 12h alone are weak (12h 2025-26 0.05); A 1h + 4h + 12h 2.563, B 4h + 12h 2.654 (chosen) -> **fails**. The 4h timeframe stays. (Gold via PAXG perps checked and dropped: perp only since 2025-03, gold trend weak before 2024 in Gen98 / Gen139.)
+
+## Gen390 (2026-10-25): SOL breadth, autocorrelation regime, hash ribbons (`results/gen390.json`)
+- 2022 / 2023-24 / 2025-26: top-trader crowding incl. SOL 0.53 / 1.15 / 0.21; retail crowding incl. SOL 0.47 / 1.14 / 0.01; leverage build-up incl. SOL 0.90 / 0.06 / -0.21; autocorrelation regime -1.22 / -0.79 / 0.18; hash ribbons 0.22 / 0.10 / -1.08.
+- The loose rule keeps 16 members (incl. hash ribbons, put/call); basket 2.07; book 2.711 < 2.771. **Fails.** Weak members dilute the basket.

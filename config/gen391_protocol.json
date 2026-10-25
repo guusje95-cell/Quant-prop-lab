@@ -1,0 +1,10 @@
+{
+  "gen": 391,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after Gen386 / Gen390 showed that the loose inclusion rule admits weak members",
+  "selection": "forward stepwise on 2022-24 only, over the whole pool of Gen380 + 381 + 384 + 386 + 390 (49 BTC/ETH(/SOL) sleeves): start empty; at each step add the member (|corr K1 2022-24| < 0.3) that raises the equal-risk basket's 2022-24 Sharpe the most; stop when no member adds >= 0.05",
+  "book": "v9.2 structure (ensembles) with this basket",
+  "pass": "strict rule vs v9.2 (2022-26 +0.05, every period not lower); flagged, so adoption needs the user's OK",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
