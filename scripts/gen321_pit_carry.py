@@ -8,7 +8,8 @@ import v7lab as L
 import crypto_sleeves as CS
 from qpl.lab import binance_pack as B, extra_pack as X
 END = L.END; PIT = L.ROOT / "research_data/binance_pit"
-pit = sorted(p.stem.replace("USDT_1h", "") for p in PIT.glob("*USDT_1h.parquet")) if PIT.exists() else []
+TRADFI = set(json.load(open(L.ROOT / "config/tradfi_perps.json"))["symbols"]) if (L.ROOT / "config/tradfi_perps.json").exists() else set()   # 2026-10-25: stock / commodity perps are not crypto
+pit = sorted(c for c in (p.stem.replace("USDT_1h", "") for p in PIT.glob("*USDT_1h.parquet")) if c not in TRADFI) if PIT.exists() else []
 
 
 def series(c):

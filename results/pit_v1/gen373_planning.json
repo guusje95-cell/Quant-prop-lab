@@ -1,0 +1,38 @@
+{
+ "v86 at planning 1.78 (old plan check)": {
+  "HyroTrader": {
+   "net": 91091,
+   "p10": 26601,
+   "P_profit": 0.973
+  },
+  "CFT": {
+   "net": 90873,
+   "p10": 28476,
+   "P_profit": 0.975
+  }
+ },
+ "K1 at planning 1.37": {
+  "HyroTrader": {
+   "net": 71410,
+   "p10": 8494,
+   "P_profit": 0.943
+  },
+  "CFT": {
+   "net": 71837,
+   "p10": 8580,
+   "P_profit": 0.93
+  }
+ },
+ "K1 at a weak 1.0": {
+  "HyroTrader": {
+   "net": 48909,
+   "p10": -4845,
+   "P_profit": 0.863
+  },
+  "CFT": {
+   "net": 49429,
+   "p10": -5621,
+   "P_profit": 0.87
+  }
+ }
+}
