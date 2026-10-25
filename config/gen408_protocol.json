@@ -1,0 +1,13 @@
+{
+  "gen": 408,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]",
+  "signal": "per coin (6 coins) 7-day change of the daily mean ratio (top-trader accounts; all accounts), z over 90 days of that change, demeaned across coins; position -0.15 x clip / 2 (crowding rising fastest -> short)",
+  "trials": {
+    "C1 crowding change as an added sleeve": "mean of the two metrics, daily",
+    "C2 level + change": "the v9.5 relative crowding sleeve replaced by the mean of itself and C1"
+  },
+  "pass": "each judged with the strict rule vs v9.5",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
