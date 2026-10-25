@@ -1,0 +1,12 @@
+{
+  "gen": 400,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.4 2.932 [2.246, 3.813, 2.408]",
+  "trials": {
+    "K1 relative kimchi": "alt kimchi z-scores (alt_kimchi.zscores, Upbit vs Binance, 30-day z, the frozen Gen247 inputs) demeaned across the available coins each day; position per coin +0.15 x clip(z - mean z, -2, 2) / 2 (follow relative Korean demand), market neutral; added to v9.4 as a sleeve",
+    "K2 relative kimchi incl. BTC/ETH": "the same with the BTC and ETH kimchi z added to the cross-section"
+  },
+  "pass": "each judged with the strict rule vs v9.4",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
