@@ -1,0 +1,17 @@
+{
+  "gen": 388,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.2 2.771 [2.342, 3.486, 2.247]",
+  "part_A_basket_weighting": {
+    "members": "the 12 Gen384 basket members (unchanged)",
+    "A1": "each month, member weight = max(0, trailing 365-day Sharpe) / trailing 365-day daily sd (members with fewer than 180 days of history get the equal-risk weight); only data before the month",
+    "A2": "the same with a 730-day window"
+  },
+  "part_B_sleeve_weighting_window": {
+    "B1": "portfolio_v5 sleeve weights from a 180-day trailing sd instead of 365",
+    "B2": "the same with 90 days"
+  },
+  "choice": "within each part the variant with the higher 2022-24 Sharpe; then the strict rule vs v9.2 (2022-26 +0.05, every period not lower); if both parts pass, both are combined and must pass again",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
