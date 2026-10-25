@@ -10,4 +10,8 @@ out["v86"] = {c: float(v) for c, v in H.groupby(H.index.floor("D")).sum().loc["2
 import bf2lab as F
 G = pd.concat([F.HB0, F.IS0, F.HB_RIDGE.rename("ridge ML")] + F.ALTK_BF, axis=1).fillna(0.0)
 out["bf26"] = {c: float(v) for c, v in G.groupby(G.index.floor("D")).sum().loc["2023-01-01":F.END].std().items()}
+import sys as _s
+if len(_s.argv) > 1:                                    # v9.0: the paper's own _dump of the research pack (paper_v5.py _dump, QPL_PAPER=v90)
+    V = pd.read_parquet(_s.argv[1]).drop(columns="port")
+    out["v90"] = {c: float(v) for c, v in V.groupby(V.index.floor("D")).sum().loc["2023-01-01":L.END].std().items()}
 json.dump(out, open(L.ROOT / "results/paper_sleeve_sd.json", "w"), indent=1); print(out)

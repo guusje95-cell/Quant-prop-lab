@@ -1453,3 +1453,48 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 **Conclusion:** every option moves the 2-year net by at most about ±5%, within bootstrap noise, and the 2022-24 winner does not carry over consistently (HyroTrader slightly up, CFT slightly down). The stop-day brake and the funded cushion clearly cost money (they cut risk exactly when the book recovers).
 - **The current prop settings (2.0 / 1.5, 2.5% daily stop) stay.**
 - The capped stress book at 20% weight is the only option positive at both levels at HyroTrader. Optional, not adopted (the gain is noise-sized and the p10 falls).
+
+## Gen371 (2026-10-25): v8.6 without the ridge ML sleeve (`config/gen371_protocol.json`)
+- Prompted by about 4% unit loss of ridge ML in the first paper days. Paper code first checked: `paper_v5.py _dump` over 2020 to Sep 2026 equals `cache_v86_final` exactly (32,856 hours, max diff 0).
+- **Without ridge:** Sharpe 2022 1.69 vs 1.54, 2023-24 3.78 vs 3.97, 2022-24 3.05 vs **3.11**; holdout 2025-26 3.00 vs 3.11.
+- **HyroTrader prop 2022-24:** net $166k vs **$184k**, p10 $89k vs $106k. Holdout: $167k vs $183k.
+- Ridge sleeve Sharpe by year: 2022 -0.28, 2023 1.66, 2024 2.19, 2025 1.26, 2026 1.97. Corr with the rest of the book 0.29. 10% of its 4-day windows lose 3.7% unit or more, so the paper loss is ordinary.
+- **Fails. Ridge ML stays.** Paper code unchanged.
+
+## Gen321 / Gen326 / Gen372 (2026-10-25): survivorship check on the point-in-time Binance universe (705 perps, delisted included)
+- **Gen321 (registered before the data):** the Gen316 wide carry on a point-in-time top-60 (444 coins ever in it): sleeve **0.76 / 0.08 / 0.23** (survivor version 0.83 / 1.05 / 2.72); v8.4 + this sleeve 2.732 < 2.750. **v8.5 WITHDRAWN** (and with it the wide-carry part of v8.6). Data checks: no missing months; exact-zero premiums also occur in the pack (10-30%, Binance's premium index is 0 inside the impact spread), not a bug.
+- Decomposition (K = 60, tranched): survivor coins earn in every period (+0.22 / +0.38 / +0.38), the coins that are not in today's pack lose in every period (-0.23 / -0.18 / -0.36). The wide carry gain was survivorship.
+- **Gen326:** v8.6 with point-in-time carry: K = 60 2.638, K = 100 2.736, K = 150 2.535 (v8.6 3.110). **All fail.**
+- **Gen372 (registered after Gen321):** fallback F0 (v8.6 minus wide carry) 2.786 [1.46, 3.92, 2.40]; F1 (20-coin carry on a point-in-time top-20) **2.290** [0.87, 4.01, 1.40], carry sleeve -1.10 / 1.83 / -1.31; F2 (no carry sleeve) **2.486** [1.32, 3.61, 2.05]. The registered rule picks F1 (F2 is lower in 2023-24), planning Sharpe 2.29 x 1.78 / 3.11 = **1.31**.
+  - Caveat, stated here and not used to change the result: the rule only asked whether dropping carry passes the strict bar, so it keeps a sleeve that is negative in two of three periods; and a top-20-by-volume universe is hype-heavy, not the same kind of coin as the 20 established pack coins. A fair answer needs the same point-in-time treatment of every sleeve (Gen373).
+  - HyroTrader 2025-26 (holdout) net / p10: v8.6 $183k / $112k, F0 $139k / $69k, F2 $118k / $53k, F1 $67k / $5k.
+- **Honest range for the book now: backtest 2.3-2.5 instead of 3.1; planning Sharpe about 1.3-1.4 instead of 1.78.** The other sleeves (C*, trend, Weiss, ridge on MAJ10 / BTC-ETH) also use coins chosen today: Gen373 checks them.
+- Paper traders unchanged (they are a superset; every subset book can be recomputed from the frozen sleeve ledger).
+
+## Gen374 (2026-10-25): the diversifiers on honest numbers (`config/gen374_protocol.json`, `results/gen374.json`)
+- **Stress book (Gen366 rules, taker costs, Binance funding, look-ahead in the premium-spike BTC filter fixed):** today's 60 coins 2.32 / 1.95 / 1.89 (2020-24 2.17, expected live 1.26), as before. **Point-in-time top-60: 1.89 / 0.57 / -0.86** (2020-24 1.33, expected live 0.39; 2022-26 -0.17). **Dropped** (rule: >= 0.7 x and expected live >= 0.8). Negative funding (-2.03 in 2025-26) and the daily premium discount break on coins that are not in today's list; only crash 8h stays positive in every period (1.01 / 0.54 / 1.12).
+- **Futures book:** 2022-26 Sharpe 1.24, daily corr 0.06 / 0.09 with F0 / F2. Equal-risk mix lowers the book (F0 2.79 -> 2.76); best in-sample weight 0.4: F0 2.99, F2 2.69 (+0.2, optimistic). Needs a futures firm with overnight holding and bots; small dollars (Gen237).
+- Conclusion: no survivorship-free crypto diversifier exists yet; the futures book is the only independent edge, worth about +0.2 backtest Sharpe at a 0.4 weight in a separate account.
+
+## Gen373 (2026-10-25): C* on a point-in-time universe and the honest live book (`config/gen373_protocol.json`, `results/gen373.json`)
+- **C\*:** the own-size rebuild on fixed MAJ10 equals the v86 sleeve (daily corr 1.00; -0.83 / 2.32 / 0.56). Point-in-time top-10 by volume (members: SOL, BTC, ETH always; XRP, DOGE, BNB mostly; 1000PEPE, SUI, MATIC, LUNA, HYPE at times): **-1.91 / 2.22 / 0.64**, 2022-26 1.19 vs 1.30. Small survivorship cost, mostly 2022 (LUNA).
+- **Candidates, chosen on 2022-24 HyroTrader net:**
+
+| Book | 2022-26 [2022, 2023-24, 2025-26] | HyroTrader 2022-24 net / p10 |
+|---|---|---|
+| **K1 no carry, point-in-time C\*** | **2.394** [1.05, 3.55, 2.06] | **$159.6k / $87.2k** |
+| K2 point-in-time 20-carry, point-in-time C\* | 2.184 [0.60, 3.93, 1.39] | $156.5k / $75.1k |
+| K3 K1 without alt kimchi | 2.312 [1.35, 3.26, 1.92] | $134.0k / $57.9k |
+| K4 BTC/ETH core (ridge, Weiss, bounce, cascade, trend) | 2.406 [1.80, 3.24, 1.91] | $133.0k / $65.7k |
+
+- **Chosen: K1 = C\* (monthly top-10 by volume) + cascade + trend 4h + Weiss + delev bounce + ridge ML + alt kimchi.** Backtest 2.39, **planning Sharpe 1.37**, max DD at risk 2.0 -20%, worst day -12.9%.
+  - Holdout 2025-26 (once): HyroTrader net $119.5k / p10 $53.8k / P(profit) 0.998; CFT 2-Phase 200k $116.7k / $49.3k / 0.995.
+  - **Planning level (2025-26 bootstrap shifted to Sharpe 1.37): about $71k per account over 2 years, p10 about $8.5k, P(profit) 0.93-0.94** (old v8.6 plan check at 1.78: $91k / $27k / 0.97). At a weak 1.0: $49k / -$5k / 0.86.
+- **Shadow on the paper ledger (46 shared hours, Oct-1 weights, C\* proxied by the paper's MAJ10 C\*):** K1 -3.0% vs v86 -3.1% at risk 2.0. The bad start is the same in both (ridge, trend, C\*).
+- **The live candidate is K1 (v9.0).** The running v86 / bf26 paper traders stay unchanged; K1 is computed from the frozen sleeve ledger plus a point-in-time C\* paper sleeve to be added as a separate paper version.
+- **Rerun without Binance TradFi perps (2026-10-25, `config/tradfi_perps.json`, 199 stock / ETF / commodity perps listed from 2026-02; v1 results in `results/pit_v1/`):** Gen321 wide carry 0.76 / 0.08 / **-0.13** (was 0.23), v8.4 + it 2.724; Gen326 K = 60 / 100 / 150: 2.650 / 2.725 / 2.500; Gen372 F1 2.318 (was 2.290); Gen374 stress book point-in-time 1.89 / 0.57 / -0.63, expected live 0.42, still dropped. **Gen373 (C\*, K1) unchanged**: the TradFi perps never reached C\*'s 200-day history rule. All conclusions stand.
+- **Data gap:** the pushed `research_data/binance_pit` has symbols 0-9 and A-S only (532 crypto coins after the exclusion); T-Z (delisted coins included) are missing, so the point-in-time results are, if anything, still slightly optimistic. Final rerun after the user's next push.
+
+## Gen375 (2026-10-25): K1 prop settings and factors on an established-coin point-in-time universe (`config/gen375_protocol.json`)
+- **A, prop settings (27, chosen on 2022-24):** best eligible **challenge 2.0 / funded 2.0 / stop 0.5** (net $185.9k / p10 $93.9k vs current 2.0 / 1.5 / 0.5 $159.6k / $87.2k) -> adopted by the rule. **Flag:** holdout 2025-26 $128.6k / $40.0k / 0.985 vs $119.5k / $53.8k / 0.998, and at planning level (Sharpe 1.37) $70.7k / **$1.2k / 0.905** vs $71.4k / $8.5k / 0.943: no extra money and a worse bad case once the edge is at its realistic size. The funded risk only matters after a pass, so it is set at the paper review: 2.0 only if live evidence supports Sharpe >= 1.8, else 1.5.
+- **B, cross-sectional factors on the top-30 by volume among coins listed >= 365 days (delisted included):** premium carry -0.85 / 0.29 / 0.35 (K1 -> 2.369), funding carry -0.66 / 0.20 / -0.07 (2.268), momentum 28d 0.74 / 0.36 / -0.60 (2.297). **All fail.** Honest cross-sectional altcoin factors carry no usable edge in this data.

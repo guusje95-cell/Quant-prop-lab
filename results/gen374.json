@@ -1,0 +1,153 @@
+{
+ "S today's 60 coins": {
+  "book 2020-22 / 2023-24 / 2025-26": [
+   2.318,
+   1.945,
+   1.89
+  ],
+  "2020-24": 2.173,
+  "2020-26": 2.103,
+  "expected live (0.6 x 2020-26)": 1.262,
+  "sleeves 2020-22 / 2023-24 / 2025-26": {
+   "premium spike": [
+    1.018,
+    1.507,
+    0.181
+   ],
+   "crash reversal": [
+    0.783,
+    0.856,
+    1.637
+   ],
+   "negative funding": [
+    1.543,
+    0.926,
+    0.472
+   ],
+   "daily premium discount": [
+    1.052,
+    0.904,
+    1.291
+   ],
+   "crash 8h": [
+    0.871,
+    1.368,
+    2.772
+   ]
+  }
+ },
+ "P point-in-time top-60": {
+  "book 2020-22 / 2023-24 / 2025-26": [
+   1.885,
+   0.565,
+   -0.631
+  ],
+  "2020-24": 1.327,
+  "2020-26": 0.695,
+  "expected live (0.6 x 2020-26)": 0.417,
+  "sleeves 2020-22 / 2023-24 / 2025-26": {
+   "premium spike": [
+    0.832,
+    1.274,
+    -0.324
+   ],
+   "crash reversal": [
+    0.95,
+    -0.198,
+    1.434
+   ],
+   "negative funding": [
+    0.925,
+    0.234,
+    -2.043
+   ],
+   "daily premium discount": [
+    0.773,
+    -0.257,
+    0.421
+   ],
+   "crash 8h": [
+    1.005,
+    0.543,
+    0.916
+   ]
+  }
+ },
+ "stress book kept": false,
+ "2022-26 Sharpe each": {
+  "F0": 2.786,
+  "F2": 2.486,
+  "stress P": -0.081,
+  "futures": 1.239
+ },
+ "2022-26 daily corr": {
+  "F0": {
+   "F0": 1.0,
+   "F2": 0.954,
+   "stress P": 0.128,
+   "futures": 0.061
+  },
+  "F2": {
+   "F0": 0.954,
+   "F2": 1.0,
+   "stress P": 0.158,
+   "futures": 0.088
+  },
+  "stress P": {
+   "F0": 0.128,
+   "F2": 0.158,
+   "stress P": 1.0,
+   "futures": 0.096
+  },
+  "futures": {
+   "F0": 0.061,
+   "F2": 0.088,
+   "stress P": 0.096,
+   "futures": 1.0
+  }
+ },
+ "mixes 2022-26 (backtest Sharpe; base alone: F0 2.786, F2 2.486)": {
+  "F0 + stress P": {
+   "equal risk": 1.801,
+   "best weight (in-sample, optimistic)": [
+    0.0,
+    2.786
+   ]
+  },
+  "F0 + futures": {
+   "equal risk": 2.763,
+   "best weight (in-sample, optimistic)": [
+    0.4,
+    2.985
+   ]
+  },
+  "F0 + stress P + futures": {
+   "equal risk": 2.088,
+   "best weight (in-sample, optimistic)": [
+    0.1,
+    2.819
+   ]
+  },
+  "F2 + stress P": {
+   "equal risk": 1.581,
+   "best weight (in-sample, optimistic)": [
+    0.0,
+    2.486
+   ]
+  },
+  "F2 + futures": {
+   "equal risk": 2.525,
+   "best weight (in-sample, optimistic)": [
+    0.4,
+    2.688
+   ]
+  },
+  "F2 + stress P + futures": {
+   "equal risk": 1.899,
+   "best weight (in-sample, optimistic)": [
+    0.1,
+    2.514
+   ]
+  }
+ }
+}

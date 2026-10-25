@@ -1,0 +1,12 @@
+{
+  "gen": 371,
+  "date": "2026-10-25",
+  "question": "Does v8.6 do better without the ridge ML sleeve? (user question after ridge ML lost about 4% unit in the first paper days)",
+  "warning": "Prompted by 4 days of paper P&L. Per the standing rule the running paper code is NOT changed on paper results; this test only decides whether a v8.6-minus-ridge variant would be a candidate for a later version.",
+  "variants": {"A": "v8.6 as is", "B": "v8.6 without the ridge ML sleeve (other sleeves, weighting and vol targeting unchanged, re-run through CS.portfolio_v5)"},
+  "data": "paper_v5.py _dump (v86, cutoff 2026-10-01, research pack), proven identical to results/cache_v86_final.parquet",
+  "scaling": "both scaled to 15% vol on 2022-24 daily",
+  "decision_window": "2022-2024 (prop) / 2022-2024 Sharpe; 2025-26 reported once, not used to choose",
+  "accept_B_if": "Sharpe B >= Sharpe A + 0.05 on 2022-24 AND not lower in 2022 / 2023-24 sub-periods AND HyroTrader prop net (2022-24, bootstrap, challenge 2.0 / funded 1.5, stop 0.5 x daily) higher with p10 not lower",
+  "also_report": "ridge ML sleeve stats by year; how unusual the paper loss of the ridge sleeve is vs its backtest distribution"
+}

@@ -1,0 +1,11 @@
+{
+  "gen": 374,
+  "date": "2026-10-25",
+  "registered": "after Gen321/326/372, before running",
+  "question": "Do the two diversifiers survive the honest numbers? (a) the Gen366 stress book on a point-in-time universe; (b) what the stress book and the futures book add to the honest crypto book",
+  "stress_book": "the 5 final Gen366 sleeves rebuilt in one script with identical rules (premium spike z<-3 |z|-sized 4h + BTC>200d, crash reversal daily 3 sd hold 3 cap 8 + BTC>200d, negative funding < -0.10% 24h cap 5, daily premium discount z<-3 hold 3 + BTC>200d, crash 8h 3 sd 24h cap 8 + BTC>200d), Sharpe-weighted on 2020-24. Two deviations from Gen366, applied to BOTH universes: taker costs (the point-in-time coins have no lows/highs for the maker simulation) and Binance funding only (no Bybit union). The BTC>200d filter of the premium spike uses the previous day's close (Gen362 used the same day's close: a look-ahead, fixed here).",
+  "universes": {"S": "today's 60 coins (Gen366)", "P": "point-in-time top-60 by trailing 30-day quote volume, >= 60 days listed, delisted included (Gen321)"},
+  "judgement": "the stress book is kept as a candidate if P has 2020-24 Sharpe >= 0.7 x S AND P expected live (0.6 x 2020-26) >= 0.8; otherwise dropped",
+  "mixes_descriptive": "daily correlations and equal-risk / best-weight mixes (2022-26) of the honest crypto books (Gen372 F0, F2) with the stress book P and the futures book (results/futures_book_rebuild.parquet)",
+  "no_changes_after_results": true
+}

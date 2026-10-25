@@ -52,3 +52,6 @@ paper_trading/v83/_selftest/
 paper_trading/v83/_recompute*
 paper_trading/v83/run_log.txt
 bot_state/
+paper_trading/v90/data/
+paper_trading/v90/_selftest/
+paper_trading/v90/_recompute*

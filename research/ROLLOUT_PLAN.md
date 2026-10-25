@@ -1,10 +1,12 @@
-# Roll-out plan for v8.6 (2026-10-24)
+# Roll-out plan (2026-10-24, updated 2026-10-25 after Gen321-374)
+
+**Update 2026-10-25:** the survivorship tests (Gen321 / 326 / 372-374) withdrew the wide carry and the stress book. The live candidate is now **K1 / v9.0** (C\* on a monthly point-in-time top-10, cascade, trend 4h, Weiss, deleveraging bounce, ridge ML, alt kimchi; no carry): backtest 2.39, **planning Sharpe 1.37**. At planning level one HyroTrader or CFT $200k account is about **$71k over 2 years, bad case about $8.5k, P(profit) about 0.93** (was $86-91k / $19-27k at 1.78). Dollar figures in the table below are the OLD v8.6 numbers; scale them by about 0.8 (net) and expect much smaller bad cases.
 
 All dollar figures: 2-year net per account, 2025-26 bootstrap, **planning level** (v8.6 Sharpe 1.78; Gen330 / Gen332 / Gen370). "Bad case" = p10. Fees and some terms are ASSUMED where the firm has not confirmed them.
 
 ## Gate before any purchase
 1. Paper v86: at least 56 days, reconcile clean, late hours <= 5%, z > -1 (`research/PAPER_REPORT.md`).
-2. Gen321 (survivorship) passed. If it fails, the book falls back to v8.4 + tranching (planning about 1.6).
+2. Gen321 (survivorship): FAILED (2026-10-25). The book is K1 / v9.0 (Gen373); it needs its own paper record (the K1 shadow on the v86 ledger plus a point-in-time C* paper sleeve).
 3. A written OK from the firm on Netherlands access + an API bot (`research/SUPPORT_EMAILS.md`).
 4. The bot has run for 1-2 weeks in dry-run next to the paper trader (`python -m qpl.bot.runner --loop`) with orders matching the paper book.
 
@@ -27,6 +29,6 @@ All dollar figures: 2-year net per account, 2025-26 bootstrap, **planning level*
 - Never change the strategy because of a few bad weeks; changes only as new versions after a review (`config/paper_monitor.json`).
 
 ## Not in the plan (research results)
-- **The stress book** (Gen359-369) raises a combined Sharpe but earns less than a second v8.6 account in prop. Use it only for an account where v8.6 cannot run, or as a fallback, and always with its exposure cap.
+- **The stress book** (Gen359-369): FAILED the point-in-time test (Gen374: expected live 0.39). Dropped.
 - **The futures book:** needs a swing + bot futures firm, and it is worth only about $7k per $50k account. Later, as insurance.
 - **Brakes and cushions** (Gen370): no gain; settings stay 2.0 / 1.5 / 2.5%.

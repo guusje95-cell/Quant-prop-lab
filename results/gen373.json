@@ -1,0 +1,157 @@
+{
+ "part 1 C*": {
+  "v86 C* sleeve 2022 / 2023-24 / 2025-26": [
+   -0.841,
+   2.319,
+   0.597
+  ],
+  "own-size fixed MAJ10": [
+   -0.831,
+   2.315,
+   0.562
+  ],
+  "own-size point-in-time top-10": [
+   -1.912,
+   2.22,
+   0.635
+  ],
+  "corr v86 C* vs own-size fixed (daily)": 1.0,
+  "2022-26 Sharpe fixed / pit": [
+   1.301,
+   1.187
+  ],
+  "point-in-time top-10 membership share 2022-26": {
+   "SOL": 1.0,
+   "BTC": 1.0,
+   "ETH": 1.0,
+   "XRP": 0.86,
+   "DOGE": 0.79,
+   "BNB": 0.72,
+   "1000PEPE": 0.46,
+   "ADA": 0.35,
+   "SUI": 0.35,
+   "AVAX": 0.25,
+   "MATIC": 0.23,
+   "ZEC": 0.19,
+   "LINK": 0.19,
+   "LTC": 0.18,
+   "1000SHIB": 0.16,
+   "HYPE": 0.16,
+   "NEAR": 0.12,
+   "BCH": 0.11,
+   "WLD": 0.11,
+   "LUNA": 0.1
+  }
+ },
+ "part 2 candidates (decision on 2022-24)": {
+  "K1 no carry, pit C*": {
+   "Sharpe 2022-26 [2022, 2023-24, 2025-26]": [
+    2.394,
+    [
+     1.053,
+     3.548,
+     2.055
+    ]
+   ],
+   "HyroTrader 2022-24": {
+    "net": 159631,
+    "p10": 87182,
+    "P_profit": 1.0,
+    "days_to_funded": 80.0
+   }
+  },
+  "K2 pit 20-carry, pit C*": {
+   "Sharpe 2022-26 [2022, 2023-24, 2025-26]": [
+    2.211,
+    [
+     0.603,
+     3.931,
+     1.461
+    ]
+   ],
+   "HyroTrader 2022-24": {
+    "net": 156452,
+    "p10": 75081,
+    "P_profit": 1.0,
+    "days_to_funded": 77.0
+   }
+  },
+  "K3 no carry, pit C*, no alt kimchi": {
+   "Sharpe 2022-26 [2022, 2023-24, 2025-26]": [
+    2.312,
+    [
+     1.347,
+     3.263,
+     1.92
+    ]
+   ],
+   "HyroTrader 2022-24": {
+    "net": 134007,
+    "p10": 57906,
+    "P_profit": 0.998,
+    "days_to_funded": 82.0
+   }
+  },
+  "K4 BTC/ETH core": {
+   "Sharpe 2022-26 [2022, 2023-24, 2025-26]": [
+    2.406,
+    [
+     1.8,
+     3.24,
+     1.906
+    ]
+   ],
+   "HyroTrader 2022-24": {
+    "net": 133041,
+    "p10": 65715,
+    "P_profit": 1.0,
+    "days_to_funded": 75.0
+   }
+  }
+ },
+ "part 3 chosen": {
+  "book": "K1 no carry, pit C*",
+  "sleeves": [
+   "C*",
+   "cascade limit strict",
+   "trend 4h",
+   "Weiss expiry",
+   "delev bounce",
+   "ridge ML",
+   "alt kimchi"
+  ],
+  "backtest Sharpe 2022-26": 2.394,
+  "planning Sharpe (x 1.78 / 3.11)": 1.37,
+  "max DD at risk 2.0 (2022-26)": -0.2023,
+  "worst day at risk 2.0": -0.1289,
+  "HyroTrader 2-Step 200k": {
+   "2022-24": {
+    "net": 159631,
+    "p10": 87182,
+    "P_profit": 1.0,
+    "days_to_funded": 80.0
+   },
+   "2025-26 (holdout, once)": {
+    "net": 119516,
+    "p10": 53828,
+    "P_profit": 0.998,
+    "days_to_funded": 82.0
+   }
+  },
+  "CFT 2-Phase 200k": {
+   "2022-24": {
+    "net": 157471,
+    "p10": 89230,
+    "P_profit": 1.0,
+    "days_to_funded": 68.5
+   },
+   "2025-26 (holdout, once)": {
+    "net": 116712,
+    "p10": 49321,
+    "P_profit": 0.995,
+    "days_to_funded": 70.0
+   }
+  },
+  "for comparison v86 HyroTrader 2025-26": "net $182,863 / p10 $112,422 (survivorship-inflated)"
+ }
+}

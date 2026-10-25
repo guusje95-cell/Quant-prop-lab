@@ -1,0 +1,61 @@
+{
+ "check A == cache_v86 (corr)": 1.0,
+ "A v8.6": {
+  "Sharpe 2022 / 2023-24 / 2022-24": [
+   1.542,
+   3.968,
+   3.108
+  ],
+  "Sharpe 2025-26 (holdout, once)": 3.111,
+  "max DD at risk 2, 2022-24 / 2025-26": [
+   -0.1815,
+   -0.1308
+  ],
+  "HyroTrader prop 2022-24": {
+   "net": 184445,
+   "p10": 105747,
+   "P_profit": 0.998,
+   "days_to_funded": 62.0
+  },
+  "HyroTrader prop 2025-26 (holdout)": {
+   "net": 182863,
+   "p10": 112422,
+   "P_profit": 1.0,
+   "days_to_funded": 61.0
+  }
+ },
+ "B no ridge": {
+  "Sharpe 2022 / 2023-24 / 2022-24": [
+   1.693,
+   3.784,
+   3.051
+  ],
+  "Sharpe 2025-26 (holdout, once)": 3.002,
+  "max DD at risk 2, 2022-24 / 2025-26": [
+   -0.1842,
+   -0.1303
+  ],
+  "HyroTrader prop 2022-24": {
+   "net": 165924,
+   "p10": 89206,
+   "P_profit": 0.993,
+   "days_to_funded": 64.0
+  },
+  "HyroTrader prop 2025-26 (holdout)": {
+   "net": 166573,
+   "p10": 102896,
+   "P_profit": 0.998,
+   "days_to_funded": 62.0
+  }
+ },
+ "ridge ML sleeve Sharpe by year": {
+  "2022": -0.28,
+  "2023": 1.66,
+  "2024": 2.19,
+  "2025": 1.26,
+  "2026": 1.97
+ },
+ "corr ridge vs rest of book (daily, 2022-26)": 0.286,
+ "ridge: share of 4-day windows at or below -3.7% unit (paper so far)": 0.103,
+ "B passes": false
+}

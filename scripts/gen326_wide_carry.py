@@ -8,7 +8,8 @@ import v7lab as L
 import crypto_sleeves as CS
 from qpl.lab import binance_pack as B, extra_pack as X
 END = L.END; PIT = L.ROOT / "research_data/binance_pit"
-pit = sorted(p.stem.replace("USDT_1h", "") for p in PIT.glob("*USDT_1h.parquet")) if PIT.exists() else []
+TRADFI = set(json.load(open(L.ROOT / "config/tradfi_perps.json"))["symbols"]) if (L.ROOT / "config/tradfi_perps.json").exists() else set()   # 2026-10-25: stock / commodity perps are not crypto
+pit = sorted(c for c in (p.stem.replace("USDT_1h", "") for p in PIT.glob("*USDT_1h.parquet")) if c not in TRADFI) if PIT.exists() else []
 
 
 def series(c):
@@ -20,9 +21,9 @@ def series(c):
         return (X.close_1h(c), d["quote_volume"].astype(float), X.premium(c), X.funding(c))
     d = pd.read_parquet(PIT / f"{c}USDT_1h.parquet"); d.index = pd.DatetimeIndex(d.index)
     pr = pd.read_parquet(PIT / f"{c}USDT_premium_1h.parquet") if (PIT / f"{c}USDT_premium_1h.parquet").exists() else None
-    pr = pr.set_index(pd.to_datetime(pr["time"]))["close"].astype(float) if pr is not None else pd.Series(dtype=float)
+    pr = pr.set_index(pd.to_datetime(pr["time"]))["close"].astype(float) if pr is not None else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
     fu = pd.read_parquet(PIT / f"{c}USDT_funding.parquet") if (PIT / f"{c}USDT_funding.parquet").exists() else None
-    fu = fu.set_index(pd.to_datetime(fu["time"]))["last_funding_rate"].astype(float) if fu is not None else pd.Series(dtype=float)
+    fu = fu.set_index(pd.to_datetime(fu["time"]))["last_funding_rate"].astype(float) if fu is not None else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
     return d["close"].astype(float), d["quote_volume"].astype(float), pr, fu
 
 
