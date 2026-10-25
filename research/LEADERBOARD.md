@@ -1603,3 +1603,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen401 (2026-10-25): relative crowding rebalance frequency (`results/gen401.json`)
 - 8-hourly: sleeve **1.45 / 1.84 / 1.21**, book 2.927 [2.348, 3.740, 2.441] (2023-24 lower); 3-day smoothing: sleeve 0.98 / 1.17 / 1.55, book 2.948 [2.271, 3.816, 2.432] (every period up, +0.016). **Both fail** (the sleeve is strong in every form; its book weight caps the gain).
+
+## Gen402 (2026-10-25): relative price signals among the 6 majors (`results/gen402.json`)
+- Relative C\* 1.46 / 1.08 / 0.11 (book 2.887); relative 28-day momentum 0.83 / 1.25 / 0.33 (2.833); **relative 7-day reversal -2.18 / -1.94 / -1.36** (2.537). **All fail.** The reversal result says the opposite (short-term relative momentum) holds in every period; with Gen319 B (7-day reversal on 60 coins negative everywhere) -> Gen403.

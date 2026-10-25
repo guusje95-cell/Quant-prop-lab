@@ -1,0 +1,10 @@
+{
+  "gen": 403,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after Gen402 C (relative 7-day reversal -2.18 / -1.94 / -1.36), consistent with Gen402 B (28-day relative momentum positive) and Gen319 B (7-day reversal on 60 coins negative in every period)",
+  "trial": "relative short-term momentum among BTC, ETH, SOL, XRP, BNB, DOGE: score = k-day return / (30-day daily vol x sqrt(k)), z across the 6 coins, position 0.15 x clip(z, -2, 2) / 2, market neutral, daily, 5 bp + funding; sleeve = mean of k = 5, 7, 10 (neighbourhood ensemble); added to v9.4 as a sleeve",
+  "robustness_required": "every single k in {3, 5, 7, 10, 14} positive in at least 2 of 3 periods; costs x2 sleeve positive in at least 2 of 3; point-in-time top-6 (pack coins, monthly) version positive in at least 2 of 3",
+  "pass": "strict rule vs v9.4 AND the robustness requirements; flagged -> user's OK",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
