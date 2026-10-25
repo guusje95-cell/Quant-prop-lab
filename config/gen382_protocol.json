@@ -1,0 +1,15 @@
+{
+  "gen": 382,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.1 2.707 [2.205, 3.438, 2.215]",
+  "question": "the Gen380 basket (2.18 alone, corr K1 0.40) gets about 11% of the risk as one sleeve; does more risk help?",
+  "trials": {
+    "A members as sleeves": "the 10 Gen380 members enter portfolio_v5 as 10 separate sleeves (each gets the equal-risk weight of a sleeve)",
+    "B basket x2": "the basket as one sleeve with its portfolio_v5 weight x 2",
+    "C basket x3": "the basket as one sleeve with its portfolio_v5 weight x 3"
+  },
+  "choice": "the trial with the highest 2022-24 Sharpe; then the strict rule vs v9.1 (2022-26 +0.05, every period not lower)",
+  "also": "HyroTrader 2022-24 / 2025-26 and worst day for the chosen trial (descriptive)",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
