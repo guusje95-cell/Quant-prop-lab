@@ -1552,3 +1552,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - Current 2.0 / 1.5: planning $32.1k / P(profit) 0.735; backtest 2022-24 $184.6k / p10 $116.3k; 2025-26 $130.6k / $57.1k.
 - Higher risks (2.5-3.0 challenge, 2.0-2.5 funded) raise backtest 2022-24 dollars but every one lowers the planning-level P(profit) (0.52-0.67) and 2025-26 p10. **No change: 2.0 / 1.5 / 0.5 stays.**
 - **2026-10-25: the user ACCEPTED v9.2 = Gen385** (K1 sleeves with trend 4h / alt kimchi neighbourhood ensembles + the 12-member Gen384 basket). **Reference from here: v9.2 2.771 [2.342, 3.486, 2.247], planning 1.21 (N = 1,680).**
+
+## Gen388 (2026-10-25): weighting (`results/gen388.json`)
+- A, walk-forward Sharpe-weighted basket: 365 d 2.695, 730 d 2.728 [2.363, 3.441, 2.174] (chosen) -> fails. B, sleeve-weight window: 180 d 2.541, 90 d 2.324 -> fails. **Equal risk over 365 days stays.**

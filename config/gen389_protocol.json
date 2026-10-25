@@ -1,0 +1,13 @@
+{
+  "gen": 389,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.2 2.771 [2.342, 3.486, 2.247]",
+  "idea": "multi-timeframe trend: the frozen trend 4h breakout rule (n_in 20, n_out 10, 10% vol target per coin over 30 days, cap 2, funding, 5 bp) applied on 1h, 4h and 12h bars of BTC/ETH/SOL",
+  "trials": {
+    "A 1h + 4h + 12h": "trend sleeve = mean of the 1h, 4h-ensemble (v9.2) and 12h systems",
+    "B 4h + 12h": "trend sleeve = mean of the 4h-ensemble (v9.2) and the 12h system"
+  },
+  "choice": "higher 2022-24 Sharpe of the book; then the strict rule vs v9.2",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
