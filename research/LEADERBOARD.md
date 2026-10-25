@@ -1538,3 +1538,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen383 (2026-10-25): neighbourhood ensembles in v9.1 (`results/gen383.json`)
 - trend 4h ensemble 2.732 [2.249, 3.441, 2.249]; alt kimchi ensemble 2.717; **both 2.743 [2.269, 3.453, 2.255]: every period up but +0.036 < +0.05. Fails** (second time after Gen336 that these ensembles give a small consistent gain; noted as a robustness candidate for the paper review).
+
+## Gen384 / Gen385 (2026-10-25): BTC/ETH positioning signals and the v9.2 candidate (`results/gen384.json`, `results/gen385.json`)
+- **Gen384 (6 time-series signals on BTC/ETH):** retail crowding 0.81 / 0.89 / -0.05; top-trader position crowding -0.97 / -0.11 / -0.07; premium discount -0.96 / -0.73 / 0.32; funding contrarian -0.08 / -0.42 / 0.46; **leverage build-up (OI growth, contrarian) 0.67 / 0.65 / 0.04**; spot-led demand -0.84 / 0.80 / -1.42. The rule keeps 12 members (adds top-trader crowding and leverage build-up); basket 3.21 / 2.81 / 1.24 (2.35); K1 + basket 2.739 [2.288, 3.473, 2.208]: +0.032, 2025-26 -0.007. **Fails.**
+- **Gen385 (FLAGGED post hoc: Gen383 ensembles + Gen384 basket):** **2.771 [2.342, 3.486, 2.247]: every period up, +0.064 -> passes the strict rule**; by year 2.34 / 3.24 / 3.74 / 1.65 / 2.98 (v9.1 2.20 / 3.17 / 3.72 / 1.51 / 3.08); worst day -7.2%, max DD -17.4%. **v9.2 candidate, needs the user's OK** (post hoc).

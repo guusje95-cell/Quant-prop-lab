@@ -1,0 +1,83 @@
+{
+ "reference v9.1": [
+  2.707,
+  [
+   2.205,
+   3.438,
+   2.215
+  ]
+ ],
+ "new signals": {
+  "M1 retail crowding": {
+   "2022": 0.805,
+   "2023-24": 0.894,
+   "2022-24": 0.83,
+   "corr K1 2022-24": 0.201,
+   "2025-26 (record)": -0.046
+  },
+  "M2 top-trader position crowding": {
+   "2022": -0.969,
+   "2023-24": -0.11,
+   "2022-24": -0.446,
+   "corr K1 2022-24": -0.143,
+   "2025-26 (record)": -0.071
+  },
+  "M3 premium discount": {
+   "2022": -0.96,
+   "2023-24": -0.726,
+   "2022-24": -0.809,
+   "corr K1 2022-24": -0.178,
+   "2025-26 (record)": 0.321
+  },
+  "M4 funding contrarian": {
+   "2022": -0.081,
+   "2023-24": -0.422,
+   "2022-24": -0.296,
+   "corr K1 2022-24": -0.161,
+   "2025-26 (record)": 0.463
+  },
+  "M5 leverage build-up": {
+   "2022": 0.666,
+   "2023-24": 0.65,
+   "2022-24": 0.648,
+   "corr K1 2022-24": -0.109,
+   "2025-26 (record)": 0.038
+  },
+  "M6 spot-led demand": {
+   "2022": -0.841,
+   "2023-24": 0.795,
+   "2022-24": 0.13,
+   "corr K1 2022-24": 0.171,
+   "2025-26 (record)": -1.418
+  }
+ },
+ "kept": [
+  "Gen249 A USDT premium",
+  "Gen120 D2 call-minus-put flow",
+  "mint shock",
+  "S6 top-trader crowding",
+  "stablecoin impulse",
+  "Coinbase hourly premium",
+  "A attention momentum",
+  "Gen171 CC1 FOMC weeks",
+  "M5 leverage build-up",
+  "kimchi BTC/ETH v8.4",
+  "fee pressure",
+  "Bybit crowding"
+ ],
+ "basket 2022 / 2023-24 / 2025-26": [
+  3.209,
+  2.812,
+  1.24
+ ],
+ "basket 2022-26": 2.347,
+ "K1 + new basket": [
+  2.739,
+  [
+   2.288,
+   3.473,
+   2.208
+  ]
+ ],
+ "pass": false
+}

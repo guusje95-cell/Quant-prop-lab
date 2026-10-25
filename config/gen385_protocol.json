@@ -1,0 +1,9 @@
+{
+  "gen": 385,
+  "date": "2026-10-25",
+  "registered": "FLAGGED post hoc: combines the two near-misses Gen383 C (trend 4h + alt kimchi neighbourhood ensembles, +0.036, every period up) and Gen384 (12-member basket, +0.032, 2025-26 -0.007)",
+  "book": "v9.1 with trend 4h and alt kimchi replaced by their Gen336 ensembles AND the Gen384 basket instead of the Gen380 basket",
+  "pass": "strict rule vs v9.1 (2022-26 +0.05, every period not lower); because it is post hoc it is only adopted with the user's explicit OK, as v9.1 was",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
