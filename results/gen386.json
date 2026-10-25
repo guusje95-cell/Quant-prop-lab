@@ -1,0 +1,92 @@
+{
+ "reference v9.2 candidate": [
+  2.771,
+  [
+   2.342,
+   3.486,
+   2.247
+  ]
+ ],
+ "new signals": {
+  "O1 put/call volume contrarian": {
+   "2022": 0.407,
+   "2023-24": 0.363,
+   "2022-24": 0.371,
+   "corr K1 2022-24": 0.008,
+   "2025-26 (record)": -0.414
+  },
+  "O2 block call-minus-put buying": {
+   "2022": -0.924,
+   "2023-24": -0.526,
+   "2022-24": -0.681,
+   "corr K1 2022-24": 0.039,
+   "2025-26 (record)": 0.111
+  },
+  "O3 short-dated IV inversion": {
+   "2022": -0.035,
+   "2023-24": -0.358,
+   "2022-24": -0.232,
+   "corr K1 2022-24": 0.002,
+   "2025-26 (record)": -0.887
+  },
+  "O4 OTM call froth": {
+   "2022": -0.091,
+   "2023-24": 0.494,
+   "2022-24": 0.212,
+   "corr K1 2022-24": 0.193,
+   "2025-26 (record)": -0.401
+  },
+  "G1 crypto attention momentum": {
+   "2022": 0.04,
+   "2023-24": 1.267,
+   "2022-24": 0.742,
+   "corr K1 2022-24": 0.184,
+   "2025-26 (record)": 0.342
+  },
+  "G2 dogecoin froth": {
+   "2022": 0.826,
+   "2023-24": -0.986,
+   "2022-24": -0.095,
+   "corr K1 2022-24": -0.119,
+   "2025-26 (record)": 0.08
+  },
+  "R1 miner revenue momentum": {
+   "2022": -0.673,
+   "2023-24": 0.366,
+   "2022-24": 0.019,
+   "corr K1 2022-24": 0.191,
+   "2025-26 (record)": -0.073
+  }
+ },
+ "kept": [
+  "Gen249 A USDT premium",
+  "Gen120 D2 call-minus-put flow",
+  "mint shock",
+  "S6 top-trader crowding",
+  "stablecoin impulse",
+  "Coinbase hourly premium",
+  "A attention momentum",
+  "Gen171 CC1 FOMC weeks",
+  "G1 crypto attention momentum",
+  "M5 leverage build-up",
+  "kimchi BTC/ETH v8.4",
+  "fee pressure",
+  "O1 put/call volume contrarian",
+  "Bybit crowding"
+ ],
+ "basket 2022 / 2023-24 / 2025-26": [
+  3.103,
+  2.75,
+  1.099
+ ],
+ "basket 2022-26": 2.26,
+ "v9.2 structure + new basket": [
+  2.738,
+  [
+   2.286,
+   3.49,
+   2.199
+  ]
+ ],
+ "pass": false
+}

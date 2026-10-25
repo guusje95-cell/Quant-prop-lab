@@ -1,0 +1,10 @@
+{
+  "gen": 387,
+  "date": "2026-10-25",
+  "registered": "before running; book = v9.2 candidate (Gen385)",
+  "question": "with the smaller tail of v9.2 (worst day -7.2% vs -12.9% for K1), do higher challenge / funded risks earn more?",
+  "grid": "challenge {2.0, 2.5, 3.0} x funded {1.5, 2.0, 2.5} x stop {0.5} at HyroTrader 2-Step $200k (bootstrap 400, block 20, seed 11)",
+  "choice": "chosen on the PLANNING level (2025-26 days shifted to the deflated planning Sharpe of the book, N = 1,680): highest mean net with P(profit) >= 0.80 and p10 >= the current 2.0 / 1.5 setting's p10 - $2k; adopted only if it beats 2.0 / 1.5 by >= $3k; backtest 2022-24 and 2025-26 reported",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

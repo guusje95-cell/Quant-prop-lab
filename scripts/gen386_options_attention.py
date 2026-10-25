@@ -7,8 +7,12 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "src"))
 src = open(ROOT / "scripts/gen384_positioning.py").read().split("b380 = pd.read_parquet")[0]
 g = {"__file__": str(ROOT / "scripts/gen384_positioning.py")}; exec(compile(src, "g384", "exec"), g)
-POOL, hourly_pnl, from_daily, daily, z, idx, dd, shp, per, unit, END, ND, CS, base, K1, days, att = (g[k] for k in (
-    "POOL", "hourly_pnl", "from_daily", "daily", "z", "idx", "dd", "shp", "per", "unit", "END", "ND", "CS", "base", "K1", "days", "att"))
+POOL, hourly_pnl, from_daily, daily, z, idx, dd, shp, per, unit, END, CS, base, K1, days = (g[k] for k in (
+    "POOL", "hourly_pnl", "from_daily", "daily", "z", "idx", "dd", "shp", "per", "unit", "END", "CS", "base", "K1", "days"))
+ND = ROOT / "research_data/newdata"
+def att(f, lag=2):                                       # as Gen381
+    s = pd.read_parquet(ROOT / f"research_data/attention/{f}")["interest"].astype(float); s.index = pd.DatetimeIndex(s.index)
+    s = s.reindex(days).ffill(); m = np.log(s.rolling(7).mean() / s.rolling(30).mean()); return z(m, 180).shift(lag)
 NEW = {}; O = {c: pd.read_parquet(ROOT / f"research_data/deribit_options/{c}_options_daily.parquet") for c in ("BTC", "ETH")}
 def opt(c, f):
     x = O[c].copy(); x["day"] = pd.to_datetime(x["day"]); return daily(f(x))
