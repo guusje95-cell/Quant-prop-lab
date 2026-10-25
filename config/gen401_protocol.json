@@ -1,0 +1,12 @@
+{
+  "gen": 401,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.4 2.932 [2.246, 3.813, 2.408]",
+  "trials (each replaces the 6-coin relative crowding sleeve)": {
+    "A 8-hourly": "same two metrics, 8-hour means, z over 270 bars (90 days), demeaned across the 6 coins, rebalanced every 8 hours (00/08/16 UTC, decided on the bar that just closed), 5 bp per side + funding",
+    "B 3-day smoothing": "the daily v9.4 sleeve with targets averaged over the last 3 days"
+  },
+  "pass": "each judged with the strict rule vs v9.4",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

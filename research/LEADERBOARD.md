@@ -1596,3 +1596,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen398 (2026-10-25): relative crowding extensions (`results/gen398.json`)
 - Point-in-time top-10 (pack coins) 0.70 / 1.80 / 0.39, book 2.866; + top-trader positions 0.72 / 1.72 / 0.85, book 2.934 (+0.002); + taker flow contrarian -0.03 / 0.94 / 1.27, book 2.827. **All fail**; the 6-coin two-metric sleeve stays.
+
+## Gen399 / Gen400 (2026-10-25)
+- **Gen399 (flagged): relative crowding window ensemble 60 / 90 / 180:** sleeve 1.40 / 1.42 / 1.30, book 2.937 [2.191, 3.843, 2.415] (+0.005, 2022 lower). **Fails**; v9.4 keeps the 90-day sleeve.
+- **Gen400: relative kimchi (market neutral):** alts -0.32 / 0.87 / **-2.04** (book 2.683); incl. BTC/ETH -0.39 / 0.83 / -1.92. **Both fail.**

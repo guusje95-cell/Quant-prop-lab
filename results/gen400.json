@@ -1,0 +1,64 @@
+{
+ "reference v9.4": [
+  2.932,
+  [
+   2.246,
+   3.813,
+   2.408
+  ]
+ ],
+ "coins": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "FIL",
+  "LINK",
+  "NEAR",
+  "SOL",
+  "TRX",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "trials": {
+  "K1 relative kimchi": {
+   "sleeve": [
+    -0.318,
+    0.867,
+    -2.039
+   ],
+   "corr v9.4": 0.023,
+   "book": [
+    2.683,
+    [
+     2.168,
+     3.876,
+     1.806
+    ]
+   ],
+   "pass": false
+  },
+  "K2 relative kimchi incl. BTC/ETH": {
+   "sleeve": [
+    -0.393,
+    0.834,
+    -1.921
+   ],
+   "corr v9.4": 0.022,
+   "book": [
+    2.694,
+    [
+     2.155,
+     3.88,
+     1.839
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
