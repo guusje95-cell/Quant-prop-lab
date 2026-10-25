@@ -1,0 +1,23 @@
+{
+  "gen": 375,
+  "date": "2026-10-25",
+  "registered": "before running; reference book K1 / v9.0 (Gen373): 2.394 [1.053, 3.548, 2.055], HyroTrader 2022-24 net $159.6k / p10 $87.2k",
+  "part_A_prop_settings": {
+    "question": "K1 has a lower Sharpe than v8.6; are challenge 2.0 / funded 1.5 / stop 0.5 x daily still the best prop settings?",
+    "grid": "challenge risk {1.5, 2.0, 2.5} x funded risk {1.0, 1.5, 2.0} x daily stop fraction {0.4, 0.5, 0.6} (27 settings, 1 of them the current one)",
+    "choice": "on 2022-24 HyroTrader 2-Step $200k (bootstrap 400, block 20, seed 11): the highest mean net among settings with P(profit) >= 0.95 and p10 >= 0.9 x the current setting's p10; adopted only if its net beats the current setting by >= $5k; 2025-26 reported once; also at planning level (2025-26 shifted to Sharpe 1.37)"
+  },
+  "part_B_fair_universe_factors": {
+    "question": "Do cross-sectional factors work on an ESTABLISHED-coin point-in-time universe (the honest version of what failed in Gen321/372)?",
+    "universe": "each day: the 30 USDT perps with the highest trailing 30-day quote volume among coins listed >= 365 days, delisted included, TradFi perps excluded (config/tradfi_perps.json)",
+    "factors": {
+      "B1 premium carry": "7-day mean premium index, long lowest third / short highest third, inverse-vol legs, 7 tranches",
+      "B2 funding carry": "7-day mean funding rate, long lowest third / short highest third, inverse-vol legs, 7 tranches",
+      "B3 momentum 28d": "28-day return, long top third / short bottom third, inverse-vol legs, 7 tranches"
+    },
+    "costs": "5 bp per side + Binance funding; a delisted coin is closed at its last price",
+    "pass": "added to K1 as a sleeve: the project's strict rule vs K1 (2022-26 Sharpe +0.05 or more AND every period 2022 / 2023-24 / 2025-26 not lower); with several passes the highest book Sharpe; nothing is tuned after the results",
+    "trials_added": 3
+  },
+  "no_changes_after_results": true
+}
