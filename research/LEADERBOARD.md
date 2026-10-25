@@ -1609,3 +1609,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen403 (2026-10-25, FLAGGED): relative short-term momentum among the 6 majors (`results/gen403.json`)
 - Ensemble k = 5 / 7 / 10: **1.27 / 1.24 / -0.09**; book 2.834 [2.204, 3.761, 2.254]. Single k: 3 0.91 / 1.17 / -0.52; 5 1.16 / 1.00 / -0.07; 7 1.68 / 1.30 / 0.30; 10 0.75 / 1.19 / -0.48; 14 0.94 / 1.49 / 0.23; costs x2 0.94 / 0.89 / -0.65; point-in-time top-6 0.38 / 1.55 / -0.04. **Fails**: the effect is gone in 2025-26 and costs take a large share (the strong negative Gen402 reversal was partly its own costs).
+
+## Gen404 (2026-10-25, FLAGGED): relative crowding as the mean of its daily / 8-hourly / 3-day versions (`results/gen404.json`)
+- Sleeve **1.48 / 1.55 / 1.46**; book **2.976 [2.355, 3.832, 2.447]**: every period up, +0.044 (< +0.05). **Fails the strict rule by 0.006.** By year 2.35 / 3.50 / 4.17 / 1.98 / 3.04. **v9.5 candidate (robustness upgrade, flagged), for the user's decision.**
