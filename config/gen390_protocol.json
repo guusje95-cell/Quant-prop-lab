@@ -1,0 +1,16 @@
+{
+  "gen": 390,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.2 2.771 [2.342, 3.486, 2.247]",
+  "trials": {
+    "A1 top-trader crowding incl. SOL": "Gen381 S6 rule on BTC, ETH and SOL (SOL was in the point-in-time top-10 every month 2022-26)",
+    "A2 retail crowding incl. SOL": "Gen384 M1 rule on BTC, ETH, SOL",
+    "A3 leverage build-up incl. SOL": "Gen384 M5 rule on BTC, ETH, SOL",
+    "B autocorrelation regime": "per coin (BTC, ETH): trailing 90-day lag-1 autocorrelation of daily returns rho; position = 0.125 x sign(rho) x sign(yesterday's return) when |rho| > 0.05, else 0; held 1 day",
+    "C hash ribbons": "BTC hash rate (Coin Metrics, 1-day lag): long BTC 0.25 for 30 days after the 30-day MA crosses back above the 60-day MA following a period (>= 10 days) below it (Edwards 2019); data end 2026-05-23, flat afterwards"
+  },
+  "selection": "the Gen380 rule on the pool Gen380 + 381 + 384 + 386 + these 5 (A1-A3 enter as separate members next to the BTC/ETH versions)",
+  "pass": "v9.2 structure with the new basket vs v9.2: strict rule",
+  "trials_added": 5,
+  "no_changes_after_results": true
+}

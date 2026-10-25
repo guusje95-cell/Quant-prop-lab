@@ -1555,3 +1555,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen388 (2026-10-25): weighting (`results/gen388.json`)
 - A, walk-forward Sharpe-weighted basket: 365 d 2.695, 730 d 2.728 [2.363, 3.441, 2.174] (chosen) -> fails. B, sleeve-weight window: 180 d 2.541, 90 d 2.324 -> fails. **Equal risk over 365 days stays.**
+
+## Gen389 (2026-10-25): multi-timeframe trend (`results/gen389.json`)
+- 1h breakout alone and 12h alone are weak (12h 2025-26 0.05); A 1h + 4h + 12h 2.563, B 4h + 12h 2.654 (chosen) -> **fails**. The 4h timeframe stays. (Gold via PAXG perps checked and dropped: perp only since 2025-03, gold trend weak before 2024 in Gen98 / Gen139.)
