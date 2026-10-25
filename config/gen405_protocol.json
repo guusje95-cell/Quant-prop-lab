@@ -1,0 +1,13 @@
+{
+  "gen": 405,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.4 2.932 [2.246, 3.813, 2.408]",
+  "signal": "per coin d = z90(daily mean top-trader position ratio sum_toptrader_long_short_ratio) - z90(daily mean all-account ratio count_long_short_ratio), 1-day lag (smart money longer than the crowd -> follow smart money)",
+  "trials": {
+    "D1 directional BTC/ETH": "position per coin +0.125 x clip(d, -2, 2) / 2",
+    "D2 relative 6 coins": "d demeaned across BTC, ETH, SOL, XRP, BNB, DOGE; position +0.15 x clip(d - mean, -2, 2) / 2 (market neutral)"
+  },
+  "pass": "each added to v9.4 as a sleeve; strict rule vs v9.4",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
