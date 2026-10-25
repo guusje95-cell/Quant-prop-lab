@@ -1475,3 +1475,20 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - **Stress book (Gen366 rules, taker costs, Binance funding, look-ahead in the premium-spike BTC filter fixed):** today's 60 coins 2.32 / 1.95 / 1.89 (2020-24 2.17, expected live 1.26), as before. **Point-in-time top-60: 1.89 / 0.57 / -0.86** (2020-24 1.33, expected live 0.39; 2022-26 -0.17). **Dropped** (rule: >= 0.7 x and expected live >= 0.8). Negative funding (-2.03 in 2025-26) and the daily premium discount break on coins that are not in today's list; only crash 8h stays positive in every period (1.01 / 0.54 / 1.12).
 - **Futures book:** 2022-26 Sharpe 1.24, daily corr 0.06 / 0.09 with F0 / F2. Equal-risk mix lowers the book (F0 2.79 -> 2.76); best in-sample weight 0.4: F0 2.99, F2 2.69 (+0.2, optimistic). Needs a futures firm with overnight holding and bots; small dollars (Gen237).
 - Conclusion: no survivorship-free crypto diversifier exists yet; the futures book is the only independent edge, worth about +0.2 backtest Sharpe at a 0.4 weight in a separate account.
+
+## Gen373 (2026-10-25): C* on a point-in-time universe and the honest live book (`config/gen373_protocol.json`, `results/gen373.json`)
+- **C\*:** the own-size rebuild on fixed MAJ10 equals the v86 sleeve (daily corr 1.00; -0.83 / 2.32 / 0.56). Point-in-time top-10 by volume (members: SOL, BTC, ETH always; XRP, DOGE, BNB mostly; 1000PEPE, SUI, MATIC, LUNA, HYPE at times): **-1.91 / 2.22 / 0.64**, 2022-26 1.19 vs 1.30. Small survivorship cost, mostly 2022 (LUNA).
+- **Candidates, chosen on 2022-24 HyroTrader net:**
+
+| Book | 2022-26 [2022, 2023-24, 2025-26] | HyroTrader 2022-24 net / p10 |
+|---|---|---|
+| **K1 no carry, point-in-time C\*** | **2.394** [1.05, 3.55, 2.06] | **$159.6k / $87.2k** |
+| K2 point-in-time 20-carry, point-in-time C\* | 2.184 [0.60, 3.93, 1.39] | $156.5k / $75.1k |
+| K3 K1 without alt kimchi | 2.312 [1.35, 3.26, 1.92] | $134.0k / $57.9k |
+| K4 BTC/ETH core (ridge, Weiss, bounce, cascade, trend) | 2.406 [1.80, 3.24, 1.91] | $133.0k / $65.7k |
+
+- **Chosen: K1 = C\* (monthly top-10 by volume) + cascade + trend 4h + Weiss + delev bounce + ridge ML + alt kimchi.** Backtest 2.39, **planning Sharpe 1.37**, max DD at risk 2.0 -20%, worst day -12.9%.
+  - Holdout 2025-26 (once): HyroTrader net $119.5k / p10 $53.8k / P(profit) 0.998; CFT 2-Phase 200k $116.7k / $49.3k / 0.995.
+  - **Planning level (2025-26 bootstrap shifted to Sharpe 1.37): about $71k per account over 2 years, p10 about $8.5k, P(profit) 0.93-0.94** (old v8.6 plan check at 1.78: $91k / $27k / 0.97). At a weak 1.0: $49k / -$5k / 0.86.
+- **Shadow on the paper ledger (46 shared hours, Oct-1 weights, C\* proxied by the paper's MAJ10 C\*):** K1 -3.0% vs v86 -3.1% at risk 2.0. The bad start is the same in both (ridge, trend, C\*).
+- **The live candidate is K1 (v9.0).** The running v86 / bf26 paper traders stay unchanged; K1 is computed from the frozen sleeve ledger plus a point-in-time C\* paper sleeve to be added as a separate paper version.
