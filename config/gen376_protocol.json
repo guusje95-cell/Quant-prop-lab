@@ -1,0 +1,16 @@
+{
+  "gen": 376,
+  "date": "2026-10-25",
+  "registered": "before the data exists (get_new_data.bat); reference book v9.0 / K1 (Gen373)",
+  "data": "research_data/newdata: DefiLlama stablecoin supply, DEX volume, perp-DEX volume, DeFi TVL; Blockchain.com mempool size, fees USD, miners' revenue; Bybit BTC/ETH daily OI and account long/short ratio. Every daily value is used with a 1-day lag (published after the day ends).",
+  "trials": {
+    "N1 speculation froth": "z-score (180-day) of log(DEX + perp-DEX volume) minus log(BTC+ETH Binance perp volume): BTC/ETH 50/50 position -0.25 x clip(z, -2, 2) / 2, held 1 day (on-chain speculation share high -> lean short)",
+    "N2 stablecoin impulse": "30-day log change of DefiLlama stablecoin supply, z-scored over 365 days: BTC/ETH 50/50 position 0.25 x clip(z, -2, 2) / 2 (complements the Coin Metrics USDT+USDC caps already in C*; only kept if corr with the C* stablecoin filter < 0.5)",
+    "N3 fee pressure": "z-score (90-day) of BTC transaction fees USD: BTC position -0.25 x clip(z, -2, 2) / 2, held 1 day",
+    "N4 Bybit crowding": "Bybit account long ratio z-score (90-day), BTC and ETH separately: position -0.25 x clip(z, -2, 2) / 2 per coin (contrarian); only if the history starts before 2022-07, else descriptive"
+  },
+  "costs": "5 bp taker per side + Binance funding",
+  "pass": "added to v9.0 as a sleeve: the strict rule (2022-26 Sharpe +0.05 or more, every period 2022 / 2023-24 / 2025-26 not lower); a sleeve must also have a positive 2022 and 2023-24 Sharpe on its own; nothing tuned after the results",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}

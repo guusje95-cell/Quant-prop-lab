@@ -115,6 +115,41 @@ def premium_breadth_weights(coins=None, look=7, hold=7, invvol=False, tranched=F
     return _hold(w, hold, tranched)
 
 
+def cstar_pit_weights(coins=None, n=10):
+    """Gen373 / v9.0: C* on a point-in-time top-n universe. Frozen CStarTrend signal (defaults + btc_leads) on daily perp closes,
+    Gen53 own-size sizing (signal clipped -2..2 x min(1, 40% / 30-day vol), >= 200 days of history, / n); members = top-n by trailing
+    30-day quote volume among coins with >= 200 days of history, set on the first day of each month (data up to the day before).
+    Live candidates are the pack + extra coins (60). Row d = decided at the close of day d."""
+    from qpl.lab import extra_pack as X, strategies as ST
+    from qpl.lab.data import Bars
+    coins = _breadth_universe() if coins is None else list(coins)
+    D = _breadth_close(coins).resample("1D").last()
+    pk = [c for c in coins if c in B.coins()]
+    qv = pd.concat([B.panel("quote_volume", "1h", pk)] + [X.quote_volume_1h(c).rename(c) for c in coins if c not in pk], axis=1).sort_index()
+    QV = qv.loc[:END][coins].resample("1D").sum().reindex(D.index)
+    cs = ST.CStarTrend(); sig = cs.signal(Bars("perps", "1d", D, D, D, D, QV), {**cs.defaults(), "btc_leads": True})
+    vol = np.log(D).diff().rolling(30, min_periods=20).std() * np.sqrt(365); hist = D.notna().cumsum() >= 200
+    dv = QV.rolling(30, min_periods=20).sum().shift(1); elig = D.notna().cumsum().shift(1) >= 200
+    mfirst = ~D.index.to_period("M").duplicated()
+    mem = (dv.where(elig).rank(axis=1, ascending=False) <= n)[mfirst].reindex(D.index).ffill().fillna(False).astype(bool)
+    w = (sig.reindex_like(D).fillna(0).clip(-2, 2) * (0.40 / vol).clip(upper=1.0)).where(hist, 0.0).fillna(0.0)
+    return w.where(mem, 0.0) / n
+
+
+def breadth_pnl(w, coins, cost_bps):
+    """Hourly P&L of daily weights on pack + extra coins (same accounting as _from_daily_weights / premium_carry_breadth)."""
+    from qpl.lab import extra_pack as X
+    coins = list(coins); H = _breadth_close(coins); r = H.pct_change(fill_method=None).fillna(0.0)
+    w = w.reindex(w.index.append(pd.DatetimeIndex([w.index[-1] + pd.Timedelta(days=1)])))
+    hd = w.reindex(columns=coins).shift(1)
+    held = hd.reindex(H.index.floor("D")).set_axis(H.index).fillna(0.0)
+    turn = hd.fillna(0.0).diff().abs().sum(axis=1).reindex(H.index.floor("D")).set_axis(H.index).where(H.index.hour == 0, 0.0)
+    pk = [c for c in coins if c in B.coins()]
+    f = pd.concat([B.funding_panel(pk)] + [X.funding(c).rename(c) for c in coins if c not in pk], axis=1).sort_index()[coins]
+    f.index = f.index - pd.Timedelta(hours=1); f = f.groupby(level=0).sum().reindex(H.index).fillna(0.0)
+    return (held * r).sum(axis=1) - (held * f).sum(axis=1) - turn.fillna(0.0) * cost_bps / 1e4
+
+
 def premium_carry_breadth(coins=None, w=None):
     """Hourly P&L of premium carry on pack + extra coins at perp costs (5 bp taker + funding), same accounting as _from_daily_weights."""
     from qpl.lab import extra_pack as X

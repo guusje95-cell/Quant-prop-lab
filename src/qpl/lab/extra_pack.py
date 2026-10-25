@@ -41,6 +41,17 @@ def close_1h(coin: str) -> pd.Series:
 
 
 @lru_cache(maxsize=128)
+def quote_volume_1h(coin: str) -> pd.Series:
+    parts = []
+    for d in _frames(f"{coin}USDT_1h.parquet"):
+        if "time" in d:
+            d = d.set_index("time")
+        parts.append(d["quote_volume"].astype(float))
+    s = pd.concat(parts); s.index = pd.DatetimeIndex(s.index); s = s[~s.index.duplicated(keep="last")].sort_index()
+    return s[s.index + pd.Timedelta(hours=1) <= CUTOFF] if CUTOFF is not None else s
+
+
+@lru_cache(maxsize=128)
 def premium(coin: str) -> pd.Series:
     d = pd.concat(_frames(f"{coin}USDT_premium_1h.parquet")); d["time"] = pd.to_datetime(d["time"])
     s = d.drop_duplicates("time", keep="last").set_index("time").sort_index()["close"].astype(float)
