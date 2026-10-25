@@ -1470,3 +1470,8 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
   - HyroTrader 2025-26 (holdout) net / p10: v8.6 $183k / $112k, F0 $139k / $69k, F2 $118k / $53k, F1 $67k / $5k.
 - **Honest range for the book now: backtest 2.3-2.5 instead of 3.1; planning Sharpe about 1.3-1.4 instead of 1.78.** The other sleeves (C*, trend, Weiss, ridge on MAJ10 / BTC-ETH) also use coins chosen today: Gen373 checks them.
 - Paper traders unchanged (they are a superset; every subset book can be recomputed from the frozen sleeve ledger).
+
+## Gen374 (2026-10-25): the diversifiers on honest numbers (`config/gen374_protocol.json`, `results/gen374.json`)
+- **Stress book (Gen366 rules, taker costs, Binance funding, look-ahead in the premium-spike BTC filter fixed):** today's 60 coins 2.32 / 1.95 / 1.89 (2020-24 2.17, expected live 1.26), as before. **Point-in-time top-60: 1.89 / 0.57 / -0.86** (2020-24 1.33, expected live 0.39; 2022-26 -0.17). **Dropped** (rule: >= 0.7 x and expected live >= 0.8). Negative funding (-2.03 in 2025-26) and the daily premium discount break on coins that are not in today's list; only crash 8h stays positive in every period (1.01 / 0.54 / 1.12).
+- **Futures book:** 2022-26 Sharpe 1.24, daily corr 0.06 / 0.09 with F0 / F2. Equal-risk mix lowers the book (F0 2.79 -> 2.76); best in-sample weight 0.4: F0 2.99, F2 2.69 (+0.2, optimistic). Needs a futures firm with overnight holding and bots; small dollars (Gen237).
+- Conclusion: no survivorship-free crypto diversifier exists yet; the futures book is the only independent edge, worth about +0.2 backtest Sharpe at a 0.4 weight in a separate account.
