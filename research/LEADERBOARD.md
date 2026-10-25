@@ -1546,3 +1546,8 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen386 (2026-10-25): options-flow, attention and miner signals (`results/gen386.json`)
 - 2022 / 2023-24 / 2025-26: put/call contrarian 0.41 / 0.36 / -0.41; block call-minus-put -0.92 / -0.53 / 0.11; short-dated IV inversion -0.04 / -0.36 / -0.89; OTM call froth -0.09 / 0.49 / -0.40; **crypto attention momentum 0.04 / 1.27 / 0.34**; dogecoin froth 0.83 / -0.99 / 0.08; miner revenue momentum -0.67 / 0.37 / -0.07.
 - The rule adds put/call and crypto attention (14 members); basket 2.26 (lower than Gen384's 2.35); v9.2 structure + it 2.738 < 2.771. **Fails.** The basket is saturating: weak new members dilute it.
+
+## Gen387 (2026-10-25): prop risk grid for the v9.2 candidate (`results/gen387.json`)
+- Planning Sharpe of the v9.2 candidate (N = 1,680): **1.21** (v9.1 1.15, K1 0.84).
+- Current 2.0 / 1.5: planning $32.1k / P(profit) 0.735; backtest 2022-24 $184.6k / p10 $116.3k; 2025-26 $130.6k / $57.1k.
+- Higher risks (2.5-3.0 challenge, 2.0-2.5 funded) raise backtest 2022-24 dollars but every one lowers the planning-level P(profit) (0.52-0.67) and 2025-26 p10. **No change: 2.0 / 1.5 / 0.5 stays.**

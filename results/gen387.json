@@ -1,0 +1,21 @@
+{
+ "planning Sharpe (N = 1,680)": 1.212,
+ "current 2.0/1.5": {
+  "planning": {
+   "net": 32059,
+   "p10": -4845,
+   "P_profit": 0.735
+  },
+  "backtest 2022-24": {
+   "net": 184562,
+   "p10": 116260,
+   "P_profit": 1.0
+  },
+  "backtest 2025-26": {
+   "net": 130600,
+   "p10": 57132,
+   "P_profit": 0.985
+  }
+ },
+ "result": "no setting reaches P(profit) >= 0.80 at the planning level; the rule keeps 2.0 / 1.5 (grid printed in the run log)"
+}
