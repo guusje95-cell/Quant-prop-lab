@@ -1,0 +1,13 @@
+{
+  "gen": 398,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.4 2.932 [2.246, 3.813, 2.408]",
+  "trials (each replaces the 6-coin relative crowding sleeve; everything else as v9.4)": {
+    "T1 point-in-time top-10": "the same two metrics on the monthly point-in-time top-10 by 30-day quote volume among the 20 pack coins (members change monthly)",
+    "T2 + top-trader positions": "6 coins, mean of three relative metrics: top-trader accounts, retail accounts, top-trader positions (sum_toptrader_long_short_ratio)",
+    "T3 + taker flow contrarian": "6 coins, mean of top-trader accounts, retail accounts and relative taker buy/sell volume ratio (daily mean of sum_taker_long_short_vol_ratio, contrarian)"
+  },
+  "pass": "each judged with the strict rule vs v9.4; if several pass, the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
