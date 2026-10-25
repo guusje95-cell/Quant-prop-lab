@@ -1,5 +1,5 @@
 {
- "pit coins available": 705,
+ "pit coins available": 532,
  "reference": [
   3.11,
   [
@@ -11,11 +11,11 @@
  "check K=60 (no pit data: must equal the reference)": {
   "mean universe size": 60.0,
   "book": [
-   2.638,
+   2.65,
    [
     1.304,
     3.817,
-    2.16
+    2.19
    ]
   ],
   "pass (strict: every period up, +0.05)": false
@@ -23,11 +23,11 @@
  "A top-100": {
   "mean universe size": 98.2,
   "book": [
-   2.736,
+   2.725,
    [
     1.27,
     3.903,
-    2.383
+    2.353
    ]
   ],
   "pass (strict: every period up, +0.05)": false
@@ -35,11 +35,11 @@
  "B top-150": {
   "mean universe size": 136.5,
   "book": [
-   2.535,
+   2.5,
    [
     0.914,
     3.802,
-    2.29
+    2.192
    ]
   ],
   "pass (strict: every period up, +0.05)": false

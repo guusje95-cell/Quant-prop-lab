@@ -9,7 +9,7 @@
   "pit": [
    -1.095,
    1.826,
-   -1.31
+   -1.342
   ]
  },
  "v86": {
@@ -54,11 +54,11 @@
  },
  "F1 point-in-time 20-coin carry": {
   "Sharpe 2022-26 [2022, 2023-24, 2025-26]": [
-   2.29,
+   2.318,
    [
     0.865,
     4.011,
-    1.402
+    1.471
    ]
   ],
   "HyroTrader 2022-24": {
@@ -67,9 +67,9 @@
    "P_profit": 0.998
   },
   "HyroTrader 2025-26": {
-   "net": 67257,
-   "p10": 5336,
-   "P_profit": 0.925
+   "net": 72069,
+   "p10": 13744,
+   "P_profit": 0.948
   }
  },
  "F2 no carry": {
@@ -93,6 +93,6 @@
   }
  },
  "chosen": "F1 point-in-time 20-coin carry",
- "honest backtest Sharpe (point-in-time carry)": 2.29,
- "planning Sharpe (x 1.78 / 3.11)": 1.31
+ "honest backtest Sharpe (point-in-time carry)": 2.318,
+ "planning Sharpe (x 1.78 / 3.11)": 1.33
 }
