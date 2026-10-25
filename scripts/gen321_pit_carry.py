@@ -20,9 +20,9 @@ def series(c):
         return (X.close_1h(c), d["quote_volume"].astype(float), X.premium(c), X.funding(c))
     d = pd.read_parquet(PIT / f"{c}USDT_1h.parquet"); d.index = pd.DatetimeIndex(d.index)
     pr = pd.read_parquet(PIT / f"{c}USDT_premium_1h.parquet") if (PIT / f"{c}USDT_premium_1h.parquet").exists() else None
-    pr = pr.set_index(pd.to_datetime(pr["time"]))["close"].astype(float) if pr is not None else pd.Series(dtype=float)
+    pr = pr.set_index(pd.to_datetime(pr["time"]))["close"].astype(float) if pr is not None else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
     fu = pd.read_parquet(PIT / f"{c}USDT_funding.parquet") if (PIT / f"{c}USDT_funding.parquet").exists() else None
-    fu = fu.set_index(pd.to_datetime(fu["time"]))["last_funding_rate"].astype(float) if fu is not None else pd.Series(dtype=float)
+    fu = fu.set_index(pd.to_datetime(fu["time"]))["last_funding_rate"].astype(float) if fu is not None else pd.Series(dtype=float, index=pd.DatetimeIndex([]))
     return d["close"].astype(float), d["quote_volume"].astype(float), pr, fu
 
 
