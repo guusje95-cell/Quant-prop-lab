@@ -1,0 +1,13 @@
+{
+  "gen": 397,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after the Gen396 robustness check showed the 6-coin relative crowding sleeve at 1.32 / 1.26 / 1.33",
+  "trials": {
+    "A 6-coin RC in the basket": "the Gen391 basket + 6-coin relative crowding as a 9th member (equal risk on 2022-24)",
+    "B 6-coin RC as its own sleeve": "v9.3 + the 6-coin sleeve in portfolio_v5"
+  },
+  "survivorship_note": "XRP / BNB / DOGE were in the point-in-time top-10 in 86 / 72 / 79% of the months 2022-26; a fixed 6-coin list is a mild hindsight choice; descriptive: the same with the monthly point-in-time top-6 by volume among the pack coins",
+  "choice": "higher 2022-24 Sharpe; strict rule vs v9.3; flagged -> user's OK",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

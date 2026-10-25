@@ -1582,3 +1582,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen395 (2026-10-25): market-neutral relative crowding among BTC / ETH / SOL (`results/gen395.json`)
 - R1 top-trader accounts **1.00 / 0.16 / 0.81** (corr K1 -0.07); R2 retail accounts **1.15 / 0.18 / 0.98** (-0.14); R3 leverage -0.01 / 0.18 / -0.38; R4 funding 0.27 / 1.90 / -0.57; R5 premium 0.07 / 1.86 / -0.59.
 - Stepwise adds R4 (2022-24 3.27): book 2.848 [2.232, 3.733, 2.271] -> **fails** (2022 and 2025-26 lower). R1 / R2 are positive in every period but weak in 2023-24, so the 2022-24 stepwise skips them.
+
+## Gen396 (2026-10-25, FLAGGED): relative crowding as a sleeve (`results/gen396.json`)
+- 3-coin sleeve 1.30 / 0.17 / 0.91 (by year 1.30, -0.05, 0.46, 1.19, 0.29), corr v9.3 -0.09. v9.3 + it 2.779 [1.730, 3.684, 2.413] -> **fails** (2022 falls while the new sleeve warms up in the risk weights).
+- Robustness: BTC/ETH only 1.79 / -0.73 / 0.58; **6 coins (BTC, ETH, SOL, XRP, BNB, DOGE) 1.32 / 1.26 / 1.33**; costs x2 1.20 / -0.03 / 0.63; one day later 0.30 / -0.10 / 0.88; z 60 0.92 / 0.32 / 0.94; z 180 1.13 / 0.49 / 0.62.
