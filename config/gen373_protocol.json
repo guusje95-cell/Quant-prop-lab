@@ -1,0 +1,16 @@
+{
+  "gen": 373,
+  "date": "2026-10-25",
+  "registered": "after Gen321/326/372/374, before running",
+  "part_1_question": "How much of C* survives a point-in-time universe on the perps data?",
+  "c_star_versions": "frozen CStarTrend signal (defaults + btc_leads) on daily Binance perp closes (pack + extra + pit), Gen53 own-size sizing (signal clipped -2..2 x min(1, 40% / 30-day vol), >= 200 days of history, / n); hourly P&L from the daily weights (decided at the close of d, held during d+1), 7.5 bp, Binance funding. Fixed: today's MAJ10. PIT: top-10 by trailing 30-day quote volume among coins with >= 200 days of history, membership set on the first day of each month, index contracts and stablecoins excluded (BTCDOM, DEFI, USDC, BUSD, TUSD, FDUSD, USDP, BTCST, any symbol containing 'DOM' or 'USD' other than BTC/ETH pairs)",
+  "part_2_candidates": {
+    "K1": "F2 (no carry) with C* = PIT version",
+    "K2": "F1 (point-in-time 20-coin carry, Gen372 rule) with C* = PIT version",
+    "K3": "K1 without alt kimchi (its 9 altcoins are today's pack; no point-in-time Upbit data exists)",
+    "K4": "BTC/ETH core only: ridge ML, Weiss expiry, delev bounce, cascade limit strict, trend 4h"
+  },
+  "part_2_choice": "chosen on 2022-24 only: the highest HyroTrader 2-Step $200k mean net (challenge 2.0 / funded 1.5, stop 0.5 x daily, bootstrap 400, block 20, seed 11) among candidates with P(profit) >= 0.95; ties within $5k -> the higher 2022-24 p10. 2025-26 reported once for the chosen book.",
+  "part_3": "for the chosen book: planning Sharpe = 2022-26 backtest x 1.78 / 3.11; per-firm prop numbers for HyroTrader 2-Step $200k, CFT 2-Phase $200k (Gen330 settings) on 2022-24 and 2025-26; and the paper ledger of v86 re-weighted to the chosen book (shadow, descriptive)",
+  "no_changes_after_results": true
+}
