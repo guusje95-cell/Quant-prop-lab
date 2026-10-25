@@ -1,0 +1,82 @@
+{
+ "reference K1": [
+  2.394,
+  [
+   1.053,
+   3.548,
+   2.055
+  ]
+ ],
+ "N2 corr with the C* stablecoin filter sign": 0.237,
+ "N4 history start": "2020-08-05",
+ "trials": {
+  "N1 speculation froth": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    -0.413,
+    -0.206,
+    0.337
+   ],
+   "corr with K1": -0.047,
+   "K1 + sleeve": [
+    2.27,
+    [
+     0.653,
+     3.447,
+     2.053
+    ]
+   ],
+   "pass": false
+  },
+  "N2 stablecoin impulse": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    1.206,
+    0.966,
+    0.235
+   ],
+   "corr with K1": 0.075,
+   "K1 + sleeve": [
+    2.446,
+    [
+     1.357,
+     3.412,
+     2.08
+    ]
+   ],
+   "pass": false
+  },
+  "N3 fee pressure": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.46,
+    0.383,
+    0.273
+   ],
+   "corr with K1": 0.016,
+   "K1 + sleeve": [
+    2.405,
+    [
+     1.093,
+     3.508,
+     2.103
+    ]
+   ],
+   "pass": false
+  },
+  "N4 Bybit crowding": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.015,
+    0.519,
+    0.468
+   ],
+   "corr with K1": 0.172,
+   "K1 + sleeve": [
+    2.339,
+    [
+     1.106,
+     3.491,
+     1.938
+    ]
+   ],
+   "pass": false
+  }
+ }
+}

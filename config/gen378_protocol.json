@@ -1,0 +1,15 @@
+{
+  "gen": 378,
+  "date": "2026-10-25",
+  "registered": "before running; reference K1 / v9.0 2.394 [1.053, 3.548, 2.055]",
+  "trials": {
+    "A funding divergence": "BTC, ETH: 7-day mean of (Bybit funding - Binance funding), z-score over 90 days (1-day lag); position per coin -0.125 x clip(z, -2, 2) / 2 (retail-heavy venue pays more -> lean short)",
+    "B OI share divergence": "BTC, ETH: Bybit share of (Bybit + Binance) open interest in USD, 7-day change, z over 90 days (1-day lag); position per coin -0.125 x clip(z, -2, 2) / 2",
+    "C mempool congestion": "BTC: daily mean mempool size (Blockchain.com), z over 90 days (1-day lag); position -0.25 x clip(z, -2, 2) / 2",
+    "D trend 4h point-in-time": "the frozen trend 4h rule on the point-in-time top-10 by 30-day volume (monthly, >= 200 days history; live candidates = 60 pack + extra coins), equal weight over members, REPLACING the BTC/ETH/SOL trend 4h"
+  },
+  "costs": "5 bp taker + Binance funding",
+  "pass": "strict rule vs K1 (2022-26 +0.05, every period not lower); A-C also need a positive own 2022 and 2023-24 Sharpe",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
