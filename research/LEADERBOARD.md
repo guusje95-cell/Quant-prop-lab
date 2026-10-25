@@ -1514,3 +1514,8 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
   - Backtest level: HyroTrader $120k, CFT $117k, BrightFunded $117k, MFP $35k; all four $389k (p10 $171k), outcome corr 0.80.
   - **Planning level (K1 0.84, bf 0.75): per account $25-27k mean, p10 about -$5k, P(profit) 0.70-0.74; all four $85k mean, p10 -$16k, P(total loss) 0.21, P(every account loses) 0.115.**
 - Consequence: at an honest planning Sharpe the prop plan is a positive-expectation bet with a real chance of losing the fees. The paper / early-live Sharpe decides how many accounts make sense: start with ONE account; add more only after live results support Sharpe >= 1.5.
+
+## Gen376 / Gen378 (2026-10-25): new free data and venue-divergence ideas (`results/gen376.json`, `results/gen378.json`)
+- **Gen376 (registered before the data; perp-DEX volume download failed, N1 uses DEX volume only):** N1 DEX froth -0.41 / -0.21 / 0.34 (K1 -> 2.270); **N2 stablecoin impulse 1.21 / 0.97 / 0.24 (K1 -> 2.446 [1.36, 3.41, 2.08], +0.05 but 2023-24 lower: near-miss)**; N3 BTC fee pressure 0.46 / 0.38 / 0.27 (2.405, +0.01); N4 Bybit crowding 0.02 / 0.52 / 0.47 (2.339). All fail.
+- **Gen378:** A funding divergence Bybit-Binance -0.19 / 0.08 / -1.01; **B OI-share divergence -1.77 / -1.26 / -1.20** (consistently wrong sign); C mempool congestion -0.09 / -0.74 / -0.51; D trend 4h on a point-in-time top-10 0.54 / 1.33 / 0.12 (K1 -> 2.328). All fail.
+  - B flipped (FLAGGED post hoc, descriptive): only the registered 7-day change works (1.40 / 0.57 / 0.69); 3-day and 14-day changes are negative in two periods; BTC alone -0.63 in 2023-24. **A lucky point, rejected.**

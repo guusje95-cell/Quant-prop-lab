@@ -1,0 +1,13 @@
+{
+  "gen": 379,
+  "date": "2026-10-25",
+  "registered": "before running; reference K1 / v9.0 2.394 [1.053, 3.548, 2.055]",
+  "idea": "diversifier basket: weak survivorship-free sleeves that each failed the strict rule alone but were positive in every period; combined at equal risk they may add what none adds alone",
+  "candidate_pool": "every survivorship-free sleeve (BTC/ETH only, macro data, or a point-in-time universe) registered since Gen334 that was positive in all three periods of its own test: Gen345 A stablecoin mint shock, Gen346 A Coinbase hourly premium (BTC/ETH), Gen376 N2 stablecoin impulse, N3 fee pressure, N4 Bybit crowding, Gen374 crash 8h on the point-in-time top-60",
+  "selection_rule": "recomputed here on 2022 / 2023-24 / 2025-26: kept if positive in all three periods AND |daily corr with K1| < 0.3 AND pairwise corr with an already kept member < 0.7 (kept in the listed order)",
+  "construction": "equal risk by 2022-24 daily sd, one sleeve 'diversifier basket' added to K1 (portfolio_v5 weighting as for every sleeve)",
+  "pass": "strict rule vs K1 (2022-26 +0.05, every period not lower)",
+  "honesty": "the pool is selected on full-period signs of earlier tests, so the basket is optimistic; it counts as 1 trial here and the members' trials are already counted",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
