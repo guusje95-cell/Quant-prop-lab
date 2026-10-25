@@ -1,0 +1,9 @@
+{
+  "gen": 404,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after Gen401 (8-hourly and 3-day versions of relative crowding are near-misses)",
+  "trial": "the v9.4 relative crowding sleeve replaced by the mean of its daily (v9.4), 8-hourly (Gen401 A) and 3-day-smoothed (Gen401 B) versions",
+  "pass": "strict rule vs v9.4; flagged -> user's OK",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

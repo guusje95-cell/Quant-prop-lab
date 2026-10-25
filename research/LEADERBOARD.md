@@ -1606,3 +1606,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen402 (2026-10-25): relative price signals among the 6 majors (`results/gen402.json`)
 - Relative C\* 1.46 / 1.08 / 0.11 (book 2.887); relative 28-day momentum 0.83 / 1.25 / 0.33 (2.833); **relative 7-day reversal -2.18 / -1.94 / -1.36** (2.537). **All fail.** The reversal result says the opposite (short-term relative momentum) holds in every period; with Gen319 B (7-day reversal on 60 coins negative everywhere) -> Gen403.
+
+## Gen403 (2026-10-25, FLAGGED): relative short-term momentum among the 6 majors (`results/gen403.json`)
+- Ensemble k = 5 / 7 / 10: **1.27 / 1.24 / -0.09**; book 2.834 [2.204, 3.761, 2.254]. Single k: 3 0.91 / 1.17 / -0.52; 5 1.16 / 1.00 / -0.07; 7 1.68 / 1.30 / 0.30; 10 0.75 / 1.19 / -0.48; 14 0.94 / 1.49 / 0.23; costs x2 0.94 / 0.89 / -0.65; point-in-time top-6 0.38 / 1.55 / -0.04. **Fails**: the effect is gone in 2025-26 and costs take a large share (the strong negative Gen402 reversal was partly its own costs).
