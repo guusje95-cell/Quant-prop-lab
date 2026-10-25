@@ -1600,3 +1600,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen399 / Gen400 (2026-10-25)
 - **Gen399 (flagged): relative crowding window ensemble 60 / 90 / 180:** sleeve 1.40 / 1.42 / 1.30, book 2.937 [2.191, 3.843, 2.415] (+0.005, 2022 lower). **Fails**; v9.4 keeps the 90-day sleeve.
 - **Gen400: relative kimchi (market neutral):** alts -0.32 / 0.87 / **-2.04** (book 2.683); incl. BTC/ETH -0.39 / 0.83 / -1.92. **Both fail.**
+
+## Gen401 (2026-10-25): relative crowding rebalance frequency (`results/gen401.json`)
+- 8-hourly: sleeve **1.45 / 1.84 / 1.21**, book 2.927 [2.348, 3.740, 2.441] (2023-24 lower); 3-day smoothing: sleeve 0.98 / 1.17 / 1.55, book 2.948 [2.271, 3.816, 2.432] (every period up, +0.016). **Both fail** (the sleeve is strong in every form; its book weight caps the gain).

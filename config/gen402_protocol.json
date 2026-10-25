@@ -1,0 +1,14 @@
+{
+  "gen": 402,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.4 2.932 [2.246, 3.813, 2.408]",
+  "universe": "BTC, ETH, SOL, XRP, BNB, DOGE (as the v9.4 relative crowding sleeve)",
+  "trials (each added to v9.4 as a market-neutral sleeve; position per coin 0.15 x clip(score_c - mean score, -2, 2) / 2 with the score a z over coins)": {
+    "A relative C*": "C* signal (CStarTrend defaults + btc_leads off, long-short raw signal) per coin, demeaned across the 6",
+    "B relative momentum 28d": "28-day return / 30-day vol, demeaned across the 6 (long the strongest)",
+    "C relative reversal 7d": "minus the 7-day return / 30-day vol, demeaned (long the weakest)"
+  },
+  "pass": "each judged with the strict rule vs v9.4",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
