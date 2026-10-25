@@ -1575,3 +1575,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen393 (2026-10-25): C* variants in v9.3 (`results/gen393.json`)
 - No C\* 2.860 [2.672, 3.601, 2.196] (chosen on 2022-24) -> 2025-26 -0.11, **fails**; C\* BTC/ETH 2.783; C\* BTC/ETH/SOL 2.826. v9.3 unchanged.
 - v9.3 leave-one-out (descriptive): without basket 2.442, cascade 2.571, trend 4h 2.655, Weiss 2.691, delev bounce 2.732, alt kimchi 2.736, C\* 2.860, ridge 2.862. C\* and ridge lose in 2022 but carry 2025-26.
+
+## Gen394 (2026-10-25): slower basket members (`results/gen394.json`)
+- 3-day smoothing (chosen): basket 3.38 / 2.80 / 1.57, book 2.824 [2.379, 3.536, 2.321]; 7-day: basket 2.92 / 2.78 / 1.78, book 2.778. **Fails** (2023-24 lower, total flat). Slower members are stronger in 2025-26: noted.

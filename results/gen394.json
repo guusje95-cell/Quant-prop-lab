@@ -1,0 +1,52 @@
+{
+ "reference v9.3": [
+  2.829,
+  [
+   2.298,
+   3.598,
+   2.309
+  ]
+ ],
+ "check: rebuilt members vs pool (corr)": {
+  "S6 top-trader crowding": 1.0,
+  "M5 leverage build-up": 1.0,
+  "stablecoin impulse": 1.0,
+  "fee pressure": 1.0
+ },
+ "trials": {
+  "A k = 3": {
+   "basket": [
+    3.375,
+    2.798,
+    1.568
+   ],
+   "2022-24": 3.137,
+   "book": [
+    2.824,
+    [
+     2.379,
+     3.536,
+     2.321
+    ]
+   ]
+  },
+  "B k = 7": {
+   "basket": [
+    2.922,
+    2.778,
+    1.775
+   ],
+   "2022-24": 3.031,
+   "book": [
+    2.778,
+    [
+     2.104,
+     3.529,
+     2.367
+    ]
+   ]
+  }
+ },
+ "chosen": "A k = 3",
+ "pass": false
+}

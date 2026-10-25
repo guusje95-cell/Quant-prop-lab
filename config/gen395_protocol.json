@@ -1,0 +1,17 @@
+{
+  "gen": 395,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.3 2.829 [2.298, 3.598, 2.309]",
+  "idea": "market-neutral relative crowding among BTC, ETH, SOL (all point-in-time top-10 every month 2022-26): per coin z (90 d, 1-day lag) of a crowding metric, demeaned across the 3 coins; position per coin -0.15 x clip(z_c - mean z, -2, 2) / 2 (long the least crowded, short the most crowded)",
+  "metrics": {
+    "R1 top-trader accounts": "count_toptrader_long_short_ratio, daily mean",
+    "R2 retail accounts": "count_long_short_ratio, daily mean",
+    "R3 leverage build-up": "7-day change of log OI value",
+    "R4 funding": "7-day mean funding",
+    "R5 premium": "7-day mean perp premium index"
+  },
+  "use": "each enters the pool; the Gen391 forward-stepwise basket selection on 2022-24 is rerun on the enlarged pool",
+  "pass": "strict rule vs v9.3",
+  "trials_added": 5,
+  "no_changes_after_results": true
+}
