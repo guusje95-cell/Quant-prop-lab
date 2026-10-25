@@ -1,0 +1,12 @@
+{
+  "gen": 407,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]",
+  "trials (applied to all three components of the v9.5 relative crowding sleeve: daily, 8-hourly, 3-day smoothed)": {
+    "A beta-neutral": "remove the market exposure: w' = w - beta (w . beta) / (beta . beta), beta per coin = 60-day daily beta to the 6-coin equal-weight index (data before the day)",
+    "B inverse-vol": "w' = w x (cross-coin median 30-day vol / own 30-day vol), then demeaned again (market neutral in notional)"
+  },
+  "pass": "each judged with the strict rule vs v9.5",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
