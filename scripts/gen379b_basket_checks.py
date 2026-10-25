@@ -41,11 +41,11 @@ def rerun(cost_mult=1.0, lag=0):
 # turnover cost is linear in cost, so cost x2 = gross - 2 x (gross - net); lag = shift every hourly P&L component by recomputing with lagged positions.
 gross = {}
 src2 = src.replace("* 5 / 1e4", "* 0 / 1e4").replace("CS._from_daily_weights(w.fillna(0.0), c, 5)", "CS._from_daily_weights(w.fillna(0.0), c, 0)")
-g2 = {"__file__": str(ROOT / "scripts/gen379_basket.py")}; exec(compile(src2, "g379g", "exec"), g2)
+g2 = {"__file__": str(ROOT / "scripts/gen379_basket.py")}; sys.argv = ["x", DUMP]; exec(compile(src2, "g379g", "exec"), g2)
 P2 = {k: P[k] - 1.0 * (g2["P"][k] - P[k]) for k in kept}                    # net - (gross - net) = cost x2
 src3 = src.replace("mkd = lambda w, c: CS._from_daily_weights(w.fillna(0.0), c, 5)", "mkd = lambda w, c: CS._from_daily_weights(w.fillna(0.0).shift(1), c, 5)") \
           .replace("o[t + 1:min(t + 5, len(s))] = s[t]", "o[t + 2:min(t + 6, len(s))] = s[t]")
-g3 = {"__file__": str(ROOT / "scripts/gen379_basket.py")}; exec(compile(src3, "g379l", "exec"), g3)
+g3 = {"__file__": str(ROOT / "scripts/gen379_basket.py")}; sys.argv = ["x", DUMP]; exec(compile(src3, "g379l", "exec"), g3)
 loo = {k: shp(basket({**P, **{k: P[k] * 0.0}})) if False else None for k in kept}
 for k in kept:
     rest = [x for x in kept if x != k]; Dk = pd.DataFrame({x: dd(P[x]) for x in rest}).loc["2022":END]; sdv = Dk.loc[:"2024"].std()
