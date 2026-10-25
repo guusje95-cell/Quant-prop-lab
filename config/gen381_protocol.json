@@ -1,0 +1,22 @@
+{
+  "gen": 381,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.1 (K1 + Gen380 basket) 2.707 [2.205, 3.438, 2.215]",
+  "idea": "enlarge the v9.1 diversifier basket with 10 new BTC/ETH-only signals; directions fixed here by economic rationale, before any result",
+  "new_signals": {
+    "S1 VIX term structure": "z (90 d) of log(VIX / VIX3M), 1-day lag; BTC, ETH each -0.125 x clip(z, -2, 2) / 2 (equity stress -> lean short)",
+    "S2 VIX shock": "z (90 d) of the 5-day change of log VIX, 1-day lag; BTC, ETH each -0.125 x clip / 2",
+    "S3 CME asset managers": "CFTC TFF, CME Bitcoin / Ether (cash settled): asset-manager net long / open interest, 4-week change, z over 52 reports; usable 4 days after the as-of Tuesday; per coin +0.125 x clip / 2 (institutional demand)",
+    "S4 CME leveraged funds": "same with leveraged-funds net / OI; per coin -0.125 x clip / 2 (literature: leveraged funds are the wrong side)",
+    "S5 fear and greed contrarian": "z (30 d) of the Fear & Greed index, 1-day lag; BTC, ETH each -0.125 x clip / 2",
+    "S6 top-trader crowding": "Binance count_toptrader_long_short_ratio, daily mean, z (90 d), 1-day lag; per coin -0.125 x clip / 2",
+    "S7 taker flow momentum": "Binance sum_taker_long_short_vol_ratio, daily mean, z (30 d), 1-day lag; per coin +0.125 x clip / 2",
+    "S8 network activity": "Blockchain.com BTC n-transactions, z (90 d), 1-day lag; BTC +0.25 x clip / 2",
+    "S9 buy-bitcoin attention": "Google 'buy bitcoin' log(7-day mean / 30-day mean), z (180 d), 2-day lag; BTC, ETH each +0.125 x clip / 2",
+    "S10 ethereum attention": "Google 'ethereum' log(7-day mean / 30-day mean), z (180 d), 2-day lag; ETH +0.25 x clip / 2"
+  },
+  "selection": "exactly the Gen380 rule on the enlarged pool (Gen380 pool of 26 + these 10): own Sharpe > 0 in 2022 and in 2023-24, |corr K1 2022-24| < 0.3, greedy by 2022-24 Sharpe with pairwise |corr| < 0.7; equal risk on 2022-24",
+  "pass": "K1 + new basket vs v9.1 (K1 + Gen380 basket): strict rule (2022-26 +0.05 and every period not lower)",
+  "trials_added": 10,
+  "no_changes_after_results": true
+}
