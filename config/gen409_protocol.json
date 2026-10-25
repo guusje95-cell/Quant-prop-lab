@@ -1,0 +1,9 @@
+{
+  "gen": 409,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]",
+  "trial": "directional crowding on BTC and ETH at 8-hour frequency: per coin the mean of z270 (90 days of 8-hour bars) of the 8-hour mean top-trader account ratio and of the all-account ratio; position per coin -0.125 x clip(z, -2, 2) / 2, decided at the bar close, held 8 hours, 5 bp + funding; added to v9.5 as a sleeve",
+  "pass": "strict rule vs v9.5",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
