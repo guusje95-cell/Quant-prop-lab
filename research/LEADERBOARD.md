@@ -1612,3 +1612,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen404 (2026-10-25, FLAGGED): relative crowding as the mean of its daily / 8-hourly / 3-day versions (`results/gen404.json`)
 - Sleeve **1.48 / 1.55 / 1.46**; book **2.976 [2.355, 3.832, 2.447]**: every period up, +0.044 (< +0.05). **Fails the strict rule by 0.006.** By year 2.35 / 3.50 / 4.17 / 1.98 / 3.04. **v9.5 candidate (robustness upgrade, flagged), for the user's decision.**
+
+## Gen405 (2026-10-25): smart vs retail divergence (`results/gen405.json`)
+- Directional BTC/ETH 1.01 / 0.48 / -0.17 (book 2.774); relative 6 coins 1.68 / -0.49 / 0.75 (2.807). **Both fail.**
