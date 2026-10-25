@@ -1622,3 +1622,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen408 (2026-10-25): crowding change (`results/gen408.json`)
 - Relative 7-day crowding change: sleeve 1.38 / 0.78 / 0.39 (corr 0.45 with the v9.5 sleeve); as an added sleeve 2.830, mixed with the level 2.915. **Both fail.** (CFD transfer of the futures book for the BrightFunded account not re-tested: 31 earlier CFD ideas failed and bonds are not listed.)
+
+## Gen409 (2026-10-25): directional crowding at 8 hours (`results/gen409.json`)
+- Sleeve - / 0.96 / 0.79 (2022 undefined: warm-up), corr v9.5 0.28; book 2.840 [2.355, 3.556, 2.342]. **Fails.** v9.5 unchanged.
