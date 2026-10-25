@@ -1,0 +1,69 @@
+{
+ "part 1": {
+  "grid": {
+   "0.25": [
+    2.444,
+    [
+     1.207,
+     3.565,
+     2.073
+    ]
+   ],
+   "0.5": [
+    2.488,
+    [
+     1.354,
+     3.564,
+     2.081
+    ]
+   ],
+   "0.75": [
+    2.518,
+    [
+     1.485,
+     3.545,
+     2.083
+    ]
+   ],
+   "1.0": [
+    2.536,
+    [
+     1.6,
+     3.515,
+     2.079
+    ]
+   ]
+  },
+  "2022-24 Sharpe": {
+   "0.25": 2.663,
+   "0.5": 2.727,
+   "0.75": 2.773,
+   "1.0": 2.804
+  },
+  "chosen m": "1.0",
+  "pass": false
+ },
+ "part 2": {
+  "check: corr with the Gen379 basket (daily)": 0.998,
+  "basket 2022-26": 1.445,
+  "by calendar year": {
+   "2022": 1.7,
+   "2023": 1.81,
+   "2024": 2.21,
+   "2025": 0.47,
+   "2026": 0.86
+  },
+  "costs x2 (2022-26)": 1.045,
+  "one day later (daily members) / one hour later (hourly member), 2022-26": 1.187,
+  "leave one member out (2022-26)": {
+   "mint shock": 1.126,
+   "Coinbase hourly premium": 1.341,
+   "stablecoin impulse": 1.173,
+   "fee pressure": 1.403,
+   "Bybit crowding": 1.418
+  },
+  "positive years": 5
+ },
+ "v9.1 candidate": false,
+ "note": "part 1 failed (the 2022-24 choice is m = 1.0, 2023-24 lower), so the basket is not a candidate whatever part 2 shows"
+}

@@ -1,0 +1,12 @@
+{
+  "gen": 380,
+  "date": "2026-10-25",
+  "registered": "before running (after Gen379 / 379b, which motivate it: a weak-signal basket that is robust alone but was selected on full-period signs)",
+  "idea": "walk-forward version of the diversifier basket: members chosen on 2022-24 ONLY, 2025-26 is out of sample for the selection",
+  "pool": "every BTC/ETH-only sleeve with a saved or rebuildable series: the 15 BTC/ETH sleeves in results/gen342_sleeves.parquet (attention momentum, kimchi BTC/ETH, late-UTC seasonality, USDT premium, ETH-BTC premium spread, Gen202 VM / BCX / R1X, oil timing, FOMC weeks, calendar union, put-skew contrarian, call-minus-put flow, Bitfinex whale long change, Bitfinex long/short ratio) + Gen345 mint shock, Gen346 Coinbase hourly premium, Gen376 N1-N4, Gen378 A-C (as registered, original signs)",
+  "selection_on_2022_24": "own Sharpe > 0 in 2022 AND in 2023-24, |daily corr with K1| < 0.3 (2022-24); then greedy by 2022-24 Sharpe (highest first), skipping any sleeve with |corr| >= 0.7 to one already kept",
+  "construction": "equal risk by 2022-24 daily sd, added to K1 as one sleeve (portfolio_v5, weight multiplier 1)",
+  "pass": "strict rule vs K1 (2022-26 +0.05, every period not lower) AND K1 + basket 2025-26 >= K1 2025-26 (the out-of-sample check)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
