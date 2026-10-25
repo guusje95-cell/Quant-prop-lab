@@ -1,0 +1,18 @@
+{
+  "gen": 386,
+  "date": "2026-10-25",
+  "registered": "before running; reference = the v9.2 candidate (Gen385: v9.1 + trend / kimchi ensembles + Gen384 basket) 2.771 [2.342, 3.486, 2.247]",
+  "signals (directions fixed by rationale; every daily value used with a 1-day lag)": {
+    "O1 put/call volume contrarian": "Deribit daily traded amount puts / calls (per coin, its own options), z 90 d; per coin +0.125 x clip(z, -2, 2) / 2",
+    "O2 block call-minus-put buying": "block-trade amounts: (call buys - put buys) / all block amount, 7-day sum, z 90 d; per coin +0.125 x clip / 2",
+    "O3 short-dated IV inversion": "ATM (0.95-1.05) mean IV of < 8 d trades / 8-45 d trades, z 90 d; per coin +0.125 x clip / 2 (stress -> rebound)",
+    "O4 OTM call froth": "share of buy amount in calls with moneyness > 1.15, 7-day mean, z 90 d; per coin -0.125 x clip / 2",
+    "G1 crypto attention momentum": "Google 'crypto' log(7 d / 30 d mean), z 180 d, 2-day lag; BTC, ETH +0.125 x clip / 2",
+    "G2 dogecoin froth": "Google 'dogecoin' log(7 d / 30 d mean), z 180 d, 2-day lag; BTC, ETH -0.125 x clip / 2",
+    "R1 miner revenue momentum": "Blockchain.com miners' revenue USD, 30-day log change, z 365 d; BTC +0.25 x clip / 2"
+  },
+  "selection": "the Gen380 rule on the pool Gen380 + Gen381 + Gen384 + these 7",
+  "pass": "v9.2 candidate with the new basket vs the v9.2 candidate: strict rule (2022-26 +0.05, every period not lower)",
+  "trials_added": 7,
+  "no_changes_after_results": true
+}
