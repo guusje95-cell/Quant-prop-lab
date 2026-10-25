@@ -1,0 +1,14 @@
+{
+  "gen": 396,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after Gen395 showed relative top-trader / retail crowding positive in all three periods with corr K1 -0.07 / -0.14",
+  "trial": "v9.3 + sleeve 'relative crowding' = mean of Gen395 R1 and R2 (BTC, ETH, SOL; market neutral), entering portfolio_v5 as its own sleeve",
+  "robustness_descriptive": {
+    "BTC/ETH only": "the same on 2 coins",
+    "6 coins": "BTC, ETH, SOL, XRP, BNB, DOGE (the 6 most frequent point-in-time top-10 members 2022-26; XRP / BNB / DOGE were members 72-86% of months)",
+    "cost x2, one day later, z window 60 / 180": "on the 3-coin sleeve"
+  },
+  "pass": "strict rule vs v9.3; flagged, so adoption needs the user's OK; the robustness checks must keep the sleeve positive in at least 2 of 3 periods each",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

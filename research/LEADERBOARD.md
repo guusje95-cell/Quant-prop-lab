@@ -1578,3 +1578,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen394 (2026-10-25): slower basket members (`results/gen394.json`)
 - 3-day smoothing (chosen): basket 3.38 / 2.80 / 1.57, book 2.824 [2.379, 3.536, 2.321]; 7-day: basket 2.92 / 2.78 / 1.78, book 2.778. **Fails** (2023-24 lower, total flat). Slower members are stronger in 2025-26: noted.
+
+## Gen395 (2026-10-25): market-neutral relative crowding among BTC / ETH / SOL (`results/gen395.json`)
+- R1 top-trader accounts **1.00 / 0.16 / 0.81** (corr K1 -0.07); R2 retail accounts **1.15 / 0.18 / 0.98** (-0.14); R3 leverage -0.01 / 0.18 / -0.38; R4 funding 0.27 / 1.90 / -0.57; R5 premium 0.07 / 1.86 / -0.59.
+- Stepwise adds R4 (2022-24 3.27): book 2.848 [2.232, 3.733, 2.271] -> **fails** (2022 and 2025-26 lower). R1 / R2 are positive in every period but weak in 2023-24, so the 2022-24 stepwise skips them.
