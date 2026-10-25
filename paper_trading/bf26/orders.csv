@@ -284,3 +284,105 @@ hour_utc,coin,side,usd,from_usd,to_usd,type,because
 2026-10-23 12:00:00,US100,SELL,157.23,74447.03,74289.8,rebalance,vol-managed indices -157
 2026-10-23 12:00:00,US500,SELL,195.18,92418.1,92222.92,rebalance,vol-managed indices -195
 2026-10-23 12:00:00,XRP,SELL,55.36,26211.03,26155.67,rebalance,"premium carry -36, premium carry BF -19"
+2026-10-23 14:00:00,AAVE,SELL,61.58,5684.53,5622.95,rebalance,premium carry BF -62
+2026-10-23 14:00:00,ADA,SELL,150.09,13855.12,13705.03,rebalance,"premium carry -98, premium carry BF -52"
+2026-10-23 14:00:00,ARB,SELL,83.94,7749.46,7665.52,rebalance,premium carry BF -84
+2026-10-23 14:00:00,AVAX,BUY,242.88,-22421.2,-22178.32,rebalance,"premium carry +245, premium carry BF -2"
+2026-10-23 14:00:00,BCH,SELL,189.0,17448.43,17259.43,rebalance,"premium carry -147, premium carry BF -42"
+2026-10-23 14:00:00,BNB,BUY,269.14,-24845.78,-24576.64,rebalance,premium carry BF +269
+2026-10-23 14:00:00,BTC,BUY,1080.86,-99780.67,-98699.81,rebalance,"ridge ML +395, coinbase premium +313, premium carry +245, premium carry BF +128"
+2026-10-23 14:00:00,COMP,BUY,107.92,-9962.58,-9854.66,rebalance,premium carry BF +108
+2026-10-23 14:00:00,CRV,BUY,92.06,-8498.88,-8406.82,rebalance,premium carry BF +92
+2026-10-23 14:00:00,DASH,BUY,89.28,-8241.98,-8152.7,rebalance,premium carry BF +89
+2026-10-23 14:00:00,DOT,SELL,358.6,33104.01,32745.41,rebalance,"premium carry -258, premium carry BF -101"
+2026-10-23 14:00:00,ETC,SELL,75.92,7008.79,6932.87,rebalance,premium carry BF -76
+2026-10-23 14:00:00,ETH,BUY,916.69,-84624.7,-83708.01,rebalance,"ridge ML +373, coinbase premium +313, premium carry +258, premium carry BF -27"
+2026-10-23 14:00:00,ICP,BUY,80.18,-7402.01,-7321.83,rebalance,premium carry BF +80
+2026-10-23 14:00:00,INJ,BUY,79.83,-7369.57,-7289.74,rebalance,premium carry BF +80
+2026-10-23 14:00:00,LINK,SELL,161.2,14881.48,14720.28,rebalance,"premium carry -110, premium carry BF -51"
+2026-10-23 14:00:00,LTC,SELL,215.87,19928.95,19713.08,rebalance,"premium carry -147, premium carry BF -69"
+2026-10-23 14:00:00,MANA,SELL,102.03,9419.11,9317.08,rebalance,premium carry BF -102
+2026-10-23 14:00:00,NEAR,BUY,50.37,-4649.8,-4599.43,rebalance,premium carry BF +50
+2026-10-23 14:00:00,SNX,SELL,70.27,6486.42,6416.15,rebalance,premium carry BF -70
+2026-10-23 14:00:00,US100,SELL,804.73,74289.8,73485.07,rebalance,vol-managed indices -805
+2026-10-23 14:00:00,US500,SELL,999.0,92222.92,91223.92,rebalance,vol-managed indices -999
+2026-10-23 14:00:00,XLM,SELL,121.36,11204.17,11082.81,rebalance,premium carry BF -121
+2026-10-23 14:00:00,XRP,SELL,283.33,26155.67,25872.34,rebalance,"premium carry -184, premium carry BF -99"
+2026-10-23 14:00:00,XTZ,BUY,97.25,-8977.58,-8880.33,rebalance,premium carry BF +97
+2026-10-23 15:00:00,BTC,BUY,107.64,-98699.81,-98592.17,rebalance,"ridge ML +39, coinbase premium +31, premium carry +24, premium carry BF +13"
+2026-10-23 15:00:00,ETH,BUY,91.29,-83708.01,-83616.72,rebalance,"ridge ML +37, coinbase premium +31, premium carry +26, premium carry BF -3"
+2026-10-23 15:00:00,US100,SELL,80.15,73485.07,73404.92,rebalance,vol-managed indices -80
+2026-10-23 15:00:00,US500,SELL,99.49,91223.92,91124.43,rebalance,vol-managed indices -99
+2026-10-23 16:00:00,BTC,SELL,172.76,-98592.17,-98764.93,rebalance,"ridge ML -63, coinbase premium -50, premium carry -39, premium carry BF -20"
+2026-10-23 16:00:00,DOT,BUY,57.32,32709.7,32767.02,rebalance,"premium carry +41, premium carry BF +16"
+2026-10-23 16:00:00,ETH,SELL,146.52,-83616.72,-83763.24,rebalance,"ridge ML -60, coinbase premium -50, premium carry -41, premium carry BF +4"
+2026-10-23 16:00:00,US100,BUY,128.63,73404.92,73533.55,rebalance,vol-managed indices +129
+2026-10-23 16:00:00,US500,BUY,159.68,91124.43,91284.11,rebalance,vol-managed indices +160
+2026-10-23 18:00:00,BTC,BUY,101.99,-98764.93,-98662.94,rebalance,"ridge ML +37, coinbase premium +30, premium carry +23, premium carry BF +12"
+2026-10-23 18:00:00,ETH,BUY,86.5,-83763.24,-83676.74,rebalance,"ridge ML +35, coinbase premium +30, premium carry +24, premium carry BF -3"
+2026-10-23 18:00:00,US100,SELL,11370.36,73533.55,62163.19,rebalance,"vol-managed indices -11,370"
+2026-10-23 18:00:00,US500,SELL,94.27,91284.11,91189.84,rebalance,vol-managed indices -94
+2026-10-23 19:00:00,BTC,SELL,150.77,-98662.94,-98813.71,rebalance,"ridge ML -55, coinbase premium -44, premium carry -34, premium carry BF -18"
+2026-10-23 19:00:00,DOT,BUY,50.02,32733.18,32783.2,rebalance,"premium carry +36, premium carry BF +14"
+2026-10-23 19:00:00,ETH,SELL,127.87,-83676.74,-83804.61,rebalance,"ridge ML -52, coinbase premium -44, premium carry -36, premium carry BF +4"
+2026-10-23 19:00:00,US100,BUY,94.99,62163.19,62258.18,rebalance,vol-managed indices +95
+2026-10-23 19:00:00,US500,BUY,139.35,91189.84,91329.19,rebalance,vol-managed indices +139
+2026-10-23 21:00:00,BTC,BUY,133.1,-98813.71,-98680.61,rebalance,"ridge ML +49, coinbase premium +39, premium carry +30, premium carry BF +16"
+2026-10-23 21:00:00,ETH,BUY,112.88,-83804.61,-83691.73,rebalance,"ridge ML +46, coinbase premium +39, premium carry +32, premium carry BF -3"
+2026-10-23 21:00:00,SOL,BUY,254.72,52.27,306.99,rebalance,"trend 4h +234, premium carry +18, premium carry BF +3"
+2026-10-23 21:00:00,US100,SELL,22676.75,62258.18,39581.43,rebalance,"vol-managed indices -22,677"
+2026-10-23 21:00:00,US500,SELL,123.01,91329.19,91206.18,rebalance,vol-managed indices -123
+2026-10-23 22:00:00,ADA,SELL,55.2,13702.37,13647.17,rebalance,"premium carry -36, premium carry BF -19"
+2026-10-23 22:00:00,AVAX,BUY,89.32,-22174.01,-22084.69,rebalance,premium carry +90
+2026-10-23 22:00:00,BCH,SELL,69.51,17256.07,17186.56,rebalance,"premium carry -54, premium carry BF -15"
+2026-10-23 22:00:00,BNB,BUY,98.98,-24571.86,-24472.88,rebalance,premium carry BF +99
+2026-10-23 22:00:00,BTC,BUY,397.5,-98680.61,-98283.11,rebalance,"ridge ML +145, coinbase premium +115, premium carry +90, premium carry BF +47"
+2026-10-23 22:00:00,DOT,SELL,131.87,32739.04,32607.17,rebalance,"premium carry -95, premium carry BF -37"
+2026-10-23 22:00:00,ETH,BUY,337.13,-83691.73,-83354.6,rebalance,"ridge ML +137, coinbase premium +115, premium carry +95, premium carry BF -10"
+2026-10-23 22:00:00,LINK,SELL,59.29,14717.42,14658.13,rebalance,"premium carry -41, premium carry BF -19"
+2026-10-23 22:00:00,LTC,SELL,79.39,19709.24,19629.85,rebalance,"premium carry -54, premium carry BF -25"
+2026-10-23 22:00:00,US100,SELL,159.44,39581.43,39421.99,rebalance,vol-managed indices -159
+2026-10-23 22:00:00,US500,SELL,367.4,91206.18,90838.78,rebalance,vol-managed indices -367
+2026-10-23 22:00:00,XRP,SELL,104.2,25867.31,25763.11,rebalance,"premium carry -68, premium carry BF -37"
+2026-10-23 23:00:00,BTC,BUY,76.26,-98283.11,-98206.85,rebalance,"ridge ML +28, coinbase premium +22, premium carry +17, premium carry BF +9"
+2026-10-23 23:00:00,ETH,BUY,64.67,-83354.6,-83289.93,rebalance,"ridge ML +26, coinbase premium +22, premium carry +18, premium carry BF -2"
+2026-10-23 23:00:00,US500,BUY,16792.84,90838.78,107631.62,rebalance,"vol-managed indices +16,793"
+2026-10-24 00:00:00,AAVE,SELL,1256.14,5594.86,4338.72,rebalance,"premium carry BF -1,256"
+2026-10-24 00:00:00,ADA,BUY,10866.97,13636.58,24503.55,rebalance,"premium carry +7,703, premium carry BF +3,164"
+2026-10-24 00:00:00,ALGO,BUY,2670.25,1374.81,4045.06,rebalance,"premium carry BF +2,670"
+2026-10-24 00:00:00,APT,BUY,1093.0,0.0,1093.0,rebalance,"premium carry BF +1,093"
+2026-10-24 00:00:00,ARB,BUY,326.66,7627.23,7953.89,rebalance,premium carry BF +327
+2026-10-24 00:00:00,AVAX,BUY,4559.06,-22067.55,-17508.49,rebalance,"premium carry +4,560, premium carry BF -1"
+2026-10-24 00:00:00,BCH,BUY,900.82,17173.22,18074.04,rebalance,"premium carry BF +978, premium carry -77"
+2026-10-24 00:00:00,BNB,BUY,1056.22,-24453.89,-23397.67,rebalance,"premium carry BF +1,056"
+2026-10-24 00:00:00,BTC,BUY,42987.84,-98206.85,-55219.01,rebalance,"ridge ML +53,250, premium carry BF -6,125, premium carry -4,302, coinbase premium +165"
+2026-10-24 00:00:00,COMP,BUY,938.73,-9805.44,-8866.71,rebalance,premium carry BF +939
+2026-10-24 00:00:00,CRV,BUY,556.33,-8364.83,-7808.5,rebalance,premium carry BF +556
+2026-10-24 00:00:00,DASH,BUY,1294.82,-8111.98,-6817.16,rebalance,"premium carry BF +1,295"
+2026-10-24 00:00:00,DOGE,SELL,6171.67,-4457.1,-10628.77,rebalance,"premium carry -4,405, premium carry BF -1,766"
+2026-10-24 00:00:00,EGLD,BUY,1840.97,921.36,2762.33,rebalance,"premium carry BF +1,841"
+2026-10-24 00:00:00,ETC,SELL,1543.56,6898.24,5354.68,rebalance,"premium carry BF -1,544"
+2026-10-24 00:00:00,ETH,BUY,26830.06,-83289.93,-56459.87,rebalance,"ridge ML +39,312, premium carry -7,619, premium carry BF -5,027, coinbase premium +165"
+2026-10-24 00:00:00,FIL,BUY,1030.85,4171.65,5202.5,rebalance,"premium carry BF +1,031"
+2026-10-24 00:00:00,GRT,SELL,604.89,2567.97,1963.08,rebalance,premium carry BF -605
+2026-10-24 00:00:00,HBAR,BUY,309.65,-2694.35,-2384.7,rebalance,premium carry BF +310
+2026-10-24 00:00:00,ICP,BUY,1403.2,-7285.26,-5882.06,rebalance,"premium carry BF +1,403"
+2026-10-24 00:00:00,INJ,BUY,1062.21,-7253.33,-6191.12,rebalance,"premium carry BF +1,062"
+2026-10-24 00:00:00,LINK,SELL,4802.32,14646.76,9844.44,rebalance,"premium carry -3,382, premium carry BF -1,421"
+2026-10-24 00:00:00,LTC,BUY,4699.92,19614.62,24314.54,rebalance,"premium carry +3,246, premium carry BF +1,454"
+2026-10-24 00:00:00,NEAR,BUY,190.73,-4576.46,-4385.73,rebalance,premium carry BF +191
+2026-10-24 00:00:00,RUNE,SELL,1828.62,-1939.66,-3768.28,rebalance,"premium carry BF -1,829"
+2026-10-24 00:00:00,SOL,SELL,11198.28,305.51,-10892.77,rebalance,"trend 4h -15,719, premium carry +4,509, premium carry BF +12"
+2026-10-24 00:00:00,US100,SELL,439.5,39391.4,38951.9,rebalance,vol-managed indices -440
+2026-10-24 00:00:00,US500,SELL,1979.19,107631.62,105652.43,rebalance,"vol-managed indices -1,979"
+2026-10-24 00:00:00,XLM,BUY,242.31,11027.45,11269.76,rebalance,premium carry BF +242
+2026-10-24 00:00:00,XRP,SELL,149.05,25743.12,25594.07,rebalance,"premium carry -97, premium carry BF -52"
+2026-10-24 00:00:00,XTZ,SELL,101.79,-8835.98,-8937.77,rebalance,premium carry BF -102
+2026-10-24 02:00:00,BTC,SELL,74.23,-55199.4,-55273.63,rebalance,"coinbase premium -38, premium carry -36, premium carry BF -24, ridge ML +23"
+2026-10-24 02:00:00,ETH,SELL,75.9,-56439.82,-56515.72,rebalance,"premium carry -42, coinbase premium -38, ridge ML +7, premium carry BF -3"
+2026-10-24 02:00:00,US100,BUY,52.36,38938.07,38990.43,rebalance,vol-managed indices +52
+2026-10-24 02:00:00,US500,BUY,142.03,105614.91,105756.94,rebalance,vol-managed indices +142
+2026-10-24 04:00:00,BTC,BUY,77.49,-55259.07,-55181.58,rebalance,"coinbase premium +40, premium carry +37, premium carry BF +25, ridge ML -24"
+2026-10-24 04:00:00,ETH,BUY,79.23,-56500.83,-56421.6,rebalance,"premium carry +44, coinbase premium +40, ridge ML -8, premium carry BF +4"
+2026-10-24 04:00:00,US100,SELL,54.66,38980.16,38925.5,rebalance,vol-managed indices -55
+2026-10-24 04:00:00,US500,SELL,148.25,105729.07,105580.82,rebalance,vol-managed indices -148
