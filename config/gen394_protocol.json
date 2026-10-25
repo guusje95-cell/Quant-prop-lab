@@ -1,0 +1,10 @@
+{
+  "gen": 394,
+  "date": "2026-10-25",
+  "registered": "before running; reference v9.3 2.829 [2.298, 3.598, 2.309]",
+  "idea": "slower basket members: the daily target positions of the rebuildable v9.3 basket members (top-trader crowding, leverage build-up, stablecoin impulse, fee pressure) averaged over the last k days; the other 4 members (USDT premium, mint shock, call-minus-put flow, kimchi BTC/ETH) unchanged",
+  "trials": {"A k = 3": "3-day mean of targets", "B k = 7": "7-day mean of targets"},
+  "choice": "higher 2022-24 Sharpe of the book; then the strict rule vs v9.3; the basket keeps the Gen391 members and the equal-risk weights recomputed on 2022-24",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

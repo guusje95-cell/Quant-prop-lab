@@ -1571,3 +1571,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - Squeeze fade 1.71 / -0.81 / 0.38 (13 events); trapped shorts -1.53 / -0.44 / 0.40 (13 events); euphoria fade -0.93 / -0.98 / 0.28. **All fail**; the stepwise basket is unchanged.
 - **Gen391b (robustness of the v9.3 candidate):** basket positive every year (3.36 / 2.60 / 3.50 / 1.28 / 1.66); leaving out any one of the 8 members keeps the book at 2.757-2.841 (v9.2 2.771). Not driven by one signal.
 - **2026-10-25: the user ACCEPTED v9.3 = v9.2 structure with the Gen391 stepwise basket** (flagged: 2022 -0.04). **Reference from here: v9.3 2.829 [2.298, 3.598, 2.309], planning about 1.27.**
+
+## Gen393 (2026-10-25): C* variants in v9.3 (`results/gen393.json`)
+- No C\* 2.860 [2.672, 3.601, 2.196] (chosen on 2022-24) -> 2025-26 -0.11, **fails**; C\* BTC/ETH 2.783; C\* BTC/ETH/SOL 2.826. v9.3 unchanged.
+- v9.3 leave-one-out (descriptive): without basket 2.442, cascade 2.571, trend 4h 2.655, Weiss 2.691, delev bounce 2.732, alt kimchi 2.736, C\* 2.860, ridge 2.862. C\* and ridge lose in 2022 but carry 2025-26.
