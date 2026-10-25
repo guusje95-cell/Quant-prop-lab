@@ -1,0 +1,9 @@
+{
+  "gen": 399,
+  "date": "2026-10-25",
+  "registered": "FLAGGED: after the Gen397b robustness check (book with z window 60 / 90 / 180: 2.924 / 2.932 / 3.073)",
+  "trial": "the 6-coin relative crowding sleeve as the mean of its z = 60, 90 and 180 day versions (neighbourhood ensemble, as Gen336 / Gen383); everything else as v9.4",
+  "pass": "strict rule vs v9.4; flagged -> user's OK",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

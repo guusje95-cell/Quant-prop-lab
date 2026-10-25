@@ -1593,3 +1593,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - Gen397b: planning **1.37 vs 1.27**; max DD at risk 2 **-16.1% vs -19.6%**; worst day -8.2% vs -8.0%; HyroTrader 2022-24 $190k / $110k vs $177k / $105k; **2025-26 $162k / $78k vs $141k / $61k**. Book robustness (sleeve variant): costs x2 2.852, one day later 2.863, z 60 2.924, z 180 3.073 (all >= v9.3).
 - **v9.4 candidate (v9.3 + 6-coin relative crowding sleeve), flagged: needs the user's OK.**
 - **2026-10-25: the user ACCEPTED v9.4 = v9.3 + 6-coin relative crowding sleeve** (flagged: 2022 -0.05). **Reference from here: v9.4 2.932 [2.246, 3.813, 2.408], planning 1.37.**
+
+## Gen398 (2026-10-25): relative crowding extensions (`results/gen398.json`)
+- Point-in-time top-10 (pack coins) 0.70 / 1.80 / 0.39, book 2.866; + top-trader positions 0.72 / 1.72 / 0.85, book 2.934 (+0.002); + taker flow contrarian -0.03 / 0.94 / 1.27, book 2.827. **All fail**; the 6-coin two-metric sleeve stays.
