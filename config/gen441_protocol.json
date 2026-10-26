@@ -1,0 +1,11 @@
+{
+  "gen": 441,
+  "date": "2026-10-26",
+  "registered": "before running; the Gen391 procedure unchanged (candidates with |corr| < 0.3 to K1 on 2022-24; forward stepwise on the 2022-24 basket Sharpe, add while +0.05; equal risk on 2022-24), pool = the Gen390 pool + candidates found since: Gen440 follow alt premium froth, Gen281 CME basis level, Gen421 A COIN-M leverage build-up, Gen434 A listing pace",
+  "reference": "v9.6 with the basket rebuilt the same way from the Gen391 members (like-for-like), and v9.6 live timing 3.169 [2.751, 3.949, 2.579]",
+  "trials": {"A re-selected basket": "replaces the diversifier basket in v9.6"},
+  "note": "if the procedure picks the same 8 members, nothing changes",
+  "pass": "strict rule vs both references",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
