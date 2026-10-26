@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | HyroTrader 2-Step $200k, planning 1.41 | **$53k** | **+$0.1k** | **0.90** | $52k / -$5k / 0.83 |
 | CFT 2-Phase $200k, planning 1.41 | $55k | -$3k | 0.86 | $54k / -$6k / 0.83 |
-| MyFundedPerps $100k (1.0 / 2.0 / 0.4 of 3%), planning 1.41 | $11k | -$3.5k | 0.67 | unchanged |
+| MyFundedPerps $100k (**1.0 / 1.0 / 0.5 of 3%**, Gen416), planning 1.41 | $17k | -$1k | 0.87 | $11k / -$3.5k / 0.67 at 1.0 / 2.0 / 0.4 |
 | HyroTrader, planning 1.65 (N = 300) | $65k | +$3k | 0.93 | $66k / -$2k / 0.89 |
 | HyroTrader, weak live 1.0 | $35k | -$5k | 0.78 | $32k / -$5k / 0.69 |
 | HyroTrader, backtest level | $156k | $78k | 1.00 | $162k / $76k / 0.995 |
@@ -42,7 +42,7 @@ All dollar figures: 2-year net per account, 2025-26 bootstrap, **planning level*
 | 1 | HyroTrader 2-Step $200k **or** CFT 2-Phase $200k (whichever confirms first) | about $970 (Hyro, refunded with the first payout) / about $1,200 (CFT) | about $86-90k | about $19-25k | challenge risk 2.0, funded 1.5, daily stop 2.5%, funded cap 1.9x |
 | 2 | the other of the two | as above | about $84-90k | about $19-23k | after the first payout of step 1 |
 | 3 | BrightFunded 2-Step Classic $200k, swap-free (bf2.6) | about EUR 1,000 + 10% swap-free | about $69k | about $17k | MT5 EA; never without swap-free (Gen331) |
-| 4 | MyFundedPerps Signature $100k | about $700 | about $35k | about $4k | risk 1.0 challenge / 2.0 funded, stop 40% of the 3% daily limit |
+| 4 | MyFundedPerps Signature $100k | about $700 | about $35k | about $4k | risk 1.0 challenge / 1.0 funded, stop 50% of the 3% daily limit (Gen416; was 1.0 / 2.0 / 40%) |
 | 5 | Propr Classic 2-Step 3 x $100k | 3 x $749 | about $49k | about -$9k | only if the Hyperliquid check shows most of the 60 coins |
 
 - **All five together (Gen332): about $326k over 2 years, bad case about $89k, chance of a total loss about 1.5%, fees at risk about $25-30k.**

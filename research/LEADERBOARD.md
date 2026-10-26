@@ -1661,3 +1661,24 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen417 (2026-10-26): vol forecast for the book's vol targeting (`results/gen417.json`)
 - Replica of portfolio_v5 exact (2.976). EWMA (halflife 10) 2.883; HAR mix (7 / 30 / 90 days) 2.899; hourly realised vol (10 days) 2.806. **All fail**; the 30-day std stays.
+
+## Gen416 (2026-10-26, descriptive): crypto-perp firms for v9.5 at planning Sharpe 1.41 (`results/gen416.json`)
+Sizing per firm chosen on the 2022-24 bootstrap (highest mean with P(profit) within 0.02 of the best), reported on 2025-26 (300 paths, stop 0.5 x the daily limit).
+
+| Firm | Fee | Chosen | 2025-26 mean / p10 / P(profit) | per $100k |
+|---|---|---|---|---|
+| HyroTrader 2-Step $200k | $969 | 1.5 / 1.5 | $51.8k / +$0.5k / 0.90 | $25.9k |
+| HyroTrader 2-Step $100k | $579 | 1.5 / 1.5 | $25.6k / -$0.1k / 0.90 | $25.6k |
+| CFT 2-Phase $100k | $660 | 1.5 / 1.5 | $26.8k / -$1.4k / 0.85 | $26.8k |
+| CFT 2-Phase + weekly + 90% | $924 | 1.5 / 0.75 | $17.7k / +$1.5k / 0.91 | $17.7k |
+| HyroTrader 1-Step $100k | $749 | 1.0 / 1.5 | $17.7k / -$2.6k / 0.83 | $17.7k |
+| MyFundedPerps $100k | $696 | **1.0 / 1.0** | **$16.6k / -$1.1k / 0.87** | $16.6k |
+| Breakout 1-Step Classic | $999 | 1.0 / 1.0 | $14.9k / -$3.9k / 0.81 | $14.9k |
+| SizeProp 1-Step | $899 | 1.0 / 0.75 | $10.7k / -$3.1k / 0.82 | $10.7k |
+| HyroTrader Zero-Step | $949 | 1.0 / 0.75 | $10.6k / -$3.4k / 0.81 | $10.6k |
+| Breakout 2-Step | $999 | 1.0 / 1.0 | $8.9k / -$5.0k / 0.70 | $8.9k |
+| CFT 1-Phase | $798 | 0.75 / 1.0 | $5.0k / -$4.0k / 0.59 | $5.0k |
+| SizeProp Degen | $522 | 0.75 / 0.75 | $5.0k / -$2.6k / 0.65 | $5.0k |
+
+- **Two-step accounts with a 10% max loss (HyroTrader, CFT) are clearly best at a realistic Sharpe**; one-step / zero-step / tight-drawdown accounts lose most of the edge to breaches.
+- **MyFundedPerps re-sized: 1.0 / 1.0 with a 50% daily stop gives $16.6k / P(profit) 0.87, vs $10.9k / 0.67 at the old 1.0 / 2.0 / 40%.**
