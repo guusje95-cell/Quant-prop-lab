@@ -1869,3 +1869,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen462 (2026-10-26): long-short C* on the point-in-time top-10 (`results/gen462.json`)
 - A long-short: sleeve 0.40 / 1.37 / 0.19, book 2.876 [2.963, 3.408, 2.241]; B long-short with BTC leading the longs only: 0.54 / 1.34 / 0.28, book 2.883 [2.990, 3.397, 2.258]. **Both fail**: 2022 much better, 2023-24 and 2025-26 worse. Long-only C* stays.
+
+## Gen463 (2026-10-26): follow-froth as its own sleeve (`results/gen463.json`)
+- Sleeve 0.68 / 0.82 / 0.58; book 2.968 [2.589, 3.674, 2.472]. **Fails** (equal risk gives a 0.7 sleeve the same risk as a 3.4 basket: dilution).

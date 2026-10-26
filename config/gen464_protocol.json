@@ -1,0 +1,9 @@
+{
+  "gen": 464,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]; motivated by Gen461 (crowded new listings fall harder)",
+  "trials": {"A relative retail crowding among new listings": "each day d, eligible = listing-event coins aged 2..40 days with >= 200 5-minute ratio rows on day d; x = log(mean all-account long/short ratio on day d); score = x - cross-sectional mean (>= 3 eligible coins, else flat); position held during d+1 = -0.05 x clip(score / 0.5, -2, 2) / 2 per coin (market neutral), gross cap 0.5, 10 bp, funding; added as its own sleeve"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
