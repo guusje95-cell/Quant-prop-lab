@@ -21,6 +21,12 @@
 - **Plan: start with ONE account (HyroTrader or CFT, whichever confirms bots + Netherlands first) after v96 paper GO; add the second only once live results support Sharpe >= 1.4, and at least 3-6 months after the first (Gen437: same mean, P(total loss) 0.10 -> 0.06 with a 180-day gap); MyFundedPerps at 1.0 / 1.0 / 50% stop is now a reasonable third account (P(profit) 0.87, Gen416).**
 - BrightFunded (MT5 CFDs) needs its own honest version of the book (bf2.6 had the withdrawn carry sleeves); not in the plan until that exists.
 
+## Release policy: research vs paper trading (agreed 2026-10-26)
+- **One paper book runs: v96** (started 2026-10-26). Its code is frozen for at least 56 days (gate in `config/paper_v96.json`; extend to 112 days if -2 <= z <= -1).
+- Research continues; accepted improvements are collected in ONE candidate (v9.7) and do **not** touch the running paper. A switch happens only at a review (after the gate), or earlier only for a large gain (planning Sharpe +0.15 or more).
+- **Out-of-sample tracking without a new paper run:** every test is registered (dated protocol) before it is run; after the registration date its P&L on new data is genuinely out of sample. Candidate sleeves are recomputed over the live period with the paper code's own point-in-time machinery (self-test standard) and shown next to the v96 paper ledger.
+- At a switch, sleeves that stay keep their live record (the paper ledger is per sleeve); only new sleeves start from zero. A new paper run is needed only for new live data feeds.
+
 ---
 
 ## Earlier version (2026-10-24 / 25), kept for the record
