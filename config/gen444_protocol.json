@@ -1,0 +1,14 @@
+{
+  "gen": 444,
+  "date": "2026-10-26",
+  "registered": "before the Hyperliquid data is complete (download running); reference v9.6 A..Z 3.203 [2.748, 3.969, 2.642]",
+  "data": "Hyperliquid hourly funding (public info API, fundingHistory) 2023-05..2026-09 for BTC ETH SOL XRP BNB DOGE (research_data/hyperliquid); Binance funding from the pack",
+  "trials": {
+    "A Gen406 Y4 Hyperliquid funding relative": "as registered in Gen406: relative 7-day mean Hyperliquid funding across the 6 coins, contrarian: daily mean of hourly rate x 8, 7-day mean, z over 90 days, demeaned, position -0.15 x clip(z, -2, 2) / 2 (relative crowding conventions); added sleeve",
+    "B venue funding spread relative": "per coin spread = daily mean Hyperliquid funding (x 8, 8-hour equivalent) - daily mean Binance funding (8-hour), 7-day mean, z over 90 days, demeaned across the 6, position -0.15 x clip(z, -2, 2) / 2 (Hyperliquid retail longs crowded relative to Binance -> coin underperforms); added sleeve"
+  },
+  "note": "no data before 2023: flat in 2022",
+  "pass": "strict rule vs v9.6 A..Z; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

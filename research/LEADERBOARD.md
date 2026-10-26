@@ -1795,3 +1795,9 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen442 (2026-10-26): fade non-listing pumps on mid caps (`results/gen442.json`)
 - Ranks 21-150 (A..Z, TradFi excluded), +40% in 24 h on 5x volume, short 0.05 with a 30% stop. A hold 7 d: 0.06 / 0.01 / -0.38 (2023 2.42, 2024 -1.42), book 3.064; B hold 3 d: 0.22 / 0.27 / 0.21, book 3.089 (2025-26 2.198). **Both fail.** Mid-cap pumps do not fade reliably either; only the listing effect holds.
+
+## Gen443 (2026-10-26): listing short entered 6 h after listing (`results/gen443.json`)
+- Sleeve 1.34 / -0.05 / 0.70 (2026 -0.55), book 3.206 [2.556, 3.969->4.035, 2.693]: 2022 lower (2.556 < 2.748). Costs x2 3.195. **Fails**; the entry at the first midnight >= 24 h stays.
+
+## Diagnostic (2026-10-26): where v9.6 loses
+- Monthly hit rate 0.77 (57 months); **monthly corr with BTC 0.43**; worst months 2025-12 -5.8% (trend 4h, relative crowding, basket), 2026-07 -4.0% (ridge, C*), 2023-04 -3.8% (relative crowding). No single sleeve dominates the losses; the book still carries market beta in bad months. Target for research: an edge that pays in falling markets without being a plain short.
