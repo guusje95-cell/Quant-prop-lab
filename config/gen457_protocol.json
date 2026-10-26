@@ -1,0 +1,14 @@
+{
+  "gen": 457,
+  "date": "2026-10-26",
+  "registered": "before computing any signal; reference v9.7 3.012 [2.495, 3.784, 2.509] and the like-for-like rebuilt-basket reference (both must be passed)",
+  "data": "DefiLlama per-chain stablecoin supply (free public API) for Tron and Ethereum, daily (research_data/newdata/defillama_stablecoins_tron / _ethereum)",
+  "hypothesis": "stablecoins on Tron are mostly Asian retail / OTC money: their growth (absolute or vs Ethereum) is fresh retail inflow, bullish for BTC/ETH (like the USDT premium member)",
+  "trials": {
+    "A Tron share impulse": "x = log(Tron) - log(Ethereum); z over 365 days (min 250) of the 30-day change of x; member +0.125 x clip(z, -2, 2) / 2 on BTC and ETH (day d value from row d + 1)",
+    "B Tron impulse": "z over 365 days of the 30-day change of log(Tron); member +0.125 x clip(z, -2, 2) / 2 on BTC and ETH"
+  },
+  "pass": "10th basket member (live basket code); strict rule vs both references; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
