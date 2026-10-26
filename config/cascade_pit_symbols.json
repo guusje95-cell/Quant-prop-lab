@@ -160,18 +160,6 @@
   "SYNUSDT"
  ],
  "symbols_added_2026_10_26_full_universe": [
-  "BZUSDT",
-  "CLUSDT",
-  "DRAMUSDT",
-  "KORUUSDT",
-  "MSTRUSDT",
-  "MUUSDT",
-  "SKHYNIXUSDT",
-  "SKHYUSDT",
-  "SNDKUSDT",
-  "SNXXUSDT",
-  "SOXLUSDT",
-  "SPCXUSDT",
   "TAOUSDT",
   "TNSRUSDT",
   "TOMOUSDT",
@@ -190,12 +178,9 @@
   "WCTUSDT",
   "WIFUSDT",
   "WLFIUSDT",
-  "XAGUSDT",
-  "XAUUSDT",
   "XMRUSDT",
   "XPLUSDT",
   "ZENUSDT",
-  "ZROUSDT",
-  "\u5e01\u5b89\u4eba\u751fUSDT"
+  "ZROUSDT"
  ]
 }
