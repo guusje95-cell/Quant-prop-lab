@@ -1,0 +1,12 @@
+{
+  "gen": 453,
+  "date": "2026-10-26",
+  "registered": "before running; NEW reference v9.7 3.012 [2.495, 3.784, 2.509]; re-test of the Gen431 / Gen448 near misses against the changed book (each counted as a new trial)",
+  "trials": {
+    "A v9.7 + Bybit listings": "the Gen431 construction (Bybit-only / Bybit-first listings merged into the listing short, one position per coin, gross cap 0.5) in v9.7",
+    "B v9.7 with Weiss at full weight": "weiss_scale 1.0 in v9.7"
+  },
+  "pass": "strict rule vs v9.7; with several passes the highest 2022-26 Sharpe; A and B together reported only if both pass",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
