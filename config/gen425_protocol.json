@@ -1,0 +1,12 @@
+{
+  "gen": 425,
+  "date": "2026-10-26",
+  "registered": "before computing any event return; data: research_data/binance_pit (point-in-time USDT-M perps incl. delisted; symbols A..S only so far - an alphabetical, not performance-based, subsample); TradFi perps excluded (config/tradfi_perps.json)",
+  "events": "a perp whose first hourly bar is on or after 2021-06-01 (a genuine listing); quote volume over its first 24 hours >= $10M",
+  "rule": "short 0.05 (unit equity) per event from the first UTC midnight at least 24 h after the first bar; hold H days or until the data ends (delisting); total gross capped at 0.5 (all positions scaled down pro rata); hourly P&L from closes; 10 bp per side on position changes; funding at each funding time (a short receives positive funding)",
+  "trials": {"A hold 30 days": "H = 30", "B hold 7 days": "H = 7"},
+  "pass": "each added to v9.5 as its own sleeve (portfolio_v5 equal risk); strict rule; with several passes the highest 2022-26 Sharpe",
+  "reported": "events per year, mean 30-day return of listed coins, sleeve by year",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
