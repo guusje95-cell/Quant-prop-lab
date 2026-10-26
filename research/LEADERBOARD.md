@@ -1872,3 +1872,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen463 (2026-10-26): follow-froth as its own sleeve (`results/gen463.json`)
 - Sleeve 0.68 / 0.82 / 0.58; book 2.968 [2.589, 3.674, 2.472]. **Fails** (equal risk gives a 0.7 sleeve the same risk as a 3.4 basket: dilution).
+
+## Gen464 (2026-10-26): relative retail crowding among new listings, market neutral (`results/gen464.json`)
+- Sleeve 0.73 / 1.11 / 0.25 (2026 -0.18), corr listing short 0.12; book 2.909 [2.459, 3.494, 2.550]. **Fails** (positive sleeve, but dilutes under equal risk).
