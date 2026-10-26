@@ -1,0 +1,13 @@
+{
+  "gen": 423,
+  "date": "2026-10-26",
+  "registered": "before downloading the data; new data: Binance USDT-M bookDepth snapshots (30 s, notional within +-1..5% of mid) 2023-01..2026-09 for BTC ETH SOL XRP BNB DOGE, aggregated to hourly means (research_data/binance_depth). Imbalance I_k = (bid notional within k% - ask notional within k%) / (sum); daily value = daily mean of hourly I_2",
+  "trials": {
+    "A depth imbalance BTC/ETH": "basket member: +0.125 x clip(z90(daily I_2), -2, 2) / 2 (follow resting liquidity), BTC and ETH",
+    "B relative depth imbalance 6": "market-neutral sleeve: z90 of daily I_2 per coin, demeaned across the 6, position +0.15 x clip / 2 (zero unless all 6 have a z); added to v9.5 as a sleeve"
+  },
+  "note": "no data before 2023: both are flat in 2022 by construction",
+  "pass": "A: strict rule vs both Gen421 references; B: strict rule vs v9.5; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
