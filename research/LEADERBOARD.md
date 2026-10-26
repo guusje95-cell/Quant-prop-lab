@@ -1839,3 +1839,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - Sleeve 0.12 / 1.59 / -0.45 (2025 -0.27, 2026 -0.91); book 3.050 [2.535, 3.965, 2.488] vs v9.6 without cascade 3.012 [2.495, 3.784, 2.509]: 2025-26 lower. **Fails.**
 - **2026-10-26: decision delegated by the user ("do what your opinion is") -> v9.7 = v9.6 WITHOUT the cascade sleeve.** Reference from here: **v9.7 3.012 [2.495, 3.784, 2.509], planning about 1.44 (N = 1,800)**. Paper code on the research pack 3.036 [2.482, 3.831, 2.512], scale 0.894 (`config/paper_v97.json`, `paper_v97_start.bat`, prepared, NOT started: v96 keeps running until its review per the release policy; v96's per-sleeve ledger shows the cascade's live contribution).
 - **Gen452 (descriptive, `results/gen452.json`): two HyroTrader $200k accounts on v9.7, second started 180 days later, 2025-26 at planning 1.44: $98.2k / p10 +$9.1k / P(total loss) 0.065**; at a weak 1.2: $73.2k / -$1.6k / 0.11.
+
+## Gen453 (2026-10-26): near misses re-tested against v9.7 (`results/gen453.json`)
+- A v9.7 + Bybit listings: 3.079 [2.468, 3.945, 2.543] (2022 lower); B Weiss full weight: 3.060 [2.557, 3.878, 2.476] (2025-26 lower). **Both fail.**
