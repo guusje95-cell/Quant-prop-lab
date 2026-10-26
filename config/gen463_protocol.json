@@ -1,0 +1,9 @@
+{
+  "gen": 463,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "trials": {"A follow alt premium froth as its own sleeve": "the Gen440 member (follow the volume-weighted top-100 perp premium, z 365 of the 7-day mean, +0.125 x clip / 2 on BTC and ETH) as a separate v9.7 sleeve (equal risk) instead of a basket member"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

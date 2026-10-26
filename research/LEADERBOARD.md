@@ -1866,3 +1866,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen461 (2026-10-26): listing short sized by retail crowding at entry (`results/gen461.json`)
 - Binance archive metrics for the first 40 days of all 550 listings (fetched in the cloud); 530 with data; all-account long/short ratio at entry median 1.30 (p10 0.65, p90 2.78).
 - Size 0.05 x clip(L / 1.5, 0.5, 2): sleeve **1.71 / -0.05 / 0.81** (v9.7 listing short 1.67 / -0.13 / 0.61); **book 3.054 [2.540, 3.851, 2.530]** vs v9.7 3.012 [2.495, 3.784, 2.509]: **every period up, +0.042 < +0.05 -> fails the strict rule (near miss).** Candidate (flagged) for the next version: listings with crowded retail longs fall harder. Live needs the Binance account-ratio endpoint for new listings (served for 30 days).
+
+## Gen462 (2026-10-26): long-short C* on the point-in-time top-10 (`results/gen462.json`)
+- A long-short: sleeve 0.40 / 1.37 / 0.19, book 2.876 [2.963, 3.408, 2.241]; B long-short with BTC leading the longs only: 0.54 / 1.34 / 0.28, book 2.883 [2.990, 3.397, 2.258]. **Both fail**: 2022 much better, 2023-24 and 2025-26 worse. Long-only C* stays.
