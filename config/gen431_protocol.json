@@ -1,0 +1,14 @@
+{
+  "gen": 431,
+  "date": "2026-10-26",
+  "registered": "before the data exists (download script get_bybit_listings.bat on the user's PC); reference v9.6 3.161 [2.775, 3.919, 2.576]",
+  "data": "Bybit USDT linear perps: launchTime (instruments-info, all statuses Bybit serves), first 40 days of hourly klines and funding",
+  "events": "Bybit launch on or after 2021-06-01, first-24h turnover >= $10M, not already a Binance listing event in binance_pit within 7 days of the Bybit launch (Bybit-only or Bybit-first listings)",
+  "rule": "the v9.6 listing short rule unchanged (0.05, entry at the first UTC midnight >= 24 h after launch, 30 days, cover for good at +30%, 10 bp, real Bybit funding); the Bybit-only events join the v9.6 listing short in one sleeve (one position per coin, gross cap 0.5)",
+  "trials": {"A v9.6 listing short + Bybit-only listings": "replaces the listing-short sleeve"},
+  "also_reported": "the median 30-day return of Bybit listings by year (replication of the Gen425 effect on a second venue)",
+  "caveat": "delisted Bybit contracts may be missing from the API: that biases AGAINST the short (delisted coins mostly fell)",
+  "pass": "strict rule vs v9.6",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
