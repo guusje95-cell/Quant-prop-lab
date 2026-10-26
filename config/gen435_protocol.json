@@ -1,0 +1,11 @@
+{
+  "gen": 435,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 3.161 [2.775, 3.919, 2.576] (live-timing 3.169 reported)",
+  "idea": "Binance (and per HyroTrader's FAQ, Bybit for tokenised stocks / metals) lists TradFi perps (SPY, QQQ, IWM, TLT, XAU, XAG, CL, BZ, NATGAS, COPPER, ...); the futures book (results/futures_book_rebuild.parquet, Gen205-221, 10% vol, corr about 0.05 with crypto) as a sleeve inside the crypto book",
+  "trials": {"A futures book as a sleeve": "daily futures-book return booked in the 21:00 UTC hour of its date, minus a perp funding drag of 4% a year (of the 10%-vol sleeve; Binance default funding 0.01% / 8 h is about 11% a year on longs vs about 4-5% financing already in futures returns, on an average net long notional of about 0.6), then added through portfolio_v5 (equal risk)"},
+  "pass": "strict rule vs v9.6 (research reference)",
+  "feasibility_caveat": "which of the book's markets the firm's exchange lists (bonds, energy spreads like HO seasonality need futures) decides whether it can run; a pass here means 'worth building a perp-only version', not adoption",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
