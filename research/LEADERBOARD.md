@@ -1768,3 +1768,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen435 (2026-10-26): the futures book as a sleeve via TradFi perps (`results/gen435.json`)
 - Futures book (minus a 4% a year perp funding drag): 0.76 / 0.57 / 0.49, daily corr with v9.6 0.01; book 3.160 [2.763, 3.934, 2.568]. **Fails**: an uncorrelated Sharpe-0.5 sleeve cannot move a 3.2 book (the ceiling is about sqrt(3.16^2 + 0.6^2) = 3.22 even at the optimal weight).
+
+## Gen437 (2026-10-26, descriptive): two accounts, second one started later (`results/gen437.json`)
+- Two HyroTrader $200k accounts on v9.6 (1.5 / 1.5), same bootstrap paths, each trading 2 years. 2025-26 at planning 1.59: together $101.6k / p10 -$1.2k / P(total loss) 0.102; second +90 d $102.1k / +$4.5k / 0.075; **second +180 d $101.9k / +$9.9k / 0.062**. At a weak 1.2: P(total loss) 0.195 -> 0.150 -> 0.125. 2022-24 the same direction.
+- **Plan: open the second account 3-6 months after the first** (same mean, clearly better bad case; it also fits "add the second only after live results").

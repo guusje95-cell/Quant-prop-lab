@@ -1,0 +1,71 @@
+{
+ "book": "results/gen426_book_hourly.parquet",
+ "2025-26 Sharpe 1.2": {
+  "second account +0 days": {
+   "mean": 68248,
+   "p10": -9690,
+   "P_total_loss": 0.195
+  },
+  "second account +90 days": {
+   "mean": 68805,
+   "p10": -5826,
+   "P_total_loss": 0.15
+  },
+  "second account +180 days": {
+   "mean": 68233,
+   "p10": -2456,
+   "P_total_loss": 0.125
+  }
+ },
+ "2025-26 Sharpe 1.59": {
+  "second account +0 days": {
+   "mean": 101580,
+   "p10": -1155,
+   "P_total_loss": 0.102
+  },
+  "second account +90 days": {
+   "mean": 102055,
+   "p10": 4458,
+   "P_total_loss": 0.075
+  },
+  "second account +180 days": {
+   "mean": 101916,
+   "p10": 9948,
+   "P_total_loss": 0.062
+  }
+ },
+ "2022-24 Sharpe 1.2": {
+  "second account +0 days": {
+   "mean": 135270,
+   "p10": 13455,
+   "P_total_loss": 0.062
+  },
+  "second account +90 days": {
+   "mean": 136023,
+   "p10": 14516,
+   "P_total_loss": 0.048
+  },
+  "second account +180 days": {
+   "mean": 135347,
+   "p10": 22873,
+   "P_total_loss": 0.043
+  }
+ },
+ "2022-24 Sharpe 1.59": {
+  "second account +0 days": {
+   "mean": 182984,
+   "p10": 46715,
+   "P_total_loss": 0.015
+  },
+  "second account +90 days": {
+   "mean": 183374,
+   "p10": 49052,
+   "P_total_loss": 0.015
+  },
+  "second account +180 days": {
+   "mean": 182372,
+   "p10": 56542,
+   "P_total_loss": 0.005
+  }
+ }
+}
