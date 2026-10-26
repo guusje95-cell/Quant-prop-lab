@@ -19,7 +19,7 @@ per = lambda h: [shp(h, "2022", "2022"), shp(h, "2023", "2024"), shp(h, "2025", 
 ls, _, _ = LL.pnl(idx); V6 = V.assign(**{"listing short": ls}); v96 = unit(CS.portfolio_v5(V6)[0])
 TF = set(json.load(open(ROOT / "config/tradfi_perps.json"))["symbols"]); first = []
 for f in glob.glob(str(LL.PIT / "*_1h.parquet")):
-    if f.endswith("premium_1h.parquet"):
+    if f.endswith(("premium_1h.parquet", "_hl_1h.parquet", "_oi_1h.parquet")):
         continue
     s = Path(f).name[:-len("_1h.parquet")]
     if s not in TF:

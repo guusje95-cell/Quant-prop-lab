@@ -18,7 +18,7 @@ v95 = unit(CS.portfolio_v5(V)[0]); REF = (shp(v95), per(v95))
 TF = set(json.load(open(ROOT / "config/tradfi_perps.json"))["symbols"])
 P = ROOT / "research_data/binance_pit"; EV = []
 for f in sorted(glob.glob(str(P / "*_1h.parquet"))):
-    if f.endswith("premium_1h.parquet"):
+    if f.endswith(("premium_1h.parquet", "_hl_1h.parquet", "_oi_1h.parquet")):
         continue
     s = Path(f).name.replace("_1h.parquet", "")
     if s in TF:
