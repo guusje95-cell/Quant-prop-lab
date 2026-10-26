@@ -1651,3 +1651,7 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
   - Daily stop 0.4 / 0.5 / 0.6 of the limit: 0.5 stays best.
 - Why: at a realistic live Sharpe, a 2.0 challenge burns more re-buys on drawdowns; 1.5 still reaches the 10% / 5% targets within the horizon.
 - **Bot default changed: `qpl.bot.rules.Rules.risk_challenge` 2.0 -> 1.5.** Plan: HyroTrader + CFT at planning 1.41 $108k, P(total loss) 0.10 (was $106k / 0.16). Paper ledgers untouched (they report the unit book).
+
+## Gen414 (2026-10-26): watchlist re-tests vs v9.5 (`results/gen414.json`)
+- A ridge + positioning features (Gen304 A): ridge sleeve 0.42 / 2.29 / 1.34; book 2.970 [2.472, 3.865, 2.319]. **Fails** (2025-26 lower).
+- B CME basis level as a 9th basket member (Gen281): basket 3.45 / 2.64 / 1.76; book 2.979 [2.415, 3.748, 2.503] (+0.003; the like-for-like rebuilt reference is 2.996 because the live basket code differs in the 2020-21 warm-up only). **Fails.**

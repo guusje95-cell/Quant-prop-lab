@@ -1,0 +1,45 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "check basket rebuild max diff": 0.03667292237564289,
+ "trials": {
+  "A ridge + positioning": {
+   "sleeve": [
+    0.422,
+    2.292,
+    1.341
+   ],
+   "book": [
+    2.97,
+    [
+     2.472,
+     3.865,
+     2.319
+    ]
+   ],
+   "pass": false
+  },
+  "B basket + CME basis": {
+   "sleeve": [
+    3.445,
+    2.638,
+    1.759
+   ],
+   "book": [
+    2.979,
+    [
+     2.415,
+     3.748,
+     2.503
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
