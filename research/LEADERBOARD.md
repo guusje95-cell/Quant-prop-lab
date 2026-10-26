@@ -1772,3 +1772,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen437 (2026-10-26, descriptive): two accounts, second one started later (`results/gen437.json`)
 - Two HyroTrader $200k accounts on v9.6 (1.5 / 1.5), same bootstrap paths, each trading 2 years. 2025-26 at planning 1.59: together $101.6k / p10 -$1.2k / P(total loss) 0.102; second +90 d $102.1k / +$4.5k / 0.075; **second +180 d $101.9k / +$9.9k / 0.062**. At a weak 1.2: P(total loss) 0.195 -> 0.150 -> 0.125. 2022-24 the same direction.
 - **Plan: open the second account 3-6 months after the first** (same mean, clearly better bad case; it also fits "add the second only after live results").
+
+## Gen438 (2026-10-26): shrunk-Sharpe sleeve weights at the top level (`results/gen438.json`)
+- Equal-risk replica 3.169 (= v9.6 live timing). A 730-day shrunk Sharpe 3.025 [2.62, 3.801, 2.397] ; B expanding 3.026 [2.647, 3.74, 2.455]. **Both fail**: past sleeve Sharpe does not predict; equal risk stays (third time, after Gen156 / Gen388).
