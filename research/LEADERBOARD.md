@@ -1658,3 +1658,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen415 (2026-10-26, descriptive): funded payout buffer (`results/gen415.json`; engine options `payout_buffer`, `count_open_profit`, defaults off)
 - Keeping 1-5% of the account above the start at each payout cuts funded breaches (planning 1.41, 2025-26: 1.57 -> 1.15 per 2 years) and adds 1-4% to the mean at backtest level, but **at planning Sharpe P(profit) and p10 fall** (1.41, 2025-26: buffer 0 $53.0k / p10 $0.1k / 0.90; 3% $53.4k / -$3.6k / 0.865; 2022-24 likewise). **No change: withdraw everything at each payout.**
+
+## Gen417 (2026-10-26): vol forecast for the book's vol targeting (`results/gen417.json`)
+- Replica of portfolio_v5 exact (2.976). EWMA (halflife 10) 2.883; HAR mix (7 / 30 / 90 days) 2.899; hourly realised vol (10 days) 2.806. **All fail**; the 30-day std stays.
