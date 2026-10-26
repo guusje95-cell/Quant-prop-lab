@@ -1,0 +1,13 @@
+{
+  "gen": 428,
+  "date": "2026-10-26",
+  "registered": "before running; no funding or volatility statistics of the listing events were looked at; reference v9.6 3.161 [2.775, 3.919, 2.576] (live-timing version 3.169 reported)",
+  "trials": {
+    "A inverse-vol sizing": "size per event = 0.05 x clip(2.0 / vol24, 0.5, 2), vol24 = annualised sd of the hourly returns over the 24 hours before the entry midnight (decided at entry; 2.0 = 200% a year, fixed in advance)",
+    "B skip crowded shorts": "skip an event when the mean funding rate of the settlements in the 24 hours before the entry midnight is below -0.0005 per 8 hours (rate scaled to 8 hours by the settlement interval; shorts already crowded and paying)"
+  },
+  "rest": "as the v9.6 listing short (scripts/listing_live.py): 30 days, 30% stop, gross cap 0.5, 10 bp, funding",
+  "pass": "strict rule vs v9.6 (research reference); with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
