@@ -1,0 +1,12 @@
+{
+  "gen": 462,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]; early long-short tests (Gen32, fixed coins) were rejected",
+  "trials": {
+    "A C* long-short": "CStarTrend with long_only False and btc_leads False on the point-in-time top-10 (cstar_pit_weights construction otherwise unchanged: own-size, 40% vol cap, >= 200 days, / n); replaces C*",
+    "B C* long-short, BTC leads the longs only": "long_only False; altcoin LONG signals kept only while BTC's own signal > 0, altcoin shorts always allowed"
+  },
+  "pass": "strict rule vs v9.7; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
