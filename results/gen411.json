@@ -1,0 +1,55 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "4-hourly sleeve": [
+  0.962,
+  1.71,
+  0.821
+ ],
+ "crowding x momentum sleeve": [
+  -1.008,
+  0.539,
+  0.011
+ ],
+ "trials": {
+  "A relative crowding weight x1.5": {
+   "book": [
+    2.959,
+    [
+     2.248,
+     3.851,
+     2.471
+    ]
+   ],
+   "pass": false
+  },
+  "B + 4-hourly component": {
+   "book": [
+    2.953,
+    [
+     2.336,
+     3.802,
+     2.434
+    ]
+   ],
+   "pass": false
+  },
+  "C crowding x momentum": {
+   "book": [
+    2.07,
+    [
+     -0.203,
+     3.57,
+     2.265
+    ]
+   ],
+   "pass": false
+  }
+ }
+}

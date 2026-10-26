@@ -1635,3 +1635,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 - **Y1 Bybit relative crowding (6 coins, account long ratio): 0.31 / 0.43 / 1.62**, corr 0.52 with the Binance sleeve: **the effect replicates on an independent venue** (positive in every period). Y3 Bybit 15 coins: 0.45 / 0.34 / 0.62.
 - Books vs v9.5 2.976: Y1 added 2.826; Y2 two-venue mix 2.848; Y3 added 2.959 [2.581, 3.670, 2.466] (2022 +0.23, 2023-24 -0.16). **All fail**; v9.5 unchanged. Value: out-of-venue confirmation of the v9.5 relative crowding sleeve.
 - Y4 (Hyperliquid) not run: the download paged only BTC fully (rate limit); the downloader now retries.
+
+## Gen411 (2026-10-26): more relative crowding variants (`results/gen411.json`)
+- A relative crowding weight x1.5: 2.959 [2.248, 3.851, 2.471]; B + 4-hourly component (sleeve 0.96 / 1.71 / 0.82): 2.953; C crowding x momentum (sleeve -1.01 / 0.54 / 0.01): 2.070. **All fail**; v9.5 unchanged.
