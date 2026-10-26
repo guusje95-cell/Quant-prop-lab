@@ -1846,3 +1846,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen447 (2026-10-26): relative crowding on the point-in-time top-20 as a second sleeve (`results/gen447.json`)
 - Sleeve by year 0.27 / 0.97 / 1.42 / 1.87 / 0.24 (corr with the 6-coin sleeve 0.29). Book vs v9.6: 3.122 [2.172, 3.911, 2.815]; vs v9.7: 2.922 [1.817, 3.728, 2.694]. **Fails** (2022 clearly lower; partly because the archive ratios start only 31 days before each membership window, so the 90-day z is missing early). Watchlist: strong 2023-25, low corr with the existing sleeve.
 - **Paper v97 selftest PASSED** (prepared, not started; v96 keeps running until its review).
+
+## Gen455 (2026-10-26): alt kimchi on the point-in-time top-30 coins with an Upbit market (`results/gen455.json`)
+- Upbit KRW hourly history fetched for 57 more coins (Upbit no longer serves delisted markets). Generic code reproduces the v9.7 alt kimchi sleeve exactly on the 16 pack altcoins (daily corr 1.0).
+- 100 coins: sleeve 0.17 / 1.31 / 0.93 (fixed list 0.30 / 1.21 / 0.74); book 3.010 [2.458, 3.736, 2.558] vs v9.7 3.012. **Fails as an improvement, but the survivorship check passes: alt kimchi is NOT inflated** (the honest broad version is as good). v9.7 planning about 1.44 stands.

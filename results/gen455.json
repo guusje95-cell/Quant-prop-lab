@@ -1,0 +1,43 @@
+{
+ "reference v9.7": [
+  3.012,
+  [
+   2.495,
+   3.784,
+   2.509
+  ]
+ ],
+ "replication on the 16 pack altcoins (daily corr with the v9.7 sleeve)": 1.0,
+ "replication sleeve": [
+  0.295,
+  1.211,
+  0.744
+ ],
+ "current sleeve": [
+  0.295,
+  1.211,
+  0.744
+ ],
+ "coins used": 100,
+ "sleeve point-in-time top-30": [
+  0.167,
+  1.306,
+  0.931
+ ],
+ "by year": {
+  "2022": 0.167,
+  "2023": 2.407,
+  "2024": 0.558,
+  "2025": 0.956,
+  "2026": 0.943
+ },
+ "book": [
+  3.01,
+  [
+   2.458,
+   3.736,
+   2.558
+  ]
+ ],
+ "pass": false
+}
