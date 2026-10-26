@@ -1875,3 +1875,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen464 (2026-10-26): relative retail crowding among new listings, market neutral (`results/gen464.json`)
 - Sleeve 0.73 / 1.11 / 0.25 (2026 -0.18), corr listing short 0.12; book 2.909 [2.459, 3.494, 2.550]. **Fails** (positive sleeve, but dilutes under equal risk).
+
+## Gen465 (2026-10-26, FLAGGED post hoc): a second basket of three weak, independent signals (`results/gen465.json`)
+- Members: Gen440 follow froth, Gen447 relative crowding top-20, Gen464 new-coin crowding; member correlations 0.02-0.05. Basket **0.83 / 1.76 / 1.06, every year positive (0.83 / 1.27 / 2.17 / 1.04 / 1.08)**, corr 0.13 with the diversifier basket.
+- Book 3.074 [2.483, 3.673, 2.780] vs v9.7 3.012 [2.495, 3.784, 2.509]: +0.06, 2025-26 +0.27, but 2022 and 2023-24 lower. **Fails.** Next: a walk-forward version over the whole candidate pool (Gen466).

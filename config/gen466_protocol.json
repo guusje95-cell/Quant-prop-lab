@@ -1,0 +1,12 @@
+{
+  "gen": 466,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "idea": "build a second basket like the Gen380 / Gen391 diversifier basket, but walk-forward and from the WHOLE pool of signals tested this session (winners and losers), so membership uses past data only",
+  "pool": "Gen419 A relative funding, B relative leverage build-up, C relative premium; Gen420 relative OI momentum; Gen421 A COIN-M leverage, B COIN-M taker divergence; Gen423 A depth member, B relative depth; Gen434 A listing pace; Gen439 A funding froth, B premium froth (contrarian); Gen440 follow froth; Gen444 A HL funding relative, B HL-Binance spread; Gen447 relative crowding top-20; Gen457 A Tron share, B Tron impulse; Gen464 new-coin crowding; Gen414 B CME basis; Gen429 A funding-interval fade; Gen406 Y3 Bybit relative crowding 15 coins (if its series can be rebuilt)",
+  "rule": "at each calendar-quarter start: members = pool signals whose annualised daily Sharpe over ALL earlier days since 2021-06-01 is > 0.5 with >= 180 days of non-zero P&L; weights = equal risk with the trailing 365-day daily sd (earlier days only); no member -> flat; the basket is scaled to 15% vol on 2022-24 and added to v9.7 as ONE sleeve",
+  "reported": "members per quarter, basket by period and year",
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

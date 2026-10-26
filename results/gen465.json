@@ -1,0 +1,66 @@
+{
+ "reference v9.7": [
+  3.012,
+  [
+   2.495,
+   3.784,
+   2.509
+  ]
+ ],
+ "members": {
+  "follow froth": [
+   0.675,
+   0.823,
+   0.579
+  ],
+  "relative crowding top-20": [
+   0.281,
+   1.373,
+   1.09
+  ],
+  "new-coin crowding": [
+   0.729,
+   1.111,
+   0.251
+  ]
+ },
+ "member correlations": {
+  "follow froth": {
+   "follow froth": 1.0,
+   "relative crowding top-20": 0.05,
+   "new-coin crowding": 0.02
+  },
+  "relative crowding top-20": {
+   "follow froth": 0.05,
+   "relative crowding top-20": 1.0,
+   "new-coin crowding": 0.05
+  },
+  "new-coin crowding": {
+   "follow froth": 0.02,
+   "relative crowding top-20": 0.05,
+   "new-coin crowding": 1.0
+  }
+ },
+ "second basket": [
+  0.828,
+  1.757,
+  1.058
+ ],
+ "by year": {
+  "2022": 0.828,
+  "2023": 1.27,
+  "2024": 2.168,
+  "2025": 1.039,
+  "2026": 1.082
+ },
+ "corr with the diversifier basket": 0.13,
+ "book": [
+  3.074,
+  [
+   2.483,
+   3.673,
+   2.78
+  ]
+ ],
+ "pass": false
+}
