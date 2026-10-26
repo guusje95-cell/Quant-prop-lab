@@ -1754,3 +1754,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen430 (2026-10-26, descriptive): HyroTrader sizing grid for v9.6 (`results/gen430.json`)
 - At planning 1.59: 2025-26 **1.5 / 1.5 $52.6k / p10 +$3.2k / P(profit) 0.92** (best mean of 16 cells; 2.0 / 1.5 $48.9k / 0.83); 2022-24 1.5 / 1.5 $93.0k / +$29.7k / 0.99 (2.0 / 2.0 $96.6k but p10 $14.4k / 0.95). At a weak 1.2 1.5 / 1.5 is best on both windows. Only at backtest level does more risk pay (2.0 / 2.0 $175k / $265k).
 - **No change: challenge 1.5 / funded 1.5 / stop 50% stays for v9.6.**
+
+## Gen433 (2026-10-26): C* in v9.6 (`results/gen433.json`)
+- Without C*: 3.112 [3.129, 3.730, 2.450]; C* at half weight: 3.176 [2.926, 3.892, 2.560]. **Both fail** (2023-24 and 2025-26 lower); C* stays at full weight.
