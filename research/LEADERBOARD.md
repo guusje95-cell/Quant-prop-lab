@@ -1859,3 +1859,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen458 (2026-10-26): BTC beta hedge of v9.7 (`results/gen458.json`)
 - Rolling 90-day daily beta (mean 0.05); hedged book 2.843 [2.366, 3.389, 2.590]. **Fails** (the book's daily beta is small; hedging mainly costs 2023-24 return).
+
+## Gen460 (2026-10-26): listing-short neighbourhood ensemble (hold 14 / 30 / 60 x stop 20 / 30 / 50%) (`results/gen460.json`)
+- Ensemble sleeve 1.95 / -0.16 / 0.55 (single 1.67 / -0.13 / 0.61); book 3.019 [2.517, 3.819, 2.479] vs v9.7 3.012. **Fails** (2025-26 lower).

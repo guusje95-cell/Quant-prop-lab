@@ -1,0 +1,10 @@
+{
+  "gen": 461,
+  "date": "2026-10-26",
+  "registered": "before the data exists (Binance archive metrics for the first 40 days of every listing, fetched in the cloud); reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "hypothesis": "a new listing falls harder when retail is crowded long right after the listing (the relative crowding insight applied to the listing short)",
+  "trials": {"A crowding-scaled listing short": "per event, L = mean of the all-account long/short ratio (count_long_short_ratio) over the 24 hours before the entry midnight; size = 0.05 x clip(L / 1.5, 0.5, 2.0) (1.5 = a typical retail long tilt, fixed in advance); events without metrics keep 0.05; rule otherwise unchanged (gross cap 0.5)"},
+  "pass": "replaces the listing short; strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
