@@ -1,0 +1,13 @@
+{
+  "gen": 459,
+  "date": "2026-10-26",
+  "registered": "before the data exists (get_wiki_attention.bat on the user's PC); reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "data": "daily English-Wikipedia page views (user agent) for Bitcoin, Ethereum, Solana, Ripple Labs, Binance, Dogecoin and more",
+  "trials": {
+    "A relative attention 6": "the relative crowding construction on attention: per coin (BTC ETH SOL XRP BNB DOGE) a = log(7-day mean views), z over 90 days, demeaned across the 6, position -0.15 x clip(z, -2, 2) / 2 (relative attention surge = crowded retail interest -> underperform); added sleeve",
+    "B attention froth member": "z over 365 days of log(7-day mean views of Bitcoin + Cryptocurrency); member -0.125 x clip(z, -2, 2) / 2 on BTC and ETH (retail attention spike = froth); 10th basket member, judged also vs the rebuilt-basket reference"
+  },
+  "pass": "strict rule; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

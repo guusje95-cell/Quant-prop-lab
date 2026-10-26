@@ -1856,3 +1856,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen457 (2026-10-26): Tron stablecoin impulse, per-chain DefiLlama data (`results/gen457.json`)
 - A Tron share vs Ethereum: member -0.84 / -0.45 / 0.15, book 2.994; B Tron impulse: 0.17 / -0.31 / -0.04, book 2.965. **Both fail** (unstable by year).
+
+## Gen458 (2026-10-26): BTC beta hedge of v9.7 (`results/gen458.json`)
+- Rolling 90-day daily beta (mean 0.05); hedged book 2.843 [2.366, 3.389, 2.590]. **Fails** (the book's daily beta is small; hedging mainly costs 2023-24 return).
