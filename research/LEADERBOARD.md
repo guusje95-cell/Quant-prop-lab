@@ -1699,3 +1699,9 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 - The chance of profit saturates (0.97 at 2.0, 0.995 at 2.5); **the money does not**: mean net rises about $30k per +0.5 Sharpe all the way up (and more if risk is raised at higher Sharpe).
 - Thresholds: about 1.0 is the minimum worth trading (positive expectation, P(profit) 0.78); about 1.5 makes the bad case break even; about 2.0 makes a loss rare.
+
+## Gen419 (2026-10-26): relative positioning among the 6 majors (`results/gen419.json`)
+- Sleeves 2022 / 2023-24 / 2025-26: relative funding 0.28 / 0.62 / -0.55 (book 2.904); relative leverage build-up (contrarian) -1.54 / 0.08 / -1.58 (2.698); relative premium -0.78 / -0.13 / -0.31 (2.775). **All fail.**
+
+## Gen420 (2026-10-26, FLAGGED post hoc): relative OI momentum (Gen419 B reversed) (`results/gen420.json`)
+- Sleeve 1.22 / -0.66 / 0.65 (2023 -0.50, 2024 -0.81); book 2.856 [2.523, 3.544, 2.398]. Costs x2 1.06 / -0.95 / 0.19. **Fails**; the Gen419 B loss was not a clean mirror edge.
