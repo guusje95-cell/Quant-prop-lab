@@ -1,6 +1,6 @@
 # Roll-out plan (updated 2026-10-26 for v9.6)
 
-**REVISION 2026-10-26 (Gen410 / Gen450): the cascade sleeve is survivorship-inflated. Honest v9.6 = about 3.01 backtest / planning about 1.44 (v9.6 without the cascade; the 3.20 / 1.64 below includes the inflated cascade). Proposal v9.7 = v9.6 without the cascade, pending the user's decision. Use planning 1.44 for expectations.**
+**REVISION 2026-10-26 (Gen410 / Gen450): the cascade sleeve is survivorship-inflated. Honest v9.6 = about 3.01 backtest / planning about 1.44 (v9.6 without the cascade; the 3.20 / 1.64 below includes the inflated cascade). DECIDED: v9.7 = v9.6 without the cascade (Gen451; prepared as `paper_v97`, switch at the v96 review). Live accounts use v9.7; expectations at planning 1.44: two staggered HyroTrader accounts about $98k over 2 years, p10 +$9k, P(total loss) 6.5% (Gen452).**
 
 **Book: v9.6** (accepted 2026-10-26, flagged; paper `paper_v96_start.bat`) = v9.5 + the Gen426 listing short (short new USDT-M perps for 30 days, 30% stop). Backtest **3.20** on the full A..Z universe (Gen436, TradFi perps excluded; 3.16 on A..S), planning Sharpe (N = 1,800) **1.64** (`results/gen436.json`). HyroTrader $200k at 1.5 / 1.5, planning level: 2025-26 $53k / p10 +$3k / P(profit) 0.92; 2022-24 $93k / +$30k / 0.99. The bot caps listing-short coins at 5% of the initial balance (HyroTrader low-cap rule) and must skip coins not listed on Bybit. The v9.5 numbers below stay as the conservative reference.
 

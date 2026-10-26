@@ -1,0 +1,105 @@
+{
+ "book": "results/v97_book_hourly.parquet",
+ "2025-26 Sharpe 1.0": {
+  "second account +0 days": {
+   "mean": 54504,
+   "p10": -9690,
+   "P_total_loss": 0.235
+  },
+  "second account +90 days": {
+   "mean": 54483,
+   "p10": -9690,
+   "P_total_loss": 0.188
+  },
+  "second account +180 days": {
+   "mean": 54648,
+   "p10": -8214,
+   "P_total_loss": 0.17
+  }
+ },
+ "2025-26 Sharpe 1.2": {
+  "second account +0 days": {
+   "mean": 73117,
+   "p10": -9690,
+   "P_total_loss": 0.175
+  },
+  "second account +90 days": {
+   "mean": 73029,
+   "p10": -5993,
+   "P_total_loss": 0.152
+  },
+  "second account +180 days": {
+   "mean": 73155,
+   "p10": -1615,
+   "P_total_loss": 0.11
+  }
+ },
+ "2025-26 Sharpe 1.44": {
+  "second account +0 days": {
+   "mean": 98485,
+   "p10": -481,
+   "P_total_loss": 0.105
+  },
+  "second account +90 days": {
+   "mean": 99056,
+   "p10": 4979,
+   "P_total_loss": 0.083
+  },
+  "second account +180 days": {
+   "mean": 98168,
+   "p10": 9090,
+   "P_total_loss": 0.065
+  }
+ },
+ "2022-24 Sharpe 1.0": {
+  "second account +0 days": {
+   "mean": 112902,
+   "p10": 6351,
+   "P_total_loss": 0.09
+  },
+  "second account +90 days": {
+   "mean": 113467,
+   "p10": 6781,
+   "P_total_loss": 0.07
+  },
+  "second account +180 days": {
+   "mean": 112829,
+   "p10": 10233,
+   "P_total_loss": 0.052
+  }
+ },
+ "2022-24 Sharpe 1.2": {
+  "second account +0 days": {
+   "mean": 135076,
+   "p10": 19761,
+   "P_total_loss": 0.058
+  },
+  "second account +90 days": {
+   "mean": 135318,
+   "p10": 21896,
+   "P_total_loss": 0.045
+  },
+  "second account +180 days": {
+   "mean": 134632,
+   "p10": 23069,
+   "P_total_loss": 0.03
+  }
+ },
+ "2022-24 Sharpe 1.44": {
+  "second account +0 days": {
+   "mean": 163269,
+   "p10": 39761,
+   "P_total_loss": 0.04
+  },
+  "second account +90 days": {
+   "mean": 163600,
+   "p10": 35238,
+   "P_total_loss": 0.028
+  },
+  "second account +180 days": {
+   "mean": 164245,
+   "p10": 41027,
+   "P_total_loss": 0.02
+  }
+ }
+}
