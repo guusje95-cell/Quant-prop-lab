@@ -1705,3 +1705,10 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen420 (2026-10-26, FLAGGED post hoc): relative OI momentum (Gen419 B reversed) (`results/gen420.json`)
 - Sleeve 1.22 / -0.66 / 0.65 (2023 -0.50, 2024 -0.81); book 2.856 [2.523, 3.544, 2.398]. Costs x2 1.06 / -0.95 / 0.19. **Fails**; the Gen419 B loss was not a clean mirror edge.
+
+## Gen421 (2026-10-26): COIN-M positioning, new data (`research_data/binance_cm`, `results/gen421.json`)
+- Binance COIN-M BTCUSD_PERP / ETHUSD_PERP metrics 2021-07..2026-09 (public archive; ratio columns only exist since about 2025).
+- A COIN-M leverage build-up member 0.07 / 0.27 / -0.27, book 3.005 [2.340, 3.913, 2.434] (2022 and 2025-26 lower). B follow COIN-M vs USDT-M taker divergence -2.82 / -0.20 / -1.72, book 2.875. **Both fail.**
+
+## Gen422 (2026-10-26, FLAGGED post hoc): fade the COIN-M taker divergence (`results/gen422.json`)
+- Member 2.24 / -0.69 / 0.82 (2023 -0.23, 2024 -1.03, 2026 -1.44); book 2.989 [2.530, 3.778, 2.453]. **One day later -> 0.19 / -1.17 / -0.64: fragile. Fails.**
