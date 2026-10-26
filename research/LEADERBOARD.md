@@ -1785,3 +1785,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen441 (2026-10-26): Gen391 stepwise basket re-selection with the newer candidates (`results/gen441.json`)
 - Pool + Gen440 follow froth, Gen281 CME basis, Gen421 A COIN-M leverage, Gen434 A listing pace. **The procedure picks exactly the same 8 members** (basket 3.36 / 3.08 / 1.41); no change. The current basket is stable against new candidates.
+
+## Gen436 (2026-10-26): v9.6 on the complete point-in-time universe A..Z (`results/gen436.json`)
+- T..Z (135 perps) fetched in the cloud from data.binance.vision; binance_pit now 840 perps. **583 listing events (90 in T..Z).**
+- Listing short sleeve **1.67 / -0.13 / 0.73** (by year 1.67 / -0.54 / 0.19 / 0.94 / 0.28; A..S was 1.51 / -0.23 / 0.43). **Book v9.6 3.212 [2.748, 3.969, 2.664]** (A..S live timing 3.169). Planning (N = 1,800) **1.64** (A..S 1.59).
+- **Decision rule: v9.6 stands.** Reference from here: v9.6 A..Z 3.212 [2.748, 3.969, 2.664], planning about 1.64. The running paper v96 reads the same files (code unchanged; history now includes T..Z).
