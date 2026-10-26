@@ -1750,3 +1750,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - 234 events (199 long = shorts crowded, 35 short), almost all 2025-26. A hold 7 d: sleeve 0.01 / 0.42 / 1.97 (2023 0.68, 2024 -0.25, 2025 3.31, 2026 0.66), book **3.444 [2.751, 3.941, 3.274]**: +0.28 but 2022 below the research reference (sleeve flat in 2022; equal to the live-timing reference) and 2023-24 -0.008 vs the live-timing reference. B hold 3 d: book 3.262. **Both fail as registered.**
 - Gen429b: **top 5 coins = 64% of the P&L (ALPACA, the 2025 delisting squeeze, about 28%); without them 2025-26 falls to 0.79**; long events by year 2023 9, 2024 1, 2025 68, 2026 118. Costs x2 / 1 h later / stop 50% similar; stop 20% 2023-24 -0.71.
 - **Not flagged**: a 2025 squeeze regime carried by a few coins, not a stable edge. Watchlist: re-check once the T..Z symbols and more live months exist.
+
+## Gen430 (2026-10-26, descriptive): HyroTrader sizing grid for v9.6 (`results/gen430.json`)
+- At planning 1.59: 2025-26 **1.5 / 1.5 $52.6k / p10 +$3.2k / P(profit) 0.92** (best mean of 16 cells; 2.0 / 1.5 $48.9k / 0.83); 2022-24 1.5 / 1.5 $93.0k / +$29.7k / 0.99 (2.0 / 2.0 $96.6k but p10 $14.4k / 0.95). At a weak 1.2 1.5 / 1.5 is best on both windows. Only at backtest level does more risk pay (2.0 / 2.0 $175k / $265k).
+- **No change: challenge 1.5 / funded 1.5 / stop 50% stays for v9.6.**
