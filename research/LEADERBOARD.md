@@ -1879,3 +1879,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen465 (2026-10-26, FLAGGED post hoc): a second basket of three weak, independent signals (`results/gen465.json`)
 - Members: Gen440 follow froth, Gen447 relative crowding top-20, Gen464 new-coin crowding; member correlations 0.02-0.05. Basket **0.83 / 1.76 / 1.06, every year positive (0.83 / 1.27 / 2.17 / 1.04 / 1.08)**, corr 0.13 with the diversifier basket.
 - Book 3.074 [2.483, 3.673, 2.780] vs v9.7 3.012 [2.495, 3.784, 2.509]: +0.06, 2025-26 +0.27, but 2022 and 2023-24 lower. **Fails.** Next: a walk-forward version over the whole candidate pool (Gen466).
+
+## Gen466 (2026-10-26): walk-forward second basket over the whole pool of 21 session signals (`results/gen466.json`, pool `results/gen466_pool.parquet`)
+- Quarterly membership from past data only (annualised Sharpe > 0.5, >= 180 active days): 0-5 members per quarter. Basket **-0.51 / 0.53 / 1.27** (by year -0.51 / 0.03 / 0.94 / 1.85 / 0.11), corr diversifier basket -0.02; book 2.916 [1.815, 3.571, 2.855]. **Fails.**
+- **Reading: the Gen465 second basket was mostly hindsight**; with past data only, the weak session signals are not reliably picked. This also argues against adopting near-miss single signals without a strong economic prior.

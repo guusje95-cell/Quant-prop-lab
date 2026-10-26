@@ -1,0 +1,236 @@
+{
+ "reference v9.7": [
+  3.012,
+  [
+   2.495,
+   3.784,
+   2.509
+  ]
+ ],
+ "pool": {
+  "Gen419 A relative funding": [
+   0.276,
+   0.617,
+   -0.551
+  ],
+  "Gen419 B relative leverage build-up": [
+   -1.538,
+   0.081,
+   -1.576
+  ],
+  "Gen419 C relative premium": [
+   -0.779,
+   -0.134,
+   -0.313
+  ],
+  "Gen420 relative OI momentum": [
+   1.217,
+   -0.66,
+   0.651
+  ],
+  "Gen421 A COIN-M leverage": [
+   0.067,
+   0.273,
+   -0.274
+  ],
+  "Gen421 B COIN-M taker divergence": [
+   -2.818,
+   -0.202,
+   -1.724
+  ],
+  "Gen423 A depth member": [
+   NaN,
+   -1.413,
+   0.874
+  ],
+  "Gen423 B relative depth": [
+   NaN,
+   -1.694,
+   -1.656
+  ],
+  "Gen434 A listing pace": [
+   0.365,
+   -0.936,
+   0.059
+  ],
+  "Gen439 A funding froth": [
+   -1.265,
+   -0.737,
+   0.012
+  ],
+  "Gen439 B premium froth": [
+   -0.696,
+   -0.861,
+   -0.634
+  ],
+  "Gen440 follow froth": [
+   0.675,
+   0.823,
+   0.579
+  ],
+  "Gen444 A Gen406 Y4 Hyperliquid funding relative": [
+   NaN,
+   -0.699,
+   0.311
+  ],
+  "Gen444 B venue funding spread relative": [
+   NaN,
+   -0.865,
+   0.459
+  ],
+  "Gen447 relative crowding top-20": [
+   0.281,
+   1.373,
+   1.09
+  ],
+  "Gen457 A Tron share impulse": [
+   -0.843,
+   -0.453,
+   0.149
+  ],
+  "Gen457 B Tron impulse": [
+   0.171,
+   -0.308,
+   -0.035
+  ],
+  "Gen464 new-coin crowding": [
+   0.729,
+   1.111,
+   0.251
+  ],
+  "Gen414 B CME basis": [
+   0.732,
+   -0.001,
+   1.572
+  ],
+  "Gen429 A funding-interval fade": [
+   0.008,
+   0.399,
+   1.807
+  ],
+  "Gen406 Y3 Bybit relative crowding 15": [
+   0.454,
+   0.342,
+   0.621
+  ]
+ },
+ "members per quarter": {
+  "2021-07-01": [],
+  "2021-10-01": [],
+  "2022-01-01": [
+   "Gen434 A listing pace",
+   "Gen439 A funding froth",
+   "Gen439 B premium froth"
+  ],
+  "2022-04-01": [
+   "Gen434 A listing pace",
+   "Gen439 A funding froth",
+   "Gen457 A Tron share impulse"
+  ],
+  "2022-07-01": [
+   "Gen419 A relative funding"
+  ],
+  "2022-10-01": [
+   "Gen419 A relative funding",
+   "Gen420 relative OI momentum",
+   "Gen434 A listing pace",
+   "Gen414 B CME basis",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2023-01-01": [
+   "Gen420 relative OI momentum",
+   "Gen434 A listing pace",
+   "Gen414 B CME basis"
+  ],
+  "2023-04-01": [
+   "Gen420 relative OI momentum",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2023-07-01": [
+   "Gen420 relative OI momentum",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2023-10-01": [
+   "Gen420 relative OI momentum",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2024-01-01": [
+   "Gen419 A relative funding",
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2024-04-01": [
+   "Gen440 follow froth",
+   "Gen447 relative crowding top-20",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2024-07-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2024-10-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ],
+  "2025-01-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding"
+  ],
+  "2025-04-01": [
+   "Gen440 follow froth",
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding"
+  ],
+  "2025-07-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding"
+  ],
+  "2025-10-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen429 A funding-interval fade"
+  ],
+  "2026-01-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen429 A funding-interval fade"
+  ],
+  "2026-04-01": [
+   "Gen440 follow froth",
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen429 A funding-interval fade"
+  ],
+  "2026-07-01": [
+   "Gen447 relative crowding top-20",
+   "Gen464 new-coin crowding",
+   "Gen429 A funding-interval fade",
+   "Gen406 Y3 Bybit relative crowding 15"
+  ]
+ },
+ "basket": [
+  -0.51,
+  0.525,
+  1.265
+ ],
+ "by year": {
+  "2022": -0.51,
+  "2023": 0.03,
+  "2024": 0.939,
+  "2025": 1.845,
+  "2026": 0.108
+ },
+ "corr diversifier basket": -0.02,
+ "book": [
+  2.916,
+  [
+   1.815,
+   3.571,
+   2.855
+  ]
+ ],
+ "pass": false
+}
