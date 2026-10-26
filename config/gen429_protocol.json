@@ -1,0 +1,12 @@
+{
+  "gen": 429,
+  "date": "2026-10-26",
+  "registered": "before looking at any returns (only the event count per year was looked at: 2021 1, 2022 2, 2023 36, 2024 17, 2025 114, 2026 196); reference v9.6 3.161 [2.775, 3.919, 2.576]",
+  "data": "research_data/binance_pit funding files (funding_interval_hours per settlement), hourly closes; TradFi excluded",
+  "event": "a settlement whose funding interval is shorter than the previous settlement's (Binance shortens the interval when funding sits at its cap), on a coin whose first bar is at least 30 days earlier",
+  "rule": "side = -sign(sum of the funding rates of the last 3 settlements up to and including the event); enter at the next whole hour after the settlement, size 0.05, hold H days, cover for good when the close moves 30% against the entry close; gross cap 0.5; 10 bp per side; real funding; one position per coin (a new event on an open coin is ignored)",
+  "trials": {"A hold 7 days": "H = 7", "B hold 3 days": "H = 3"},
+  "pass": "added to v9.6 as its own sleeve; strict rule vs v9.6 (research reference; the live-timing reference is reported); with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
