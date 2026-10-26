@@ -1,0 +1,10 @@
+{
+  "gen": 449,
+  "date": "2026-10-26",
+  "registered": "before computing returns (only the event count is looked at); reference v9.6 A..Z 3.203 [2.748, 3.969, 2.642]",
+  "hypothesis": "the listing effect comes from NEW tokens (launch overvaluation, unlocks, airdrop sellers); a Binance perp listing of a coin that had already traded >= 60 days on Bybit is a seasoned coin and only adds noise",
+  "trials": {"A exclude seasoned coins": "drop Binance listing events whose coin had a Bybit USDT perp launched >= 60 days before the Binance first bar (Bybit launchTime from research_data/bybit_listings/instruments.json); rule otherwise unchanged"},
+  "pass": "replaces the listing short; strict rule vs v9.6 A..Z",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
