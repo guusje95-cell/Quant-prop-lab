@@ -1,0 +1,11 @@
+{
+  "gen": 424,
+  "date": "2026-10-26",
+  "flagged": "POST HOC: chosen after Gen423 B (follow relative depth imbalance) lost in both periods with data",
+  "registered": "before running this test",
+  "trials": {"A fade relative depth imbalance 6": "Gen423 B with the sign reversed: -0.15 x clip(z, -2, 2) / 2; added to v9.5 as a sleeve"},
+  "robustness (reported, not used to choose)": "costs x2, one day later, I1 / I5 instead of I2, z 60 / 180, by year, leave-one-coin-out",
+  "pass": "strict rule vs v9.5; adoption needs the user's explicit OK (flagged)",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

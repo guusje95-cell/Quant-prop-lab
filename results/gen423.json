@@ -1,0 +1,56 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "reference rebuilt basket": [
+  2.996,
+  [
+   2.382,
+   3.869,
+   2.447
+  ]
+ ],
+ "A depth imbalance BTC/ETH": {
+  "member": [
+   NaN,
+   -1.413,
+   0.874
+  ],
+  "basket": [
+   3.358,
+   2.121,
+   1.689
+  ],
+  "book": [
+   2.962,
+   [
+    2.382,
+    3.676,
+    2.555
+   ]
+  ],
+  "pass": false
+ },
+ "B relative depth imbalance 6": {
+  "sleeve": [
+   NaN,
+   -1.694,
+   -1.656
+  ],
+  "corr rc6": -0.23,
+  "book": [
+   2.582,
+   [
+    2.355,
+    3.131,
+    2.142
+   ]
+  ],
+  "pass": false
+ }
+}
