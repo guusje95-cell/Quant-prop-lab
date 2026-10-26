@@ -5,7 +5,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Rules:
     initial_balance: float = 200_000.0     # the prop account size
-    risk_challenge: float = 2.0            # book risk in the challenge (Gen330)
+    risk_challenge: float = 1.5            # book risk in the challenge (Gen413: 1.5 beats 2.0 at planning-level Sharpe on both bootstrap windows)
     risk_funded: float = 1.5               # book risk once funded (Gen323 / Gen330)
     gross_cap_funded: float = 1.9          # funded: open notional <= 1.9 x initial balance (HyroTrader cap 2x)
     gross_cap_challenge: float = 0.0       # 0 = no cap in the challenge

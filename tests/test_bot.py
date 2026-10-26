@@ -40,7 +40,7 @@ def _book(tmp, equity=200000.0, made="2026-10-24 10:05:00", tg=None):
 
 
 def test_runner_dryrun_and_guards(tmp_path):
-    r = Rules(); now = pd.Timestamp("2026-10-24 10:10:00", tz="UTC"); sd = tmp_path / "st"
+    r = Rules(risk_challenge=2.0); now = pd.Timestamp("2026-10-24 10:10:00", tz="UTC"); sd = tmp_path / "st"
     res = one_pass(_book(tmp_path), "challenge", r, sd, now=now)
     st = json.loads((sd / "state.json").read_text())
     assert res["orders"] == 2 and st["positions"] == {"BTC": 50000.0, "ETH": -20000.0}          # SOL 500 < band

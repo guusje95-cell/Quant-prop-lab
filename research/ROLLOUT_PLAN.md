@@ -4,16 +4,18 @@
 
 **Planning Sharpe (deflated, `results/plan_v95.json`): 1.41 counting all 1,770 trials of the project, 1.48 at 1,000, 1.65 at 300.**
 
-| Per account, 2 years, 2025-26 bootstrap (challenge 2.0 / funded 1.5 / stop 2.5%) | Mean net | Bad case (p10) | P(profit) |
-|---|---|---|---|
-| HyroTrader 2-Step $200k, planning 1.41 | **$52k** | -$5k (fees) | **0.83** |
-| CFT 2-Phase $200k, planning 1.41 | $54k | -$6k | 0.83 |
-| MyFundedPerps $100k (1.0 / 2.0 / 0.4 of 3%), planning 1.41 | $11k | -$3.5k | 0.67 |
-| HyroTrader, planning 1.65 (N = 300) | $66k | -$2k | 0.89 |
-| HyroTrader, weak live 1.0 | $32k | -$5k | 0.69 |
-| HyroTrader, backtest level | $162k | $76k | 0.995 |
+**Sizing changed 2026-10-26 (Gen413): challenge risk 1.5 (was 2.0), funded 1.5, daily stop 2.5% (`results/plan_v95b.json`).** At planning-level Sharpe the lower challenge risk fails fewer challenges; at backtest level it costs about 3-4%.
 
-- HyroTrader + CFT together at planning 1.41: $106k mean, P(total loss) 0.16 (the accounts move together).
+| Per account, 2 years, 2025-26 bootstrap (challenge 1.5 / funded 1.5 / stop 2.5%) | Mean net | Bad case (p10) | P(profit) | (old 2.0 / 1.5) |
+|---|---|---|---|---|
+| HyroTrader 2-Step $200k, planning 1.41 | **$53k** | **+$0.1k** | **0.90** | $52k / -$5k / 0.83 |
+| CFT 2-Phase $200k, planning 1.41 | $55k | -$3k | 0.86 | $54k / -$6k / 0.83 |
+| MyFundedPerps $100k (1.0 / 2.0 / 0.4 of 3%), planning 1.41 | $11k | -$3.5k | 0.67 | unchanged |
+| HyroTrader, planning 1.65 (N = 300) | $65k | +$3k | 0.93 | $66k / -$2k / 0.89 |
+| HyroTrader, weak live 1.0 | $35k | -$5k | 0.78 | $32k / -$5k / 0.69 |
+| HyroTrader, backtest level | $156k | $78k | 1.00 | $162k / $76k / 0.995 |
+
+- HyroTrader + CFT together at planning 1.41: $108k mean, P(total loss) 0.10 (was $106k / 0.16 at 2.0 / 1.5; the accounts move together).
 - **Plan: start with ONE account (HyroTrader or CFT, whichever confirms bots + Netherlands first) after v95 paper GO; add the second only once live results support Sharpe >= 1.4; MyFundedPerps is marginal (P(profit) 0.67).**
 - BrightFunded (MT5 CFDs) needs its own honest version of the book (bf2.6 had the withdrawn carry sleeves); not in the plan until that exists.
 

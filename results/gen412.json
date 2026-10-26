@@ -1,0 +1,78 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "sleeves": {
+  "A intraday momentum BTC/ETH": [
+   0.721,
+   -2.052,
+   -3.94
+  ],
+  "B hour-of-week seasonality BTC/ETH": [
+   -4.579,
+   -4.446,
+   -3.067
+  ],
+  "C pre-funding fade, 6 majors": [
+   -0.715,
+   -1.403,
+   -2.295
+  ],
+  "D post-funding rebound, 6 majors": [
+   -2.937,
+   -2.127,
+   -2.237
+  ]
+ },
+ "trials": {
+  "A intraday momentum BTC/ETH": {
+   "book": [
+    2.261,
+    [
+     2.512,
+     3.138,
+     1.237
+    ]
+   ],
+   "pass": false
+  },
+  "B hour-of-week seasonality BTC/ETH": {
+   "book": [
+    1.842,
+    [
+     1.112,
+     2.59,
+     1.471
+    ]
+   ],
+   "pass": false
+  },
+  "C pre-funding fade, 6 majors": {
+   "book": [
+    2.464,
+    [
+     1.824,
+     3.538,
+     1.732
+    ]
+   ],
+   "pass": false
+  },
+  "D post-funding rebound, 6 majors": {
+   "book": [
+    2.226,
+    [
+     1.415,
+     3.126,
+     1.727
+    ]
+   ],
+   "pass": false
+  }
+ }
+}

@@ -1638,3 +1638,16 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen411 (2026-10-26): more relative crowding variants (`results/gen411.json`)
 - A relative crowding weight x1.5: 2.959 [2.248, 3.851, 2.471]; B + 4-hourly component (sleeve 0.96 / 1.71 / 0.82): 2.953; C crowding x momentum (sleeve -1.01 / 0.54 / 0.01): 2.070. **All fail**; v9.5 unchanged.
+
+## Gen412 (2026-10-26): intraday timing (`results/gen412.json`)
+- Sleeves 2022 / 2023-24 / 2025-26: intraday momentum BTC/ETH 0.72 / -2.05 / -3.94; hour-of-week seasonality -4.58 / -4.45 / -3.07; pre-funding fade (6 majors) -0.72 / -1.40 / -2.30; post-funding rebound -2.94 / -2.13 / -2.24. Books 2.26 / 1.84 / 2.46 / 2.23 vs 2.976. **All fail**: hourly effects are smaller than 5 bp costs.
+
+## Gen413 (2026-10-26, descriptive decision tool): prop sizing of v9.5 at planning-level Sharpe (`results/gen413.json`, `results/gen413b_2022_24.json`, `results/plan_v95b.json`)
+- Gen387 only tried HIGHER risk. HyroTrader $200k grid (challenge 1.0-2.5 x funded 0.75-2.0), book shifted to live Sharpe 1.0 / 1.41 / 1.65 and at backtest level.
+- **Challenge 1.5 / funded 1.5 beats the current 2.0 / 1.5 at every planning level, on both bootstrap windows:**
+  - 2025-26, Sharpe 1.41: mean $53.0k vs $51.8k, p10 **+$0.1k vs -$4.8k**, P(profit) **0.90 vs 0.83**; Sharpe 1.0: $34.8k / 0.78 vs $31.6k / 0.69; Sharpe 1.65: $65.3k / 0.93 vs $66.4k / 0.89.
+  - 2022-24, Sharpe 1.41: $73.8k / p10 $11.2k / 0.97 vs $71.3k / -$0.3k / 0.90; Sharpe 1.0: $52.1k / 0.89 vs $47.0k / 0.80.
+  - Backtest level: $156k vs $162k (2025-26), $187k vs $192k (2022-24): about -3%.
+  - Daily stop 0.4 / 0.5 / 0.6 of the limit: 0.5 stays best.
+- Why: at a realistic live Sharpe, a 2.0 challenge burns more re-buys on drawdowns; 1.5 still reaches the 10% / 5% targets within the horizon.
+- **Bot default changed: `qpl.bot.rules.Rules.risk_challenge` 2.0 -> 1.5.** Plan: HyroTrader + CFT at planning 1.41 $108k, P(total loss) 0.10 (was $106k / 0.16). Paper ledgers untouched (they report the unit book).
