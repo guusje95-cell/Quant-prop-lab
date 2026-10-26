@@ -1,0 +1,76 @@
+{
+ "sleeves": {
+  "A point-in-time top-20 cascade": [
+   0.836,
+   0.326,
+   -0.414
+  ],
+  "C top-20 listed >= 365 days": [
+   0.81,
+   1.135,
+   0.083
+  ],
+  "D top-10 listed >= 365 days": [
+   0.814,
+   1.581,
+   0.624
+  ]
+ },
+ "books": {
+  "v9.6 (pack cascade, survivorship-inflated)": {
+   "book": [
+    3.203,
+    [
+     2.748,
+     3.969,
+     2.642
+    ]
+   ],
+   "planning N=1800": 1.635
+  },
+  "A point-in-time top-20 cascade": {
+   "book": [
+    2.342,
+    [
+     1.684,
+     3.482,
+     2.038
+    ]
+   ],
+   "planning N=1800": 0.773
+  },
+  "C top-20 listed >= 365 days": {
+   "book": [
+    2.525,
+    [
+     1.654,
+     3.628,
+     2.501
+    ]
+   ],
+   "planning N=1800": 0.957
+  },
+  "D top-10 listed >= 365 days": {
+   "book": [
+    2.976,
+    [
+     2.495,
+     3.851,
+     2.415
+    ]
+   ],
+   "planning N=1800": 1.407
+  },
+  "B no cascade": {
+   "book": [
+    3.012,
+    [
+     2.495,
+     3.784,
+     2.509
+    ]
+   ],
+   "planning N=1800": 1.444
+  }
+ }
+}

@@ -1817,3 +1817,20 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen449 (2026-10-26): drop Binance listings of coins seasoned >= 60 days on Bybit (`results/gen449.json`)
 - 87 of 550 events dropped: sleeve 1.23 / -0.20 / 0.64, book 3.159 [2.677, 3.864, 2.674]. **Fails**: seasoned coins also fall after their Binance perp listing (the listing itself, not only the token's age, drives the effect).
+
+## Gen410 / Gen445 / Gen446 (2026-10-26): survivorship check and breadth of the crash-buying sleeves (`results/gen445.json`, `gen446.json`, diagnostic `gen410b.json`)
+- Cascade / top-50 open-interest data fetched in the cloud for every coin ever in the point-in-time top-50 (membership windows + 31 days; `research_data/binance_pit/*_hl_1h`, `*_oi_1h`). Helper `scripts/pit_universe.py` reproduces the pack cascade (max |diff| 1.2e-4).
+- **Gen410 (protocol): the frozen cascade rule on the point-in-time top-20: sleeve 0.84 / 0.33 / -0.41 (pack 0.87 / 1.73 / 0.79); v9.6 book 3.203 -> 2.342 [1.684, 3.482, 2.038]. The pack-coin cascade is survivorship-inflated** (change -0.86 >> the -0.10 trigger). Losses come from 2025-26 hype coins that briefly ranked top-20 by volume and kept falling (POWER, SKYAI, LAB, FARTCOIN, PUMP; real -50% hourly crashes, not data errors); LUNA 2022 was a winner (+0.71).
+- **Gen445: top-50 cascade** 0.91 / 0.79 / -1.20, book 2.470. **Fails.**
+- **Gen446: deleveraging bounce on the point-in-time top-20 / top-50**: -0.76 / 0.88 / 0.39 (book 3.004) and -0.63 / 0.94 / 0.44 (3.064). **Both fail**; the v9.6 delev bounce stays on BTC/ETH (no survivorship issue).
+
+## Gen450 (2026-10-26, FLAGGED post hoc): survivorship-free cascade choices for v9.6 (`results/gen450.json`)
+| Variant | Book | Planning (N = 1,800) |
+|---|---|---|
+| v9.6 as is (pack cascade, inflated) | 3.203 [2.748, 3.969, 2.642] | 1.64 |
+| A cascade on the point-in-time top-20 (Gen410 action) | 2.342 [1.684, 3.482, 2.038] | 0.77 |
+| C top-20 listed >= 365 days | 2.525 [1.654, 3.628, 2.501] | 0.96 |
+| D top-10 listed >= 365 days (sleeve 0.81 / 1.58 / 0.62) | 2.976 [2.495, 3.851, 2.415] | 1.41 |
+| **B no cascade** | **3.012 [2.495, 3.784, 2.509]** | **1.44** |
+- **Honest reading: on a survivorship-free basis the cascade adds nothing net (even on established coins) and carries crash-gap tail risk. The honest v9.6 is about 3.01 / planning about 1.44, not 3.20 / 1.64.**
+- **Proposal v9.7 = v9.6 without the cascade sleeve** (flagged; needs the user's OK). Next survivorship check: alt kimchi (fixed list of 16 pack altcoins; long/short signal, less exposed).
