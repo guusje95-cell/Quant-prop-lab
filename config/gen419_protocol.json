@@ -1,0 +1,13 @@
+{
+  "gen": 419,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]; relative (market-neutral) positioning signals among the 6 majors BTC ETH SOL XRP BNB DOGE, built like the relative crowding sleeve (daily value -> z over 90 days -> demeaned across the 6 -> position -0.15 x clip(z, -2, 2) / 2, zero unless all 6 have a z; row d decided at the close of d, held d+1; 5 bp, funding)",
+  "trials": {
+    "A relative funding": "daily value = 7-day mean of the realised funding rate",
+    "B relative leverage build-up": "daily value = 7-day change of log open-interest value (Binance metrics, daily mean)",
+    "C relative premium": "daily value = daily mean of the perp premium index (Binance premium klines)"
+  },
+  "pass": "each added to v9.5 as its own sleeve (portfolio_v5 equal risk); strict rule; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
