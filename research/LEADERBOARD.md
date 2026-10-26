@@ -1625,3 +1625,8 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 
 ## Gen409 (2026-10-25): directional crowding at 8 hours (`results/gen409.json`)
 - Sleeve - / 0.96 / 0.79 (2022 undefined: warm-up), corr v9.5 0.28; book 2.840 [2.355, 3.556, 2.342]. **Fails.** v9.5 unchanged.
+
+## Paper v9.5 (2026-10-26): `config/paper_v95.json`, `paper_v95_start.bat`
+- `QPL_PAPER=v95`: K1 sleeves with the trend 4h / alt kimchi ensembles, the Gen391 basket and the Gen404 relative crowding sleeve (`scripts/basket_live.py`).
+- The live code reproduces the research sleeves exactly (basket 3.358 / 3.080 / 1.410, corr 1.0; relative crowding max diff 2e-18). Book on the research pack 3.016 [2.428, 3.891, 2.442], corr 0.98 with the research v9.5 2.976 (C\* candidates = the 60 known coins live); scale 0.904. **Selftest PASSED** (15 cutoffs, max |difference| 1.7e-18). v86 output unchanged (max diff 0); v90 sleeves unchanged.
+- New live feeds (v95 only): Binance long/short ratios for the 6 coins (`binance_public.update_ratios`, merged in `binance_pack.metrics`), Coinbase USDT-USD, DefiLlama stablecoins, Blockchain.com fees, Deribit option flow (`ml_feeds.update_v95`). Binance serves ratios for the last 30 days only: start the v95 run before about 2026-10-29 to avoid a gap after the research pack (ends 2026-09-30).

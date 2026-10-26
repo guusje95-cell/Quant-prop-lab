@@ -71,8 +71,14 @@ def metrics(coin: str) -> pd.DataFrame:
     d = _read(f"{coin}USDT_metrics.parquet")
     d["time"] = pd.to_datetime(d["time"])
     d = d.drop_duplicates("time", keep="last").set_index("time").sort_index()
-    d = d[_known(d.index, None)]
-    return d.apply(pd.to_numeric, errors="coerce")
+    d = d.apply(pd.to_numeric, errors="coerce")
+    if LIVE is not None and (LIVE / f"{coin}USDT_ratios.parquet").exists():          # v9.5: live ratios fill the NaN ratio columns
+        r = pd.read_parquet(LIVE / f"{coin}USDT_ratios.parquet"); r.index = pd.DatetimeIndex(r.index)
+        r = r[~r.index.duplicated(keep="last")].reindex(d.index)
+        for col in r.columns:
+            if col in d:
+                d[col] = d[col].fillna(r[col])
+    return d[_known(d.index, None)]
 
 
 @lru_cache(maxsize=64)

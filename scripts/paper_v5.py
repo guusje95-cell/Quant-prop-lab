@@ -35,9 +35,10 @@ PACK = ROOT / "research_data" / "binance"
 SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83", "v84", "v85", "v86") else []) \
     + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84", "v85", "v86") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84", "v85", "v86") else []) \
     + (["premium carry 60"] if VER in ("v85", "v86") else [])
-V90 = VER == "v90"                                       # v9.0 (Gen373 K1): no carry sleeves; C* on a point-in-time top-10 (CS.cstar_pit_weights)
+V90 = VER in ("v90", "v95")                              # v9.0 (Gen373 K1): no carry sleeves; C* on a point-in-time top-10 (CS.cstar_pit_weights)
+V95 = VER == "v95"                                       # v9.5: + trend / alt kimchi ensembles, Gen391 basket, Gen404 relative crowding (scripts/basket_live.py)
 if V90:
-    SLEEVES = ["C*", "cascade limit strict", "trend 4h", "Weiss expiry", "delev bounce", "ridge ML", "alt kimchi"]
+    SLEEVES = ["C*", "cascade limit strict", "trend 4h", "Weiss expiry", "delev bounce", "ridge ML", "alt kimchi"] + (["diversifier basket", "relative crowding 6"] if V95 else [])
 TRANCHED = VER in ("v86", "bf26")                      # v8.6 / bf2.6 (Gen322): carry sleeves rebalanced in 7 staggered tranches
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
@@ -54,19 +55,19 @@ if VER in ("bf23", "bf24", "bf26"):                    # bf2.3 (Gen306 C): + alt
 if VER in ("bf24", "bf26"):                            # bf2.4 (Gen317): + inverse-vol premium carry on 35 BrightFunded crypto CFDs
     SLEEVES = SLEEVES + ["premium carry BF"]
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "v85": "results/cache_v85_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf24": "results/cache_bf24_final.parquet", "bf26": "results/cache_bf26_final.parquet", "v86": "results/cache_v86_final.parquet", "v90": "results/cache_v90_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "v85": "results/cache_v85_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf24": "results/cache_bf24_final.parquet", "bf26": "results/cache_bf26_final.parquet", "v86": "results/cache_v86_final.parquet", "v90": "results/cache_v90_final.parquet", "v95": "results/cache_v95_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
 def extra_coins() -> list[str]:
     """Extra Binance coins the shadow book reads (none for v5/v6/bf)."""
-    if not BREADTH and VER not in ("v85", "v86", "v90", "bf24", "bf26"):
+    if not BREADTH and VER not in ("v85", "v86", "v90", "v95", "bf24", "bf26"):
         return []
     from qpl.lab import extra_pack as X
     if VER in ("bf24", "bf26"):
         import cfd_book as CB
         return [c for c in CB.CARRY_CFD if c in X.coins()]
-    return X.coins() if VER in ("v6b", "v85", "v86", "v90") else [c for c in X.BF_NEW if c in X.coins()]
+    return X.coins() if VER in ("v6b", "v85", "v86", "v90", "v95") else [c for c in X.BF_NEW if c in X.coins()]
 STOP_FRACTION = CFG["frozen"].get("stop_fraction", 0.5)
 
 
@@ -151,7 +152,11 @@ def compute():
     cw = CS.cstar_pit_weights() if V90 else CS.cstar_weights()
     pw = CS.premium_breadth_weights() if BREADTH else CS.premium_weights(invvol=VER in ("v83", "v84", "v85", "v86"), tranched=TRANCHED)
     cas, cpos = CS.cascade(limit=0.005, through=0.001, positions=True, live=True)
-    tr, tpos = CS.trend4h(positions=True)
+    if V95:
+        import basket_live as BL
+        tr, tpos = BL.trend_ensemble()
+    else:
+        tr, tpos = CS.trend4h(positions=True)
     we, wpos = CS.weiss_expiry(positions=True)
     cols = {"C*": CS.breadth_pnl(cw, list(cw.columns), 7.5) if V90 else CS._from_daily_weights(cw, B.MAJ10, 7.5),
             "cascade limit strict": cas, "trend 4h": tr, "Weiss expiry": we}
@@ -161,11 +166,18 @@ def compute():
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
     if RIDGE:
         import ridge_live as RL
-        v84 = VER in ("v84", "v85", "v86", "v90")                    # v8.4 (Gen303 B): + spot flow, VRP and calendar features
-        rw = RL.ridge_weights(kb=VER in ("v83", "v84", "v85", "v86", "v90"), volscale=VER in ("v83", "v84", "v85", "v86", "v90"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+        v84 = VER in ("v84", "v85", "v86", "v90", "v95")                    # v8.4 (Gen303 B): + spot flow, VRP and calendar features
+        rw = RL.ridge_weights(kb=VER in ("v83", "v84", "v85", "v86", "v90", "v95"), volscale=VER in ("v83", "v84", "v85", "v86", "v90", "v95"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     if ALTK:
         import alt_kimchi as AK
-        aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
+        if V95:
+            cols["alt kimchi"], aw = BL.altk_ensemble(str(END))
+        else:
+            aw = AK.weights(); cols["alt kimchi"] = CS._from_daily_weights(aw, list(aw.columns), 5)
+    if V95:
+        ix = pd.DataFrame(cols).loc[:END].index
+        cols["diversifier basket"], BW = BL.basket(ix)
+        cols["relative crowding 6"], RW = BL.rc_pnl(ix)
     if "premium carry 60" in SLEEVES:                  # v8.5 (Gen316): premium carry on the 60-coin universe, inverse-vol legs
         pw60 = CS.premium_breadth_weights(invvol=True, tranched=TRANCHED); cols["premium carry 60"] = CS.premium_carry_breadth(w=pw60)
     H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
@@ -195,6 +207,10 @@ def compute():
     if "premium carry 60" in SLEEVES:
         prev = pw60.loc[:d - pd.Timedelta(days=1)]
         expo["premium carry 60"] = prev.iloc[-1] if len(prev) else pd.Series(dtype=float)
+    if V95:
+        bw = pd.concat(BW.values()).groupby(level=0).sum().loc[:d - pd.Timedelta(days=1)]
+        expo["diversifier basket"] = bw.iloc[-1] if len(bw) else pd.Series(dtype=float)
+        expo["relative crowding 6"] = BL.rc_positions(pd.DatetimeIndex([h1]), RW).iloc[-1]
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -360,8 +376,21 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER in ("v84", "v85", "v86", "v90")):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER in ("v84", "v85", "v86", "v90", "v95")):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
+        if V95:                                            # v9.5: Binance long/short ratios (6 coins), Coinbase USDT-USD, DefiLlama, Blockchain.com, Deribit flow
+            try:
+                BP.update_ratios(DATA, ["BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"], now=utcnow())
+            except Exception as e:
+                log_event("DATA_PARTIAL", msg=f"long/short ratios not updated: {e}")
+            from qpl.live import coinbase_public as CB2
+            try:
+                CB2.update("USDT-USD", out=DATA / "coinbase", base=ROOT / "research_data/coinbase/USDT-USD_1h.parquet")
+            except Exception as e:
+                log_event("DATA_PARTIAL", msg=f"Coinbase USDT-USD not updated: {e}")
+            from qpl.live import ml_feeds as MF
+            if not MF.update_v95(DATA):
+                log_event("DATA_PARTIAL", msg="v9.5 basket inputs not fully updated")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
             if not index_feed.update(DATA, now=utcnow()):

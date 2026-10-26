@@ -1,0 +1,29 @@
+{
+ "name": "Paper trading of crypto portfolio v9.5: K1 sleeves (C* point-in-time top-10, cascade, trend 4h ensemble, Weiss, deleveraging bounce, ridge ML, alt kimchi ensemble) + Gen391 diversifier basket (8 BTC/ETH signals) + Gen404 relative crowding (6 coins, market neutral)",
+ "registered": "2026-10-26, before the first v9.5 paper hour; runs next to v90 (and optionally v86 / bf26)",
+ "what": "Hourly forward test of v8 = v7 (v6 + Gen108/109 ridge ML) + the Gen247 altcoin kimchi sleeve (16 altcoins: Upbit KRW / USD-KRW / Binance perp premium z > 1 long 0.1, < -1 short 0.1, held next day, 5 bp + funding). The ridge ML sleeve is (BTC/ETH perps: ridge regression on 17 daily features, refit monthly on all earlier data, prediction / training sd clipped to +-1, position 0.5 x prediction, decided at the 00:00 UTC close, 5 bp taker + funding). Same construction as v6: point-in-time equal risk (Weiss half weight), 30-day vol targeting. Simulation only.",
+ "frozen": {
+  "account": 200000,
+  "risk": 2.0,
+  "firm": "HyroTrader Two-Step $200k",
+  "daily_stop": "flat for the rest of the UTC day once the day's loss reaches 50% of the firm's 5% daily loss limit (2.5%), exit 10 bp worse (Gen230 setting)",
+  "costs": "as in research: C* 7.5 bp, premium carry / trend / Weiss 5 bp taker, cascade 2 bp maker entry + 5 bp exit, real funding; deleveraging bounce and ridge ML 5 bp taker + funding",
+  "booking": "cascade entry fee in the fill hour and Weiss legs as each bar closes (live=True); same totals as research",
+  "stop_fraction": 0.5,
+  "risk_note": "Gen323 supersedes Gen318: HyroTrader caps funded open notional at 2x the initial balance; challenge risk 2.0 (no cap in the evaluation), FUNDED risk 1.5 with an exposure cap of 1.9x and a $1,000 no-trade band (research/FIRM_RULES_EXECUTION.md). The paper ledger runs at the challenge risk 2.0.",
+  "ridge_inputs": "Binance 5m/funding/premium/open interest (as v6), Coinbase BTC/ETH hourly, Upbit KRW hourly + Yahoo USD/KRW (kimchi, Gen105 strict London dating, previous day's FX), Deribit DVOL daily, Coin Metrics USDT+USDC caps (2-day lag); scripts/ridge_live.py, live feeds src/qpl/live/ml_feeds.py; v8 adds Upbit KRW hourly for 16 altcoins (src/qpl/live/ml_feeds.py, alts=True); v8.4 adds Binance spot BTC/ETH hourly with taker-buy volume (src/qpl/live/ml_feeds.py spot) and the DVOL level",
+  "extra_data": "as v9.0 + Binance long/short ratios (6 coins, live endpoint, last 30 days), Coinbase USDT-USD hourly, DefiLlama stablecoin supply, Blockchain.com fees, Deribit option trades (hourly features)",
+  "reference": "v9.5 (accepted 2026-10-25): 2.976 / 2.355 / 3.832 / 2.447; planning about 1.41",
+  "v95_scale": 0.904,
+  "v95_scale_note": "0.15 / realised vol 2022-26 of the v9.5 paper code on the research pack (2026-10-26): 3.016 / 2.428 / 3.891 / 2.442, vol 0.1659, corr 0.98 with the research v9.5 (2.976; C* live candidates = the 60 pack + extra coins); planning reference stays the research number"
+ },
+ "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
+ "gate": {
+  "minimum": "56 days of paper results and at least 2 Weiss expiry events",
+  "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
+  "operations": "late or missed hours <= 5% of hours; no data errors",
+  "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v9.5 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
+  "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
+ },
+ "changes": []
+}

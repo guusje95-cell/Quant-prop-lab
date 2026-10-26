@@ -192,6 +192,42 @@ def stablecoins(log=print):
         return False
 
 
+RATIO_ENDPOINTS = {"count_toptrader_long_short_ratio": ("topLongShortAccountRatio", "longShortRatio"),
+                   "sum_toptrader_long_short_ratio": ("topLongShortPositionRatio", "longShortRatio"),
+                   "count_long_short_ratio": ("globalLongShortAccountRatio", "longShortRatio"),
+                   "sum_taker_long_short_vol_ratio": ("takerlongshortRatio", "buySellRatio")}
+
+
+def update_ratios(live: Path, coins: list[str], now: pd.Timestamp | None = None, log=print) -> int:
+    """v9.5 (relative crowding, basket): 5-minute long/short and taker ratios (the research pack's metrics columns) into
+    <live>/<SYM>USDT_ratios.parquet; binance_pack.metrics fills its NaN ratio columns from it. Binance serves the last 30 days."""
+    live.mkdir(parents=True, exist_ok=True)
+    now = pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)
+    c = Client(); total = 0
+    for coin in coins:
+        sym = f"{coin}USDT"; f = live / f"{sym}_ratios.parquet"
+        last = pd.DatetimeIndex(pd.read_parquet(f).index).max() if f.exists() else None
+        start = max(last - pd.Timedelta(minutes=30) if last is not None else now - pd.Timedelta(days=29), now - pd.Timedelta(days=29))
+        cols = {}
+        for col, (ep, field) in RATIO_ENDPOINTS.items():
+            rows, t0 = [], _ms(start)
+            while t0 < _ms(now):
+                d = c.get(f"{FAPI}/futures/data/{ep}", {"symbol": sym, "period": "5m", "startTime": t0, "limit": 500})
+                if not d:
+                    break
+                rows += d
+                if len(d) < 500:
+                    break
+                t0 = int(d[-1]["timestamp"]) + 1
+            if rows:
+                cols[col] = pd.Series([float(x[field]) for x in rows], index=pd.to_datetime([int(x["timestamp"]) for x in rows], unit="ms"))
+        if cols:
+            df = pd.DataFrame(cols); df = df[df.index <= now]; df.index.name = "time"
+            total += _append(f, df)
+    log(f"  long/short ratios: {total} new rows")
+    return total
+
+
 def update_extra(pack: Path, live: Path, coins: list[str], now: pd.Timestamp | None = None, log=print) -> dict:
     """Extra coins (Gen80 breadth, research_data/binance_extra format): hourly klines, funding, hourly premium index, into live/."""
     live.mkdir(parents=True, exist_ok=True)

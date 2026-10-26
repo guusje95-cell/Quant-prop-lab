@@ -97,6 +97,54 @@ def spot(live: Path, log=print):
         log(f"  spot {coin}: {_save(k, live / name)} rows, last {k.index.max()}")
 
 
+def defillama_stablecoins(live: Path, log=print):
+    """v9.5 basket (stablecoin impulse): DefiLlama total stablecoin supply, daily (research format of research_data/newdata)."""
+    js = get("https://stablecoins.llama.fi/stablecoincharts/all")
+    d = pd.DataFrame({"stablecoin_usd": [float(x["totalCirculatingUSD"].get("peggedUSD", 0.0)) for x in js]},
+                     index=pd.to_datetime([int(x["date"]) for x in js], unit="s"))
+    log(f"  DefiLlama stablecoins: {_save(d.iloc[-60:], live / 'defillama_stablecoins.parquet')} rows, last {d.index.max()}")
+
+
+def bc_fees(live: Path, log=print):
+    """v9.5 basket (fee pressure): Blockchain.com BTC transaction fees in USD, daily."""
+    js = get("https://api.blockchain.info/charts/transaction-fees-usd?timespan=90days&format=json&sampled=false")
+    d = pd.DataFrame(js["values"]); d.index = pd.to_datetime(d.pop("x"), unit="s"); d = d.rename(columns={"y": "transaction-fees-usd"}).astype(float)
+    log(f"  Blockchain.com fees: {_save(d, live / 'bc_transaction-fees-usd.parquet')} rows, last {d.index.max()}")
+
+
+def deribit_optflow(live: Path, log=print, days=4):
+    """v9.5 basket (call-minus-put flow): Deribit option trades per hour (free_data2._hour_features), last `days` days re-fetched."""
+    import json as _json
+    from qpl.live.free_data2 import _hour_features, fetch
+    now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
+    for cur in ("BTC", "ETH"):
+        name = f"deribit_{cur}_optflow_live.parquet"; rows = []
+        if (live / name).exists():                              # re-fetch the last 3 hours, then continue
+            t = pd.DatetimeIndex(pd.read_parquet(live / name).index).max().to_pydatetime().replace(tzinfo=timezone.utc) - timedelta(hours=3)
+        else:                                                   # first run: continue after the research month files
+            import glob
+            fs = sorted(glob.glob(str(ROOT / f"research_data/more2/deribit_{cur}_optflow_*.parquet")))
+            t = (pd.to_datetime(pd.read_parquet(fs[-1])["time"]).max() + pd.Timedelta(hours=1)).to_pydatetime().replace(tzinfo=timezone.utc) \
+                if fs else now - timedelta(days=days)
+        while t < now:
+            a = int(t.timestamp() * 1000); b = int((t + timedelta(hours=1)).timestamp() * 1000)
+            url = ("https://history.deribit.com/api/v2/public/get_last_trades_by_currency_and_time?"
+                   f"currency={cur}&kind=option&start_timestamp={a}&end_timestamp={b}&count=1000&sorting=asc")
+            rows.append(_hour_features(_json.loads(fetch(url))["result"]["trades"], t)); time.sleep(0.2); t += timedelta(hours=1)
+        d = pd.DataFrame(rows); d.index = pd.to_datetime(d.pop("time"))
+        log(f"  Deribit {cur} option flow: {_save(d, live / name)} rows, last {d.index.max()}")
+
+
+def update_v95(data_dir: Path, log=print) -> bool:
+    live = Path(data_dir) / "ml"; ok = True
+    for fn in (defillama_stablecoins, bc_fees, deribit_optflow):
+        try:
+            fn(live, log)
+        except Exception as e:
+            log(f"  {fn.__name__}: not updated ({e.__class__.__name__}: {e})"); ok = False
+    return ok
+
+
 def update(data_dir: Path, log=print, alts=False, spot_flow=False) -> bool:
     """Update every ridge input in <data_dir>/ml (alts=True: also the Upbit altcoins for v8's alt kimchi sleeve;
     spot_flow=True: also Binance spot BTC/ETH for bf2.2's ridge). Returns False if a source failed (the sleeves then use what they have)."""
