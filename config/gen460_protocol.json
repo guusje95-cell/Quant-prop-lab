@@ -1,0 +1,9 @@
+{
+  "gen": 460,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "trials": {"A listing-short neighbourhood ensemble": "the listing short = mean of 9 variants of the v9.6 rule: hold 14 / 30 / 60 days x stop 20% / 30% / 50% (each variant with its own gross cap 0.5, 10 bp, funding); replaces the listing-short sleeve"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
