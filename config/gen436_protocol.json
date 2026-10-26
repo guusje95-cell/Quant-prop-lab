@@ -1,0 +1,9 @@
+{
+  "gen": 436,
+  "date": "2026-10-26",
+  "check": "v9.6 listing short re-run on the complete point-in-time universe (symbols A..Z; T..Z fetched 2026-10-26 from data.binance.vision in the cloud) - the caveat of the v9.6 acceptance",
+  "registered": "before the T..Z data is in",
+  "decision rule": "if the v9.6 book on A..Z is not at least v9.5 + 0.05 in 2022-26 with no period below v9.5 (2.976 [2.355, 3.832, 2.447]), propose to the user to return to v9.5; otherwise v9.6 stands and its reference numbers are updated to the A..Z version",
+  "reported": "events, sleeve by period and year, book (live timing, scripts/listing_live.py), Gen426 robustness variants, HyroTrader at planning level",
+  "trials_added": 0
+}
