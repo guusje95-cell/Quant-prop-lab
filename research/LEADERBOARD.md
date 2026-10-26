@@ -1804,3 +1804,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen444 (2026-10-26): Hyperliquid funding across the 6 majors (`research_data/hyperliquid`, `results/gen444.json`)
 - Hyperliquid hourly funding 2023-05..2026-10 fetched in the cloud (15 coins). A (Gen406 Y4) relative HL funding contrarian: - / -0.70 / 0.31, book 3.003; B HL-minus-Binance funding spread relative: - / -0.87 / 0.46, book 2.887. **Both fail** (2024 strongly negative).
+
+## Gen448 (2026-10-26): Weiss expiry at full weight (`results/gen448.json`)
+- Book 3.259 [2.797, 4.081, 2.624] vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.056, 2022 and 2023-24 up, **2025-26 -0.018 -> fails (near miss)**. Half weight stays.
