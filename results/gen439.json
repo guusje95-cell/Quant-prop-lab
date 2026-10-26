@@ -1,0 +1,65 @@
+{
+ "reference v9.6 (live timing)": [
+  3.169,
+  [
+   2.751,
+   3.949,
+   2.579
+  ]
+ ],
+ "reference rebuilt basket": [
+  3.175,
+  [
+   2.71,
+   3.985,
+   2.579
+  ]
+ ],
+ "coins": 764,
+ "trials": {
+  "A alt funding froth": {
+   "member": [
+    -1.158,
+    -0.771,
+    -0.082
+   ],
+   "corr basket": -0.19,
+   "basket": [
+    2.851,
+    3.056,
+    1.249
+   ],
+   "book": [
+    3.157,
+    [
+     2.632,
+     4.003,
+     2.539
+    ]
+   ],
+   "pass": false
+  },
+  "B alt premium froth": {
+   "member": [
+    -0.672,
+    -0.847,
+    -0.746
+   ],
+   "corr basket": -0.25,
+   "basket": [
+    3.097,
+    2.978,
+    1.033
+   ],
+   "book": [
+    3.144,
+    [
+     2.672,
+     3.992,
+     2.495
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
