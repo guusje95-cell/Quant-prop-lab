@@ -1842,3 +1842,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen453 (2026-10-26): near misses re-tested against v9.7 (`results/gen453.json`)
 - A v9.7 + Bybit listings: 3.079 [2.468, 3.945, 2.543] (2022 lower); B Weiss full weight: 3.060 [2.557, 3.878, 2.476] (2025-26 lower). **Both fail.**
+
+## Gen447 (2026-10-26): relative crowding on the point-in-time top-20 as a second sleeve (`results/gen447.json`)
+- Sleeve by year 0.27 / 0.97 / 1.42 / 1.87 / 0.24 (corr with the 6-coin sleeve 0.29). Book vs v9.6: 3.122 [2.172, 3.911, 2.815]; vs v9.7: 2.922 [1.817, 3.728, 2.694]. **Fails** (2022 clearly lower; partly because the archive ratios start only 31 days before each membership window, so the 90-day z is missing early). Watchlist: strong 2023-25, low corr with the existing sleeve.

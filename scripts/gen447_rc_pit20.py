@@ -47,4 +47,6 @@ b = unit(CS.portfolio_v5(V6.assign(**{"relative crowding top-20": s}))[0]); r = 
 out = {"reference v9.6 A..Z": [REF[0], REF[1]], "coins with ratios": len(R), "sleeve": per(s), "by year": {str(y): shp(s, str(y), str(y)) for y in range(2022, 2027)},
        "corr with the 6-coin sleeve": round(float(s.corr(V6["relative crowding 6"])), 2), "book": r,
        "pass": bool(r[0] >= REF[0] + 0.05 and all(r[1][i] >= REF[1][i] for i in range(3)))}
+V7 = V6.drop(columns="cascade limit strict"); r7 = unit(CS.portfolio_v5(V7)[0]); b7 = unit(CS.portfolio_v5(V7.assign(**{"relative crowding top-20": s}))[0])
+out["vs v9.7 (reported)"] = {"reference": [shp(r7), per(r7)], "book": [shp(b7), per(b7)], "pass": bool(shp(b7) >= shp(r7) + 0.05 and all(per(b7)[i] >= per(r7)[i] for i in range(3)))}
 (ROOT / "results/gen447.json").write_text(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
