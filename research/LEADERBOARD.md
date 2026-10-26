@@ -1775,3 +1775,10 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen438 (2026-10-26): shrunk-Sharpe sleeve weights at the top level (`results/gen438.json`)
 - Equal-risk replica 3.169 (= v9.6 live timing). A 730-day shrunk Sharpe 3.025 [2.62, 3.801, 2.397] ; B expanding 3.026 [2.647, 3.74, 2.455]. **Both fail**: past sleeve Sharpe does not predict; equal risk stays (third time, after Gen156 / Gen388).
+
+## Gen439 (2026-10-26): market-wide altcoin froth, contrarian (`results/gen439.json`)
+- Point-in-time top-100 perps (pack + extra + pit A..S), volume-weighted. A funding froth member -1.16 / -0.77 / -0.08, book 3.157; B premium froth -0.67 / -0.85 / -0.75, book 3.144. **Both fail** (contrarian loses everywhere).
+
+## Gen440 (2026-10-26, FLAGGED post hoc): follow the market-wide alt premium (`results/gen440.json`)
+- Member **0.65 / 0.81 / 0.69, every year positive (0.65 / 0.99 / 0.74 / 0.03 / 1.20), corr BTC -0.05; robust** (costs x2 0.64 / 0.79 / 0.67; 1 day later 0.71 / 0.83 / 0.74; smoothing 3 / 14 and top-50 / 200 similar).
+- As a 10th basket member: basket 3.22 / 2.78 / 1.54, book 3.147 [2.623, 3.952, 2.602] < 3.169. **Fails** (dilutes the stronger members). Kept on the list of robust candidates for a structured basket re-selection.
