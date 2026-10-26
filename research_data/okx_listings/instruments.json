@@ -1,0 +1,2272 @@
+[
+ {
+  "instId": "OKB-USDT-SWAP",
+  "base": "OKB",
+  "listTime": 1756951200395
+ },
+ {
+  "instId": "ZEC-USDT-SWAP",
+  "base": "ZEC",
+  "listTime": 1762398900578
+ },
+ {
+  "instId": "IRYS-USDT-SWAP",
+  "base": "IRYS",
+  "listTime": 1779880500000
+ },
+ {
+  "instId": "DOOD-USDT-SWAP",
+  "base": "DOOD",
+  "listTime": 1747051200521
+ },
+ {
+  "instId": "0G-USDT-SWAP",
+  "base": "0G",
+  "listTime": 1758537000238
+ },
+ {
+  "instId": "2Z-USDT-SWAP",
+  "base": "2Z",
+  "listTime": 1759410600649
+ },
+ {
+  "instId": "A-USDT-SWAP",
+  "base": "A",
+  "listTime": 1748514600412
+ },
+ {
+  "instId": "AAOI-USDT-SWAP",
+  "base": "AAOI",
+  "listTime": 1779786000000
+ },
+ {
+  "instId": "AAPL-USDT-SWAP",
+  "base": "AAPL",
+  "listTime": 1772612100000
+ },
+ {
+  "instId": "ABBV-USDT-SWAP",
+  "base": "ABBV",
+  "listTime": 1792660500000
+ },
+ {
+  "instId": "ACH-USDT-SWAP",
+  "base": "ACH",
+  "listTime": 1708590301084
+ },
+ {
+  "instId": "ACN-USDT-SWAP",
+  "base": "ACN",
+  "listTime": 1790934300000
+ },
+ {
+  "instId": "ACT-USDT-SWAP",
+  "base": "ACT",
+  "listTime": 1731582000644
+ },
+ {
+  "instId": "ACU-USDT-SWAP",
+  "base": "ACU",
+  "listTime": 1769151600000
+ },
+ {
+  "instId": "ADBE-USDT-SWAP",
+  "base": "ADBE",
+  "listTime": 1780479000000
+ },
+ {
+  "instId": "AEHR-USDT-SWAP",
+  "base": "AEHR",
+  "listTime": 1785143700000
+ },
+ {
+  "instId": "AEON-USDT-SWAP",
+  "base": "AEON",
+  "listTime": 1785151800000
+ },
+ {
+  "instId": "AERO-USDT-SWAP",
+  "base": "AERO",
+  "listTime": 1751523300260
+ },
+ {
+  "instId": "AEVO-USDT-SWAP",
+  "base": "AEVO",
+  "listTime": 1710325520298
+ },
+ {
+  "instId": "AGLD-USDT-SWAP",
+  "base": "AGLD",
+  "listTime": 1631008650016
+ },
+ {
+  "instId": "AI-USDT-SWAP",
+  "base": "AI",
+  "listTime": 1777464000000
+ },
+ {
+  "instId": "AIXBT-USDT-SWAP",
+  "base": "AIXBT",
+  "listTime": 1735887600188
+ },
+ {
+  "instId": "AKE-USDT-SWAP",
+  "base": "AKE",
+  "listTime": 1789542000000
+ },
+ {
+  "instId": "ALAB-USDT-SWAP",
+  "base": "ALAB",
+  "listTime": 1781600400000
+ },
+ {
+  "instId": "ALLO-USDT-SWAP",
+  "base": "ALLO",
+  "listTime": 1762879500659
+ },
+ {
+  "instId": "AMAT-USDT-SWAP",
+  "base": "AMAT",
+  "listTime": 1779958800000
+ },
+ {
+  "instId": "AMC-USDT-SWAP",
+  "base": "AMC",
+  "listTime": 1788511500000
+ },
+ {
+  "instId": "AMD-USDT-SWAP",
+  "base": "AMD",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "AMGN-USDT-SWAP",
+  "base": "AMGN",
+  "listTime": 1792661400000
+ },
+ {
+  "instId": "AMZN-USDT-SWAP",
+  "base": "AMZN",
+  "listTime": 1772091000000
+ },
+ {
+  "instId": "ANIME-USDT-SWAP",
+  "base": "ANIME",
+  "listTime": 1737644401356
+ },
+ {
+  "instId": "ANTHROPIC-USDT-SWAP",
+  "base": "ANTHROPIC",
+  "listTime": 1778146200000
+ },
+ {
+  "instId": "APE-USDT-SWAP",
+  "base": "APE",
+  "listTime": 1647522059555
+ },
+ {
+  "instId": "API3-USDT-SWAP",
+  "base": "API3",
+  "listTime": 1646297716213
+ },
+ {
+  "instId": "APLD-USDT-SWAP",
+  "base": "APLD",
+  "listTime": 1783330200000
+ },
+ {
+  "instId": "APP-USDT-SWAP",
+  "base": "APP",
+  "listTime": 1784288700000
+ },
+ {
+  "instId": "APR-USDT-SWAP",
+  "base": "APR",
+  "listTime": 1761285601180
+ },
+ {
+  "instId": "APT-USDT-SWAP",
+  "base": "APT",
+  "listTime": 1666142328522
+ },
+ {
+  "instId": "AR-USDT-SWAP",
+  "base": "AR",
+  "listTime": 1676357700186
+ },
+ {
+  "instId": "ARB-USDT-SWAP",
+  "base": "ARB",
+  "listTime": 1679580094937
+ },
+ {
+  "instId": "ARKM-USDT-SWAP",
+  "base": "ARKM",
+  "listTime": 1732177800122
+ },
+ {
+  "instId": "ARM-USDT-SWAP",
+  "base": "ARM",
+  "listTime": 1777443300000
+ },
+ {
+  "instId": "ARX-USDT-SWAP",
+  "base": "ARX",
+  "listTime": 1782131400000
+ },
+ {
+  "instId": "ASML-USDT-SWAP",
+  "base": "ASML",
+  "listTime": 1780479900000
+ },
+ {
+  "instId": "ASTER-USDT-SWAP",
+  "base": "ASTER",
+  "listTime": 1758517200313
+ },
+ {
+  "instId": "ASTS-USDT-SWAP",
+  "base": "ASTS",
+  "listTime": 1780398900000
+ },
+ {
+  "instId": "AT-USDT-SWAP",
+  "base": "AT",
+  "listTime": 1761818401453
+ },
+ {
+  "instId": "ATH-USDT-SWAP",
+  "base": "ATH",
+  "listTime": 1718250900308
+ },
+ {
+  "instId": "AUCTION-USDT-SWAP",
+  "base": "AUCTION",
+  "listTime": 1701417300613
+ },
+ {
+  "instId": "AVGO-USDT-SWAP",
+  "base": "AVGO",
+  "listTime": 1777442400000
+ },
+ {
+  "instId": "AVNT-USDT-SWAP",
+  "base": "AVNT",
+  "listTime": 1758555000222
+ },
+ {
+  "instId": "AXIS-USDT-SWAP",
+  "base": "AXIS",
+  "listTime": 1792591200000
+ },
+ {
+  "instId": "AXS-USDT-SWAP",
+  "base": "AXS",
+  "listTime": 1627462800000
+ },
+ {
+  "instId": "AXTI-USDT-SWAP",
+  "base": "AXTI",
+  "listTime": 1781602200000
+ },
+ {
+  "instId": "AZTEC-USDT-SWAP",
+  "base": "AZTEC",
+  "listTime": 1770805800000
+ },
+ {
+  "instId": "BABY-USDT-SWAP",
+  "base": "BABY",
+  "listTime": 1744282800387
+ },
+ {
+  "instId": "BARD-USDT-SWAP",
+  "base": "BARD",
+  "listTime": 1758196800496
+ },
+ {
+  "instId": "BASED-USDT-SWAP",
+  "base": "BASED",
+  "listTime": 1774866600000
+ },
+ {
+  "instId": "BB-USDT-SWAP",
+  "base": "BB",
+  "listTime": 1780304400000
+ },
+ {
+  "instId": "BE-USDT-SWAP",
+  "base": "BE",
+  "listTime": 1779879600000
+ },
+ {
+  "instId": "BEAT-USDT-SWAP",
+  "base": "BEAT",
+  "listTime": 1762964100610
+ },
+ {
+  "instId": "BERA-USDT-SWAP",
+  "base": "BERA",
+  "listTime": 1738850401850
+ },
+ {
+  "instId": "BICO-USDT-SWAP",
+  "base": "BICO",
+  "listTime": 1639032617371
+ },
+ {
+  "instId": "BIGTIME-USDT-SWAP",
+  "base": "BIGTIME",
+  "listTime": 1697115300862
+ },
+ {
+  "instId": "BILL-USDT-SWAP",
+  "base": "BILL",
+  "listTime": 1778054400000
+ },
+ {
+  "instId": "BIO-USDT-SWAP",
+  "base": "BIO",
+  "listTime": 1735901100474
+ },
+ {
+  "instId": "BLEND-USDT-SWAP",
+  "base": "BLEND",
+  "listTime": 1777456800000
+ },
+ {
+  "instId": "BLUR-USDT-SWAP",
+  "base": "BLUR",
+  "listTime": 1676429700181
+ },
+ {
+  "instId": "BMNR-USDT-SWAP",
+  "base": "BMNR",
+  "listTime": 1777302000000
+ },
+ {
+  "instId": "BNB-USDT-SWAP",
+  "base": "BNB",
+  "listTime": 1671778428049
+ },
+ {
+  "instId": "BOME-USDT-SWAP",
+  "base": "BOME",
+  "listTime": 1723717202042
+ },
+ {
+  "instId": "BONK-USDT-SWAP",
+  "base": "BONK",
+  "listTime": 1704695217299
+ },
+ {
+  "instId": "BOT-USDT-SWAP",
+  "base": "BOT",
+  "listTime": 1782986400000
+ },
+ {
+  "instId": "BRETT-USDT-SWAP",
+  "base": "BRETT",
+  "listTime": 1725617701730
+ },
+ {
+  "instId": "BREV-USDT-SWAP",
+  "base": "BREV",
+  "listTime": 1767099600000
+ },
+ {
+  "instId": "BRKB-USDT-SWAP",
+  "base": "BRKB",
+  "listTime": 1786014900000
+ },
+ {
+  "instId": "BSB-USDT-SWAP",
+  "base": "BSB",
+  "listTime": 1775124000000
+ },
+ {
+  "instId": "BSP-USDT-SWAP",
+  "base": "BSP",
+  "listTime": 1783328400000
+ },
+ {
+  "instId": "BTW-USDT-SWAP",
+  "base": "BTW",
+  "listTime": 1792656000000
+ },
+ {
+  "instId": "BWET-USDT-SWAP",
+  "base": "BWET",
+  "listTime": 1790936100000
+ },
+ {
+  "instId": "BX-USDT-SWAP",
+  "base": "BX",
+  "listTime": 1781255700000
+ },
+ {
+  "instId": "BZ-USDT-SWAP",
+  "base": "BZ",
+  "listTime": 1774346400000
+ },
+ {
+  "instId": "CAP-USDT-SWAP",
+  "base": "CAP",
+  "listTime": 1782477000000
+ },
+ {
+  "instId": "CASHCAT-USDT-SWAP",
+  "base": "CASHCAT",
+  "listTime": 1788406200000
+ },
+ {
+  "instId": "CBRS-USDT-SWAP",
+  "base": "CBRS",
+  "listTime": 1778824800000
+ },
+ {
+  "instId": "CC-USDT-SWAP",
+  "base": "CC",
+  "listTime": 1761919200291
+ },
+ {
+  "instId": "CELO-USDT-SWAP",
+  "base": "CELO",
+  "listTime": 1632477785202
+ },
+ {
+  "instId": "CGNX-USDT-SWAP",
+  "base": "CGNX",
+  "listTime": 1781257500000
+ },
+ {
+  "instId": "CHIP-USDT-SWAP",
+  "base": "CHIP",
+  "listTime": 1776780000000
+ },
+ {
+  "instId": "CIEN-USDT-SWAP",
+  "base": "CIEN",
+  "listTime": 1781169300000
+ },
+ {
+  "instId": "CL-USDT-SWAP",
+  "base": "CL",
+  "listTime": 1772626500000
+ },
+ {
+  "instId": "CNPY-USDT-SWAP",
+  "base": "CNPY",
+  "listTime": 1788786000000
+ },
+ {
+  "instId": "COAI-USDT-SWAP",
+  "base": "COAI",
+  "listTime": 1760538601123
+ },
+ {
+  "instId": "COHR-USDT-SWAP",
+  "base": "COHR",
+  "listTime": 1778666400000
+ },
+ {
+  "instId": "COIN-USDT-SWAP",
+  "base": "COIN",
+  "listTime": 1772091900000
+ },
+ {
+  "instId": "CORE-USDT-SWAP",
+  "base": "CORE",
+  "listTime": 1675864514708
+ },
+ {
+  "instId": "COST-USDT-SWAP",
+  "base": "COST",
+  "listTime": 1777299300000
+ },
+ {
+  "instId": "CP-USDT-SWAP",
+  "base": "CP",
+  "listTime": 1788363600000
+ },
+ {
+  "instId": "CRCL-USDT-SWAP",
+  "base": "CRCL",
+  "listTime": 1772092800000
+ },
+ {
+  "instId": "CRDO-USDT-SWAP",
+  "base": "CRDO",
+  "listTime": 1781168400000
+ },
+ {
+  "instId": "CRM-USDT-SWAP",
+  "base": "CRM",
+  "listTime": 1785402900000
+ },
+ {
+  "instId": "CRML-USDT-SWAP",
+  "base": "CRML",
+  "listTime": 1792487700000
+ },
+ {
+  "instId": "CRWV-USDT-SWAP",
+  "base": "CRWV",
+  "listTime": 1775822400000
+ },
+ {
+  "instId": "CRWD-USDT-SWAP",
+  "base": "CRWD",
+  "listTime": 1779787800000
+ },
+ {
+  "instId": "CSCO-USDT-SWAP",
+  "base": "CSCO",
+  "listTime": 1779183900000
+ },
+ {
+  "instId": "CSOPSKHYNIX2L-USDT-SWAP",
+  "base": "CSOPSKHYNIX2L",
+  "listTime": 1788415200000
+ },
+ {
+  "instId": "CSOPSAMSUNG2L-USDT-SWAP",
+  "base": "CSOPSAMSUNG2L",
+  "listTime": 1788416100000
+ },
+ {
+  "instId": "CT-USDT-SWAP",
+  "base": "CT",
+  "listTime": 1790766000000
+ },
+ {
+  "instId": "CVNA-USDT-SWAP",
+  "base": "CVNA",
+  "listTime": 1792488600000
+ },
+ {
+  "instId": "CVX-USDT-SWAP",
+  "base": "CVX",
+  "listTime": 1719303900750
+ },
+ {
+  "instId": "CXMT-USDT-SWAP",
+  "base": "CXMT",
+  "listTime": 1787035500000
+ },
+ {
+  "instId": "CYPH-USDT-SWAP",
+  "base": "CYPH",
+  "listTime": 1790155800000
+ },
+ {
+  "instId": "DASH-USDT-SWAP",
+  "base": "DASH",
+  "listTime": 1762398000994
+ },
+ {
+  "instId": "DDOG-USDT-SWAP",
+  "base": "DDOG",
+  "listTime": 1788426900000
+ },
+ {
+  "instId": "DELL-USDT-SWAP",
+  "base": "DELL",
+  "listTime": 1779959700000
+ },
+ {
+  "instId": "DGAI-USDT-SWAP",
+  "base": "DGAI",
+  "listTime": 1788404400000
+ },
+ {
+  "instId": "DKNG-USDT-SWAP",
+  "base": "DKNG",
+  "listTime": 1781775900000
+ },
+ {
+  "instId": "DNA-USDT-SWAP",
+  "base": "DNA",
+  "listTime": 1792152000000
+ },
+ {
+  "instId": "DOS-USDT-SWAP",
+  "base": "DOS",
+  "listTime": 1786363200000
+ },
+ {
+  "instId": "DRAM-USDT-SWAP",
+  "base": "DRAM",
+  "listTime": 1778230800000
+ },
+ {
+  "instId": "DYDX-USDT-SWAP",
+  "base": "DYDX",
+  "listTime": 1631117510421
+ },
+ {
+  "instId": "EDEN-USDT-SWAP",
+  "base": "EDEN",
+  "listTime": 1759231801710
+ },
+ {
+  "instId": "EDGE-USDT-SWAP",
+  "base": "EDGE",
+  "listTime": 1775050200000
+ },
+ {
+  "instId": "EIGEN-USDT-SWAP",
+  "base": "EIGEN",
+  "listTime": 1727764200682
+ },
+ {
+  "instId": "ENA-USDT-SWAP",
+  "base": "ENA",
+  "listTime": 1758094200364
+ },
+ {
+  "instId": "ENJ-USDT-SWAP",
+  "base": "ENJ",
+  "listTime": 1709288701407
+ },
+ {
+  "instId": "ENS-USDT-SWAP",
+  "base": "ENS",
+  "listTime": 1636623946265
+ },
+ {
+  "instId": "ENSO-USDT-SWAP",
+  "base": "ENSO",
+  "listTime": 1761732001294
+ },
+ {
+  "instId": "ESP-USDT-SWAP",
+  "base": "ESP",
+  "listTime": 1770739200000
+ },
+ {
+  "instId": "ETHW-USDT-SWAP",
+  "base": "ETHW",
+  "listTime": 1663311331635
+ },
+ {
+  "instId": "ETHFI-USDT-SWAP",
+  "base": "ETHFI",
+  "listTime": 1710764700945
+ },
+ {
+  "instId": "EWJ-USDT-SWAP",
+  "base": "EWJ",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "EWY-USDT-SWAP",
+  "base": "EWY",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "EWZ-USDT-SWAP",
+  "base": "EWZ",
+  "listTime": 1781774100000
+ },
+ {
+  "instId": "F-USDT-SWAP",
+  "base": "F",
+  "listTime": 1761379201201
+ },
+ {
+  "instId": "FARTCOIN-USDT-SWAP",
+  "base": "FARTCOIN",
+  "listTime": 1734685200393
+ },
+ {
+  "instId": "FET-USDT-SWAP",
+  "base": "FET",
+  "listTime": 1788579000000
+ },
+ {
+  "instId": "FLNC-USDT-SWAP",
+  "base": "FLNC",
+  "listTime": 1781171100000
+ },
+ {
+  "instId": "FLOKI-USDT-SWAP",
+  "base": "FLOKI",
+  "listTime": 1676876100607
+ },
+ {
+  "instId": "FLOW-USDT-SWAP",
+  "base": "FLOW",
+  "listTime": 1699350900756
+ },
+ {
+  "instId": "FLOCK-USDT-SWAP",
+  "base": "FLOCK",
+  "listTime": 1789207200000
+ },
+ {
+  "instId": "FLY-USDT-SWAP",
+  "base": "FLY",
+  "listTime": 1785144600000
+ },
+ {
+  "instId": "FOGO-USDT-SWAP",
+  "base": "FOGO",
+  "listTime": 1768059900000
+ },
+ {
+  "instId": "FWDI-USDT-SWAP",
+  "base": "FWDI",
+  "listTime": 1785142800000
+ },
+ {
+  "instId": "GALA-USDT-SWAP",
+  "base": "GALA",
+  "listTime": 1632477789599
+ },
+ {
+  "instId": "GAS-USDT-SWAP",
+  "base": "GAS",
+  "listTime": 1698141300695
+ },
+ {
+  "instId": "GE-USDT-SWAP",
+  "base": "GE",
+  "listTime": 1792658700000
+ },
+ {
+  "instId": "GEV-USDT-SWAP",
+  "base": "GEV",
+  "listTime": 1779354000000
+ },
+ {
+  "instId": "GIGGLE-USDT-SWAP",
+  "base": "GIGGLE",
+  "listTime": 1761375601708
+ },
+ {
+  "instId": "GLM-USDT-SWAP",
+  "base": "GLM",
+  "listTime": 1715329501418
+ },
+ {
+  "instId": "GLW-USDT-SWAP",
+  "base": "GLW",
+  "listTime": 1779094800000
+ },
+ {
+  "instId": "GME-USDT-SWAP",
+  "base": "GME",
+  "listTime": 1778232600000
+ },
+ {
+  "instId": "GMT-USDT-SWAP",
+  "base": "GMT",
+  "listTime": 1648803369890
+ },
+ {
+  "instId": "GMX-USDT-SWAP",
+  "base": "GMX",
+  "listTime": 1675321542847
+ },
+ {
+  "instId": "GOOGL-USDT-SWAP",
+  "base": "GOOGL",
+  "listTime": 1772610300000
+ },
+ {
+  "instId": "GPRO-USDT-SWAP",
+  "base": "GPRO",
+  "listTime": 1788528900000
+ },
+ {
+  "instId": "GPS-USDT-SWAP",
+  "base": "GPS",
+  "listTime": 1741089600468
+ },
+ {
+  "instId": "GRASS-USDT-SWAP",
+  "base": "GRASS",
+  "listTime": 1730125800597
+ },
+ {
+  "instId": "GRVT-USDT-SWAP",
+  "base": "GRVT",
+  "listTime": 1785423600000
+ },
+ {
+  "instId": "GS-USDT-SWAP",
+  "base": "GS",
+  "listTime": 1792143900000
+ },
+ {
+  "instId": "GTLB-USDT-SWAP",
+  "base": "GTLB",
+  "listTime": 1790156700000
+ },
+ {
+  "instId": "H-USDT-SWAP",
+  "base": "H",
+  "listTime": 1751522400413
+ },
+ {
+  "instId": "H100-USDT-SWAP",
+  "base": "H100",
+  "listTime": 1790933400000
+ },
+ {
+  "instId": "HANMI-USDT-SWAP",
+  "base": "HANMI",
+  "listTime": 1789538400000
+ },
+ {
+  "instId": "HBAR-USDT-SWAP",
+  "base": "HBAR",
+  "listTime": 1692165300823
+ },
+ {
+  "instId": "HIMS-USDT-SWAP",
+  "base": "HIMS",
+  "listTime": 1777301100000
+ },
+ {
+  "instId": "HMSTR-USDT-SWAP",
+  "base": "HMSTR",
+  "listTime": 1727353800176
+ },
+ {
+  "instId": "HOME-USDT-SWAP",
+  "base": "HOME",
+  "listTime": 1749809700256
+ },
+ {
+  "instId": "HOOD-USDT-SWAP",
+  "base": "HOOD",
+  "listTime": 1772002800000
+ },
+ {
+  "instId": "HPE-USDT-SWAP",
+  "base": "HPE",
+  "listTime": 1780398000000
+ },
+ {
+  "instId": "HUMA-USDT-SWAP",
+  "base": "HUMA",
+  "listTime": 1748266200433
+ },
+ {
+  "instId": "HUT-USDT-SWAP",
+  "base": "HUT",
+  "listTime": 1789981200000
+ },
+ {
+  "instId": "HYPE-USDT-SWAP",
+  "base": "HYPE",
+  "listTime": 1740121200506
+ },
+ {
+  "instId": "HYUNDAI-USDT-SWAP",
+  "base": "HYUNDAI",
+  "listTime": 1781070900000
+ },
+ {
+  "instId": "IBM-USDT-SWAP",
+  "base": "IBM",
+  "listTime": 1779877800000
+ },
+ {
+  "instId": "IMX-USDT-SWAP",
+  "base": "IMX",
+  "listTime": 1637218222034
+ },
+ {
+  "instId": "INFQ-USDT-SWAP",
+  "base": "INFQ",
+  "listTime": 1779786900000
+ },
+ {
+  "instId": "INIT-USDT-SWAP",
+  "base": "INIT",
+  "listTime": 1745494200437
+ },
+ {
+  "instId": "INJ-USDT-SWAP",
+  "base": "INJ",
+  "listTime": 1701345300667
+ },
+ {
+  "instId": "INTC-USDT-SWAP",
+  "base": "INTC",
+  "listTime": 1772089200000
+ },
+ {
+  "instId": "INTW-USDT-SWAP",
+  "base": "INTW",
+  "listTime": 1785403800000
+ },
+ {
+  "instId": "IONQ-USDT-SWAP",
+  "base": "IONQ",
+  "listTime": 1788427800000
+ },
+ {
+  "instId": "DATA-USDT-SWAP",
+  "base": "DATA",
+  "listTime": 1782995400000
+ },
+ {
+  "instId": "IREN-USDT-SWAP",
+  "base": "IREN",
+  "listTime": 1780910100000
+ },
+ {
+  "instId": "ISRG-USDT-SWAP",
+  "base": "ISRG",
+  "listTime": 1781170200000
+ },
+ {
+  "instId": "IWM-USDT-SWAP",
+  "base": "IWM",
+  "listTime": 1775822400000
+ },
+ {
+  "instId": "JELLYJELLY-USDT-SWAP",
+  "base": "JELLYJELLY",
+  "listTime": 1743004470352
+ },
+ {
+  "instId": "JNJ-USDT-SWAP",
+  "base": "JNJ",
+  "listTime": 1783674900000
+ },
+ {
+  "instId": "JP225-USDT-SWAP",
+  "base": "JP225",
+  "listTime": 1788926400000
+ },
+ {
+  "instId": "JPM-USDT-SWAP",
+  "base": "JPM",
+  "listTime": 1792142100000
+ },
+ {
+  "instId": "JTO-USDT-SWAP",
+  "base": "JTO",
+  "listTime": 1704696900623
+ },
+ {
+  "instId": "JUP-USDT-SWAP",
+  "base": "JUP",
+  "listTime": 1706717100211
+ },
+ {
+  "instId": "KAITO-USDT-SWAP",
+  "base": "KAITO",
+  "listTime": 1740060000331
+ },
+ {
+  "instId": "KAT-USDT-SWAP",
+  "base": "KAT",
+  "listTime": 1772451000000
+ },
+ {
+  "instId": "KGEN-USDT-SWAP",
+  "base": "KGEN",
+  "listTime": 1760761801014
+ },
+ {
+  "instId": "KII-USDT-SWAP",
+  "base": "KII",
+  "listTime": 1790247600000
+ },
+ {
+  "instId": "KIOXIA-USDT-SWAP",
+  "base": "KIOXIA",
+  "listTime": 1782437400000
+ },
+ {
+  "instId": "KITE-USDT-SWAP",
+  "base": "KITE",
+  "listTime": 1775703600000
+ },
+ {
+  "instId": "KLAC-USDT-SWAP",
+  "base": "KLAC",
+  "listTime": 1782207900000
+ },
+ {
+  "instId": "KMNO-USDT-SWAP",
+  "base": "KMNO",
+  "listTime": 1748575800335
+ },
+ {
+  "instId": "KO-USDT-SWAP",
+  "base": "KO",
+  "listTime": 1786354200000
+ },
+ {
+  "instId": "KORU-USDT-SWAP",
+  "base": "KORU",
+  "listTime": 1782292500000
+ },
+ {
+  "instId": "KR200-USDT-SWAP",
+  "base": "KR200",
+  "listTime": 1785130200000
+ },
+ {
+  "instId": "KSTR-USDT-SWAP",
+  "base": "KSTR",
+  "listTime": 1790154900000
+ },
+ {
+  "instId": "LA-USDT-SWAP",
+  "base": "LA",
+  "listTime": 1749808800320
+ },
+ {
+  "instId": "LAB-USDT-SWAP",
+  "base": "LAB",
+  "listTime": 1761998401879
+ },
+ {
+  "instId": "LAYER-USDT-SWAP",
+  "base": "LAYER",
+  "listTime": 1739284200817
+ },
+ {
+  "instId": "LDO-USDT-SWAP",
+  "base": "LDO",
+  "listTime": 1675321369323
+ },
+ {
+  "instId": "LGELECTRONICS-USDT-SWAP",
+  "base": "LGELECTRONICS",
+  "listTime": 1789536600000
+ },
+ {
+  "instId": "LIGHT-USDT-SWAP",
+  "base": "LIGHT",
+  "listTime": 1765872000000
+ },
+ {
+  "instId": "LINEA-USDT-SWAP",
+  "base": "LINEA",
+  "listTime": 1756735200376
+ },
+ {
+  "instId": "LIT-USDT-SWAP",
+  "base": "LIT",
+  "listTime": 1766547000000
+ },
+ {
+  "instId": "LITE-USDT-SWAP",
+  "base": "LITE",
+  "listTime": 1778231700000
+ },
+ {
+  "instId": "LLY-USDT-SWAP",
+  "base": "LLY",
+  "listTime": 1777300200000
+ },
+ {
+  "instId": "LQTY-USDT-SWAP",
+  "base": "LQTY",
+  "listTime": 1705053300717
+ },
+ {
+  "instId": "LRCX-USDT-SWAP",
+  "base": "LRCX",
+  "listTime": 1782208800000
+ },
+ {
+  "instId": "LUNA-USDT-SWAP",
+  "base": "LUNA",
+  "listTime": 1653746082125
+ },
+ {
+  "instId": "LUNR-USDT-SWAP",
+  "base": "LUNR",
+  "listTime": 1780306200000
+ },
+ {
+  "instId": "LYTE-USDT-SWAP",
+  "base": "LYTE",
+  "listTime": 1786958100000
+ },
+ {
+  "instId": "MAGIC-USDT-SWAP",
+  "base": "MAGIC",
+  "listTime": 1675321549791
+ },
+ {
+  "instId": "MARA-USDT-SWAP",
+  "base": "MARA",
+  "listTime": 1787824800000
+ },
+ {
+  "instId": "MCD-USDT-SWAP",
+  "base": "MCD",
+  "listTime": 1792141200000
+ },
+ {
+  "instId": "ME-USDT-SWAP",
+  "base": "ME",
+  "listTime": 1733844600107
+ },
+ {
+  "instId": "MEGA-USDT-SWAP",
+  "base": "MEGA",
+  "listTime": 1777550400000
+ },
+ {
+  "instId": "MEME-USDT-SWAP",
+  "base": "MEME",
+  "listTime": 1699001700715
+ },
+ {
+  "instId": "MERL-USDT-SWAP",
+  "base": "MERL",
+  "listTime": 1713522300606
+ },
+ {
+  "instId": "METIS-USDT-SWAP",
+  "base": "METIS",
+  "listTime": 1703757300614
+ },
+ {
+  "instId": "MET-USDT-SWAP",
+  "base": "MET",
+  "listTime": 1760084100254
+ },
+ {
+  "instId": "META-USDT-SWAP",
+  "base": "META",
+  "listTime": 1772613000000
+ },
+ {
+  "instId": "MEW-USDT-SWAP",
+  "base": "MEW",
+  "listTime": 1713169500531
+ },
+ {
+  "instId": "MINA-USDT-SWAP",
+  "base": "MINA",
+  "listTime": 1623229200000
+ },
+ {
+  "instId": "MINIMAX-USDT-SWAP",
+  "base": "MINIMAX",
+  "listTime": 1782285300000
+ },
+ {
+  "instId": "MMT-USDT-SWAP",
+  "base": "MMT",
+  "listTime": 1762259401259
+ },
+ {
+  "instId": "MON-USDT-SWAP",
+  "base": "MON",
+  "listTime": 1760083200427
+ },
+ {
+  "instId": "MOODENG-USDT-SWAP",
+  "base": "MOODENG",
+  "listTime": 1727938802849
+ },
+ {
+  "instId": "MOONSHOT-USDT-SWAP",
+  "base": "MOONSHOT",
+  "listTime": 1786957200000
+ },
+ {
+  "instId": "MORPHO-USDT-SWAP",
+  "base": "MORPHO",
+  "listTime": 1732528800980
+ },
+ {
+  "instId": "MOVE-USDT-SWAP",
+  "base": "MOVE",
+  "listTime": 1733749202646
+ },
+ {
+  "instId": "MP-USDT-SWAP",
+  "base": "MP",
+  "listTime": 1792489500000
+ },
+ {
+  "instId": "MRK-USDT-SWAP",
+  "base": "MRK",
+  "listTime": 1787823000000
+ },
+ {
+  "instId": "MRNA-USDT-SWAP",
+  "base": "MRNA",
+  "listTime": 1787302800000
+ },
+ {
+  "instId": "MRVL-USDT-SWAP",
+  "base": "MRVL",
+  "listTime": 1778581800000
+ },
+ {
+  "instId": "MSFT-USDT-SWAP",
+  "base": "MSFT",
+  "listTime": 1772611200000
+ },
+ {
+  "instId": "MSTR-USDT-SWAP",
+  "base": "MSTR",
+  "listTime": 1772013600000
+ },
+ {
+  "instId": "MSTU-USDT-SWAP",
+  "base": "MSTU",
+  "listTime": 1790154000000
+ },
+ {
+  "instId": "MU-USDT-SWAP",
+  "base": "MU",
+  "listTime": 1772608500000
+ },
+ {
+  "instId": "MUBARAK-USDT-SWAP",
+  "base": "MUBARAK",
+  "listTime": 1748946600286
+ },
+ {
+  "instId": "MUU-USDT-SWAP",
+  "base": "MUU",
+  "listTime": 1782984600000
+ },
+ {
+  "instId": "MVLL-USDT-SWAP",
+  "base": "MVLL",
+  "listTime": 1782983700000
+ },
+ {
+  "instId": "NAVER-USDT-SWAP",
+  "base": "NAVER",
+  "listTime": 1789537500000
+ },
+ {
+  "instId": "NBIS-USDT-SWAP",
+  "base": "NBIS",
+  "listTime": 1779182100000
+ },
+ {
+  "instId": "NEIRO-USDT-SWAP",
+  "base": "NEIRO",
+  "listTime": 1727939701217
+ },
+ {
+  "instId": "NES-USDT-SWAP",
+  "base": "NES",
+  "listTime": 1782307800000
+ },
+ {
+  "instId": "NET-USDT-SWAP",
+  "base": "NET",
+  "listTime": 1786523400000
+ },
+ {
+  "instId": "NFLX-USDT-SWAP",
+  "base": "NFLX",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "NG-USDT-SWAP",
+  "base": "NG",
+  "listTime": 1773133200000
+ },
+ {
+  "instId": "NIGHT-USDT-SWAP",
+  "base": "NIGHT",
+  "listTime": 1765279800000
+ },
+ {
+  "instId": "NKE-USDT-SWAP",
+  "base": "NKE",
+  "listTime": 1790935200000
+ },
+ {
+  "instId": "NMR-USDT-SWAP",
+  "base": "NMR",
+  "listTime": 1704959700642
+ },
+ {
+  "instId": "NOK-USDT-SWAP",
+  "base": "NOK",
+  "listTime": 1779878700000
+ },
+ {
+  "instId": "NOT-USDT-SWAP",
+  "base": "NOT",
+  "listTime": 1715862465350
+ },
+ {
+  "instId": "NOW-USDT-SWAP",
+  "base": "NOW",
+  "listTime": 1780399800000
+ },
+ {
+  "instId": "NVDA-USDT-SWAP",
+  "base": "NVDA",
+  "listTime": 1772607600000
+ },
+ {
+  "instId": "NVDL-USDT-SWAP",
+  "base": "NVDL",
+  "listTime": 1787826600000
+ },
+ {
+  "instId": "NVO-USDT-SWAP",
+  "base": "NVO",
+  "listTime": 1792659600000
+ },
+ {
+  "instId": "O-USDT-SWAP",
+  "base": "O",
+  "listTime": 1781713800000
+ },
+ {
+  "instId": "OFC-USDT-SWAP",
+  "base": "OFC",
+  "listTime": 1775732400000
+ },
+ {
+  "instId": "OKLO-USDT-SWAP",
+  "base": "OKLO",
+  "listTime": 1789982100000
+ },
+ {
+  "instId": "OKTA-USDT-SWAP",
+  "base": "OKTA",
+  "listTime": 1785402000000
+ },
+ {
+  "instId": "OL-USDT-SWAP",
+  "base": "OL",
+  "listTime": 1761732900938
+ },
+ {
+  "instId": "ON-USDT-SWAP",
+  "base": "ON",
+  "listTime": 1783329300000
+ },
+ {
+  "instId": "ONDO-USDT-SWAP",
+  "base": "ONDO",
+  "listTime": 1722940203957
+ },
+ {
+  "instId": "ONDS-USDT-SWAP",
+  "base": "ONDS",
+  "listTime": 1781604000000
+ },
+ {
+  "instId": "ONE-USDT-SWAP",
+  "base": "ONE",
+  "listTime": 1708426039038
+ },
+ {
+  "instId": "OP-USDT-SWAP",
+  "base": "OP",
+  "listTime": 1654055717137
+ },
+ {
+  "instId": "OPENAI-USDT-SWAP",
+  "base": "OPENAI",
+  "listTime": 1778145300000
+ },
+ {
+  "instId": "OPG-USDT-SWAP",
+  "base": "OPG",
+  "listTime": 1776934800000
+ },
+ {
+  "instId": "OPN-USDT-SWAP",
+  "base": "OPN",
+  "listTime": 1771847700000
+ },
+ {
+  "instId": "ORCL-USDT-SWAP",
+  "base": "ORCL",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "ORDI-USDT-SWAP",
+  "base": "ORDI",
+  "listTime": 1684662900862
+ },
+ {
+  "instId": "ORDER-USDT-SWAP",
+  "base": "ORDER",
+  "listTime": 1759245300953
+ },
+ {
+  "instId": "OSCR-USDT-SWAP",
+  "base": "OSCR",
+  "listTime": 1783332000000
+ },
+ {
+  "instId": "OURA-USDT-SWAP",
+  "base": "OURA",
+  "listTime": 1790157600000
+ },
+ {
+  "instId": "OUST-USDT-SWAP",
+  "base": "OUST",
+  "listTime": 1786959000000
+ },
+ {
+  "instId": "PANW-USDT-SWAP",
+  "base": "PANW",
+  "listTime": 1792662300000
+ },
+ {
+  "instId": "PARTI-USDT-SWAP",
+  "base": "PARTI",
+  "listTime": 1742909400471
+ },
+ {
+  "instId": "PENGU-USDT-SWAP",
+  "base": "PENGU",
+  "listTime": 1734450902264
+ },
+ {
+  "instId": "PENDLE-USDT-SWAP",
+  "base": "PENDLE",
+  "listTime": 1758093984811
+ },
+ {
+  "instId": "PENG-USDT-SWAP",
+  "base": "PENG",
+  "listTime": 1783675800000
+ },
+ {
+  "instId": "PEOPLE-USDT-SWAP",
+  "base": "PEOPLE",
+  "listTime": 1638427889758
+ },
+ {
+  "instId": "PEPE-USDT-SWAP",
+  "base": "PEPE",
+  "listTime": 1683086101049
+ },
+ {
+  "instId": "PI-USDT-SWAP",
+  "base": "PI",
+  "listTime": 1740042000388
+ },
+ {
+  "instId": "PIEVERSE-USDT-SWAP",
+  "base": "PIEVERSE",
+  "listTime": 1763263801177
+ },
+ {
+  "instId": "PIPPIN-USDT-SWAP",
+  "base": "PIPPIN",
+  "listTime": 1764687600000
+ },
+ {
+  "instId": "PLTR-USDT-SWAP",
+  "base": "PLTR",
+  "listTime": 1772090100000
+ },
+ {
+  "instId": "PLUME-USDT-SWAP",
+  "base": "PLUME",
+  "listTime": 1746689400330
+ },
+ {
+  "instId": "PNUT-USDT-SWAP",
+  "base": "PNUT",
+  "listTime": 1731382200304
+ },
+ {
+  "instId": "POET-USDT-SWAP",
+  "base": "POET",
+  "listTime": 1781603100000
+ },
+ {
+  "instId": "POL-USDT-SWAP",
+  "base": "POL",
+  "listTime": 1727166600128
+ },
+ {
+  "instId": "PONS-USDT-SWAP",
+  "base": "PONS",
+  "listTime": 1788577200000
+ },
+ {
+  "instId": "POPCAT-USDT-SWAP",
+  "base": "POPCAT",
+  "listTime": 1724922000651
+ },
+ {
+  "instId": "POPMART-USDT-SWAP",
+  "base": "POPMART",
+  "listTime": 1786519800000
+ },
+ {
+  "instId": "PROVE-USDT-SWAP",
+  "base": "PROVE",
+  "listTime": 1760700601003
+ },
+ {
+  "instId": "PROS-USDT-SWAP",
+  "base": "PROS",
+  "listTime": 1777384800000
+ },
+ {
+  "instId": "PUMP-USDT-SWAP",
+  "base": "PUMP",
+  "listTime": 1752514200381
+ },
+ {
+  "instId": "PURR-USDT-SWAP",
+  "base": "PURR",
+  "listTime": 1787303700000
+ },
+ {
+  "instId": "PYPL-USDT-SWAP",
+  "base": "PYPL",
+  "listTime": 1788426000000
+ },
+ {
+  "instId": "PYTH-USDT-SWAP",
+  "base": "PYTH",
+  "listTime": 1700492100712
+ },
+ {
+  "instId": "QCOM-USDT-SWAP",
+  "base": "QCOM",
+  "listTime": 1779183000000
+ },
+ {
+  "instId": "QNT-USDT-SWAP",
+  "base": "QNT",
+  "listTime": 1780655400000
+ },
+ {
+  "instId": "QQQ-USDT-SWAP",
+  "base": "QQQ",
+  "listTime": 1772613900000
+ },
+ {
+  "instId": "QUANT-USDT-SWAP",
+  "base": "QUANT",
+  "listTime": 1790841600000
+ },
+ {
+  "instId": "RAM-USDT-SWAP",
+  "base": "RAM",
+  "listTime": 1782985500000
+ },
+ {
+  "instId": "RAVE-USDT-SWAP",
+  "base": "RAVE",
+  "listTime": 1765785600000
+ },
+ {
+  "instId": "RAY-USDT-SWAP",
+  "base": "RAY",
+  "listTime": 1710239100609
+ },
+ {
+  "instId": "RDDT-USDT-SWAP",
+  "base": "RDDT",
+  "listTime": 1781776800000
+ },
+ {
+  "instId": "RDW-USDT-SWAP",
+  "base": "RDW",
+  "listTime": 1780305300000
+ },
+ {
+  "instId": "RE-USDT-SWAP",
+  "base": "RE",
+  "listTime": 1781692200000
+ },
+ {
+  "instId": "RECALL-USDT-SWAP",
+  "base": "RECALL",
+  "listTime": 1761819300976
+ },
+ {
+  "instId": "RENDER-USDT-SWAP",
+  "base": "RENDER",
+  "listTime": 1723105800136
+ },
+ {
+  "instId": "RESOLV-USDT-SWAP",
+  "base": "RESOLV",
+  "listTime": 1749565800438
+ },
+ {
+  "instId": "RIOT-USDT-SWAP",
+  "base": "RIOT",
+  "listTime": 1786522500000
+ },
+ {
+  "instId": "RIVER-USDT-SWAP",
+  "base": "RIVER",
+  "listTime": 1767942000000
+ },
+ {
+  "instId": "RIVN-USDT-SWAP",
+  "base": "RIVN",
+  "listTime": 1781775000000
+ },
+ {
+  "instId": "RKLB-USDT-SWAP",
+  "base": "RKLB",
+  "listTime": 1778580900000
+ },
+ {
+  "instId": "RLS-USDT-SWAP",
+  "base": "RLS",
+  "listTime": 1764688500000
+ },
+ {
+  "instId": "ROBO-USDT-SWAP",
+  "base": "ROBO",
+  "listTime": 1772206200000
+ },
+ {
+  "instId": "ROK-USDT-SWAP",
+  "base": "ROK",
+  "listTime": 1781256600000
+ },
+ {
+  "instId": "RUM-USDT-SWAP",
+  "base": "RUM",
+  "listTime": 1792486800000
+ },
+ {
+  "instId": "S-USDT-SWAP",
+  "base": "S",
+  "listTime": 1737450000523
+ },
+ {
+  "instId": "SAHARA-USDT-SWAP",
+  "base": "SAHARA",
+  "listTime": 1750941000359
+ },
+ {
+  "instId": "SAMSUNG-USDT-SWAP",
+  "base": "SAMSUNG",
+  "listTime": 1781070300000
+ },
+ {
+  "instId": "SAPIEN-USDT-SWAP",
+  "base": "SAPIEN",
+  "listTime": 1762429500524
+ },
+ {
+  "instId": "SATS-USDT-SWAP",
+  "base": "SATS",
+  "listTime": 1702889700612
+ },
+ {
+  "instId": "SECZ-USDT-SWAP",
+  "base": "SECZ",
+  "listTime": 1790937000000
+ },
+ {
+  "instId": "SEI-USDT-SWAP",
+  "base": "SEI",
+  "listTime": 1763105401238
+ },
+ {
+  "instId": "SENT-USDT-SWAP",
+  "base": "SENT",
+  "listTime": 1763132401716
+ },
+ {
+  "instId": "SHAZ-USDT-SWAP",
+  "base": "SHAZ",
+  "listTime": 1783674000000
+ },
+ {
+  "instId": "SHELL-USDT-SWAP",
+  "base": "SHELL",
+  "listTime": 1740657600557
+ },
+ {
+  "instId": "SHEIN-USDT-SWAP",
+  "base": "SHEIN",
+  "listTime": 1788332400000
+ },
+ {
+  "instId": "SHLD-USDT-SWAP",
+  "base": "SHLD",
+  "listTime": 1778580000000
+ },
+ {
+  "instId": "SHOP-USDT-SWAP",
+  "base": "SHOP",
+  "listTime": 1786015800000
+ },
+ {
+  "instId": "SIGN-USDT-SWAP",
+  "base": "SIGN",
+  "listTime": 1745839800340
+ },
+ {
+  "instId": "SIMO-USDT-SWAP",
+  "base": "SIMO",
+  "listTime": 1783331100000
+ },
+ {
+  "instId": "SKDD-USDT-SWAP",
+  "base": "SKDD",
+  "listTime": 1786353300000
+ },
+ {
+  "instId": "SKHYNIX-USDT-SWAP",
+  "base": "SKHYNIX",
+  "listTime": 1781070600000
+ },
+ {
+  "instId": "SKHY-USDT-SWAP",
+  "base": "SKHY",
+  "listTime": 1783699800000
+ },
+ {
+  "instId": "SKUU-USDT-SWAP",
+  "base": "SKUU",
+  "listTime": 1786352400000
+ },
+ {
+  "instId": "SKY-USDT-SWAP",
+  "base": "SKY",
+  "listTime": 1757590200404
+ },
+ {
+  "instId": "SLX-USDT-SWAP",
+  "base": "SLX",
+  "listTime": 1780291800000
+ },
+ {
+  "instId": "SMCI-USDT-SWAP",
+  "base": "SMCI",
+  "listTime": 1782294300000
+ },
+ {
+  "instId": "SMH-USDT-SWAP",
+  "base": "SMH",
+  "listTime": 1781773200000
+ },
+ {
+  "instId": "SNDK-USDT-SWAP",
+  "base": "SNDK",
+  "listTime": 1772609400000
+ },
+ {
+  "instId": "SNOW-USDT-SWAP",
+  "base": "SNOW",
+  "listTime": 1784287800000
+ },
+ {
+  "instId": "SNXX-USDT-SWAP",
+  "base": "SNXX",
+  "listTime": 1784030400000
+ },
+ {
+  "instId": "SOFTBANK-USDT-SWAP",
+  "base": "SOFTBANK",
+  "listTime": 1782970200000
+ },
+ {
+  "instId": "SOFI-USDT-SWAP",
+  "base": "SOFI",
+  "listTime": 1791969300000
+ },
+ {
+  "instId": "SONY-USDT-SWAP",
+  "base": "SONY",
+  "listTime": 1782293400000
+ },
+ {
+  "instId": "SOON-USDT-SWAP",
+  "base": "SOON",
+  "listTime": 1747999800456
+ },
+ {
+  "instId": "SOPH-USDT-SWAP",
+  "base": "SOPH",
+  "listTime": 1748439000413
+ },
+ {
+  "instId": "SOXL-USDT-SWAP",
+  "base": "SOXL",
+  "listTime": 1779181200000
+ },
+ {
+  "instId": "SOXS-USDT-SWAP",
+  "base": "SOXS",
+  "listTime": 1784278800000
+ },
+ {
+  "instId": "SPACE-USDT-SWAP",
+  "base": "SPACE",
+  "listTime": 1769173200000
+ },
+ {
+  "instId": "SPCX-USDT-SWAP",
+  "base": "SPCX",
+  "listTime": 1778144400000
+ },
+ {
+  "instId": "SPCH-USDT-SWAP",
+  "base": "SPCH",
+  "listTime": 1788336900000
+ },
+ {
+  "instId": "SPK-USDT-SWAP",
+  "base": "SPK",
+  "listTime": 1750156200346
+ },
+ {
+  "instId": "SPX-USDT-SWAP",
+  "base": "SPX",
+  "listTime": 1752728400453
+ },
+ {
+  "instId": "SPY-USDT-SWAP",
+  "base": "SPY",
+  "listTime": 1772614800000
+ },
+ {
+  "instId": "SQQQ-USDT-SWAP",
+  "base": "SQQQ",
+  "listTime": 1784031300000
+ },
+ {
+  "instId": "SSV-USDT-SWAP",
+  "base": "SSV",
+  "listTime": 1700711700717
+ },
+ {
+  "instId": "STABLE-USDT-SWAP",
+  "base": "STABLE",
+  "listTime": 1765200600000
+ },
+ {
+  "instId": "STRK-USDT-SWAP",
+  "base": "STRK",
+  "listTime": 1708433700141
+ },
+ {
+  "instId": "STRC-USDT-SWAP",
+  "base": "STRC",
+  "listTime": 1782725400000
+ },
+ {
+  "instId": "STX-USDT-SWAP",
+  "base": "STX",
+  "listTime": 1676969758164
+ },
+ {
+  "instId": "SUI-USDT-SWAP",
+  "base": "SUI",
+  "listTime": 1683258900891
+ },
+ {
+  "instId": "SYRUP-USDT-SWAP",
+  "base": "SYRUP",
+  "listTime": 1751524200291
+ },
+ {
+  "instId": "TAO-USDT-SWAP",
+  "base": "TAO",
+  "listTime": 1726808400182
+ },
+ {
+  "instId": "TEAM-USDT-SWAP",
+  "base": "TEAM",
+  "listTime": 1789983900000
+ },
+ {
+  "instId": "TEM-USDT-SWAP",
+  "base": "TEM",
+  "listTime": 1789983000000
+ },
+ {
+  "instId": "TER-USDT-SWAP",
+  "base": "TER",
+  "listTime": 1781601300000
+ },
+ {
+  "instId": "TIA-USDT-SWAP",
+  "base": "TIA",
+  "listTime": 1698776700675
+ },
+ {
+  "instId": "TLT-USDT-SWAP",
+  "base": "TLT",
+  "listTime": 1791971100000
+ },
+ {
+  "instId": "TMF-USDT-SWAP",
+  "base": "TMF",
+  "listTime": 1785315600000
+ },
+ {
+  "instId": "GRAM-USDT-SWAP",
+  "base": "GRAM",
+  "listTime": 1781692200000
+ },
+ {
+  "instId": "TQQQ-USDT-SWAP",
+  "base": "TQQQ",
+  "listTime": 1782982800000
+ },
+ {
+  "instId": "TRIA-USDT-SWAP",
+  "base": "TRIA",
+  "listTime": 1770276600000
+ },
+ {
+  "instId": "TRUMP-USDT-SWAP",
+  "base": "TRUMP",
+  "listTime": 1737264604112
+ },
+ {
+  "instId": "TRUST-USDT-SWAP",
+  "base": "TRUST",
+  "listTime": 1762342200957
+ },
+ {
+  "instId": "TRUTH-USDT-SWAP",
+  "base": "TRUTH",
+  "listTime": 1764329400000
+ },
+ {
+  "instId": "TSEM-USDT-SWAP",
+  "base": "TSEM",
+  "listTime": 1782384300000
+ },
+ {
+  "instId": "TSLA-USDT-SWAP",
+  "base": "TSLA",
+  "listTime": 1772010000000
+ },
+ {
+  "instId": "TSLL-USDT-SWAP",
+  "base": "TSLL",
+  "listTime": 1787825700000
+ },
+ {
+  "instId": "TSM-USDT-SWAP",
+  "base": "TSM",
+  "listTime": 1773223200000
+ },
+ {
+  "instId": "TTMI-USDT-SWAP",
+  "base": "TTMI",
+  "listTime": 1782209700000
+ },
+ {
+  "instId": "TTWO-USDT-SWAP",
+  "base": "TTWO",
+  "listTime": 1783332900000
+ },
+ {
+  "instId": "TURBO-USDT-SWAP",
+  "base": "TURBO",
+  "listTime": 1702547700612
+ },
+ {
+  "instId": "TWLO-USDT-SWAP",
+  "base": "TWLO",
+  "listTime": 1781254800000
+ },
+ {
+  "instId": "TWST-USDT-SWAP",
+  "base": "TWST",
+  "listTime": 1792490400000
+ },
+ {
+  "instId": "TXN-USDT-SWAP",
+  "base": "TXN",
+  "listTime": 1791968400000
+ },
+ {
+  "instId": "UB-USDT-SWAP",
+  "base": "UB",
+  "listTime": 1777383000000
+ },
+ {
+  "instId": "UNH-USDT-SWAP",
+  "base": "UNH",
+  "listTime": 1783333800000
+ },
+ {
+  "instId": "UNITREE-USDT-SWAP",
+  "base": "UNITREE",
+  "listTime": 1787116500000
+ },
+ {
+  "instId": "UP-USDT-SWAP",
+  "base": "UP",
+  "listTime": 1775646000000
+ },
+ {
+  "instId": "URNM-USDT-SWAP",
+  "base": "URNM",
+  "listTime": 1779354900000
+ },
+ {
+  "instId": "US100-USDT-SWAP",
+  "base": "US100",
+  "listTime": 1789031700000
+ },
+ {
+  "instId": "US500-USDT-SWAP",
+  "base": "US500",
+  "listTime": 1789030800000
+ },
+ {
+  "instId": "USAR-USDT-SWAP",
+  "base": "USAR",
+  "listTime": 1777298400000
+ },
+ {
+  "instId": "USDC-USDT-SWAP",
+  "base": "USDC",
+  "listTime": 1678607700793
+ },
+ {
+  "instId": "USELESS-USDT-SWAP",
+  "base": "USELESS",
+  "listTime": 1753437600380
+ },
+ {
+  "instId": "USO-USDT-SWAP",
+  "base": "USO",
+  "listTime": 1778493600000
+ },
+ {
+  "instId": "UVXY-USDT-SWAP",
+  "base": "UVXY",
+  "listTime": 1782291600000
+ },
+ {
+  "instId": "V-USDT-SWAP",
+  "base": "V",
+  "listTime": 1792143000000
+ },
+ {
+  "instId": "VANA-USDT-SWAP",
+  "base": "VANA",
+  "listTime": 1734408000582
+ },
+ {
+  "instId": "VICR-USDT-SWAP",
+  "base": "VICR",
+  "listTime": 1791970200000
+ },
+ {
+  "instId": "VIRTUAL-USDT-SWAP",
+  "base": "VIRTUAL",
+  "listTime": 1733911200140
+ },
+ {
+  "instId": "VRT-USDT-SWAP",
+  "base": "VRT",
+  "listTime": 1779960600000
+ },
+ {
+  "instId": "VST-USDT-SWAP",
+  "base": "VST",
+  "listTime": 1792657800000
+ },
+ {
+  "instId": "VVV-USDT-SWAP",
+  "base": "VVV",
+  "listTime": 1783058400000
+ },
+ {
+  "instId": "W-USDT-SWAP",
+  "base": "W",
+  "listTime": 1712147100572
+ },
+ {
+  "instId": "WAL-USDT-SWAP",
+  "base": "WAL",
+  "listTime": 1746687600526
+ },
+ {
+  "instId": "WCT-USDT-SWAP",
+  "base": "WCT",
+  "listTime": 1744716600433
+ },
+ {
+  "instId": "WDC-USDT-SWAP",
+  "base": "WDC",
+  "listTime": 1778582700000
+ },
+ {
+  "instId": "WEN-USDT-SWAP",
+  "base": "WEN",
+  "listTime": 1782383400000
+ },
+ {
+  "instId": "WET-USDT-SWAP",
+  "base": "WET",
+  "listTime": 1765296000000
+ },
+ {
+  "instId": "WIF-USDT-SWAP",
+  "base": "WIF",
+  "listTime": 1713173100603
+ },
+ {
+  "instId": "WLD-USDT-SWAP",
+  "base": "WLD",
+  "listTime": 1690199721595
+ },
+ {
+  "instId": "WLFI-USDT-SWAP",
+  "base": "WLFI",
+  "listTime": 1755954000424
+ },
+ {
+  "instId": "WMT-USDT-SWAP",
+  "base": "WMT",
+  "listTime": 1787823900000
+ },
+ {
+  "instId": "WOO-USDT-SWAP",
+  "base": "WOO",
+  "listTime": 1676357700337
+ },
+ {
+  "instId": "XAG-USDT-SWAP",
+  "base": "XAG",
+  "listTime": 1769601600000
+ },
+ {
+  "instId": "XAU-USDT-SWAP",
+  "base": "XAU",
+  "listTime": 1744192800563
+ },
+ {
+  "instId": "XBI-USDT-SWAP",
+  "base": "XBI",
+  "listTime": 1784032200000
+ },
+ {
+  "instId": "XCU-USDT-SWAP",
+  "base": "XCU",
+  "listTime": 1772625600000
+ },
+ {
+  "instId": "XDP-USDT-SWAP",
+  "base": "XDP",
+  "listTime": 1790604000000
+ },
+ {
+  "instId": "XIAOMI-USDT-SWAP",
+  "base": "XIAOMI",
+  "listTime": 1786520700000
+ },
+ {
+  "instId": "XLE-USDT-SWAP",
+  "base": "XLE",
+  "listTime": 1778494500000
+ },
+ {
+  "instId": "XOM-USDT-SWAP",
+  "base": "XOM",
+  "listTime": 1789032600000
+ },
+ {
+  "instId": "XPL-USDT-SWAP",
+  "base": "XPL",
+  "listTime": 1756378800384
+ },
+ {
+  "instId": "XPT-USDT-SWAP",
+  "base": "XPT",
+  "listTime": 1770013800000
+ },
+ {
+  "instId": "YB-USDT-SWAP",
+  "base": "YB",
+  "listTime": 1760252400368
+ },
+ {
+  "instId": "YGG-USDT-SWAP",
+  "base": "YGG",
+  "listTime": 1628240400000
+ },
+ {
+  "instId": "ZAMA-USDT-SWAP",
+  "base": "ZAMA",
+  "listTime": 1767969000000
+ },
+ {
+  "instId": "ZBT-USDT-SWAP",
+  "base": "ZBT",
+  "listTime": 1760700600342
+ },
+ {
+  "instId": "ZEN-USDT-SWAP",
+  "base": "ZEN",
+  "listTime": 1762149601773
+ },
+ {
+  "instId": "ZETA-USDT-SWAP",
+  "base": "ZETA",
+  "listTime": 1706757900607
+ },
+ {
+  "instId": "ZHIPU-USDT-SWAP",
+  "base": "ZHIPU",
+  "listTime": 1782284400000
+ },
+ {
+  "instId": "ZHONGJI-USDT-SWAP",
+  "base": "ZHONGJI",
+  "listTime": 1788933600000
+ },
+ {
+  "instId": "ZK-USDT-SWAP",
+  "base": "ZK",
+  "listTime": 1718699100579
+ },
+ {
+  "instId": "ZKP-USDT-SWAP",
+  "base": "ZKP",
+  "listTime": 1767793500000
+ },
+ {
+  "instId": "ZM-USDT-SWAP",
+  "base": "ZM",
+  "listTime": 1784279700000
+ },
+ {
+  "instId": "ZORA-USDT-SWAP",
+  "base": "ZORA",
+  "listTime": 1760095801229
+ },
+ {
+  "instId": "ZRO-USDT-SWAP",
+  "base": "ZRO",
+  "listTime": 1718886300653
+ },
+ {
+  "instId": "XPD-USDT-SWAP",
+  "base": "XPD",
+  "listTime": 1770012000000
+ },
+ {
+  "instId": "EWT-USDT-SWAP",
+  "base": "EWT",
+  "listTime": 1780480800000
+ }
+]
