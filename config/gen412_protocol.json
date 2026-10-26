@@ -1,0 +1,15 @@
+{
+  "gen": 412,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]; family not tested before: intraday timing",
+  "conventions": "hourly returns R[label t] = return over [t, t+1h); positions decided with information up to t; funding stamped at s is charged in the hour ending at s; 5 bp per side on position changes; each sleeve added to v9.5 through portfolio_v5 (equal risk)",
+  "trials": {
+    "A intraday momentum BTC/ETH": "per coin, r = return 00:00 -> 22:00 UTC of the day; hold 0.5 x sign(r) during 22:00-24:00 UTC, flat otherwise",
+    "B hour-of-week seasonality BTC/ETH": "per coin and hour-of-week, mean and t-stat of R over the previous 104 weeks (min 52, current week excluded); hold 0.5 x sign(mean) in that hour when |t| > 2, else flat",
+    "C pre-funding fade, 6 majors": "BTC ETH SOL XRP BNB DOGE; in the hour ending at each funding stamp (00/08/16 UTC), with f = the previous realised funding rate: -0.5 if f > 0.0002, +0.5 if f < 0, else flat (funding of the stamp is paid/received)",
+    "D post-funding rebound, 6 majors": "same coins; in the hour after each stamp, with f = the rate just stamped: +0.5 if f > 0.0002, -0.5 if f < 0, else flat"
+  },
+  "pass": "strict rule vs v9.5 (2022-26 +0.05 and no period lower); with several passes the highest 2022-26 Sharpe; sleeve Sharpes reported per period",
+  "trials_added": 4,
+  "no_changes_after_results": true
+}
