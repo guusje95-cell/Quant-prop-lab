@@ -1765,3 +1765,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen434 (2026-10-26): pace of new listings as a froth signal (`results/gen434.json`)
 - A BTC/ETH basket member 0.17 / -1.11 / -0.27, book 3.126; B alt short sleeve -0.07 / -1.32 / -0.31, book 2.961. **Both fail.**
+
+## Gen435 (2026-10-26): the futures book as a sleeve via TradFi perps (`results/gen435.json`)
+- Futures book (minus a 4% a year perp funding drag): 0.76 / 0.57 / 0.49, daily corr with v9.6 0.01; book 3.160 [2.763, 3.934, 2.568]. **Fails**: an uncorrelated Sharpe-0.5 sleeve cannot move a 3.2 book (the ceiling is about sqrt(3.16^2 + 0.6^2) = 3.22 even at the optimal weight).
