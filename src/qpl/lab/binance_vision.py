@@ -224,9 +224,58 @@ def build_pit(symbols):
     print("point-in-time pack ->", pack, "(commit: git add research_data/binance_pit && git commit && git push)")
 
 
+def metrics_fast(symbol: str, first: pd.Timestamp, last: pd.Timestamp, workers: int = 8) -> Path:
+    """Daily metrics files only for the days the coin traded (first..last), 8 in parallel, cached per month (resumable)."""
+    from concurrent.futures import ThreadPoolExecutor
+    start = max(pd.Timestamp("2021-12-01"), first.normalize())
+    cache = OUT / "cache" / f"{symbol}_metrics"; cache.mkdir(parents=True, exist_ok=True)
+    today = pd.Timestamp.now("UTC").tz_localize(None).normalize()
+    for m in _months(str(start.date()), str(min(last, today).date())):
+        f = cache / f"{m:%Y-%m}.parquet"
+        if f.exists() and _read_ok(f) is not None:
+            continue
+        days = [d for d in pd.date_range(max(m, start), m + pd.offsets.MonthEnd(0)) if d <= last.normalize() and d < today]
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            rows = [x for x in ex.map(lambda d: _zip_csv(f"{BASE}/daily/metrics/{symbol}/{symbol}-metrics-{d:%Y-%m-%d}.zip"), days) if x is not None]
+        if rows:
+            df = pd.concat(rows); df["time"] = pd.to_datetime(df["create_time"])
+            df.drop(columns=[c for c in ("create_time", "symbol") if c in df]).to_parquet(f)
+            print(f"  {symbol} metrics {m:%Y-%m}: {len(df)} rows", flush=True)
+    parts = [x for x in (_read_ok(p) for p in sorted(cache.glob("*.parquet"))) if x is not None]
+    out = OUT / f"{symbol}_metrics.parquet"
+    if parts:
+        pd.concat(parts).drop_duplicates("time").sort_values("time").to_parquet(out)
+    return out
+
+
+def build_cascade_pit(symbols):
+    """Gen410 (cascade survivorship check): research_data/binance_pit/<SYM>_hl_1h (open/high/low/close/quote volume) and _oi_1h."""
+    import json
+    pack = ROOT / "research_data" / "binance_pit"; pack.mkdir(parents=True, exist_ok=True)
+    for i, sym in enumerate(symbols):
+        try:
+            k = OUT / f"{sym}_1h.parquet"
+            if not k.exists():
+                k = klines(sym, "2020-01", "1h")
+            if not k.exists():
+                print(sym, "no klines", flush=True); continue
+            d = pd.read_parquet(k).set_index("time")
+            d[["open", "high", "low", "close", "quote_volume"]].astype("float32").to_parquet(pack / f"{sym}_hl_1h.parquet", compression="zstd")
+            idx = pd.DatetimeIndex(d.index)
+            m = metrics_fast(sym, idx.min(), idx.max())
+            if m.exists():
+                x = pd.read_parquet(m); x["time"] = pd.to_datetime(x["time"])
+                oi = x.set_index("time")["sum_open_interest_value"].astype(float).resample("1h").last()
+                pd.DataFrame({"oi_value": oi.astype("float32")}).to_parquet(pack / f"{sym}_oi_1h.parquet", compression="zstd")
+        except Exception as e:
+            print(sym, "FAILED:", e, flush=True)
+        print(f"{i + 1}/{len(symbols)} {sym} done", flush=True)
+    print("cascade pit pack ->", pack, "(commit: git add research_data/binance_pit && git commit && git push)")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build", "extra", "pit"])
+    ap.add_argument("what", choices=["klines", "metrics", "funding", "premium", "all", "build", "extra", "pit", "cascadepit"])
     ap.add_argument("--symbols", nargs="*", default=RESEARCH_SET)
     ap.add_argument("--start", default=None)
     ap.add_argument("--interval", default="1m")
@@ -234,6 +283,10 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     if a.what == "build":
         build(); return
+    if a.what == "cascadepit":                              # Gen410: high/low + open interest for the point-in-time cascade universe
+        import json
+        syms = json.load(open(ROOT / "config/cascade_pit_symbols.json"))["symbols"]
+        print(len(syms), "symbols (resumable)", flush=True); build_cascade_pit(syms); return
     if a.what == "pit":                                     # Gen321: every USDT perp ever listed (delisted too), hourly close/volume, funding, premium
         have = set(RESEARCH_SET) | set(EXTRA_SET)
         syms = [x for x in all_um_symbols() if x not in have]

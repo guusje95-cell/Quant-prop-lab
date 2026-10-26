@@ -1,0 +1,152 @@
+{
+ "backtest Sharpe 2022-26": 2.976,
+ "planning Sharpe": {
+  "N=300": 1.648,
+  "N=1000": 1.483,
+  "N=1770": 1.41
+ },
+ "backtest": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 162456,
+    "p10": 76421,
+    "P_profit": 0.995
+   },
+   "2 CFT $200k": {
+    "mean": 159062,
+    "p10": 76940,
+    "P_profit": 0.993
+   },
+   "3 MyFundedPerps $100k": {
+    "mean": 50602,
+    "p10": 12160,
+    "P_profit": 0.968
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 162456,
+    "p10": 76421,
+    "P_loss": 0.005
+   },
+   "HyroTrader + CFT": {
+    "mean": 321517,
+    "p10": 151184,
+    "P_loss": 0.005
+   },
+   "HyroTrader + CFT + MyFundedPerps": {
+    "mean": 372119,
+    "p10": 159421,
+    "P_loss": 0.0
+   }
+  }
+ },
+ "planning N=1770": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 51846,
+    "p10": -4845,
+    "P_profit": 0.833
+   },
+   "2 CFT $200k": {
+    "mean": 54329,
+    "p10": -6000,
+    "P_profit": 0.825
+   },
+   "3 MyFundedPerps $100k": {
+    "mean": 10886,
+    "p10": -3480,
+    "P_profit": 0.67
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 51846,
+    "p10": -4845,
+    "P_loss": 0.168
+   },
+   "HyroTrader + CFT": {
+    "mean": 106175,
+    "p10": -10845,
+    "P_loss": 0.158
+   },
+   "HyroTrader + CFT + MyFundedPerps": {
+    "mean": 117061,
+    "p10": -11941,
+    "P_loss": 0.16
+   }
+  }
+ },
+ "planning N=300": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 66271,
+    "p10": -2091,
+    "P_profit": 0.885
+   },
+   "2 CFT $200k": {
+    "mean": 69890,
+    "p10": -1887,
+    "P_profit": 0.897
+   },
+   "3 MyFundedPerps $100k": {
+    "mean": 15019,
+    "p10": -3480,
+    "P_profit": 0.772
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 66271,
+    "p10": -2091,
+    "P_loss": 0.115
+   },
+   "HyroTrader + CFT": {
+    "mean": 136161,
+    "p10": 715,
+    "P_loss": 0.098
+   },
+   "HyroTrader + CFT + MyFundedPerps": {
+    "mean": 151180,
+    "p10": 3310,
+    "P_loss": 0.092
+   }
+  }
+ },
+ "weak live 1.0": {
+  "per account": {
+   "1 HyroTrader $200k": {
+    "mean": 31621,
+    "p10": -4845,
+    "P_profit": 0.69
+   },
+   "2 CFT $200k": {
+    "mean": 33847,
+    "p10": -6000,
+    "P_profit": 0.703
+   },
+   "3 MyFundedPerps $100k": {
+    "mean": 6027,
+    "p10": -3480,
+    "P_profit": 0.562
+   }
+  },
+  "stack": {
+   "HyroTrader": {
+    "mean": 31621,
+    "p10": -4845,
+    "P_loss": 0.31
+   },
+   "HyroTrader + CFT": {
+    "mean": 65468,
+    "p10": -10845,
+    "P_loss": 0.295
+   },
+   "HyroTrader + CFT + MyFundedPerps": {
+    "mean": 71496,
+    "p10": -14325,
+    "P_loss": 0.275
+   }
+  }
+ }
+}

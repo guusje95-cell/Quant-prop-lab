@@ -1,3 +1,26 @@
+# Roll-out plan (updated 2026-10-26 for v9.5)
+
+**Book: v9.5** (accepted 2026-10-25; paper `paper_v95_start.bat`): K1 sleeves (C\* point-in-time top-10, cascade, trend 4h ensemble, Weiss, deleveraging bounce, ridge ML, alt kimchi ensemble) + diversifier basket (8 BTC/ETH signals) + relative crowding (6 coins, market neutral; replicated on Bybit, Gen406). Backtest 2.98.
+
+**Planning Sharpe (deflated, `results/plan_v95.json`): 1.41 counting all 1,770 trials of the project, 1.48 at 1,000, 1.65 at 300.**
+
+| Per account, 2 years, 2025-26 bootstrap (challenge 2.0 / funded 1.5 / stop 2.5%) | Mean net | Bad case (p10) | P(profit) |
+|---|---|---|---|
+| HyroTrader 2-Step $200k, planning 1.41 | **$52k** | -$5k (fees) | **0.83** |
+| CFT 2-Phase $200k, planning 1.41 | $54k | -$6k | 0.83 |
+| MyFundedPerps $100k (1.0 / 2.0 / 0.4 of 3%), planning 1.41 | $11k | -$3.5k | 0.67 |
+| HyroTrader, planning 1.65 (N = 300) | $66k | -$2k | 0.89 |
+| HyroTrader, weak live 1.0 | $32k | -$5k | 0.69 |
+| HyroTrader, backtest level | $162k | $76k | 0.995 |
+
+- HyroTrader + CFT together at planning 1.41: $106k mean, P(total loss) 0.16 (the accounts move together).
+- **Plan: start with ONE account (HyroTrader or CFT, whichever confirms bots + Netherlands first) after v95 paper GO; add the second only once live results support Sharpe >= 1.4; MyFundedPerps is marginal (P(profit) 0.67).**
+- BrightFunded (MT5 CFDs) needs its own honest version of the book (bf2.6 had the withdrawn carry sleeves); not in the plan until that exists.
+
+---
+
+## Earlier version (2026-10-24 / 25), kept for the record
+
 # Roll-out plan (2026-10-24, updated 2026-10-25 after Gen321-374)
 
 **Update 2026-10-25:** the survivorship tests (Gen321 / 326 / 372-374) withdrew the wide carry and the stress book. The live candidate is now **K1 / v9.0** (C\* on a monthly point-in-time top-10, cascade, trend 4h, Weiss, deleveraging bounce, ridge ML, alt kimchi; no carry): backtest 2.39, **planning Sharpe about 0.85-1.1** (Gen377, the deflated-Sharpe method used for the old 1.78; the 1.37 from Gen373 was too optimistic). At planning level 0.84 one HyroTrader / CFT $200k account is about **$25-27k over 2 years, bad case about -$5k, P(profit) about 0.70-0.74**; all four planned accounts about $85k, P(total loss) 0.21 (Gen377). **Start with ONE account; add more only after paper / live results support a Sharpe of 1.5+.** Dollar figures in the table below are the OLD v8.6 numbers; scale them by about 0.8 (net) and expect much smaller bad cases.

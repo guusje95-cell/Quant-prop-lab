@@ -1,0 +1,10 @@
+{
+  "gen": 410,
+  "date": "2026-10-26",
+  "registered": "before the data exists (get_cascade_pit.bat)",
+  "question": "is the cascade sleeve (liquidation-cascade buy on today's 20 pack coins; the 2nd largest contributor to v9.5) inflated by survivorship?",
+  "test": "the frozen cascade rule (k 3, OI drop > 5%, volume > 95th pct, limit 0.5% / 0.1% through, hold 12 h, ATR stop, max 3 open, size 0.2) on the point-in-time top-20 by trailing 30-day quote volume (monthly, >= 60 days listed, TradFi excluded, delisted included) using pack / extra / pit data",
+  "judgement": "v9.5 with the point-in-time cascade replacing the pack-coin cascade: if the 2022-26 Sharpe falls by more than 0.10, the planning Sharpe and the account plan are revised down with it and the live cascade switches to the point-in-time universe; otherwise v9.5 stays",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
