@@ -1,0 +1,11 @@
+{
+  "gen": 455,
+  "date": "2026-10-26",
+  "registered": "before downloading; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "question": "alt kimchi breadth / survivorship: the frozen alt kimchi ensemble (th 0.75 / 1.0 / 1.25, +-0.1 per coin, Upbit KRW vs Binance perp, 30-day z, previous-day USD/KRW) on every coin that is in the point-in-time Binance top-30 (ex BTC/ETH, TradFi excluded) at the signal day AND has an Upbit KRW market today (Upbit no longer serves delisted markets: the survivorship on the Upbit side remains)",
+  "data": "Upbit KRW hourly candles (public api.upbit.com) for the coins not yet in research_data/more, same file format",
+  "trials": {"A alt kimchi point-in-time top-30 with Upbit": "replaces the alt kimchi sleeve (fixed 16 pack altcoins) in v9.7"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
