@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]; sys.path.insert(0, str(ROOT / "scrip
 src = open(ROOT / "scripts/gen401_rc_freq.py").read().split("\nout = {")[0]
 g = {"__file__": str(ROOT / "scripts/gen401_rc_freq.py")}; exec(compile(src, "g401", "exec"), g)
 shp, per, unit, CS, V, B, C6, rc6, a, bsm, pnl, days = (g[k] for k in ("shp", "per", "unit", "CS", "V", "B", "C6", "rc6", "a", "bsm", "pnl", "days"))
-z = g["z"]
+z = lambda x, w: (x - x.rolling(w, min_periods=int(w * 0.7)).mean()) / x.rolling(w, min_periods=int(w * 0.7)).std()
 V5 = V.assign(**{"relative crowding 6": (rc6 + a + bsm) / 3}); v95 = unit(CS.portfolio_v5(V5)[0]); REF = (shp(v95), per(v95))
 def dly(s):                                                    # value of day d at row d + 1 (same convention as the crowding sleeve's daily())
     s = s.copy(); s.index = pd.DatetimeIndex(s.index).floor("D"); return s.groupby(level=0).mean().reindex(days).ffill().shift(1)
