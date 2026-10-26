@@ -1,0 +1,10 @@
+{
+  "gen": 451,
+  "date": "2026-10-26",
+  "flagged": "POST HOC follow-up of Gen450 (offered to the user before running)",
+  "registered": "before running",
+  "trials": {"A cascade on BTC / ETH / SOL only": "the frozen cascade rule on BTC, ETH and SOL (deep, hard-to-manipulate markets; negligible survivorship), max 3 open, size 0.2"},
+  "decision": "reference = v9.6 without cascade (honest, Gen450 B: 3.012 [2.495, 3.784, 2.509]); keep the BTC/ETH/SOL cascade only if it passes the strict rule against that reference; otherwise v9.7 = v9.6 without cascade",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
