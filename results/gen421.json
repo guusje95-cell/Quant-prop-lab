@@ -1,0 +1,64 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "reference rebuilt basket": [
+  2.996,
+  [
+   2.382,
+   3.869,
+   2.447
+  ]
+ ],
+ "trials": {
+  "A COIN-M leverage build-up": {
+   "member": [
+    0.067,
+    0.273,
+    -0.274
+   ],
+   "corr basket": 0.07,
+   "basket": [
+    3.2,
+    2.819,
+    1.203
+   ],
+   "book": [
+    3.005,
+    [
+     2.34,
+     3.913,
+     2.434
+    ]
+   ],
+   "pass": false
+  },
+  "B COIN-M vs USDT-M taker divergence": {
+   "member": [
+    -2.818,
+    -0.202,
+    -1.724
+   ],
+   "corr basket": -0.01,
+   "basket": [
+    1.948,
+    2.884,
+    0.711
+   ],
+   "book": [
+    2.875,
+    [
+     2.12,
+     3.839,
+     2.299
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
