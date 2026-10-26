@@ -1,0 +1,60 @@
+{
+ "reference v9.6 (research)": [
+  3.161,
+  [
+   2.775,
+   3.919,
+   2.576
+  ]
+ ],
+ "reference v9.6 (live timing, this code)": [
+  3.169,
+  [
+   2.751,
+   3.949,
+   2.579
+  ]
+ ],
+ "spot events": 31,
+ "spot events per year": {
+  "2023": 2,
+  "2024": 2,
+  "2025": 19,
+  "2026": 8
+ },
+ "A spot-listing short as its own sleeve": {
+  "sleeve": [
+   NaN,
+   -2.081,
+   -1.016
+  ],
+  "corr listing short": 0.24,
+  "book": [
+   2.994,
+   [
+    2.751,
+    3.949,
+    2.092
+   ]
+  ],
+  "pass": false,
+  "pass vs live-timing reference too": false
+ },
+ "B merged into the listing short": {
+  "sleeve": [
+   1.514,
+   -0.292,
+   0.193
+  ],
+  "book": [
+   3.145,
+   [
+    2.751,
+    3.933,
+    2.531
+   ]
+  ],
+  "pass": false,
+  "pass vs live-timing reference too": false
+ }
+}

@@ -1738,3 +1738,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - Live module timing = the framework's (position in [t, t+1h) from closes known at t; stop and entry one hour after the triggering close, as in Gen426; a coin with a missing latest bar is flat). On the research data: book 3.169 [2.751, 3.949, 2.579] (Gen426 3.161; its script booked each hourly return one bar late, daily corr 0.95). Paper code on the research pack 3.191 [2.746, 3.998, 2.582], corr 0.977 with research v9.6; scale 0.90.
 - Bot (dry-run) now reads the v96 book; `Rules.lowcap_cap_frac` 0.05 caps listing-short coins (HyroTrader low-cap rule).
 - **Paper v9.6 selftest PASSED** (24 cutoffs incl. a listing entry and a 30% stop, max |difference| 1.7e-18). v95 paper output unchanged (max diff 0 vs `cache_v95_final`).
+- Note: the paper v9.6 wiring (paper_v5.py, binance_public.update_listings, bot cap, launchers' config) went into commit "Gen427: judge as registered ..." together with that one-line change, plus the following "Paper v9.6" commit.
+
+## Gen427 (2026-10-26): short after a later Binance spot listing (`results/gen427.json`)
+- 31 events (spot listing >= 3 days after the perp; 2023 2, 2024 2, 2025 19, 2026 8). Own sleeve - / -2.08 / -1.02, book 2.994; merged into the listing short 1.51 / -0.29 / 0.19, book 3.145. **Both fail** vs v9.6 3.161 (live-timing reference 3.169). A spot listing after the perp is not a second sell event.
