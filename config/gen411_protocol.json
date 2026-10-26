@@ -1,0 +1,13 @@
+{
+  "gen": 411,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]",
+  "trials": {
+    "A relative crowding weight x1.5": "the relative crowding 6 sleeve with its portfolio_v5 weight x 1.5 (market neutral, corr -0.09: mean-variance argues for more weight)",
+    "B + 4-hourly component": "the relative crowding sleeve = mean of daily, 3-day, 8-hourly AND 4-hourly versions (4-hour bars, z over 540 bars)",
+    "C crowding x momentum": "a new market-neutral sleeve on the 6 coins: score = -(relative crowding z) where the coin's 7-day return has the same sign as its crowding change (crowded AND moving against the crowd is ignored); position -0.15 x clip(z_cr, -2, 2) / 2 only when sign(7-day return) == sign(7-day crowding change), else 0; demeaned; added as a sleeve"
+  },
+  "pass": "each judged with the strict rule vs v9.5; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
