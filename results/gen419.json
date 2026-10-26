@@ -1,0 +1,63 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "trials": {
+  "A relative funding": {
+   "sleeve": [
+    0.276,
+    0.617,
+    -0.551
+   ],
+   "corr rc6": 0.19,
+   "book": [
+    2.904,
+    [
+     2.352,
+     3.87,
+     2.232
+    ]
+   ],
+   "pass": false
+  },
+  "B relative leverage build-up": {
+   "sleeve": [
+    -1.538,
+    0.081,
+    -1.576
+   ],
+   "corr rc6": -0.38,
+   "book": [
+    2.698,
+    [
+     1.564,
+     3.835,
+     2.092
+    ]
+   ],
+   "pass": false
+  },
+  "C relative premium": {
+   "sleeve": [
+    -0.779,
+    -0.134,
+    -0.313
+   ],
+   "corr rc6": 0.11,
+   "book": [
+    2.775,
+    [
+     2.18,
+     3.64,
+     2.226
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
