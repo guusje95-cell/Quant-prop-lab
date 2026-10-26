@@ -1,0 +1,58 @@
+{
+ "reference v9.6 A..Z": [
+  3.203,
+  [
+   2.748,
+   3.969,
+   2.642
+  ]
+ ],
+ "trials": {
+  "A Gen406 Y4 Hyperliquid funding relative": {
+   "sleeve": [
+    null,
+    -0.699,
+    0.311
+   ],
+   "by year": {
+    "2023": 0.319,
+    "2024": -1.382,
+    "2025": 0.649,
+    "2026": -0.12
+   },
+   "corr relative crowding": -0.07,
+   "book": [
+    3.003,
+    [
+     2.748,
+     3.455,
+     2.687
+    ]
+   ],
+   "pass": false
+  },
+  "B venue funding spread relative": {
+   "sleeve": [
+    null,
+    -0.865,
+    0.459
+   ],
+   "by year": {
+    "2023": -0.407,
+    "2024": -1.159,
+    "2025": 0.612,
+    "2026": 0.256
+   },
+   "corr relative crowding": -0.14,
+   "book": [
+    2.887,
+    [
+     2.748,
+     3.154,
+     2.697
+    ]
+   ],
+   "pass": false
+  }
+ }
+}

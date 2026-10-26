@@ -1,0 +1,9 @@
+{
+  "gen": 443,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 A..Z (TradFi excluded) 3.203 [2.748, 3.969, 2.642]",
+  "trials": {"A early entry": "listing short entered 6 hours after the first bar (instead of the first UTC midnight >= 24 h later); volume filter >= $2.5M over the first 6 hours (the $10M / 24 h rule pro rata); hold 30 days from entry, 30% stop from the entry close, 0.05 per event, gross cap 0.5, 10 bp + funding; costs x2 also reported (first hours have wider spreads)"},
+  "pass": "replaces the listing-short sleeve; strict rule vs v9.6 A..Z; must also keep every period >= the reference at costs x2 to be adopted",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

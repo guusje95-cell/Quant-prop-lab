@@ -1,0 +1,10 @@
+{
+  "gen": 447,
+  "date": "2026-10-26",
+  "registered": "before the data exists (Binance metrics for the point-in-time candidates, cached by the cascade download); reference v9.6 A..Z",
+  "question": "relative crowding (v9.5 sleeve: mean of daily / 3-day / 8-hourly versions of the demeaned 90-day z of the top-trader and all-account long/short ratios, -0.15 x clip / 2) on a wider point-in-time universe",
+  "trials": {"A relative crowding point-in-time top-20": "the same construction on the point-in-time top-20 (monthly membership, >= 60 days listed, TradFi excluded, delisted included, a coin needs 90 days of ratio history to get a z; demeaned over the members that have one); added as a second relative crowding sleeve (the 6-coin sleeve stays)"},
+  "pass": "strict rule vs v9.6 A..Z",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

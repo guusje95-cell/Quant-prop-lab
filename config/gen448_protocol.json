@@ -1,0 +1,9 @@
+{
+  "gen": 448,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 A..Z 3.203 [2.748, 3.969, 2.642]",
+  "trials": {"A Weiss expiry at full weight": "v5_weights with weiss_scale 1.0 instead of 0.5 (Gen72 halved it); everything else unchanged"},
+  "pass": "strict rule",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

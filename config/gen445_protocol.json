@@ -1,0 +1,10 @@
+{
+  "gen": 445,
+  "date": "2026-10-26",
+  "registered": "before the data exists (top-50 open interest download in the cloud); run after Gen410",
+  "question": "does the frozen cascade rule gain from breadth: the point-in-time top-50 instead of the top-20",
+  "test": "the frozen cascade rule (k 3, OI drop > 5%, volume > 95th pct, limit 0.5% / 0.1% through, hold 12 h, ATR stop, max 3 open, size 0.2) on the point-in-time top-50 by trailing 30-day quote volume (monthly, >= 60 days listed, TradFi excluded, delisted included); everything else as Gen410",
+  "pass": "replaces the cascade sleeve in v9.6 (A..Z reference 3.203 [2.748, 3.969, 2.642]); strict rule; also reported vs the Gen410 top-20 version",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}

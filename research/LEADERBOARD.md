@@ -1795,3 +1795,16 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen442 (2026-10-26): fade non-listing pumps on mid caps (`results/gen442.json`)
 - Ranks 21-150 (A..Z, TradFi excluded), +40% in 24 h on 5x volume, short 0.05 with a 30% stop. A hold 7 d: 0.06 / 0.01 / -0.38 (2023 2.42, 2024 -1.42), book 3.064; B hold 3 d: 0.22 / 0.27 / 0.21, book 3.089 (2025-26 2.198). **Both fail.** Mid-cap pumps do not fade reliably either; only the listing effect holds.
+
+## Gen443 (2026-10-26): listing short entered 6 h after listing (`results/gen443.json`)
+- Sleeve 1.34 / -0.05 / 0.70 (2026 -0.55), book 3.206 [2.556, 3.969->4.035, 2.693]: 2022 lower (2.556 < 2.748). Costs x2 3.195. **Fails**; the entry at the first midnight >= 24 h stays.
+
+## Diagnostic (2026-10-26): where v9.6 loses
+- Monthly hit rate 0.77 (57 months); **monthly corr with BTC 0.43**; worst months 2025-12 -5.8% (trend 4h, relative crowding, basket), 2026-07 -4.0% (ridge, C*), 2023-04 -3.8% (relative crowding). No single sleeve dominates the losses; the book still carries market beta in bad months. Target for research: an edge that pays in falling markets without being a plain short.
+
+## Gen444 (2026-10-26): Hyperliquid funding across the 6 majors (`research_data/hyperliquid`, `results/gen444.json`)
+- Hyperliquid hourly funding 2023-05..2026-10 fetched in the cloud (15 coins). A (Gen406 Y4) relative HL funding contrarian: - / -0.70 / 0.31, book 3.003; B HL-minus-Binance funding spread relative: - / -0.87 / 0.46, book 2.887. **Both fail** (2024 strongly negative).
+
+## Gen448 (2026-10-26): Weiss expiry at full weight (`results/gen448.json`)
+- Book 3.259 [2.797, 4.081, 2.624] vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.056, 2022 and 2023-24 up, **2025-26 -0.018 -> fails (near miss)**. Half weight stays.
+- **Gen436b (descriptive, `results/gen436b.json`): v9.6 listing-short robustness.** Costs 10 / 20 / 30 bp per side: book 3.203 / 3.193 / 3.184; entry one day later 3.179 [2.697, 3.971, 2.605]. Robust to execution (v9.5 2.976).

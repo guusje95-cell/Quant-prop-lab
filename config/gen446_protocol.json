@@ -1,0 +1,13 @@
+{
+  "gen": 446,
+  "date": "2026-10-26",
+  "registered": "before the data exists (cascade / top-50 open-interest download in the cloud); reference v9.6 A..Z 3.203 [2.748, 3.969, 2.642]",
+  "question": "breadth for the deleveraging bounce (BTC/ETH: long 0.5 for 2 days when open-interest value fell > 10% over 24 h to 23:55 UTC and the price fell)",
+  "trials": {
+    "A delev bounce point-in-time top-20": "the frozen rule on every coin in the point-in-time top-20 at the signal day (monthly, >= 60 days listed, TradFi excluded, delisted included), size 0.5 / number of members (BTC/ETH keep their share), 5 bp + funding; replaces the delev bounce sleeve",
+    "B delev bounce point-in-time top-50": "the same on the top-50, size 0.5 / members"
+  },
+  "pass": "strict rule vs v9.6 A..Z; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
