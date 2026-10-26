@@ -1809,3 +1809,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - Book 3.259 [2.797, 4.081, 2.624] vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.056, 2022 and 2023-24 up, **2025-26 -0.018 -> fails (near miss)**. Half weight stays.
 - **Gen436b (descriptive, `results/gen436b.json`): v9.6 listing-short robustness.** Costs 10 / 20 / 30 bp per side: book 3.203 / 3.193 / 3.184; entry one day later 3.179 [2.697, 3.971, 2.605]. Robust to execution (v9.5 2.976).
 - **Paper v96 selftest re-run after the TradFi fix: PASSED** (24 cutoffs, max |difference| 1.7e-18).
+
+## Gen431 (2026-10-26): Bybit listings for the listing short (`research_data/bybit_listings` from the user's PC, `results/gen431.json`)
+- 1,131 Bybit USDT perps. **Replication on HyroTrader's exchange: the median 30-day return after a Bybit listing is negative in every year** (2021 -13%, 2022 -38%, 2023 -19%, 2024 -13%, 2025 -35%, 2026 -16%; 507 listings).
+- 265 Bybit-only / Bybit-first events added to the v9.6 listing short: sleeve 1.92 / 0.11 / 0.90; **book 3.275 [2.737, 4.131, 2.683]** vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.072, 2023-24 and 2025-26 up, **2022 -0.011 -> fails (near miss)**. (A first run compared against an uncapped reference by mistake; fixed before logging.)
+- Value: strong out-of-venue confirmation of the v9.6 listing effect on the venue the firm uses.

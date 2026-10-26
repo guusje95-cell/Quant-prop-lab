@@ -16,6 +16,7 @@ def shp(h, a="2022", z=END):
     d = dd(h.loc[a:z]); return round(float(d.mean() / d.std() * np.sqrt(365)), 3)
 per = lambda h: [shp(h, "2022", "2022"), shp(h, "2023", "2024"), shp(h, "2025", END)]
 TF = set(json.loads((ROOT / "config/tradfi_perps.json").read_text())["symbols"])
+ls, _, _ = LL.pnl(idx); v96 = unit(CS.portfolio_v5(V.assign(**{"listing short": ls}))[0]); REF = (shp(v96), per(v96))   # before the cap is lifted below
 EVB = LL.events(); binance_t0 = {s[:-4]: t0 for s, t0, c, f in EVB}
 ins = json.loads((D / "instruments.json").read_text()); EVY = []; r30 = []
 for x in ins:
@@ -44,7 +45,6 @@ for n in P.columns:
     c, f = CF[n]; p = P[n]; r = (c / c.shift(1) - 1).reindex(idx).fillna(0.0)
     fu = f.copy(); fu.index = fu.index - pd.Timedelta(hours=1); fu = fu.groupby(level=0).sum().reindex(idx).fillna(0.0)
     s_ = s_ + p * r - p * fu - p.diff().abs().fillna(p.abs()) * 10 / 1e4
-ls, _, _ = LL.pnl(idx); v96 = unit(CS.portfolio_v5(V.assign(**{"listing short": ls}))[0]); REF = (shp(v96), per(v96))
 b = unit(CS.portfolio_v5(V.assign(**{"listing short": s_}))[0]); r = [shp(b), per(b)]
 R30 = pd.DataFrame(r30, columns=["year", "r30"])
 out = {"reference v9.6 A..Z": [REF[0], REF[1]], "Bybit instruments": len(ins), "Bybit-only / Bybit-first events added": len(EVY),
