@@ -1,0 +1,13 @@
+{
+  "gen": 434,
+  "date": "2026-10-26",
+  "registered": "before computing the signal; reference v9.6 3.161 [2.775, 3.919, 2.576] (live-timing version reported)",
+  "signal": "L = number of new USDT-M perp listings (binance_pit first bar, TradFi excluded, any volume) in the trailing 30 days, known at the close of day d; z = (log(1 + L) - 365-day mean) / 365-day sd (min 250 days)",
+  "trials": {
+    "A basket member (BTC/ETH)": "-0.125 x clip(z, -2, 2) / 2 on BTC and ETH, 10th member of the diversifier basket (live basket code; judged vs both the v9.6 and the rebuilt-basket reference)",
+    "B alt sleeve": "-0.15 x clip(z, -2, 2) / 2 on each of SOL, XRP, BNB, DOGE; added to v9.6 as its own sleeve"
+  },
+  "pass": "strict rule; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
