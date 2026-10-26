@@ -1,0 +1,15 @@
+{
+  "gen": 427,
+  "date": "2026-10-26",
+  "registered": "before collecting the spot listing dates; reference v9.6 3.161 [2.775, 3.919, 2.576] (the research Gen426 book; the live-timing version 3.169 is reported too)",
+  "data": "Binance spot listing date of SYMUSDT = the first daily 1d kline file in data.binance.vision (data/spot/daily/klines/SYMUSDT/1d/); perps from research_data/binance_pit (A..S), TradFi excluded",
+  "event": "a spot listing that comes at least 3 days after the perp's first bar (the perp already trades); perp first-day volume rule as Gen425 not applied (the perp is established)",
+  "rule": "same as the v9.6 listing short (scripts/listing_live.py timing): short 0.05 from the first UTC midnight after the spot listing day, 30 days, cover for good at +30% from the entry close, gross cap 0.5, 10 bp, funding",
+  "trials": {
+    "A spot-listing short as its own sleeve": "added to v9.6",
+    "B merged into the listing short": "the listing-short sleeve re-armed by the later spot listing (one position per coin at most, -0.05; the gross cap applies to the merged book); replaces the listing short"
+  },
+  "pass": "strict rule vs v9.6; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
