@@ -1,0 +1,71 @@
+{
+ "periods": {
+  "2022": {
+   "beta btc": 0.009,
+   "beta alts": -0.069,
+   "raw Sharpe": 1.63,
+   "beta-hedged Sharpe": 1.39,
+   "corr with alts": -0.41
+  },
+  "2023-24": {
+   "beta btc": -0.115,
+   "beta alts": -0.191,
+   "raw Sharpe": -0.23,
+   "beta-hedged Sharpe": 0.99,
+   "corr with alts": -0.52
+  },
+  "2025-26": {
+   "beta btc": 0.23,
+   "beta alts": -0.455,
+   "raw Sharpe": 0.44,
+   "beta-hedged Sharpe": 0.5,
+   "corr with alts": -0.49
+  },
+  "all": {
+   "beta btc": 0.008,
+   "beta alts": -0.221,
+   "raw Sharpe": 0.25,
+   "beta-hedged Sharpe": 0.51,
+   "corr with alts": -0.44
+  }
+ },
+ "books": {
+  "v9.5": [
+   2.976,
+   [
+    2.355,
+    3.832,
+    2.447
+   ]
+  ],
+  "+ plain alt short (same beta, no costs)": [
+   2.995,
+   [
+    2.601,
+    3.718,
+    2.449
+   ]
+  ],
+  "+ listing short (Gen426)": [
+   3.161,
+   [
+    2.775,
+    3.919,
+    2.576
+   ]
+  ],
+  "+ listing short beta-hedged": [
+   3.073,
+   [
+    2.31,
+    3.999,
+    2.554
+   ]
+  ]
+ },
+ "beta-hedged sleeve": [
+  0.204,
+  0.698,
+  0.5
+ ]
+}

@@ -1719,3 +1719,15 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen424 (2026-10-26, FLAGGED post hoc): fade relative depth imbalance (`results/gen424.json`)
 - Sleeve - / 0.41 / -0.05 (costs eat the mirror image); book 2.881. Costs x2 - / -0.23 / -0.90. **Fails.**
+
+## Gen425 (2026-10-26): short newly listed Binance perps (`results/gen425.json`)
+- 492 listings 2021-06..2026-09 in `binance_pit` (symbols A..S; first-day volume >= $10M; TradFi excluded). **Median 30-day return after listing is negative in every year** (2021 -23%, 2022 -30%, 2023 -12%, 2024 -10%, 2025 -24%, 2026 -17%), but the means are near zero (a few huge squeezes).
+- Short 0.05 per event, gross cap 0.5, 10 bp, funding: hold 30 d sleeve 1.30 / -0.25 / -0.18, book 3.108 [2.758, 3.994, 2.368]; hold 7 d 0.87 / -0.11 / -0.17, book 3.011. **Both fail** (2025-26 lower): the squeezes and funding eat the median edge.
+
+## Gen426 (2026-10-26, FLAGGED post hoc): listing short with a 30% per-event stop (`results/gen426.json`, `gen426b.json`, `gen426c.json`)
+- **Sleeve 1.63 / -0.24 / 0.44 (by year 1.63 / -0.68 / 0.14 / 0.55 / 0.22), corr with the book -0.21. Book 3.161 [2.775, 3.919, 2.576]: +0.185, every period up -> passes the strict rule, but the stop was added after seeing Gen425.**
+- Robustness (same shape everywhere): stop 20% 1.68 / -0.36 / 0.75; stop 50% 1.79 / -0.23 / 0.21; costs x2 1.61 / -0.27 / 0.40; first-day volume >= $50M 0.90 / -0.16 / 0.46; hold 14 d 1.47 / -0.28 / 0.47; hold 60 d 1.95 / -0.29 / 0.28.
+- **Not just short altcoin beta (Gen426b):** hedged with its full-sample beta to the 5 major alts the sleeve is 0.20 / 0.70 / 0.50 (positive every period); a plain alt short with the same beta adds nothing (book 2.995, 2023-24 lower); the beta-hedged listing short still gives 3.073.
+- **Gen426c:** planning Sharpe (N = 1,800) **1.41 -> 1.59**; max DD at risk 2 -16.5% -> -14.0%; worst day -8.2% -> -7.3%. HyroTrader 1.5 / 1.5 at planning: 2025-26 $53.0k / p10 $0.1k / 0.90 -> $52.7k / **$3.2k / 0.92**; 2022-24 $73.7k / $11.2k / 0.97 -> **$93.0k / $29.7k / 0.99**.
+- Practical: at risk 1.5 the per-coin notional is median 1.0%, max 4.2% of the balance, under HyroTrader's 5% cap for low-cap / Innovation Zone coins (official FAQ). Live needs a listing feed (exchange instrument list) and the coin to be listed on Bybit.
+- **v9.6 candidate (flagged), for the user's decision.** Caveat: symbols T..Z are not yet in the data (alphabetical, not performance-based).

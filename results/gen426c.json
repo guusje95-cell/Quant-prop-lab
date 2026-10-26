@@ -1,0 +1,44 @@
+{
+ "v9.5": {
+  "Sharpe": 2.976,
+  "planning": {
+   "N=300": 1.648,
+   "N=1000": 1.483,
+   "N=1800": 1.408
+  },
+  "worst day at risk 2": -0.0821,
+  "worst hour at risk 2": -0.0525,
+  "max DD at risk 2": -0.165,
+  "HyroTrader 1.5/1.5 at planning N=1800, 2025-26": {
+   "mean": 52956,
+   "p10": 108,
+   "P_profit": 0.9
+  },
+  "HyroTrader 1.5/1.5 at planning N=1800, 2022-24": {
+   "mean": 73658,
+   "p10": 11150,
+   "P_profit": 0.968
+  }
+ },
+ "v9.6 candidate": {
+  "Sharpe": 3.161,
+  "planning": {
+   "N=300": 1.832,
+   "N=1000": 1.667,
+   "N=1800": 1.592
+  },
+  "worst day at risk 2": -0.0728,
+  "worst hour at risk 2": -0.0544,
+  "max DD at risk 2": -0.1396,
+  "HyroTrader 1.5/1.5 at planning N=1800, 2025-26": {
+   "mean": 52678,
+   "p10": 3205,
+   "P_profit": 0.92
+  },
+  "HyroTrader 1.5/1.5 at planning N=1800, 2022-24": {
+   "mean": 92962,
+   "p10": 29728,
+   "P_profit": 0.988
+  }
+ }
+}
