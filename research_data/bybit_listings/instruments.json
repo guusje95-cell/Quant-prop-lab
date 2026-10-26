@@ -1,0 +1,6788 @@
+[
+ {
+  "symbol": "BCHUSDT",
+  "status": "Trading",
+  "launchTime": 1514764800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LINKUSDT",
+  "status": "Trading",
+  "launchTime": 1514764800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LTCUSDT",
+  "status": "Trading",
+  "launchTime": 1514764800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XTZUSDT",
+  "status": "Trading",
+  "launchTime": 1514764800000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BTCUSDT",
+  "status": "Trading",
+  "launchTime": 1584230400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ADAUSDT",
+  "status": "Trading",
+  "launchTime": 1610668800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MATICUSDT",
+  "status": "Closed",
+  "launchTime": 1610668800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ETHUSDT",
+  "status": "Trading",
+  "launchTime": 1615766400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DOTUSDT",
+  "status": "Trading",
+  "launchTime": 1616060040000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AAVEUSDT",
+  "status": "Trading",
+  "launchTime": 1620897660000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XRPUSDT",
+  "status": "Trading",
+  "launchTime": 1620898440000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DOGEUSDT",
+  "status": "Trading",
+  "launchTime": 1622630640000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EOSUSDT",
+  "status": "Closed",
+  "launchTime": 1624949940000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ETCUSDT",
+  "status": "Trading",
+  "launchTime": 1624950240000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FILUSDT",
+  "status": "Trading",
+  "launchTime": 1624950900000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BNBUSDT",
+  "status": "Trading",
+  "launchTime": 1624951080000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AXSUSDT",
+  "status": "Trading",
+  "launchTime": 1628726400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COMPUSDT",
+  "status": "Trading",
+  "launchTime": 1628726400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "THETAUSDT",
+  "status": "Trading",
+  "launchTime": 1628726400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TRXUSDT",
+  "status": "Trading",
+  "launchTime": 1628726400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLMUSDT",
+  "status": "Trading",
+  "launchTime": 1628726400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AVAXUSDT",
+  "status": "Trading",
+  "launchTime": 1631664000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ICPUSDT",
+  "status": "Trading",
+  "launchTime": 1631664000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ALGOUSDT",
+  "status": "Trading",
+  "launchTime": 1632355200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FTMUSDT",
+  "status": "Closed",
+  "launchTime": 1632355200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ATOMUSDT",
+  "status": "Trading",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DYDXUSDT",
+  "status": "Trading",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NEARUSDT",
+  "status": "Trading",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BITUSDT",
+  "status": "Closed",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LUNAUSDT",
+  "status": "Closed",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SRMUSDT",
+  "status": "Closed",
+  "launchTime": 1633910400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CHZUSDT",
+  "status": "Trading",
+  "launchTime": 1633996800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DASHUSDT",
+  "status": "Trading",
+  "launchTime": 1633996800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IOSTUSDT",
+  "status": "Trading",
+  "launchTime": 1633996800000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "KSMUSDT",
+  "status": "Trading",
+  "launchTime": 1633996800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FTTUSDT",
+  "status": "Closed",
+  "launchTime": 1633996800000,
+  "fundingInterval": 120
+ },
+ {
+  "symbol": "OMGUSDT",
+  "status": "Closed",
+  "launchTime": 1633996800000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOLUSDT",
+  "status": "Trading",
+  "launchTime": 1634256000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SHIB1000USDT",
+  "status": "Trading",
+  "launchTime": 1634688000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ALICEUSDT",
+  "status": "Trading",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "C98USDT",
+  "status": "Trading",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRVUSDT",
+  "status": "Trading",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HBARUSDT",
+  "status": "Trading",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VETUSDT",
+  "status": "Trading",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CELRUSDT",
+  "status": "Closed",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ONEUSDT",
+  "status": "Closed",
+  "launchTime": 1635120000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ENJUSDT",
+  "status": "Trading",
+  "launchTime": 1635696000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SANDUSDT",
+  "status": "Trading",
+  "launchTime": 1635724800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MANAUSDT",
+  "status": "Trading",
+  "launchTime": 1636329600000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GALAUSDT",
+  "status": "Trading",
+  "launchTime": 1636416000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WOOUSDT",
+  "status": "Trading",
+  "launchTime": 1636416000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LRCUSDT",
+  "status": "Trading",
+  "launchTime": 1636588800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ENSUSDT",
+  "status": "Trading",
+  "launchTime": 1636675200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IOTXUSDT",
+  "status": "Trading",
+  "launchTime": 1636675200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KEEPUSDT",
+  "status": "Closed",
+  "launchTime": 1637020800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SLPUSDT",
+  "status": "Trading",
+  "launchTime": 1637164800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CHRUSDT",
+  "status": "Trading",
+  "launchTime": 1637193600000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STORJUSDT",
+  "status": "Trading",
+  "launchTime": 1637539200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TLMUSDT",
+  "status": "Trading",
+  "launchTime": 1637539200000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EGLDUSDT",
+  "status": "Trading",
+  "launchTime": 1637596800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CROUSDT",
+  "status": "Trading",
+  "launchTime": 1637625600000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "YGGUSDT",
+  "status": "Trading",
+  "launchTime": 1637625600000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ANKRUSDT",
+  "status": "Trading",
+  "launchTime": 1637712000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BATUSDT",
+  "status": "Trading",
+  "launchTime": 1637712000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IMXUSDT",
+  "status": "Trading",
+  "launchTime": 1637712000000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZECUSDT",
+  "status": "Trading",
+  "launchTime": 1637712000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLOWUSDT",
+  "status": "Trading",
+  "launchTime": 1637856000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ILVUSDT",
+  "status": "Trading",
+  "launchTime": 1637884800000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZENUSDT",
+  "status": "Trading",
+  "launchTime": 1637884800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AUDIOUSDT",
+  "status": "Closed",
+  "launchTime": 1637884800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SFPUSDT",
+  "status": "Closed",
+  "launchTime": 1637884800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RUNEUSDT",
+  "status": "Trading",
+  "launchTime": 1638144000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GTCUSDT",
+  "status": "Closed",
+  "launchTime": 1638144000000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SUSHIUSDT",
+  "status": "Trading",
+  "launchTime": 1638230400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UNIUSDT",
+  "status": "Trading",
+  "launchTime": 1638230400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XEMUSDT",
+  "status": "Closed",
+  "launchTime": 1638252824000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "STXUSDT",
+  "status": "Trading",
+  "launchTime": 1638259183000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CVCUSDT",
+  "status": "Trading",
+  "launchTime": 1638285651000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RNDRUSDT",
+  "status": "Closed",
+  "launchTime": 1638285813000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SCUSDT",
+  "status": "Closed",
+  "launchTime": 1638285958000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RSRUSDT",
+  "status": "Trading",
+  "launchTime": 1638286101000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MASKUSDT",
+  "status": "Trading",
+  "launchTime": 1638444542000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CTKUSDT",
+  "status": "Closed",
+  "launchTime": 1638444847000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COTIUSDT",
+  "status": "Trading",
+  "launchTime": 1638445117000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BICOUSDT",
+  "status": "Trading",
+  "launchTime": 1638445217000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1INCHUSDT",
+  "status": "Trading",
+  "launchTime": 1638748800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GRTUSDT",
+  "status": "Trading",
+  "launchTime": 1638748800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "REQUSDT",
+  "status": "Closed",
+  "launchTime": 1638748800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BTTUSDT",
+  "status": "Closed",
+  "launchTime": 1638921601000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "YFIUSDT",
+  "status": "Trading",
+  "launchTime": 1638930769000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SXPUSDT",
+  "status": "Closed",
+  "launchTime": 1638932481000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BSVUSDT",
+  "status": "Trading",
+  "launchTime": 1639105708000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KLAYUSDT",
+  "status": "Closed",
+  "launchTime": 1639106068000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QTUMUSDT",
+  "status": "Trading",
+  "launchTime": 1639356566000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SNXUSDT",
+  "status": "Trading",
+  "launchTime": 1639357278000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LPTUSDT",
+  "status": "Trading",
+  "launchTime": 1639357959000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SPELLUSDT",
+  "status": "Closed",
+  "launchTime": 1639358469000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ANTUSDT",
+  "status": "Closed",
+  "launchTime": 1639672939000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DUSKUSDT",
+  "status": "Trading",
+  "launchTime": 1639673130000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARUSDT",
+  "status": "Trading",
+  "launchTime": 1639978762000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XMRUSDT",
+  "status": "Trading",
+  "launchTime": 1640143015000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RENUSDT",
+  "status": "Closed",
+  "launchTime": 1640314037000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PEOPLEUSDT",
+  "status": "Trading",
+  "launchTime": 1640749024000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IOTAUSDT",
+  "status": "Trading",
+  "launchTime": 1640772993000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CELOUSDT",
+  "status": "Trading",
+  "launchTime": 1641367582000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WAVESUSDT",
+  "status": "Trading",
+  "launchTime": 1641368026000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RVNUSDT",
+  "status": "Trading",
+  "launchTime": 1641454067000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KNCUSDT",
+  "status": "Trading",
+  "launchTime": 1641800434000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KAVAUSDT",
+  "status": "Trading",
+  "launchTime": 1641801287000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DENTUSDT",
+  "status": "Closed",
+  "launchTime": 1642068928000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ROSEUSDT",
+  "status": "Trading",
+  "launchTime": 1642140231000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CREAMUSDT",
+  "status": "Closed",
+  "launchTime": 1642405767000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JASMYUSDT",
+  "status": "Trading",
+  "launchTime": 1642574202000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LOOKSUSDT",
+  "status": "Closed",
+  "launchTime": 1643006232000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HNTUSDT",
+  "status": "Trading",
+  "launchTime": 1643006840000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000NFTUSDT",
+  "status": "Closed",
+  "launchTime": 1643007175000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZILUSDT",
+  "status": "Trading",
+  "launchTime": 1643480306000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NEOUSDT",
+  "status": "Trading",
+  "launchTime": 1643509229000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "REEFUSDT",
+  "status": "Closed",
+  "launchTime": 1644885000000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MKRUSDT",
+  "status": "Closed",
+  "launchTime": 1644900435000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RAYUSDT",
+  "status": "Closed",
+  "launchTime": 1644900768000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CKBUSDT",
+  "status": "Trading",
+  "launchTime": 1644901148000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SUNUSDT",
+  "status": "Trading",
+  "launchTime": 1645166314000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JSTUSDT",
+  "status": "Trading",
+  "launchTime": 1645166741000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BANDUSDT",
+  "status": "Trading",
+  "launchTime": 1645167116000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RSS3USDT",
+  "status": "Closed",
+  "launchTime": 1645581254000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OCEANUSDT",
+  "status": "Closed",
+  "launchTime": 1645581435000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000BTTUSDT",
+  "status": "Trading",
+  "launchTime": 1645769298000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "API3USDT",
+  "status": "Trading",
+  "launchTime": 1646019009000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PAXGUSDT",
+  "status": "Trading",
+  "launchTime": 1647245226000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ANCUSDT",
+  "status": "Closed",
+  "launchTime": 1647311233000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KDAUSDT",
+  "status": "Closed",
+  "launchTime": 1647311832000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "APEUSDT",
+  "status": "Trading",
+  "launchTime": 1647571477000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GMTUSDT",
+  "status": "Trading",
+  "launchTime": 1647667511000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OGNUSDT",
+  "status": "Trading",
+  "launchTime": 1647671419000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SKLUSDT",
+  "status": "Trading",
+  "launchTime": 1647937788000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BSWUSDT",
+  "status": "Closed",
+  "launchTime": 1648017126000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CTSIUSDT",
+  "status": "Closed",
+  "launchTime": 1648018511000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HOTUSDT",
+  "status": "Closed",
+  "launchTime": 1648450156000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STMXUSDT",
+  "status": "Closed",
+  "launchTime": 1648451275000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DGBUSDT",
+  "status": "Closed",
+  "launchTime": 1648452331000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZRXUSDT",
+  "status": "Trading",
+  "launchTime": 1648453878000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ALPHAUSDT",
+  "status": "Closed",
+  "launchTime": 1648626100000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GLMRUSDT",
+  "status": "Closed",
+  "launchTime": 1648633250000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SCRTUSDT",
+  "status": "Closed",
+  "launchTime": 1648633843000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BAKEUSDT",
+  "status": "Closed",
+  "launchTime": 1648794979000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ASTRUSDT",
+  "status": "Trading",
+  "launchTime": 1649044122000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FXSUSDT",
+  "status": "Closed",
+  "launchTime": 1649044820000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MINAUSDT",
+  "status": "Trading",
+  "launchTime": 1649228613000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BOBAUSDT",
+  "status": "Trading",
+  "launchTime": 1649231761000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ACHUSDT",
+  "status": "Trading",
+  "launchTime": 1649405257000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BALUSDT",
+  "status": "Closed",
+  "launchTime": 1649405651000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000XECUSDT",
+  "status": "Trading",
+  "launchTime": 1649820036000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ICXUSDT",
+  "status": "Closed",
+  "launchTime": 1649830935000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MTLUSDT",
+  "status": "Trading",
+  "launchTime": 1649831690000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARPAUSDT",
+  "status": "Trading",
+  "launchTime": 1650369703000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LINAUSDT",
+  "status": "Closed",
+  "launchTime": 1650439574000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CVXUSDT",
+  "status": "Trading",
+  "launchTime": 1650440282000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DODOUSDT",
+  "status": "Closed",
+  "launchTime": 1650457800000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AGLDUSDT",
+  "status": "Trading",
+  "launchTime": 1650608721000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TOMOUSDT",
+  "status": "Closed",
+  "launchTime": 1651103452000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XCNUSDT",
+  "status": "Trading",
+  "launchTime": 1651132431000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GSTUSDT",
+  "status": "Closed",
+  "launchTime": 1651466458000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "DARUSDT",
+  "status": "Closed",
+  "launchTime": 1651467113000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLMUSDT",
+  "status": "Closed",
+  "launchTime": 1651467612000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GALUSDT",
+  "status": "Closed",
+  "launchTime": 1651759278000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FITFIUSDT",
+  "status": "Closed",
+  "launchTime": 1652153037000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USTUSDT",
+  "status": "Closed",
+  "launchTime": 1652153554000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CTCUSDT",
+  "status": "Trading",
+  "launchTime": 1652774270000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AKROUSDT",
+  "status": "Closed",
+  "launchTime": 1653462381000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UNFIUSDT",
+  "status": "Closed",
+  "launchTime": 1653899789000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LUNA2USDT",
+  "status": "Trading",
+  "launchTime": 1653983403000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OPUSDT",
+  "status": "Trading",
+  "launchTime": 1654059063000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ONTUSDT",
+  "status": "Trading",
+  "launchTime": 1654497420000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BLZUSDT",
+  "status": "Closed",
+  "launchTime": 1654497673000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TRBUSDT",
+  "status": "Trading",
+  "launchTime": 1654828244000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BELUSDT",
+  "status": "Trading",
+  "launchTime": 1655445585000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USDCUSDT",
+  "status": "Trading",
+  "launchTime": 1656399612000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CEEKUSDT",
+  "status": "Closed",
+  "launchTime": 1658127698000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LDOUSDT",
+  "status": "Trading",
+  "launchTime": 1658300019000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "INJUSDT",
+  "status": "Trading",
+  "launchTime": 1660694400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STGUSDT",
+  "status": "Closed",
+  "launchTime": 1661493459000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XNOUSDT",
+  "status": "Closed",
+  "launchTime": 1662076800000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000LUNCUSDT",
+  "status": "Trading",
+  "launchTime": 1662681601000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ETHWUSDT",
+  "status": "Closed",
+  "launchTime": 1663286400000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GMXUSDT",
+  "status": "Trading",
+  "launchTime": 1665385570000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "APTUSDT",
+  "status": "Trading",
+  "launchTime": 1666107272000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SWEATUSDT",
+  "status": "Closed",
+  "launchTime": 1667488253000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TWTUSDT",
+  "status": "Trading",
+  "launchTime": 1668666261000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MAGICUSDT",
+  "status": "Trading",
+  "launchTime": 1670897921000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000BONKUSDT",
+  "status": "Trading",
+  "launchTime": 1672971039000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HOOKUSDT",
+  "status": "Closed",
+  "launchTime": 1675758352000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HIGHUSDT",
+  "status": "Closed",
+  "launchTime": 1675759370000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FETUSDT",
+  "status": "Closed",
+  "launchTime": 1675759851000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COREUSDT",
+  "status": "Trading",
+  "launchTime": 1675927514000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AGIXUSDT",
+  "status": "Closed",
+  "launchTime": 1675929184000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GFTUSDT",
+  "status": "Closed",
+  "launchTime": 1676009998000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BUSDUSDT",
+  "status": "Closed",
+  "launchTime": 1676340857000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BLURUSDT",
+  "status": "Trading",
+  "launchTime": 1676428387000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COCOSUSDT",
+  "status": "Closed",
+  "launchTime": 1676883506000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CFXUSDT",
+  "status": "Trading",
+  "launchTime": 1676883925000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NKNUSDT",
+  "status": "Closed",
+  "launchTime": 1676960331000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000FLOKIUSDT",
+  "status": "Trading",
+  "launchTime": 1677228986000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BNXUSDT",
+  "status": "Closed",
+  "launchTime": 1677564318000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SSVUSDT",
+  "status": "Trading",
+  "launchTime": 1677655670000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RPLUSDT",
+  "status": "Trading",
+  "launchTime": 1677655946000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TUSDT",
+  "status": "Trading",
+  "launchTime": 1678087595000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "TRUUSDT",
+  "status": "Closed",
+  "launchTime": 1678343222000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LQTYUSDT",
+  "status": "Trading",
+  "launchTime": 1678694760000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HFTUSDT",
+  "status": "Closed",
+  "launchTime": 1678776349000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLRUSDT",
+  "status": "Trading",
+  "launchTime": 1678953508000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GPTUSDT",
+  "status": "Closed",
+  "launchTime": 1678954438000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RLCUSDT",
+  "status": "Trading",
+  "launchTime": 1679468899000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARBUSDT",
+  "status": "Trading",
+  "launchTime": 1679563660000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IDUSDT",
+  "status": "Trading",
+  "launchTime": 1679639388000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JOEUSDT",
+  "status": "Closed",
+  "launchTime": 1680062568000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RDNTUSDT",
+  "status": "Closed",
+  "launchTime": 1681715107000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SUIUSDT",
+  "status": "Trading",
+  "launchTime": 1683029724000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000PEPEUSDT",
+  "status": "Trading",
+  "launchTime": 1683108271000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EDUUSDT",
+  "status": "Trading",
+  "launchTime": 1683273334000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000LADYSUSDT",
+  "status": "Closed",
+  "launchTime": 1683802102000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PHBUSDT",
+  "status": "Closed",
+  "launchTime": 1684396645000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ORDIUSDT",
+  "status": "Trading",
+  "launchTime": 1684739410000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IDEXUSDT",
+  "status": "Closed",
+  "launchTime": 1684822236000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KEYUSDT",
+  "status": "Closed",
+  "launchTime": 1685341922000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMBUSDT",
+  "status": "Closed",
+  "launchTime": 1685947506000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LEVERUSDT",
+  "status": "Closed",
+  "launchTime": 1685960641000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RADUSDT",
+  "status": "Closed",
+  "launchTime": 1686210174000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UMAUSDT",
+  "status": "Trading",
+  "launchTime": 1686210562000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COMBOUSDT",
+  "status": "Closed",
+  "launchTime": 1686210792000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QNTUSDT",
+  "status": "Trading",
+  "launchTime": 1687154400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MAVUSDT",
+  "status": "Trading",
+  "launchTime": 1687945209000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MDTUSDT",
+  "status": "Closed",
+  "launchTime": 1688112286000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XVGUSDT",
+  "status": "Trading",
+  "launchTime": 1688541486000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PENDLEUSDT",
+  "status": "Trading",
+  "launchTime": 1688542002000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WLDUSDT",
+  "status": "Trading",
+  "launchTime": 1690184920000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARKMUSDT",
+  "status": "Trading",
+  "launchTime": 1690508471000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AUCTIONUSDT",
+  "status": "Trading",
+  "launchTime": 1690526070000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FORTHUSDT",
+  "status": "Closed",
+  "launchTime": 1690868839000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARKUSDT",
+  "status": "Trading",
+  "launchTime": 1690869317000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VGXUSDT",
+  "status": "Closed",
+  "launchTime": 1690869952000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ALPACAUSDT",
+  "status": "Closed",
+  "launchTime": 1690957298000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KASUSDT",
+  "status": "Trading",
+  "launchTime": 1691138081000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BNTUSDT",
+  "status": "Trading",
+  "launchTime": 1691385533000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ATAUSDT",
+  "status": "Closed",
+  "launchTime": 1691483941000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OXTUSDT",
+  "status": "Closed",
+  "launchTime": 1691643171000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GLMUSDT",
+  "status": "Trading",
+  "launchTime": 1691643479000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MCUSDT",
+  "status": "Closed",
+  "launchTime": 1692084244000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CYBERUSDT",
+  "status": "Trading",
+  "launchTime": 1692124015000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SEIUSDT",
+  "status": "Trading",
+  "launchTime": 1692156527000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "YFIIUSDT",
+  "status": "Closed",
+  "launchTime": 1692174480000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BADGERUSDT",
+  "status": "Closed",
+  "launchTime": 1692174718000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZBCUSDT",
+  "status": "Closed",
+  "launchTime": 1692698293000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HIFIUSDT",
+  "status": "Closed",
+  "launchTime": 1693210322000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OGUSDT",
+  "status": "Trading",
+  "launchTime": 1693210797000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TONUSDT",
+  "status": "Closed",
+  "launchTime": 1693460834000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NMRUSDT",
+  "status": "Trading",
+  "launchTime": 1693804592000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PROMUSDT",
+  "status": "Closed",
+  "launchTime": 1693891796000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PERPUSDT",
+  "status": "Closed",
+  "launchTime": 1693981865000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XVSUSDT",
+  "status": "Trading",
+  "launchTime": 1694159027000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FRONTUSDT",
+  "status": "Closed",
+  "launchTime": 1695023419000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MULTIUSDT",
+  "status": "Closed",
+  "launchTime": 1695192793000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LOOMUSDT",
+  "status": "Closed",
+  "launchTime": 1695276752000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MNTUSDT",
+  "status": "Trading",
+  "launchTime": 1696225255000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STPTUSDT",
+  "status": "Closed",
+  "launchTime": 1696326377000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VRAUSDT",
+  "status": "Closed",
+  "launchTime": 1696330485000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ORBSUSDT",
+  "status": "Closed",
+  "launchTime": 1696837542000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STRAXUSDT",
+  "status": "Closed",
+  "launchTime": 1696837970000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WAXPUSDT",
+  "status": "Trading",
+  "launchTime": 1696918909000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TOMIUSDT",
+  "status": "Closed",
+  "launchTime": 1696919770000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NTRNUSDT",
+  "status": "Closed",
+  "launchTime": 1696936478000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BIGTIMEUSDT",
+  "status": "Trading",
+  "launchTime": 1697099745000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WSMUSDT",
+  "status": "Closed",
+  "launchTime": 1697106070000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BONDUSDT",
+  "status": "Closed",
+  "launchTime": 1697435935000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000STARLUSDT",
+  "status": "Closed",
+  "launchTime": 1697777803000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RIFUSDT",
+  "status": "Closed",
+  "launchTime": 1698044016000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GASUSDT",
+  "status": "Trading",
+  "launchTime": 1698044952000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "POLYXUSDT",
+  "status": "Trading",
+  "launchTime": 1698129996000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "POWRUSDT",
+  "status": "Trading",
+  "launchTime": 1698130882000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STEEMUSDT",
+  "status": "Trading",
+  "launchTime": 1698215382000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TIAUSDT",
+  "status": "Trading",
+  "launchTime": 1698768749000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SNTUSDT",
+  "status": "Trading",
+  "launchTime": 1698913694000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MEMEUSDT",
+  "status": "Trading",
+  "launchTime": 1699001325000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CAKEUSDT",
+  "status": "Trading",
+  "launchTime": 1699005636000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TOKENUSDT",
+  "status": "Closed",
+  "launchTime": 1699011701000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BEAMUSDT",
+  "status": "Trading",
+  "launchTime": 1699955296000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MBLUSDT",
+  "status": "Closed",
+  "launchTime": 1699958425000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000SATSUSDT",
+  "status": "Trading",
+  "launchTime": 1700127695000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AERGOUSDT",
+  "status": "Closed",
+  "launchTime": 1700129246000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AGIUSDT",
+  "status": "Trading",
+  "launchTime": 1700209664000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PYTHUSDT",
+  "status": "Trading",
+  "launchTime": 1700543350000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GODSUSDT",
+  "status": "Closed",
+  "launchTime": 1700629341000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000RATSUSDT",
+  "status": "Trading",
+  "launchTime": 1700633654000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MOVRUSDT",
+  "status": "Trading",
+  "launchTime": 1700719762000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SUPERUSDT",
+  "status": "Trading",
+  "launchTime": 1700720186000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "USTCUSDT",
+  "status": "Trading",
+  "launchTime": 1701067354000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RAREUSDT",
+  "status": "Trading",
+  "launchTime": 1701067684000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000000VINUUSDT",
+  "status": "Closed",
+  "launchTime": 1701155354000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ONGUSDT",
+  "status": "Trading",
+  "launchTime": 1701155663000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IGUUSDT",
+  "status": "Closed",
+  "launchTime": 1701847718000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AXLUSDT",
+  "status": "Trading",
+  "launchTime": 1701941550000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JTOUSDT",
+  "status": "Trading",
+  "launchTime": 1701978619000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XRDUSDT",
+  "status": "Closed",
+  "launchTime": 1702361116000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QIUSDT",
+  "status": "Closed",
+  "launchTime": 1702365139000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FUNUSDT",
+  "status": "Closed",
+  "launchTime": 1702541853000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MYRIAUSDT",
+  "status": "Closed",
+  "launchTime": 1702620879000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ACEUSDT",
+  "status": "Trading",
+  "launchTime": 1702882175000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SILLYUSDT",
+  "status": "Closed",
+  "launchTime": 1703666783000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1CATUSDT",
+  "status": "Closed",
+  "launchTime": 1703668037000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NFPUSDT",
+  "status": "Closed",
+  "launchTime": 1703673025000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "METISUSDT",
+  "status": "Trading",
+  "launchTime": 1704207924000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LSKUSDT",
+  "status": "Trading",
+  "launchTime": 1704208975000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XAIUSDT",
+  "status": "Trading",
+  "launchTime": 1704879965000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WIFUSDT",
+  "status": "Trading",
+  "launchTime": 1704965504000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZKFUSDT",
+  "status": "Closed",
+  "launchTime": 1705404359000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AIUSDT",
+  "status": "Closed",
+  "launchTime": 1705405869000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MBOXUSDT",
+  "status": "Closed",
+  "launchTime": 1705574743000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MANTAUSDT",
+  "status": "Trading",
+  "launchTime": 1705575778000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MYROUSDT",
+  "status": "Closed",
+  "launchTime": 1705585191000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ONDOUSDT",
+  "status": "Trading",
+  "launchTime": 1705919392000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALTUSDT",
+  "status": "Trading",
+  "launchTime": 1706181459000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TAOUSDT",
+  "status": "Trading",
+  "launchTime": 1706601081000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "10000WENUSDT",
+  "status": "Closed",
+  "launchTime": 1706689209000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JUPUSDT",
+  "status": "Trading",
+  "launchTime": 1706716267000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZETAUSDT",
+  "status": "Trading",
+  "launchTime": 1706760329000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CETUSUSDT",
+  "status": "Trading",
+  "launchTime": 1707104643000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DYMUSDT",
+  "status": "Trading",
+  "launchTime": 1707273410000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MAVIAUSDT",
+  "status": "Trading",
+  "launchTime": 1707297146000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VTHOUSDT",
+  "status": "Closed",
+  "launchTime": 1708315106000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RONUSDT",
+  "status": "Closed",
+  "launchTime": 1708415298000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PIXELUSDT",
+  "status": "Trading",
+  "launchTime": 1708416370000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STRKUSDT",
+  "status": "Trading",
+  "launchTime": 1708436526000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MOBILEUSDT",
+  "status": "Closed",
+  "launchTime": 1708598361000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000TURBOUSDT",
+  "status": "Trading",
+  "launchTime": 1709205139000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PORTALUSDT",
+  "status": "Trading",
+  "launchTime": 1709264458000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "10000000AIDOGEUSDT",
+  "status": "Closed",
+  "launchTime": 1709542899000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COVALUSDT",
+  "status": "Closed",
+  "launchTime": 1709879506000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ORNUSDT",
+  "status": "Closed",
+  "launchTime": 1710136561000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000COQUSDT",
+  "status": "Closed",
+  "launchTime": 1710233332000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SCAUSDT",
+  "status": "Closed",
+  "launchTime": 1710310660000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AEVOUSDT",
+  "status": "Trading",
+  "launchTime": 1710327014000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VANRYUSDT",
+  "status": "Closed",
+  "launchTime": 1710403331000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BOMEUSDT",
+  "status": "Trading",
+  "launchTime": 1710492745000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OMUSDT",
+  "status": "Closed",
+  "launchTime": 1710743501000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "SLERFUSDT",
+  "status": "Closed",
+  "launchTime": 1710761101000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ETHFIUSDT",
+  "status": "Trading",
+  "launchTime": 1710767803000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000IQ50USDT",
+  "status": "Closed",
+  "launchTime": 1710845021000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DAOUSDT",
+  "status": "Closed",
+  "launchTime": 1711507811000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "POPCATUSDT",
+  "status": "Trading",
+  "launchTime": 1711609319000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PUNDUUSDT",
+  "status": "Closed",
+  "launchTime": 1711621032000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LTOUSDT",
+  "status": "Closed",
+  "launchTime": 1711961655000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ORCAUSDT",
+  "status": "Trading",
+  "launchTime": 1711963329000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DEGENUSDT",
+  "status": "Closed",
+  "launchTime": 1711971483000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ENAUSDT",
+  "status": "Trading",
+  "launchTime": 1712050966000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WUSDT",
+  "status": "Trading",
+  "launchTime": 1712147964000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZEUSUSDT",
+  "status": "Closed",
+  "launchTime": 1712559011000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TNSRUSDT",
+  "status": "Trading",
+  "launchTime": 1712648864000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SAGAUSDT",
+  "status": "Trading",
+  "launchTime": 1712662154000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FOXYUSDT",
+  "status": "Closed",
+  "launchTime": 1712916605000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZBCNUSDT",
+  "status": "Trading",
+  "launchTime": 1713339765000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OMNIUSDT",
+  "status": "Closed",
+  "launchTime": 1713358641000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "MERLUSDT",
+  "status": "Trading",
+  "launchTime": 1713524541000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MEWUSDT",
+  "status": "Trading",
+  "launchTime": 1713863741000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LAIUSDT",
+  "status": "Closed",
+  "launchTime": 1714118931000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BRETTUSDT",
+  "status": "Trading",
+  "launchTime": 1714119444000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SAFEUSDT",
+  "status": "Trading",
+  "launchTime": 1714382689000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "REZUSDT",
+  "status": "Trading",
+  "launchTime": 1715154797000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FIREUSDT",
+  "status": "Closed",
+  "launchTime": 1715243965000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COSUSDT",
+  "status": "Closed",
+  "launchTime": 1715245263000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BBUSDT",
+  "status": "Trading",
+  "launchTime": 1715686860000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GNOUSDT",
+  "status": "Closed",
+  "launchTime": 1715687275000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FTNUSDT",
+  "status": "Closed",
+  "launchTime": 1715854342000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NOTUSDT",
+  "status": "Trading",
+  "launchTime": 1715874083000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000000MOGUSDT",
+  "status": "Trading",
+  "launchTime": 1715874213000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LFTUSDT",
+  "status": "Closed",
+  "launchTime": 1715874260000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VELOUSDT",
+  "status": "Trading",
+  "launchTime": 1716196913000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DRIFTUSDT",
+  "status": "Trading",
+  "launchTime": 1716283968000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MASAUSDT",
+  "status": "Closed",
+  "launchTime": 1716284092000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CANTOUSDT",
+  "status": "Closed",
+  "launchTime": 1716448128000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MAPOUSDT",
+  "status": "Closed",
+  "launchTime": 1716448334000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPECUSDT",
+  "status": "Closed",
+  "launchTime": 1716796795000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XCHUSDT",
+  "status": "Closed",
+  "launchTime": 1716797021000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PENGUSDT",
+  "status": "Closed",
+  "launchTime": 1716814172000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NYANUSDT",
+  "status": "Closed",
+  "launchTime": 1716971492000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OSMOUSDT",
+  "status": "Closed",
+  "launchTime": 1717060123000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000BEERUSDT",
+  "status": "Closed",
+  "launchTime": 1717147586000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PHAUSDT",
+  "status": "Trading",
+  "launchTime": 1717149720000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BENDOGUSDT",
+  "status": "Closed",
+  "launchTime": 1717405671000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RAYDIUMUSDT",
+  "status": "Trading",
+  "launchTime": 1717492319000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DOGUSDT",
+  "status": "Closed",
+  "launchTime": 1717495120000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TAIKOUSDT",
+  "status": "Trading",
+  "launchTime": 1717597055000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ETHBTCUSDT",
+  "status": "Trading",
+  "launchTime": 1717749178000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PONKEUSDT",
+  "status": "Closed",
+  "launchTime": 1717749307000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GMEUSDT",
+  "status": "Closed",
+  "launchTime": 1718099039000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000000BABYDOGEUSDT",
+  "status": "Trading",
+  "launchTime": 1718105652000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IOUSDT",
+  "status": "Trading",
+  "launchTime": 1718113740000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AIOZUSDT",
+  "status": "Trading",
+  "launchTime": 1718266561000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ATHUSDT",
+  "status": "Trading",
+  "launchTime": 1718269304000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZKJUSDT",
+  "status": "Closed",
+  "launchTime": 1718611448000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZKUSDT",
+  "status": "Trading",
+  "launchTime": 1718849280000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000APUUSDT",
+  "status": "Closed",
+  "launchTime": 1718876005000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZROUSDT",
+  "status": "Trading",
+  "launchTime": 1718891646000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LISTAUSDT",
+  "status": "Closed",
+  "launchTime": 1718965015000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZCXUSDT",
+  "status": "Closed",
+  "launchTime": 1719232602000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AKTUSDT",
+  "status": "Trading",
+  "launchTime": 1719392170000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MANEKIUSDT",
+  "status": "Closed",
+  "launchTime": 1719393053000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BLASTUSDT",
+  "status": "Closed",
+  "launchTime": 1719480310000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000000PEIPEIUSDT",
+  "status": "Closed",
+  "launchTime": 1720088189000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DOP1USDT",
+  "status": "Closed",
+  "launchTime": 1720603161000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MOCAUSDT",
+  "status": "Trading",
+  "launchTime": 1720778262000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AEROUSDT",
+  "status": "Trading",
+  "launchTime": 1721034308000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PRCLUSDT",
+  "status": "Closed",
+  "launchTime": 1721208686000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "CLOUDUSDT",
+  "status": "Closed",
+  "launchTime": 1721381288000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UXLINKUSDT",
+  "status": "Closed",
+  "launchTime": 1721381721000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BANANAUSDT",
+  "status": "Trading",
+  "launchTime": 1721386183000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "A8USDT",
+  "status": "Closed",
+  "launchTime": 1721641953000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PIRATEUSDT",
+  "status": "Closed",
+  "launchTime": 1721642117000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AVAILUSDT",
+  "status": "Closed",
+  "launchTime": 1721745394000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GUSDT",
+  "status": "Closed",
+  "launchTime": 1721898436000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DEXEUSDT",
+  "status": "Trading",
+  "launchTime": 1721898539000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RENDERUSDT",
+  "status": "Trading",
+  "launchTime": 1721982407000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "L3USDT",
+  "status": "Closed",
+  "launchTime": 1722417009000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EIGENUSDT",
+  "status": "Trading",
+  "launchTime": 1722915813000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MAXUSDT",
+  "status": "Closed",
+  "launchTime": 1722934129000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USDEUSDT",
+  "status": "Trading",
+  "launchTime": 1723025685000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PIXFIUSDT",
+  "status": "Closed",
+  "launchTime": 1723106509000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MOTHERUSDT",
+  "status": "Closed",
+  "launchTime": 1723190524000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NEIROETHUSDT",
+  "status": "Closed",
+  "launchTime": 1723712929000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FDUSDUSDT",
+  "status": "Closed",
+  "launchTime": 1723802609000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SYNUSDT",
+  "status": "Closed",
+  "launchTime": 1724146113000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SYSUSDT",
+  "status": "Closed",
+  "launchTime": 1724146280000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VOXELUSDT",
+  "status": "Closed",
+  "launchTime": 1724235714000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "VIDTUSDT",
+  "status": "Closed",
+  "launchTime": 1724655235000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SUNDOGUSDT",
+  "status": "Closed",
+  "launchTime": 1724657326000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DOGSUSDT",
+  "status": "Closed",
+  "launchTime": 1724674595000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NULSUSDT",
+  "status": "Closed",
+  "launchTime": 1724749272000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ORDERUSDT",
+  "status": "Trading",
+  "launchTime": 1724749336000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "CHESSUSDT",
+  "status": "Closed",
+  "launchTime": 1725265715000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SLFUSDT",
+  "status": "Closed",
+  "launchTime": 1725353953000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLUXUSDT",
+  "status": "Trading",
+  "launchTime": 1725438663000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "POLUSDT",
+  "status": "Trading",
+  "launchTime": 1725525013000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CATIUSDT",
+  "status": "Trading",
+  "launchTime": 1725869712000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "QUICKUSDT",
+  "status": "Closed",
+  "launchTime": 1725958621000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HMSTRUSDT",
+  "status": "Trading",
+  "launchTime": 1726034896000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000CATUSDT",
+  "status": "Trading",
+  "launchTime": 1726140905000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000NEIROCTOUSDT",
+  "status": "Trading",
+  "launchTime": 1726480024000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALEOUSDT",
+  "status": "Closed",
+  "launchTime": 1726735815000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000MUMUUSDT",
+  "status": "Closed",
+  "launchTime": 1727072884000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FBUSDT",
+  "status": "Closed",
+  "launchTime": 1727254932000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FIDAUSDT",
+  "status": "Trading",
+  "launchTime": 1727254994000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FIOUSDT",
+  "status": "Closed",
+  "launchTime": 1727330785000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PRIMEUSDT",
+  "status": "Closed",
+  "launchTime": 1727682761000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MOODENGUSDT",
+  "status": "Trading",
+  "launchTime": 1727765946000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GOMININGUSDT",
+  "status": "Closed",
+  "launchTime": 1727856709000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000WHYUSDT",
+  "status": "Closed",
+  "launchTime": 1728030481000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PYRUSDT",
+  "status": "Closed",
+  "launchTime": 1728289161000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SCRUSDT",
+  "status": "Closed",
+  "launchTime": 1728390358000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KMNOUSDT",
+  "status": "Trading",
+  "launchTime": 1728463961000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000CATSUSDT",
+  "status": "Closed",
+  "launchTime": 1728633388000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PUFFERUSDT",
+  "status": "Trading",
+  "launchTime": 1728909421000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GRASSUSDT",
+  "status": "Trading",
+  "launchTime": 1728987123000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CARVUSDT",
+  "status": "Trading",
+  "launchTime": 1729068075000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DBRUSDT",
+  "status": "Trading",
+  "launchTime": 1729161730000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DEEPUSDT",
+  "status": "Trading",
+  "launchTime": 1729165754000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HPOS10IUSDT",
+  "status": "Closed",
+  "launchTime": 1729497361000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GOATUSDT",
+  "status": "Trading",
+  "launchTime": 1729593864000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LUMIAUSDT",
+  "status": "Trading",
+  "launchTime": 1729841762000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000XUSDT",
+  "status": "Closed",
+  "launchTime": 1729841874000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SPXUSDT",
+  "status": "Trading",
+  "launchTime": 1730183497000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KAIAUSDT",
+  "status": "Trading",
+  "launchTime": 1730449474000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VIRTUALUSDT",
+  "status": "Trading",
+  "launchTime": 1730449551000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SWELLUSDT",
+  "status": "Closed",
+  "launchTime": 1730974764000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COWUSDT",
+  "status": "Trading",
+  "launchTime": 1731060401000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ACTUSDT",
+  "status": "Trading",
+  "launchTime": 1731312852000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PNUTUSDT",
+  "status": "Trading",
+  "launchTime": 1731313006000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FWOGUSDT",
+  "status": "Closed",
+  "launchTime": 1731402187000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MEMEFIUSDT",
+  "status": "Closed",
+  "launchTime": 1731415131000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TROYUSDT",
+  "status": "Closed",
+  "launchTime": 1731486363000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SDUSDT",
+  "status": "Closed",
+  "launchTime": 1731570811000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TAIUSDT",
+  "status": "Closed",
+  "launchTime": 1731570915000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HIPPOUSDT",
+  "status": "Closed",
+  "launchTime": 1731570967000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PROSUSDT",
+  "status": "Closed",
+  "launchTime": 1731656495000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BANUSDT",
+  "status": "Trading",
+  "launchTime": 1731919190000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MAJORUSDT",
+  "status": "Closed",
+  "launchTime": 1731921482000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USUALUSDT",
+  "status": "Trading",
+  "launchTime": 1731921583000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RIFSOLUSDT",
+  "status": "Closed",
+  "launchTime": 1731924474000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LUCEUSDT",
+  "status": "Closed",
+  "launchTime": 1732004981000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PEAQUSDT",
+  "status": "Trading",
+  "launchTime": 1732005101000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OLUSDT",
+  "status": "Closed",
+  "launchTime": 1732178996000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CHILLGUYUSDT",
+  "status": "Trading",
+  "launchTime": 1732181897000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MORPHOUSDT",
+  "status": "Trading",
+  "launchTime": 1732264559000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MEUSDT",
+  "status": "Trading",
+  "launchTime": 1732521795000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZRCUSDT",
+  "status": "Closed",
+  "launchTime": 1732529489000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "1000000CHEEMSUSDT",
+  "status": "Closed",
+  "launchTime": 1732531212000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "THEUSDT",
+  "status": "Trading",
+  "launchTime": 1732697404000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BILLYUSDT",
+  "status": "Closed",
+  "launchTime": 1732697476000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MVLUSDT",
+  "status": "Closed",
+  "launchTime": 1732864286000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COOKUSDT",
+  "status": "Closed",
+  "launchTime": 1733125644000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HYPEUSDT",
+  "status": "Trading",
+  "launchTime": 1733316740000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GEMSUSDT",
+  "status": "Closed",
+  "launchTime": 1733390495000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "1000TOSHIUSDT",
+  "status": "Trading",
+  "launchTime": 1733390562000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XIONUSDT",
+  "status": "Closed",
+  "launchTime": 1733394014000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ACXUSDT",
+  "status": "Closed",
+  "launchTime": 1733478941000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FUSDT",
+  "status": "Trading",
+  "launchTime": 1733480292000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MOVEUSDT",
+  "status": "Trading",
+  "launchTime": 1733745977000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KOMAUSDT",
+  "status": "Closed",
+  "launchTime": 1733837747000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GIGAUSDT",
+  "status": "Closed",
+  "launchTime": 1733989346000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "UROUSDT",
+  "status": "Closed",
+  "launchTime": 1734076129000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SENDUSDT",
+  "status": "Closed",
+  "launchTime": 1734078707000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VELODROMEUSDT",
+  "status": "Trading",
+  "launchTime": 1734082004000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AVAUSDT",
+  "status": "Trading",
+  "launchTime": 1734343893000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VANAUSDT",
+  "status": "Trading",
+  "launchTime": 1734349422000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PENGUUSDT",
+  "status": "Trading",
+  "launchTime": 1734445346000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BLUEUSDT",
+  "status": "Closed",
+  "launchTime": 1734509782000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FARTCOINUSDT",
+  "status": "Trading",
+  "launchTime": 1734683847000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AIXBTUSDT",
+  "status": "Trading",
+  "launchTime": 1734683907000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NSUSDT",
+  "status": "Closed",
+  "launchTime": 1734683950000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GRIFFAINUSDT",
+  "status": "Trading",
+  "launchTime": 1734683999000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZENTUSDT",
+  "status": "Closed",
+  "launchTime": 1734942035000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HIVEUSDT",
+  "status": "Trading",
+  "launchTime": 1734950040000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "10000QUBICUSDT",
+  "status": "Closed",
+  "launchTime": 1735034038000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BIOUSDT",
+  "status": "Trading",
+  "launchTime": 1735034094000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOLOUSDT",
+  "status": "Closed",
+  "launchTime": 1735199812000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZEREBROUSDT",
+  "status": "Trading",
+  "launchTime": 1735546608000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AI16ZUSDT",
+  "status": "Closed",
+  "launchTime": 1735546658000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FUELUSDT",
+  "status": "Closed",
+  "launchTime": 1735630145000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ARCUSDT",
+  "status": "Trading",
+  "launchTime": 1735892178000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SWARMSUSDT",
+  "status": "Closed",
+  "launchTime": 1736152318000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALCHUSDT",
+  "status": "Trading",
+  "launchTime": 1736235131000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COOKIEUSDT",
+  "status": "Trading",
+  "launchTime": 1736235179000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SONICUSDT",
+  "status": "Trading",
+  "launchTime": 1736252695000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AVAAIUSDT",
+  "status": "Trading",
+  "launchTime": 1736325126000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "REXUSDT",
+  "status": "Closed",
+  "launchTime": 1736412456000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1736412607000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CGPTUSDT",
+  "status": "Trading",
+  "launchTime": 1736506047000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALUUSDT",
+  "status": "Closed",
+  "launchTime": 1736841722000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SUSDT",
+  "status": "Trading",
+  "launchTime": 1736930840000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VRUSDT",
+  "status": "Closed",
+  "launchTime": 1737019777000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DUCKUSDT",
+  "status": "Closed",
+  "launchTime": 1737022888000,
+  "fundingInterval": 120
+ },
+ {
+  "symbol": "PIPPINUSDT",
+  "status": "Trading",
+  "launchTime": 1737103122000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOLVUSDT",
+  "status": "Closed",
+  "launchTime": 1737109311000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NCUSDT",
+  "status": "Closed",
+  "launchTime": 1737110159000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TRUMPUSDT",
+  "status": "Trading",
+  "launchTime": 1737181907000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MELANIAUSDT",
+  "status": "Trading",
+  "launchTime": 1737350019000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BUZZUSDT",
+  "status": "Closed",
+  "launchTime": 1737537136000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JUSDT",
+  "status": "Closed",
+  "launchTime": 1737542211000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VINEUSDT",
+  "status": "Closed",
+  "launchTime": 1737632778000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ANIMEUSDT",
+  "status": "Trading",
+  "launchTime": 1737642024000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LAYERUSDT",
+  "status": "Closed",
+  "launchTime": 1737694860000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PLUMEUSDT",
+  "status": "Trading",
+  "launchTime": 1737701100000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MICHIUSDT",
+  "status": "Closed",
+  "launchTime": 1737948341000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VVVUSDT",
+  "status": "Trading",
+  "launchTime": 1738038705000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JELLYJELLYUSDT",
+  "status": "Trading",
+  "launchTime": 1738219511000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BERAUSDT",
+  "status": "Trading",
+  "launchTime": 1738847788000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IPUSDT",
+  "status": "Closed",
+  "launchTime": 1738916896000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TSTBSCUSDT",
+  "status": "Closed",
+  "launchTime": 1739096894000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "10000ELONUSDT",
+  "status": "Closed",
+  "launchTime": 1739179416000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XDCUSDT",
+  "status": "Trading",
+  "launchTime": 1739179487000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOLAYERUSDT",
+  "status": "Trading",
+  "launchTime": 1739283176000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "B3USDT",
+  "status": "Trading",
+  "launchTime": 1739355381000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RONINUSDT",
+  "status": "Trading",
+  "launchTime": 1739430673000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HEIUSDT",
+  "status": "Trading",
+  "launchTime": 1739525015000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JAILSTOOLUSDT",
+  "status": "Closed",
+  "launchTime": 1739527995000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BROCCOLIUSDT",
+  "status": "Trading",
+  "launchTime": 1739535111000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SHELLUSDT",
+  "status": "Trading",
+  "launchTime": 1739777623000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GPSUSDT",
+  "status": "Trading",
+  "launchTime": 1739866543000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AVLUSDT",
+  "status": "Closed",
+  "launchTime": 1740048791000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KAITOUSDT",
+  "status": "Trading",
+  "launchTime": 1740057727000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "REDUSDT",
+  "status": "Trading",
+  "launchTime": 1740552652000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XTERUSDT",
+  "status": "Closed",
+  "launchTime": 1741245964000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CPOOLUSDT",
+  "status": "Closed",
+  "launchTime": 1741248211000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ROAMUSDT",
+  "status": "Closed",
+  "launchTime": 1741333231000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SERAPHUSDT",
+  "status": "Closed",
+  "launchTime": 1741680988000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ELXUSDT",
+  "status": "Closed",
+  "launchTime": 1741763140000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "VICUSDT",
+  "status": "Closed",
+  "launchTime": 1741852688000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "BMTUSDT",
+  "status": "Trading",
+  "launchTime": 1741852724000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "EPICUSDT",
+  "status": "Trading",
+  "launchTime": 1741940281000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MUBARAKUSDT",
+  "status": "Trading",
+  "launchTime": 1742197296000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TUTUSDT",
+  "status": "Trading",
+  "launchTime": 1742375596000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FORMUSDT",
+  "status": "Trading",
+  "launchTime": 1742378167000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NILUSDT",
+  "status": "Trading",
+  "launchTime": 1742468146000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BRUSDT",
+  "status": "Trading",
+  "launchTime": 1742476788000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SIRENUSDT",
+  "status": "Trading",
+  "launchTime": 1742613642000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PARTIUSDT",
+  "status": "Trading",
+  "launchTime": 1742908134000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WALUSDT",
+  "status": "Trading",
+  "launchTime": 1743069956000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BANANAS31USDT",
+  "status": "Trading",
+  "launchTime": 1743154150000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GUNUSDT",
+  "status": "Trading",
+  "launchTime": 1743426729000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BABYUSDT",
+  "status": "Trading",
+  "launchTime": 1743672875000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XAUTUSDT",
+  "status": "Trading",
+  "launchTime": 1743678359000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MLNUSDT",
+  "status": "Closed",
+  "launchTime": 1744185886000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PROMPTUSDT",
+  "status": "Closed",
+  "launchTime": 1744293965000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PUMPBTCUSDT",
+  "status": "Closed",
+  "launchTime": 1744359394000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PUMPUSDT",
+  "status": "Closed",
+  "launchTime": 1744359394000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RFCUSDT",
+  "status": "Closed",
+  "launchTime": 1744615829000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "INITUSDT",
+  "status": "Trading",
+  "launchTime": 1744616093000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KERNELUSDT",
+  "status": "Trading",
+  "launchTime": 1744632444000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WCTUSDT",
+  "status": "Trading",
+  "launchTime": 1744716727000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STOUSDT",
+  "status": "Trading",
+  "launchTime": 1744795735000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "EPTUSDT",
+  "status": "Closed",
+  "launchTime": 1745238159000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HYPERUSDT",
+  "status": "Trading",
+  "launchTime": 1745323627000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZORAUSDT",
+  "status": "Trading",
+  "launchTime": 1745572650000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OBTUSDT",
+  "status": "Closed",
+  "launchTime": 1745572693000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DARKUSDT",
+  "status": "Closed",
+  "launchTime": 1745595290000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CLANKERUSDT",
+  "status": "Trading",
+  "launchTime": 1745835370000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SIGNUSDT",
+  "status": "Trading",
+  "launchTime": 1745838563000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PUNDIXUSDT",
+  "status": "Trading",
+  "launchTime": 1746011520000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HAEDALUSDT",
+  "status": "Trading",
+  "launchTime": 1746012593000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SXTUSDT",
+  "status": "Trading",
+  "launchTime": 1746252735000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GORKUSDT",
+  "status": "Closed",
+  "launchTime": 1746440818000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MILKUSDT",
+  "status": "Closed",
+  "launchTime": 1746527288000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OBOLUSDT",
+  "status": "Closed",
+  "launchTime": 1746617368000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BANKUSDT",
+  "status": "Trading",
+  "launchTime": 1746694311000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DOODUSDT",
+  "status": "Trading",
+  "launchTime": 1746796833000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SKYAIUSDT",
+  "status": "Closed",
+  "launchTime": 1747131653000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LAUNCHCOINUSDT",
+  "status": "Closed",
+  "launchTime": 1747213476000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NXPCUSDT",
+  "status": "Trading",
+  "launchTime": 1747289965000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SYRUPUSDT",
+  "status": "Trading",
+  "launchTime": 1747640186000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PRAIUSDT",
+  "status": "Closed",
+  "launchTime": 1747640223000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SAROSUSDT",
+  "status": "Closed",
+  "launchTime": 1747727292000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AWEUSDT",
+  "status": "Trading",
+  "launchTime": 1747904988000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BUSDT",
+  "status": "Trading",
+  "launchTime": 1747980646000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOONUSDT",
+  "status": "Trading",
+  "launchTime": 1747990696000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HUMAUSDT",
+  "status": "Trading",
+  "launchTime": 1748264514000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AGTUSDT",
+  "status": "Closed",
+  "launchTime": 1748411235000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AUSDT",
+  "status": "Trading",
+  "launchTime": 1748420402000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOPHUSDT",
+  "status": "Trading",
+  "launchTime": 1748437483000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BDXNUSDT",
+  "status": "Closed",
+  "launchTime": 1748946949000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LAUSDT",
+  "status": "Trading",
+  "launchTime": 1749100801000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "B2USDT",
+  "status": "Trading",
+  "launchTime": 1749460723000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SKATEUSDT",
+  "status": "Closed",
+  "launchTime": 1749463898000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HOMEUSDT",
+  "status": "Trading",
+  "launchTime": 1749554150000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RESOLVUSDT",
+  "status": "Trading",
+  "launchTime": 1749561099000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SQDUSDT",
+  "status": "Trading",
+  "launchTime": 1749641005000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CUDISUSDT",
+  "status": "Closed",
+  "launchTime": 1749717315000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SPKUSDT",
+  "status": "Trading",
+  "launchTime": 1750151567000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NEWTUSDT",
+  "status": "Trading",
+  "launchTime": 1750405506000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SAHARAUSDT",
+  "status": "Trading",
+  "launchTime": 1750417893000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HUSDT",
+  "status": "Trading",
+  "launchTime": 1750845035000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOSOUSDT",
+  "status": "Trading",
+  "launchTime": 1750936079000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FRAGUSDT",
+  "status": "Closed",
+  "launchTime": 1751361087000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DMCUSDT",
+  "status": "Closed",
+  "launchTime": 1751539595000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ICNTUSDT",
+  "status": "Trading",
+  "launchTime": 1751540416000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MUSDT",
+  "status": "Trading",
+  "launchTime": 1751967363000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TANSSIUSDT",
+  "status": "Closed",
+  "launchTime": 1752063034000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PUMPFUNUSDT",
+  "status": "Trading",
+  "launchTime": 1752119132000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "USELESSUSDT",
+  "status": "Trading",
+  "launchTime": 1752144978000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AINUSDT",
+  "status": "Closed",
+  "launchTime": 1752145090000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CROSSUSDT",
+  "status": "Trading",
+  "launchTime": 1752145300000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CUSDT",
+  "status": "Trading",
+  "launchTime": 1752574968000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VELVETUSDT",
+  "status": "Trading",
+  "launchTime": 1752575111000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TACUSDT",
+  "status": "Trading",
+  "launchTime": 1752576498000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ESUSDT",
+  "status": "Closed",
+  "launchTime": 1752661653000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "USD1USDT",
+  "status": "Trading",
+  "launchTime": 1752662996000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ERAUSDT",
+  "status": "Trading",
+  "launchTime": 1752767182000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TAUSDT",
+  "status": "Trading",
+  "launchTime": 1753089119000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DIAUSDT",
+  "status": "Trading",
+  "launchTime": 1753256933000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ASPUSDT",
+  "status": "Closed",
+  "launchTime": 1753359185000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "1000TAGUSDT",
+  "status": "Trading",
+  "launchTime": 1753691858000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FISUSDT",
+  "status": "Closed",
+  "launchTime": 1753692741000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DOLOUSDT",
+  "status": "Trading",
+  "launchTime": 1753692850000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ESPORTSUSDT",
+  "status": "Trading",
+  "launchTime": 1753783524000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TREEUSDT",
+  "status": "Trading",
+  "launchTime": 1753797825000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "A2ZUSDT",
+  "status": "Closed",
+  "launchTime": 1753952943000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NAORISUSDT",
+  "status": "Trading",
+  "launchTime": 1753964050000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MYXUSDT",
+  "status": "Trading",
+  "launchTime": 1754386082000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TOWNSUSDT",
+  "status": "Trading",
+  "launchTime": 1754404399000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PROVEUSDT",
+  "status": "Trading",
+  "launchTime": 1754413429000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RHEAUSDT",
+  "status": "Closed",
+  "launchTime": 1754478823000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "INUSDT",
+  "status": "Trading",
+  "launchTime": 1754561821000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "YALAUSDT",
+  "status": "Closed",
+  "launchTime": 1754638895000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KUSDT",
+  "status": "Closed",
+  "launchTime": 1754641777000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SKYUSDT",
+  "status": "Trading",
+  "launchTime": 1754900886000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AIOUSDT",
+  "status": "Trading",
+  "launchTime": 1755090699000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XNYUSDT",
+  "status": "Trading",
+  "launchTime": 1755090821000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ASRUSDT",
+  "status": "Trading",
+  "launchTime": 1755163098000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALPINEUSDT",
+  "status": "Trading",
+  "launchTime": 1755164723000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DAMUSDT",
+  "status": "Closed",
+  "launchTime": 1755521321000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SAPIENUSDT",
+  "status": "Trading",
+  "launchTime": 1755710378000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "YZYUSDT",
+  "status": "Closed",
+  "launchTime": 1755749885000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XPLUSDT",
+  "status": "Trading",
+  "launchTime": 1755854834000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WLFIUSDT",
+  "status": "Trading",
+  "launchTime": 1755939756000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BSUUSDT",
+  "status": "Closed",
+  "launchTime": 1756290653000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BTRUSDT",
+  "status": "Trading",
+  "launchTime": 1756293116000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CAMPUSDT",
+  "status": "Closed",
+  "launchTime": 1756369902000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MITOUSDT",
+  "status": "Trading",
+  "launchTime": 1756462419000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LINEAUSDT",
+  "status": "Trading",
+  "launchTime": 1756719285000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOMIUSDT",
+  "status": "Trading",
+  "launchTime": 1756823941000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ARIAUSDT",
+  "status": "Trading",
+  "launchTime": 1756903625000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PTBUSDT",
+  "status": "Trading",
+  "launchTime": 1756904871000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NODEUSDT",
+  "status": "Closed",
+  "launchTime": 1756978739000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OPENUSDT",
+  "status": "Trading",
+  "launchTime": 1757336655000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AVNTUSDT",
+  "status": "Trading",
+  "launchTime": 1757426737000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OKBUSDT",
+  "status": "Trading",
+  "launchTime": 1757591356000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HOLOUSDT",
+  "status": "Trading",
+  "launchTime": 1757592340000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "UBUSDT",
+  "status": "Trading",
+  "launchTime": 1757668569000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XPINUSDT",
+  "status": "Trading",
+  "launchTime": 1757673432000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "QUSDT",
+  "status": "Trading",
+  "launchTime": 1757673982000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZKCUSDT",
+  "status": "Trading",
+  "launchTime": 1757945116000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BARDUSDT",
+  "status": "Trading",
+  "launchTime": 1758016137000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STBLUSDT",
+  "status": "Trading",
+  "launchTime": 1758103139000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "0GUSDT",
+  "status": "Trading",
+  "launchTime": 1758175736000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AIAUSDT",
+  "status": "Closed",
+  "launchTime": 1758190000000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "ASTERUSDT",
+  "status": "Trading",
+  "launchTime": 1758267993000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HEMIUSDT",
+  "status": "Trading",
+  "launchTime": 1758632437000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BLESSUSDT",
+  "status": "Trading",
+  "launchTime": 1758708305000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FLUIDUSDT",
+  "status": "Trading",
+  "launchTime": 1758714467000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MIRAUSDT",
+  "status": "Trading",
+  "launchTime": 1758890551000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AKEUSDT",
+  "status": "Trading",
+  "launchTime": 1758892362000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RLUSDUSDT",
+  "status": "Trading",
+  "launchTime": 1758895535000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LIGHTUSDT",
+  "status": "Trading",
+  "launchTime": 1758978959000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "APEXUSDT",
+  "status": "Trading",
+  "launchTime": 1759047493000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XANUSDT",
+  "status": "Trading",
+  "launchTime": 1759142669000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FFUSDT",
+  "status": "Trading",
+  "launchTime": 1759155773000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "EDENUSDT",
+  "status": "Trading",
+  "launchTime": 1759232604000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "VFYUSDT",
+  "status": "Closed",
+  "launchTime": 1759235236000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NOMUSDT",
+  "status": "Trading",
+  "launchTime": 1759306658000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TRUTHUSDT",
+  "status": "Trading",
+  "launchTime": 1759328067000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COAIUSDT",
+  "status": "Trading",
+  "launchTime": 1759394107000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "2ZUSDT",
+  "status": "Trading",
+  "launchTime": 1759412287000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LYNUSDT",
+  "status": "Trading",
+  "launchTime": 1759737954000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KGENUSDT",
+  "status": "Trading",
+  "launchTime": 1759850272000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "4USDT",
+  "status": "Trading",
+  "launchTime": 1759926326000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GIGGLEUSDT",
+  "status": "Trading",
+  "launchTime": 1760012012000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "METUSDT",
+  "status": "Trading",
+  "launchTime": 1760090046000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "YBUSDT",
+  "status": "Trading",
+  "launchTime": 1760168936000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "EULUSDT",
+  "status": "Trading",
+  "launchTime": 1760430633000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ENSOUSDT",
+  "status": "Trading",
+  "launchTime": 1760433661000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RECALLUSDT",
+  "status": "Trading",
+  "launchTime": 1760530869000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "HANAUSDT",
+  "status": "Trading",
+  "launchTime": 1760700785000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "EVAAUSDT",
+  "status": "Trading",
+  "launchTime": 1760701166000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CLOUSDT",
+  "status": "Trading",
+  "launchTime": 1760701337000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZBTUSDT",
+  "status": "Trading",
+  "launchTime": 1760706241000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RIVERUSDT",
+  "status": "Trading",
+  "launchTime": 1761136287000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TURTLEUSDT",
+  "status": "Trading",
+  "launchTime": 1761145437000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BLUAIUSDT",
+  "status": "Trading",
+  "launchTime": 1761219528000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MEGAUSDT",
+  "status": "Trading",
+  "launchTime": 1761220097000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "APRUSDT",
+  "status": "Trading",
+  "launchTime": 1761221867000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MONPROUSDT",
+  "status": "PendingOpen",
+  "launchTime": 1761230273000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LABUSDT",
+  "status": "Trading",
+  "launchTime": 1761556790000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MMTUSDT",
+  "status": "Trading",
+  "launchTime": 1761556943000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "COMMONUSDT",
+  "status": "Closed",
+  "launchTime": 1761570547000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PIGGYUSDT",
+  "status": "Closed",
+  "launchTime": 1761738932000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KITEUSDT",
+  "status": "Trading",
+  "launchTime": 1761739367000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ATUSDT",
+  "status": "Trading",
+  "launchTime": 1761746016000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CCUSDT",
+  "status": "Trading",
+  "launchTime": 1761916855000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "STABLEUSDT",
+  "status": "Trading",
+  "launchTime": 1762433433000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TRUSTUSDT",
+  "status": "Trading",
+  "launchTime": 1763122691000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALLOUSDT",
+  "status": "Trading",
+  "launchTime": 1763123540000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PIEVERSEUSDT",
+  "status": "Trading",
+  "launchTime": 1763127243000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SENTUSDT",
+  "status": "Trading",
+  "launchTime": 1763190588000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "UAIUSDT",
+  "status": "Trading",
+  "launchTime": 1763374294000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "JCTUSDT",
+  "status": "Trading",
+  "launchTime": 1763374327000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BEATUSDT",
+  "status": "Trading",
+  "launchTime": 1763722433000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BOBBOBUSDT",
+  "status": "Closed",
+  "launchTime": 1763972948000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MONUSDT",
+  "status": "Trading",
+  "launchTime": 1763992686000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IRYSUSDT",
+  "status": "Trading",
+  "launchTime": 1764223243000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "RLSUSDT",
+  "status": "Closed",
+  "launchTime": 1764669252000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WETUSDT",
+  "status": "Trading",
+  "launchTime": 1764845996000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NIGHTUSDT",
+  "status": "Trading",
+  "launchTime": 1765275695000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FOLKSUSDT",
+  "status": "Trading",
+  "launchTime": 1765278382000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CYSUSDT",
+  "status": "Trading",
+  "launchTime": 1765537544000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "USUSDT",
+  "status": "Trading",
+  "launchTime": 1765537596000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "RAVEUSDT",
+  "status": "Trading",
+  "launchTime": 1765777812000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LITENTRYUSDT",
+  "status": "PendingOpen",
+  "launchTime": 1766051750000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZKPUSDT",
+  "status": "Trading",
+  "launchTime": 1766382658000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "MAGMAUSDT",
+  "status": "Trading",
+  "launchTime": 1766732813000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "POWERUSDT",
+  "status": "Trading",
+  "launchTime": 1767004491000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "LITUSDT",
+  "status": "Trading",
+  "launchTime": 1767089298000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BREVUSDT",
+  "status": "Trading",
+  "launchTime": 1767099365000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "WHITEWHALEUSDT",
+  "status": "Closed",
+  "launchTime": 1767701288000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FHEUSDT",
+  "status": "Trading",
+  "launchTime": 1767771601000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZAMAUSDT",
+  "status": "Trading",
+  "launchTime": 1767953327000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FOGOUSDT",
+  "status": "Trading",
+  "launchTime": 1768115669000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SPORTFUNUSDT",
+  "status": "Closed",
+  "launchTime": 1768814718000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PLAYSOUTUSDT",
+  "status": "Trading",
+  "launchTime": 1768902912000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SKRUSDT",
+  "status": "Trading",
+  "launchTime": 1768904987000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ELSAUSDT",
+  "status": "Trading",
+  "launchTime": 1769066535000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ACUUSDT",
+  "status": "Trading",
+  "launchTime": 1769154278000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "FIGHTUSDT",
+  "status": "Trading",
+  "launchTime": 1769168536000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SPACEUSDT",
+  "status": "Trading",
+  "launchTime": 1769171029000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BIRBUSDT",
+  "status": "Trading",
+  "launchTime": 1769598765000,
+  "fundingInterval": 60
+ },
+ {
+  "symbol": "INXUSDT",
+  "status": "Trading",
+  "launchTime": 1769675991000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TRIAUSDT",
+  "status": "Trading",
+  "launchTime": 1770285700000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ESPUSDT",
+  "status": "Trading",
+  "launchTime": 1770715786000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OPNUSDT",
+  "status": "Trading",
+  "launchTime": 1770803369000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AZTECUSDT",
+  "status": "Trading",
+  "launchTime": 1770881266000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ROBOUSDT",
+  "status": "Trading",
+  "launchTime": 1772011862000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KATUSDT",
+  "status": "Trading",
+  "launchTime": 1772435837000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XAUUSDT",
+  "status": "Trading",
+  "launchTime": 1773022440000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "XAGUSDT",
+  "status": "Trading",
+  "launchTime": 1773024483000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BPUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1773639914000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CFGUSDT",
+  "status": "Trading",
+  "launchTime": 1773720175000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "EDGEUSDT",
+  "status": "Trading",
+  "launchTime": 1773977854000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CLUSDT",
+  "status": "Trading",
+  "launchTime": 1774338320000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BSBUSDT",
+  "status": "Trading",
+  "launchTime": 1774500541000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PRLUSDT",
+  "status": "Trading",
+  "launchTime": 1774587057000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BASEDUSDT",
+  "status": "Trading",
+  "launchTime": 1774859022000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GENIUSUSDT",
+  "status": "Trading",
+  "launchTime": 1776324480000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CHIPUSDT",
+  "status": "Trading",
+  "launchTime": 1776331130000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TSLAUSDT",
+  "status": "Trading",
+  "launchTime": 1776772618000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TSMUSDT",
+  "status": "Trading",
+  "launchTime": 1776845726000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "INTCUSDT",
+  "status": "Trading",
+  "launchTime": 1776848142000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HOODUSDT",
+  "status": "Trading",
+  "launchTime": 1776848262000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OPGUSDT",
+  "status": "Trading",
+  "launchTime": 1776923521000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "METAUSDT",
+  "status": "Trading",
+  "launchTime": 1777276332000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GOOGLUSDT",
+  "status": "Trading",
+  "launchTime": 1777276478000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MSFTUSDT",
+  "status": "Trading",
+  "launchTime": 1777276719000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMZNUSDT",
+  "status": "Trading",
+  "launchTime": 1777363587000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SNDKUSDT",
+  "status": "Trading",
+  "launchTime": 1777364384000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AAPLUSDT",
+  "status": "Trading",
+  "launchTime": 1777364510000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PLTRUSDT",
+  "status": "Trading",
+  "launchTime": 1777450480000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MSTRUSDT",
+  "status": "Trading",
+  "launchTime": 1777450622000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COINUSDT",
+  "status": "Trading",
+  "launchTime": 1777450718000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BLENDUSDT",
+  "status": "Trading",
+  "launchTime": 1777455508000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AIGENSYNUSDT",
+  "status": "Trading",
+  "launchTime": 1777526715000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BILLUSDT",
+  "status": "Trading",
+  "launchTime": 1778049738000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CRCLUSDT",
+  "status": "Trading",
+  "launchTime": 1778056166000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NVDAUSDT",
+  "status": "Trading",
+  "launchTime": 1778056269000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ORCLUSDT",
+  "status": "Trading",
+  "launchTime": 1778056362000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MUUSDT",
+  "status": "Trading",
+  "launchTime": 1778141926000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QQQUSDT",
+  "status": "Trading",
+  "launchTime": 1778142025000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EWYUSDT",
+  "status": "Trading",
+  "launchTime": 1778142224000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EWJUSDT",
+  "status": "Trading",
+  "launchTime": 1778142464000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AVGOUSDT",
+  "status": "Trading",
+  "launchTime": 1778573548000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LITEUSDT",
+  "status": "Trading",
+  "launchTime": 1778573822000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRWVUSDT",
+  "status": "Trading",
+  "launchTime": 1778574111000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BABAUSDT",
+  "status": "Trading",
+  "launchTime": 1778659392000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MRVLUSDT",
+  "status": "Trading",
+  "launchTime": 1778659541000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARMUSDT",
+  "status": "Trading",
+  "launchTime": 1778659627000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BZUSDT",
+  "status": "Trading",
+  "launchTime": 1778659712000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BMNRUSDT",
+  "status": "Trading",
+  "launchTime": 1778745562000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPYUSDT",
+  "status": "Trading",
+  "launchTime": 1778745719000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LLYUSDT",
+  "status": "Trading",
+  "launchTime": 1778745824000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IWMUSDT",
+  "status": "Trading",
+  "launchTime": 1778745922000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PHAROSUSDT",
+  "status": "Trading",
+  "launchTime": 1778746356000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GWEIUSDT",
+  "status": "Trading",
+  "launchTime": 1779091413000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SOXLUSDT",
+  "status": "Trading",
+  "launchTime": 1779178631000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DRAMUSDT",
+  "status": "Trading",
+  "launchTime": 1779178914000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CBRSUSDT",
+  "status": "Trading",
+  "launchTime": 1779179085000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CSCOUSDT",
+  "status": "Trading",
+  "launchTime": 1779263175000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RKLBUSDT",
+  "status": "Trading",
+  "launchTime": 1779263322000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "10000NEXUSDT",
+  "status": "Trading",
+  "launchTime": 1779350242000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SKYAI1USDT",
+  "status": "Trading",
+  "launchTime": 1779697382000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NBISUSDT",
+  "status": "Trading",
+  "launchTime": 1779783295000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QCOMUSDT",
+  "status": "Trading",
+  "launchTime": 1779783510000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMDSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1779957173000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WDCUSDT",
+  "status": "Trading",
+  "launchTime": 1779957259000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BEUSDT",
+  "status": "Trading",
+  "launchTime": 1779957342000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SLXUSDT",
+  "status": "Trading",
+  "launchTime": 1780300549000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DELLUSDT",
+  "status": "Trading",
+  "launchTime": 1780387603000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SKHYNIXUSDT",
+  "status": "Trading",
+  "launchTime": 1780540536000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SAMSUNGUSDT",
+  "status": "Trading",
+  "launchTime": 1780540679000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HYUNDAIUSDT",
+  "status": "Trading",
+  "launchTime": 1780541049000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ASTSUSDT",
+  "status": "Trading",
+  "launchTime": 1780563205000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EWTUSDT",
+  "status": "Trading",
+  "launchTime": 1780563286000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NOWUSDT",
+  "status": "Trading",
+  "launchTime": 1780563360000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZESTUSDT",
+  "status": "Trading",
+  "launchTime": 1780646706000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BTWUSDT",
+  "status": "Trading",
+  "launchTime": 1780646878000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NOKIAUSDT",
+  "status": "Trading",
+  "launchTime": 1780647188000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IBMUSDT",
+  "status": "Trading",
+  "launchTime": 1780647275000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMATUSDT",
+  "status": "Trading",
+  "launchTime": 1780647383000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AAOIUSDT",
+  "status": "Trading",
+  "launchTime": 1780993432000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CTRUSDT",
+  "status": "Trading",
+  "launchTime": 1780993713000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IRENUSDT",
+  "status": "Trading",
+  "launchTime": 1780993883000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ONDSUSDT",
+  "status": "Trading",
+  "launchTime": 1780994017000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "QNTXUSDT",
+  "status": "Trading",
+  "launchTime": 1780994116000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPCXUSDT",
+  "status": "Trading",
+  "launchTime": 1781510821000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLNCUSDT",
+  "status": "Trading",
+  "launchTime": 1781603229000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COHRUSDT",
+  "status": "Trading",
+  "launchTime": 1781603709000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AXTIUSDT",
+  "status": "Trading",
+  "launchTime": 1781603882000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DATAOLD01USDT",
+  "status": "PendingOpen",
+  "launchTime": 1781607686000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "REUSDT",
+  "status": "Trading",
+  "launchTime": 1781792305000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "GRAMUSDT",
+  "status": "Trading",
+  "launchTime": 1782121594000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ARXUSDT",
+  "status": "Trading",
+  "launchTime": 1782186545000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "OUSDT",
+  "status": "Trading",
+  "launchTime": 1782186684000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BBXUSDT",
+  "status": "Trading",
+  "launchTime": 1782202516000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRDOUSDT",
+  "status": "Trading",
+  "launchTime": 1782202737000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USARUSDT",
+  "status": "Trading",
+  "launchTime": 1782202956000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LRCXUSDT",
+  "status": "Trading",
+  "launchTime": 1782287120000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TQQQUSDT",
+  "status": "Trading",
+  "launchTime": 1782287214000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SMCIUSDT",
+  "status": "Trading",
+  "launchTime": 1782287292000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GLWUSDT",
+  "status": "Trading",
+  "launchTime": 1782287375000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UVXYUSDT",
+  "status": "Trading",
+  "launchTime": 1782376186000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STXXUSDT",
+  "status": "Trading",
+  "launchTime": 1782376308000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ASMLUSDT",
+  "status": "Trading",
+  "launchTime": 1782459823000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HPEUSDT",
+  "status": "Trading",
+  "launchTime": 1782459903000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KLACUSDT",
+  "status": "Trading",
+  "launchTime": 1782459970000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CAPUSDT",
+  "status": "Trading",
+  "launchTime": 1782703707000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ALABUSDT",
+  "status": "Trading",
+  "launchTime": 1782721173000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CIENUSDT",
+  "status": "Trading",
+  "launchTime": 1782721808000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ADBEUSDT",
+  "status": "Trading",
+  "launchTime": 1782721878000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MVLLUSDT",
+  "status": "Trading",
+  "launchTime": 1782813159000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SQQQUSDT",
+  "status": "Trading",
+  "launchTime": 1782813258000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DATAUSDT",
+  "status": "Trading",
+  "launchTime": 1782815431000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BOTUSDT",
+  "status": "Trading",
+  "launchTime": 1782892908000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CATSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1782986123000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TXNUSDT",
+  "status": "Trading",
+  "launchTime": 1782986273000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TERUSDT",
+  "status": "Trading",
+  "launchTime": 1782986346000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HIMSUSDT",
+  "status": "Trading",
+  "launchTime": 1783064973000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRWDUSDT",
+  "status": "Trading",
+  "launchTime": 1783065201000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLEXUSDT",
+  "status": "Trading",
+  "launchTime": 1783065302000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NFLXUSDT",
+  "status": "Trading",
+  "launchTime": 1783325065000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BSPUSDT",
+  "status": "Trading",
+  "launchTime": 1783325155000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TTWOUSDT",
+  "status": "Trading",
+  "launchTime": 1783325218000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SONYUSDT",
+  "status": "Trading",
+  "launchTime": 1783500006000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SHAZUSDT",
+  "status": "Trading",
+  "launchTime": 1783500224000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "COSTUSDT",
+  "status": "Trading",
+  "launchTime": 1783500299000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PURRUSDT",
+  "status": "Trading",
+  "launchTime": 1783676933000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GEVUSDT",
+  "status": "Trading",
+  "launchTime": 1783677021000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SNOWUSDT",
+  "status": "Trading",
+  "launchTime": 1783677139000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VRTUSDT",
+  "status": "Trading",
+  "launchTime": 1783677222000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SKHYUSDT",
+  "status": "Trading",
+  "launchTime": 1783737596000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OPENAIUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1783934700000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ANTHROPICUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1783934824000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SNXXUSDT",
+  "status": "Trading",
+  "launchTime": 1784015916000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KSTRUSDT",
+  "status": "Trading",
+  "launchTime": 1784015980000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "INTWUSDT",
+  "status": "Trading",
+  "launchTime": 1784016053000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLEUSDT",
+  "status": "Trading",
+  "launchTime": 1784104454000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XBIUSDT",
+  "status": "Trading",
+  "launchTime": 1784104559000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SMHUSDT",
+  "status": "Trading",
+  "launchTime": 1784104673000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KORUUSDT",
+  "status": "Trading",
+  "launchTime": 1784111653000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AEHRUSDT",
+  "status": "Trading",
+  "launchTime": 1784193622000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BNCUSDT",
+  "status": "Trading",
+  "launchTime": 1784193688000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "POETUSDT",
+  "status": "Trading",
+  "launchTime": 1784193750000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RDWUSDT",
+  "status": "Trading",
+  "launchTime": 1784193845000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MUUUSDT",
+  "status": "Trading",
+  "launchTime": 1784193915000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SOXSUSDT",
+  "status": "Trading",
+  "launchTime": 1784195821000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "APPSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1784195913000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TZAUSDT",
+  "status": "Trading",
+  "launchTime": 1784195987000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FWDIUSDT",
+  "status": "Trading",
+  "launchTime": 1784196063000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZMUSDT",
+  "status": "Trading",
+  "launchTime": 1784285148000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MARAUSDT",
+  "status": "Trading",
+  "launchTime": 1784285210000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TSEMUSDT",
+  "status": "Trading",
+  "launchTime": 1784285287000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BXUSDT",
+  "status": "Trading",
+  "launchTime": 1784285361000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "APLDUSDT",
+  "status": "Trading",
+  "launchTime": 1784285433000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IONQUSDT",
+  "status": "Trading",
+  "launchTime": 1784285524000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WENSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1784538291000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DKNGUSDT",
+  "status": "Trading",
+  "launchTime": 1784538352000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RIVNUSDT",
+  "status": "Trading",
+  "launchTime": 1784538418000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FLYUSDT",
+  "status": "Trading",
+  "launchTime": 1784538492000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ARKKUSDT",
+  "status": "Trading",
+  "launchTime": 1784538556000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TSLLUSDT",
+  "status": "Trading",
+  "launchTime": 1784539008000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLFUSDT",
+  "status": "Trading",
+  "launchTime": 1784625978000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLKUSDT",
+  "status": "Trading",
+  "launchTime": 1784626046000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLVUSDT",
+  "status": "Trading",
+  "launchTime": 1784626153000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ONUSDT",
+  "status": "Trading",
+  "launchTime": 1784626218000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SOXXUSDT",
+  "status": "Trading",
+  "launchTime": 1784626286000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NVDLUSDT",
+  "status": "Trading",
+  "launchTime": 1784626359000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SOFIUSDT",
+  "status": "Trading",
+  "launchTime": 1784709408000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PANWUSDT",
+  "status": "Trading",
+  "launchTime": 1784709504000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PENGSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1784709594000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AALUSDT",
+  "status": "Trading",
+  "launchTime": 1784799594000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRMUSDT",
+  "status": "Trading",
+  "launchTime": 1784799756000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GSUSDT",
+  "status": "Trading",
+  "launchTime": 1784799879000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CXMTUSDT",
+  "status": "Trading",
+  "launchTime": 1785140018000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GMESTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1785147217000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMCUSDT",
+  "status": "Trading",
+  "launchTime": 1785147298000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VUSDT",
+  "status": "Trading",
+  "launchTime": 1785147377000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GDXUSDT",
+  "status": "Trading",
+  "launchTime": 1785147482000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BITOUSDT",
+  "status": "Trading",
+  "launchTime": 1785147545000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TENCENTUSDT",
+  "status": "Trading",
+  "launchTime": 1785230213000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MINIMAXUSDT",
+  "status": "Trading",
+  "launchTime": 1785230280000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZHIPUUSDT",
+  "status": "Trading",
+  "launchTime": 1785230353000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "POPMARTUSDT",
+  "status": "Trading",
+  "launchTime": 1785230486000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GIGADEVICEUSDT",
+  "status": "Trading",
+  "launchTime": 1785230576000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SSPCUSDT",
+  "status": "Trading",
+  "launchTime": 1785317839000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TMFUSDT",
+  "status": "Trading",
+  "launchTime": 1785317895000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TBTUSDT",
+  "status": "Trading",
+  "launchTime": 1785317952000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BRKBUSDT",
+  "status": "Trading",
+  "launchTime": 1785405218000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PYPLUSDT",
+  "status": "Trading",
+  "launchTime": 1785405333000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MAUSDT",
+  "status": "Trading",
+  "launchTime": 1785405400000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PEPUSDT",
+  "status": "Trading",
+  "launchTime": 1785405508000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KOUSDT",
+  "status": "Trading",
+  "launchTime": 1785405618000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "WMTUSDT",
+  "status": "Trading",
+  "launchTime": 1785405748000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GEUSDT",
+  "status": "Trading",
+  "launchTime": 1785489214000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UNHUSDT",
+  "status": "Trading",
+  "launchTime": 1785489283000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JPMUSDT",
+  "status": "Trading",
+  "launchTime": 1785489356000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GILDUSDT",
+  "status": "Trading",
+  "launchTime": 1785489556000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMGNUSDT",
+  "status": "Trading",
+  "launchTime": 1785489635000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "REGNUSDT",
+  "status": "Trading",
+  "launchTime": 1785489815000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GRVTUSDT",
+  "status": "Trading",
+  "launchTime": 1785499299000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "UNITREEUSDT",
+  "status": "Trading",
+  "launchTime": 1785722139000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JNJUSDT",
+  "status": "Trading",
+  "launchTime": 1785746846000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XOMUSDT",
+  "status": "Trading",
+  "launchTime": 1785746925000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPOTUSDT",
+  "status": "Trading",
+  "launchTime": 1785747058000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CLSKUSDT",
+  "status": "Trading",
+  "launchTime": 1785837875000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BACUSDT",
+  "status": "Trading",
+  "launchTime": 1785837953000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RDDTUSDT",
+  "status": "Trading",
+  "launchTime": 1785838016000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CASHCATUSDT",
+  "status": "Trading",
+  "launchTime": 1785924043000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SHOPUSDT",
+  "status": "Trading",
+  "launchTime": 1785924124000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BIIBUSDT",
+  "status": "Trading",
+  "launchTime": 1785924318000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VRTXSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1785924419000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NETUSDT",
+  "status": "Trading",
+  "launchTime": 1786008986000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NVOUSDT",
+  "status": "Trading",
+  "launchTime": 1786009451000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UBERUSDT",
+  "status": "Trading",
+  "launchTime": 1786009537000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MOONSHOTUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1786092068000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MOUSDT",
+  "status": "Trading",
+  "launchTime": 1786097505000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CIFRUSDT",
+  "status": "Trading",
+  "launchTime": 1786098184000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EBAYUSDT",
+  "status": "Trading",
+  "launchTime": 1786098422000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SKUUUSDT",
+  "status": "Trading",
+  "launchTime": 1786355301000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SKDDUSDT",
+  "status": "Trading",
+  "launchTime": 1786355591000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OUSTUSDT",
+  "status": "Trading",
+  "launchTime": 1786355654000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KUAISHOUUSDT",
+  "status": "Trading",
+  "launchTime": 1786430657000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MEITUANUSDT",
+  "status": "Trading",
+  "launchTime": 1786430779000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CSOPSKHYNIX2LUSDT",
+  "status": "Trading",
+  "launchTime": 1786431091000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CSOPSAMSUNG2LUSDT",
+  "status": "Trading",
+  "launchTime": 1786431549000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DOSUSDT",
+  "status": "Trading",
+  "launchTime": 1786515130000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SMICUSDT",
+  "status": "Trading",
+  "launchTime": 1786522671000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XIAOMIUSDT",
+  "status": "Trading",
+  "launchTime": 1786522867000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RIOTUSDT",
+  "status": "Trading",
+  "launchTime": 1786522964000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VSTUSDT",
+  "status": "Trading",
+  "launchTime": 1786611264000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NCLDUSDT",
+  "status": "Trading",
+  "launchTime": 1786611340000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LYTEUSDT",
+  "status": "Trading",
+  "launchTime": 1786611728000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AEONUSDT",
+  "status": "Trading",
+  "launchTime": 1786611877000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NESAUSDT",
+  "status": "Trading",
+  "launchTime": 1786612087000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "KODEX200USDT",
+  "status": "Trading",
+  "launchTime": 1786698224000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NAVERUSDT",
+  "status": "Trading",
+  "launchTime": 1786698427000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HANMIUSDT",
+  "status": "Trading",
+  "launchTime": 1786698543000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LGELECTRONICSUSDT",
+  "status": "Trading",
+  "launchTime": 1786698649000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SAMSUNGEMUSDT",
+  "status": "Trading",
+  "launchTime": 1786698716000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZHONGJIUSDT",
+  "status": "Trading",
+  "launchTime": 1786698826000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MNSTUSDT",
+  "status": "Trading",
+  "launchTime": 1787044790000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ISRGUSDT",
+  "status": "Trading",
+  "launchTime": 1787044940000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DDOGUSDT",
+  "status": "Trading",
+  "launchTime": 1787045026000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ADIUSDT",
+  "status": "Trading",
+  "launchTime": 1787130147000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HDUSDT",
+  "status": "Trading",
+  "launchTime": 1787130242000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MAGSUSDT",
+  "status": "Trading",
+  "launchTime": 1787130312000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MRNAUSDT",
+  "status": "Trading",
+  "launchTime": 1787208956000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPCHUSDT",
+  "status": "Trading",
+  "launchTime": 1787212487000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ANETUSDT",
+  "status": "Trading",
+  "launchTime": 1787212574000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FUTUUSDT",
+  "status": "Trading",
+  "launchTime": 1787212689000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PDDUSDT",
+  "status": "Trading",
+  "launchTime": 1787296301000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "JDUSDT",
+  "status": "Trading",
+  "launchTime": 1787296650000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MRKUSDT",
+  "status": "Trading",
+  "launchTime": 1787296845000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DJTUSDT",
+  "status": "Trading",
+  "launchTime": 1787653570000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RAMUSDT",
+  "status": "Trading",
+  "launchTime": 1787653995000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "INTUUSDT",
+  "status": "Trading",
+  "launchTime": 1787654148000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SPXLUSDT",
+  "status": "Trading",
+  "launchTime": 1787737283000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "INFQUSDT",
+  "status": "Trading",
+  "launchTime": 1787738091000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MSTUUSDT",
+  "status": "Trading",
+  "launchTime": 1787738260000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TMXUSDT",
+  "status": "Trading",
+  "launchTime": 1787740378000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "SHEINUSDT",
+  "status": "Trading",
+  "launchTime": 1787808289000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MCDUSDT",
+  "status": "Trading",
+  "launchTime": 1787819322000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLUUSDT",
+  "status": "Trading",
+  "launchTime": 1787819581000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XLPUSDT",
+  "status": "Trading",
+  "launchTime": 1787819682000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NIULAIUSDT",
+  "status": "Trading",
+  "launchTime": 1787900558000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PONSUSDT",
+  "status": "Trading",
+  "launchTime": 1788168745000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TEMUSDT",
+  "status": "Trading",
+  "launchTime": 1788168828000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OKTAUSDT",
+  "status": "Trading",
+  "launchTime": 1788168915000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EWZUSDT",
+  "status": "Trading",
+  "launchTime": 1788168997000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MARSCOINUSDT",
+  "status": "Trading",
+  "launchTime": 1788258911000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "YOFCUSDT",
+  "status": "Trading",
+  "launchTime": 1788336569000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LAOPUUSDT",
+  "status": "Trading",
+  "launchTime": 1788336754000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GPROUSDT",
+  "status": "Trading",
+  "launchTime": 1788336866000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TEAMUSDT",
+  "status": "Trading",
+  "launchTime": 1788426526000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MDBUSDT",
+  "status": "Trading",
+  "launchTime": 1788426836000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CVXSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1788426969000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DGAIUSDT",
+  "status": "Trading",
+  "launchTime": 1788507579000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CPUSDT",
+  "status": "Trading",
+  "launchTime": 1788507720000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BYDUSDT",
+  "status": "Trading",
+  "launchTime": 1788761313000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LENOVOUSDT",
+  "status": "Trading",
+  "launchTime": 1788761645000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HUAHONGUSDT",
+  "status": "Trading",
+  "launchTime": 1788761819000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HAJIMIUSDT",
+  "status": "Trading",
+  "launchTime": 1788769316000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "USDJPYUSDT",
+  "status": "Trading",
+  "launchTime": 1788858440000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "EURUSDUSDT",
+  "status": "Trading",
+  "launchTime": 1788858596000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GBPUSDUSDT",
+  "status": "Trading",
+  "launchTime": 1788858731000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "4STOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1788953593000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "BTDRUSDT",
+  "status": "Trading",
+  "launchTime": 1789031318000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CGNXUSDT",
+  "status": "Trading",
+  "launchTime": 1789031426000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "FORMSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1789031546000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SENSETIMEUSDT",
+  "status": "Trading",
+  "launchTime": 1789111621000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MEITUUSDT",
+  "status": "Trading",
+  "launchTime": 1789111809000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HORIZONUSDT",
+  "status": "Trading",
+  "launchTime": 1789111889000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LONGXIAUSDT",
+  "status": "Trading",
+  "launchTime": 1789376372000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "IBITUSDT",
+  "status": "Trading",
+  "launchTime": 1789554050000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CONLUSDT",
+  "status": "Trading",
+  "launchTime": 1789554284000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MSFUUSDT",
+  "status": "Trading",
+  "launchTime": 1789555448000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "STONKUSDT",
+  "status": "Trading",
+  "launchTime": 1789715208000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "ZSUSDT",
+  "status": "Trading",
+  "launchTime": 1789722945000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CORZUSDT",
+  "status": "Trading",
+  "launchTime": 1789723268000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GTLBUSDT",
+  "status": "Trading",
+  "launchTime": 1789723691000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TLTUSDT",
+  "status": "Trading",
+  "launchTime": 1789726741000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AMZUUSDT",
+  "status": "Trading",
+  "launchTime": 1789727003000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SECZUSDT",
+  "status": "Trading",
+  "launchTime": 1789727199000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PATHUSDT",
+  "status": "Trading",
+  "launchTime": 1789983123000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CYPHUSDT",
+  "status": "Trading",
+  "launchTime": 1789983424000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "HUTUSDT",
+  "status": "Trading",
+  "launchTime": 1789983505000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SDGRUSDT",
+  "status": "Trading",
+  "launchTime": 1790078559000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OKLOUSDT",
+  "status": "Trading",
+  "launchTime": 1790078659000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "URNMUSDT",
+  "status": "Trading",
+  "launchTime": 1790078751000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "OURAUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1790079917000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "POLYMARKETUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1790150308000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "KIIUSDT",
+  "status": "Trading",
+  "launchTime": 1790589577000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "TWSTUSDT",
+  "status": "Trading",
+  "launchTime": 1790671974000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CVNAUSDT",
+  "status": "Trading",
+  "launchTime": 1790672139000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "RUMUSDT",
+  "status": "Trading",
+  "launchTime": 1790672326000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "XDPUSDT",
+  "status": "Trading",
+  "launchTime": 1790674623000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "CTUSDT",
+  "status": "Trading",
+  "launchTime": 1790844328000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "NKEUSDT",
+  "status": "Trading",
+  "launchTime": 1791457248000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ACNUSDT",
+  "status": "Trading",
+  "launchTime": 1791457354000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LULUUSDT",
+  "status": "Trading",
+  "launchTime": 1791457457000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "USDEXUSDT",
+  "status": "Trading",
+  "launchTime": 1791537606000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BWETUSDT",
+  "status": "Trading",
+  "launchTime": 1791537745000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MPUSDT",
+  "status": "Trading",
+  "launchTime": 1791537798000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "UMCUSDT",
+  "status": "Trading",
+  "launchTime": 1791537893000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BMNUUSDT",
+  "status": "Trading",
+  "launchTime": 1791537977000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VKTXUSDT",
+  "status": "Trading",
+  "launchTime": 1791538042000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MELIUSDT",
+  "status": "Trading",
+  "launchTime": 1791797928000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PBRUSDT",
+  "status": "Trading",
+  "launchTime": 1791798044000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "NUSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1791798275000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "YPFUSDT",
+  "status": "Trading",
+  "launchTime": 1791798406000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "VISTUSDT",
+  "status": "Trading",
+  "launchTime": 1791798541000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ZCSHUSDT",
+  "status": "Trading",
+  "launchTime": 1791878116000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "SNPSUSDT",
+  "status": "Trading",
+  "launchTime": 1791878176000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "GRALUSDT",
+  "status": "Trading",
+  "launchTime": 1791878227000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "DRVUSDT",
+  "status": "Trading",
+  "launchTime": 1792138743000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "DNAUSDT",
+  "status": "Trading",
+  "launchTime": 1792148731000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "AXISUSDT",
+  "status": "Trading",
+  "launchTime": 1792587883000,
+  "fundingInterval": 240
+ },
+ {
+  "symbol": "PGUSDT",
+  "status": "Trading",
+  "launchTime": 1792660722000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "LMTUSDT",
+  "status": "Trading",
+  "launchTime": 1792660774000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MXLUSDT",
+  "status": "Trading",
+  "launchTime": 1792660846000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "IBKRUSDT",
+  "status": "Trading",
+  "launchTime": 1792750669000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1792750835000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AXPUSDT",
+  "status": "Trading",
+  "launchTime": 1792750919000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "MDTSTOCKUSDT",
+  "status": "Trading",
+  "launchTime": 1792750968000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "CRMLUSDT",
+  "status": "Trading",
+  "launchTime": 1792751067000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "BAUSDT",
+  "status": "Trading",
+  "launchTime": 1792751179000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "ABBVUSDT",
+  "status": "Trading",
+  "launchTime": 1793005314000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "TTMIUSDT",
+  "status": "Trading",
+  "launchTime": 1793005374000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "AGPUUSDT",
+  "status": "Trading",
+  "launchTime": 1793005551000,
+  "fundingInterval": 480
+ },
+ {
+  "symbol": "PREDICTUSDT",
+  "status": "PreLaunch",
+  "launchTime": 1793006035000,
+  "fundingInterval": 240
+ }
+]
