@@ -1,0 +1,14 @@
+{
+  "gen": 438,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 on the same sleeves (live-timing listing short, A..S data): 3.169 [2.751, 3.949, 2.579]; research reference 3.161 [2.775, 3.919, 2.576] also checked",
+  "idea": "top-level sleeve weights by shrunk past Sharpe instead of equal risk (only tested inside the basket, Gen388, and in the futures book)",
+  "trials": {
+    "A shrunk Sharpe, 730 days": "at each month start, per live sleeve: SR = Sharpe of its daily P&L over the previous 730 days (at least 365); s = max(0, 0.5 x SR + 0.5 x mean SR of the live sleeves); weight = 0.10 x s / mean(s) / vol365 / n (same scale as equal risk); Weiss half weight",
+    "B shrunk Sharpe, expanding": "as A with all earlier days (at least 365)"
+  },
+  "unchanged": "level multiplier, 30-day vol targeting cap 1.5, sleeve P&L",
+  "pass": "strict rule vs both references; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
