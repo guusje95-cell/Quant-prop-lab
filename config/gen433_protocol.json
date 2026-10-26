@@ -1,0 +1,9 @@
+{
+  "gen": 433,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 3.161 [2.775, 3.919, 2.576] (live-timing version reported); earlier: C* removal failed in v9.3 (Gen394-type test, 2025-26 lower)",
+  "trials": {"A v9.6 without C*": "drop the C* sleeve", "B C* at half weight": "C* sleeve weight x 0.5 in portfolio_v5 (as Weiss)"},
+  "pass": "strict rule vs v9.6 (research reference); with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}

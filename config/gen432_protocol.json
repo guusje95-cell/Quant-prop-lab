@@ -1,0 +1,9 @@
+{
+  "gen": 432,
+  "date": "2026-10-26",
+  "descriptive": "replication of the Gen425 / Gen426 listing effect on a second venue (OKX); no book decision is taken from it",
+  "registered": "before downloading",
+  "data": "OKX USDT-margined SWAP instruments with listTime >= 2021-06-01 (public /api/v5/public/instruments; live instruments only - delisted ones are missing, which biases AGAINST the short), first 35 days of 1H candles (history-candles)",
+  "report": "listings per year; median and mean 30-day return from the first UTC midnight >= 24 h after listing; the Gen426 rule (short, 30% stop, 30 days, 10 bp) per-event mean return before funding (OKX funding history is not available that far back) by year; overlap with Binance listing events (same base coin within 7 days)",
+  "trials_added": 0
+}
