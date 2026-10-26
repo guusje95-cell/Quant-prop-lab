@@ -1,0 +1,11 @@
+{
+  "gen": 456,
+  "date": "2026-10-26",
+  "registered": "before computing returns; reference v9.7 3.012 [2.495, 3.784, 2.509]; Gen283 (no stop, 31 events) was -0.49 / -0.03 / 0.76",
+  "events": "first Upbit KRW hourly candle (research_data/more upbit files; Upbit no longer serves delisted markets, which biases AGAINST a short) on or after 2021-06-01, for a coin whose Binance USDT perp traded >= 7 days earlier (pack / extra / binance_pit, TradFi excluded); an Upbit listing whose coin is already in an open listing-short position is merged (one position per coin)",
+  "rule": "the v9.6 listing-short rule unchanged: short 0.05 from the first UTC midnight >= 24 h after the Upbit listing, 30 days, cover for good at +30% from the entry close, gross cap 0.5 (combined with the listing short), 10 bp, Binance funding",
+  "trials": {"A listing short + Upbit listings": "Upbit-listing events merged into the v9.7 listing-short sleeve"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
