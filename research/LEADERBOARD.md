@@ -1808,3 +1808,4 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen448 (2026-10-26): Weiss expiry at full weight (`results/gen448.json`)
 - Book 3.259 [2.797, 4.081, 2.624] vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.056, 2022 and 2023-24 up, **2025-26 -0.018 -> fails (near miss)**. Half weight stays.
 - **Gen436b (descriptive, `results/gen436b.json`): v9.6 listing-short robustness.** Costs 10 / 20 / 30 bp per side: book 3.203 / 3.193 / 3.184; entry one day later 3.179 [2.697, 3.971, 2.605]. Robust to execution (v9.5 2.976).
+- **Paper v96 selftest re-run after the TradFi fix: PASSED** (24 cutoffs, max |difference| 1.7e-18).
