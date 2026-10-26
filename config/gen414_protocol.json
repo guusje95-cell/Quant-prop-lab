@@ -1,0 +1,12 @@
+{
+  "gen": 414,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]; re-test of two watchlist items against the current book, one shot each, no variants",
+  "trials": {
+    "A ridge + positioning": "the v9.5 ridge (kb, volscale, spot, vrp, cal) plus the Gen304 A positioning features per coin: log top-trader position ratio, log all-account ratio, 7-day change of the first; same monthly walk-forward ridge (alpha 10); replaces the ridge ML sleeve",
+    "B basket + CME basis": "the Gen281 CME basis-level member (annualised CME front-month basis vs Coinbase spot, z over 90 days; +0.25 if z > 1, -0.25 if z < -1, BTC and ETH) added as a 9th member of the diversifier basket (equal risk on 2022-24, basket scaled to 15% vol on 2022-24)"
+  },
+  "pass": "strict rule vs v9.5; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
