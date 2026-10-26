@@ -120,16 +120,21 @@ def hyperliquid_positioning():
     """Gen406: Hyperliquid daily funding history for the same coins (public info API; no wallet)."""
     API = "https://api.hyperliquid.xyz/info"
     for coin in POS_COINS:
-        if (OUT / f"hl_{coin}_funding.parquet").exists():
+        if (OUT / f"hl_{coin}_funding.parquet").exists() and len(pd.read_parquet(OUT / f"hl_{coin}_funding.parquet")) > 20000:
             continue
         rows, start = [], 1672531200000                             # 2023-01-01
         for _ in range(200):
             req = urllib.request.Request(API, data=json.dumps({"type": "fundingHistory", "coin": coin, "startTime": start}).encode(), headers={**UA, "Content-Type": "application/json"})
-            try:
-                with urllib.request.urlopen(req, timeout=60) as r:
-                    lst = json.loads(r.read().decode())
-            except Exception as e:                               # noqa: BLE001
-                print(f"  {coin}: {e}"); break
+            lst = None
+            for k in range(5):                                      # Hyperliquid rate-limits bursts: back off and retry
+                try:
+                    with urllib.request.urlopen(req, timeout=60) as r:
+                        lst = json.loads(r.read().decode())
+                    break
+                except Exception as e:                           # noqa: BLE001
+                    print(f"  {coin}: retry {k + 1} ({e})"); time.sleep(5 * (k + 1))
+            if lst is None:
+                break
             if not lst:
                 break
             rows += lst; start = int(lst[-1]["time"]) + 1

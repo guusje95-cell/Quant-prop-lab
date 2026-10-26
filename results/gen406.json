@@ -1,0 +1,56 @@
+{
+ "reference v9.5": [
+  2.976,
+  [
+   2.355,
+   3.832,
+   2.447
+  ]
+ ],
+ "Y1 sleeve": [
+  0.306,
+  0.432,
+  1.62
+ ],
+ "Y3 sleeve": [
+  0.454,
+  0.342,
+  0.621
+ ],
+ "corr Y1 vs Binance sleeve": 0.515,
+ "trials": {
+  "Y1 Bybit relative crowding (added)": {
+   "book": [
+    2.826,
+    [
+     2.075,
+     3.633,
+     2.473
+    ]
+   ],
+   "pass": false
+  },
+  "Y2 two-venue relative crowding (replaces)": {
+   "book": [
+    2.848,
+    [
+     2.0,
+     3.699,
+     2.478
+    ]
+   ],
+   "pass": false
+  },
+  "Y3 Bybit relative crowding 15 coins (added)": {
+   "book": [
+    2.959,
+    [
+     2.581,
+     3.67,
+     2.466
+    ]
+   ],
+   "pass": false
+  }
+ }
+}
