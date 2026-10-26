@@ -1682,3 +1682,20 @@ Sizing per firm chosen on the 2022-24 bootstrap (highest mean with P(profit) wit
 
 - **Two-step accounts with a 10% max loss (HyroTrader, CFT) are clearly best at a realistic Sharpe**; one-step / zero-step / tight-drawdown accounts lose most of the edge to breaches.
 - **MyFundedPerps re-sized: 1.0 / 1.0 with a 50% daily stop gives $16.6k / P(profit) 0.87, vs $10.9k / 0.67 at the old 1.0 / 2.0 / 40%.**
+
+## Gen418 (2026-10-26, descriptive): what live Sharpe does a prop account need? (`results/gen418.json`)
+HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each live Sharpe; 2 years; 2025-26 window (2022-24 in brackets).
+
+| Live Sharpe | Mean net | Bad case p10 | P(profit) | P(funded) |
+|---|---|---|---|---|
+| 0.5 | $19k ($33k) | -$5k | 0.62 (0.77) | 0.80 |
+| 1.0 | $35k ($52k) | -$5k (-$2k) | 0.78 (0.89) | 0.90 |
+| 1.25 | $46k ($64k) | -$5k (+$7k) | 0.86 (0.95) | 0.95 |
+| 1.5 | $57k ($79k) | +$0.5k (+$13k) | 0.90 (0.97) | 0.96 |
+| 1.75 | $72k ($95k) | +$11k (+$27k) | 0.95 (0.99) | 0.99 |
+| 2.0 | $87k ($112k) | +$19k (+$43k) | 0.97 (0.995) | 0.99 |
+| 2.5 | $121k ($149k) | +$48k (+$70k) | 0.995 | 1.00 |
+| 3.0 | $158k ($189k) | +$81k (+$111k) | 1.00 | 1.00 |
+
+- The chance of profit saturates (0.97 at 2.0, 0.995 at 2.5); **the money does not**: mean net rises about $30k per +0.5 Sharpe all the way up (and more if risk is raised at higher Sharpe).
+- Thresholds: about 1.0 is the minimum worth trading (positive expectation, P(profit) 0.78); about 1.5 makes the bad case break even; about 2.0 makes a loss rare.

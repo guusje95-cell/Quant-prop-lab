@@ -1,0 +1,146 @@
+{
+ "2025-26 live 0.5": {
+  "mean": 18769,
+  "p10": -4845,
+  "median": 8306,
+  "P_profit": 0.615,
+  "P_funded": 0.797,
+  "funded breaches": 1.22
+ },
+ "2025-26 live 0.75": {
+  "mean": 26618,
+  "p10": -4845,
+  "median": 19563,
+  "P_profit": 0.71,
+  "P_funded": 0.853,
+  "funded breaches": 1.37
+ },
+ "2025-26 live 1.0": {
+  "mean": 34796,
+  "p10": -4845,
+  "median": 28436,
+  "P_profit": 0.777,
+  "P_funded": 0.902,
+  "funded breaches": 1.47
+ },
+ "2025-26 live 1.25": {
+  "mean": 46084,
+  "p10": -4845,
+  "median": 40640,
+  "P_profit": 0.855,
+  "P_funded": 0.948,
+  "funded breaches": 1.57
+ },
+ "2025-26 live 1.5": {
+  "mean": 57353,
+  "p10": 472,
+  "median": 52248,
+  "P_profit": 0.9,
+  "P_funded": 0.963,
+  "funded breaches": 1.57
+ },
+ "2025-26 live 1.75": {
+  "mean": 71793,
+  "p10": 11321,
+  "median": 66497,
+  "P_profit": 0.95,
+  "P_funded": 0.988,
+  "funded breaches": 1.56
+ },
+ "2025-26 live 2.0": {
+  "mean": 87392,
+  "p10": 18620,
+  "median": 84049,
+  "P_profit": 0.973,
+  "P_funded": 0.993,
+  "funded breaches": 1.52
+ },
+ "2025-26 live 2.5": {
+  "mean": 121154,
+  "p10": 47736,
+  "median": 120228,
+  "P_profit": 0.995,
+  "P_funded": 1.0,
+  "funded breaches": 1.4
+ },
+ "2025-26 live 3.0": {
+  "mean": 158132,
+  "p10": 80895,
+  "median": 159090,
+  "P_profit": 1.0,
+  "P_funded": 1.0,
+  "funded breaches": 1.18
+ },
+ "2022-24 live 0.5": {
+  "mean": 32554,
+  "p10": -4845,
+  "median": 23604,
+  "P_profit": 0.765,
+  "P_funded": 0.92,
+  "funded breaches": 1.56
+ },
+ "2022-24 live 0.75": {
+  "mean": 40489,
+  "p10": -4845,
+  "median": 31864,
+  "P_profit": 0.818,
+  "P_funded": 0.938,
+  "funded breaches": 1.63
+ },
+ "2022-24 live 1.0": {
+  "mean": 52094,
+  "p10": -1756,
+  "median": 44987,
+  "P_profit": 0.887,
+  "P_funded": 0.958,
+  "funded breaches": 1.64
+ },
+ "2022-24 live 1.25": {
+  "mean": 64378,
+  "p10": 7212,
+  "median": 57584,
+  "P_profit": 0.948,
+  "P_funded": 0.99,
+  "funded breaches": 1.66
+ },
+ "2022-24 live 1.5": {
+  "mean": 79390,
+  "p10": 13447,
+  "median": 70652,
+  "P_profit": 0.97,
+  "P_funded": 0.993,
+  "funded breaches": 1.58
+ },
+ "2022-24 live 1.75": {
+  "mean": 94815,
+  "p10": 26852,
+  "median": 89631,
+  "P_profit": 0.985,
+  "P_funded": 0.995,
+  "funded breaches": 1.47
+ },
+ "2022-24 live 2.0": {
+  "mean": 111872,
+  "p10": 42821,
+  "median": 104484,
+  "P_profit": 0.995,
+  "P_funded": 1.0,
+  "funded breaches": 1.31
+ },
+ "2022-24 live 2.5": {
+  "mean": 148846,
+  "p10": 70336,
+  "median": 142951,
+  "P_profit": 0.998,
+  "P_funded": 1.0,
+  "funded breaches": 0.88
+ },
+ "2022-24 live 3.0": {
+  "mean": 189175,
+  "p10": 111327,
+  "median": 183057,
+  "P_profit": 1.0,
+  "P_funded": 1.0,
+  "funded breaches": 0.52
+ }
+}
