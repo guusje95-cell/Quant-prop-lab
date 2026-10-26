@@ -31,7 +31,7 @@ for f in glob.glob(str(PIT / "*_1h.parquet")):
     if f.endswith(("premium_1h.parquet", "hl_1h.parquet", "oi_1h.parquet")):
         continue
     s = Path(f).name[:-len("_1h.parquet")]
-    if s in TF or not s.endswith("USDT"):
+    if not s.endswith("USDT") or s[:-4] in TF:
         continue
     c = s[:-4]
     if c not in qv:

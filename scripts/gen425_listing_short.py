@@ -21,7 +21,7 @@ for f in sorted(glob.glob(str(P / "*_1h.parquet"))):
     if f.endswith(("premium_1h.parquet", "_hl_1h.parquet", "_oi_1h.parquet")):
         continue
     s = Path(f).name.replace("_1h.parquet", "")
-    if s in TF:
+    if s[:-4] in TF:
         continue
     k = pd.read_parquet(f); k.index = pd.DatetimeIndex(k.index)
     t0 = k.index.min()

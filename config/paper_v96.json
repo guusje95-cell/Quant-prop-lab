@@ -26,5 +26,10 @@
   "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v9.6 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
   "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
  },
- "changes": []
+ "changes": [
+  {
+   "date": "2026-10-26",
+   "what": "bug fix in scripts/listing_live.py: TradFi perps (config/tradfi_perps.json, base names) are now really excluded from the listing short as registered; before, 2026 stock / commodity perp listings could be shorted. No other change; scale unchanged (0.90)."
+  }
+ ]
 }

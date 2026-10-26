@@ -19,7 +19,7 @@ ls, _, _ = LL.pnl(idx); V6 = V.assign(**{"listing short": ls}); v96 = unit(CS.po
 TF = set(json.load(open(ROOT / "config/tradfi_perps.json"))["symbols"]); EV = []; DATA = {}
 for f in sorted(glob.glob(str(LL.PIT / "*_funding.parquet"))):
     s = Path(f).name[:-len("_funding.parquet")]
-    if s in TF or not (LL.PIT / f"{s}_1h.parquet").exists():
+    if s[:-4] in TF or not (LL.PIT / f"{s}_1h.parquet").exists():
         continue
     d = pd.read_parquet(f).sort_values("time").reset_index(drop=True); d["time"] = pd.to_datetime(d["time"]); h = d["funding_interval_hours"].astype(float)
     k = pd.read_parquet(LL.PIT / f"{s}_1h.parquet")["close"].astype(float); k.index = pd.DatetimeIndex(k.index)

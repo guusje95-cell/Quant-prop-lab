@@ -22,7 +22,7 @@ for f in glob.glob(str(LL.PIT / "*_1h.parquet")):
     if f.endswith(("premium_1h.parquet", "_hl_1h.parquet", "_oi_1h.parquet")):
         continue
     s = Path(f).name[:-len("_1h.parquet")]
-    if s not in TF:
+    if s[:-4] not in TF:
         first.append(pd.read_parquet(f, columns=["close"]).index.min())
 fd = pd.Series(1.0, index=pd.DatetimeIndex(first).floor("D")).groupby(level=0).sum().reindex(BL.DAYS).fillna(0.0)
 fd[fd.index < pd.Timestamp("2020-02-01")] = np.nan                       # archive start: the first bars are not listings

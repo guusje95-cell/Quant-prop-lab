@@ -51,7 +51,7 @@ def symbols() -> list[str]:
     for base in (PIT, LIVE):
         if base is not None and base.exists():
             names |= {Path(p).name[:-len("_1h.parquet")] for p in glob.glob(str(base / "*_1h.parquet")) if not p.endswith("premium_1h.parquet")}
-    return sorted(s for s in names if s not in tf and s.endswith("USDT"))
+    return sorted(s for s in names if s.endswith("USDT") and s[:-4] not in tf)          # tradfi_perps.json lists base names (AAPL, XAU)
 
 
 def events():

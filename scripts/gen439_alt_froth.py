@@ -34,7 +34,7 @@ for p in EX.glob("*USDT_1h.parquet"):
     add(c, k["quote_volume"].astype(float), (f["last_funding_rate"] * sc).groupby(f.index.floor("D")).mean(), pr["close"].astype(float).resample("1D").mean())
 for p in glob.glob(str(PIT / "*_funding.parquet")):
     s = Path(p).name[:-len("_funding.parquet")]; c = s[:-4]
-    if s in TF or c in QV or not (PIT / f"{s}_1h.parquet").exists() or not (PIT / f"{s}_premium_1h.parquet").exists():
+    if c in TF or c in QV or not (PIT / f"{s}_1h.parquet").exists() or not (PIT / f"{s}_premium_1h.parquet").exists():
         continue
     k = pd.read_parquet(PIT / f"{s}_1h.parquet"); f = pd.read_parquet(p); f.index = pd.to_datetime(f["time"])
     pr = pd.read_parquet(PIT / f"{s}_premium_1h.parquet"); pr.index = pd.to_datetime(pr["time"]) if "time" in pr else pd.DatetimeIndex(pr.index)
