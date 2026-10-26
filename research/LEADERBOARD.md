@@ -1712,3 +1712,10 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen422 (2026-10-26, FLAGGED post hoc): fade the COIN-M taker divergence (`results/gen422.json`)
 - Member 2.24 / -0.69 / 0.82 (2023 -0.23, 2024 -1.03, 2026 -1.44); book 2.989 [2.530, 3.778, 2.453]. **One day later -> 0.19 / -1.17 / -0.64: fragile. Fails.**
+
+## Gen423 (2026-10-26): order-book depth imbalance, new data (`research_data/binance_depth`, `results/gen423.json`)
+- Binance USDT-M bookDepth 30-second snapshots 2023-01..2026-09, 6 majors, aggregated hourly (`qpl.lab.binance_depth`).
+- A depth imbalance member BTC/ETH: - / -1.41 / 0.87, book 2.962. B relative depth imbalance 6: - / -1.69 / -1.66, book 2.582. **Both fail.**
+
+## Gen424 (2026-10-26, FLAGGED post hoc): fade relative depth imbalance (`results/gen424.json`)
+- Sleeve - / 0.41 / -0.05 (costs eat the mirror image); book 2.881. Costs x2 - / -0.23 / -0.90. **Fails.**
