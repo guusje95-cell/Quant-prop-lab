@@ -1731,3 +1731,9 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - **Gen426c:** planning Sharpe (N = 1,800) **1.41 -> 1.59**; max DD at risk 2 -16.5% -> -14.0%; worst day -8.2% -> -7.3%. HyroTrader 1.5 / 1.5 at planning: 2025-26 $53.0k / p10 $0.1k / 0.90 -> $52.7k / **$3.2k / 0.92**; 2022-24 $73.7k / $11.2k / 0.97 -> **$93.0k / $29.7k / 0.99**.
 - Practical: at risk 1.5 the per-coin notional is median 1.0%, max 4.2% of the balance, under HyroTrader's 5% cap for low-cap / Innovation Zone coins (official FAQ). Live needs a listing feed (exchange instrument list) and the coin to be listed on Bybit.
 - **v9.6 candidate (flagged), for the user's decision.** Caveat: symbols T..Z are not yet in the data (alphabetical, not performance-based).
+- **2026-10-26: the user ACCEPTED v9.6 = v9.5 + the Gen426 listing short** (flagged: post-hoc stop). **Reference from here: v9.6 3.161 [2.775, 3.919, 2.576], planning about 1.59 (N = 1,800).**
+
+## Paper v9.6 (2026-10-26): `config/paper_v96.json`, `paper_v96_start.bat`
+- `QPL_PAPER=v96`: v9.5 + listing short (`scripts/listing_live.py`; live feed `binance_public.update_listings`: perps with exchangeInfo onboardDate in the last 45 days, hourly closes + funding).
+- Live module timing = the framework's (position in [t, t+1h) from closes known at t; stop and entry one hour after the triggering close, as in Gen426; a coin with a missing latest bar is flat). On the research data: book 3.169 [2.751, 3.949, 2.579] (Gen426 3.161; its script booked each hourly return one bar late, daily corr 0.95). Paper code on the research pack 3.191 [2.746, 3.998, 2.582], corr 0.977 with research v9.6; scale 0.90.
+- Bot (dry-run) now reads the v96 book; `Rules.lowcap_cap_frac` 0.05 caps listing-short coins (HyroTrader low-cap rule).

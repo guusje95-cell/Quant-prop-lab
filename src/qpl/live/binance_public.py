@@ -254,3 +254,41 @@ def update_extra(pack: Path, live: Path, coins: list[str], now: pd.Timestamp | N
             n["premium"] += _append(live / f"{sym}_premium_1h.parquet", p, key="time")
     log(f"  {len(coins)} extra coins: data up to date")
     return n
+
+
+def update_listings(live: Path, now: pd.Timestamp | None = None, days: int = 45, log=print) -> int:
+    """v9.6 listing short: USDT-M perpetuals listed in the last `days` days (exchangeInfo onboardDate), plus every symbol already
+    in <live>/listings that is still inside that window: hourly klines (close, quote_volume) and funding into
+    <live>/listings/<SYM>_1h.parquet and <SYM>_funding.parquet (scripts/listing_live.py reads them)."""
+    out = live / "listings"; out.mkdir(parents=True, exist_ok=True)
+    now = pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)
+    c = Client(); info = c.get(f"{FAPI}/fapi/v1/exchangeInfo", {})
+    since = now - pd.Timedelta(days=days); want = {}
+    for s in info.get("symbols", []):
+        t0 = pd.to_datetime(int(s.get("onboardDate", 0)), unit="ms")
+        if s.get("contractType") == "PERPETUAL" and s.get("quoteAsset") == "USDT" and t0 >= since:
+            want[s["symbol"]] = t0
+    for p in out.glob("*_1h.parquet"):                                # keep following earlier listings (also after a delisting notice)
+        k = pd.read_parquet(p, columns=["close"])
+        if len(k) and pd.DatetimeIndex(k.index).min() >= since:
+            want.setdefault(p.name[:-len("_1h.parquet")], pd.DatetimeIndex(k.index).min())
+    n = 0
+    for sym, t0 in sorted(want.items()):
+        f1 = out / f"{sym}_1h.parquet"
+        last = pd.DatetimeIndex(pd.read_parquet(f1, columns=["close"]).index).max() if f1.exists() else None
+        start = last + pd.Timedelta(hours=1) if last is not None else t0.floor("h")
+        try:
+            k = _klines(c, f"{FAPI}/fapi/v1/klines", sym, "1h", start, now)[["close", "quote_volume"]].astype("float64")
+            n += _append(f1, k)
+            ff = out / f"{sym}_funding.parquet"
+            lastf = pd.to_datetime(pd.read_parquet(ff, columns=["time"])["time"]).max() if ff.exists() else t0
+            d = c.get(f"{FAPI}/fapi/v1/fundingRate", {"symbol": sym, "startTime": _ms(lastf + pd.Timedelta(minutes=1)), "limit": 1000})
+            if d:
+                f = pd.DataFrame({"last_funding_rate": [float(x["fundingRate"]) for x in d], "time": pd.to_datetime([int(x["fundingTime"]) for x in d], unit="ms")})
+                _append(ff, f[f.time <= now], key="time")
+        except Restricted:
+            raise
+        except Exception as e:                                          # noqa: BLE001 - one symbol failing must not stop the rest
+            log(f"  listing {sym}: {e}")
+    log(f"  new listings: {len(want)} symbols followed, {n} new hourly bars")
+    return n

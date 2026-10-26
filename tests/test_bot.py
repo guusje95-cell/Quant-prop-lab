@@ -55,3 +55,10 @@ def test_runner_dryrun_and_guards(tmp_path):
     assert res["orders"] == 2
     (sd / "STOP").write_text("stop"); res = one_pass(_book(tmp_path, made="2026-10-25 02:05:00"), "funded", r, sd, now=pd.Timestamp("2026-10-25 02:10:00", tz="UTC"))
     assert res["action"].startswith("kill") and json.loads((sd / "state.json").read_text())["positions"] == {}
+
+
+def test_cap_listing_coins():
+    from qpl.bot.planner import cap_listing_coins
+    book = {"by_sleeve_usd": {"NEWX": {"listing short": -3000.0}, "BTC": {"C*": 50000.0}}}
+    out = cap_listing_coins({"NEWX": -25000.0, "BTC": 80000.0}, book, 10000.0)
+    assert out == {"NEWX": -10000.0, "BTC": 80000.0}

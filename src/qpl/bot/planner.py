@@ -17,6 +17,12 @@ def apply_cap(targets: dict[str, float], cap_usd: float) -> dict[str, float]:
     return {c: v * f for c, v in targets.items()}
 
 
+def cap_listing_coins(targets: dict[str, float], book: dict, cap_usd: float) -> dict[str, float]:
+    """v9.6: coins traded by the listing short (book by_sleeve_usd) are capped at cap_usd in absolute notional (firm low-cap rule)."""
+    lst = {c for c, row in (book.get("by_sleeve_usd") or {}).items() if abs(row.get("listing short", 0.0)) > 0}
+    return {c: (max(-cap_usd, min(cap_usd, v)) if c in lst and cap_usd > 0 else v) for c, v in targets.items()}
+
+
 def plan_orders(targets: dict[str, float], positions: dict[str, float], band_usd: float, min_order_usd: float) -> list[dict]:
     """Orders (USD notional, signed) to move positions toward targets. A coin trades only if |target - position| >= band, or its target is
     zero while a position is open (always close). Same rule as the research execution (Gen323 run(), Gen327 sim())."""

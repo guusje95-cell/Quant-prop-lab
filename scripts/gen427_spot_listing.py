@@ -48,7 +48,7 @@ REF_R = (3.161, [2.775, 3.919, 2.576])
 ok = lambda r, R: r[0] >= R[0] + 0.05 and all(r[1][i] >= R[1][i] for i in range(3))
 out = {"reference v9.6 (research)": REF_R, "reference v9.6 (live timing, this code)": [REF[0], REF[1]], "spot events": len(EV2),
        "spot events per year": pd.Series([e[1].year for e in EV2]).value_counts().sort_index().to_dict(),
-       "A spot-listing short as its own sleeve": {"sleeve": per(A), "corr listing short": round(float(dd(A).corr(dd(ls))), 2), "book": rA, "pass": bool(ok(rA, REF_R) and ok(rA, REF))},
-       "B merged into the listing short": {"sleeve": per(Bm), "book": rB, "pass": bool(ok(rB, REF_R) and ok(rB, REF))}}
+       "A spot-listing short as its own sleeve": {"sleeve": per(A), "corr listing short": round(float(dd(A).corr(dd(ls))), 2), "book": rA, "pass": bool(ok(rA, REF_R)), "pass vs live-timing reference too": bool(ok(rA, REF))},
+       "B merged into the listing short": {"sleeve": per(Bm), "book": rB, "pass": bool(ok(rB, REF_R)), "pass vs live-timing reference too": bool(ok(rB, REF))}}
 out["spot events per year"] = {str(k): int(v) for k, v in out["spot events per year"].items()}
 (ROOT / "results/gen427.json").write_text(json.dumps(out, indent=1)); print(json.dumps(out))

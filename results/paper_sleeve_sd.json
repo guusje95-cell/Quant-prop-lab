@@ -41,5 +41,17 @@
   "alt kimchi": 0.03201021808882408,
   "diversifier basket": 0.007286819508528831,
   "relative crowding 6": 0.0036604148688858867
+ },
+ "v96": {
+  "C*": 0.007649969305855584,
+  "cascade limit strict": 0.008338965251247532,
+  "trend 4h": 0.00396308781114105,
+  "Weiss expiry": 0.0012826434420441463,
+  "delev bounce": 0.006139004405775909,
+  "ridge ML": 0.018460185099542475,
+  "alt kimchi": 0.03201021808882408,
+  "diversifier basket": 0.007286819508528831,
+  "relative crowding 6": 0.0036604148688858867,
+  "listing short": 0.018726807635797867
  }
 }

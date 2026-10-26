@@ -59,3 +59,6 @@ paper_trading/v95/data/
 paper_trading/v95/_selftest/
 paper_trading/v95/_recompute*
 research_data/binance_cm/raw/
+paper_trading/v96/data/
+paper_trading/v96/_selftest/
+paper_trading/v96/_recompute*

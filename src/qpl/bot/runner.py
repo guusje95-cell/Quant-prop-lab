@@ -1,7 +1,7 @@
 """v8.6 bot runner (DRY-RUN). Run next to the paper trader on the same PC:
 
-    python -m qpl.bot.runner --book paper_trading/v95/book_next_hour.json --phase challenge            # one pass
-    python -m qpl.bot.runner --book paper_trading/v95/book_next_hour.json --phase challenge --loop     # every 5 minutes
+    python -m qpl.bot.runner --book paper_trading/v96/book_next_hour.json --phase challenge            # one pass
+    python -m qpl.bot.runner --book paper_trading/v96/book_next_hour.json --phase challenge --loop     # every 5 minutes
 
 Each new book (new made_at_utc) -> scale to this account, cap, band -> orders (limit 15 min, then market) -> log.
 Guards: daily stop at -2.5% of the initial balance from the day's start equity (flatten, no trading until the next UTC day),
@@ -13,7 +13,7 @@ import time
 from pathlib import Path
 import pandas as pd
 from qpl.bot.rules import Rules
-from qpl.bot.planner import scaled_targets, apply_cap, plan_orders
+from qpl.bot.planner import scaled_targets, apply_cap, cap_listing_coins, plan_orders
 from qpl.bot.risk import Guard
 from qpl.bot import adapters
 
@@ -55,7 +55,7 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
         else:
             risk = rules.risk_challenge if phase == "challenge" else rules.risk_funded
             cap = (rules.gross_cap_challenge if phase == "challenge" else rules.gross_cap_funded) * rules.initial_balance
-            tg = apply_cap(scaled_targets(book, eq, risk), cap)
+            tg = cap_listing_coins(apply_cap(scaled_targets(book, eq, risk), cap), book, rules.lowcap_cap_frac * rules.initial_balance)
             orders = plan_orders(tg, ad.positions(), rules.band_usd, rules.min_order_usd); fills = []
             for o in orders:
                 f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, rules.limit_minutes)
@@ -68,7 +68,7 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
 
 
 def main():
-    a = argparse.ArgumentParser(); a.add_argument("--book", default=str(ROOT / "paper_trading/v95/book_next_hour.json"))
+    a = argparse.ArgumentParser(); a.add_argument("--book", default=str(ROOT / "paper_trading/v96/book_next_hour.json"))
     a.add_argument("--phase", choices=["challenge", "funded"], default="challenge"); a.add_argument("--state", default=str(ROOT / "bot_state"))
     a.add_argument("--adapter", default="dryrun"); a.add_argument("--loop", action="store_true"); a.add_argument("--account", type=float, default=200_000.0)
     x = a.parse_args(); rules = Rules(initial_balance=x.account)

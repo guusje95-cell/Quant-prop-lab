@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
-RUNS = ("v86", "bf26", "v90", "v95")
+RUNS = ("v86", "bf26", "v90", "v95", "v96")
 SD = json.loads((ROOT / "results/paper_sleeve_sd.json").read_text()) if (ROOT / "results/paper_sleeve_sd.json").exists() else {}
 
 

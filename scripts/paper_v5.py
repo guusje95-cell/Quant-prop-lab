@@ -35,10 +35,11 @@ PACK = ROOT / "research_data" / "binance"
 SLEEVES = ["C*", "premium carry", "cascade limit strict", "trend 4h", "Weiss expiry"] + (["delev bounce"] if VER in ("v6", "v6b", "v7", "v8", "v83", "v84", "v85", "v86") else []) \
     + (["ridge ML"] if VER in ("v7", "v8", "v83", "v84", "v85", "v86") else []) + (["alt kimchi"] if VER in ("v8", "v83", "v84", "v85", "v86") else []) \
     + (["premium carry 60"] if VER in ("v85", "v86") else [])
-V90 = VER in ("v90", "v95")                              # v9.0 (Gen373 K1): no carry sleeves; C* on a point-in-time top-10 (CS.cstar_pit_weights)
-V95 = VER == "v95"                                       # v9.5: + trend / alt kimchi ensembles, Gen391 basket, Gen404 relative crowding (scripts/basket_live.py)
+V90 = VER in ("v90", "v95", "v96")                       # v9.0 (Gen373 K1): no carry sleeves; C* on a point-in-time top-10 (CS.cstar_pit_weights)
+V95 = VER in ("v95", "v96")                              # v9.5: + trend / alt kimchi ensembles, Gen391 basket, Gen404 relative crowding (scripts/basket_live.py)
+V96 = VER == "v96"                                       # v9.6: + Gen426 listing short (scripts/listing_live.py)
 if V90:
-    SLEEVES = ["C*", "cascade limit strict", "trend 4h", "Weiss expiry", "delev bounce", "ridge ML", "alt kimchi"] + (["diversifier basket", "relative crowding 6"] if V95 else [])
+    SLEEVES = ["C*", "cascade limit strict", "trend 4h", "Weiss expiry", "delev bounce", "ridge ML", "alt kimchi"] + (["diversifier basket", "relative crowding 6"] if V95 else []) + (["listing short"] if V96 else [])
 TRANCHED = VER in ("v86", "bf26")                      # v8.6 / bf2.6 (Gen322): carry sleeves rebalanced in 7 staggered tranches
 ALTK = "alt kimchi" in SLEEVES                            # v8: Gen247 A kimchi premium on altcoins (scripts/alt_kimchi.py, Upbit altcoin feeds)
 RIDGE = "ridge ML" in SLEEVES                             # v7: Gen108 ridge on BTC/ETH (scripts/ridge_live.py, extra live inputs)
@@ -55,7 +56,7 @@ if VER in ("bf23", "bf24", "bf26"):                    # bf2.3 (Gen306 C): + alt
 if VER in ("bf24", "bf26"):                            # bf2.4 (Gen317): + inverse-vol premium carry on 35 BrightFunded crypto CFDs
     SLEEVES = SLEEVES + ["premium carry BF"]
 SCALE = CFG["frozen"][f"{VER}_scale"]
-BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "v85": "results/cache_v85_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf24": "results/cache_bf24_final.parquet", "bf26": "results/cache_bf26_final.parquet", "v86": "results/cache_v86_final.parquet", "v90": "results/cache_v90_final.parquet", "v95": "results/cache_v95_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
+BACKTEST = ROOT / {"v6": "results/cache_v6_final.parquet", "v7": "results/cache_v7_final.parquet", "v8": "results/cache_v8_final.parquet", "v83": "results/cache_v83_final.parquet", "v84": "results/cache_v84_final.parquet", "v85": "results/cache_v85_final.parquet", "bf2": "results/cache_bf2_final.parquet", "bf22": "results/cache_bf22_final.parquet", "bf23": "results/cache_bf23_final.parquet", "bf24": "results/cache_bf24_final.parquet", "bf26": "results/cache_bf26_final.parquet", "v86": "results/cache_v86_final.parquet", "v90": "results/cache_v90_final.parquet", "v95": "results/cache_v95_final.parquet", "v96": "results/cache_v96_final.parquet", "bf": "results/cache_bf_final.parquet", "v6b": "results/cache_v6b_final.parquet",
                    "bfb": "results/cache_bfb_final.parquet"}.get(VER, "results/cache_gen72_final.parquet")
 
 
@@ -125,6 +126,10 @@ def data_cutoff(live: bool) -> pd.Timestamp:
         last = max(max(pd.read_parquet(p).index.max() for p in (ROOT / f"research_data/dukascopy/{s}_1h.parquet", DATA / "dukascopy" / f"{s}_1h.parquet")
                        if p.exists() and (live or "research" in str(p))) for s in ("US100", "US500", "US30"))
         cut = min(cut, max(last + pd.Timedelta(hours=1), cut - pd.Timedelta(hours=1)))
+    if V96 and live and (DATA / "listings").exists():  # v9.6: the new-listing feed must have caught up (its freshest bar)
+        ls = [pd.DatetimeIndex(pd.read_parquet(f, columns=["close"]).index).max() for f in (DATA / "listings").glob("*_1h.parquet")]
+        if ls:
+            cut = min(cut, (max(ls) + pd.Timedelta(hours=1)).floor("h"))
     spot = [x for x in (_end_of(ROOT / "data/processed/crypto/binance_spot_majors_1d.parquet", "spot"),
                         _end_of(DATA / "binance_spot_majors_1d.parquet", "spot") if live else None) if x is not None]
     day_ok = max(spot)                                     # daily bars complete up to here
@@ -166,8 +171,8 @@ def compute():
         bw = CS.delev_bounce_weights(); cols["delev bounce"] = CS._from_daily_weights(bw, list(bw.columns), 5)
     if RIDGE:
         import ridge_live as RL
-        v84 = VER in ("v84", "v85", "v86", "v90", "v95")                    # v8.4 (Gen303 B): + spot flow, VRP and calendar features
-        rw = RL.ridge_weights(kb=VER in ("v83", "v84", "v85", "v86", "v90", "v95"), volscale=VER in ("v83", "v84", "v85", "v86", "v90", "v95"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
+        v84 = VER in ("v84", "v85", "v86", "v90", "v95", "v96")                    # v8.4 (Gen303 B): + spot flow, VRP and calendar features
+        rw = RL.ridge_weights(kb=VER in ("v83", "v84", "v85", "v86", "v90", "v95", "v96"), volscale=VER in ("v83", "v84", "v85", "v86", "v90", "v95", "v96"), spot=v84, vrp=v84, cal=v84); cols["ridge ML"] = CS._from_daily_weights(rw, list(rw.columns), 5)
     if ALTK:
         import alt_kimchi as AK
         if V95:
@@ -178,6 +183,10 @@ def compute():
         ix = pd.DataFrame(cols).loc[:END].index
         cols["diversifier basket"], BW = BL.basket(ix)
         cols["relative crowding 6"], RW = BL.rc_pnl(ix)
+    if V96:
+        import listing_live as LL
+        cols["listing short"], LP, _ = LL.pnl(ix.append(pd.DatetimeIndex([ix[-1] + pd.Timedelta(hours=1)])))
+        cols["listing short"] = cols["listing short"].loc[:END]
     if "premium carry 60" in SLEEVES:                  # v8.5 (Gen316): premium carry on the 60-coin universe, inverse-vol legs
         pw60 = CS.premium_breadth_weights(invvol=True, tranched=TRANCHED); cols["premium carry 60"] = CS.premium_carry_breadth(w=pw60)
     H = pd.DataFrame(cols)[SLEEVES].fillna(0.0).loc[:END]
@@ -211,6 +220,9 @@ def compute():
         bw = pd.concat(BW.values()).groupby(level=0).sum().loc[:d - pd.Timedelta(days=1)]
         expo["diversifier basket"] = bw.iloc[-1] if len(bw) else pd.Series(dtype=float)
         expo["relative crowding 6"] = BL.rc_positions(pd.DatetimeIndex([h1]), RW).iloc[-1]
+    if V96:
+        lp = LP.loc[h1] if h1 in LP.index else pd.Series(dtype=float)
+        expo["listing short"] = lp[lp != 0]
     ot = cpos.attrs.get("open_trades", [])
     expo["cascade limit strict"] = pd.Series({t["coin"]: t["size"] for t in ot if pd.Timestamp(t["planned_exit"]) >= h1}, dtype=float)
     expo["Weiss expiry"] = pd.Series(dtype=float)
@@ -376,7 +388,7 @@ def cmd_run(a):
                 CB.update(prod, out=DATA / "coinbase", base=ROOT / f"research_data/coinbase/{prod}_1h.parquet")
         if RIDGE:                                          # Upbit, USD/KRW, Deribit DVOL (missing updates: the ridge uses what it has)
             from qpl.live import ml_feeds
-            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER in ("v84", "v85", "v86", "v90", "v95")):
+            if not ml_feeds.update(DATA, alts=ALTK, spot_flow=BFNEW or VER in ("v84", "v85", "v86", "v90", "v95", "v96")):
                 log_event("DATA_PARTIAL", msg="ridge ML inputs not fully updated")
         if V95:                                            # v9.5: Binance long/short ratios (6 coins), Coinbase USDT-USD, DefiLlama, Blockchain.com, Deribit flow
             try:
@@ -391,6 +403,13 @@ def cmd_run(a):
             from qpl.live import ml_feeds as MF
             if not MF.update_v95(DATA):
                 log_event("DATA_PARTIAL", msg="v9.5 basket inputs not fully updated")
+        if V96:                                            # v9.6: perps listed in the last 45 days (hourly closes, funding)
+            try:
+                BP.update_listings(DATA, now=utcnow())
+            except BP.Restricted as e:
+                log_event("DATA_REFUSED", msg=str(e)); print(e); return 2
+            except Exception as e:
+                log_event("DATA_PARTIAL", msg=f"new listings not updated: {e}")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
             if not index_feed.update(DATA, now=utcnow()):
@@ -626,6 +645,8 @@ def cmd_selftest(a):
         cuts += ["2026-09-29 23:00", "2026-09-30 00:00", "2026-09-30 01:00"]
     if "delev bounce" in SLEEVES:                     # moments inside deleveraging-bounce holds (signal days 2026-04-12/13, 2026-05-15)
         cuts += ["2026-04-14 02:00", "2026-05-16 00:00", "2026-05-16 13:00", "2026-05-17 21:00"]
+    if V96:                                           # listing short: MARSCOIN entry 2026-09-03 00:00 and 30% stop on the 04:00 bar, PONS entry 2026-09-08
+        cuts += ["2026-09-03 00:00", "2026-09-03 01:00", "2026-09-03 02:00", "2026-09-03 05:00", "2026-09-03 06:00", "2026-09-08 01:00"]
     if INDEX:                                         # around the index signals: R1 entry 14:00 ET and P1 entry 16:00 ET (EDT = UTC-4)
         cuts += ["2026-09-23 17:00", "2026-09-23 18:00", "2026-09-23 19:00", "2026-09-23 20:00", "2026-09-23 21:00", "2026-09-29 20:00"]
     full = tmp / "full.parquet"
