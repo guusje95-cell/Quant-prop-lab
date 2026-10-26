@@ -1,0 +1,14 @@
+{
+  "gen": 417,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.5 2.976 [2.355, 3.832, 2.447]; family: the volatility forecast of the book's vol targeting (portfolio_v5 uses the 30-day std of daily returns, cap 1.5, previous days only)",
+  "trials": {
+    "A EWMA": "replace the 30-day std by an EWMA std of the daily returns (halflife 10 days, min 30 days)",
+    "B HAR mix": "variance forecast = mean of the 7-day, 30-day and 90-day rolling variances of the daily returns",
+    "C hourly realised vol": "variance forecast from HOURLY returns: 24 x mean of squared hourly returns over the last 10 days"
+  },
+  "unchanged": "sleeve weights, the 365-day level multiplier, target 15%, cap 1.5, one-day lag",
+  "pass": "strict rule vs v9.5; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}
