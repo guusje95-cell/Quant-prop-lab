@@ -1,0 +1,13 @@
+{
+  "gen": 439,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 (live-timing listing short, A..S data) 3.169 [2.751, 3.949, 2.579] and the rebuilt-basket reference (both must be passed)",
+  "universe": "point-in-time top-100 USDT-M perps by trailing 30-day quote volume (pack + extra + binance_pit A..S, TradFi excluded, >= 60 days listed), refreshed daily from days before",
+  "trials": {
+    "A alt funding froth": "F_d = quote-volume-weighted mean of each coin's daily mean funding rate (scaled to 8 h) over the universe; z = 365-day z (min 250) of the 7-day mean of F; member -0.125 x clip(z, -2, 2) / 2 on BTC and ETH (day d value from row d + 1, basket convention)",
+    "B alt premium froth": "same with each coin's daily mean perp premium index instead of funding"
+  },
+  "pass": "10th basket member (live basket code); strict rule vs both references; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
