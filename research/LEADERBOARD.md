@@ -1655,3 +1655,6 @@ Chosen on a 2022-24 bootstrap (highest net with P(profit) >= 0.9 and p10 >= 90% 
 ## Gen414 (2026-10-26): watchlist re-tests vs v9.5 (`results/gen414.json`)
 - A ridge + positioning features (Gen304 A): ridge sleeve 0.42 / 2.29 / 1.34; book 2.970 [2.472, 3.865, 2.319]. **Fails** (2025-26 lower).
 - B CME basis level as a 9th basket member (Gen281): basket 3.45 / 2.64 / 1.76; book 2.979 [2.415, 3.748, 2.503] (+0.003; the like-for-like rebuilt reference is 2.996 because the live basket code differs in the 2020-21 warm-up only). **Fails.**
+
+## Gen415 (2026-10-26, descriptive): funded payout buffer (`results/gen415.json`; engine options `payout_buffer`, `count_open_profit`, defaults off)
+- Keeping 1-5% of the account above the start at each payout cuts funded breaches (planning 1.41, 2025-26: 1.57 -> 1.15 per 2 years) and adds 1-4% to the mean at backtest level, but **at planning Sharpe P(profit) and p10 fall** (1.41, 2025-26: buffer 0 $53.0k / p10 $0.1k / 0.90; 3% $53.4k / -$3.6k / 0.865; 2022-24 likewise). **No change: withdraw everything at each payout.**

@@ -1,0 +1,374 @@
+{
+ "2025-26 Sharpe 1.0": {
+  "buffer 0.00": {
+   "mean": 34796,
+   "p10": -4845,
+   "P_profit": 0.777,
+   "funded breaches": 1.472
+  },
+  "buffer 0.00 +open": {
+   "mean": 35053,
+   "p10": -4845,
+   "P_profit": 0.787,
+   "funded breaches": 1.472
+  },
+  "buffer 0.01": {
+   "mean": 35232,
+   "p10": -4845,
+   "P_profit": 0.777,
+   "funded breaches": 1.43
+  },
+  "buffer 0.01 +open": {
+   "mean": 35632,
+   "p10": -4845,
+   "P_profit": 0.785,
+   "funded breaches": 1.43
+  },
+  "buffer 0.02": {
+   "mean": 34721,
+   "p10": -4845,
+   "P_profit": 0.762,
+   "funded breaches": 1.38
+  },
+  "buffer 0.02 +open": {
+   "mean": 35267,
+   "p10": -4845,
+   "P_profit": 0.77,
+   "funded breaches": 1.38
+  },
+  "buffer 0.03": {
+   "mean": 34548,
+   "p10": -4845,
+   "P_profit": 0.745,
+   "funded breaches": 1.327
+  },
+  "buffer 0.03 +open": {
+   "mean": 35333,
+   "p10": -4845,
+   "P_profit": 0.752,
+   "funded breaches": 1.327
+  },
+  "buffer 0.05": {
+   "mean": 34889,
+   "p10": -4845,
+   "P_profit": 0.73,
+   "funded breaches": 1.175
+  },
+  "buffer 0.05 +open": {
+   "mean": 36288,
+   "p10": -4845,
+   "P_profit": 0.738,
+   "funded breaches": 1.175
+  }
+ },
+ "2025-26 Sharpe 1.41": {
+  "buffer 0.00": {
+   "mean": 53030,
+   "p10": 112,
+   "P_profit": 0.9,
+   "funded breaches": 1.567
+  },
+  "buffer 0.00 +open": {
+   "mean": 53557,
+   "p10": 474,
+   "P_profit": 0.902,
+   "funded breaches": 1.567
+  },
+  "buffer 0.01": {
+   "mean": 53004,
+   "p10": -1488,
+   "P_profit": 0.885,
+   "funded breaches": 1.492
+  },
+  "buffer 0.01 +open": {
+   "mean": 53771,
+   "p10": -1126,
+   "P_profit": 0.887,
+   "funded breaches": 1.492
+  },
+  "buffer 0.02": {
+   "mean": 53327,
+   "p10": -2923,
+   "P_profit": 0.875,
+   "funded breaches": 1.383
+  },
+  "buffer 0.02 +open": {
+   "mean": 54451,
+   "p10": -2710,
+   "P_profit": 0.877,
+   "funded breaches": 1.383
+  },
+  "buffer 0.03": {
+   "mean": 53404,
+   "p10": -3604,
+   "P_profit": 0.865,
+   "funded breaches": 1.275
+  },
+  "buffer 0.03 +open": {
+   "mean": 54930,
+   "p10": -3456,
+   "P_profit": 0.868,
+   "funded breaches": 1.275
+  },
+  "buffer 0.05": {
+   "mean": 53196,
+   "p10": -4845,
+   "P_profit": 0.853,
+   "funded breaches": 1.153
+  },
+  "buffer 0.05 +open": {
+   "mean": 55636,
+   "p10": -4845,
+   "P_profit": 0.858,
+   "funded breaches": 1.153
+  }
+ },
+ "2025-26 backtest": {
+  "buffer 0.00": {
+   "mean": 156194,
+   "p10": 77668,
+   "P_profit": 1.0,
+   "funded breaches": 1.17
+  },
+  "buffer 0.00 +open": {
+   "mean": 157766,
+   "p10": 78445,
+   "P_profit": 1.0,
+   "funded breaches": 1.17
+  },
+  "buffer 0.01": {
+   "mean": 157090,
+   "p10": 79037,
+   "P_profit": 1.0,
+   "funded breaches": 1.03
+  },
+  "buffer 0.01 +open": {
+   "mean": 159176,
+   "p10": 79239,
+   "P_profit": 1.0,
+   "funded breaches": 1.03
+  },
+  "buffer 0.02": {
+   "mean": 157143,
+   "p10": 77460,
+   "P_profit": 1.0,
+   "funded breaches": 0.943
+  },
+  "buffer 0.02 +open": {
+   "mean": 160115,
+   "p10": 78325,
+   "P_profit": 1.0,
+   "funded breaches": 0.943
+  },
+  "buffer 0.03": {
+   "mean": 157886,
+   "p10": 75784,
+   "P_profit": 0.998,
+   "funded breaches": 0.87
+  },
+  "buffer 0.03 +open": {
+   "mean": 161806,
+   "p10": 77988,
+   "P_profit": 1.0,
+   "funded breaches": 0.87
+  },
+  "buffer 0.05": {
+   "mean": 158273,
+   "p10": 73526,
+   "P_profit": 0.998,
+   "funded breaches": 0.78
+  },
+  "buffer 0.05 +open": {
+   "mean": 164331,
+   "p10": 76278,
+   "P_profit": 0.998,
+   "funded breaches": 0.78
+  }
+ },
+ "2022-24 Sharpe 1.0": {
+  "buffer 0.00": {
+   "mean": 52094,
+   "p10": -1756,
+   "P_profit": 0.887,
+   "funded breaches": 1.635
+  },
+  "buffer 0.00 +open": {
+   "mean": 52589,
+   "p10": -1314,
+   "P_profit": 0.89,
+   "funded breaches": 1.635
+  },
+  "buffer 0.01": {
+   "mean": 52216,
+   "p10": -2864,
+   "P_profit": 0.875,
+   "funded breaches": 1.528
+  },
+  "buffer 0.01 +open": {
+   "mean": 52937,
+   "p10": -2596,
+   "P_profit": 0.877,
+   "funded breaches": 1.528
+  },
+  "buffer 0.02": {
+   "mean": 52506,
+   "p10": -3521,
+   "P_profit": 0.85,
+   "funded breaches": 1.42
+  },
+  "buffer 0.02 +open": {
+   "mean": 53616,
+   "p10": -3255,
+   "P_profit": 0.853,
+   "funded breaches": 1.42
+  },
+  "buffer 0.03": {
+   "mean": 52141,
+   "p10": -4845,
+   "P_profit": 0.843,
+   "funded breaches": 1.34
+  },
+  "buffer 0.03 +open": {
+   "mean": 53519,
+   "p10": -4845,
+   "P_profit": 0.845,
+   "funded breaches": 1.34
+  },
+  "buffer 0.05": {
+   "mean": 51854,
+   "p10": -4845,
+   "P_profit": 0.833,
+   "funded breaches": 1.175
+  },
+  "buffer 0.05 +open": {
+   "mean": 53902,
+   "p10": -4845,
+   "P_profit": 0.84,
+   "funded breaches": 1.175
+  }
+ },
+ "2022-24 Sharpe 1.41": {
+  "buffer 0.00": {
+   "mean": 73786,
+   "p10": 11172,
+   "P_profit": 0.968,
+   "funded breaches": 1.595
+  },
+  "buffer 0.00 +open": {
+   "mean": 74748,
+   "p10": 11534,
+   "P_profit": 0.968,
+   "funded breaches": 1.595
+  },
+  "buffer 0.01": {
+   "mean": 74551,
+   "p10": 10235,
+   "P_profit": 0.955,
+   "funded breaches": 1.442
+  },
+  "buffer 0.01 +open": {
+   "mean": 75830,
+   "p10": 10940,
+   "P_profit": 0.958,
+   "funded breaches": 1.442
+  },
+  "buffer 0.02": {
+   "mean": 74839,
+   "p10": 10263,
+   "P_profit": 0.95,
+   "funded breaches": 1.32
+  },
+  "buffer 0.02 +open": {
+   "mean": 76385,
+   "p10": 10314,
+   "P_profit": 0.953,
+   "funded breaches": 1.32
+  },
+  "buffer 0.03": {
+   "mean": 75613,
+   "p10": 10296,
+   "P_profit": 0.94,
+   "funded breaches": 1.18
+  },
+  "buffer 0.03 +open": {
+   "mean": 77730,
+   "p10": 10296,
+   "P_profit": 0.943,
+   "funded breaches": 1.18
+  },
+  "buffer 0.05": {
+   "mean": 75228,
+   "p10": 6887,
+   "P_profit": 0.938,
+   "funded breaches": 0.98
+  },
+  "buffer 0.05 +open": {
+   "mean": 78524,
+   "p10": 6887,
+   "P_profit": 0.943,
+   "funded breaches": 0.98
+  }
+ },
+ "2022-24 backtest": {
+  "buffer 0.00": {
+   "mean": 187005,
+   "p10": 110192,
+   "P_profit": 1.0,
+   "funded breaches": 0.54
+  },
+  "buffer 0.00 +open": {
+   "mean": 189045,
+   "p10": 110284,
+   "P_profit": 1.0,
+   "funded breaches": 0.54
+  },
+  "buffer 0.01": {
+   "mean": 189043,
+   "p10": 109818,
+   "P_profit": 1.0,
+   "funded breaches": 0.388
+  },
+  "buffer 0.01 +open": {
+   "mean": 191714,
+   "p10": 113527,
+   "P_profit": 1.0,
+   "funded breaches": 0.388
+  },
+  "buffer 0.02": {
+   "mean": 190316,
+   "p10": 110198,
+   "P_profit": 1.0,
+   "funded breaches": 0.275
+  },
+  "buffer 0.02 +open": {
+   "mean": 193980,
+   "p10": 115660,
+   "P_profit": 1.0,
+   "funded breaches": 0.275
+  },
+  "buffer 0.03": {
+   "mean": 191199,
+   "p10": 111220,
+   "P_profit": 1.0,
+   "funded breaches": 0.212
+  },
+  "buffer 0.03 +open": {
+   "mean": 196076,
+   "p10": 116887,
+   "P_profit": 1.0,
+   "funded breaches": 0.212
+  },
+  "buffer 0.05": {
+   "mean": 192437,
+   "p10": 110602,
+   "P_profit": 1.0,
+   "funded breaches": 0.122
+  },
+  "buffer 0.05 +open": {
+   "mean": 199957,
+   "p10": 118878,
+   "P_profit": 1.0,
+   "funded breaches": 0.122
+  }
+ }
+}

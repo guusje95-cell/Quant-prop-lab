@@ -65,6 +65,9 @@ class Firm:
     tgt_brake: float = 0.0                 # in a challenge phase, once equity >= 1 + tgt_brake x target, scale the day by tgt_brake_scale
     tgt_brake_scale: float = 0.5
     cushion_funded_only: bool = False      # apply cushion_scale only on the funded account
+    # Gen415 payout policy (defaults off = earlier results unchanged):
+    payout_buffer: float = 0.0             # funded: keep this fraction of the account above the start at each payout (withdraw only the rest)
+    count_open_profit: bool = False        # at the horizon end, count unpaid funded profit above the start (at the split) as money
 
 
 PRESETS = {
@@ -262,15 +265,18 @@ def _ledger(rc, loc, hic, rf, lof, hif, cal, s, end, f: Firm, budget: int):
             wait = f.first_payout_days if (f.first_payout_days and first_cycle) else f.payout_every
             if cal[t] - last >= wait:
                 last = cal[t]; first_cycle = False
-                if E > 1.0 and (E - 1.0) * f.account * f.split >= f.payout_min:
-                    pay = (E - 1.0) * f.account * f.split * (1 - f.payout_fee)
+                keep = 1.0 + f.payout_buffer
+                if E > keep and (E - keep) * f.account * f.split >= f.payout_min:
+                    pay = (E - keep) * f.account * f.split * (1 - f.payout_fee)
                     if f.refund_fee and not refunded:
                         pay += f.fee; refunded = True
                     cash[t - s] += pay; npay += 1; first_pay = cal[t] - cal[s] if first_pay is None else first_pay
-                    E = 1.0; hwm = 1.0
+                    E = keep; hwm = keep
             t += 1
         else:
             funded_days += cal[end - 1] - f_start
+            if f.count_open_profit and E > 1.0:
+                cash[end - 1 - s] += (E - 1.0) * f.account * f.split * (1 - f.payout_fee)
     w = np.cumsum(cash)
     return {"wealth": w, "bought": bought, "passed": passed, "breaches": breaches, "payouts": npay, "fees": bought * f.fee + passed * f.funded_fee + extra_fees,
             "paid": float(cash[cash > 0].sum()), "net": float(w[-1]) if len(w) else 0.0, "first_pass": first_pass, "first_pay": first_pay,
