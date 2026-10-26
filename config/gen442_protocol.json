@@ -1,0 +1,12 @@
+{
+  "gen": 442,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.6 A..Z (TradFi excluded) 3.203 [2.748, 3.969, 2.642]; earlier pump fade on the 20 pack coins failed (Gen253 F: pumps continue)",
+  "universe": "binance_pit A..Z (+ pack / extra excluded: mid caps only), TradFi excluded, coin listed >= 60 days, ranked 21..150 by trailing 30-day quote volume (point in time, daily)",
+  "event": "at an hourly close t: 24-hour return > +40% AND 24-hour quote volume > 5 x its trailing 30-day daily average (both from bars up to t)",
+  "rule": "short 0.05 from the next hour (listing_live timing: held during [t+1h, t+2h) onwards), for H days, cover for good when the close is 30% above the entry close; one position per coin; total gross cap 0.5; 10 bp per side; real funding",
+  "trials": {"A hold 7 days": "H = 7", "B hold 3 days": "H = 3"},
+  "pass": "added to v9.6 as its own sleeve; strict rule; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
