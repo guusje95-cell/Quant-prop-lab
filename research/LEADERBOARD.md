@@ -1814,3 +1814,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - 1,131 Bybit USDT perps. **Replication on HyroTrader's exchange: the median 30-day return after a Bybit listing is negative in every year** (2021 -13%, 2022 -38%, 2023 -19%, 2024 -13%, 2025 -35%, 2026 -16%; 507 listings).
 - 265 Bybit-only / Bybit-first events added to the v9.6 listing short: sleeve 1.92 / 0.11 / 0.90; **book 3.275 [2.737, 4.131, 2.683]** vs v9.6 A..Z 3.203 [2.748, 3.969, 2.642]: +0.072, 2023-24 and 2025-26 up, **2022 -0.011 -> fails (near miss)**. (A first run compared against an uncapped reference by mistake; fixed before logging.)
 - Value: strong out-of-venue confirmation of the v9.6 listing effect on the venue the firm uses.
+
+## Gen449 (2026-10-26): drop Binance listings of coins seasoned >= 60 days on Bybit (`results/gen449.json`)
+- 87 of 550 events dropped: sleeve 1.23 / -0.20 / 0.64, book 3.159 [2.677, 3.864, 2.674]. **Fails**: seasoned coins also fall after their Binance perp listing (the listing itself, not only the token's age, drives the effect).
