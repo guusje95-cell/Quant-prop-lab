@@ -1762,3 +1762,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - 425 OKX USDT-swap listings 2021-06..2026-09 with 25+ days of data (92 also Binance listing events within 7 days). **Only currently listed swaps are served (delisted ones are missing): for older listings this biases strongly AGAINST the short.**
 - Median 30-day return by year: 2021 +10%, 2022 -14%, 2023 -4%, 2024 +2%, **2025 -37%**, 2026 -5%; Gen426 rule per event before funding: -13% / -11% / -6% / -8% / **+18%** / +4%. OKX-only events: median -7%, rule +3%.
 - **Reading:** strong confirmation in 2025, consistent sign in 2022 and 2026; 2021-24 not confirmed (survivor-only data, no volume filter). A caution flag on v9.6's listing short: the edge is clearest in 2025, and its 2023-24 contribution was already slightly negative on Binance. Live paper results decide; no change.
+
+## Gen434 (2026-10-26): pace of new listings as a froth signal (`results/gen434.json`)
+- A BTC/ETH basket member 0.17 / -1.11 / -0.27, book 3.126; B alt short sleeve -0.07 / -1.32 / -0.31, book 2.961. **Both fail.**
