@@ -1801,3 +1801,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Diagnostic (2026-10-26): where v9.6 loses
 - Monthly hit rate 0.77 (57 months); **monthly corr with BTC 0.43**; worst months 2025-12 -5.8% (trend 4h, relative crowding, basket), 2026-07 -4.0% (ridge, C*), 2023-04 -3.8% (relative crowding). No single sleeve dominates the losses; the book still carries market beta in bad months. Target for research: an edge that pays in falling markets without being a plain short.
+
+## Gen444 (2026-10-26): Hyperliquid funding across the 6 majors (`research_data/hyperliquid`, `results/gen444.json`)
+- Hyperliquid hourly funding 2023-05..2026-10 fetched in the cloud (15 coins). A (Gen406 Y4) relative HL funding contrarian: - / -0.70 / 0.31, book 3.003; B HL-minus-Binance funding spread relative: - / -0.87 / 0.46, book 2.887. **Both fail** (2024 strongly negative).
