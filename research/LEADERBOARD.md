@@ -1745,3 +1745,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen428 (2026-10-26): listing-short refinements (`results/gen428.json`)
 - A inverse-vol sizing: sleeve 1.60 / -0.23 / 0.66, book 3.204 [2.715, 3.976, 2.651] (+0.043, 2022 lower). B skip crowded shorts (150 of 492 events): book 3.119. **Both fail**; the v9.6 listing short stays.
+
+## Gen429 (2026-10-26): fade the crowded side after Binance shortens a perp's funding interval (`results/gen429.json`, robustness `gen429b.json`)
+- 234 events (199 long = shorts crowded, 35 short), almost all 2025-26. A hold 7 d: sleeve 0.01 / 0.42 / 1.97 (2023 0.68, 2024 -0.25, 2025 3.31, 2026 0.66), book **3.444 [2.751, 3.941, 3.274]**: +0.28 but 2022 below the research reference (sleeve flat in 2022; equal to the live-timing reference) and 2023-24 -0.008 vs the live-timing reference. B hold 3 d: book 3.262. **Both fail as registered.**
+- Gen429b: **top 5 coins = 64% of the P&L (ALPACA, the 2025 delisting squeeze, about 28%); without them 2025-26 falls to 0.79**; long events by year 2023 9, 2024 1, 2025 68, 2026 118. Costs x2 / 1 h later / stop 50% similar; stop 20% 2023-24 -0.71.
+- **Not flagged**: a 2025 squeeze regime carried by a few coins, not a stable edge. Watchlist: re-check once the T..Z symbols and more live months exist.
