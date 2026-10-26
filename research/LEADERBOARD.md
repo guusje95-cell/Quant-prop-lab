@@ -1742,3 +1742,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen427 (2026-10-26): short after a later Binance spot listing (`results/gen427.json`)
 - 31 events (spot listing >= 3 days after the perp; 2023 2, 2024 2, 2025 19, 2026 8). Own sleeve - / -2.08 / -1.02, book 2.994; merged into the listing short 1.51 / -0.29 / 0.19, book 3.145. **Both fail** vs v9.6 3.161 (live-timing reference 3.169). A spot listing after the perp is not a second sell event.
+
+## Gen428 (2026-10-26): listing-short refinements (`results/gen428.json`)
+- A inverse-vol sizing: sleeve 1.60 / -0.23 / 0.66, book 3.204 [2.715, 3.976, 2.651] (+0.043, 2022 lower). B skip crowded shorts (150 of 492 events): book 3.119. **Both fail**; the v9.6 listing short stays.
