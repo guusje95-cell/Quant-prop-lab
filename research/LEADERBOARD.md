@@ -1853,3 +1853,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen456 (2026-10-26): Upbit listings merged into the listing short (`results/gen456.json`)
 - 57 Upbit listings of coins already trading as Binance perps (median 30-day return 2021 -27%, 2022 -42%, 2023 -11%, **2024 +7%**, 2025 -25%, 2026 -6%). Sleeve 1.66 / -0.15 / 0.70; book 3.036 [2.490, 3.820, 2.533] vs v9.7 3.012 [2.495, 3.784, 2.509]. **Fails** (+0.024; 2022 -0.005).
+
+## Gen457 (2026-10-26): Tron stablecoin impulse, per-chain DefiLlama data (`results/gen457.json`)
+- A Tron share vs Ethereum: member -0.84 / -0.45 / 0.15, book 2.994; B Tron impulse: 0.17 / -0.31 / -0.04, book 2.965. **Both fail** (unstable by year).

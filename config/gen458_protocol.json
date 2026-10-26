@@ -1,0 +1,9 @@
+{
+  "gen": 458,
+  "date": "2026-10-26",
+  "registered": "before running; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "trials": {"A BTC beta hedge": "each day, beta = cov / var of the book's daily return on BTC's daily perp return over the previous 90 days (both known); hold -beta x BTC (5 bp on hedge changes, funding) next to the v9.7 book (the book and hedge rescaled to 15% vol on 2022-24 together)"},
+  "pass": "strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
