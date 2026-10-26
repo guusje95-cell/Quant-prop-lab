@@ -1,0 +1,13 @@
+{
+  "gen": 421,
+  "date": "2026-10-26",
+  "registered": "before looking at any signal from the data; new data: Binance COIN-M (coin-margined) perp metrics BTCUSD_PERP / ETHUSD_PERP 2021-07..2026-09 (data.binance.vision, public; research_data/binance_cm). COIN-M ratio columns only exist since about 2025, so only open interest (contracts = USD 100 BTC / 10 ETH) and the taker long/short volume ratio are used",
+  "trials": {
+    "A COIN-M leverage build-up": "the M5 basket rule on COIN-M: -0.125 x clip(z90(7-day change of log COIN-M open interest in USD, daily mean), -2, 2) / 2, BTC and ETH; 9th basket member",
+    "B COIN-M vs USDT-M taker divergence": "z90 of the daily mean of (log COIN-M taker ratio - log USDT-M taker ratio); +0.125 x clip(z, -2, 2) / 2 (follow the coin-margined traders), BTC and ETH; 9th basket member"
+  },
+  "construction": "basket = live basket code (scripts/basket_live.py) with the member added; equal risk on 2022-24",
+  "pass": "strict rule against BOTH the v9.5 reference 2.976 [2.355, 3.832, 2.447] and the like-for-like rebuilt-basket reference (live basket code without the new member); with several passes the highest 2022-26 Sharpe",
+  "trials_added": 2,
+  "no_changes_after_results": true
+}
