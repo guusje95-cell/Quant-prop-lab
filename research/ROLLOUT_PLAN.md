@@ -16,7 +16,7 @@
 | HyroTrader, backtest level | $156k | $78k | 1.00 | $162k / $76k / 0.995 |
 
 - HyroTrader + CFT together at planning 1.41: $108k mean, P(total loss) 0.10 (was $106k / 0.16 at 2.0 / 1.5; the accounts move together).
-- **Plan: start with ONE account (HyroTrader or CFT, whichever confirms bots + Netherlands first) after v95 paper GO; add the second only once live results support Sharpe >= 1.4; MyFundedPerps is marginal (P(profit) 0.67).**
+- **Plan: start with ONE account (HyroTrader or CFT, whichever confirms bots + Netherlands first) after v95 paper GO; add the second only once live results support Sharpe >= 1.4; MyFundedPerps at 1.0 / 1.0 / 50% stop is now a reasonable third account (P(profit) 0.87, Gen416).**
 - BrightFunded (MT5 CFDs) needs its own honest version of the book (bf2.6 had the withdrawn carry sleeves); not in the plan until that exists.
 
 ---
