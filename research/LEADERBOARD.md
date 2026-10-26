@@ -1862,3 +1862,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen460 (2026-10-26): listing-short neighbourhood ensemble (hold 14 / 30 / 60 x stop 20 / 30 / 50%) (`results/gen460.json`)
 - Ensemble sleeve 1.95 / -0.16 / 0.55 (single 1.67 / -0.13 / 0.61); book 3.019 [2.517, 3.819, 2.479] vs v9.7 3.012. **Fails** (2025-26 lower).
+
+## Gen461 (2026-10-26): listing short sized by retail crowding at entry (`results/gen461.json`)
+- Binance archive metrics for the first 40 days of all 550 listings (fetched in the cloud); 530 with data; all-account long/short ratio at entry median 1.30 (p10 0.65, p90 2.78).
+- Size 0.05 x clip(L / 1.5, 0.5, 2): sleeve **1.71 / -0.05 / 0.81** (v9.7 listing short 1.67 / -0.13 / 0.61); **book 3.054 [2.540, 3.851, 2.530]** vs v9.7 3.012 [2.495, 3.784, 2.509]: **every period up, +0.042 < +0.05 -> fails the strict rule (near miss).** Candidate (flagged) for the next version: listings with crowded retail longs fall harder. Live needs the Binance account-ratio endpoint for new listings (served for 30 days).

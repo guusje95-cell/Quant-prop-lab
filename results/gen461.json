@@ -1,0 +1,30 @@
+{
+ "reference v9.7": [
+  3.012,
+  [
+   2.495,
+   3.784,
+   2.509
+  ]
+ ],
+ "events with metrics": 530,
+ "account ratio at entry (median / p10 / p90)": [
+  1.3,
+  0.65,
+  2.78
+ ],
+ "sleeve": [
+  1.71,
+  -0.047,
+  0.81
+ ],
+ "book": [
+  3.054,
+  [
+   2.54,
+   3.851,
+   2.53
+  ]
+ ],
+ "pass": false
+}
