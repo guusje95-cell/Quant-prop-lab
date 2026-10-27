@@ -1,0 +1,85 @@
+{
+ "book (v9.8 paper code, unit)": [
+  3.24,
+  [
+   3.063,
+   3.91,
+   2.67
+  ]
+ ],
+ "sleeves": {
+  "C*": {
+   "unit turnover per year (sum of components)": 21.8
+  },
+  "trend 4h": {
+   "unit turnover per year (sum of components)": 19.8
+  },
+  "Weiss expiry": {
+   "unit turnover per year (sum of components)": 24.0
+  },
+  "delev bounce": {
+   "unit turnover per year (sum of components)": 20.2
+  },
+  "ridge ML": {
+   "unit turnover per year (sum of components)": 167.4
+  },
+  "alt kimchi": {
+   "unit turnover per year (sum of components)": 167.0
+  },
+  "diversifier basket": {
+   "unit turnover per year (sum of components)": 108.4
+  },
+  "relative crowding 6": {
+   "unit turnover per year (sum of components)": 47.4
+  },
+  "listing short": {
+   "unit turnover per year (sum of components)": 11.7
+  }
+ },
+ "charged cost in the backtest (book units, per year)": 0.0752,
+ "book gross exposure (mean / p95, x equity at unit 15% vol)": [
+  0.4,
+  0.83
+ ],
+ "net book turnover per year (x equity)": 103.6,
+ "sum of charged component turnover per year (x equity)": 144.9,
+ "net turnover per year by coin class": {
+  "alt": 7.4,
+  "top10": 27.4,
+  "major": 67.0,
+  "event": 1.9
+ },
+ "Bybit taker, realistic spreads": {
+  "cost per year (book units)": 0.0685,
+  "book": [
+   3.283,
+   [
+    3.082,
+    3.959,
+    2.72
+   ]
+  ]
+ },
+ "Bybit taker, pessimistic spreads + impact": {
+  "cost per year (book units)": 0.0886,
+  "book": [
+   3.156,
+   [
+    2.986,
+    3.82,
+    2.59
+   ]
+  ]
+ },
+ "maker on daily sleeves, realistic elsewhere": {
+  "cost per year (book units)": 0.048,
+  "book": [
+   3.413,
+   [
+    3.169,
+    4.096,
+    2.865
+   ]
+  ]
+ }
+}
