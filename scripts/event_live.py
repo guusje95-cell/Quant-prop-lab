@@ -95,8 +95,9 @@ def _closes(coin: str):
     return cl, fu
 
 
-def pnl(index: pd.DatetimeIndex):
-    """(hourly P&L on `index`, positions frame, listing events) of the event-short sleeve."""
+def pnl(index: pd.DatetimeIndex, pre_cap=None):
+    """(hourly P&L on `index`, positions frame, listing events) of the event-short sleeve. `pre_cap(P, CF) -> P` (research only)
+    rescales the uncapped positions before the gross cap."""
     tf = set(json.loads((ROOT / "config/tradfi_perps.json").read_text())["symbols"])
     EV = LL.events(); cap, LL.CAP = LL.CAP, 1e9
     try:
@@ -122,6 +123,8 @@ def pnl(index: pd.DatetimeIndex):
         p = p.where(cl.reindex(index - pd.Timedelta(hours=1)).notna().to_numpy(), 0.0)
         cur = PD.get(coin, pd.Series(0.0, index=index)); PD[coin] = cur.where(cur != 0, p); CF["spo_" + coin] = (cl, fu)
     P = pd.concat([PL, pd.DataFrame(PD, index=index).add_prefix("spo_")], axis=1).reindex(index).fillna(0.0)
+    if pre_cap is not None:
+        P = pre_cap(P, CF)
     g = P.abs().sum(axis=1); P = P.mul((CAP / g).clip(upper=1.0).fillna(1.0), axis=0)
     out = pd.Series(0.0, index=index)
     for n in P.columns:
