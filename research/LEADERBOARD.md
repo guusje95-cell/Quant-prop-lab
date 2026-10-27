@@ -1906,3 +1906,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen470 (2026-10-27): event-short risk weight x m in the v9.8 book (`results/gen470.json`)
 - Daily corr event short vs the rest of the book -0.18. m = 1.5: 3.173 [2.740, 3.832, 2.715]; **m = 2.0 (chosen on 2022-24): 3.204 [2.895, 3.748, 2.779]** vs v9.8 3.091 [2.540, 3.861, 2.616]. **Fails** (2023-24 lower, the event short's weak period); +0.11 overall and better 2022 / 2025-26. Not flagged: equal risk stays.
+
+## Gen471 (2026-10-27): inverse-vol sizing of each event in the event short (`results/gen471.json`)
+- 618 events; multiplier median 0.53 (p10 0.50, p90 1.15: new coins run far above 150% vol, so most events shrink). Sleeve 1.95 / -0.23 / 1.35; book 3.111 [2.557, 3.829, 2.688] vs v9.8 3.091. **Fails** (2023-24 lower, +0.02).
