@@ -1,0 +1,122 @@
+{
+ "v9.7 2025-26 Sharpe 1.2": {
+  "one account": {
+   "mean": 36559,
+   "p10": -4845,
+   "P_loss": 0.175
+  },
+  "two accounts, second +180 d": {
+   "mean": 73155,
+   "p10": -1615,
+   "P_loss": 0.11
+  }
+ },
+ "v9.7 2025-26 Sharpe 1.44": {
+  "one account": {
+   "mean": 49243,
+   "p10": -241,
+   "P_loss": 0.105
+  },
+  "two accounts, second +180 d": {
+   "mean": 98168,
+   "p10": 9090,
+   "P_loss": 0.065
+  }
+ },
+ "v9.7 2022-24 Sharpe 1.2": {
+  "one account": {
+   "mean": 67538,
+   "p10": 9881,
+   "P_loss": 0.058
+  },
+  "two accounts, second +180 d": {
+   "mean": 134632,
+   "p10": 23069,
+   "P_loss": 0.03
+  }
+ },
+ "v9.7 2022-24 Sharpe 1.44": {
+  "one account": {
+   "mean": 81635,
+   "p10": 19881,
+   "P_loss": 0.04
+  },
+  "two accounts, second +180 d": {
+   "mean": 164245,
+   "p10": 41027,
+   "P_loss": 0.02
+  }
+ },
+ "v9.8 candidate 2025-26 Sharpe 1.2": {
+  "one account": {
+   "mean": 40787,
+   "p10": -4845,
+   "P_loss": 0.147
+  },
+  "two accounts, second +180 d": {
+   "mean": 82553,
+   "p10": 4015,
+   "P_loss": 0.083
+  }
+ },
+ "v9.8 candidate 2025-26 Sharpe 1.44": {
+  "one account": {
+   "mean": 52740,
+   "p10": 2415,
+   "P_loss": 0.087
+  },
+  "two accounts, second +180 d": {
+   "mean": 105419,
+   "p10": 10408,
+   "P_loss": 0.05
+  }
+ },
+ "v9.8 candidate 2025-26 Sharpe 1.52": {
+  "one account": {
+   "mean": 56882,
+   "p10": 3807,
+   "P_loss": 0.072
+  },
+  "two accounts, second +180 d": {
+   "mean": 114619,
+   "p10": 15994,
+   "P_loss": 0.037
+  }
+ },
+ "v9.8 candidate 2022-24 Sharpe 1.2": {
+  "one account": {
+   "mean": 64846,
+   "p10": 5327,
+   "P_loss": 0.065
+  },
+  "two accounts, second +180 d": {
+   "mean": 128581,
+   "p10": 16980,
+   "P_loss": 0.04
+  }
+ },
+ "v9.8 candidate 2022-24 Sharpe 1.44": {
+  "one account": {
+   "mean": 78811,
+   "p10": 16838,
+   "P_loss": 0.033
+  },
+  "two accounts, second +180 d": {
+   "mean": 157629,
+   "p10": 39093,
+   "P_loss": 0.018
+  }
+ },
+ "v9.8 candidate 2022-24 Sharpe 1.52": {
+  "one account": {
+   "mean": 84331,
+   "p10": 23808,
+   "P_loss": 0.025
+  },
+  "two accounts, second +180 d": {
+   "mean": 168933,
+   "p10": 42222,
+   "P_loss": 0.018
+  }
+ }
+}
