@@ -1909,3 +1909,9 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen471 (2026-10-27): inverse-vol sizing of each event in the event short (`results/gen471.json`)
 - 618 events; multiplier median 0.53 (p10 0.50, p90 1.15: new coins run far above 150% vol, so most events shrink). Sleeve 1.95 / -0.23 / 1.35; book 3.111 [2.557, 3.829, 2.688] vs v9.8 3.091. **Fails** (2023-24 lower, +0.02).
+
+## Gen472 (2026-10-27, descriptive / FLAGGED): is the event short tradable on Bybit (HyroTrader's exchange)? (`results/gen472.json`)
+- Tradable = a Bybit USDT perp of the same base (1000x prefixes matched) launched before that hour (instruments.json, all statuses; Bybit closure dates unknown -> upper bound). (A first run used the kline files, which hold only each coin's first 40 days on Bybit: wrong, discarded.)
+- Gross share of the event short on Bybit-tradable coins: 2022 79%, 2023 82%, 2024 91%, 2025 85%, 2026 79%.
+- **Event short restricted to Bybit-tradable coins (before the 0.5 gross cap): sleeve 1.75 / 0.05 / 1.37; book 3.211 [3.083, 3.849, 2.661]** vs v9.8 3.091 [2.540, 3.861, 2.616]. The live account can only trade these coins anyway, and that version is NOT worse: +0.12, 2022 much better (the cap no longer spends room on Binance-only coins), 2023-24 -0.012.
+- Reading: good news for the live Sharpe (the Binance-only coins were not what made the edge). Implementation proposal (flagged, needs the user's OK): filter the event short to coins listed on the firm's exchange BEFORE the gross cap (live: Bybit instruments list, reachable from the user's PC). Strictly it fails the rule (2023-24 -0.012), so it is not counted as an improvement.
