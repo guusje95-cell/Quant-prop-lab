@@ -1,6 +1,6 @@
 """Gen472 (descriptive): share of the v9.8 event short that was tradable on Bybit (HyroTrader's exchange) at the time: a Bybit
-USDT perp of the same base (1000x / 10000x prefixes matched) with an hourly bar in that hour (research_data/bybit_listings;
-delisted Bybit perps may be missing, so this is a lower bound). Writes results/gen472.json."""
+USDT perp of the same base (1000x / 10000x prefixes matched) launched before that hour (research_data/bybit_listings/instruments.json,
+all statuses; Bybit closure dates are not known, so a coin Bybit already delisted counts as tradable: an upper bound). Writes results/gen472.json."""
 import json
 import re
 import sys
@@ -18,17 +18,16 @@ def shp(h, a="2022", z=END):
     d = dd(h.loc[a:z]); return round(float(d.mean() / d.std() * np.sqrt(365)), 3)
 per = lambda h: [shp(h, "2022", "2022"), shp(h, "2023", "2024"), shp(h, "2025", END)]
 norm = lambda b: re.sub(r"^1[0]+", "", b)
-avail = {}
-for f in BY.glob("*USDT_1h.parquet"):
-    k = pd.read_parquet(f, columns=["close"]); ix = pd.DatetimeIndex(k.index).as_unit("ns")
-    b = norm(f.name[:-len("USDT_1h.parquet")]); s = pd.Series(1.0, index=ix)
-    avail[b] = avail[b].combine_first(s) if b in avail else s
+LAUNCH = {}                                                            # base -> first Bybit launch (instruments.json, all statuses)
+for x in json.loads((BY / "instruments.json").read_text()):
+    if x["symbol"].endswith("USDT") and x["launchTime"] > 0:
+        bb = norm(x["symbol"][:-4]); t = pd.to_datetime(x["launchTime"], unit="ms"); LAUNCH[bb] = min(t, LAUNCH.get(bb, t))
 KEEP = {}
 def mask(P, CF):
     P = P.copy()
     for n in P.columns:
-        b = norm(n[4:] if n.startswith("spo_") else n); a = avail.get(b)
-        m = a.reindex(P.index - pd.Timedelta(hours=1)).notna().to_numpy() if a is not None else np.zeros(len(P), bool)
+        b = norm(n[4:] if n.startswith("spo_") else n); t0 = LAUNCH.get(b)
+        m = (P.index - pd.Timedelta(hours=1) >= t0) if t0 is not None else np.zeros(len(P), bool)   # closure dates unknown: upper bound
         KEEP[n] = pd.Series(m, index=P.index)
         P[n] = P[n].where(m, 0.0)
     return P

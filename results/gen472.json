@@ -1,0 +1,39 @@
+{
+ "gross share on Bybit-tradable coins by year": {
+  "2022": 0.405,
+  "2023": 0.492,
+  "2024": 0.504,
+  "2025": 0.657,
+  "2026": 0.5
+ },
+ "v9.8 (Binance universe)": {
+  "sleeve": [
+   1.711,
+   -0.009,
+   1.178
+  ],
+  "book": [
+   3.091,
+   [
+    2.54,
+    3.861,
+    2.616
+   ]
+  ]
+ },
+ "v9.8 with the event short restricted to Bybit-tradable coins": {
+  "sleeve": [
+   1.258,
+   0.263,
+   1.416
+  ],
+  "book": [
+   3.014,
+   [
+    2.106,
+    3.796,
+    2.72
+   ]
+  ]
+ }
+}
