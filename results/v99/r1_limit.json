@@ -1,0 +1,262 @@
+{
+ "control (v9.8, Bybit taker on net trades)": {
+  "Sharpe": 3.283,
+  "2022 / 23-24 / 25-26": [
+   3.082,
+   3.959,
+   2.72
+  ],
+  "by year": [
+   3.082,
+   3.757,
+   4.152,
+   2.62,
+   2.844
+  ],
+  "return / vol per year (unit book)": [
+   0.5165,
+   0.1573
+  ],
+  "max drawdown (unit book, additive)": -0.0756
+ },
+ "limit coins": [
+  "AAVE",
+  "ADA",
+  "ATOM",
+  "AVAX",
+  "BCH",
+  "BNB",
+  "BTC",
+  "DOGE",
+  "DOT",
+  "ETC",
+  "ETH",
+  "FIL",
+  "LINK",
+  "LTC",
+  "NEAR",
+  "SOL",
+  "TRX",
+  "UNI",
+  "XLM",
+  "XRP"
+ ],
+ "variants": {
+  "o=0, W=60, delta=1": {
+   "Sharpe": 3.377,
+   "2022 / 23-24 / 25-26": [
+    3.162,
+    4.057,
+    2.817
+   ],
+   "by year": [
+    3.162,
+    3.861,
+    4.244,
+    2.714,
+    2.943
+   ],
+   "return / vol per year (unit book)": [
+    0.5313,
+    0.1573
+   ],
+   "max drawdown (unit book, additive)": -0.0736,
+   "orders": 21449,
+   "fill rate": 0.959,
+   "mean gain per order (bp of notional)": 4.17,
+   "p5 / p95 gain (bp)": [
+    4.5,
+    9.6
+   ]
+  },
+  "o=2, W=60, delta=1": {
+   "Sharpe": 3.382,
+   "2022 / 23-24 / 25-26": [
+    3.164,
+    4.061,
+    2.822
+   ],
+   "by year": [
+    3.164,
+    3.867,
+    4.246,
+    2.71,
+    2.961
+   ],
+   "return / vol per year (unit book)": [
+    0.5323,
+    0.1574
+   ],
+   "max drawdown (unit book, additive)": -0.0753,
+   "orders": 21449,
+   "fill rate": 0.934,
+   "mean gain per order (bp of notional)": 4.25,
+   "p5 / p95 gain (bp)": [
+    -25.1,
+    11.6
+   ]
+  },
+  "o=5, W=60, delta=1": {
+   "Sharpe": 3.376,
+   "2022 / 23-24 / 25-26": [
+    3.178,
+    4.029,
+    2.83
+   ],
+   "by year": [
+    3.178,
+    3.812,
+    4.237,
+    2.731,
+    2.952
+   ],
+   "return / vol per year (unit book)": [
+    0.5316,
+    0.1575
+   ],
+   "max drawdown (unit book, additive)": -0.0753,
+   "orders": 21449,
+   "fill rate": 0.897,
+   "mean gain per order (bp of notional)": 4.47,
+   "p5 / p95 gain (bp)": [
+    -46.0,
+    14.6
+   ]
+  },
+  "o=0, W=30, delta=1": {
+   "Sharpe": 3.372,
+   "2022 / 23-24 / 25-26": [
+    3.16,
+    4.052,
+    2.811
+   ],
+   "by year": [
+    3.16,
+    3.86,
+    4.235,
+    2.702,
+    2.946
+   ],
+   "return / vol per year (unit book)": [
+    0.5305,
+    0.1573
+   ],
+   "max drawdown (unit book, additive)": -0.0737,
+   "orders": 21449,
+   "fill rate": 0.942,
+   "mean gain per order (bp of notional)": 4.06,
+   "p5 / p95 gain (bp)": [
+    -11.7,
+    9.5
+   ]
+  },
+  "o=0, W=120, delta=1": {
+   "Sharpe": 3.38,
+   "2022 / 23-24 / 25-26": [
+    3.162,
+    4.064,
+    2.817
+   ],
+   "by year": [
+    3.162,
+    3.864,
+    4.255,
+    2.715,
+    2.943
+   ],
+   "return / vol per year (unit book)": [
+    0.5317,
+    0.1573
+   ],
+   "max drawdown (unit book, additive)": -0.0736,
+   "orders": 21449,
+   "fill rate": 0.972,
+   "mean gain per order (bp of notional)": 4.12,
+   "p5 / p95 gain (bp)": [
+    4.5,
+    9.6
+   ]
+  },
+  "o=0, W=60, delta=3": {
+   "Sharpe": 3.332,
+   "2022 / 23-24 / 25-26": [
+    3.13,
+    4.009,
+    2.766
+   ],
+   "by year": [
+    3.13,
+    3.813,
+    4.196,
+    2.653,
+    2.905
+   ],
+   "return / vol per year (unit book)": [
+    0.5244,
+    0.1574
+   ],
+   "max drawdown (unit book, additive)": -0.0754,
+   "orders": 21449,
+   "fill rate": 0.934,
+   "mean gain per order (bp of notional)": 2.38,
+   "p5 / p95 gain (bp)": [
+    -25.1,
+    9.6
+   ]
+  },
+  "o=0, W=60, delta=1, d=10": {
+   "Sharpe": 3.346,
+   "2022 / 23-24 / 25-26": [
+    3.102,
+    4.013,
+    2.813
+   ],
+   "by year": [
+    3.102,
+    3.789,
+    4.228,
+    2.703,
+    2.949
+   ],
+   "return / vol per year (unit book)": [
+    0.5267,
+    0.1574
+   ],
+   "max drawdown (unit book, additive)": -0.0736,
+   "orders": 21449,
+   "fill rate": 0.951,
+   "mean gain per order (bp of notional)": 3.08,
+   "p5 / p95 gain (bp)": [
+    4.5,
+    9.6
+   ]
+  },
+  "o=2, W=60, delta=3, d=10": {
+   "Sharpe": 3.287,
+   "2022 / 23-24 / 25-26": [
+    3.041,
+    3.946,
+    2.763
+   ],
+   "by year": [
+    3.041,
+    3.705,
+    4.179,
+    2.638,
+    2.917
+   ],
+   "return / vol per year (unit book)": [
+    0.5174,
+    0.1574
+   ],
+   "max drawdown (unit book, additive)": -0.0738,
+   "orders": 21449,
+   "fill rate": 0.898,
+   "mean gain per order (bp of notional)": 1.35,
+   "p5 / p95 gain (bp)": [
+    -51.5,
+    11.6
+   ]
+  }
+ }
+}
