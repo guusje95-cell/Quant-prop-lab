@@ -13,11 +13,11 @@
   "risk_note": "Gen323 supersedes Gen318: HyroTrader caps funded open notional at 2x the initial balance; challenge risk 2.0 (no cap in the evaluation), FUNDED risk 1.5 with an exposure cap of 1.9x and a $1,000 no-trade band (research/FIRM_RULES_EXECUTION.md). The paper ledger runs at the challenge risk 2.0.",
   "ridge_inputs": "Binance 5m/funding/premium/open interest (as v6), Coinbase BTC/ETH hourly, Upbit KRW hourly + Yahoo USD/KRW (kimchi, Gen105 strict London dating, previous day's FX), Deribit DVOL daily, Coin Metrics USDT+USDC caps (2-day lag); scripts/ridge_live.py, live feeds src/qpl/live/ml_feeds.py; v8 adds Upbit KRW hourly for 16 altcoins (src/qpl/live/ml_feeds.py, alts=True); v8.4 adds Binance spot BTC/ETH hourly with taker-buy volume (src/qpl/live/ml_feeds.py spot) and the DVOL level",
   "extra_data": "as v9.0 + Binance long/short ratios (6 coins, live endpoint, last 30 days), Coinbase USDT-USD hourly, DefiLlama stablecoin supply, Blockchain.com fees, Deribit option trades (hourly features) + v9.6: USDT-M perps listed in the last 45 days (Binance exchangeInfo onboardDate, hourly klines, funding; qpl.live.binance_public.update_listings) + v9.8: 5-minute long/short ratios of perps listed in the last 3 days (<data>/listings/<SYM>_ratios.parquet), Binance delisting announcements (www.binance.com public CMS list, catalog 161; qpl.live.binance_announcements) and hourly klines + funding of each announced coin's perp (qpl.live.binance_public.update_event_coins)",
-  "reference": "v9.8 (Gen468, accepted 2026-10-27): 3.091 / 2.540 / 3.861 / 2.616; planning about 1.52",
+  "reference": "v9.8 (Gen468 + Gen472 Bybit filter, accepted 2026-10-27): 3.211 / 3.083 / 3.849 / 2.661",
   "listing_note": "History before the paper start comes from research_data/binance_pit (symbols A..S until the rest is downloaded); live listings come from the exchange. The live bot trades the listing short only where the coin is listed on the firm's exchange (Bybit) and within the firm's low-cap cap (HyroTrader: 5% of the initial balance incl. leverage; v9.6 max about 4.2% at risk 1.5).",
-  "event_note": "scripts/event_live.py: listing short sized x clip(L / 1.5, 0.5, 2) by the all-account long/short ratio in the 24 h before entry (history: config/listing_crowding.json) + spot-delisting shorts 0.05 for 14 days, 30% stop; gross cap 0.5. The live bot trades a delisting short only if the coin's perp is on the firm's exchange.",
-  "v98_scale": 0.897,
-  "v98_scale_note": "0.15 / realised vol 2022-26 of the v9.8 paper code on the research pack: 3.138 / 2.621 / 3.915 / 2.625 (v9.7 paper code 3.036 / 2.482 / 3.831 / 2.512)"
+  "event_note": "scripts/event_live.py: listing short sized x clip(L / 1.5, 0.5, 2) by the all-account long/short ratio in the 24 h before entry (history: config/listing_crowding.json) + spot-delisting shorts 0.05 for 14 days, 30% stop; gross cap 0.5. The live bot trades a delisting short only if the coin's perp is on the firm's exchange. Gen472 (accepted 2026-10-27): only coins with a Bybit USDT perp launched before that hour count, before the gross cap (research_data/bybit_listings/instruments.json + <data>/bybit_instruments.json, refreshed from the user's PC).",
+  "v98_scale": 0.902,
+  "v98_scale_note": "0.15 / realised vol 2022-26 of the v9.8 paper code (with the Gen472 Bybit filter) on the research pack: 3.24 / 3.063 / 3.91 / 2.67"
  },
  "frozen_ledger": "Each completed hour is computed once, with only the data available at that moment, and never revised. Hours computed more than 2 hours after they closed are flagged late.",
  "gate": {
@@ -27,5 +27,10 @@
   "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v9.7 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
   "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
  },
- "changes": []
+ "changes": [
+  {
+   "date": "2026-10-27",
+   "change": "before the start: event short limited to Bybit-tradable coins (Gen472), scale re-measured"
+  }
+ ]
 }

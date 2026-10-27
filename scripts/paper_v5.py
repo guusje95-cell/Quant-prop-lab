@@ -432,6 +432,11 @@ def cmd_run(a):
                 log_event("DATA_REFUSED", msg=str(e)); print(e); return 2
             except Exception as e:
                 log_event("DATA_PARTIAL", msg=f"delisting events not updated: {e}")
+            try:                                           # Gen472: the event short trades only coins with a Bybit perp
+                from qpl.live import bybit_listings as BYL
+                BYL.update_instruments(DATA)
+            except Exception as e:                         # keep the last list; new Bybit listings wait until the next good update
+                log_event("DATA_PARTIAL", msg=f"Bybit instrument list not updated: {e}")
         if INDEX:                                          # Dukascopy US100/US500/US30 hourly BID bars (same-day from tick files)
             from qpl.live import index_feed
             if not index_feed.update(DATA, now=utcnow()):

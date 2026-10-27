@@ -93,3 +93,15 @@ def main(first="2021-06-01"):
 
 if __name__ == "__main__":
     main()
+
+
+def update_instruments(live: Path) -> int:
+    """v9.8 event short (Gen472): current Bybit USDT linear perps with launch times (all statuses) into <live>/bybit_instruments.json,
+    merged with the earlier file so symbols Bybit later closes are kept. Run from the paper loop on the user's PC."""
+    live = Path(live); live.mkdir(parents=True, exist_ok=True); f = live / "bybit_instruments.json"
+    old = {x["symbol"]: x for x in json.loads(f.read_text())} if f.exists() else {}
+    new = instruments()
+    for x in new:
+        old[x["symbol"]] = x
+    f.write_text(json.dumps(sorted(old.values(), key=lambda d: d["launchTime"]), indent=0))
+    return len(new)

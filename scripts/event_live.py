@@ -5,7 +5,8 @@ Rule: the v9.7 listing short (scripts/listing_live.py) with each listing sized x
 long/short ratio over the 24 h before its entry (research: config/listing_crowding.json; live: <live>/listings/<SYM>_ratios.parquet,
 size 1 when fewer than 51 five-minute rows), plus a short of 0.05 in every coin named in a 'Binance Will Delist <tickers> on <date>'
 announcement (spot delisting) from the first whole hour after release + 1 h, for 14 days, covered for good at +30% from the entry
-close (one delisting position per coin; a coin can carry a listing and a delisting short, as in Gen468), total gross capped at 0.5, 10 bp per side, real funding.
+close (one delisting position per coin; a coin can carry a listing and a delisting short, as in Gen468); only coins with a Bybit USDT
+perp launched before that hour (HyroTrader's exchange; Gen472, accepted 2026-10-27), total gross capped at 0.5, 10 bp per side, real funding.
 
 Data: announcements research_data/binance_announcements/catalog_161.json + <live>/announcements/catalog_161.json; closes of a
 delisting coin from the research pack (via binance_pack, which has its own live overlay), research_data/binance_extra (+ <live>/),
@@ -27,6 +28,23 @@ CUT = LL.CUT
 EX, PIT, ANN = ROOT / "research_data/binance_extra", LL.PIT, ROOT / "research_data/binance_announcements"
 SIZE, CAP, HOLD, STOP, COST_BP, PIVOT, LO, HI = 0.05, 0.5, 14, 0.30, 10.0, 1.5, 0.5, 2.0
 CROWD = json.loads((ROOT / "config/listing_crowding.json").read_text())["L"]
+BYBIT = ROOT / "research_data/bybit_listings/instruments.json"
+
+
+def _norm(base: str) -> str:
+    return re.sub(r"^1[0]+", "", base)                                  # 1000PEPE / 10000SATS -> PEPE / SATS (Bybit and Binance differ)
+
+
+def firm_launch() -> dict:
+    """Gen472: base -> first launch time of a Bybit USDT perp (research list + the live list; all statuses)."""
+    out = {}
+    for f in (BYBIT, (LIVE / "bybit_instruments.json") if LIVE is not None else None):
+        if f is None or not f.exists():
+            continue
+        for x in json.loads(f.read_text()):
+            if x["symbol"].endswith("USDT") and int(x.get("launchTime") or 0) > 0:
+                b = _norm(x["symbol"][:-4]); t = pd.to_datetime(int(x["launchTime"]), unit="ms"); out[b] = min(t, out.get(b, t))
+    return out
 
 
 def crowding(sym: str, t0: pd.Timestamp) -> float:
@@ -125,6 +143,10 @@ def pnl(index: pd.DatetimeIndex, pre_cap=None):
     P = pd.concat([PL, pd.DataFrame(PD, index=index).add_prefix("spo_")], axis=1).reindex(index).fillna(0.0)
     if pre_cap is not None:
         P = pre_cap(P, CF)
+    FL = firm_launch()                                                  # v9.8 (Gen472): only coins with a Bybit perp at that hour, before the cap
+    for n in P.columns:
+        t0 = FL.get(_norm(n[4:] if n.startswith("spo_") else n))
+        P[n] = P[n].where((index - pd.Timedelta(hours=1) >= t0) if t0 is not None else np.zeros(len(index), bool), 0.0)
     g = P.abs().sum(axis=1); P = P.mul((CAP / g).clip(upper=1.0).fillna(1.0), axis=0)
     out = pd.Series(0.0, index=index)
     for n in P.columns:
