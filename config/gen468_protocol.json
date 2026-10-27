@@ -1,0 +1,11 @@
+{
+  "gen": 468,
+  "date": "2026-10-27",
+  "flagged": "POST HOC: combines two near misses of this session (Gen461 crowding sizing, Gen467 A spot-delisting shorts) that share one economic logic (weak / crowded coins fall); needs the user's OK before any adoption",
+  "registered": "before computing the combination; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "rule": "event-short sleeve = v9.7 listing-short positions sized x clip(L / 1.5, 0.5, 2) with L the mean all-account long/short ratio over the 24 h before entry (exactly Gen461) + spot-delisting shorts 0.05 for 14 days, 30% stop (exactly Gen467 A); one position per coin, gross cap 0.5, 10 bp, real funding",
+  "trials": {"A": "the combination (single trial)"},
+  "pass": "replaces the listing-short sleeve; strict rule vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
