@@ -1900,3 +1900,6 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen469 (2026-10-27): airdrop-token listings (Launchpool / HODLer Airdrops / Megadrop) sized x2 in the event short (`results/gen469.json`)
 - 131 airdrop announcements, 86 listing events sized x2 (2021 3, 2022 3, 2023 12, 2024 27, 2025 41). Sleeve 1.39 / 0.01 / 1.49; book 3.104 [2.445, 3.858, 2.707] vs v9.8 candidate 3.091 [2.540, 3.861, 2.616]. **Fails** (+0.013; 2022 lower: the gross cap crowds out other shorts there). 2025-26 clearly better: watchlist.
 - **2026-10-27: the user ACCEPTED v9.8** (flagged: post-hoc combination). **Reference from here: v9.8 3.091 [2.540, 3.861, 2.616], planning about 1.52 (N = 1,800).** Paper v98 replaces v96 on the user's PC (re-using v96's data); the bot's default book is now `paper_trading/v98`.
+
+## Data note (2026-10-27): OKX announcement API (`research_data/okx_announcements/announcements.json`)
+- Public endpoint serves only about one year (18 delisting, 86 new-listing notices since 2025-06): too short for a test; kept for later. Upbit notices are behind a Cloudflare block (not bypassed); token-unlock data is a paid DefiLlama endpoint (not used).

@@ -1,0 +1,630 @@
+{
+"announcements-delistings": [
+{
+"title": "OKX to delist DORA, ICX, STORJ, ZEUS and ELF spot trading pairs",
+"pTime": 1790157613684,
+"businessPTime": 1790157600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-dora-icx-storj-zeus-and-elf-spot-trading-pairs"
+},
+{
+"title": "OKX to delist selected USD spot trading pair",
+"pTime": 1790146816439,
+"businessPTime": 1790143200000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-aeon-usd-spot-trading-pair"
+},
+{
+"title": "OKX to delist selected USD spot trading pairs",
+"pTime": 1789038013041,
+"businessPTime": 1788969600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-selected-usd-spot-trading-pairs"
+},
+{
+"title": "OKX to delist GODS, PRCL and DUCK spot trading pairs",
+"pTime": 1786089609991,
+"businessPTime": 1786089600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-gods-prcl-and-duck-spot-trading-pairs"
+},
+{
+"title": "OKX to support AERGO crypto migration",
+"pTime": 1784023216123,
+"businessPTime": 1784016000000,
+"url": "https://www.okx.com/en-us/help/okx-to-support-aergo-crypto-migration"
+},
+{
+"title": "OKX to support TON crypto migration",
+"pTime": 1781173810781,
+"businessPTime": 1781173800000,
+"url": "https://www.okx.com/en-us/help/okx-to-support-ton-crypto-migration"
+},
+{
+"title": "OKX to delist MAJOR and J spot trading pairs",
+"pTime": 1779782405915,
+"businessPTime": 1779782400000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-major-and-j-spot-trading-pairs"
+},
+{
+"title": "OKX to support DAI to USDS crypto migration",
+"pTime": 1775624409635,
+"businessPTime": 1775624400000,
+"url": "https://www.okx.com/en-us/help/okx-to-support-dai-to-usds-crypto-migration"
+},
+{
+"title": "OKX to delist UXLINK spot trading pairs",
+"pTime": 1774598407580,
+"businessPTime": 1774598400000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-uxlink-spot-trading-pairs"
+},
+{
+"title": "OKX to delist RSS3, MEMEFI, GHST, RIO and SWEAT spot trading pairs",
+"pTime": 1773302418113,
+"businessPTime": 1773302400000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-rss3-memefi-ghst-rio-and-sweat-spot-trading-pairs"
+},
+{
+"title": "OKX to support FXS crypto migration",
+"pTime": 1766462409524,
+"businessPTime": 1766462400000,
+"url": "https://www.okx.com/en-us/help/okx-to-support-fxs-crypto-migration"
+},
+{
+"title": "OKX to delist ICE spot trading pairs",
+"pTime": 1765454411122,
+"businessPTime": 1765452600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-ice-spot-trading-pairs"
+},
+{
+"title": "OKX to delist ACA, CLV, FOXY, PSTAKE and RACA spot trading pairs",
+"pTime": 1764662419719,
+"businessPTime": 1764662400000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-aca-clv-foxy-pstake-and-raca-spot-trading-pairs"
+},
+{
+"title": "OKX to delist BAL, PERP, FLM, DEP, NC and LOOKS spot trading pairs",
+"pTime": 1762934415056,
+"businessPTime": 1762934400000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-bal-perp-flm-dep-nc-and-looks-spot-trading-pairs"
+},
+{
+"title": "OKX to delist KDA spot trading pairs",
+"pTime": 1761123614529,
+"businessPTime": 1761123600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-kda-spot-trading-pairs"
+},
+{
+"title": "OKX to delist SLERF, ALPHA, BADGER, OAS, MLN and AIDOGE spot trading pairs",
+"pTime": 1760601616198,
+"businessPTime": 1760601600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-slerf-alpha-badger-oas-mln-and-aidoge-spot-trading-pairs"
+},
+{
+"title": "OKX to delist FORTH, RUNECOIN, POLYDOGE, SC, USTC and LUNC spot trading pairs",
+"pTime": 1758528423462,
+"businessPTime": 1758528000000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-forth-runecoin-polydoge-sc-ustc-and-lunc-spot-trading-pairs"
+},
+{
+"title": "OKX to delist WBTC, JST, BTT, ERN, GLMR and MOVR spot trading pairs",
+"pTime": 1756713619754,
+"businessPTime": 1756713600000,
+"url": "https://www.okx.com/en-us/help/okx-to-delist-wbtc-jst-btt-ern-glmr-and-movr-spot-trading-pairs"
+}
+],
+"announcements-new-listings": [
+{
+"title": "OKX to support VELODROME crypto migration",
+"pTime": 1792751410619,
+"businessPTime": 1792749600000,
+"url": "https://www.okx.com/en-us/help/okx-to-support-velodrome-crypto-migration"
+},
+{
+"title": "OKX will launch GRVT/USD for spot trading",
+"pTime": 1785380409238,
+"businessPTime": 1785380400000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-grvt-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch AEON/USD for spot trading",
+"pTime": 1785121210459,
+"businessPTime": 1785121200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-aeon-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch CARDS/USD for spot trading",
+"pTime": 1782352809690,
+"businessPTime": 1782352800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-cards-usd-for-spot-trading"
+},
+{
+"title": "OKX to list CARDS/USDT (Collector Crypt) for spot trading",
+"pTime": 1782352806026,
+"businessPTime": 1782352800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-cards-usdt-collector-crypt-for-spot-trading"
+},
+{
+"title": "OKX will launch RE/USD for spot trading",
+"pTime": 1781748010357,
+"businessPTime": 1781748000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-re-usd-for-spot-trading"
+},
+{
+"title": "OKX to list RE (Re) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1781748010269,
+"businessPTime": 1781748000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-re-re-for-spot-trading-and-convert-pre-market-futures-to-standard-perpetual-futures"
+},
+{
+"title": "OKX completed TON token migration",
+"pTime": 1781681405838,
+"businessPTime": 1781681400000,
+"url": "https://www.okx.com/en-us/help/okx-completed-ton-token-migration"
+},
+{
+"title": "OKX will launch GRAM/USD for spot trading",
+"pTime": 1781681405331,
+"businessPTime": 1781681400000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-gram-usd-for-spot-trading"
+},
+{
+"title": "OKX to list IRYS/USDT (Irys) for spot trading",
+"pTime": 1779858013753,
+"businessPTime": 1779858000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-irys-usdt-irys-for-spot-trading"
+},
+{
+"title": "OKX will launch IRYS/USD for spot trading",
+"pTime": 1779804918091,
+"businessPTime": 1779858000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-irys-usd-for-spot-trading"
+},
+{
+"title": "OKX to list AI/USDT (Gensyn) for spot trading",
+"pTime": 1779435009521,
+"businessPTime": 1779435000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-ai-usdt-gensyn-for-spot-trading"
+},
+{
+"title": "OKX will launch AI/USD for spot trading",
+"pTime": 1779435009271,
+"businessPTime": 1779435000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-ai-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch PROS/USD for spot trading",
+"pTime": 1778644815142,
+"businessPTime": 1778644800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-pros-usd-for-spot-trading"
+},
+{
+"title": "OKX to list PROS/USDT (Pharos) for spot trading",
+"pTime": 1778644810127,
+"businessPTime": 1778644800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-pros-usdt-pharos-for-spot-trading"
+},
+{
+"title": "OKX to list Pi for Spot Trading",
+"pTime": 1778128811848,
+"businessPTime": 1777914000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-pi-for-spot-trading"
+},
+{
+"title": "OKX to list EDGE/USDT (edgeX) for spot trading",
+"pTime": 1778043616373,
+"businessPTime": 1778043600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-edge-edgex-for-spot-trading"
+},
+{
+"title": "OKX will launch EDGE/USD for spot trading",
+"pTime": 1778043614841,
+"businessPTime": 1778043600000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-edge-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch MEGA/USD for spot trading",
+"pTime": 1777544109125,
+"businessPTime": 1777544100000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-mega-usd-for-spot-trading"
+},
+{
+"title": "OKX to list MEGA (MegaETH) for spot trading",
+"pTime": 1777544108773,
+"businessPTime": 1777544100000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-mega-megaeth-for-spot-trading"
+},
+{
+"title": "OKX to list RLUSD (Ripple USD) for spot trading",
+"pTime": 1777460410097,
+"businessPTime": 1777460400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-rlusd-ripple-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch USDS/USD for spot trading",
+"pTime": 1776411020198,
+"businessPTime": 1776396600300,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-usds-usd-for-spot-trading"
+},
+{
+"title": "OKX to list USDS for spot trading",
+"pTime": 1776396611911,
+"businessPTime": 1776398400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-usds-for-spot-trading"
+},
+{
+"title": "OKX will launch OFC/USD for spot trading",
+"pTime": 1775707214094,
+"businessPTime": 1775700000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-ofc-usd-for-spot-trading"
+},
+{
+"title": "OKX to list OFC (OneFootball Credits) for spot trading",
+"pTime": 1775700009881,
+"businessPTime": 1775700000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-ofc-onefootball-credits-for-spot-trading"
+},
+{
+"title": "OKX to list BASED for spot trading",
+"pTime": 1774836022545,
+"businessPTime": 1774836000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-based-for-spot-trading"
+},
+{
+"title": "OKX will launch BASED/USD for spot trading",
+"pTime": 1774836009665,
+"businessPTime": 1774836900000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-based-usd-for-spot-trading"
+},
+{
+"title": "OKX to list MON (Monad) for spot trading",
+"pTime": 1774231210011,
+"businessPTime": 1774231200000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-mon-monad-for-spot-trading"
+},
+{
+"title": "OKX will launch MON/USD for spot trading",
+"pTime": 1774231209706,
+"businessPTime": 1774231200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-mon-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch KAT/USD for spot trading",
+"pTime": 1773725426132,
+"businessPTime": 1773723600000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-kat-usd-for-spot-trading"
+},
+{
+"title": "OKX to list KAT (Katana) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1773723610817,
+"businessPTime": 1773723600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-kat-katana-for-spot-trading-and-convert-pre-market-futures-to"
+},
+{
+"title": "OKX to list LUNA, ENJ, ACE, VELODROME, STETH, ETHW, and WOO for Spot Trading",
+"pTime": 1773429152133,
+"businessPTime": 1773410400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-luna-enj-ace-velodrome-steth-ethw-woo-for-spot-trading"
+},
+{
+"title": "OKX will launch ROBO/USD for spot trading",
+"pTime": 1772694016984,
+"businessPTime": 1772690400000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-robo-usd-for-spot-trading"
+},
+{
+"title": "OKX to list XAUT (Tether Gold) for Spot Trading",
+"pTime": 1770968338821,
+"businessPTime": 1770911100000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-xaut-tether-gold-for-spot-trading"
+},
+{
+"title": "OKX will launch CC/USD for spot trading",
+"pTime": 1770868804634,
+"businessPTime": 1770868800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-cc-usd-for-spot-trading"
+},
+{
+"title": "OKX to list CC (Canton) for spot trading",
+"pTime": 1770865212493,
+"businessPTime": 1770865200000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-cc-canton-for-spot-trading"
+},
+{
+"title": "OKX to list USD-margined expiry futures",
+"pTime": 1770776982267,
+"businessPTime": 1770777000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-usd-margined-expiry-futures"
+},
+{
+"title": "OKX will launch ZAMA/USD\u24c8 for spot trading",
+"pTime": 1769778024936,
+"businessPTime": 1769778000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-zama-usds-for-spot-trading"
+},
+{
+"title": "OKX will launch ZAMA/USD for spot trading",
+"pTime": 1769778010251,
+"businessPTime": 1769778000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-zama-usd-for-spot-trading"
+},
+{
+"title": "OKX to list ZAMA (Zama) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1769778009828,
+"businessPTime": 1769778060000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-zama-zama-for-spot-trading-and-convert-pre-market-futures-to"
+},
+{
+"title": "OKX will launch USAT/USD for spot trading",
+"pTime": 1769518878028,
+"businessPTime": 1769519700000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-usat-usd-for-spot-trading"
+},
+{
+"title": "OKX to list USAT for spot trading",
+"pTime": 1769518811072,
+"businessPTime": 1769518800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-usat-for-spot-trading"
+},
+{
+"title": "OKX will launch SENT/USD for spot trading",
+"pTime": 1769493671117,
+"businessPTime": 1769494500000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-sent-usd-for-spot-trading"
+},
+{
+"title": "OKX to list SENT (Sentient) for spot trading",
+"pTime": 1769493611003,
+"businessPTime": 1769493600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-sent-sentient-for-spot-trading"
+},
+{
+"title": "OKX will launch SPACE/USD for spot trading",
+"pTime": 1769157006341,
+"businessPTime": 1769157000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-space-usd-for-spot-trading"
+},
+{
+"title": "OKX to list SPACE (Spacecoin) for spot trading",
+"pTime": 1769155216339,
+"businessPTime": 1769155200000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-space-spacecoin-for-spot-trading"
+},
+{
+"title": "OKX will launch LIT/USD for spot trading",
+"pTime": 1768475715550,
+"businessPTime": 1768475700000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-lit-usd-for-spot-trading"
+},
+{
+"title": "OKX to list LIT (Lighter) for spot trading",
+"pTime": 1768474821497,
+"businessPTime": 1768474800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-lit-lighter-for-spot-trading"
+},
+{
+"title": "OKX will launch FOGO/USD for spot trading",
+"pTime": 1768288001296,
+"businessPTime": 1768287600000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-fogo-usd-for-spot-trading"
+},
+{
+"title": "OKX to list FOGO (Fogo) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1768285805030,
+"businessPTime": 1768285800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-fogo-fogo-for-spot-trading-and-convert-pre-market-futures-to"
+},
+{
+"title": "OKX will launch BREV/USD for spot trading",
+"pTime": 1767670228954,
+"businessPTime": 1767670200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-brev-usd-for-spot-trading"
+},
+{
+"title": "OKX to list BREV (Brevis) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1767612604616,
+"businessPTime": 1767612600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-brev-brevis-for-spot-trading-and-convert-pre-market-futures-to"
+},
+{
+"title": "OKX will launch SOL/BTC and ETH/BTC for spot trading",
+"pTime": 1766732358339,
+"businessPTime": 1766707200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-sol-btc-and-eth-btc-for-spot-trading"
+},
+{
+"title": "OKX will launch WET/USD for spot trading",
+"pTime": 1765266309091,
+"businessPTime": 1765266300000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-wet-usd-for-spot-trading"
+},
+{
+"title": "OKX to list WET (HumidiFi) for spot trading",
+"pTime": 1765265409391,
+"businessPTime": 1765265400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-wet-humidifi-for-spot-trading"
+},
+{
+"title": "OKX will support the Midnight (NIGHT) airdrop for ADA, BTC, ETH, SOL, XRP, BNB, AVAX, or BAT holders in certain jurisdictions",
+"pTime": 1765249451430,
+"businessPTime": 1765245600000,
+"url": "https://www.okx.com/en-us/help/okx-will-support-the-midnight-night-airdrop-for-ada-btc-eth-sol-xrp-bnb-avax"
+},
+{
+"title": "OKX will launch NIGHT/USD for spot trading",
+"pTime": 1765159208968,
+"businessPTime": 1765159200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-night-usd-for-spot-trading"
+},
+{
+"title": "OKX to list NIGHT (Midnight) for spot trading",
+"pTime": 1764993609403,
+"businessPTime": 1764993600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-night-midnight-for-spot-trading"
+},
+{
+"title": "OKX will launch ZEN/USD for spot trading",
+"pTime": 1763389810370,
+"businessPTime": 1763389800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-zen-usd-for-spot-trading"
+},
+{
+"title": "OKX to list Horizen (ZEN) for spot trading",
+"pTime": 1763384416715,
+"businessPTime": 1763384400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-horizen-zen-for-spot-trading"
+},
+{
+"title": "OKX will launch 2Z/USD for spot trading",
+"pTime": 1763096412997,
+"businessPTime": 1763096400000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-2z-usd-for-spot-trading"
+},
+{
+"title": "OKX to list SEI (Sei), 2Z (DoubleZero) for spot trading",
+"pTime": 1763089209535,
+"businessPTime": 1763089200000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-sei-sei-2z-doublezero-for-spot-trading"
+},
+{
+"title": "OKX will launch ALLO/USD for spot trading",
+"pTime": 1762848004948,
+"businessPTime": 1762848000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-allo-usd-for-spot-trading"
+},
+{
+"title": "OKX to list ALLO (Allora) for spot trading",
+"pTime": 1762846211292,
+"businessPTime": 1762846200000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-allo-allora-for-spot-trading"
+},
+{
+"title": "OKX will launch MMT/USD for spot trading",
+"pTime": 1762237811740,
+"businessPTime": 1762237800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-mmt-usd-for-spot-trading"
+},
+{
+"title": "OKX to list MMT (Momentum) for spot trading",
+"pTime": 1762236005705,
+"businessPTime": 1762236000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-mmt-momentum-for-spot-trading"
+},
+{
+"title": "Announcement from OKX regarding the delay HYPE/USD for spot trading",
+"pTime": 1762176622270,
+"businessPTime": 1762176600000,
+"url": "https://www.okx.com/en-us/help/announcement-from-okx-regarding-the-delay-hype-usd-for-spot-trading"
+},
+{
+"title": "Announcement from OKX regarding the delay of Hyperliquid (HYPE) listing",
+"pTime": 1762173023017,
+"businessPTime": 1762173000000,
+"url": "https://www.okx.com/en-us/help/announcement-from-okx-regarding-the-delay-of-hyperliquid-hype-listing"
+},
+{
+"title": "OKX will launch HYPE/USD for spot trading",
+"pTime": 1762156822123,
+"businessPTime": 1762156800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-hype-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch VIRTUAL/USD for spot trading",
+"pTime": 1761621305350,
+"businessPTime": 1761621300000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-virtual-usd-for-spot-trading"
+},
+{
+"title": "OKX to list Virtuals Protocol (VIRTUAL) for spot trading",
+"pTime": 1761620404821,
+"businessPTime": 1761620400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-virtuals-protocol-virtual-for-spot-trading"
+},
+{
+"title": "OKX will launch MET/USD for spot trading",
+"pTime": 1761201013233,
+"businessPTime": 1761201000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-met-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch MET/USDT for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1761188409037,
+"businessPTime": 1761188400000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-met-usdt-for-spot-trading-and-convert-pre-market-futures-to"
+},
+{
+"title": "OKX to list MET (Meteora) for spot trading",
+"pTime": 1761102009861,
+"businessPTime": 1761102000000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-met-meteora-for-spot-trading"
+},
+{
+"title": "OKX to list PROVE (Succinct), DOOD (Doodles) for spot trading",
+"pTime": 1760684410121,
+"businessPTime": 1760684400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-prove-succinct-dood-doodles-for-spot-trading-17102025"
+},
+{
+"title": "OKX will launch ASTER/USD for spot trading",
+"pTime": 1760670009854,
+"businessPTime": 1760670000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-aster-usd-for-spot-trading"
+},
+{
+"title": "OKX to list ASTER (Aster) for spot trading",
+"pTime": 1760666409139,
+"businessPTime": 1760666400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-aster-aster-for-spot-trading"
+},
+{
+"title": "OKX will launch ENA/USD and PAXG/USD for spot trading",
+"pTime": 1760580009721,
+"businessPTime": 1760580000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-ena-usd-and-paxg-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch YB/USD for spot trading",
+"pTime": 1760499003851,
+"businessPTime": 1760499000000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-yb-usd-for-spot-trading"
+},
+{
+"title": "OKX to list YB (Yield Basis) for spot trading and convert pre-market futures to standard perpetual futures",
+"pTime": 1760448616981,
+"businessPTime": 1760448600000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-yb-yield-basis-for-spot-trading-and-convert-pre-market-futures"
+},
+{
+"title": "OKX to list PAXG (PAX Gold) for spot trading",
+"pTime": 1760414411078,
+"businessPTime": 1760414400000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-paxg-pax-gold-for-spot-trading"
+},
+{
+"title": "OKX will launch LINEA/USD for spot trading",
+"pTime": 1760326210305,
+"businessPTime": 1760326200000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-linea-usd-for-spot-trading"
+},
+{
+"title": "OKX will launch XPL/USD and XPL/USDT for spot trading",
+"pTime": 1758903291475,
+"businessPTime": 1758946800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-xpl-usd-and-xpl-usdt-for-spot-trading"
+},
+{
+"title": "OKX will launch USDG/USDT for spot trading",
+"pTime": 1749448802531,
+"businessPTime": 1749448800000,
+"url": "https://www.okx.com/en-us/help/okx-will-launch-usdg-usdt-for-spot-trading"
+},
+{
+"title": "Announcement from OKX regarding the delay of USDG (Global Dollar) listing",
+"pTime": 1749119414885,
+"businessPTime": 1749119400000,
+"url": "https://www.okx.com/en-us/help/announcement-from-okx-regarding-the-delay-of-usdg-global-dollar-listing"
+},
+{
+"title": "OKX to list USDG (Global Dollar) for spot trading",
+"pTime": 1749016802599,
+"businessPTime": 1749016800000,
+"url": "https://www.okx.com/en-us/help/okx-to-list-usdg-global-dollar-for-spot-trading"
+}
+]
+}
