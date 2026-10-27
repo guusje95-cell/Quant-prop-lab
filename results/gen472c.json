@@ -1,0 +1,98 @@
+{
+ "v9.7 2025-26 Sharpe 1.44": {
+  "one account": {
+   "mean": 49243,
+   "p10": -241,
+   "P_loss": 0.105
+  },
+  "two accounts, second +180 d": {
+   "mean": 98168,
+   "p10": 9090,
+   "P_loss": 0.065
+  }
+ },
+ "v9.7 2022-24 Sharpe 1.44": {
+  "one account": {
+   "mean": 81635,
+   "p10": 19881,
+   "P_loss": 0.04
+  },
+  "two accounts, second +180 d": {
+   "mean": 164245,
+   "p10": 41027,
+   "P_loss": 0.02
+  }
+ },
+ "v9.8 (Bybit filter) 2025-26 Sharpe 1.2": {
+  "one account": {
+   "mean": 38120,
+   "p10": -4845,
+   "P_loss": 0.15
+  },
+  "two accounts, second +180 d": {
+   "mean": 75503,
+   "p10": -839,
+   "P_loss": 0.11
+  }
+ },
+ "v9.8 (Bybit filter) 2025-26 Sharpe 1.44": {
+  "one account": {
+   "mean": 48235,
+   "p10": -826,
+   "P_loss": 0.11
+  },
+  "two accounts, second +180 d": {
+   "mean": 96712,
+   "p10": 6031,
+   "P_loss": 0.068
+  }
+ },
+ "v9.8 (Bybit filter) 2025-26 Sharpe 1.64": {
+  "one account": {
+   "mean": 59699,
+   "p10": 3667,
+   "P_loss": 0.07
+  },
+  "two accounts, second +180 d": {
+   "mean": 119193,
+   "p10": 16872,
+   "P_loss": 0.037
+  }
+ },
+ "v9.8 (Bybit filter) 2022-24 Sharpe 1.2": {
+  "one account": {
+   "mean": 65642,
+   "p10": 5576,
+   "P_loss": 0.065
+  },
+  "two accounts, second +180 d": {
+   "mean": 130344,
+   "p10": 23260,
+   "P_loss": 0.037
+  }
+ },
+ "v9.8 (Bybit filter) 2022-24 Sharpe 1.44": {
+  "one account": {
+   "mean": 80662,
+   "p10": 19162,
+   "P_loss": 0.037
+  },
+  "two accounts, second +180 d": {
+   "mean": 159692,
+   "p10": 41726,
+   "P_loss": 0.02
+  }
+ },
+ "v9.8 (Bybit filter) 2022-24 Sharpe 1.64": {
+  "one account": {
+   "mean": 94093,
+   "p10": 26073,
+   "P_loss": 0.02
+  },
+  "two accounts, second +180 d": {
+   "mean": 187459,
+   "p10": 58184,
+   "P_loss": 0.007
+  }
+ }
+}

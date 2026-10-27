@@ -1,4 +1,6 @@
-# Roll-out plan (updated 2026-10-26 for v9.6)
+# Roll-out plan (updated 2026-10-27 for v9.8)
+
+**UPDATE 2026-10-27 (Gen472, accepted): v9.8 trades the event short only in coins with a Bybit perp (HyroTrader's exchange), before the gross cap. Reference 3.211 [3.083, 3.849, 2.661], planning about 1.64. One HyroTrader $200k account 2025-26 at planning: $59.7k / p10 +$3.7k / P(loss) 7%; two staggered accounts $119k / +$17k / 3.7%. At a weak live Sharpe 1.2: one account $38k, P(loss) 15%.**
 
 **ACCEPTED 2026-10-27 by the user (Gen468, flagged): v9.8 = v9.7 with the listing short replaced by the event short (crowding-sized listing short + Binance spot-delisting shorts). Backtest 3.091 [2.540, 3.861, 2.616] vs 3.012, every period up and all 13 robustness variants up; planning about 1.52 (vs 1.44). One HyroTrader $200k account 2025-26 at planning: $56.9k / p10 +$3.8k / P(loss) 7.2% (v9.7: $49.2k / -$0.2k / 10.5%); two staggered accounts $114.6k / +$16.0k / 3.7%. Paper: `paper_v98_start.bat` replaces v96 now (v96 ran about 1 day and still contains the cascade that was already dropped, so restarting costs almost nothing); the launcher re-uses v96's downloaded data. v96's hours remain as evidence that the shared sleeves run live; the 56-day gate clock starts at the v98 start. Live accounts use v9.8.**
 
