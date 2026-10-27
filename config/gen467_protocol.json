@@ -1,0 +1,20 @@
+{
+  "gen": 467,
+  "date": "2026-10-27",
+  "registered": "before computing any event return; reference v9.7 3.012 [2.495, 3.784, 2.509]",
+  "data": "Binance public announcement archive (www.binance.com CMS list API, titles + release timestamps; research_data/binance_announcements): catalog 161 Delisting, 49 Latest News",
+  "events": {
+    "spot delisting": "titles 'Binance Will Delist <tickers> on <date>' (not 'Futures Will Delist'); tickers parsed from the title",
+    "monitoring tag": "titles containing 'Monitoring Tag to Include <tickers>' (or 'Monitoring Tag Applied' with tickers)",
+    "futures delisting": "titles 'Binance Futures Will Delist ... <SYM>USDT ... Perpetual' with the symbols in the title (titles saying 'Multiple' are skipped: tickers not in the title)"
+  },
+  "rule": "for each event coin with a Binance USDT perp in the point-in-time data that has a bar in the hour of the announcement: short 0.05 from the first whole hour after the release time (listing_live timing), hold H days or until the perp data ends, cover for good at +30% from the entry close; merged with the v9.7 listing short in one 'event short' sleeve (one position per coin, gross cap 0.5); 10 bp; real funding. H = 14 for spot / futures delisting, 30 for monitoring tag",
+  "trials": {
+    "A + spot delisting": "listing short + spot-delisting shorts",
+    "B + monitoring tag": "listing short + monitoring-tag shorts",
+    "C + all three": "listing short + spot delisting + monitoring tag + futures delisting"
+  },
+  "pass": "replaces the listing-short sleeve; strict rule vs v9.7; with several passes the highest 2022-26 Sharpe",
+  "trials_added": 3,
+  "no_changes_after_results": true
+}

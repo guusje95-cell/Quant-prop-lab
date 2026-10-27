@@ -1,0 +1,3071 @@
+{
+"catalog": 157,
+"name": "Maintenance Updates",
+"articles": [
+{
+"id": 288395,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-10-28",
+"releaseDate": 1793066417463
+},
+{
+"id": 287757,
+"title": "Binance Will Support the Velodrome Finance (VELODROME) Token Merge to Aerodrome (AERO) and the AERO Contract Swap",
+"releaseDate": 1792134007611
+},
+{
+"id": 287652,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade & Hard Fork - 2026-10-19",
+"releaseDate": 1792029600000
+},
+{
+"id": 287593,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-10-15",
+"releaseDate": 1791954000879
+},
+{
+"id": 286764,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork - 2026-10-19",
+"releaseDate": 1791945000000
+},
+{
+"id": 286428,
+"title": "Binance Will Support Micron Technology (MU) Cash Dividend Distribution via bStocks",
+"releaseDate": 1791766800000
+},
+{
+"id": 286285,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-10-10",
+"releaseDate": 1791428416558
+},
+{
+"id": 286259,
+"title": "Binance Has Completed the Stargate Finance (STG) Token Merge to LayerZero (ZRO)",
+"releaseDate": 1791360004055
+},
+{
+"id": 286096,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-10-03",
+"releaseDate": 1790931600000
+},
+{
+"id": 285796,
+"title": "Binance Will Support the Ronin (RONIN) Network Upgrade & Hard Fork - 2026-10-07",
+"releaseDate": 1790733600000
+},
+{
+"id": 285644,
+"title": "Binance Will Support the Base Network Upgrade & Hard Fork - 2026-09-30",
+"releaseDate": 1790578803876
+},
+{
+"id": 285480,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-09-26",
+"releaseDate": 1790229600000
+},
+{
+"id": 285442,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork - 2026-09-24",
+"releaseDate": 1790218800000
+},
+{
+"id": 285426,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Migration",
+"releaseDate": 1790154006195
+},
+{
+"id": 285028,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade - 2026-09-21",
+"releaseDate": 1789959600000
+},
+{
+"id": 284966,
+"title": "Binance Completes the USDT Contract Swap on Optimism Network - 2026-09-18",
+"releaseDate": 1789725608157
+},
+{
+"id": 284926,
+"title": "Binance Will Support the Stargate Finance (STG) Token Merge to LayerZero (ZRO)",
+"releaseDate": 1789720201456
+},
+{
+"id": 284785,
+"title": "Binance Wallet System Upgrade Notice (2026-09-22)",
+"releaseDate": 1789628419135
+},
+{
+"id": 284764,
+"title": "Binance Completes Integration of USDC (USDC) on Arc Network, Opens Deposits - 2026-09-16",
+"releaseDate": 1789560002777
+},
+{
+"id": 284503,
+"title": "Binance Will Support the Vana (VANA) Network Upgrade & Hard Fork - 2026-09-21",
+"releaseDate": 1789524000000
+},
+{
+"id": 284407,
+"title": "Binance Will Support the USDT Contract Swap on Optimism Network - 2026-09-17",
+"releaseDate": 1789358401327
+},
+{
+"id": 284362,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-09-12",
+"releaseDate": 1789100106095
+},
+{
+"id": 284357,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-09-12",
+"releaseDate": 1789099200000
+},
+{
+"id": 284170,
+"title": "Binance Will Support the Vechain (VET) Network Upgrade & Hard Fork - 2026-09-16",
+"releaseDate": 1789095600000
+},
+{
+"id": 284110,
+"title": "Binance Completes Integration of United Stables (U) on Robinhood Chain Network, Opens Deposits and Withdrawals - 2026-09-09",
+"releaseDate": 1788930010649
+},
+{
+"id": 283941,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-09-14 & 2026-10-14",
+"releaseDate": 1788764400900
+},
+{
+"id": 283770,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-09-05",
+"releaseDate": 1788490808087
+},
+{
+"id": 283427,
+"title": "Binance Will Discontinue Mainnet Support of BounceBit (BB)",
+"releaseDate": 1788159600000
+},
+{
+"id": 283126,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-08-27",
+"releaseDate": 1787716801278
+},
+{
+"id": 282883,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-08-22",
+"releaseDate": 1787194810389
+},
+{
+"id": 282650,
+"title": "Binance Will Support the Conflux Network (CFX) Network Upgrade & Hard Fork - 2026-08-24",
+"releaseDate": 1787022000000
+},
+{
+"id": 282630,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2026-08-20",
+"releaseDate": 1786950011250
+},
+{
+"id": 282567,
+"title": "Binance Will Support the KITE (KITE) Contract Swap",
+"releaseDate": 1786935603878
+},
+{
+"id": 282402,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-08-21",
+"releaseDate": 1786690802608
+},
+{
+"id": 282213,
+"title": "Binance Will Support the Ontology (ONT) Network Upgrade & Hard Fork - 2026-08-20",
+"releaseDate": 1786600800000
+},
+{
+"id": 281959,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2026-08-13",
+"releaseDate": 1786431602120
+},
+{
+"id": 281886,
+"title": "Binance Completes Integration of Lista (LISTA) on Ethereum (ERC20) Network, Opens Deposits - 2026-08-11",
+"releaseDate": 1786428000000
+},
+{
+"id": 281814,
+"title": "Binance Completes Integration of Momentum (MMT) on BNB Smart Chain (BEP20) Network, Opens Deposits and Withdrawals - 2026-08-07",
+"releaseDate": 1786082400000
+},
+{
+"id": 281796,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-08-08",
+"releaseDate": 1785988810360
+},
+{
+"id": 281454,
+"title": "Wallet Maintenance for USDC Withdrawals on SEIEVM Network - 2026-08-04",
+"releaseDate": 1785726003794
+},
+{
+"id": 281299,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-08-01",
+"releaseDate": 1785380401597
+},
+{
+"id": 281137,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork - 2026-07-30 & 2026-08-25",
+"releaseDate": 1785304802391
+},
+{
+"id": 281069,
+"title": "Binance Convert Scheduled Maintenance for Infrastructure Upgrade - 2026-08-01",
+"releaseDate": 1785211200983
+},
+{
+"id": 281066,
+"title": "Binance Will Discontinue Mainnet Support of Sophon (SOPH)",
+"releaseDate": 1785209406024
+},
+{
+"id": 280691,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2026-07-29",
+"releaseDate": 1784786400000
+},
+{
+"id": 280803,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-07-25",
+"releaseDate": 1784779203764
+},
+{
+"id": 280656,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2026-07-23",
+"releaseDate": 1784696403648
+},
+{
+"id": 280504,
+"title": "Binance Will Support the Zcash (ZEC) Network Upgrade & Hard Fork - 2026-07-28",
+"releaseDate": 1784613600000
+},
+{
+"id": 280451,
+"title": "Binance Will Discontinue Mainnet Support of Moonriver (MOVR) and Moonbeam (GLMR)",
+"releaseDate": 1784516417051
+},
+{
+"id": 280225,
+"title": "Binance Will Support the Cardano (ADA) Network Upgrade & Hard Fork - 2026-07-18",
+"releaseDate": 1784268000000
+},
+{
+"id": 279897,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-07-16",
+"releaseDate": 1784008807368
+},
+{
+"id": 279686,
+"title": "Binance Will Support the Moonbeam (GLMR) Network Upgrade - 2026-07-13",
+"releaseDate": 1783911600000
+},
+{
+"id": 279266,
+"title": "Binance Completes Integration of Solv Protocol (SOLV) on Ethereum (ERC20) Network, Opens Deposits and Withdrawals - 2026-07-08",
+"releaseDate": 1783490400000
+},
+{
+"id": 279232,
+"title": "Binance Will Support the Metal DAO (MTL) Network Upgrade & Hard Fork - 2026-07-08",
+"releaseDate": 1783479600000
+},
+{
+"id": 279470,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-07-11",
+"releaseDate": 1783476002160
+},
+{
+"id": 279353,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-07-14",
+"releaseDate": 1783414801946
+},
+{
+"id": 279124,
+"title": "Binance Will Support the Moonriver (MOVR) Network Upgrade - 2026-07-06",
+"releaseDate": 1783321200000
+},
+{
+"id": 278871,
+"title": "Binance Has Completed the Toncoin (TON) Rebranding to Gram (GRAM)",
+"releaseDate": 1782981031400
+},
+{
+"id": 278863,
+"title": "Binance Wallet Prediction Markets Upgrade Completed (2026-07-02)",
+"releaseDate": 1782975030413
+},
+{
+"id": 278549,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork - 2026-07-02",
+"releaseDate": 1782964800000
+},
+{
+"id": 278761,
+"title": "Binance Wallet Prediction Markets Upgrade Notice (2026-07-02)",
+"releaseDate": 1782910802096
+},
+{
+"id": 278486,
+"title": "Wallet Maintenance for Bitcoin (BTC) Network - 2026-07-01",
+"releaseDate": 1782784810835
+},
+{
+"id": 278021,
+"title": "Binance Will Support the Viction (VIC) Network Upgrade & Hard Fork - 2026-06-30",
+"releaseDate": 1782356400000
+},
+{
+"id": 277971,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-06-27",
+"releaseDate": 1782270002278
+},
+{
+"id": 277758,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2026-06-25",
+"releaseDate": 1782201600000
+},
+{
+"id": 277663,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-06-26",
+"releaseDate": 1781856003244
+},
+{
+"id": 277482,
+"title": "Binance Will Support the Base Network Upgrade & Hard Fork - 2026-06-25",
+"releaseDate": 1781769621693
+},
+{
+"id": 277226,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-06-24",
+"releaseDate": 1781683201730
+},
+{
+"id": 276856,
+"title": "Binance Will Support the Toncoin (TON) Rebranding to Gram (GRAM)",
+"releaseDate": 1781244016955
+},
+{
+"id": 276577,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-06-13",
+"releaseDate": 1781056801138
+},
+{
+"id": 276342,
+"title": "Binance Will Support the NEAR Protocol (NEAR) Network Upgrade & Hard Fork - 2026-06-09",
+"releaseDate": 1780646407025
+},
+{
+"id": 276197,
+"title": "Binance Wallet Prediction Markets Upgrade Completed (2026-06-04)",
+"releaseDate": 1780563901267
+},
+{
+"id": 276187,
+"title": "Binance Will Support Scheduled Upgrade for Stock Trading Services - 2026-06-06",
+"releaseDate": 1780552800000
+},
+{
+"id": 276165,
+"title": "Binance Wallet Prediction Markets Upgrade Notice (2026-06-04)",
+"releaseDate": 1780495202204
+},
+{
+"id": 275194,
+"title": "Binance Will Support the Base Network Upgrade & Hard Fork - 2026-05-28",
+"releaseDate": 1779850800000
+},
+{
+"id": 275191,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-06-03",
+"releaseDate": 1779843600000
+},
+{
+"id": 275133,
+"title": "Binance Performs Wallet Maintenance - 2026-05-28",
+"releaseDate": 1779787801577
+},
+{
+"id": 275045,
+"title": "Binance Will Support the Sei (SEI) Network Migration",
+"releaseDate": 1779764412180
+},
+{
+"id": 274402,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-05-21",
+"releaseDate": 1779253200000
+},
+{
+"id": 274362,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2026-05-21",
+"releaseDate": 1779247800000
+},
+{
+"id": 274214,
+"title": "Binance Will Support the Moonbeam (GLMR) Network Upgrade - 2026-05-20",
+"releaseDate": 1779161400000
+},
+{
+"id": 273927,
+"title": "Binance Will Support the Base Network Upgrade & Hard Fork - 2026-05-21",
+"releaseDate": 1778727601171
+},
+{
+"id": 273669,
+"title": "Binance Will Support the Enjin Coin (ENJ) Network Upgrade - 2026-05-18",
+"releaseDate": 1778641200000
+},
+{
+"id": 273502,
+"title": "Binance Will Support the Moonriver (MOVR) Network Upgrade - 2026-05-12",
+"releaseDate": 1778560200000
+},
+{
+"id": 273568,
+"title": "Binance Has Completed the Chiliz Fan Tokens Contract Swap on Chiliz Chain (CAP20)",
+"releaseDate": 1778553002847
+},
+{
+"id": 273402,
+"title": "Binance Will Support the Chiliz Fan Tokens Contract Swap on Chiliz Chain (CAP20)",
+"releaseDate": 1778223602979
+},
+{
+"id": 273308,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-05-14",
+"releaseDate": 1778133606117
+},
+{
+"id": 272954,
+"title": "Binance Completes Integration of Kyrgyz Som Stablecoin (KGST) on TRC20 Network, Opens Deposits - 2026-04-30",
+"releaseDate": 1777543209005
+},
+{
+"id": 272868,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2026-05-05",
+"releaseDate": 1777536003967
+},
+{
+"id": 272840,
+"title": "Binance Completes Integrations of USDC on Starknet Network and USD1 on AB Chain, Opens Deposits and Withdrawals - 2026-04-30",
+"releaseDate": 1777528802504
+},
+{
+"id": 272669,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork - 2026-05-19",
+"releaseDate": 1777518000000
+},
+{
+"id": 272511,
+"title": "Binance Will Support the Rootstock Infrastructure Framework (RIF) Network Upgrade & Hard Fork - 2026-05-04",
+"releaseDate": 1777431600000
+},
+{
+"id": 272509,
+"title": "Binance Will Support the Ronin (RONIN) Network Migration (2026-05-12)",
+"releaseDate": 1777356001367
+},
+{
+"id": 271628,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-04-23",
+"releaseDate": 1776326402924
+},
+{
+"id": 271386,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2026-04-15",
+"releaseDate": 1776218400000
+},
+{
+"id": 271278,
+"title": "Wallet Maintenance for Bitcoin (BTC) Network - 2026-04-15",
+"releaseDate": 1776159005573
+},
+{
+"id": 271044,
+"title": "Binance Will Support the Moonbeam (GLMR) Network Upgrade - 2026-04-13",
+"releaseDate": 1776046500000
+},
+{
+"id": 270908,
+"title": "Binance Has Completed the Dai (DAI) Token Swap and Rebranding to USDS (USDS)",
+"releaseDate": 1775723405019
+},
+{
+"id": 270456,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2026-04-08",
+"releaseDate": 1775620800000
+},
+{
+"id": 270405,
+"title": "Wallet Maintenance for The Open Network (TON) - 2026-04-07",
+"releaseDate": 1775458802181
+},
+{
+"id": 270379,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-04-07",
+"releaseDate": 1775455211527
+},
+{
+"id": 269604,
+"title": "Binance Will Support the Moonriver (MOVR) Network Upgrade - 2026-03-30",
+"releaseDate": 1774841400000
+},
+{
+"id": 269459,
+"title": "Binance Completes Integration of United Stables (U) on TRC20 and ERC20 Networks, Opens Deposits and Withdrawals - 2026-03-26",
+"releaseDate": 1774497611492
+},
+{
+"id": 269077,
+"title": "Binance Has Completed the Nillion (NIL) ERC20 Integration, Opens Deposits and Withdrawals - 2026-03-24",
+"releaseDate": 1774324819158
+},
+{
+"id": 269030,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-03-27",
+"releaseDate": 1774252805684
+},
+{
+"id": 268892,
+"title": "Binance Will Support the Dai (DAI) Token Swap and Rebranding to USDS (USDS)",
+"releaseDate": 1773990011143
+},
+{
+"id": 268258,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-03-20",
+"releaseDate": 1773388806022
+},
+{
+"id": 267751,
+"title": "Binance Will Support ERC20 Integration of NIL (Nillion) and Discontinue Mainnet Support",
+"releaseDate": 1773126001932
+},
+{
+"id": 267549,
+"title": "Network Upgrade for Ethereum Network (ETH) - 2026-03-10",
+"releaseDate": 1773018000000
+},
+{
+"id": 266982,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2026-03-05",
+"releaseDate": 1772618400000
+},
+{
+"id": 267187,
+"title": "Binance Has Completed the MANTRA (OM) Token Swap, Redenomination, and Rebranding to MANTRA (MANTRA)",
+"releaseDate": 1772613008593
+},
+{
+"id": 267050,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-03-04",
+"releaseDate": 1772586006778
+},
+{
+"id": 266773,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2026-03-04",
+"releaseDate": 1772508600000
+},
+{
+"id": 266643,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2026-03-02",
+"releaseDate": 1772164809984
+},
+{
+"id": 266149,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork - 2026-02-25",
+"releaseDate": 1771903800000
+},
+{
+"id": 266201,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2026-02-24",
+"releaseDate": 1771837216659
+},
+{
+"id": 265907,
+"title": "Binance Will Support the MANTRA (OM) Token Swap, Redenomination, and Rebranding to MANTRA (MANTRA)",
+"releaseDate": 1770976800000
+},
+{
+"id": 265684,
+"title": "Binance Completes Integration of Ripple USD (RLUSD) on XRP Network, Opens Deposits - 2026-02-12",
+"releaseDate": 1770879634202
+},
+{
+"id": 265419,
+"title": "Wallet Maintenance for Tron (TRC20) - 2026-02-11",
+"releaseDate": 1770699607466
+},
+{
+"id": 264514,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Upgrade & Hard Fork - 2026-02-05",
+"releaseDate": 1770170400000
+},
+{
+"id": 264612,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade - 2026-02-03",
+"releaseDate": 1770082200000
+},
+{
+"id": 263408,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2026-01-23",
+"releaseDate": 1769061601565
+},
+{
+"id": 263034,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2026-01-22",
+"releaseDate": 1768966200000
+},
+{
+"id": 262782,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-01-22",
+"releaseDate": 1768528815869
+},
+{
+"id": 262635,
+"title": "Binance Has Completed the Frax Share (FXS) Mainnet Swap and Rebranding to Frax (FRAX)",
+"releaseDate": 1768465802390
+},
+{
+"id": 262459,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2026-01-14",
+"releaseDate": 1768302002606
+},
+{
+"id": 262125,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2026-01-16",
+"releaseDate": 1767924000667
+},
+{
+"id": 261167,
+"title": "Binance Will Support the Moonriver (MOVR) Network Upgrade - 2026-01-06",
+"releaseDate": 1767582000000
+},
+{
+"id": 260955,
+"title": "Binance Will Support the Frax Share (FXS) Mainnet Swap and Rebranding to Frax (FRAX)",
+"releaseDate": 1766718007655
+},
+{
+"id": 260900,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2025-12-25",
+"releaseDate": 1766566801289
+},
+{
+"id": 259982,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork - 2025-12-18",
+"releaseDate": 1766023200000
+},
+{
+"id": 259818,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade - 2025-12-18",
+"releaseDate": 1765940400000
+},
+{
+"id": 259677,
+"title": "Binance Completes Integration of The Sandbox (SAND) on Base Network, Opens Deposits and Withdrawals - 2025-12-15",
+"releaseDate": 1765778400000
+},
+{
+"id": 259355,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork - 2025-12-16 & 2026-01-14",
+"releaseDate": 1765432812489
+},
+{
+"id": 259190,
+"title": "Binance Completes Integration of Kava (KAVA) on BNB Smart Chain (BSC) Network, Opens Deposits and Withdrawals - 2025-12-11",
+"releaseDate": 1765423800000
+},
+{
+"id": 258980,
+"title": "Binance Will Support the Neutron (NTRN) Network Upgrade - 2025-12-10",
+"releaseDate": 1765249200000
+},
+{
+"id": 258111,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade - 2025-12-08",
+"releaseDate": 1764903600000
+},
+{
+"id": 258724,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on Selected Networks - 2025-12-12",
+"releaseDate": 1764900008337
+},
+{
+"id": 258469,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-12-05",
+"releaseDate": 1764817200000
+},
+{
+"id": 258267,
+"title": "Binance Completes Integration of Goplus Security (GPS) on BNB Smart Chain (BSC) Network, Opens Deposits and Withdrawals - 2025-12-02",
+"releaseDate": 1764648000000
+},
+{
+"id": 257888,
+"title": "Binance Completes Integration of ApeCoin (APE) on Arbitrum One Network, Opens Deposits and Withdrawals - 2025-11-28",
+"releaseDate": 1764298800000
+},
+{
+"id": 257913,
+"title": "Binance Will Support the Optimism (OP) and Metal DAO (MTL) Network Upgrades & Hard Forks - 2025-12-02",
+"releaseDate": 1764223222099
+},
+{
+"id": 257734,
+"title": "Binance Will Support the Ontology (ONT) Network Upgrade & Hard Fork - 2025-12-01",
+"releaseDate": 1764126009324
+},
+{
+"id": 257408,
+"title": "Binance Completes Integration of USDC (USDC) on Sei Network, Opens Deposits and Withdrawals - 2025-11-21",
+"releaseDate": 1763704805761
+},
+{
+"id": 257137,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2025-12-09",
+"releaseDate": 1763692200000
+},
+{
+"id": 256871,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-11-20",
+"releaseDate": 1763607600000
+},
+{
+"id": 256056,
+"title": "Binance Will Support the Neutron (NTRN) Network Upgrade - 2025-11-19",
+"releaseDate": 1763517600000
+},
+{
+"id": 256921,
+"title": "Binance Futures COIN-M Temporary System Maintenance Complete (2025-11-17)",
+"releaseDate": 1763369729601
+},
+{
+"id": 256659,
+"title": "Notice on Binance Futures COIN-M Temporary System Maintenance (2025-11-17)",
+"releaseDate": 1763112774004
+},
+{
+"id": 256572,
+"title": "Binance Will Support Withdrawals from Kadena (KDA) Community-Maintained Network",
+"releaseDate": 1763106313583
+},
+{
+"id": 256598,
+"title": "Binance Will Cease Support for Deposits of Galxe (GAL) via the Ethereum Network (ERC20) - 2025-11-19",
+"releaseDate": 1763085627628
+},
+{
+"id": 256417,
+"title": "Binance Will Support the Ethereum (ETH) Network Upgrade & Hard Fork - 2025-11-26 & 2025-12-03",
+"releaseDate": 1763002807246
+},
+{
+"id": 255913,
+"title": "Binance Will Cease Support for Deposits of QuickSwap OLD (QUICKOLD) via the Ethereum and Polygon Networks - 2025-11-11",
+"releaseDate": 1762831801651
+},
+{
+"id": 255851,
+"title": "Binance Will Support the Stacks (STX) Network Upgrade & Hard Fork - 2025-11-11",
+"releaseDate": 1762824600000
+},
+{
+"id": 255666,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork - 2025-11-11",
+"releaseDate": 1762754400000
+},
+{
+"id": 255485,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Upgrade & Hard Fork - 2025-11-17",
+"releaseDate": 1762405201237
+},
+{
+"id": 255456,
+"title": "Binance Will Cease Support for Deposits of Radiant Capital OLD (RDNTOLD) via the Arbitrum One Network - 2025-11-06",
+"releaseDate": 1762394400905
+},
+{
+"id": 255274,
+"title": "Binance Completes Integration of USDC (USDC) on World Chain Network, Opens Deposits - 2025-11-05",
+"releaseDate": 1762308039224
+},
+{
+"id": 255245,
+"title": "Binance Will Support the MANTRA (OM) and Enjin Coin (ENJ) Network Upgrades",
+"releaseDate": 1762304400571
+},
+{
+"id": 254725,
+"title": "Binance Has Completed the ApeCoin (APE) Contract Swap on BNB Smart Chain (BEP20)",
+"releaseDate": 1762131601327
+},
+{
+"id": 254616,
+"title": "Binance Alpha and Binance Futures Will Support ai16z (AI16Z) Token Swap, Redenomination, and Rebranding to elizaOS (ELIZAOS) (2025-11-06)",
+"releaseDate": 1761894001648
+},
+{
+"id": 254495,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-11-04",
+"releaseDate": 1761807645680
+},
+{
+"id": 254463,
+"title": "Wallet Maintenance for Solana Network (SOL) - 2025-10-30",
+"releaseDate": 1761791410961
+},
+{
+"id": 254076,
+"title": "Binance Will Support the ApeCoin (APE) Contract Swap on BNB Smart Chain (BEP20)",
+"releaseDate": 1761532211018
+},
+{
+"id": 254045,
+"title": "Binance Will Support the MANTRA (OM) and MultiversX (EGLD) Network Upgrades",
+"releaseDate": 1761526807956
+},
+{
+"id": 253868,
+"title": "Binance Completes Integration of Hemi (HEMI) on HEMI Network, Opens Deposits - 2025-10-24",
+"releaseDate": 1761292812585
+},
+{
+"id": 253675,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork - 2025-10-24",
+"releaseDate": 1761202801514
+},
+{
+"id": 253638,
+"title": "Binance Completes Integration of Tether (USDT) on KAIA Network, Opens Deposits and Withdrawals - 2025-10-23",
+"releaseDate": 1761192001322
+},
+{
+"id": 253587,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade - 2025-10-23",
+"releaseDate": 1761184800947
+},
+{
+"id": 253454,
+"title": "Binance Will Support the eCash (XEC) Network Upgrade & Hard Fork - 2025-11-15",
+"releaseDate": 1761098402417
+},
+{
+"id": 252980,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2025-10-17",
+"releaseDate": 1760594409800
+},
+{
+"id": 252933,
+"title": "Binance Will Support the ZKsync Era (ZK) Network Upgrade & Hard Fork - 2025-10-22",
+"releaseDate": 1760587205058
+},
+{
+"id": 252849,
+"title": "Binance Will Cease Support for Deposits of Ocean Protocol (OCEAN) via the Ethereum Network (ERC20) - 2025-10-20",
+"releaseDate": 1760580001138
+},
+{
+"id": 252527,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade - 2025-10-20",
+"releaseDate": 1760407201337
+},
+{
+"id": 252429,
+"title": "Binance Will Support the Moonbeam (GLMR) Network Upgrade - 2025-10-13",
+"releaseDate": 1760324403280
+},
+{
+"id": 251930,
+"title": "Wallet Maintenance for USDC Withdrawals on Selected Networks - 2025-10-09",
+"releaseDate": 1759978801711
+},
+{
+"id": 251412,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2025-10-08",
+"releaseDate": 1759456816263
+},
+{
+"id": 251200,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork - 2025-10-22",
+"releaseDate": 1759377625144
+},
+{
+"id": 251035,
+"title": "Binance Has Completed the Omni Network (OMNI) Token Swap, Redenomination and Rebranding to Nomina (NOM)",
+"releaseDate": 1759309216341
+},
+{
+"id": 250369,
+"title": "Binance Will Support the Kusama (KSM) and Polkadot (DOT) Network Migrations to Asset Hub",
+"releaseDate": 1758855600796
+},
+{
+"id": 249987,
+"title": "Binance Will Support the Injective (INJ) and Moonriver (MOVR) Network Upgrades & Injective (INJ) Hard Fork",
+"releaseDate": 1758682800969
+},
+{
+"id": 249644,
+"title": "Binance Supports The Open Network (TON) Unique Deposit Addresses",
+"releaseDate": 1758607202013
+},
+{
+"id": 249220,
+"title": "Binance Will Support the Near Protocol (NEAR) Network Upgrade & Hard Fork - 2025-09-23",
+"releaseDate": 1758249001481
+},
+{
+"id": 249020,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade & Hard Fork - 2025-09-18",
+"releaseDate": 1758166201269
+},
+{
+"id": 249000,
+"title": "Wallet Maintenance for The Open Network (TON) - 2025-09-18",
+"releaseDate": 1758160804675
+},
+{
+"id": 248803,
+"title": "Binance Has Completed the Maker (MKR) Token Swap, Redenomination, and Rebranding to Sky (SKY)",
+"releaseDate": 1758099611106
+},
+{
+"id": 248409,
+"title": "Binance Will Support the Rootstock (RIF) Network Upgrade & Hard Fork - 2025-10-01",
+"releaseDate": 1757926809041
+},
+{
+"id": 248332,
+"title": "Binance Completes Integration of World Liberty Financial USD (USD1) on Solana Network, Opens Deposits and Withdrawals - 2025-09-15",
+"releaseDate": 1757912405995
+},
+{
+"id": 248310,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of MANTRA (OM) on Selected Networks - 2025-09-26",
+"releaseDate": 1757905201177
+},
+{
+"id": 248122,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Upgrade & Hard Fork - 2025-09-24",
+"releaseDate": 1757660402237
+},
+{
+"id": 247749,
+"title": "Binance Will Support the Omni Network (OMNI) Token Swap, Redenomination, and Rebranding to Nomina (NOM)",
+"releaseDate": 1757473201389
+},
+{
+"id": 247357,
+"title": "Binance Completes Integration of Dolomite (DOLO) on BERA Network, Opens Deposits - 2025-09-08",
+"releaseDate": 1757325601658
+},
+{
+"id": 247161,
+"title": "Binance Completes Integration of Baby Doge Coin (1MBABYDOGE) on Solana Network, Opens Deposits and Withdrawals - 2025-09-05",
+"releaseDate": 1757055600000
+},
+{
+"id": 247082,
+"title": "Binance Completes Integration of Chromia (CHR) Mainnet",
+"releaseDate": 1756969204194
+},
+{
+"id": 246514,
+"title": "Binance Will Support the Celo (CELO) Network Upgrade & Hard Fork - 2025-09-10",
+"releaseDate": 1756710012741
+},
+{
+"id": 246173,
+"title": "Binance Will Support the Conflux Network (CFX) Network Upgrade & Hard Fork - 2025-09-01",
+"releaseDate": 1756456203644
+},
+{
+"id": 245880,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade & Hard Fork - 2025-08-28",
+"releaseDate": 1756260001038
+},
+{
+"id": 245466,
+"title": "Wallet Maintenance for USDC Withdrawals on Avalanche C-Chain (AVAX-C) Network - 2025-08-22",
+"releaseDate": 1755756005165
+},
+{
+"id": 245225,
+"title": "Binance Will Support the Viction (VIC) Network Upgrade & Hard Fork - 2025-08-21",
+"releaseDate": 1755657020141
+},
+{
+"id": 245035,
+"title": "Binance Will Support the Fusionist (ACE) Network Upgrade & Hard Fork - 2025-08-20",
+"releaseDate": 1755504003222
+},
+{
+"id": 245010,
+"title": "Binance Will Cease Support for Deposits and Withdrawals of Tokens on the Neo Legacy Network - 2025-08-25",
+"releaseDate": 1755500429503
+},
+{
+"id": 244855,
+"title": "Binance Completes Integration of Hedera (HBAR) and Sui (SUI) on BNB Smart Chain (BSC) Network, Opens Deposits and Withdrawals - 2025-08-15",
+"releaseDate": 1755253801685
+},
+{
+"id": 244705,
+"title": "Binance Will Support the Near Protocol (NEAR) Network Upgrade & Hard Fork - 2025-08-18",
+"releaseDate": 1755223201118
+},
+{
+"id": 244454,
+"title": "Binance Will Support the Terra Luna Classic (LUNC) Network Upgrade - 2025-08-15",
+"releaseDate": 1755052201836
+},
+{
+"id": 244180,
+"title": "Binance Completes Integration of ChainGPT (CGPT) on Solana Network(s), Opens Deposits and Withdrawals - 2025-08-11",
+"releaseDate": 1754879409504
+},
+{
+"id": 244148,
+"title": "Binance Completes Integration of GUNZ (GUN) on Solana Network, Opens Deposits and Withdrawals - 2025-08-08",
+"releaseDate": 1754640011171
+},
+{
+"id": 243708,
+"title": "Wallet Maintenance for USDC Withdrawals on Selected Networks - 2025-08-06",
+"releaseDate": 1754370007316
+},
+{
+"id": 243544,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade - 2025-08-04",
+"releaseDate": 1754299801224
+},
+{
+"id": 243296,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-07-31",
+"releaseDate": 1753952401239
+},
+{
+"id": 243151,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork - 2025-07-31",
+"releaseDate": 1753929001675
+},
+{
+"id": 243102,
+"title": "Binance Has Completed the League of Kingdoms (LOKA) Token Swap and Rebranding to Arena-Z (A2Z)",
+"releaseDate": 1753867801437
+},
+{
+"id": 242821,
+"title": "Binance Wallet Network Infrastructure Upgrade Notice (2025-07-31)",
+"releaseDate": 1753765213208
+},
+{
+"id": 242506,
+"title": "Binance Has Completed the Horizen (ZEN) Contract Swap",
+"releaseDate": 1753410601181
+},
+{
+"id": 242165,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) and opBNB Chain (opBNB) - 2025-07-23",
+"releaseDate": 1753149636472
+},
+{
+"id": 242095,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork - 2025-07-22",
+"releaseDate": 1753077601192
+},
+{
+"id": 241878,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade & Hard Fork - 2025-07-22",
+"releaseDate": 1752831012006
+},
+{
+"id": 241859,
+"title": "Binance Will Support the Maker (MKR) Token Swap, Redenomination, and Rebranding to Sky (SKY)",
+"releaseDate": 1752829207268
+},
+{
+"id": 241575,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade & Hard Fork - 2025-07-16",
+"releaseDate": 1752633018325
+},
+{
+"id": 241477,
+"title": "Binance Will Support the Kaia (KAIA) Network Upgrade & Hard Fork - 2025-07-17",
+"releaseDate": 1752559219229
+},
+{
+"id": 241183,
+"title": "Binance Will Support the Vana (VANA) Network Upgrade & Hard Fork - 2025-07-14",
+"releaseDate": 1752201001822
+},
+{
+"id": 241109,
+"title": "Binance Will Support the League of Kingdoms (LOKA) Token Swap and Rebranding to Arena-Z (A2Z)",
+"releaseDate": 1752138004118
+},
+{
+"id": 241092,
+"title": "Binance Completes Integration of WalletConnect Token (WCT) on Solana Network, Opens Deposits and Withdrawals - 2025-07-10",
+"releaseDate": 1752134410495
+},
+{
+"id": 240861,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade - 2025-07-10",
+"releaseDate": 1752028201268
+},
+{
+"id": 240746,
+"title": "Binance Will Support the Celo (CELO) Network Upgrade & Hard Fork - 2025-07-09",
+"releaseDate": 1751941801033
+},
+{
+"id": 240611,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade - 2025-07-07",
+"releaseDate": 1751855402261
+},
+{
+"id": 240267,
+"title": "Binance Will Support the Vechain (VET) and VeThor Token (VTHO) Network Upgrade & Hard Fork - 2025-07-01",
+"releaseDate": 1751337018929
+},
+{
+"id": 240208,
+"title": "Binance Will Support the Polygon (POL) Network Upgrade & Hard Fork - 2025-07-01",
+"releaseDate": 1751270401227
+},
+{
+"id": 239932,
+"title": "Binance Will Support the Horizen (ZEN) Contract Swap",
+"releaseDate": 1750906801147
+},
+{
+"id": 239476,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Upgrade & Hard Fork - 2025-06-22",
+"releaseDate": 1750406408784
+},
+{
+"id": 239292,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2025-06-19",
+"releaseDate": 1750302009401
+},
+{
+"id": 239229,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork - 2025-06-19",
+"releaseDate": 1750237210247
+},
+{
+"id": 239100,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-06-17",
+"releaseDate": 1750158020230
+},
+{
+"id": 238436,
+"title": "Binance Will Support the Stratis (STRAX) Network Upgrade & Hard Fork - 2025-06-11",
+"releaseDate": 1749438001410
+},
+{
+"id": 238267,
+"title": "Binance Completes Integration of Hashflow (HFT) on Solana Network, Opens Deposits and Withdrawals - 2025-06-05",
+"releaseDate": 1749092407232
+},
+{
+"id": 238224,
+"title": "Binance Has Completed the Doodles (DOOD) Airdrop Distribution to MUBARAK, BROCCOLI714, TST, 1MBABYDOGE, and KOMA Holders",
+"releaseDate": 1749088801890
+},
+{
+"id": 237802,
+"title": "Binance Completes Integration of WalletConnect Token (WCT) on Ethereum network (ERC-20), Opens Deposits and Withdrawals - 2025-05-30",
+"releaseDate": 1748588412050
+},
+{
+"id": 237670,
+"title": "Binance Will Support the Siacoin (SC) Network Upgrade & Hard Fork - 2025-06-06",
+"releaseDate": 1748487612212
+},
+{
+"id": 237550,
+"title": "Binance Has Completed the EOS (EOS) Token Swap and Rebranding to Vaulta (A)",
+"releaseDate": 1748422810177
+},
+{
+"id": 236992,
+"title": "Binance Has Completed the Standard Tokenization Protocol (STPT) Token Swap and Rebranding to AWE Network (AWE)",
+"releaseDate": 1747818001020
+},
+{
+"id": 236864,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade - 2025-05-22",
+"releaseDate": 1747800008285
+},
+{
+"id": 236853,
+"title": "Binance Completes Integration of Bio Protocol (BIO) on Base Network, Opens Deposits and Withdrawals - 2025-05-21",
+"releaseDate": 1747796401558
+},
+{
+"id": 236359,
+"title": "Binance Will Support the EOS (EOS) Token Swap and Rebranding to Vaulta (A)",
+"releaseDate": 1747213201586
+},
+{
+"id": 235996,
+"title": "Binance Completes Integration of Hyperlane (HYPER) on Arbitrum One, Base, and Optimism Networks, Opens Deposits - 2025-05-09",
+"releaseDate": 1746756001309
+},
+{
+"id": 235918,
+"title": "Binance Will Support the eCash (XEC) Network Upgrade & Hard Fork - 2025-05-15",
+"releaseDate": 1746676801677
+},
+{
+"id": 235895,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2025-05-09",
+"releaseDate": 1746669601986
+},
+{
+"id": 235742,
+"title": "Binance Will Support the Standard Tokenization Protocol (STPT) Token Swap and Rebranding to AWE Network (AWE)",
+"releaseDate": 1746597602721
+},
+{
+"id": 235694,
+"title": "Binance Will Support the Optimism (OP) & Metal DAO (MTL) Network Upgrades & Hard Forks - 2025-05-09",
+"releaseDate": 1746583202073
+},
+{
+"id": 235672,
+"title": "Binance Will Support the Ethereum (ETH) Network Upgrade & Hard Fork - 2025-05-07",
+"releaseDate": 1746579602371
+},
+{
+"id": 235087,
+"title": "Binance Will Support the THORChain (RUNE) Network Upgrade & Hard Fork - 2025-05-01",
+"releaseDate": 1745992803758
+},
+{
+"id": 235015,
+"title": "Binance Will Support the IOTA (IOTA) Network Upgrade & Hard Fork - 2025-05-05",
+"releaseDate": 1745978412898
+},
+{
+"id": 234983,
+"title": "Binance Completes Integration of USDC (USDC) on Sonic Network and Opens Deposits - 2025-04-29",
+"releaseDate": 1745928000000
+},
+{
+"id": 234763,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2025-04-30",
+"releaseDate": 1745802000000
+},
+{
+"id": 234388,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade & Hard Fork - 2025-04-29",
+"releaseDate": 1745463615296
+},
+{
+"id": 233439,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2025-04-17",
+"releaseDate": 1744693204492
+},
+{
+"id": 233216,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade - 2025-04-14",
+"releaseDate": 1744603208540
+},
+{
+"id": 232891,
+"title": "Binance Completes Integration of IOST (IOST) on BNB Smart Chain (BEP20) Network, Opens Deposits and Withdrawals - 2025-04-10",
+"releaseDate": 1744275602519
+},
+{
+"id": 232796,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade - 2025-04-10",
+"releaseDate": 1744259433622
+},
+{
+"id": 232705,
+"title": "Binance Will Support the Neutron (NTRN) Network Upgrade & Hard Fork - 2025-04-10",
+"releaseDate": 1744252201568
+},
+{
+"id": 232182,
+"title": "Binance Will Support the Syscoin (SYS) Network Upgrade & Hard Fork - 2025-04-07",
+"releaseDate": 1743998403230
+},
+{
+"id": 231699,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade - 2025-04-02",
+"releaseDate": 1743562805680
+},
+{
+"id": 231335,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade & Hard Fork - 2025-03-31",
+"releaseDate": 1743390013393
+},
+{
+"id": 230537,
+"title": "Binance Will Support the Celo (CELO) Network Upgrade & Hard Fork- 2025-03-26",
+"releaseDate": 1742799602716
+},
+{
+"id": 230463,
+"title": "Binance Will Support the MultiversX (EGLD) Network Upgrade - 2025-03-25",
+"releaseDate": 1742785213676
+},
+{
+"id": 230377,
+"title": "Binance Completes Integration of USDC (USDC) on Aptos Network, Opens Deposits - 2025-03-21",
+"releaseDate": 1742562008170
+},
+{
+"id": 229805,
+"title": "Binance Has Completed the BinaryX (BNX) Token Swap and Rebranding to Four (FORM)",
+"releaseDate": 1742355002421
+},
+{
+"id": 229802,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) and opBNB Chain (opBNB) Network Upgrade & Hard Fork - 2025-03-20",
+"releaseDate": 1742353219836
+},
+{
+"id": 229240,
+"title": "Binance Will Support the Ronin (RONIN) Network Upgrade & Hard Fork - 2025-03-17",
+"releaseDate": 1741924803718
+},
+{
+"id": 229168,
+"title": "Binance Has Completed the Ethernity Chain (ERN) Token Swap and Rebranding to Epic Chain (EPIC)",
+"releaseDate": 1741856401385
+},
+{
+"id": 229059,
+"title": "Binance Completes Integration of USDC (USDC) on Hedera Hashgraph Network, Opens Deposits and Withdrawals - 2025-03-13",
+"releaseDate": 1741831205824
+},
+{
+"id": 228894,
+"title": "Binance Will Support the Conflux (CFX) Network Upgrade & Hard Fork - 2025-03-17",
+"releaseDate": 1741744801602
+},
+{
+"id": 228778,
+"title": "Binance Completes Integration of AVA (AVA) on Solana Network, Opens Deposits and Withdrawals - 2025-03-11",
+"releaseDate": 1741665621948
+},
+{
+"id": 228746,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade & Hard Fork - 2025-03-17",
+"releaseDate": 1741662005553
+},
+{
+"id": 228126,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2025-03-06",
+"releaseDate": 1741161616788
+},
+{
+"id": 228051,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade - 2025-03-11",
+"releaseDate": 1741143616717
+},
+{
+"id": 227869,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade - 2025-03-04",
+"releaseDate": 1741057210229
+},
+{
+"id": 227545,
+"title": "Binance Will Support the Ethernity Chain (ERN) Token Swap and Rebranding to Epic Chain (EPIC)",
+"releaseDate": 1740715213777
+},
+{
+"id": 227520,
+"title": "Binance Completes Integration of LPT on Arbitrum One Network and BIO on Solana Network, Opens Deposits and Withdrawals",
+"releaseDate": 1740711604254
+},
+{
+"id": 227276,
+"title": "Binance Completes Integration of USDC (USDC) on Sui Network, Opens Deposits and Withdrawals",
+"releaseDate": 1740621607871
+},
+{
+"id": 227105,
+"title": "Binance Will Support the BinaryX (BNX) Token Swap and Rebranding to Four (FORM)",
+"releaseDate": 1740535201827
+},
+{
+"id": 227005,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1740452401403
+},
+{
+"id": 226512,
+"title": "Binance Will Support the Enjin Coin (ENJ) Network Upgrade",
+"releaseDate": 1739934012191
+},
+{
+"id": 226400,
+"title": "Binance Will Support the Rootstock (RIF) Network Upgrade & Hard Fork",
+"releaseDate": 1739847602098
+},
+{
+"id": 225798,
+"title": "Binance Has Completed the Litentry (LIT) Token Swap and Rebranding to Heima (HEI)",
+"releaseDate": 1739439001227
+},
+{
+"id": 225650,
+"title": "Binance Will Support the Neutron (NTRN) and Polygon (POL) Network Upgrades & Hard Fork",
+"releaseDate": 1739340001407
+},
+{
+"id": 225581,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2025-02-13",
+"releaseDate": 1739336407484
+},
+{
+"id": 225392,
+"title": "Binance Will Support the Qtum (QTUM) Network Upgrade & Hard Fork",
+"releaseDate": 1739156409616
+},
+{
+"id": 224978,
+"title": "Binance Will Support the Terra (LUNA), Kadena (KDA) and Sei (SEI) Network Upgrades & Hard Forks",
+"releaseDate": 1738634415481
+},
+{
+"id": 224888,
+"title": "Binance Will Support the Arweave (AR) and MultiversX (EGLD) Network Upgrades & Hard Fork",
+"releaseDate": 1738296034468
+},
+{
+"id": 224801,
+"title": "Binance Will Support the Cardano (ADA) Network Upgrade & Hard Fork",
+"releaseDate": 1738029602571
+},
+{
+"id": 224755,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork",
+"releaseDate": 1737943202216
+},
+{
+"id": 224643,
+"title": "Binance Has Completed the Prosper (PROS) Contract Swap",
+"releaseDate": 1737705601606
+},
+{
+"id": 224459,
+"title": "Binance Will Support the Litentry (LIT) Token Swap and Rebranding to Heima (HEI)",
+"releaseDate": 1737536401361
+},
+{
+"id": 223583,
+"title": "Binance Has Completed the Fantom (FTM) Token Swap and Rebranding to Sonic (S)",
+"releaseDate": 1737018001792
+},
+{
+"id": 223036,
+"title": "Binance Has Completed the Mines of Dalarnia (DAR) Token Swap and Rebranding to Dar Open Network (D)",
+"releaseDate": 1736418601934
+},
+{
+"id": 222715,
+"title": "Binance Will Support the aelf (ELF) Network Upgrade",
+"releaseDate": 1736222404958
+},
+{
+"id": 222617,
+"title": "Binance Will Support the Dymension (DYM) Network Upgrade",
+"releaseDate": 1736132401112
+},
+{
+"id": 222458,
+"title": "Binance Will Support the Dash (DASH) Network Upgrade & Hard Fork",
+"releaseDate": 1735884001396
+},
+{
+"id": 222072,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2025-01-02",
+"releaseDate": 1735614022069
+},
+{
+"id": 221844,
+"title": "Binance Will Support the Optimism (OP) Network Upgrade & Hard Fork",
+"releaseDate": 1735279201327
+},
+{
+"id": 221501,
+"title": "Binance Will Support the Fantom (FTM) Token Swap and Rebranding to Sonic (S)",
+"releaseDate": 1735023611617
+},
+{
+"id": 221199,
+"title": "Binance Will Support the Mines of Dalarnia (DAR) Token Swap and Rebranding to Dar Open Network (D)",
+"releaseDate": 1734577201847
+},
+{
+"id": 220697,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1734400802943
+},
+{
+"id": 220078,
+"title": "Binance Will Support the aelf (ELF) Network Upgrade",
+"releaseDate": 1733990403032
+},
+{
+"id": 219993,
+"title": "Binance Completes Integration of First Digital USD (FDUSD) on Sui Network, Opens Deposits and Withdrawals",
+"releaseDate": 1733968801981
+},
+{
+"id": 219814,
+"title": "Binance Completes Integration of Tether (USDT) on Aptos Network, Opens Deposits and Withdrawals",
+"releaseDate": 1733882401465
+},
+{
+"id": 219623,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1733803202721
+},
+{
+"id": 219207,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork",
+"releaseDate": 1733450401768
+},
+{
+"id": 218621,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1732849218768
+},
+{
+"id": 218109,
+"title": "Binance Will Support the Ardor (ARDR) Network Upgrade & Hard Fork",
+"releaseDate": 1732503635906
+},
+{
+"id": 217915,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1732154403324
+},
+{
+"id": 217348,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork",
+"releaseDate": 1731560404172
+},
+{
+"id": 217116,
+"title": "Binance Will Support the  Filecoin (FIL) Network Upgrade",
+"releaseDate": 1731380411827
+},
+{
+"id": 216686,
+"title": "Binance Will Support the Arweave (AR) Network Upgrade & Hard Fork",
+"releaseDate": 1730948419675
+},
+{
+"id": 216236,
+"title": "Binance Has Completed the Kaia (KLAY) Rebranding to Kaia (KAIA)",
+"releaseDate": 1730368802005
+},
+{
+"id": 215833,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork",
+"releaseDate": 1730098804770
+},
+{
+"id": 215703,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2024-10-30",
+"releaseDate": 1729821602389
+},
+{
+"id": 215542,
+"title": "Binance Will Support the Harmony (ONE) and VITE (VITE) Network Upgrades & Hard Forks",
+"releaseDate": 1729738805214
+},
+{
+"id": 215353,
+"title": "Binance Will Support the Viction (VIC) Network Upgrade & Hard Fork",
+"releaseDate": 1729648801283
+},
+{
+"id": 214983,
+"title": "Binance Has Completed the Orion (ORN) Mainnet Swap and Rebranding to Lumia (LUMIA)",
+"releaseDate": 1729245602560
+},
+{
+"id": 214776,
+"title": "Binance Will Support the Kaia (KLAY) Rebranding to Kaia (KAIA)",
+"releaseDate": 1729065603464
+},
+{
+"id": 214181,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2024-10-10",
+"releaseDate": 1728446401734
+},
+{
+"id": 213526,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1727859606392
+},
+{
+"id": 213159,
+"title": "Binance Will Support the Orion (ORN) Mainnet Swap and Rebranding to Lumia (LUMIA)",
+"releaseDate": 1727676004882
+},
+{
+"id": 212042,
+"title": "Binance Will Support the EOS (EOS) Network Upgrade & Hard Fork",
+"releaseDate": 1726804800000
+},
+{
+"id": 212015,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) and opBNB Chain (opBNB) Network Upgrade & Hard Fork",
+"releaseDate": 1726801220222
+},
+{
+"id": 211880,
+"title": "Binance Will Support the Manta (MANTA) Network Upgrade & Hard Fork",
+"releaseDate": 1726718400000
+},
+{
+"id": 211700,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1726632024024
+},
+{
+"id": 211351,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1726459201202
+},
+{
+"id": 211236,
+"title": "Binance Has Completed the Polygon (MATIC) Token Upgrade to Polygon (POL)",
+"releaseDate": 1726225525025
+},
+{
+"id": 211021,
+"title": "Binance Will Support the Firo (FIRO) Network Upgrade & Hard Fork",
+"releaseDate": 1726113604229
+},
+{
+"id": 210700,
+"title": "Binance Will Support the Enjin Coin (ENJ) Network Upgrade",
+"releaseDate": 1725854406869
+},
+{
+"id": 210266,
+"title": "Binance Will Support the Optimism (OP) Network Upgrade & Hard Fork",
+"releaseDate": 1725508803087
+},
+{
+"id": 209949,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2024-09-05",
+"releaseDate": 1725332418226
+},
+{
+"id": 209838,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1725253203676
+},
+{
+"id": 209622,
+"title": "Binance Will Support the Cardano (ADA) Network Upgrade & Hard Fork",
+"releaseDate": 1724990628423
+},
+{
+"id": 209258,
+"title": "Binance Will Support the Kaia (KLAY) Network Upgrade & Hard Fork",
+"releaseDate": 1724814009007
+},
+{
+"id": 209114,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1724731202803
+},
+{
+"id": 208790,
+"title": "Wallet Maintenance for The Open Network (TON) - 2024-08-26",
+"releaseDate": 1724378403186
+},
+{
+"id": 208422,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork",
+"releaseDate": 1724133606448
+},
+{
+"id": 207698,
+"title": "Binance Will Support the Metis (METIS) Network Upgrade & Hard Fork",
+"releaseDate": 1723518001488
+},
+{
+"id": 206401,
+"title": "Binance Will Support the Conflux (CFX) Network Upgrade & Hard Fork",
+"releaseDate": 1721786402281
+},
+{
+"id": 206331,
+"title": "Binance Will Support the Shentu (CTK) and Rootstock Infrastructure Framework (RIF) Network Upgrades & Hard Forks",
+"releaseDate": 1721635206571
+},
+{
+"id": 206203,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork",
+"releaseDate": 1721400003533
+},
+{
+"id": 205584,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1721016005361
+},
+{
+"id": 205093,
+"title": "Binance Performs Wallet Maintenance - 2024-07-17",
+"releaseDate": 1720584015556
+},
+{
+"id": 204951,
+"title": "Binance Will Support the Neutron (NTRN) and Optimism (OP) Network Upgrades & Hard Forks",
+"releaseDate": 1720490402777
+},
+{
+"id": 204750,
+"title": "Binance Will Support the Galxe (GAL) Token swap, Redenomination, and Rebranding to Gravity (G)",
+"releaseDate": 1720144804434
+},
+{
+"id": 204669,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) Network Upgrade & Hard Fork",
+"releaseDate": 1720062000995
+},
+{
+"id": 204403,
+"title": "Binance Will Support the MultiversX (EGLD) and Ronin (RON) Network Upgrades & Hard Forks",
+"releaseDate": 1719889207595
+},
+{
+"id": 203760,
+"title": "Binance Will Support the Metal DAO (MTL) Mainnet Swap",
+"releaseDate": 1718935201082
+},
+{
+"id": 203275,
+"title": "Binance Will Support the Sei (SEI) and Harmony (ONE) Network Upgrades & Hard Forks",
+"releaseDate": 1718766016505
+},
+{
+"id": 202968,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2024-06-17",
+"releaseDate": 1718364655572
+},
+{
+"id": 202936,
+"title": "Binance Will Support the Fetch.ai (FET), Ocean Protocol (OCEAN) and SingularityNET (AGIX) Token Merge",
+"releaseDate": 1718361001961
+},
+{
+"id": 202906,
+"title": "Binance Will Support the Chiliz (CHZ) Network Upgrade & Hard Fork",
+"releaseDate": 1718348402068
+},
+{
+"id": 202086,
+"title": "Binance Will Support the Tron Network (TRX) Wallet Maintenance & Network Upgrade",
+"releaseDate": 1717551002281
+},
+{
+"id": 201739,
+"title": "Binance Will Support the WazirX (WRX) Contract Swap",
+"releaseDate": 1717124401655
+},
+{
+"id": 201585,
+"title": "Binance Will Support the Mina (MINA) Network Upgrade & Hard Fork",
+"releaseDate": 1717038001712
+},
+{
+"id": 201345,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2024-05-29",
+"releaseDate": 1716861602339
+},
+{
+"id": 201201,
+"title": "Binance Will Support the Sei (SEI) and Kadena (KDA) Network Upgrades & Hard Forks",
+"releaseDate": 1716773403920
+},
+{
+"id": 201109,
+"title": "Binance Will Support the Neo (NEO) Network Upgrade & Hard Fork",
+"releaseDate": 1716519601648
+},
+{
+"id": 201083,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1716512401042
+},
+{
+"id": 200835,
+"title": "Binance Will Support the aelf (ELF) Network Upgrade",
+"releaseDate": 1716339601516
+},
+{
+"id": 200689,
+"title": "Binance Will Support the IRISnet (IRIS) Network Upgrade",
+"releaseDate": 1716182276048
+},
+{
+"id": 200570,
+"title": "Binance Will Support the Chiliz (CHZ) and MultiversX (EGLD) Network Upgrades & Hard Forks",
+"releaseDate": 1715929201790
+},
+{
+"id": 200404,
+"title": "Binance Will Support the Neutron (NTRN) Network Upgrade",
+"releaseDate": 1715828413900
+},
+{
+"id": 199214,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1714446009948
+},
+{
+"id": 198968,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1714014015721
+},
+{
+"id": 198628,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1713837619979
+},
+{
+"id": 198187,
+"title": "Binance Will Support the Stacks (STX) Network Upgrade & Hard Fork",
+"releaseDate": 1713412805034
+},
+{
+"id": 197147,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade & Hard Fork",
+"releaseDate": 1712628080295
+},
+{
+"id": 196689,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) and BNB Smart Chain (BEP20) Network Upgrades & Hard Forks",
+"releaseDate": 1712196738268
+},
+{
+"id": 196431,
+"title": "Binance Will Support the Neutron (NTRN) Network Upgrade",
+"releaseDate": 1712109893247
+},
+{
+"id": 196229,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork",
+"releaseDate": 1712025030410
+},
+{
+"id": 196048,
+"title": "Binance Will Support the Rootstock (RIF) Network Upgrade & Hard Fork",
+"releaseDate": 1711680798262
+},
+{
+"id": 195399,
+"title": "Binance Will Support the Bitcoin Cash (BCH) Network Upgrade",
+"releaseDate": 1710994203584
+},
+{
+"id": 195374,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2024-03-25",
+"releaseDate": 1710991227898
+},
+{
+"id": 195243,
+"title": "Binance Will Support the Arweave (AR) Network Upgrade & Hard Fork",
+"releaseDate": 1710901203060
+},
+{
+"id": 195100,
+"title": "Binance Will Support the Polygon (MATIC) and Cosmos (ATOM) Network Upgrades & Hard Forks",
+"releaseDate": 1710821703634
+},
+{
+"id": 194338,
+"title": "Binance Will Support the Optimism (OP) and Arbitrum (ARB) Network Upgrades & Hard Forks",
+"releaseDate": 1710223503018
+},
+{
+"id": 194014,
+"title": "Binance Will Support the Ethereum (ETH) Network Upgrade & Hard Fork",
+"releaseDate": 1709866809477
+},
+{
+"id": 193770,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade",
+"releaseDate": 1709709604582
+},
+{
+"id": 193156,
+"title": "Binance Will Support the Fusionist (ACE) Network Upgrade & Hard Fork",
+"releaseDate": 1709277002694
+},
+{
+"id": 193087,
+"title": "Wallet Maintenance for Ethereum Network (ETH) - 2024-03-06",
+"releaseDate": 1709265902979
+},
+{
+"id": 192837,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1709090127386
+},
+{
+"id": 192357,
+"title": "Binance Will Support the Ronin (RONIN) Network Upgrade & Hard Fork",
+"releaseDate": 1708568102907
+},
+{
+"id": 191319,
+"title": "Binance Will Support the IoTeX (IOTX) and Optimism (OP) Network Upgrades & Hard Forks",
+"releaseDate": 1707444615770
+},
+{
+"id": 191290,
+"title": "Binance Will Support the MultiversX (EGLD) Network Upgrade",
+"releaseDate": 1707368703899
+},
+{
+"id": 191265,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) Network Sunset Plan",
+"releaseDate": 1707364821906
+},
+{
+"id": 190899,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade & Hard Fork",
+"releaseDate": 1707195603189
+},
+{
+"id": 190189,
+"title": "Binance Will Support the Ethereum Classic (ETC) Network Upgrade",
+"releaseDate": 1706682903295
+},
+{
+"id": 189884,
+"title": "Binance Will Support the Stellar (XLM) Network Upgrade",
+"releaseDate": 1706499311046
+},
+{
+"id": 189663,
+"title": "Binance Will Support the Sei (SEI) Network Upgrade",
+"releaseDate": 1706148016679
+},
+{
+"id": 188790,
+"title": "Binance Will Support the Fetch.ai (FET) and MultiversX (EGLD) Network Upgrades",
+"releaseDate": 1705288507144
+},
+{
+"id": 188569,
+"title": "Binance Will Support the Firo (FIRO) Network Upgrade & Hard Fork",
+"releaseDate": 1705029003932
+},
+{
+"id": 188470,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade",
+"releaseDate": 1704942903288
+},
+{
+"id": 188308,
+"title": "Binance Will Support the Optimism (OP) Network Upgrade & Hard Fork",
+"releaseDate": 1704853815214
+},
+{
+"id": 188148,
+"title": "Binance Will Support the IRISnet (IRIS) Network Upgrade",
+"releaseDate": 1704686603317
+},
+{
+"id": 187903,
+"title": "Binance Will Support the ORDI (ORDI) and BNB Smart Chain (BEP20) Network Upgrades & Hard Forks",
+"releaseDate": 1704420944330
+},
+{
+"id": 187635,
+"title": "Binance Will Support the Zilliqa (ZIL) and Sei (SEI) Network Upgrades & Hard Forks",
+"releaseDate": 1704255929146
+},
+{
+"id": 186149,
+"title": "Binance Will Support the Dash (DASH) Network Upgrade & Hard Fork",
+"releaseDate": 1702521302935
+},
+{
+"id": 186036,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1702447203032
+},
+{
+"id": 185845,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade",
+"releaseDate": 1702365609700
+},
+{
+"id": 185768,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade & Hard Fork",
+"releaseDate": 1702347003360
+},
+{
+"id": 185277,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1701828602794
+},
+{
+"id": 185193,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1701759602797
+},
+{
+"id": 185114,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1701745516114
+},
+{
+"id": 184500,
+"title": "Binance Will Support the Arweave (AR) Network Upgrade & Hard Fork",
+"releaseDate": 1701311715194
+},
+{
+"id": 184315,
+"title": "Binance Will Support the Lisk (LSK) Network Upgrade & Hard Fork",
+"releaseDate": 1701230404707
+},
+{
+"id": 184244,
+"title": "Binance Will Support the Polygon (MATIC) Network Upgrade & Hard Fork",
+"releaseDate": 1701141015419
+},
+{
+"id": 183824,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork",
+"releaseDate": 1700706303049
+},
+{
+"id": 183615,
+"title": "Binance Will Support the Qtum (QTUM) Network Upgrade & Hard Fork",
+"releaseDate": 1700621405535
+},
+{
+"id": 183230,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1700110506873
+},
+{
+"id": 182963,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade",
+"releaseDate": 1700014509679
+},
+{
+"id": 182762,
+"title": "Binance Will Support the AirDAO (AMB) and BitShares (BTS) Network Upgrades & Hard Forks",
+"releaseDate": 1699845862309
+},
+{
+"id": 182076,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1699325718939
+},
+{
+"id": 181724,
+"title": "Wallet Maintenance for Bitcoin (BTC) Network - 2023-11-03",
+"releaseDate": 1698895503881
+},
+{
+"id": 181649,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork",
+"releaseDate": 1698815703159
+},
+{
+"id": 181407,
+"title": "Binance Will Support the Enjin Coin (ENJ) Mainnet Swap",
+"releaseDate": 1698642302923
+},
+{
+"id": 181360,
+"title": "Binance Will Support the Harmony (ONE) Network Upgrade & Hard Fork",
+"releaseDate": 1698634802765
+},
+{
+"id": 180409,
+"title": "Binance Will Support the Sei (SEI) and Ronin (RON) Network Upgrades & Hard Forks",
+"releaseDate": 1697780702015
+},
+{
+"id": 180317,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2023-10-24",
+"releaseDate": 1697767241285
+},
+{
+"id": 180126,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade & Hard Fork",
+"releaseDate": 1697604307935
+},
+{
+"id": 179824,
+"title": "Binance Will Support the Klaytn (KLAY) Network Upgrade & Hard Fork",
+"releaseDate": 1697190243758
+},
+{
+"id": 179795,
+"title": "Binance Will Support the Beefy (BIFI) Contract Swap",
+"releaseDate": 1697178107879
+},
+{
+"id": 179744,
+"title": "Binance Will Support the aelf (ELF) Network Upgrade",
+"releaseDate": 1697165834357
+},
+{
+"id": 179608,
+"title": "Binance Will Support the Polygon (MATIC) Network Upgrade & Hard Fork",
+"releaseDate": 1697078282306
+},
+{
+"id": 179426,
+"title": "Binance Will Support the REI Network (REI) Network Upgrade & Hard Fork",
+"releaseDate": 1697002502403
+},
+{
+"id": 178683,
+"title": "Binance Will Support the Sei (SEI), IOTA (IOTA) and Arweave (AR) Network Upgrades & Hard Forks",
+"releaseDate": 1696320638110
+},
+{
+"id": 178035,
+"title": "Binance Will Support the Celo (CELO) Network Upgrade & Hard Fork",
+"releaseDate": 1695707102938
+},
+{
+"id": 177619,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade & Hard Fork",
+"releaseDate": 1695267904814
+},
+{
+"id": 177479,
+"title": "Binance Will Support the Neo (NEO) N3 Network Upgrade & Hard Fork",
+"releaseDate": 1695182408422
+},
+{
+"id": 177273,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade & Hard Fork",
+"releaseDate": 1695090303707
+},
+{
+"id": 176741,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1694572803327
+},
+{
+"id": 176666,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1694484607756
+},
+{
+"id": 176414,
+"title": "Binance Will Support the REI Network (REI) and MobileCoin (MOB) Network Upgrades & Hard Forks",
+"releaseDate": 1694139611372
+},
+{
+"id": 176065,
+"title": "Binance Will Support the Shentu (CTK) and Conflux Network (CFX) Network Upgrades & Hard Forks",
+"releaseDate": 1693814702813
+},
+{
+"id": 175262,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1693199103218
+},
+{
+"id": 175134,
+"title": "Binance Will Support the Decred (DCR) and MultiversX (EGLD) Network Upgrades & Hard Forks",
+"releaseDate": 1692930005149
+},
+{
+"id": 174949,
+"title": "Binance Will Support the Osmosis (OSMO) Network Upgrade",
+"releaseDate": 1692790209460
+},
+{
+"id": 173742,
+"title": "Binance Will Support the Ontology (ONT) Network Upgrade & Hard Fork",
+"releaseDate": 1691721004431
+},
+{
+"id": 173418,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1691476810076
+},
+{
+"id": 172040,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2023-07-31",
+"releaseDate": 1690509602857
+},
+{
+"id": 170003,
+"title": "Binance Will Support the Harmony (ONE) and IoTeX (IOTX) Network Upgrades & Hard Forks",
+"releaseDate": 1689667201284
+},
+{
+"id": 169858,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade",
+"releaseDate": 1689585319728
+},
+{
+"id": 169671,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2023-07-18",
+"releaseDate": 1689321602465
+},
+{
+"id": 169543,
+"title": "Binance Will Support the Osmosis (OSMO) Network Upgrade",
+"releaseDate": 1689246005116
+},
+{
+"id": 169378,
+"title": "Binance Will Support the Optimism (OP) Network Upgrade",
+"releaseDate": 1689141303557
+},
+{
+"id": 168924,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1688961647601
+},
+{
+"id": 168745,
+"title": "Binance Will Support the Rootstock Infrastructure Framework (RIF) Network Upgrade & Hard Fork",
+"releaseDate": 1688716811031
+},
+{
+"id": 168684,
+"title": "Binance Will Support the MultiversX (EGLD) Network Upgrade",
+"releaseDate": 1688699705617
+},
+{
+"id": 168354,
+"title": "Updates on the Suspension of Deposits & Withdrawals for Multichain-Bridged Tokens",
+"releaseDate": 1688540723656
+},
+{
+"id": 168325,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2023-07-06",
+"releaseDate": 1688537404964
+},
+{
+"id": 168273,
+"title": "Binance Will Support the Zilliqa (ZIL) and Waves (WAVES) Network Upgrades & Hard Forks",
+"releaseDate": 1688530803325
+},
+{
+"id": 168096,
+"title": "Binance Will Support the Polygon (MATIC) Network Upgrade & Hard Fork",
+"releaseDate": 1688439309200
+},
+{
+"id": 167345,
+"title": "Binance Will Support the Komodo (KMD) Network Upgrade & Hard Fork",
+"releaseDate": 1687835103372
+},
+{
+"id": 166666,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade",
+"releaseDate": 1687143904420
+},
+{
+"id": 166092,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1686719422792
+},
+{
+"id": 165992,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) Network Upgrade & Hard Fork",
+"releaseDate": 1686708316576
+},
+{
+"id": 165392,
+"title": "Binance Will Support the Ronin (RON) Network Upgrade & Hard Fork",
+"releaseDate": 1686200414043
+},
+{
+"id": 165345,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2023-06-12",
+"releaseDate": 1686195074746
+},
+{
+"id": 165211,
+"title": "Binance Will Support the MultiversX (EGLD) Network Upgrade",
+"releaseDate": 1686109513633
+},
+{
+"id": 165028,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade & Hard Fork",
+"releaseDate": 1686024606455
+},
+{
+"id": 164499,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1685588714734
+},
+{
+"id": 164219,
+"title": "Binance Will Support the Optimism (OP) Network Upgrade & Hard Fork",
+"releaseDate": 1685502039563
+},
+{
+"id": 164176,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2023-05-31",
+"releaseDate": 1685425803572
+},
+{
+"id": 164064,
+"title": "Binance Resumes TORN Deposits via Ethereum Network & BNB Smart Chain, Will Move TORN into the Innovation Zone by 2023-05-30",
+"releaseDate": 1685362502654
+},
+{
+"id": 163879,
+"title": "Binance Will Support the Stacks (STX) Network Upgrade & Hard Fork",
+"releaseDate": 1685070615005
+},
+{
+"id": 163325,
+"title": "Binance Will Support the Fetch.ai (FET) and Terra Classic (LUNC) Network Upgrades",
+"releaseDate": 1684807805687
+},
+{
+"id": 162067,
+"title": "Binance Will Support the Terra Classic (LUNC) and Kava (KAVA) Network Upgrades",
+"releaseDate": 1684292404495
+},
+{
+"id": 160835,
+"title": "Binance Will Support the Bitcoin Cash (BCH) Network Upgrade",
+"releaseDate": 1683605108708
+},
+{
+"id": 159707,
+"title": "Binance Will Support the Stacks (STX) Network Upgrade & Hard Fork",
+"releaseDate": 1682787098286
+},
+{
+"id": 158954,
+"title": "Binance Will Support the Band Protocol (BAND) Network Upgrade",
+"releaseDate": 1682478331448
+},
+{
+"id": 158537,
+"title": "Binance Will Support the Flow (FLOW) and Shentu (CTK) Network Upgrades",
+"releaseDate": 1682303403888
+},
+{
+"id": 158307,
+"title": "Binance Will Support the Zilliqa (ZIL) Network Upgrade & Hard Fork",
+"releaseDate": 1682045710627
+},
+{
+"id": 158097,
+"title": "Binance Will Support the Terra (LUNA) Network Upgrade",
+"releaseDate": 1681958709803
+},
+{
+"id": 158046,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) Network Upgrade & Hard Fork",
+"releaseDate": 1681899306342
+},
+{
+"id": 157657,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2023-04-18",
+"releaseDate": 1681707303868
+},
+{
+"id": 157603,
+"title": "Binance Will Support the IRISnet (IRIS) Network Upgrade",
+"releaseDate": 1681700419184
+},
+{
+"id": 157169,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1681273242546
+},
+{
+"id": 157097,
+"title": "Binance Will Support the Klaytn (KLAY) Network Upgrade & Hard Fork",
+"releaseDate": 1681266918440
+},
+{
+"id": 156700,
+"title": "Binance Will Support the aelf (ELF) Network Upgrade",
+"releaseDate": 1680837443322
+},
+{
+"id": 156411,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2023-04-06",
+"releaseDate": 1680663904878
+},
+{
+"id": 155817,
+"title": "Wallet Maintenance Extension for BNB Smart Chain (BEP20) - 2023-03-30",
+"releaseDate": 1680169821998
+},
+{
+"id": 155485,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1680150635454
+},
+{
+"id": 154958,
+"title": "Binance Will Support the Ethereum (ETH) Network\u2019s Shapella Upgrade",
+"releaseDate": 1680061208580
+},
+{
+"id": 154886,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2023-03-30",
+"releaseDate": 1680001204857
+},
+{
+"id": 154287,
+"title": "Binance Will Support the Tezos (XTZ) Network Upgrade",
+"releaseDate": 1679625005515
+},
+{
+"id": 154000,
+"title": "Binance Will Support the MultiversX (EGLD) and WAX (WAXP) Network Upgrades",
+"releaseDate": 1679538037519
+},
+{
+"id": 153767,
+"title": "Binance Will Support the Syscoin (SYS) Network Upgrade",
+"releaseDate": 1679456127635
+},
+{
+"id": 153341,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade",
+"releaseDate": 1679365823995
+},
+{
+"id": 153114,
+"title": "Binance Will Support the Injective (INJ) Network Upgrade & Hard Fork",
+"releaseDate": 1679056889754
+},
+{
+"id": 152876,
+"title": "Binance Will Support the Stacks (STX) Network Upgrade & Hard Fork",
+"releaseDate": 1678942815063
+},
+{
+"id": 152442,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1678767904162
+},
+{
+"id": 152284,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade",
+"releaseDate": 1678683318069
+},
+{
+"id": 151517,
+"title": "Binance Will Support the Arweave (AR) Network Upgrade & Hard Fork",
+"releaseDate": 1678075252496
+},
+{
+"id": 151284,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2023-03-03",
+"releaseDate": 1677755100226
+},
+{
+"id": 150920,
+"title": "Binance Will Support the Terra Classic (LUNC) and Dock (DOCK) Network Upgrades",
+"releaseDate": 1677589206527
+},
+{
+"id": 150185,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1676950504825
+},
+{
+"id": 149947,
+"title": "Binance Will Support the Vite (VITE) Network Upgrade",
+"releaseDate": 1676859047000
+},
+{
+"id": 149549,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1676433004952
+},
+{
+"id": 149451,
+"title": "Binance Will Support the MobileCoin (MOB) Network Upgrade",
+"releaseDate": 1676340310088
+},
+{
+"id": 149334,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2023-02-14",
+"releaseDate": 1676272256931
+},
+{
+"id": 149287,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1676254203492
+},
+{
+"id": 149067,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1675996503173
+},
+{
+"id": 148372,
+"title": "Binance Will Support the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1675652597306
+},
+{
+"id": 148346,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2023-02-05",
+"releaseDate": 1675437569652
+},
+{
+"id": 148230,
+"title": "Binance Will Support the Harmony (ONE) Network Upgrade & Hard Fork",
+"releaseDate": 1675390812949
+},
+{
+"id": 148041,
+"title": "Binance Will Support the Cardano (ADA) Network Upgrade & Hard Fork",
+"releaseDate": 1675231514531
+},
+{
+"id": 147857,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2023-01-30",
+"releaseDate": 1674803111353
+},
+{
+"id": 147529,
+"title": "Binance Will Support the Osmosis (OSMO) Network Upgrade",
+"releaseDate": 1674460802867
+},
+{
+"id": 147128,
+"title": "Binance Will Support the Injective (INJ) and Flow (FLOW) Network Upgrades & Hard Forks",
+"releaseDate": 1674021655397
+},
+{
+"id": 147029,
+"title": "Wallet Maintenance for Multiple Networks - 2023-01-18",
+"releaseDate": 1673953207797
+},
+{
+"id": 146915,
+"title": "Binance Will Support the Polygon (MATIC) Network Upgrade & Hard Fork",
+"releaseDate": 1673932483556
+},
+{
+"id": 146842,
+"title": "Binance Will Support the RSK Infrastructure Framework (RIF) Network Upgrade & Hard Fork",
+"releaseDate": 1673845511442
+},
+{
+"id": 146725,
+"title": "Binance Will Support the Firo (FIRO) Network Upgrade & Hard Fork",
+"releaseDate": 1673586905901
+},
+{
+"id": 146567,
+"title": "Binance Will Support the PIVX (PIVX) Network Upgrade & Hard Fork",
+"releaseDate": 1673427604185
+},
+{
+"id": 146120,
+"title": "Binance Will Support the IoTeX (IOTX) Network Upgrade & Hard Fork",
+"releaseDate": 1672808729269
+},
+{
+"id": 145843,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2022-12-30",
+"releaseDate": 1672294516067
+},
+{
+"id": 144393,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) and BNB Beacon Chain (BEP2) Network Upgrades & Hard Forks",
+"releaseDate": 1670551526393
+},
+{
+"id": 144299,
+"title": "Binance Will Support the Osmosis (OSMO) Network Upgrade",
+"releaseDate": 1670470237685
+},
+{
+"id": 143848,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2022-12-06",
+"releaseDate": 1670212441921
+},
+{
+"id": 143599,
+"title": "Binance Will Support the IRISnet (IRIS) Network Upgrade",
+"releaseDate": 1669950606894
+},
+{
+"id": 143545,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2022-12-02",
+"releaseDate": 1669890173475
+},
+{
+"id": 143233,
+"title": "Wallet Maintenance for Bitcoin Network (BTC) - 2022-12-01",
+"releaseDate": 1669806080518
+},
+{
+"id": 142956,
+"title": "Binance Will Support the Filecoin (FIL) Network Upgrade & Hard Fork",
+"releaseDate": 1669687510011
+},
+{
+"id": 142504,
+"title": "Wallet Maintenance for Tron Network (TRX) - 2022-11-24",
+"releaseDate": 1669168865288
+},
+{
+"id": 142061,
+"title": "Binance Will Support the Band Protocol (BAND) Network Upgrade",
+"releaseDate": 1668736804154
+},
+{
+"id": 142036,
+"title": "Deposits of USDT (SOL) Token Resumed",
+"releaseDate": 1668697543311
+},
+{
+"id": 142006,
+"title": "Deposits of USDC (SOL) & USDT (SOL) Token Suspended",
+"releaseDate": 1668686730700
+},
+{
+"id": 141680,
+"title": "Binance Will Support the VeChain (VET) Network Upgrade & Hard Fork",
+"releaseDate": 1668483604916
+},
+{
+"id": 141560,
+"title": "Binance Will Support the eCash (XEC) Network Upgrade",
+"releaseDate": 1668406248570
+},
+{
+"id": 141226,
+"title": "Binance Will Support the Celo (CELO) Network Upgrade & Hard Fork",
+"releaseDate": 1667980805777
+},
+{
+"id": 140909,
+"title": "Wallet Maintenance for Ethereum Network (ERC-20) - 2022-11-08",
+"releaseDate": 1667797208966
+},
+{
+"id": 140728,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade",
+"releaseDate": 1667527204051
+},
+{
+"id": 140507,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1667362205751
+},
+{
+"id": 138868,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade & Hard Fork",
+"releaseDate": 1666752305317
+},
+{
+"id": 126317,
+"title": "Binance Will Support the Horizen (ZEN) Network Upgrade",
+"releaseDate": 1666231502698
+},
+{
+"id": 126051,
+"title": "Binance Will Support the Elrond (EGLD) Network Upgrade",
+"releaseDate": 1666065603734
+},
+{
+"id": 125859,
+"title": "Binance Will Support the Avalanche (AVAX) Network Upgrade",
+"releaseDate": 1665723604242
+},
+{
+"id": 123432,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1665495606323
+},
+{
+"id": 123407,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2022-10-12",
+"releaseDate": 1665479403119
+},
+{
+"id": 123351,
+"title": "Binance Will Support the Hive (HIVE) Network Upgrade & Hard Fork",
+"releaseDate": 1665454510514
+},
+{
+"id": 122732,
+"title": "Binance Will Support the Elrond (EGLD) Network Upgrade",
+"releaseDate": 1664503203962
+},
+{
+"id": 122533,
+"title": "Binance Will Support the Theta Network (THETA) Upgrade & Hard Fork",
+"releaseDate": 1664262902859
+},
+{
+"id": 122142,
+"title": "Binance Will Support the Cardano (ADA) Network Upgrade & Hard Fork",
+"releaseDate": 1663835702783
+},
+{
+"id": 121919,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2022-09-23",
+"releaseDate": 1663822802974
+},
+{
+"id": 121895,
+"title": "Binance Will Support the Tezos (XTZ) Network Upgrade",
+"releaseDate": 1663819203986
+},
+{
+"id": 112424,
+"title": "Binance Will Support the MobileCoin (MOB) Network Upgrade",
+"releaseDate": 1663733105754
+},
+{
+"id": 103505,
+"title": "Binance Will Support the Dash (DASH) and IOST (IOST) Network Upgrades & Hard Forks",
+"releaseDate": 1663041605340
+},
+{
+"id": 102056,
+"title": "Wallet Maintenance for Terra Classic Network (LUNC) - 2022-09-08",
+"releaseDate": 1662602401900
+},
+{
+"id": 101749,
+"title": "Wallet Suspension for Ether (ETH) and Wrapped Ether (WETH) on Multiple Networks - 2022-09-05",
+"releaseDate": 1662390139970
+},
+{
+"id": 101418,
+"title": "Binance Will Support the BNB Beacon Chain (BEP2) and Beam (BEAM) Network Upgrades & Hard Forks",
+"releaseDate": 1662012008465
+},
+{
+"id": 101186,
+"title": "Binance Will Support the VITE (VITE) Network Upgrade",
+"releaseDate": 1661919004233
+},
+{
+"id": 101104,
+"title": "Binance Will Support the RSK Infrastructure Framework (RIF) Network Upgrade & Hard Fork",
+"releaseDate": 1661824804940
+},
+{
+"id": 101049,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2022-08-31",
+"releaseDate": 1661752809082
+},
+{
+"id": 100944,
+"title": "Binance Will Support the Klaytn (KLAY) Network Upgrade",
+"releaseDate": 1661493611478
+},
+{
+"id": 100892,
+"title": "Notice Regarding the Terra Classic (LUNC) Network Upgrade",
+"releaseDate": 1661434229710
+},
+{
+"id": 100664,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1661311502685
+},
+{
+"id": 100483,
+"title": "Binance Will Support the Fetch.ai (FET) Network Upgrade",
+"releaseDate": 1661220002002
+},
+{
+"id": 98896,
+"title": "Wallet Maintenance for Multiple Networks - 2022-08-04",
+"releaseDate": 1659348911449
+},
+{
+"id": 98674,
+"title": "Binance Will Support the Qtum (QTUM) Network Upgrade & Hard Fork",
+"releaseDate": 1658977503856
+},
+{
+"id": 98190,
+"title": "Binance Has Completed Wallet Maintenance for Multiple Networks - 2022-07-21",
+"releaseDate": 1658390411682
+},
+{
+"id": 97991,
+"title": "Wallet Maintenance for Multiple Networks - 2022-07-21",
+"releaseDate": 1658226240189
+},
+{
+"id": 97179,
+"title": "Binance Will Support the REI Network (REI) Upgrade & Hard Fork",
+"releaseDate": 1657162841981
+},
+{
+"id": 96997,
+"title": "Binance Will Support the Shentu (CTK) Network Upgrade",
+"releaseDate": 1657083624019
+},
+{
+"id": 96875,
+"title": "Binance Will Support the Filecoin (FIL) and Elrond (EGLD) Network Upgrades",
+"releaseDate": 1656997221044
+},
+{
+"id": 96709,
+"title": "Binance Will Support the Wanchain (WAN) Network Upgrade & Hard Fork",
+"releaseDate": 1656665693125
+},
+{
+"id": 95805,
+"title": "Binance Will Support the Tezos (XTZ) Network Upgrade",
+"releaseDate": 1655964052334
+},
+{
+"id": 95691,
+"title": "Binance Will Support the Ethereum (ETH) Network Upgrade",
+"releaseDate": 1655951107226
+},
+{
+"id": 95578,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2022-06-27",
+"releaseDate": 1655888401846
+},
+{
+"id": 95530,
+"title": "Binance Will Support the Komodo (KMD) Network Upgrade & Hard Fork",
+"releaseDate": 1655867119462
+},
+{
+"id": 95377,
+"title": "Binance Will Support the Beam (BEAM) Network Upgrade & Hard Fork",
+"releaseDate": 1655776811776
+},
+{
+"id": 95244,
+"title": "Wallet Maintenance for TRON Network (TRX) - 2022-06-23",
+"releaseDate": 1655726039970
+},
+{
+"id": 95128,
+"title": "Binance Will Support the BNB Smart Chain (BEP20) Network Upgrade & Hard Fork",
+"releaseDate": 1655690419940
+},
+{
+"id": 94945,
+"title": "Binance Will Support the Neo (NEO) N3 Network Upgrade & Hard Fork",
+"releaseDate": 1655344804617
+},
+{
+"id": 94783,
+"title": "Binance Will Support the Kadena (KDA) Network Upgrade",
+"releaseDate": 1655258405155
+},
+{
+"id": 94758,
+"title": "Binance Will Support the Firo (FIRO) Network Upgrade & Hard Fork",
+"releaseDate": 1655178342136
+},
+{
+"id": 94595,
+"title": "Wallet Maintenance for BNB Smart Chain (BEP20) - 2022-06-13",
+"releaseDate": 1654847101536
+},
+{
+"id": 94538,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1654830007317
+},
+{
+"id": 94315,
+"title": "Deposits & Withdrawals on Elrond (EGLD) Network Temporarily Suspended",
+"releaseDate": 1654668602145
+},
+{
+"id": 94272,
+"title": "Binance Will Support the Stellar Lumens (XLM) Network Upgrade",
+"releaseDate": 1654653601956
+},
+{
+"id": 94000,
+"title": "Binance Will Support the Mainnet Swap of BEP2 THORChain (RUNE)",
+"releaseDate": 1654160963010
+},
+{
+"id": 93403,
+"title": "Binance Will Support the IoTeX (IOTX) and Zcash (ZEC) Network Upgrades & Hard Forks",
+"releaseDate": 1653894322115
+},
+{
+"id": 93269,
+"title": "Binance Will Support the Elrond (EGLD) Network Upgrade",
+"releaseDate": 1653617103828
+},
+{
+"id": 93114,
+"title": "Binance Will Support the Harmony (ONE) Network Upgrade & Hard Fork",
+"releaseDate": 1653531004816
+},
+{
+"id": 93062,
+"title": "Binance Will Support the Kava (KAVA) Network Upgrade",
+"releaseDate": 1653456602872
+},
+{
+"id": 92366,
+"title": "Wallet Maintenance for Multiple Networks - 2022-05-19",
+"releaseDate": 1652839202656
+},
+{
+"id": 92018,
+"title": "Binance Will Support the eCash (XEC) Network Upgrade",
+"releaseDate": 1652435702175
+},
+{
+"id": 91851,
+"title": "Deposits and Withdrawals on Terra (LUNA) Network Temporarily Suspended (2022-05-13)",
+"releaseDate": 1652414745938
+},
+{
+"id": 91673,
+"title": "Updates Regarding Terra (LUNA) Network Congestion (2022-05-12)",
+"releaseDate": 1652350765140
+},
+{
+"id": 91388,
+"title": "Binance Will Support the Helium (HNT) Network Upgrade",
+"releaseDate": 1652157044946
+},
+{
+"id": 91367,
+"title": "Withdrawals on Terra (LUNA) Network Temporarily Suspended",
+"releaseDate": 1652153702306
+},
+{
+"id": 91231,
+"title": "Binance Will Support the Nervos Network (CKB) Upgrade & Hard Fork",
+"releaseDate": 1652061605430
+},
+{
+"id": 90761,
+"title": "Wallet Maintenance for TRON Network (TRX) - 2022-05-06",
+"releaseDate": 1651640401965
+},
+{
+"id": 90558,
+"title": "Notice on the Suspension of Withdrawals on Solana (SOL) Network",
+"releaseDate": 1651233854938
+},
+{
+"id": 90407,
+"title": "Binance Will Support the Decred (DCR) Upgrade & Hard Fork",
+"releaseDate": 1651201213907
+},
+{
+"id": 90092,
+"title": "Binance Will Support the Ardor (ARDR) Upgrade & Hard Fork",
+"releaseDate": 1651024802022
+},
+{
+"id": 89920,
+"title": "Withdrawals for MOBOX NFT Avatars Suspended",
+"releaseDate": 1650771516571
+},
+{
+"id": 89221,
+"title": "Wallet Maintenance Second Extension for Multiple Networks - 2022-04-14",
+"releaseDate": 1649938916201
+},
+{
+"id": 89200,
+"title": "Wallet Maintenance Extension for Multiple Networks - 2022-04-14",
+"releaseDate": 1649925901603
+},
+{
+"id": 89109,
+"title": "Binance Will Support the New BitShares (NBS) Network Upgrade & Hard Fork",
+"releaseDate": 1649905206505
+},
+{
+"id": 88732,
+"title": "Binance Will Support the Cosmos (ATOM) Network Upgrade",
+"releaseDate": 1649664002454
+},
+{
+"id": 88669,
+"title": "Wallet Maintenance for Multiple Networks - 2022-04-14",
+"releaseDate": 1649653203178
+},
+{
+"id": 88595,
+"title": "Binance Will Support the BNB Beacon Chain (BNB) Upgrade & Hard Fork",
+"releaseDate": 1649412002410
+},
+{
+"id": 88477,
+"title": "Wallet Maintenance for BNB Beacon Chain (BEP2) - 2022-04-08",
+"releaseDate": 1649390410959
+},
+{
+"id": 88093,
+"title": "Deposits & Withdrawals on Ronin Network Fully Resumed",
+"releaseDate": 1649240437942
+},
+{
+"id": 87863,
+"title": "Binance Will Support the Flow (FLOW) Network Upgrade & Hard Fork",
+"releaseDate": 1649142911973
+},
+{
+"id": 87779,
+"title": "Deposits & Withdrawals on Tezos (XTZ) Network Temporarily Suspended",
+"releaseDate": 1649130308362
+},
+{
+"id": 87681,
+"title": "Binance Will Support the Horizen (ZEN) Upgrade & Hard Fork",
+"releaseDate": 1649055909383
+},
+{
+"id": 87601,
+"title": "Deposits & Withdrawals on Ronin Network Partially Resumed",
+"releaseDate": 1648895806344
+},
+{
+"id": 87533,
+"title": "Binance Will Support the Elrond (EGLD) Network Upgrade",
+"releaseDate": 1648799178824
+},
+{
+"id": 83327,
+"title": "Wallet Maintenance for Cardano Network (ADA)",
+"releaseDate": 1645442967429
+},
+{
+"id": 82682,
+"title": "Wallet Maintenance for Ethereum Network (ERC20) - 2022-02-16",
+"releaseDate": 1644922528718
+}
+]
+}

@@ -1,0 +1,411 @@
+{
+"catalog": 51,
+"name": "API Updates",
+"articles": [
+{
+"id": 278116,
+"title": "Notice on Binance Spot API Update (2026-06-25)",
+"releaseDate": 1782352802372
+},
+{
+"id": 257054,
+"title": "Notice on Binance Spot API Update (2025-11-18)",
+"releaseDate": 1763451001226
+},
+{
+"id": 252060,
+"title": "Binance Futures API Updates (2025-10-09)",
+"releaseDate": 1760009173003
+},
+{
+"id": 242625,
+"title": "Introducing Binance Announcements WebSocket: Subscribe to Get Real-Time Updates and Promotions",
+"releaseDate": 1753664401603
+},
+{
+"id": 215285,
+"title": "Binance Futures API Updates (2024-10-30)",
+"releaseDate": 1729591223290
+},
+{
+"id": 214867,
+"title": "Binance Earn Enables API Functionality for SOL Staking",
+"releaseDate": 1729216807163
+},
+{
+"id": 214547,
+"title": "Binance USD\u24c8-M Futures WebSocket System Upgrade Notice (2024-10-17)",
+"releaseDate": 1728968401616
+},
+{
+"id": 214125,
+"title": "Binance COIN-M Futures WebSocket System Upgrade Notice (2024-10-10)",
+"releaseDate": 1728435600000
+},
+{
+"id": 212461,
+"title": "Binance COIN-M Futures WebSocket System Upgrade Notice (2024-09-26)",
+"releaseDate": 1727150440184
+},
+{
+"id": 209364,
+"title": "Introducing TRADE_LITE for USD\u24c8-M Futures Websocket (2024-09-03)",
+"releaseDate": 1724832001222
+},
+{
+"id": 208133,
+"title": "Binance Futures API Service Upgrade (2024-08-21)",
+"releaseDate": 1723792505216
+},
+{
+"id": 208110,
+"title": "Binance API Key System Upgrade Notice (2024-08-19)",
+"releaseDate": 1723777208827
+},
+{
+"id": 207266,
+"title": "Binance Spot API Service Upgrade (2024-08-08)",
+"releaseDate": 1722943811268
+},
+{
+"id": 202791,
+"title": "Binance Spot API Service Upgrade (2024-06-18)",
+"releaseDate": 1718271003386
+},
+{
+"id": 202232,
+"title": "Binance Spot API Service Upgrade (2024-06-06)",
+"releaseDate": 1717641002689
+},
+{
+"id": 198254,
+"title": "Binance USD\u24c8-M Futures WebSocket System Upgrade Notice (2024-04-23)",
+"releaseDate": 1713420003078
+},
+{
+"id": 196380,
+"title": "Binance Spot API to Increase Request Weight Limits (2024-04-04)",
+"releaseDate": 1712058361680
+},
+{
+"id": 195155,
+"title": "Binance Spot API Service Upgrade (2024-03-20)",
+"releaseDate": 1710831639063
+},
+{
+"id": 192788,
+"title": "Updates on Binance Loans SAPI Endpoints (2024-02-27)",
+"releaseDate": 1709028614914
+},
+{
+"id": 192700,
+"title": "Binance Dual Investment Enables API Functionality",
+"releaseDate": 1709010910265
+},
+{
+"id": 191488,
+"title": "Updates on Binance Futures WebSocket Domains (2024-02-29)",
+"releaseDate": 1707891002899
+},
+{
+"id": 188209,
+"title": "Updates on Binance Margin SAPI Endpoints (2024-03-31)",
+"releaseDate": 1704771003861
+},
+{
+"id": 187207,
+"title": "Binance Margin Adds New WebSocket Domain (2023-12-27)",
+"releaseDate": 1703652902669
+},
+{
+"id": 186934,
+"title": "Updates on Binance ETH Staking SAPI Endpoints",
+"releaseDate": 1703559914502
+},
+{
+"id": 183585,
+"title": "Binance Spot API to Increase Single Account Order Rate Limit",
+"releaseDate": 1700559358709
+},
+{
+"id": 183214,
+"title": "Updates on Binance Futures WebSocket Domains (2023-12-15)",
+"releaseDate": 1700106607808
+},
+{
+"id": 179717,
+"title": "Binance Spot API to Increase Request Weight Limits (2023-10-19)",
+"releaseDate": 1697162407525
+},
+{
+"id": 177673,
+"title": "Updates on Binance Simple Earn SAPI Endpoints (2023-09-21)",
+"releaseDate": 1695273304748
+},
+{
+"id": 176849,
+"title": "Binance Spot Launches \u201cSmart Order Routing (SOR)\u201d Experimental Trading Feature for API Users",
+"releaseDate": 1694590534569
+},
+{
+"id": 175391,
+"title": "Binance Futures Launches Self-Trade Prevention (STP) Function for USD\u24c8-Margined Futures on API",
+"releaseDate": 1693297535653
+},
+{
+"id": 175290,
+"title": "Binance Flexible Loan Introduces SAPI Endpoints",
+"releaseDate": 1693207801605
+},
+{
+"id": 174492,
+"title": "Binance Spot API to Increase Request Weight Limits",
+"releaseDate": 1692270002142
+},
+{
+"id": 173682,
+"title": "Binance Margin Launches Margin Special API Keys for Lower-Latency Connection",
+"releaseDate": 1691651111734
+},
+{
+"id": 170578,
+"title": "Binance Futures Historical Order API Updates",
+"releaseDate": 1689768018777
+},
+{
+"id": 170377,
+"title": "Binance Now Supports Ed25519 API Keys (2023-07-19)",
+"releaseDate": 1689750005289
+},
+{
+"id": 169573,
+"title": "Binance Earn Enables API Functionality for Simple Earn & ETH Staking",
+"releaseDate": 1689300006253
+},
+{
+"id": 167421,
+"title": "Binance Auto-Invest Enables API Functionality",
+"releaseDate": 1687861203612
+},
+{
+"id": 166196,
+"title": "Binance Liquid Swap Upgrades Pool Prices WebSocket",
+"releaseDate": 1686749501018
+},
+{
+"id": 161710,
+"title": "Binance API Key System Upgrade Notice (2023-05-17)",
+"releaseDate": 1684119004165
+},
+{
+"id": 159365,
+"title": "Binance Spot Launches TWAP (Time-Weighted Average Price) on API",
+"releaseDate": 1682647288624
+},
+{
+"id": 148534,
+"title": "Binance API Key System Upgrade Notice (2023-02-09)",
+"releaseDate": 1675735205190
+},
+{
+"id": 147646,
+"title": "Binance Spot Launches Self-Trade Prevention (STP) Function on API",
+"releaseDate": 1674627924907
+},
+{
+"id": 145867,
+"title": "Binance Now Supports RSA API Keys (2022-12-29)",
+"releaseDate": 1672304402163
+},
+{
+"id": 97804,
+"title": "API Functionality Now Enabled for Binance Staking",
+"releaseDate": 1657879226914
+},
+{
+"id": 95939,
+"title": "Binance Launches Fast API",
+"releaseDate": 1656036011698
+},
+{
+"id": 93179,
+"title": "Introducing Binance API Page",
+"releaseDate": 1653551702094
+},
+{
+"id": 90251,
+"title": "Binance Futures Launches Time-Weighted Average Price Trading Algorithm on API",
+"releaseDate": 1651125604354
+},
+{
+"id": 89060,
+"title": "Binance Futures Launches Volume Participation Trading Algorithm on API",
+"releaseDate": 1649839542033
+},
+{
+"id": 72615,
+"title": "Updates on SAPI Rules (2021-11-04)",
+"releaseDate": 1636005211799
+},
+{
+"id": 71820,
+"title": "Updates on SAPI Transfer Types (2021-10-27)",
+"releaseDate": 1635327982955
+},
+{
+"id": 68745,
+"title": "Updates to the Time Range of Data Retrieval via Binance Margin SAPI",
+"releaseDate": 1632472201056
+},
+{
+"id": 63570,
+"title": "Updates to API Services",
+"releaseDate": 1628222424524
+},
+{
+"id": 53664,
+"title": "Updates to Binance Margin SAPI Create Margin Account",
+"releaseDate": 1619587049298
+},
+{
+"id": 53228,
+"title": "Notice on Adjusting the Request Weight of Rest API Endpoints",
+"releaseDate": 1619424336969
+},
+{
+"id": 53041,
+"title": "Binance Futures API Websocket User Data Stream Upgrade (2021-04-23)",
+"releaseDate": 1619185509461
+},
+{
+"id": 52046,
+"title": "Notice to API Users on Delisting WAPI Endpoints",
+"releaseDate": 1618299587094
+},
+{
+"id": 50707,
+"title": "Updates to the Sub-Account Transfer History Query in Binance SAPI ",
+"releaseDate": 1617179700692
+},
+{
+"id": 44791,
+"title": "API Functionality Now Enabled for Binance Vanilla Options",
+"releaseDate": 1611734622828
+},
+{
+"id": 34223,
+"title": "Update to the Binance USDT-Margined Futures Contract API",
+"releaseDate": 1603269693601
+},
+{
+"id": 32762,
+"title": "Updates to the Binance Savings API",
+"releaseDate": 1601270127971
+},
+{
+"id": 32513,
+"title": "API Functionality Now Enabled for Binance Liquid Swap",
+"releaseDate": 1600839548341
+},
+{
+"id": 31643,
+"title": "Updates to Scheduled Changes for the User Data Stream Websocket",
+"releaseDate": 1599645444797
+},
+{
+"id": 31380,
+"title": "Updates to the User Data Stream Websocket Payloads",
+"releaseDate": 1599241882693
+},
+{
+"id": 29339,
+"title": "API Functionality Now Enabled for Binance Isolated Margin Trading",
+"releaseDate": 1596015756675
+},
+{
+"id": 27483,
+"title": "New Binance Futures API Endpoint With 10x Performance ",
+"releaseDate": 1591354570000
+},
+{
+"id": 27364,
+"title": "Notice Regarding Updates to the Binance Futures API",
+"releaseDate": 1591111812000
+},
+{
+"id": 19302,
+"title": "Updates to the Binance Futures API",
+"releaseDate": 1589543772000
+},
+{
+"id": 19506,
+"title": "Binance Futures Releases API Java SDK",
+"releaseDate": 1581490298000
+},
+{
+"id": 19687,
+"title": "Binance Optimizes API Order Rate Limits",
+"releaseDate": 1573809079000
+},
+{
+"id": 19720,
+"title": "Binance Futures Provides Low Latency Services",
+"releaseDate": 1572422013000
+},
+{
+"id": 19742,
+"title": "Binance API Now Supports Deposits and Withdrawals for Interoperable Tokens",
+"releaseDate": 1571128633000
+},
+{
+"id": 19822,
+"title": "Binance WebSocket Order Book Updates - Now 10x Faster",
+"releaseDate": 1567503334000
+},
+{
+"id": 19851,
+"title": "Binance Will Remove Selected API Endpoints ",
+"releaseDate": 1565943862000
+},
+{
+"id": 19879,
+"title": "API Functionality Now Enabled for Margin Trading",
+"releaseDate": 1563966081000
+},
+{
+"id": 19942,
+"title": "Security Update: API Key Reset",
+"releaseDate": 1557275711000
+},
+{
+"id": 20060,
+"title": "Updates to Binance API Trading Rules",
+"releaseDate": 1542192671000
+},
+{
+"id": 20151,
+"title": "API Key Creation Now Re-enabled",
+"releaseDate": 1530673999000
+},
+{
+"id": 20152,
+"title": "Security Update: API Key Reset",
+"releaseDate": 1530670960000
+},
+{
+"id": 20585,
+"title": "Binance API Beta",
+"releaseDate": 1501223363000
+},
+{
+"id": 20622,
+"title": "Binance API Beta Testing Starts",
+"releaseDate": 1500625571000
+},
+{
+"id": 20612,
+"title": "Binance Trading API Open for Beta Testing",
+"releaseDate": 1500426180000
+}
+]
+}
