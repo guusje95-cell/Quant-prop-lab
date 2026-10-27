@@ -1,0 +1,76 @@
+{
+ "reference v9.7": [
+  3.012,
+  [
+   2.495,
+   3.784,
+   2.509
+  ]
+ ],
+ "parsed events": {
+  "spot delisting": 163,
+  "monitoring tag": 162,
+  "futures delisting": 42
+ },
+ "trials": {
+  "A + spot delisting": {
+   "events traded": {
+    "spot delisting": 67
+   },
+   "sleeve": [
+    1.674,
+    -0.096,
+    0.93
+   ],
+   "book": [
+    3.049,
+    [
+     2.495,
+     3.804,
+     2.584
+    ]
+   ],
+   "pass": false
+  },
+  "B + monitoring tag": {
+   "events traded": {
+    "monitoring tag": 114
+   },
+   "sleeve": [
+    1.673,
+    -0.047,
+    0.155
+   ],
+   "book": [
+    2.964,
+    [
+     2.495,
+     3.792,
+     2.378
+    ]
+   ],
+   "pass": false
+  },
+  "C + all three": {
+   "events traded": {
+    "spot delisting": 67,
+    "monitoring tag": 114,
+    "futures delisting": 41
+   },
+   "sleeve": [
+    1.385,
+    -0.04,
+    0.559
+   ],
+   "book": [
+    2.994,
+    [
+     2.439,
+     3.815,
+     2.459
+    ]
+   ],
+   "pass": false
+  }
+ }
+}

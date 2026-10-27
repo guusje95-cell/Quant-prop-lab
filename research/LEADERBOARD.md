@@ -1883,3 +1883,7 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen466 (2026-10-26): walk-forward second basket over the whole pool of 21 session signals (`results/gen466.json`, pool `results/gen466_pool.parquet`)
 - Quarterly membership from past data only (annualised Sharpe > 0.5, >= 180 active days): 0-5 members per quarter. Basket **-0.51 / 0.53 / 1.27** (by year -0.51 / 0.03 / 0.94 / 1.85 / 0.11), corr diversifier basket -0.02; book 2.916 [1.815, 3.571, 2.855]. **Fails.**
 - **Reading: the Gen465 second basket was mostly hindsight**; with past data only, the weak session signals are not reliably picked. This also argues against adopting near-miss single signals without a strong economic prior.
+
+## Gen467 (2026-10-27): Binance announcement event shorts merged into the listing short (`results/gen467.json`)
+- Announcement catalog parsed: 163 spot delistings, 162 monitoring-tag additions, 42 futures delistings. Short 0.05 from the first hour after the announcement, 14 days (monitoring tag 30), 30% stop, shared 0.5 gross cap.
+- A + spot delisting (67 tradable): sleeve 1.67 / -0.10 / 0.93, **book 3.049 [2.495, 3.804, 2.584]**: no period lower, +0.037 < +0.05 -> **fails (near miss)**. B + monitoring tag: 2.964, fails. C all three: 2.994, fails.
