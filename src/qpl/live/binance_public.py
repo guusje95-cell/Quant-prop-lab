@@ -292,3 +292,32 @@ def update_listings(live: Path, now: pd.Timestamp | None = None, days: int = 45,
             log(f"  listing {sym}: {e}")
     log(f"  new listings: {len(want)} symbols followed, {n} new hourly bars")
     return n
+
+
+def update_event_coins(live: Path, coins: dict, now: pd.Timestamp | None = None, log=print) -> int:
+    """v9.8 candidate (Gen468 spot-delisting shorts): hourly klines (close, quote_volume) and funding of each coin's USDT perp from
+    `coins[coin]` (a few hours before its announcement) into <live>/events/<SYM>_1h.parquet and _funding.parquet."""
+    out = live / "events"; out.mkdir(parents=True, exist_ok=True)
+    now = pd.Timestamp.now("UTC").tz_localize(None) if now is None else pd.Timestamp(now)
+    c = Client(); n = 0
+    for coin, t0 in sorted(coins.items()):
+        sym = f"{coin}USDT"; f1 = out / f"{sym}_1h.parquet"
+        last = pd.DatetimeIndex(pd.read_parquet(f1, columns=["close"]).index).max() if f1.exists() else None
+        start = last + pd.Timedelta(hours=1) if last is not None else pd.Timestamp(t0).floor("h")
+        try:
+            k = _klines(c, f"{FAPI}/fapi/v1/klines", sym, "1h", start, now)
+            if not len(k):
+                continue
+            n += _append(f1, k[["close", "quote_volume"]].astype("float64"))
+            ff = out / f"{sym}_funding.parquet"
+            lastf = pd.to_datetime(pd.read_parquet(ff, columns=["time"])["time"]).max() if ff.exists() else pd.Timestamp(t0)
+            d = c.get(f"{FAPI}/fapi/v1/fundingRate", {"symbol": sym, "startTime": _ms(lastf + pd.Timedelta(minutes=1)), "limit": 1000})
+            if d:
+                f = pd.DataFrame({"last_funding_rate": [float(x["fundingRate"]) for x in d], "time": pd.to_datetime([int(x["fundingTime"]) for x in d], unit="ms")})
+                _append(ff, f[f.time <= now], key="time")
+        except Restricted:
+            raise
+        except Exception as e:                                          # noqa: BLE001 - no perp for this coin, or one symbol failing
+            log(f"  event coin {sym}: {e}")
+    log(f"  event coins: {len(coins)} followed, {n} new hourly bars")
+    return n

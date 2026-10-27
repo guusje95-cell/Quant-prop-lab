@@ -1887,3 +1887,10 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 ## Gen467 (2026-10-27): Binance announcement event shorts merged into the listing short (`results/gen467.json`)
 - Announcement catalog parsed: 163 spot delistings, 162 monitoring-tag additions, 42 futures delistings. Short 0.05 from the first hour after the announcement, 14 days (monitoring tag 30), 30% stop, shared 0.5 gross cap.
 - A + spot delisting (67 tradable): sleeve 1.67 / -0.10 / 0.93, **book 3.049 [2.495, 3.804, 2.584]**: no period lower, +0.037 < +0.05 -> **fails (near miss)**. B + monitoring tag: 2.964, fails. C all three: 2.994, fails.
+
+## Gen468 (2026-10-27, FLAGGED post hoc): event short v2 = Gen461 crowding-sized listing short + Gen467 A spot-delisting shorts (`results/gen468.json`)
+- One rule for "weak or crowded new coins fall": listing short sized x clip(L / 1.5, 0.5, 2) by the all-account long/short ratio in the 24 h before entry, plus 0.05 shorts for 14 days after each 'Binance Will Delist' announcement (67 tradable perps); 30% stop, shared gross cap 0.5.
+- Sleeve 1.71 / -0.01 / 1.18 (v9.7 listing short 1.67 / -0.13 / 0.61). **Book 3.091 [2.540, 3.861, 2.616] vs v9.7 3.012 [2.495, 3.784, 2.509]: +0.079, every period up -> passes the strict rule, but flagged (combination of two near misses chosen after seeing them).**
+- Descriptive prior check (crowding by year): listings with L >= 1.5 gave better 30-day short returns than L < 1.5 in 2022, 2024, 2025 and 2026 (2023 flat); Spearman over all 530 events 0.11.
+- **Gen468b robustness (`results/gen468b.json`): all 13 variants beat v9.7 in EVERY period**: costs x2 3.080; entry 1 h later 3.080; 6 h later 3.036; pivot 1.2 / 2.0 3.094 / 3.090; clip 0.75-1.5 / 0.25-3 3.086 / 3.106; delisting hold 7 / 30 d 3.090 / 3.084; cap 0.35 / 0.75 3.085 / 3.101; crowding only 3.054.
+- Live module `scripts/event_live.py` reproduces Gen468 exactly (3.091 [2.540, 3.861, 2.616]); feeds: `qpl.live.binance_announcements` (public CMS list), `binance_public.update_event_coins`, listing ratios via `update_ratios`; history crowding in `config/listing_crowding.json` (530 listings).
