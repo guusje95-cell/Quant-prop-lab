@@ -16,3 +16,4 @@ selection-bias adjustment, validated out of sample. v9.8 stays frozen and paper-
 ## Experiments
 | ID | Date | Direction | What | Result | Decision |
 |---|---|---|---|---|---|
+| A1 | 2026-10-27 | audit | estimated-live-Sharpe methodology: project method reproduced (1.668 at N = 1,849), DSR, Harvey-Liu, CSCV/PBO on 502 sleeve-subset books, Lo autocorrelation, block bootstrap (`METHODOLOGY_AUDIT.md`) | project 1.67; HL-BHY 2.56; PBO 0.13; best-of-502 decay 0.64; execution-honest 3.28 | gate kept: execution-honest SR - E[max] (N = 1,849 + v9.9 trials) >= 2.0 |

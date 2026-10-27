@@ -1,0 +1,82 @@
+{
+ "data": {
+  "days": 1734,
+  "from": "2022-01-01",
+  "to": "2026-09-30",
+  "observed Sharpe": 3.24
+ },
+ "1 project method (SR - expected max of N null trials, null variance 1/T)": {
+  "100": 2.079,
+  "300": 1.912,
+  "1000": 1.747,
+  "1849": 1.668,
+  "3000": 1.609
+ },
+ "2 uncertainty of the observed Sharpe": {
+  "skew": 2.52,
+  "kurtosis": 19.6,
+  "SE (non-normal)": 0.386,
+  "95% CI (non-normal SE)": [
+   2.48,
+   4.0
+  ],
+  "autocorrelation lags 1-5": [
+   -0.006,
+   0.102,
+   0.047,
+   0.037,
+   -0.027
+  ],
+  "Lo-adjusted annual Sharpe": 3.306,
+  "stationary block bootstrap (mean block 20 d) 5% / 50% / 95%": [
+   2.61,
+   3.25,
+   3.91
+  ]
+ },
+ "3 DSR = P(true SR > E[max of N nulls])": {
+  "100": 1.0,
+  "300": 1.0,
+  "1000": 0.999997,
+  "1849": 0.999992,
+  "3000": 0.999985
+ },
+ "4 Harvey-Liu haircut Sharpe (t-stat of the observed Sharpe = 7.06)": {
+  "Bonferroni": {
+   "100": 2.933,
+   "300": 2.855,
+   "1000": 2.767,
+   "1849": 2.721,
+   "3000": 2.684
+  },
+  "BHY (best trial)": {
+   "100": 2.815,
+   "300": 2.719,
+   "1000": 2.613,
+   "1849": 2.559,
+   "3000": 2.515
+  }
+ },
+ "5 PBO on the 502 sleeve-subset books (CSCV, 16 blocks, 2000 splits)": {
+  "PBO (share of splits where the in-sample winner is below the out-of-sample median)": 0.132,
+  "in-sample winner: mean IS Sharpe / mean OOS Sharpe": [
+   3.53,
+   2.88
+  ],
+  "OOS median of all books": 2.5,
+  "selection decay of the winner (IS - OOS)": 0.64,
+  "effective number of independent books (eigenvalue entropy)": 5.5,
+  "rank of the full v9.8 book among the 502 (full sample)": 8,
+  "best full-sample subset": [
+   "C* + Weiss expiry + delev bounce + diversifier basket + relative crowding 6 + listing short",
+   3.368
+  ]
+ },
+ "6 Sharpe by year": {
+  "2022": 3.06,
+  "2023": 3.69,
+  "2024": 4.12,
+  "2025": 2.57,
+  "2026": 2.79
+ }
+}
