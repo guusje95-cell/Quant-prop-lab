@@ -1,0 +1,9 @@
+{
+  "id": "v99-R1", "date": "2026-10-27", "registered": "before running r1_limit.py",
+  "hypothesis": "the daily sleeves (C*, delev bounce, ridge ML, alt kimchi, basket) trade once a day at 00:00 UTC with no urgency; resting limit orders at the touch for up to an hour save the half spread and the taker-maker fee gap (5.5 -> 2 bp) and the missed-fill / adverse-selection cost is smaller than that saving for slow signals",
+  "control": "v9.8 book (paper code, research pack) with Bybit taker costs (5.5 bp + half spread by coin class) on its net trades: Gen473b 3.283",
+  "variants": "offset o in {0, 2, 5} bp beyond the touch, window W in {30, 60, 120} min, trade-through delta in {1, 3} bp, delay d in {0, 10} min (8 combinations listed in the script)",
+  "fill model": "OHLC 5-min bars only: full fill only if a later bar trades through the limit by delta; else cross at the window end; no queue / volume model (stated limitation); pack coins only, other coins stay taker",
+  "selection": "variant chosen on 2022-24 Sharpe; must also be better than the control in every period (2022, 2023-24, 2025-26) and in the conservative delta = 3 bp + 10-min delay variant",
+  "trials_added": 8
+}
