@@ -1,0 +1,12 @@
+{
+  "gen": 469,
+  "date": "2026-10-27",
+  "registered": "before computing any return split by airdrop status; references v9.8 candidate (Gen468) 3.091 [2.540, 3.861, 2.616] and v9.7 3.012 [2.495, 3.784, 2.509]",
+  "prior": "tokens handed out free (Binance Launchpool farming, HODLer Airdrops, Megadrop) are sold by recipients after listing: extra supply pressure on top of the general new-listing drift",
+  "data": "research_data/binance_announcements catalogs 48 / 49 / 93 (titles + release times); ticker = the text in parentheses of 'Introducing <name> (<TICKER>) on Binance Launchpool | HODLer Airdrops | Megadrop' titles",
+  "rule": "Gen468 event short unchanged, except listing events whose coin (perp symbol <TICKER>USDT, or 1000<TICKER>USDT) had such an announcement released before the listing short's entry are sized x2 before the crowding multiplier and the 0.5 gross cap",
+  "trials": {"A": "airdrop listings x2 (single trial)"},
+  "pass": "strict rule vs the v9.8 candidate (Gen468): 2022-26 +0.05 and no period lower; also reported vs v9.7",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
