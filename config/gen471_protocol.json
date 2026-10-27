@@ -1,0 +1,11 @@
+{
+  "gen": 471,
+  "date": "2026-10-27",
+  "registered": "before computing; reference v9.8 3.091 [2.540, 3.861, 2.616]",
+  "prior": "per-event risk parity: squeezes of new coins scale with their volatility, so equal notional gives the wildest coins the largest risk (inverse-vol sizing was adopted for carry legs in Gen292)",
+  "rule": "v9.8 event short; each listing event and each delisting event is additionally sized x clip(1.5 / s, 0.5, 2), s = annualised sd of the coin's hourly close-to-close returns over the 24 h before its first position hour (sqrt(24*365) scaling); events with fewer than 12 returns keep x1. Crowding multiplier, 30% stop, 0.5 gross cap, costs unchanged",
+  "trials": {"A": "inverse-vol event sizing (single trial)"},
+  "pass": "strict rule vs v9.8",
+  "trials_added": 1,
+  "no_changes_after_results": true
+}
