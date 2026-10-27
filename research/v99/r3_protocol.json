@@ -1,0 +1,8 @@
+{
+  "id": "v99-R3", "date": "2026-10-27", "registered": "before running r3_allocation.py",
+  "hypothesis": "equal risk ignores that some sleeves (Weiss, event short) are uncorrelated or negatively correlated with the rest and earn more per unit of risk, while others (ridge ML) overlap with the basket; a heavily shrunk mean-variance tilt, estimated only from past data, should add Sharpe out of sample",
+  "rule": "at each quarter start q: for every sleeve with >= 365 days of history before q, daily Sharpe mu_i (expanding window) shrunk 50% toward the cross-sectional mean, correlation matrix (expanding) shrunk 50% toward identity; risk-unit MV weights b = max(0, C^-1 mu), normalised to mean 1 over eligible sleeves; multiplier m_i = 1 + lambda (b_i - 1), clipped to [0.5, 2], and moved at most 0.5 from the previous quarter's m_i; sleeves without 365 days keep m = 1. m_i multiplies the v5 equal-risk weight (Weiss stays at its half base). Level and vol targeting unchanged.",
+  "variants": {"lambda": [0.25, 0.5, 1.0]},
+  "selection": "lambda chosen on the 2022-24 Sharpe only; promoted only if better than v9.8 in every period (2022, 2023-24, 2025-26) and +0.05 overall; costs as charged inside each sleeve (allocation changes are quarterly and small)",
+  "trials_added": 3
+}
