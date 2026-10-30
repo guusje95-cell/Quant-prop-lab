@@ -23,6 +23,17 @@ def cap_listing_coins(targets: dict[str, float], book: dict, cap_usd: float) -> 
     return {c: (max(-cap_usd, min(cap_usd, v)) if c in lst and cap_usd > 0 else v) for c, v in targets.items()}
 
 
+def cap_listing_total(targets: dict[str, float], book: dict, total_usd: float) -> dict[str, float]:
+    """2026-10-30: the event-short coins (listing / delisting shorts, conservatively all treated as low-cap) together get at most total_usd of
+    absolute notional (HyroTrader: low-cap coins <= 5% of the initial balance IN TOTAL, incl. leverage); their targets are scaled down pro rata."""
+    lst = {c for c, row in (book.get("by_sleeve_usd") or {}).items() if abs(row.get("listing short", 0.0)) > 0}
+    g = sum(abs(v) for c, v in targets.items() if c in lst)
+    if total_usd <= 0 or g <= total_usd:
+        return dict(targets)
+    k = total_usd / g
+    return {c: (v * k if c in lst else v) for c, v in targets.items()}
+
+
 def plan_orders(targets: dict[str, float], positions: dict[str, float], band_usd: float, min_order_usd: float) -> list[dict]:
     """Orders (USD notional, signed) to move positions toward targets. A coin trades only if |target - position| >= band, or its target is
     zero while a position is open (always close). Same rule as the research execution (Gen323 run(), Gen327 sim())."""

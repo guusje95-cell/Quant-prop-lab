@@ -10,6 +10,8 @@ class Rules:
     gross_cap_funded: float = 1.9          # funded: open notional <= 1.9 x initial balance (HyroTrader cap 2x)
     gross_cap_challenge: float = 0.0       # 0 = no cap in the challenge
     lowcap_cap_frac: float = 0.05          # v9.6 listing-short coins: |notional| <= 5% of the initial balance (HyroTrader low-cap / Innovation Zone rule)
+    lowcap_total_frac: float = 0.045       # 2026-10-30: HyroTrader's low-cap limit is 5% of the initial balance IN TOTAL (official FAQ): all event-short
+                                           # coins together <= 4.5% (0.5% margin for price moves between rebalances)
     band_usd: float = 1000.0               # no-trade band per coin (Gen323 C)
     min_order_usd: float = 50.0            # never send smaller orders
     daily_stop_frac: float = 0.025         # flat for the rest of the UTC day at -2.5% of the initial balance from the day's start (50% of a 5% limit)

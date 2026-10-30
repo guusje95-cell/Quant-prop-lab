@@ -47,6 +47,16 @@
    "files": [
     "paper_v98_share.bat"
    ]
+  },
+  {
+   "date": "2026-10-30",
+   "what": "bot (execution) only: total low-cap cap. HyroTrader's official FAQ: low-cap coins are limited to 5% of the initial balance IN TOTAL incl. leverage; the bot capped per coin only. New rule: all event-short coins together <= 4.5% of the initial balance (pro rata). The paper ledger is NOT changed (it stays the frozen research book); estimated book effect 3.21 -> about 3.04-3.07 (results/hub_research/lowcap_cap_effect.json, upper bound of the cost).",
+   "files": [
+    "src/qpl/bot/rules.py",
+    "src/qpl/bot/planner.py",
+    "src/qpl/bot/runner.py"
+   ],
+   "approved_by": "user 2026-10-30 ('bouw de totaalgrens')"
   }
  ]
 }

@@ -13,7 +13,7 @@ import time
 from pathlib import Path
 import pandas as pd
 from qpl.bot.rules import Rules
-from qpl.bot.planner import scaled_targets, apply_cap, cap_listing_coins, plan_orders
+from qpl.bot.planner import scaled_targets, apply_cap, cap_listing_coins, cap_listing_total, plan_orders
 from qpl.bot.risk import Guard
 from qpl.bot import adapters
 
@@ -56,6 +56,7 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
             risk = rules.risk_challenge if phase == "challenge" else rules.risk_funded
             cap = (rules.gross_cap_challenge if phase == "challenge" else rules.gross_cap_funded) * rules.initial_balance
             tg = cap_listing_coins(apply_cap(scaled_targets(book, eq, risk), cap), book, rules.lowcap_cap_frac * rules.initial_balance)
+            tg = cap_listing_total(tg, book, rules.lowcap_total_frac * rules.initial_balance)          # firm rule: low-cap coins in TOTAL
             orders = plan_orders(tg, ad.positions(), rules.band_usd, rules.min_order_usd); fills = []
             for o in orders:
                 f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, rules.limit_minutes)

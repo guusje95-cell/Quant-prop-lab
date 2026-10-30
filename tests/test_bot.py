@@ -62,3 +62,12 @@ def test_cap_listing_coins():
     book = {"by_sleeve_usd": {"NEWX": {"listing short": -3000.0}, "BTC": {"C*": 50000.0}}}
     out = cap_listing_coins({"NEWX": -25000.0, "BTC": 80000.0}, book, 10000.0)
     assert out == {"NEWX": -10000.0, "BTC": 80000.0}
+
+
+def test_lowcap_total_cap():
+    from qpl.bot.planner import cap_listing_total
+    book = {"by_sleeve_usd": {"AAA": {"listing short": -1.0}, "BBB": {"listing short": -1.0}, "BTC": {"C*": 1.0}}}
+    t = {"AAA": -6000.0, "BBB": -6000.0, "BTC": 50000.0}
+    out = cap_listing_total(t, book, 9000.0)                       # 4.5% of 200k
+    assert abs(sum(abs(out[c]) for c in ("AAA", "BBB")) - 9000.0) < 1e-6 and out["BTC"] == 50000.0
+    assert cap_listing_total({"AAA": -3000.0, "BTC": 1.0}, book, 9000.0) == {"AAA": -3000.0, "BTC": 1.0}

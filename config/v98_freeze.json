@@ -20,10 +20,10 @@
   "src/qpl/live/bybit_listings.py": "c9b13f5c2505dd156764765615cb76bd6e98ad75032cb63da4f121a0706aa1a9",
   "src/qpl/live/coinbase_public.py": "6f6ce7c3a836ff25bccdb68056b38ac9540b3ad5d663d3db8f3015309ee057ce",
   "src/qpl/live/ml_feeds.py": "437c317d95baf051d7f688c7cf5f148be5433cd76b3edfdd3374e505787d34c3",
-  "src/qpl/bot/planner.py": "dab4961fbc79066916e55e3d8aee7baac34ad2b2306df65a4618b9819cae2d47",
-  "src/qpl/bot/rules.py": "261c2022b4e6cb11b673944610025f026bb0b527e0d4c243a2f03cb8076a65d7",
-  "src/qpl/bot/runner.py": "8a0d521e50ab3d1d3fae0a95a7a96a08ce9c4f6a02f14bb42a0416cb8e3443de",
-  "config/paper_v98.json": "4e49553fe6edd9e0c1e514976985654e669304942fc9c4f1cd97d4b9ac4d6653",
+  "src/qpl/bot/planner.py": "fb5928908bc7dace062e7b640793459c0ad5fb08fa65ee48ad1b919d88c40eef",
+  "src/qpl/bot/rules.py": "1034f7994e438fe722018474744e256a1bbdd01f3e077abb8018a6e62edbcc1b",
+  "src/qpl/bot/runner.py": "c7fd181a29797131bcd8ea44efa08006fb7c3e7f23130fc2ca0477322d6e3afd",
+  "config/paper_v98.json": "bff198d5ddb033cbf1f5efa00767d9ee1a8066edde0619bcc59aee994e42c9b5",
   "config/listing_crowding.json": "daa84ea9fe9a74c52657f5b33a5a5498d3d1ee905b645d7042fae0ebb5cbc1ec",
   "config/tradfi_perps.json": "135c43c4a511966f4420068cf2a2107c234a3749187cf9686cb6946880741b7a",
   "config/paper_monitor.json": "1b86e82f0fade3131076273acc47fb0ae16675435311d4e294e8b3e55a0332c3",
@@ -44,5 +44,5 @@
   "research_data/upbit": "HEAD:research_data/upbit",
   "data/processed": "HEAD:data/processed"
  },
- "frozen_at_commit": "0c259b82475158f0b813e262b582126986614025"
+ "frozen_at_commit": "cdb6283cf18dac4c1e11b2c1685b22ad21db2e64"
 }
