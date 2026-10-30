@@ -1,0 +1,354 @@
+{
+ "protocol": "config/gen474_protocol.json",
+ "trials": 15,
+ "crypto": {
+  "reference v9.8": [
+   3.211,
+   [
+    3.083,
+    3.849,
+    2.661
+   ]
+  ],
+  "ribbon": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    -0.023,
+    0.249,
+    0.305
+   ],
+   "sleeve gross of costs+funding": [
+    0.062,
+    0.419,
+    0.369
+   ],
+   "corr with v9.8 book": 0.26,
+   "book": [
+    2.938,
+    [
+     2.862,
+     3.487,
+     2.424
+    ]
+   ],
+   "pass": false
+  },
+  "hma": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.61,
+    0.729,
+    0.193
+   ],
+   "sleeve gross of costs+funding": [
+    0.771,
+    0.941,
+    0.34
+   ],
+   "corr with v9.8 book": 0.24,
+   "book": [
+    3.08,
+    [
+     3.003,
+     3.622,
+     2.553
+    ]
+   ],
+   "pass": false
+  },
+  "hma_tema": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.738,
+    0.676,
+    0.198
+   ],
+   "sleeve gross of costs+funding": [
+    0.945,
+    0.943,
+    0.411
+   ],
+   "corr with v9.8 book": 0.18,
+   "book": [
+    3.118,
+    [
+     3.117,
+     3.639,
+     2.569
+    ]
+   ],
+   "pass": false
+  },
+  "pinbar": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.053,
+    -0.425,
+    -0.08
+   ],
+   "sleeve gross of costs+funding": [
+    0.126,
+    -0.361,
+    0.005
+   ],
+   "corr with v9.8 book": -0.15,
+   "book": [
+    3.167,
+    [
+     3.026,
+     3.745,
+     2.657
+    ]
+   ],
+   "pass": false
+  },
+  "pullback": {
+   "sleeve 2022 / 2023-24 / 2025-26": [
+    0.484,
+    -0.744,
+    0.317
+   ],
+   "sleeve gross of costs+funding": [
+    0.589,
+    -0.492,
+    0.421
+   ],
+   "corr with v9.8 book": 0.09,
+   "book": [
+    2.998,
+    [
+     3.155,
+     3.429,
+     2.475
+    ]
+   ],
+   "pass": false
+  }
+ },
+ "futures": {
+  "reference 15-sleeve book": [
+   1.459,
+   1.451,
+   1.218
+  ],
+  "ribbon": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -0.104,
+    0.484,
+    -0.219
+   ],
+   "stand-alone pass": false,
+   "ES/NQ beta appraisal 2010-22": 0.34,
+   "corr with futures book 2023-26": -0.02,
+   "book": [
+    1.401,
+    1.553,
+    1.165
+   ],
+   "pass": false
+  },
+  "hma": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.098,
+    -0.098,
+    -0.658
+   ],
+   "stand-alone pass": false,
+   "ES/NQ beta appraisal 2010-22": 0.22,
+   "corr with futures book 2023-26": -0.17,
+   "book": [
+    1.501,
+    1.473,
+    1.113
+   ],
+   "pass": false
+  },
+  "hma_tema": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.082,
+    -0.297,
+    -0.876
+   ],
+   "stand-alone pass": false,
+   "ES/NQ beta appraisal 2010-22": 0.112,
+   "corr with futures book 2023-26": -0.19,
+   "book": [
+    1.459,
+    1.451,
+    1.218
+   ],
+   "pass": false
+  },
+  "pinbar": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -1.039,
+    -0.703,
+    -0.941
+   ],
+   "stand-alone pass": false,
+   "ES/NQ beta appraisal 2010-22": -1.068,
+   "corr with futures book 2023-26": 0.04,
+   "book": [
+    1.459,
+    1.451,
+    1.218
+   ],
+   "pass": false
+  },
+  "pullback": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -0.326,
+    0.433,
+    0.189
+   ],
+   "stand-alone pass": false,
+   "ES/NQ beta appraisal 2010-22": 0.142,
+   "corr with futures book 2023-26": 0.12,
+   "book": [
+    1.329,
+    1.516,
+    1.208
+   ],
+   "pass": false
+  }
+ },
+ "cfd": {
+  "instruments": [
+   "AUDJPY",
+   "AUDUSD",
+   "AUS200",
+   "BRENT",
+   "BUND",
+   "CH20",
+   "COPPER",
+   "DE40",
+   "ES35",
+   "EU50",
+   "EURCHF",
+   "EURGBP",
+   "EURJPY",
+   "EURUSD",
+   "FR40",
+   "GBPJPY",
+   "GBPUSD",
+   "HK50",
+   "JP225",
+   "NATGAS",
+   "NZDUSD",
+   "UK100",
+   "US100",
+   "US2000",
+   "US30",
+   "US500",
+   "USDCAD",
+   "USDCHF",
+   "USDJPY",
+   "USTBOND",
+   "WTI",
+   "XAGUSD",
+   "XAUUSD"
+  ],
+  "reference Gen201 index-CFD book": [
+   1.159,
+   0.576,
+   1.119
+  ],
+  "ribbon": {
+   "sleeve 2018-20 / 2021-22 / 2023-26 (swap-free)": [
+    0.027,
+    -0.03,
+    -0.375
+   ],
+   "with 3%/yr financing": [
+    -0.452,
+    -0.535,
+    -1.042
+   ],
+   "stand-alone pass": false,
+   "corr with index-CFD book 2023-26": 0.08,
+   "with Gen201 book": [
+    1.358,
+    0.29,
+    0.611
+   ],
+   "pass": false
+  },
+  "hma": {
+   "sleeve 2018-20 / 2021-22 / 2023-26 (swap-free)": [
+    -0.01,
+    0.014,
+    -0.369
+   ],
+   "with 3%/yr financing": [
+    -0.566,
+    -0.592,
+    -1.134
+   ],
+   "stand-alone pass": false,
+   "corr with index-CFD book 2023-26": -0.25,
+   "with Gen201 book": [
+    0.638,
+    0.473,
+    0.815
+   ],
+   "pass": false
+  },
+  "hma_tema": {
+   "sleeve 2018-20 / 2021-22 / 2023-26 (swap-free)": [
+    0.186,
+    -0.059,
+    -0.346
+   ],
+   "with 3%/yr financing": [
+    -0.263,
+    -0.548,
+    -0.969
+   ],
+   "stand-alone pass": false,
+   "corr with index-CFD book 2023-26": -0.28,
+   "with Gen201 book": [
+    0.57,
+    0.448,
+    0.784
+   ],
+   "pass": false
+  },
+  "pinbar": {
+   "sleeve 2018-20 / 2021-22 / 2023-26 (swap-free)": [
+    0.282,
+    -0.832,
+    -0.248
+   ],
+   "with 3%/yr financing": [
+    -0.015,
+    -1.212,
+    -0.658
+   ],
+   "stand-alone pass": false,
+   "corr with index-CFD book 2023-26": 0.14,
+   "with Gen201 book": [
+    2.703,
+    -0.082,
+    0.646
+   ],
+   "pass": false
+  },
+  "pullback": {
+   "sleeve 2018-20 / 2021-22 / 2023-26 (swap-free)": [
+    0.134,
+    0.374,
+    0.1
+   ],
+   "with 3%/yr financing": [
+    -0.391,
+    -0.079,
+    -0.555
+   ],
+   "stand-alone pass": false,
+   "corr with index-CFD book 2023-26": 0.3,
+   "with Gen201 book": [
+    0.574,
+    0.668,
+    0.779
+   ],
+   "pass": false
+  }
+ },
+ "passed": []
+}
