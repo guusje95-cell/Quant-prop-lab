@@ -1,0 +1,33 @@
+{
+ "events": 76,
+ "events used": 65,
+ "event short before / after": [
+  [
+   1.754,
+   0.048,
+   1.367
+  ],
+  [
+   1.757,
+   0.162,
+   1.263
+  ]
+ ],
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "book with leverage-cut shorts": [
+  3.206,
+  [
+   3.125,
+   3.846,
+   2.621
+  ]
+ ],
+ "pass": false
+}
