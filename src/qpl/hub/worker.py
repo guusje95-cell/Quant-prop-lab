@@ -46,7 +46,8 @@ def _cpu_today(c) -> float:
 
 def run(once: bool = False, poll_s: float = 15.0) -> dict:
     signal.signal(signal.SIGINT, _sig); signal.signal(signal.SIGTERM, _sig)
-    c = DB.init(); J.ensure_schedules(c); me = f"{socket.gethostname()}:{os.getpid()}"; ran = []
+    c = DB.init(); J.ensure_schedules(c); me = f"{socket.gethostname()}:{os.getpid()}"; ran = []; idle_said = False
+    print(f"{time.strftime('%H:%M:%S')}  hub worker running (paper / research only). The first run works through every job once: 10-60 min.", flush=True)
     with DB.tx(c):
         DB.audit(c, "worker", "start", "worker", me, {"once": once})
     try:
@@ -57,8 +58,12 @@ def run(once: bool = False, poll_s: float = 15.0) -> dict:
             if job is None:
                 if once:
                     break
+                if not locals().get("idle_said"):
+                    print(f"{time.strftime('%H:%M:%S')}  all due jobs done; waiting for the next schedule (this window stays quiet until then)", flush=True)
+                    idle_said = True
                 time.sleep(poll_s); continue
-            t0 = time.time(); ru0 = os.times()
+            t0 = time.time(); ru0 = os.times(); idle_said = False
+            print(f"{time.strftime('%H:%M:%S')}  job {job['id']} {job['kind']} started", flush=True)
             p = subprocess.Popen([sys.executable, "-m", "qpl.hub.worker", "--run-job", str(job["id"])], cwd=str(DB.ROOT),
                                  env={**os.environ, "PYTHONPATH": str(DB.ROOT / "src")})
             while p.poll() is None:
@@ -73,6 +78,8 @@ def run(once: bool = False, poll_s: float = 15.0) -> dict:
             with DB.tx(c):
                 DB.audit(c, "worker", "job_cpu", "jobs", job["id"], {"cpu_s": round(cpu, 1), "wall_s": round(time.time() - t0, 1)})
             ran.append(job["id"])
+            st = c.execute("SELECT status, substr(COALESCE(error,''),1,160) e FROM jobs WHERE id=?", (job["id"],)).fetchone()
+            print(f"{time.strftime('%H:%M:%S')}  job {job['id']} {job['kind']} -> {st['status']} in {time.time() - t0:.0f} s" + (f"  ({st['e']})" if st["e"] else ""), flush=True)
     finally:
         with DB.tx(c):
             DB.audit(c, "worker", "stop", "worker", me, {"jobs_run": len(ran)})
