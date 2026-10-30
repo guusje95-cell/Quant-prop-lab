@@ -26,6 +26,7 @@ FIRM_INFO = {  # key -> (name, markets, platforms, website)
     "fundednext": ("FundedNext", ["cfd", "crypto_cfd"], ["MT4", "MT5", "cTrader"], "https://fundednext.com"),
     "topstep": ("Topstep", ["cme_futures"], ["TopstepX", "NinjaTrader", "Tradovate"], "https://www.topstep.com"),
     "apex": ("Apex Trader Funding", ["cme_futures"], ["Rithmic", "Tradovate"], "https://apextraderfunding.com"),
+    "the5ers": ("The5ers", ["cfd", "crypto_cfd"], ["MT5", "cTrader"], "https://the5ers.com"),
     "mffu": ("MyFundedFutures", ["cme_futures"], ["Tradovate", "NinjaTrader", "Rithmic"], "https://myfundedfutures.com"),
     "tradeify": ("Tradeify", ["cme_futures"], ["Tradovate", "NinjaTrader", "Rithmic"], "https://tradeify.co"),
     "propshop": ("PropShop Trader", ["cme_futures"], ["Tickblaze", "Rithmic"], "https://propshoptrader.com"),
