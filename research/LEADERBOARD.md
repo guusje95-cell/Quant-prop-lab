@@ -1963,3 +1963,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - S1 STIR trend (1-year-out GE/SR3 + ZQ.v.6, 63/252-day signs): -0.32 / 0.54 / 0.05, tune 0.08 (bar 0.3), corr with the book -0.13; needs about 18x notional per market. Does not enter.
 - S2 STIR term premium (long the 1-year-out contract when hikes are priced): -0.85 / -2.05 / -0.89, tune -1.34. Does not enter. (The opposite sign is NOT tested: that would be choosing the direction after seeing the result.)
 - STIR source closed (switch rule). Futures programme so far: 0 of 10 (Gen476-478).
+
+## Gen479 (2026-10-30, FLAGGED): R1 held overnight only, 16:00 -> 10:00 ET (`config/gen479_protocol.json`, `results/gen479.json`, 1 trial)
+- R1 overnight alone 0.37 / 0.51 / 1.19 (24 h: 0.46 / 0.68 / 1.02); per index 2023-26 ES 1.14, NQ 1.45, RTY 0.79, YM 0.54; corr with the 24 h version 0.58.
+- Book with the swap: 1.454 / 1.433 / **1.273** vs 1.459 / 1.451 / 1.218: +0.055 in 2023-26 but 2010-17 -0.005 and 2018-22 -0.018. **Fails the strict rule (near miss)** and the window was found post hoc. Not adopted.
+- Futures programme so far: 0 of 11.

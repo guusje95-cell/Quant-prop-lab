@@ -1,0 +1,47 @@
+{
+ "flag": "post hoc window (Gen148); see protocol",
+ "reference": [
+  1.459,
+  1.451,
+  1.218
+ ],
+ "R1 24 h (current) alone": [
+  0.46,
+  0.678,
+  1.024
+ ],
+ "R1 overnight alone": [
+  0.374,
+  0.507,
+  1.193
+ ],
+ "per index": {
+  "ES": [
+   0.31,
+   0.561,
+   1.141
+  ],
+  "NQ": [
+   0.478,
+   0.424,
+   1.445
+  ],
+  "RTY": [
+   NaN,
+   0.222,
+   0.786
+  ],
+  "YM": [
+   0.21,
+   0.656,
+   0.535
+  ]
+ },
+ "corr overnight vs 24 h 2023-26": 0.58,
+ "book with R1 overnight": [
+  1.454,
+  1.433,
+  1.273
+ ],
+ "pass": false
+}
