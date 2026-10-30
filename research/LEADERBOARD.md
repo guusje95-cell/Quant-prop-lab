@@ -1932,3 +1932,14 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - **Futures (24 CME markets; book 1.459 / 1.451 / 1.218):** ribbon -0.10 / 0.48 / -0.22; HMA 0.10 / -0.10 / -0.66; HMA+TEMA 0.08 / -0.30 / -0.88; pin bar -1.04 / -0.70 / -0.94; pullback -0.33 / 0.43 / 0.19. Book 2023-26: 1.165 / 1.113 / 1.218 (weight 0) / 1.218 (weight 0) / 1.208. **All fail.**
 - **CFDs (36 Dukascopy instruments, swap-free; Gen201 index-CFD book 1.159 / 0.576 / 1.119):** 2018-20 / 21-22 / 23-26: ribbon 0.03 / -0.03 / -0.38; HMA -0.01 / 0.01 / -0.37; HMA+TEMA 0.19 / -0.06 / -0.35; pin bar 0.28 / -0.83 / -0.25; pullback 0.13 / 0.37 / 0.10. With 3%/yr financing all negative. **All fail**; each lowers the index-CFD book.
 - TEMA question: as a filter on HMA it helps slightly in crypto (book 3.08 -> 3.12) and not in futures / CFDs. Nothing adopted.
+
+## F1 (2026-10-30, descriptive): honest audit of the 15-sleeve futures book (`scripts/hub_research/futures_audit.py`, `results/hub_research/futures_audit.json`)
+- Book 1.459 / 1.451 / 1.218; full 2010-26 1.387; every year positive except 2015 (-0.10).
+- **Futures trials so far: about 408-460** (heuristic count of registered protocols). **Planning Sharpe (full 2010-26, N = 460): 0.64** (N 100-1000: 0.77-0.59). On 2023-26 alone the window is too short to clear the luck bar (planning < 0).
+- **ES/NQ beta:** corr 0.71 / 0.76 / 0.80, beta 0.22-0.26; beta-adjusted 0.98 / 1.69 / **0.46**; planning of the beta-adjusted book 0.37 (N = 460).
+- **Risk share 2023-26: equity timing 72%**, multi-asset trend / XS 16%, rates 8%, energy 4%. Sub-books: equity-timing sleeves only 1.18 / 0.94 / 1.14; **non-equity sleeves only 0.92 / 1.23 / 0.40** (trend G1 -0.58, F3 0.05 in 2023-26).
+- Leave-one-out 2023-26: largest contributors R1 (-0.09 without it), BC (-0.10), P1 (-0.08), OIL (-0.07). Without G1 the book would be 1.411: **post-hoc observation, NOT acted on** (dropping it after seeing 2023-26 is exactly the selection the planning haircut charges for).
+- Reading: a live Sharpe of 1.5 for the futures book is not supported; plan on about 0.6-0.8, of which roughly half is equity exposure.
+
+## Gen475 (2026-10-30): natural-gas injection-season short (`config/gen475_protocol.json`, `results/gen475.json`, 1 trial)
+- Short NG Apr-Oct, vol-sized: 0.57 / -0.74 / 0.19, tune 2010-22 0.01 (bar 0.3), appraisal 0.03. **Does not enter** (book would be 1.543 / 1.319 / 1.239: 2018-22 lower). Rejected.
