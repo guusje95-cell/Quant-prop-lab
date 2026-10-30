@@ -1,0 +1,13 @@
+{
+ "id": "v99-R1b", "date": "2026-10-30", "registered": "before running r1b_ticks.py",
+ "why": "R1 (limit orders for the daily sleeves, +0.094 book Sharpe) used Binance 5-minute OHLC and assumed half spreads by coin class; the book trades on Bybit. Bybit publishes every historical trade (public.bybit.com/trading, price, size, taker side, ms timestamps), so fills, spreads and adverse selection can be measured on the real venue instead of modelled.",
+ "sample": "100 days drawn with a fixed seed (7) from 2023-01-01..2026-09-30; on each day every R1 limit coin with a non-zero daily-sleeve part of the 00:00 net trade (results/v99/netpos*.parquet, same X as r1_limit.py) whose Bybit linear file exists",
+ "quotes": "placement t0 = 00:00 UTC + d; bid0 / ask0 = price of the last Sell- / Buy-taker trade in [t0 - 60 s, t0 + 5 s] (5 s tolerance for the first prints of the day); mid = their mean",
+ "variants": "R1 central (o = 0, W = 60 min, d = 0) and conservative (d = 10 min); fill rules: THROUGH (a trade strictly beyond the limit) = main, TOUCH (a taker trade at the limit price or beyond) = optimistic bound",
+ "accounting": "same as r1_limit.py per order: control = taker at t0 (ask0 / bid0 + 5.5 bp), candidate = limit at bid0 / ask0 filled at the limit + 2 bp maker, else cross at the window end at the then ask / bid + 5.5 bp; gain = candidate - control in bp of notional, P&L to the window-end mid included",
+ "comparison": "the R1 model gain (r1_limit.py formula on Binance 5-min bars, class half spreads) for the SAME orders",
+ "estimate": "tick-based book uplift = R1 uplift (+0.094) x (mean tick gain / mean model gain), notional-weighted; reported per coin class",
+ "decision": "if the tick-based uplift >= +0.05 (THROUGH, d = 0) and the conservative variant is positive, R1 stays a v9.9 candidate component (forward confirmation with a live order-book logger); otherwise R1 is dropped",
+ "trials_added": 0,
+ "note": "a measurement of an already-registered variant (no new selection), so no trials are added"
+}
