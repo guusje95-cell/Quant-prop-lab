@@ -1,0 +1,76 @@
+{
+ "sample days": 100,
+ "orders measured": 930,
+ "orders without a Bybit file / quote": 333,
+ "d = 0 min": {
+  "mean gain bp (notional-weighted)": {
+   "model (R1)": 2.45,
+   "Bybit THROUGH": 2.99,
+   "Bybit TOUCH": 4.05
+  },
+  "fill rate": {
+   "THROUGH": 0.972,
+   "TOUCH": 1.0
+  },
+  "median Bybit half spread bp by class": {
+   "alt": 0.77,
+   "major": 0.02,
+   "top10": 0.61
+  },
+  "by class (model / through / touch, bp)": {
+   "alt": [
+    4.33,
+    2.52,
+    5.58
+   ],
+   "major": [
+    2.88,
+    3.0,
+    3.7
+   ],
+   "top10": [
+    -2.07,
+    3.27,
+    5.24
+   ]
+  },
+  "tick / model ratio (THROUGH)": 1.223,
+  "implied book uplift (R1 central +0.094 x ratio)": 0.115
+ },
+ "d = 10 min": {
+  "mean gain bp (notional-weighted)": {
+   "model (R1)": 2.64,
+   "Bybit THROUGH": 3.18,
+   "Bybit TOUCH": 3.83
+  },
+  "fill rate": {
+   "THROUGH": 0.955,
+   "TOUCH": 0.979
+  },
+  "median Bybit half spread bp by class": {
+   "alt": 1.08,
+   "major": 0.02,
+   "top10": 0.77
+  },
+  "by class (model / through / touch, bp)": {
+   "alt": [
+    3.55,
+    2.17,
+    3.59
+   ],
+   "major": [
+    3.71,
+    3.58,
+    3.76
+   ],
+   "top10": [
+    -4.53,
+    1.82,
+    4.51
+   ]
+  },
+  "tick / model ratio (THROUGH)": 1.203,
+  "implied book uplift (R1 central +0.094 x ratio)": 0.113
+ },
+ "decision": "R1 stays a candidate (forward confirmation with the live logger)"
+}
