@@ -1958,3 +1958,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - M1 curve slope -> ZN/ZB: 0.29 / -0.70 / -0.11 (tune -0.15). M3 real-yield momentum -> GC: 0.07 / 0.52 / -0.09 (tune 0.25). M4 breakeven momentum -> CL/HG/GC: 0.07 / 0.46 / -0.11 (tune 0.23). None enter.
 - **M2 credit spread -> ES/NQ (long while Baa-10y fell over 21 days): 0.87 / 0.37 / 0.66, tune 0.65, enters**, but book 1.477 / **1.385** / **1.205**: overlaps the existing equity-timing sleeves (corr 0.54 with the book). Fails.
 - Macro source closed (switch rule). Next: intraday (track 2).
+
+## Gen478 (2026-10-30): short-rate futures, a new asset class (`config/gen478_protocol.json`, `results/gen478.json`, 2 trials; data: research_data/databento_stir, $5.22)
+- S1 STIR trend (1-year-out GE/SR3 + ZQ.v.6, 63/252-day signs): -0.32 / 0.54 / 0.05, tune 0.08 (bar 0.3), corr with the book -0.13; needs about 18x notional per market. Does not enter.
+- S2 STIR term premium (long the 1-year-out contract when hikes are priced): -0.85 / -2.05 / -0.89, tune -1.34. Does not enter. (The opposite sign is NOT tested: that would be choosing the direction after seeing the result.)
+- STIR source closed (switch rule). Futures programme so far: 0 of 10 (Gen476-478).
