@@ -1,0 +1,24 @@
+{
+ "name": "Paper trading of the futures book (15 sleeves: F3, F5, G1, P1, A3, U5, K3, R1, T1, T2, FC, MM, BC, SH, OIL; EQR fit 2010-22, 10% vol target, 3x cap)",
+ "registered": "2026-10-30, before any futures data after 2026-09-30 was seen",
+ "what": "Daily forward test. scripts/futures_paper.py rebuilds the book with the adopted settings (scripts/futures_book_build.py unchanged) on research data + Databento top-ups (qpl.live.databento_update) and appends each completed CME trading day once.",
+ "frozen": {
+  "account": 50000,
+  "ledger_frequency": "daily",
+  "risk": 1.0,
+  "risk_note": "ledger 'port' = the book's daily return in its own units (10% vol target, realised about 5.6% a year in 2023-26 because the 3x cap binds); prop sizing (Gen191) is decided separately",
+  "start_after": "2026-09-30",
+  "costs": "futures_db.cost_frac: one tick + commission on the micro contract per side (as in the research)",
+  "execution": "P1 at the 16:00 ET settlement (TAS), R1 at 14:00 ET, the rest at the daily close; holds overnight (needs a swing firm)",
+  "data": "Databento GLBX.MDP3 ohlcv-1h, .v.0 and .v.1 continuous contracts, 26 markets"
+ },
+ "reference": {"source": "book 2023-01..2026-09 (scripts/fbook.py)", "daily_mean": 0.000271414, "daily_sd": 0.003537979, "sharpe": 1.218},
+ "gate": {
+  "minimum": "63 trading days",
+  "operations": "no missing trading days; late rows (computed > 30 h after the close) only for the initial backfill or a reported outage",
+  "reconciliation": "--reconcile after each data top-up: correlation >= 0.99 between the frozen ledger and a fresh recompute",
+  "performance": "z = (paper mean - backtest mean) / (backtest sd / sqrt(days)): GO z > -1, EXTEND to 126 days if -2 <= z <= -1, STOP z < -2 or drawdown worse than -8% (book units)",
+  "honesty_note": "63 days cannot prove a 0.6-1.2 Sharpe edge (one standard error of the annualised Sharpe is about 2). The test mainly proves the pipeline and costs; the edge needs many months."
+ },
+ "changes": []
+}

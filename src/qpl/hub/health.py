@@ -36,6 +36,8 @@ def check_account(c: sqlite3.Connection, account_key: str, risk: float | None = 
     P = paper_series(c, account_key)
     cfg = json.loads(c.execute("SELECT config FROM paper_accounts WHERE key=?", (account_key,)).fetchone()["config"] or "{}")
     risk = risk if risk is not None else float(cfg.get("risk", 1.0))
+    daily = cfg.get("ledger_frequency") == "daily"                  # e.g. the futures book: one row per trading day
+    ppy, max_age_h = (252, 80) if daily else (365, 6)
     rep = {"account": account_key, "hours": len(P), "checked_at": now(), "status": "ok", "findings": []}
     if P.empty:
         rep.update(status="no data"); return rep
@@ -54,14 +56,14 @@ def check_account(c: sqlite3.Connection, account_key: str, risk: float | None = 
     else:
         rep["findings"].append({"level": "info", "what": f"no backtest cache results/cache_{ver}_final.parquet: deviation not measurable"})
     if n >= MIN_DAYS_FOR_SHARPE:
-        rep["paper_sharpe"] = float(d.mean() / d.std() * np.sqrt(365))
+        rep["paper_sharpe"] = float(d.mean() / d.std() * np.sqrt(ppy))
     else:
-        rep["paper_sharpe"] = None; rep["note"] = f"Sharpe not reported below {MIN_DAYS_FOR_SHARPE} days (one standard error of an annual Sharpe at {n} days is about {np.sqrt(365 / max(n, 1)):.1f})"
+        rep["paper_sharpe"] = None; rep["note"] = f"Sharpe not reported below {MIN_DAYS_FOR_SHARPE} days (one standard error of an annual Sharpe at {n} days is about {np.sqrt(ppy / max(n, 1)):.1f})"
     if rep["late_share"] > 0.05:
         rep["findings"].append({"level": "warning", "what": f"{rep['late_share']:.1%} of hours computed late (> 5% gate)"})
     last = P.index[-1]; age_h = (pd.Timestamp(now()) - last).total_seconds() / 3600
     rep["data_age_hours"] = age_h
-    if age_h > 6:
+    if age_h > max_age_h:
         rep["findings"].append({"level": "info", "what": f"latest ingested hour is {age_h:.0f} h old: the paper trader is stopped, or its results were not shared yet"})
     # per-sleeve: cumulative unit P&L against -3 sd x sqrt(days) of the sleeve's backtest daily sd (paper_report convention)
     a = c.execute("SELECT id FROM paper_accounts WHERE key=?", (account_key,)).fetchone()["id"]
