@@ -1,0 +1,18 @@
+{
+ "1.5": {
+  "median when active": 0.0474,
+  "p95": 0.1102,
+  "p99": 0.1986,
+  "max": 0.4516,
+  "share of hours > 5%": 0.4086,
+  "share of hours > 4%": 0.4988
+ },
+ "2.0": {
+  "median when active": 0.0631,
+  "p95": 0.147,
+  "p99": 0.2648,
+  "max": 0.6021,
+  "share of hours > 5%": 0.5362,
+  "share of hours > 4%": 0.615
+ }
+}
