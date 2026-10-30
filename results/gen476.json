@@ -1,0 +1,78 @@
+{
+ "reference": [
+  1.459,
+  1.451,
+  1.218
+ ],
+ "trials": {
+  "T1 NG storage level": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -0.013,
+    0.46,
+    0.016
+   ],
+   "tune": 0.306,
+   "appraisal ES/NQ 2010-22": 0.264,
+   "corr with book 2023-26": 0.04,
+   "enters": true,
+   "book": [
+    1.438,
+    1.523,
+    1.19
+   ],
+   "pass": false
+  },
+  "T2 NG storage surprise": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -0.249,
+    0.492,
+    -0.304
+   ],
+   "tune": 0.176,
+   "appraisal ES/NQ 2010-22": 0.154,
+   "corr with book 2023-26": 0.0,
+   "enters": false,
+   "book": [
+    1.397,
+    1.52,
+    1.126
+   ],
+   "pass": false
+  },
+  "T3 crude stocks level": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.32,
+    -0.122,
+    0.103
+   ],
+   "tune": 0.16,
+   "appraisal ES/NQ 2010-22": 0.297,
+   "corr with book 2023-26": 0.03,
+   "enters": false,
+   "book": [
+    1.541,
+    1.426,
+    1.218
+   ],
+   "pass": false
+  },
+  "T4 products level": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    -0.714,
+    -0.232,
+    0.379
+   ],
+   "tune": -0.536,
+   "appraisal ES/NQ 2010-22": -0.525,
+   "corr with book 2023-26": 0.05,
+   "enters": false,
+   "book": [
+    1.459,
+    1.451,
+    1.218
+   ],
+   "pass": false
+  }
+ },
+ "passed": []
+}

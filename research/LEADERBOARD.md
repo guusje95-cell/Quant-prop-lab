@@ -1943,3 +1943,13 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 
 ## Gen475 (2026-10-30): natural-gas injection-season short (`config/gen475_protocol.json`, `results/gen475.json`, 1 trial)
 - Short NG Apr-Oct, vol-sized: 0.57 / -0.74 / 0.19, tune 2010-22 0.01 (bar 0.3), appraisal 0.03. **Does not enter** (book would be 1.543 / 1.319 / 1.239: 2018-22 lower). Rejected.
+
+## Futures programme (2026-10-30, `config/futures_program.json`, agreed with the user)
+- Target: estimated live Sharpe 1.5+. Equity beta allowed when it improves the book (safeguard: no earlier period lower, 2018-22 includes the 2022 bear market). No stop rule; a SWITCH rule: each new data source gets a small pre-registered set of tests, then the next source. Paper from 2026-10-01 is the unseen check (evaluated over months).
+
+## Gen476 (2026-10-30): EIA fundamentals, track 1 (`config/gen476_protocol.json`, `results/gen476.json`, 4 trials)
+- T1 NG storage vs 5-year norm: 2010-17 / 2018-22 / 2023-26 -0.01 / 0.46 / 0.02, tune 2015-22 0.31 (enters), book 1.438 / 1.523 / **1.190** < 1.268. Fails.
+- T2 NG storage surprise (5 days): -0.25 / 0.49 / -0.30, tune 0.18. Does not enter.
+- T3 crude stocks vs norm: 0.32 / -0.12 / 0.10, tune 0.16. Does not enter.
+- T4 gasoline / distillate vs norm: -0.71 / -0.23 / 0.38. Does not enter.
+- Reading: weekly inventory levels and surprises are priced in by the next close; no daily-horizon edge. EIA source closed (switch rule); next: FRED macro.
