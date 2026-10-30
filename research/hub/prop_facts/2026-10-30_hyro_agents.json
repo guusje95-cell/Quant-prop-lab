@@ -1,0 +1,14 @@
+{
+ "_doc": "HyroTrader official FAQ pages about the Hyro platform, agent tokens and limits, saved by get_prop_rules.bat on the user's PC on 2026-10-30.",
+ "facts": [
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "api_trading", "value": "Hyro platform only: HyroTrader MCP server + agent token (read and optional trading access; 2FA required)", "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/hyro-platform/how-can-i-connect-my-hyrotrader-challenge-to-claude/",
+   "quote": "You can connect your challenge to Claude, or any other AI assistant that supports MCP (Model Context Protocol). Your AI can then check your challenges, results and trade history, and trade for you if you allow it. ... This is available only for challenges on the Hyro platform"},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "max_allocation_usd", "value": {"evaluation": 400000, "funded": 200000}, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/trading-restrictions/what-are-prohibited-trading-actions/",
+   "quote": "Your total allocation may be up to $400,000 across evaluation challenges and $200,000 across funded accounts. Exceeding either limit is not permitted."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "consistency_rule", "value": "One/Two-Step evaluation: no single day counts for more than 40% of the profit target (excess stays but does not count); Zero-Step: no single trade > 50%", "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/rules/what-are-the-risk-management-conditions-at-hyrotrader/",
+   "quote": "On One-Step and Two-Step challenges, no single trading day may count for more than 40% of your profit target during the evaluation phases."}
+ ]
+}
