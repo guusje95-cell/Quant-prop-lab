@@ -1,0 +1,84 @@
+{"wall_utc": "2026-10-27 19:11:21.477060", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 19:11:33.417146", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 19:11:36.092951", "event": "DATA_PARTIAL", "msg": "delisting events not updated: 'charmap' codec can't encode characters in position 385-387: character maps to <undefined>"}
+{"wall_utc": "2026-10-27 20:09:38.379873", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 20:09:51.175278", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 20:09:51.180030", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-27 20:42:15.800504", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 20:42:27.116032", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 20:42:27.124592", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-27 21:09:35.078956", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 21:09:46.650000", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 21:09:46.655019", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-27 22:09:39.564091", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 22:09:50.953895", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 22:09:50.956595", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-27 23:09:36.199289", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 23:09:48.285991", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-27 23:09:48.289500", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 00:09:36.163014", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 00:09:47.366021", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 00:09:47.370305", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 01:09:35.953677", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 01:09:47.992556", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 01:09:47.996081", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 02:09:35.208319", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 02:09:46.913607", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 02:09:46.918209", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 03:09:35.039107", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 03:09:46.759267", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 03:09:46.763563", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 04:09:36.509144", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 04:09:47.897512", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 04:09:47.899970", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 05:09:37.625246", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 05:09:49.447786", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 05:09:49.450296", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 06:09:32.315679", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 06:09:43.652896", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 06:09:43.656303", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 07:09:35.742759", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 07:09:48.711444", "event": "DATA_PARTIAL", "msg": "listing crowding not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 07:09:48.715868", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 08:09:37.446783", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 08:09:45.977275", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 09:09:39.615496", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 09:09:47.390010", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 10:09:40.540916", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 10:09:48.167049", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 11:09:57.220849", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 11:10:05.008020", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 12:09:49.414736", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 12:09:57.079256", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 13:09:40.000614", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 13:09:47.728836", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 14:09:35.697024", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 14:09:44.827618", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 15:09:41.901179", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 15:09:49.740226", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 16:10:02.837378", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 16:10:10.405531", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 17:09:52.088539", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 17:09:59.456057", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 18:09:56.026157", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 18:10:04.052595", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 19:09:43.326354", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 19:09:50.657431", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 20:09:52.254841", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 20:09:59.660398", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-28 21:09:46.880330", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-28 21:09:54.923104", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-30 16:16:12.745097", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 16:16:58.747809", "event": "DATA_PARTIAL", "msg": "delisting events not updated: Expecting value: line 1 column 1 (char 0)"}
+{"wall_utc": "2026-10-30 16:29:24.731989", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 16:29:35.989274", "event": "DATA_PARTIAL", "msg": "delisting events not updated: 'charmap' codec can't encode characters in position 385-387: character maps to <undefined>"}
+{"wall_utc": "2026-10-30 16:36:34.076019", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 16:36:44.289119", "event": "DATA_PARTIAL", "msg": "delisting events not updated: 'charmap' codec can't encode characters in position 385-387: character maps to <undefined>"}
+{"wall_utc": "2026-10-30 16:46:04.212661", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 16:47:20.107289", "event": "START", "first_hour": "2026-10-30 16:00:00", "cutoff": "2026-10-30 16:00:00"}
+{"wall_utc": "2026-10-30 16:47:20.801396", "event": "RUN", "cutoff": "2026-10-30 16:00:00", "new_hours": 0, "seconds": 59.6}
+{"wall_utc": "2026-10-30 17:09:58.328020", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 17:12:14.228447", "event": "RUN", "cutoff": "2026-10-30 17:00:00", "new_hours": 1, "seconds": 107.3}
+{"wall_utc": "2026-10-30 18:09:41.849485", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-30 18:11:20.252406", "event": "RUN", "cutoff": "2026-10-30 18:00:00", "new_hours": 1, "seconds": 78.9}
+{"wall_utc": "2026-10-30 19:07:48.540419", "event": "RECONCILE", "ok": "True", "corr": 0.9999999999999997, "cum": 2.1055206189668496e-16}
