@@ -30,7 +30,7 @@ for win in (20, 30, 60):
             cells.append({"window": win, "quantile": q, "scale": sc, "book": v, "gain": round(v[0] - REF[0], 3),
                           "pass": bool(v[0] >= REF[0] + 0.05 and all(v[1][i] >= REF[1][i] for i in range(3)))})
             print(cells[-1], flush=True)
-hi = regime(30, 0.5).reindex(H.index.floor("D")).set_axis(H.index).fillna(False)
+hi = regime(30, 0.5).reindex(H.index.floor("D")).set_axis(H.index).fillna(False).astype(bool)
 ev = H["listing short"]
 split = {}
 for lab, a, z in (("2022", "2022", "2022"), ("2023-24", "2023", "2024"), ("2025-26", "2025", END)):
