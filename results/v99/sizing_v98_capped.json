@@ -1,0 +1,95 @@
+{
+ "doc": "v9.9 S1 (descriptive decision tool, no trials): HyroTrader Two-Step $200k risk choice for v9.8 WITH the total low-cap cap (4.5% of the\ninitial balance, binding harder at higher risk), at planning-level live Sharpe 1.5 and a weak 1.2. One account, 2 years, 300 bootstrap\npaths (hub income engine; preset terms partly unverified; the 40%-a-day consistency rule is not modelled). Writes results/v99/sizing_v98_capped.json.",
+ "rows": [
+  {
+   "risk": 1.0,
+   "assumed live Sharpe": 1.5,
+   "2-year net EUR mean": 30190,
+   "p10": -3550,
+   "P(2-year loss)": 0.13,
+   "year-2 mean month EUR": 1819,
+   "median days to first cash": 276.5
+  },
+  {
+   "risk": 1.0,
+   "assumed live Sharpe": 1.2,
+   "2-year net EUR mean": 21836,
+   "p10": -6025,
+   "P(2-year loss)": 0.25,
+   "year-2 mean month EUR": 1291,
+   "median days to first cash": 302.0
+  },
+  {
+   "risk": 1.25,
+   "assumed live Sharpe": 1.5,
+   "2-year net EUR mean": 31842,
+   "p10": -6025,
+   "P(2-year loss)": 0.19,
+   "year-2 mean month EUR": 1663,
+   "median days to first cash": 222.5
+  },
+  {
+   "risk": 1.25,
+   "assumed live Sharpe": 1.2,
+   "2-year net EUR mean": 23884,
+   "p10": -6025,
+   "P(2-year loss)": 0.26,
+   "year-2 mean month EUR": 1244,
+   "median days to first cash": 254.0
+  },
+  {
+   "risk": 1.5,
+   "assumed live Sharpe": 1.5,
+   "2-year net EUR mean": 41005,
+   "p10": -6025,
+   "P(2-year loss)": 0.17,
+   "year-2 mean month EUR": 1790,
+   "median days to first cash": 206.5
+  },
+  {
+   "risk": 1.5,
+   "assumed live Sharpe": 1.2,
+   "2-year net EUR mean": 30883,
+   "p10": -6025,
+   "P(2-year loss)": 0.27,
+   "year-2 mean month EUR": 1310,
+   "median days to first cash": 199.0
+  },
+  {
+   "risk": 1.75,
+   "assumed live Sharpe": 1.5,
+   "2-year net EUR mean": 42546,
+   "p10": -6025,
+   "P(2-year loss)": 0.25,
+   "year-2 mean month EUR": 1551,
+   "median days to first cash": 175.5
+  },
+  {
+   "risk": 1.75,
+   "assumed live Sharpe": 1.2,
+   "2-year net EUR mean": 32443,
+   "p10": -6025,
+   "P(2-year loss)": 0.33,
+   "year-2 mean month EUR": 1123,
+   "median days to first cash": 178.5
+  },
+  {
+   "risk": 2.0,
+   "assumed live Sharpe": 1.5,
+   "2-year net EUR mean": 35067,
+   "p10": -6025,
+   "P(2-year loss)": 0.34,
+   "year-2 mean month EUR": 918,
+   "median days to first cash": 155.0
+  },
+  {
+   "risk": 2.0,
+   "assumed live Sharpe": 1.2,
+   "2-year net EUR mean": 22508,
+   "p10": -6025,
+   "P(2-year loss)": 0.45,
+   "year-2 mean month EUR": 499,
+   "median days to first cash": 150.5
+  }
+ ]
+}
