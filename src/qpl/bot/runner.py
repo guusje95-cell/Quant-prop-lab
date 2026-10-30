@@ -58,8 +58,9 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
             tg = cap_listing_coins(apply_cap(scaled_targets(book, eq, risk), cap), book, rules.lowcap_cap_frac * rules.initial_balance)
             tg = cap_listing_total(tg, book, rules.lowcap_total_frac * rules.initial_balance)          # firm rule: low-cap coins in TOTAL
             orders = plan_orders(tg, ad.positions(), rules.band_usd, rules.min_order_usd); fills = []
+            lim = rules.limit_minutes_daily if pd.Timestamp(book["for_hour_utc"]).hour == 0 else rules.limit_minutes   # R1: patient at the daily rebalance
             for o in orders:
-                f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, rules.limit_minutes)
+                f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, lim)
                 fills.append(dict(o, **f, time=str(now), for_hour=book["for_hour_utc"]))
             for x in book.get("cascade_limit_orders") or []:
                 fills.append({"time": str(now), "coin": x["coin"], "type": "cascade limit buy (separate order, 1 h)", "limit": x["limit_price"], "stop": x["stop"]})

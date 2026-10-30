@@ -71,3 +71,15 @@ def test_lowcap_total_cap():
     out = cap_listing_total(t, book, 9000.0)                       # 4.5% of 200k
     assert abs(sum(abs(out[c]) for c in ("AAA", "BBB")) - 9000.0) < 1e-6 and out["BTC"] == 50000.0
     assert cap_listing_total({"AAA": -3000.0, "BTC": 1.0}, book, 9000.0) == {"AAA": -3000.0, "BTC": 1.0}
+
+
+def test_r1_daily_limit_window(tmp_path):
+    import json
+    import pandas as pd
+    from qpl.bot.rules import Rules
+    from qpl.bot.runner import one_pass
+    for hour, want in (("2026-11-01 00:00:00", "limit 60 min"), ("2026-11-01 05:00:00", "limit 15 min")):
+        b = tmp_path / f"b{hour[11:13]}.json"; sd = tmp_path / f"s{hour[11:13]}"
+        b.write_text(json.dumps({"for_hour_utc": hour, "made_at_utc": hour, "equity": 200000, "risk": 2.0, "target_notional_usd": {"BTC": 20000.0}, "by_sleeve_usd": {}}))
+        one_pass(b, "challenge", Rules(), sd, now=pd.Timestamp(hour, tz="UTC") + pd.Timedelta(minutes=5))
+        assert want in (sd / "orders_log.csv").read_text()

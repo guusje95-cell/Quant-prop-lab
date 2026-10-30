@@ -16,4 +16,6 @@ class Rules:
     min_order_usd: float = 50.0            # never send smaller orders
     daily_stop_frac: float = 0.025         # flat for the rest of the UTC day at -2.5% of the initial balance from the day's start (50% of a 5% limit)
     limit_minutes: int = 15                # limit at the reference price for 15 min, then market (Gen337b)
+    limit_minutes_daily: int = 60          # v9.9 R1 / R1b (user-approved 2026-10-30): the 00:00 UTC rebalance (daily sleeves) rests 60 min at the touch
+                                           # (Bybit tick re-measurement: +3.0 bp per order, fill 97%); confirmation pending from the book logger
     max_book_age_minutes: int = 50         # do not trade a book older than this (late book -> skip the hour, Gen331: 1 h late costs 0.18 Sharpe)
