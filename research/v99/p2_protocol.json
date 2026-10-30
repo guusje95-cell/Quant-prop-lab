@@ -1,0 +1,9 @@
+{
+ "id": "v99-P2", "date": "2026-10-30", "registered": "before running p2_construction.py",
+ "what": "portfolio construction knobs of crypto_sleeves.portfolio_v5 (copied, parameterised; the frozen function is not changed)",
+ "grid": {"risk-budget window (days)": [365, 180, 730], "vol-target window (days)": [30, 14, 60], "vol-target cap": [1.5, 1.25, 2.0]},
+ "variants": "one knob at a time around the current setting (365 / 30 / 1.5): 6 new",
+ "selection": "the variant with the highest v9.8 book Sharpe on 2022-01-01..2024-12-31; ties -> current",
+ "judge": "adopt only if 2025-01..2026-09 >= current + 0.05 and the full 2022-26 book is not lower",
+ "trials_added": 6
+}
