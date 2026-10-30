@@ -1,0 +1,8 @@
+{
+ "id": "v99-R6", "date": "2026-10-30", "registered": "after COUNTING the events (56) but before looking at any price after them",
+ "hypothesis": "Binance cuts the leverage / margin tiers of a single perpetual after an extreme move (often a pump or squeeze); the forced deleveraging and the end of the squeeze bring selling pressure: the same mechanism as the event short.",
+ "events": "titles in research_data/binance_announcements (catalogs 49, 161, 48, 93) matching 'Update' and 'leverage' or 'margin tier', naming <COIN>USDT, not 'multiple' / portfolio margin / leveraged tokens / tick size; time = releaseDate",
+ "rule": "identical to the event short's delisting leg (EL.SIZE 0.05 short from the first full hour after the announcement, HOLD 14 days, 30% stop, Bybit-listed coins only, inside the 0.5 gross cap, 10 bp per unit turnover); a coin already shorted is not doubled",
+ "judge": "v9.8 book >= 3.211 + 0.05 and no period (2022, 2023-24, 2025-26) lower",
+ "trials_added": 1
+}
