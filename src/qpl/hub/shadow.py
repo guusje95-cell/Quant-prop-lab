@@ -39,8 +39,12 @@ RULES = {"event_short_vol_regime": {"sleeve": "listing short", "fn": _btc_vol_re
 
 def define(c: sqlite3.Connection, key: str, source: str, kind: str, spec: dict, capital: float = 200_000.0, risk: float = 1.5,
            description: str = "", actor: str = "user") -> int:
-    if kind not in ("sleeve", "reweighted", "custom", "rule"):
+    if kind not in ("sleeve", "reweighted", "custom", "rule", "composite"):
         raise ValueError(kind)
+    if kind == "composite":
+        for x in spec.get("extra", []):
+            if not c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (x["account"],)).fetchone():
+                raise ValueError(f"extra member account {x['account']} does not exist")
     if kind == "rule" and spec.get("rule") not in RULES:
         raise ValueError(f"unknown rule; registered: {sorted(RULES)}")
     full = f"shadow:{key}"
@@ -91,9 +95,49 @@ def returns(c: sqlite3.Connection, key: str) -> pd.Series | None:
     if k == "custom":
         w = pd.Series(s["weights"]).reindex(P.columns).fillna(0.0)
         return (P * w).sum(axis=1)
+    if k == "composite":
+        return _composite(c, cfg, P)
     rule = RULES[s["rule"]]; mult = pd.DataFrame(1.0, index=P.index, columns=P.columns)
     mult[rule["sleeve"]] = rule["fn"](P.index, s.get("live_dir") or str(ROOT / "paper_trading" / cfg["source"].split(":", 1)[1] / "data"))
     return (P * W * mult).sum(axis=1)
+
+
+def _account_hourly(c, key: str) -> pd.Series:
+    E = pd.read_sql_query("SELECT e.ts, e.ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key=? ORDER BY e.ts", c, params=(key,))
+    s = pd.Series(E["ret"].to_numpy(), index=pd.to_datetime(E["ts"]))
+    if len(s) > 2 and pd.Series(s.index).diff().median() > pd.Timedelta(hours=1):       # 4h / daily engine accounts: spread evenly over the hours
+        step = pd.Series(s.index).diff().median(); n = int(step / pd.Timedelta(hours=1))
+        s = pd.concat([pd.Series(v / n, index=pd.date_range(t - step + pd.Timedelta(hours=1), t, freq="h")) for t, v in s.items()])  # return of bar t is realised by its close
+    return s
+
+
+def _composite(c, cfg: dict, P: pd.DataFrame) -> pd.Series:
+    """The source book PLUS extra sleeves (other paper accounts), combined with EXACTLY the book's construction rule
+    (crypto_sleeves.portfolio_v5: monthly equal risk on trailing-365-day vol, Weiss at half, a sleeve counts once it has >= 30 active days
+    in the trailing year, level + 30-day vol targeting), times the source's scale. History before the paper start comes from the source's
+    research-pack run (`prefix`) so the 365-day windows are full; an extra sleeve without a prefix simply enters once it has 30 active
+    days (warm-up). Only the paper hours are returned."""
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import crypto_sleeves as CS
+    s = cfg["spec"]; ver = cfg["source"].split(":", 1)[1]
+    pre = ROOT / s.get("prefix", f"results/{ver}_paper_sleeves.parquet")
+    H = P.copy()
+    if pre.exists():
+        X = pd.read_parquet(pre).drop(columns=["port"], errors="ignore")
+        X = X[X.index < P.index[0]].reindex(columns=P.columns).fillna(0.0)
+        H = pd.concat([X, P])
+    for x in s.get("extra", []):
+        col = _account_hourly(c, x["account"])
+        if x.get("prefix"):
+            px = pd.read_parquet(ROOT / x["prefix"]).iloc[:, 0]; col = pd.concat([px[px.index < col.index.min()] if len(col) else px, col])
+        H[x["name"]] = col.reindex(H.index).fillna(0.0)
+    scale = s.get("scale")
+    if scale is None:
+        pc = ROOT / f"config/paper_{ver}.json"
+        scale = json.loads(pc.read_text())["frozen"].get(f"{ver}_scale", 1.0) if pc.exists() else 1.0
+    ph, _, _ = CS.portfolio_v5(H, start=str(H.index[0].date()))
+    return (ph * scale).reindex(P.index).fillna(0.0)
 
 
 def recompute(c: sqlite3.Connection, key: str | None = None) -> dict:

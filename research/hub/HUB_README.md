@@ -38,6 +38,9 @@ Notifications: the dashboard's alert list (no external messaging is configured; 
   reset creates a new account and keeps the old one. Same accounting as the Lab backtest (replay parity 3e-18).
 - **Shadow accounts** (Portfolio & Risk): each v9.8 sleeve alone and portfolio variants (e.g. the event-short vol rule, without ridge),
   computed exactly from the running v98 paper trader's ledger. 11 defaults are created automatically; add your own in the form.
+- **Composite shadows** (kind `composite`): the v9.8 book PLUS extra sleeves from other paper accounts (e.g. a new strategy running as
+  an engine account), combined with the book's own equal-risk rule (`portfolio_v5`, so a 10th sleeve gets 1/10 of the risk once it has
+  30 active days). Shows live, before any switch, how "v9.8 + the new sleeve" would have done.
 - The v9.8 book itself keeps running in `paper_v98_start.bat` (frozen baseline).
 
 ## Research agent

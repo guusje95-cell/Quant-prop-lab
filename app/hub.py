@@ -348,7 +348,9 @@ def shadow_tab():
         st.markdown("**Define a new shadow account** (immutable once defined; a change = a new key)")
         cc = st.columns(4)
         key = cc[0].text_input("Key (e.g. v98:weiss_x2)"); src = cc[1].selectbox("Source paper account", q("SELECT key FROM paper_accounts WHERE key LIKE 'paper:%' ORDER BY key DESC")["key"].tolist() or ["paper:v98"])
-        kind = cc[2].selectbox("Kind", ["sleeve", "reweighted", "custom", "rule"]); risk_ = cc[3].number_input("Risk multiplier", 0.1, 3.0, 1.5, 0.1)
+        kind = cc[2].selectbox("Kind", ["sleeve", "reweighted", "custom", "rule", "composite"]); risk_ = cc[3].number_input("Risk multiplier", 0.1, 3.0, 1.5, 0.1)
+        extra = st.multiselect("Extra sleeves (kind = composite): other paper accounts added to the book with the book's own equal-risk rule",
+                               q("SELECT key FROM paper_accounts WHERE key LIKE 'engine:%' OR key LIKE 'shadow:%' ORDER BY key")["key"].tolist())
         sleeves = q("SELECT DISTINCT sleeve FROM paper_sleeve_pnl")["sleeve"].tolist()
         cc2 = st.columns(3)
         slv = cc2[0].selectbox("Sleeve (kind = sleeve)", sleeves or ["C*"]); spec_json = cc2[1].text_input("Multipliers / weights JSON (reweighted / custom)", '{"Weiss expiry": 2.0}')
@@ -356,7 +358,8 @@ def shadow_tab():
         if st.form_submit_button("Define and compute"):
             try:
                 spec = {"sleeve": slv, "vol_target": 0.15} if kind == "sleeve" else {"rule": rule} if kind == "rule" else (
-                    {"multipliers": js(spec_json)} if kind == "reweighted" else {"weights": js(spec_json)})
+                    {"multipliers": js(spec_json)} if kind == "reweighted" else {"weights": js(spec_json)} if kind == "custom" else
+                    {"extra": [{"name": e.split(":", 1)[1], "account": e} for e in extra]})
                 shadow.define(c, key, src, kind, spec, risk=risk_, description=desc)
                 st.success(shadow.recompute(c, f"shadow:{key}")); st.rerun()
             except Exception as e:                                         # noqa: BLE001

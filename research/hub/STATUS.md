@@ -34,4 +34,4 @@ project data in the cloud workspace (init, one worker pass, every dashboard page
 4. The research agent has one runnable approved item; the Bybit item waits for `get_bybit_announcements.bat`.
 5. External notifications (e-mail / Telegram) not configured: needs the user's choice and credentials (would go in a secret store, not in code).
 
-Full test suite on 2026-10-30 after step 2: **197 passed**, 0 failed (`python -m pytest tests`).
+Full test suite on 2026-10-30 after the composite shadows: **198 passed**, 0 failed (`python -m pytest tests`).

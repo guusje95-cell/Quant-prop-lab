@@ -334,3 +334,31 @@ def test_paper_engine_controls_portfolio_and_fail_closed(c):
         PE.create_account(c, "pf2", a)                                          # keys are never reused
     with pytest.raises(KeyError):
         PE.create_account(c, "bad", dict(a, strategy="no such strategy"))
+
+
+def test_composite_shadow_adds_a_sleeve_with_the_book_rule(c, tmp_path, monkeypatch):
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import crypto_sleeves as CS
+    from qpl.hub import shadow
+    from qpl.hub.db import now, tx
+    rng = np.random.default_rng(7); idx = pd.date_range("2024-01-01", "2026-03-31 23:00", freq="h"); paper_from = pd.Timestamp("2026-01-01")
+    H = pd.DataFrame({s: rng.normal(0.00003, 0.002, len(idx)) for s in ("A", "B", "Weiss expiry")}, index=idx)
+    pre = tmp_path / "pre.parquet"; H[H.index < paper_from].to_parquet(pre)
+    P = H[H.index >= paper_from]; new = pd.Series(rng.normal(0.00005, 0.002, len(P)), index=P.index)
+    with tx(c):
+        src = c.execute("INSERT INTO paper_accounts (key, source_dir, initial_capital, status, created_at) VALUES ('paper:tt','x',1,'running',?)", (now(),)).lastrowid
+        c.executemany("INSERT INTO paper_sleeve_pnl VALUES (?,?,?,?,?)", [(src, str(t), s, float(v), 0.0) for s in P.columns for t, v in P[s].items()])
+        ex = c.execute("INSERT INTO paper_accounts (key, source_dir, initial_capital, status, created_at) VALUES ('engine:new','x',1,'running',?)", (now(),)).lastrowid
+        c.executemany("INSERT INTO paper_equity (account_id, ts, ret, equity) VALUES (?,?,?,?)", [(ex, str(t), float(v), 1.0) for t, v in new.items()])
+    rel = str(pre.relative_to(tmp_path)); monkeypatch.setattr(shadow, "ROOT", tmp_path)
+    shadow.define(c, "tt:same", "paper:tt", "composite", {"prefix": rel, "scale": 1.0}, risk=1.0)
+    shadow.define(c, "tt:plus", "paper:tt", "composite", {"prefix": rel, "scale": 1.0, "extra": [{"name": "new", "account": "engine:new"}]}, risk=1.0)
+    same = shadow.returns(c, "shadow:tt:same"); plus = shadow.returns(c, "shadow:tt:plus")
+    ref = CS.portfolio_v5(H, start="2024-01-01")[0].reindex(P.index)
+    assert np.abs(same.to_numpy() - ref.to_numpy()).max() < 1e-12                         # the book rule, reproduced
+    Hp = pd.concat([H, new.rename("new").reindex(H.index).fillna(0.0)], axis=1)
+    refp = CS.portfolio_v5(Hp, start="2024-01-01")[0].reindex(P.index)
+    assert np.abs(plus.to_numpy() - refp.to_numpy()).max() < 1e-12 and not np.allclose(plus, same)   # 4th sleeve enters via the same rule
+    with pytest.raises(ValueError):
+        shadow.define(c, "tt:bad", "paper:tt", "composite", {"extra": [{"name": "x", "account": "engine:missing"}]})
