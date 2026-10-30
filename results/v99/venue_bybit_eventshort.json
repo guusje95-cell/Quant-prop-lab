@@ -1,0 +1,36 @@
+{
+ "event short positions": 617,
+ "priced on Bybit": 273,
+ "share of event-short gross on Bybit prices": 0.419,
+ "funding paid by longs, bp a day (median over covered positions)": {
+  "Binance": 1.24,
+  "Bybit": 1.18
+ },
+ "event short (Binance prices)": [
+  1.754,
+  0.048,
+  1.367
+ ],
+ "event short (Bybit where covered)": [
+  1.742,
+  0.051,
+  1.35
+ ],
+ "corr of the two event shorts (daily)": 1.0,
+ "book (Binance prices)": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "book (Bybit where covered)": [
+  3.21,
+  [
+   3.08,
+   3.852,
+   2.657
+  ]
+ ]
+}
