@@ -1,0 +1,143 @@
+{
+ "assumptions": "Income question (user, 2026-10-30): does a futures prop account NEXT TO the crypto accounts add meaningful monthly cash, at honest\nlive-Sharpe assumptions? Model estimate only (firm terms ASSUMED, unverified). Writes results/hub_research/income_futures.json.\nCrypto: 2 x HyroTrader Two-Step $200k (start day 0 and 180), v9.8 hourly unit book shifted to the assumed live Sharpe (hub income engine).\nFutures: k x 50k swing-firm accounts (terms of scripts/futures_prop_update.py, ASSUMED), futures book daily, scaled to 15% vol, shifted to the\nassumed live Sharpe (252-day annualisation), challenge risk 1.0 / funded 0.5 (Gen191), worst day = 1.3 x the close loss; an independent\nbootstrap path (daily correlation with crypto 0.04); $50 a month platform / data cost per futures account (assumption).",
+ "results": [
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "none",
+   "year-2 mean month EUR": 5001,
+   "year-2 p10 month EUR": -1036,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 75587,
+   "P(2-year loss)": 0.11
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "1 x 50k at live Sharpe 0.65",
+   "futures alone year-2 mean month EUR": 7,
+   "year-2 mean month EUR": 5009,
+   "year-2 p10 month EUR": -366,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 77171,
+   "P(2-year loss)": 0.1
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "3 x 50k at live Sharpe 0.65",
+   "futures alone year-2 mean month EUR": 22,
+   "year-2 mean month EUR": 5023,
+   "year-2 p10 month EUR": -694,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 77362,
+   "P(2-year loss)": 0.09
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "1 x 50k at live Sharpe 1.0",
+   "futures alone year-2 mean month EUR": 63,
+   "year-2 mean month EUR": 5064,
+   "year-2 p10 month EUR": -324,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 77184,
+   "P(2-year loss)": 0.09
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "3 x 50k at live Sharpe 1.0",
+   "futures alone year-2 mean month EUR": 189,
+   "year-2 mean month EUR": 5190,
+   "year-2 p10 month EUR": -278,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 81568,
+   "P(2-year loss)": 0.06
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "1 x 50k at live Sharpe 1.5",
+   "futures alone year-2 mean month EUR": 157,
+   "year-2 mean month EUR": 5158,
+   "year-2 p10 month EUR": -324,
+   "P(month >= 10k) year 2": 0.18,
+   "2-year total p50 EUR": 78594,
+   "P(2-year loss)": 0.07
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "futures": "3 x 50k at live Sharpe 1.5",
+   "futures alone year-2 mean month EUR": 472,
+   "year-2 mean month EUR": 5473,
+   "year-2 p10 month EUR": -278,
+   "P(month >= 10k) year 2": 0.19,
+   "2-year total p50 EUR": 88986,
+   "P(2-year loss)": 0.04
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "none",
+   "year-2 mean month EUR": 3676,
+   "year-2 p10 month EUR": -139,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 49289,
+   "P(2-year loss)": 0.22
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "1 x 50k at live Sharpe 0.65",
+   "futures alone year-2 mean month EUR": 7,
+   "year-2 mean month EUR": 3683,
+   "year-2 p10 month EUR": -324,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 51033,
+   "P(2-year loss)": 0.21
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "3 x 50k at live Sharpe 0.65",
+   "futures alone year-2 mean month EUR": 22,
+   "year-2 mean month EUR": 3698,
+   "year-2 p10 month EUR": -278,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 53304,
+   "P(2-year loss)": 0.16
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "1 x 50k at live Sharpe 1.0",
+   "futures alone year-2 mean month EUR": 63,
+   "year-2 mean month EUR": 3738,
+   "year-2 p10 month EUR": -324,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 51665,
+   "P(2-year loss)": 0.19
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "3 x 50k at live Sharpe 1.0",
+   "futures alone year-2 mean month EUR": 189,
+   "year-2 mean month EUR": 3864,
+   "year-2 p10 month EUR": -278,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 56657,
+   "P(2-year loss)": 0.12
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "1 x 50k at live Sharpe 1.5",
+   "futures alone year-2 mean month EUR": 157,
+   "year-2 mean month EUR": 3833,
+   "year-2 p10 month EUR": -241,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 53546,
+   "P(2-year loss)": 0.13
+  },
+  {
+   "crypto live Sharpe": 1.3,
+   "futures": "3 x 50k at live Sharpe 1.5",
+   "futures alone year-2 mean month EUR": 472,
+   "year-2 mean month EUR": 4148,
+   "year-2 p10 month EUR": -278,
+   "P(month >= 10k) year 2": 0.14,
+   "2-year total p50 EUR": 63291,
+   "P(2-year loss)": 0.06
+  }
+ ]
+}
