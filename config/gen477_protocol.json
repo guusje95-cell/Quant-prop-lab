@@ -1,0 +1,16 @@
+{
+ "gen": 477, "date": "2026-10-30", "registered_before_running": true,
+ "title": "FRED market macro signals (futures programme, track 1b)",
+ "data": "research_data/fred: DGS10, DGS3MO (H.15 yields), BAA10Y (Moody's Baa - 10y), DFII10 (10y TIPS real yield), T10YIE (10y breakeven). Market series, not revised. Value of day t used from the close of the next trading day t+1 (FRED publishes H.15 with a one-day lag).",
+ "trials": {
+  "M1 curve slope -> Treasuries": "slope = DGS10 - DGS3MO; z = (slope - 756-day rolling mean) / 756-day sd; ZN and ZB position = clip(z, -1, 1) each (steep curve = high term premium -> long duration; Fama-Bliss / Campbell-Shiller)",
+  "M2 credit spread -> equities": "long ES and NQ (0.5 each) while BAA10Y fell over the last 21 days, flat otherwise (credit leads equity; long-only timing, beta allowed by the programme)",
+  "M3 real-yield momentum -> gold": "GC position = -sign(21-day change of DFII10) (falling real yields -> long gold)",
+  "M4 breakeven momentum -> commodities": "CL, HG, GC position = sign(63-day change of T10YIE) each (rising inflation expectations -> long real assets)"
+ },
+ "sizing": "position x 0.10 / (60-day realised vol, lagged), cap 3; equal-weight across the markets of a trial; futures_db costs; daily roll-safe returns",
+ "entry": "stand-alone Sharpe 2010-06..2022 >= 0.3",
+ "judge": "each entrant alone added to the 15-sleeve book: 2023-26 >= 1.218 + 0.05 and 2010-17, 2018-22 not lower; all entrants together reported",
+ "trials_added": 4,
+ "promotion": "never without the user's explicit OK"
+}
