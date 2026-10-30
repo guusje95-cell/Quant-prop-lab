@@ -1,6 +1,6 @@
 # Quant Trading Hub: implementation status (kept current; resume from here after a restart)
 
-Updated 2026-10-30. Evidence = tests in `tests/test_hub.py` (20 passing; full suite 194 passed on 2026-10-30), and an end-to-end run on the real
+Updated 2026-10-30. Evidence = tests in `tests/test_hub.py` (23 passing; full suite: see the bottom line), and an end-to-end run on the real
 project data in the cloud workspace (init, one worker pass, every dashboard page and its computation buttons).
 
 | # | Subsystem | Status | Evidence / limits |
@@ -11,7 +11,7 @@ project data in the cloud workspace (init, one worker pass, every dashboard page
 | 4 | Autonomous research orchestration | Implemented, partially tested | agenda → register → run (whitelisted, timeout, no credentials) → pre-registered decision; first real run done (event-short vol regime). LLM provider interface only (none configured) |
 | 5 | Strategy discovery / common backtester | Partially implemented | the project's existing engines are reused (`qpl.lab.engine`, sleeve scripts); no new generic multi-market backtester was built |
 | 6 | Robustness / statistical validation | Implemented and tested | periods, non-normal SE, block bootstrap, project haircut, DSR, Harvey-Liu, CSCV-PBO, stress proxies, acceptance criteria per use case |
-| 7 | Paper trading | Partially implemented | hub ingests the existing paper traders' frozen ledgers (orders, events, per-sleeve P&L) per account and monitors them; the paper trader itself stays `scripts/paper_v5.py` (v98 frozen); no hub-native paper engine |
+| 7 | Paper trading | Implemented and tested; live data path untested here | (a) ingests the existing paper traders' frozen ledgers (v98 stays in `scripts/paper_v5.py`, frozen); (b) **shadow accounts** per sleeve / reweighted / custom / rule, derived exactly from the paper ledger (neutral shadow = source to 1e-15); (c) **hub paper engine**: independent accounts for any Lab strategy or a portfolio of strategies, bar by bar, backtest parity 3e-18 (replay test), idempotent, restart-safe, pause / stop / reset-as-new-account, fail-closed on stale data. The live Binance USDT-M data provider cannot be reached from the cloud, so it is exercised only on the PC |
 | 8 | Portfolio construction | Implemented, partially tested | portfolio versions (immutable), risk contributions, correlation, stress cases; allocation research results in research/v99 (R3 rejected) |
 | 9 | Independent risk management | Implemented and tested | limits table, hysteresis, events, alerts, bot kill switch for v98; reads paper equity only (no live accounts exist) |
 | 10 | Strategy health | Implemented, partially tested | z-score vs backtest with minimum samples, per-sleeve alert levels, late hours, staleness; diagnostics, never retunes |
@@ -29,7 +29,9 @@ project data in the cloud workspace (init, one worker pass, every dashboard page
 ## Known limitations / next steps
 1. Prop rules: verify HyroTrader / CFT / Breakout facts from official pages (run `get_prop_rules.bat`, then record quotes). Until then every
    compatibility result is at best "potentially compatible".
-2. Paper engine: the hub monitors the existing paper traders; a generic multi-strategy paper engine inside the hub is not built.
+2. Paper engine: first live run on the PC still to be observed (the Binance data provider is untested from the cloud). The v9.8 sleeves themselves are not Lab plug-ins: per-sleeve views come from shadow accounts, not from the engine.
 3. Futures and CFD portfolios are registered but have no hub-native data pipelines yet (their research scripts exist).
 4. The research agent has one runnable approved item; the Bybit item waits for `get_bybit_announcements.bat`.
 5. External notifications (e-mail / Telegram) not configured: needs the user's choice and credentials (would go in a secret store, not in code).
+
+Full test suite on 2026-10-30 after step 2: **197 passed**, 0 failed (`python -m pytest tests`).

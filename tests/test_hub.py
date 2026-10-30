@@ -247,7 +247,7 @@ def test_dashboard_renders_every_page_on_an_empty_database(tmp_path, monkeypatch
     monkeypatch.setenv("QPL_HUB_DB", str(tmp_path / "empty.sqlite"))
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(str(ROOT / "app/hub.py"), default_timeout=300); at.run()
-    for p in ["Overview", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"]:
+    for p in ["Overview", "Paper Trading", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"]:
         at.sidebar.radio[0].set_value(p).run()
         assert not at.exception, (p, [e.value for e in at.exception][:1])
 
@@ -281,3 +281,56 @@ def test_shadow_accounts_derive_exactly_from_the_source(c):
         shadow.define(c, "t:same", "paper:v86", "reweighted", {"multipliers": {"C*": 2}})          # immutable definition
     assert shadow.define(c, "t:waiting", "paper:v98", "sleeve", {"sleeve": "C*"})
     assert "waiting" in shadow.recompute(c, "shadow:t:waiting")["shadow:t:waiting"]["status"]
+
+
+def _hist_provider():
+    from qpl.hub import paper_engine as PE
+    from qpl.lab import data as LD
+    idx = pd.date_range("2024-01-01", "2024-06-30 23:00", freq="h"); rng = np.random.default_rng(4)
+    cl = pd.DataFrame({s: 100 * np.exp(np.cumsum(rng.normal(0.0001, 0.006, len(idx)))) for s in ("AAA", "BBB")}, index=idx)
+    b = LD.Bars("synthetic", "1h", cl, cl * 1.002, cl * 0.998, cl, cl * 0 + 1.0, LD.PPY["1h"])
+    return PE.HistoricalProvider(b, {"AAA": pd.Series(0.0001, index=pd.date_range("2024-01-01", "2024-07-01", freq="8h"))})
+
+
+def test_paper_engine_matches_backtest_and_is_idempotent(c):
+    from qpl.hub import paper_engine as PE
+    prov = _hist_provider()
+    cfg = {"kind": "strategy", "strategy": "Time-series momentum", "params": {}, "symbols": ["AAA", "BBB"], "freq": "4h",
+           "sizing": {"cost_bps": 7.5, "min_history_days": 10}, "lookback_days": 400}
+    PE.create_account(c, "par", cfg)
+    t0 = pd.Timestamp("2024-05-01")
+    PE.step(c, "engine:par", prov, end=t0, replay_from=str(t0 - pd.Timedelta(hours=4)))
+    for k in range(1, 61):
+        PE.step(c, "engine:par", prov, end=t0 + pd.Timedelta(hours=4 * k))
+    n1 = c.execute("SELECT COUNT(*) FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='engine:par'").fetchone()[0]
+    assert PE.step(c, "engine:par", prov, end=t0 + pd.Timedelta(hours=240))["processed"] == 0          # same time again: nothing double-counted
+    assert c.execute("SELECT COUNT(*) FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='engine:par'").fetchone()[0] == n1
+    E = pd.read_sql_query("SELECT ts, ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='engine:par' ORDER BY ts", c)
+    E = E.set_index(pd.to_datetime(E["ts"]))["ret"]
+    funding_cfg = dict(cfg)
+    bt = PE.backtest_same_config(funding_cfg, prov, str(E.index[0]), str(E.index[-1]))
+    held_aaa = pd.read_sql_query("SELECT ts, weight FROM paper_positions p JOIN paper_accounts a ON a.id=p.account_id WHERE a.key='engine:par' AND coin='AAA'", c)
+    diff = (E - bt.reindex(E.index)).iloc[2:]
+    assert diff.abs().max() < 0.002                                          # differences only from the funding the backtest omits
+    assert not held_aaa.empty
+
+
+def test_paper_engine_controls_portfolio_and_fail_closed(c):
+    from qpl.hub import paper_engine as PE
+    prov = _hist_provider()
+    a = {"kind": "strategy", "strategy": "Time-series momentum", "symbols": ["AAA", "BBB"], "freq": "4h", "sizing": {"min_history_days": 10}}
+    b = {"kind": "strategy", "strategy": "Buy & hold (benchmark)", "symbols": ["AAA", "BBB"], "freq": "4h", "sizing": {"min_history_days": 10}}
+    PE.create_account(c, "pf", {"kind": "portfolio", "freq": "4h", "cost_bps": 7.5, "gross_cap": 3.0, "members": [dict(a, weight=0.5), dict(b, weight=0.5)]})
+    end = pd.Timestamp("2024-05-10")
+    assert PE.step(c, "engine:pf", prov, end=end)["status"] == "ok"
+    PE.set_status(c, "engine:pf", "paused", "test")
+    assert PE.step(c, "engine:pf", prov, end=end + pd.Timedelta(hours=8))["processed"] == 0
+    PE.set_status(c, "engine:pf", "running", "test")
+    late = PE.step(c, "engine:pf", prov, end=pd.Timestamp("2024-08-01"))                               # provider has no data after 2024-06-30
+    assert late["status"] == "stale data" and c.execute("SELECT COUNT(*) FROM alerts WHERE source='paper:engine:pf'").fetchone()[0] == 1
+    new = PE.reset(c, "engine:pf", "pf2", "test reset")
+    assert c.execute("SELECT status FROM paper_accounts WHERE key='engine:pf'").fetchone()[0] == "archived" and new
+    with pytest.raises(ValueError):
+        PE.create_account(c, "pf2", a)                                          # keys are never reused
+    with pytest.raises(KeyError):
+        PE.create_account(c, "bad", dict(a, strategy="no such strategy"))

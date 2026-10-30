@@ -54,7 +54,7 @@ def js(x):
 
 c = con()
 st.sidebar.title("Quant Trading Hub")
-page = st.sidebar.radio("View", ["Overview", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"])
+page = st.sidebar.radio("View", ["Overview", "Paper Trading", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"])
 st.sidebar.caption(f"Database: `{DB.db_path()}`")
 st.sidebar.caption("Live trading: **disabled** (no live adapter exists)" if DB.get_setting(c, "live_trading_enabled") == "false" else "check settings")
 if st.sidebar.button("Refresh data"):
@@ -110,6 +110,95 @@ def overview():
         for it in agent.plan(c):
             if it["needs_user"] or (it["blocked_by"] and "status is proposed" in " ".join(it["blocked_by"])):
                 st.markdown(f"- **{it['title']}**: {it['needs_user'] or 'proposed item: approve it in research/hub/agenda.json to let the agent run it'}")
+
+
+# ============================================================================================================ Paper trading (hub engine)
+MAJORS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "BNBUSDT", "DOGEUSDT", "ADAUSDT", "AVAXUSDT", "LINKUSDT", "DOTUSDT"]
+
+
+def paper_trading():
+    st.header("Paper Trading")
+    tag("paper")
+    from qpl.hub import paper_engine as PE
+    st.caption("Independent paper accounts for any Backtest Lab strategy (incl. your plug-ins in strategies_user/) or a portfolio of strategies. "
+               "The worker advances every running account every 15 minutes on live Binance USDT-M public data (on your PC). Same accounting "
+               "as the Lab backtest; starts flat at the next completed bar; no orders anywhere. The v9.8 book itself runs in its own paper trader "
+               "(paper:v98) and its per-strategy views are under Portfolio & Risk → Shadow accounts.")
+    A = q("SELECT a.id, a.key, a.status, a.initial_capital, a.created_at, a.last_data_ts, s.equity, s.last_bar, a.config FROM paper_accounts a "
+          "JOIN paper_engine_state s ON s.account_id=a.id ORDER BY a.status, a.key")
+    if A.empty:
+        st.info("No engine accounts yet. Create one below.")
+    else:
+        A["kind"] = A["config"].map(lambda x: js(x)["kind"]); A["return"] = A["equity"] / A["initial_capital"] - 1
+        st.dataframe(A[["key", "kind", "status", "initial_capital", "equity", "return", "last_bar", "created_at"]], width="stretch", hide_index=True)
+        k = st.selectbox("Account", A["key"].tolist())
+        row = A.set_index("key").loc[k]
+        cc = st.columns(5)
+        new_status = cc[0].selectbox("Set status", ["running", "paused", "stopped"]); why = cc[1].text_input("Reason", "manual")
+        if cc[2].button("Apply status"):
+            PE.set_status(c, k, new_status, why); st.rerun()
+        nk = cc[3].text_input("Reset as new key"); 
+        if cc[4].button("Reset (keeps old records)") and nk:
+            PE.reset(c, k, nk, why); st.rerun()
+        E = q("SELECT ts, equity, ret, retro FROM paper_equity WHERE account_id=? ORDER BY ts", (int(row["id"]),))
+        if len(E):
+            st.plotly_chart(px.line(E, x="ts", y="equity", template=TPL, title=f"{k} equity").update_layout(height=300), width="stretch")
+            d = E.set_index(pd.to_datetime(E["ts"]))["ret"]; dd_ = d.groupby(d.index.floor("D")).sum()
+            m = st.columns(4); m[0].metric("Bars", len(E)); m[1].metric("Return", f"{(1 + d).prod() - 1:.2%}")
+            m[2].metric("Max drawdown", f"{(E['equity'] / E['equity'].cummax() - 1).min():.2%}")
+            m[3].metric("Sharpe", f"{dd_.mean() / dd_.std() * np.sqrt(365):.2f}" if len(dd_) >= 60 and dd_.std() > 0 else "needs ≥ 60 days")
+        st.markdown("**Positions (latest bar)**")
+        st.dataframe(q("SELECT coin, weight, notional_usd FROM paper_positions WHERE account_id=? AND ts=(SELECT MAX(ts) FROM paper_positions WHERE account_id=?)",
+                       (int(row["id"]), int(row["id"]))), width="stretch", hide_index=True)
+        st.markdown("**Simulated fills**")
+        st.dataframe(q("SELECT ts, coin, delta_weight, price, notional_usd, cost_usd FROM paper_fills WHERE account_id=? ORDER BY ts DESC LIMIT 300", (int(row["id"]),)),
+                     width="stretch", hide_index=True, height=240)
+        st.json(js(row["config"]), expanded=False)
+        if st.button("Backtest the same configuration over the paper period (needs Binance data access)"):
+            try:
+                cfg = js(row["config"]); prov = PE.BinanceFuturesProvider(); E2 = E.set_index(pd.to_datetime(E["ts"]))["ret"]
+                bt = PE.backtest_same_config(cfg, prov, str(E2.index[0]), str(E2.index[-1]))
+                cmp_ = pd.DataFrame({"paper": (1 + E2).cumprod(), "backtest": (1 + bt.reindex(E2.index).fillna(0)).cumprod()})
+                tag("paper", "backtest"); st.plotly_chart(px.line(cmp_, template=TPL).update_layout(height=280), width="stretch")
+            except Exception as e:                                         # noqa: BLE001
+                st.error(f"market data not reachable here: {e}")
+    t1, t2 = st.tabs(["New strategy account", "New portfolio account"])
+    with t1:
+        with st.form("new_engine"):
+            cc = st.columns(3)
+            key = cc[0].text_input("Key (unique, e.g. cstar_majors_1d)"); strat = cc[1].selectbox("Strategy", PE.strategies()); freq = cc[2].selectbox("Bar", ["1d", "4h", "1h"])
+            syms = st.multiselect("Binance USDT-M perps", MAJORS + ["NEARUSDT", "LTCUSDT", "TRXUSDT", "SUIUSDT"], default=MAJORS[:5])
+            cc = st.columns(5)
+            cost = cc[0].number_input("Cost per side (bp)", 0.0, 50.0, 7.5); vt = cc[1].number_input("Per-asset vol target", 0.0, 2.0, 0.40, 0.05)
+            lev = cc[2].number_input("Leverage", 0.1, 3.0, 1.0, 0.1); cap = cc[3].number_input("Capital (USD)", 1000.0, 1e7, 100000.0, 1000.0)
+            params = cc[4].text_input("Params JSON (optional)", "{}")
+            hyp = st.text_input("Hypothesis / why paper-trade it")
+            if st.form_submit_button("Create (starts at the next completed bar)"):
+                try:
+                    cfg = {"kind": "strategy", "strategy": strat, "params": js(params) or {}, "symbols": syms, "freq": freq,
+                           "sizing": {"cost_bps": cost, "asset_vol_target": vt, "leverage": lev}, "lookback_days": 400, "hypothesis": hyp}
+                    PE.create_account(c, key, cfg, cap); st.success(f"engine:{key} created; the worker advances it"); st.rerun()
+                except Exception as e:                                     # noqa: BLE001
+                    st.error(str(e))
+    with t2:
+        S = A[A["kind"] == "strategy"] if not A.empty else A
+        if S.empty:
+            st.info("Create strategy accounts first; a portfolio combines their configurations (as a new, separate account).")
+        else:
+            with st.form("new_pf"):
+                key = st.text_input("Key (e.g. trend_mix)"); picks = st.multiselect("Members", S["key"].tolist())
+                w = st.text_input("Weights JSON by member key (default equal)", "{}"); cc = st.columns(3)
+                cost = cc[0].number_input("Cost per side on NET trades (bp)", 0.0, 50.0, 7.5); gcap = cc[1].number_input("Gross exposure cap", 0.5, 5.0, 2.0, 0.1)
+                cap = cc[2].number_input("Capital (USD)", 1000.0, 1e7, 200000.0, 1000.0)
+                if st.form_submit_button("Create portfolio account"):
+                    try:
+                        ww = js(w) or {}; mem = []
+                        for p in picks:
+                            m = dict(js(S.set_index("key").loc[p, "config"])); m["weight"] = float(ww.get(p, 1.0 / len(picks))); mem.append(m)
+                        PE.create_account(c, key, {"kind": "portfolio", "members": mem, "freq": mem[0].get("freq", "1d"), "cost_bps": cost, "gross_cap": gcap}, cap)
+                        st.success(f"engine:{key} created"); st.rerun()
+                    except Exception as e:                                 # noqa: BLE001
+                        st.error(str(e))
 
 
 # ============================================================================================================ Research
@@ -455,5 +544,5 @@ def system():
         st.dataframe(q("SELECT * FROM audit_log ORDER BY id DESC LIMIT 500"), width="stretch", hide_index=True, height=480)
 
 
-{"Overview": overview, "Research Lab": research, "Strategy Center": strategies, "Portfolio & Risk": portfolio, "Prop Firm Center": propfirms,
+{"Overview": overview, "Paper Trading": paper_trading, "Research Lab": research, "Strategy Center": strategies, "Portfolio & Risk": portfolio, "Prop Firm Center": propfirms,
  "Income Planner": income_page, "Finance": finance_page, "System Health": system}[page]()

@@ -31,6 +31,15 @@ backup | verify-backup FILE | restore FILE | enqueue KIND | finance-add ... | fi
 Every job is persistent (survives restarts), deduplicated, retried with backoff, time-limited, and visible in System Health.
 Notifications: the dashboard's alert list (no external messaging is configured; nothing claims to have sent a message).
 
+## Paper trading in the hub
+- **Paper Trading** (dashboard page): create an independent paper account for any Backtest Lab strategy (also your own plug-ins in
+  `strategies_user/`) on Binance USDT-M perps, or a portfolio of strategy configurations (netted, with its own costs and a gross cap).
+  The worker advances running accounts every 15 minutes; accounts start flat at the next completed bar; pause / resume / stop; a
+  reset creates a new account and keeps the old one. Same accounting as the Lab backtest (replay parity 3e-18).
+- **Shadow accounts** (Portfolio & Risk): each v9.8 sleeve alone and portfolio variants (e.g. the event-short vol rule, without ridge),
+  computed exactly from the running v98 paper trader's ledger. 11 defaults are created automatically; add your own in the form.
+- The v9.8 book itself keeps running in `paper_v98_start.bat` (frozen baseline).
+
 ## Research agent
 `research/hub/agenda.json` holds pre-registered hypotheses (rationale, data needed, whitelisted script, decision rule, priority
 inputs). Only `approved` items run; `proposed` items wait for you. The agent never edits strategies, never runs code outside
