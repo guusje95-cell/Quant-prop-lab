@@ -150,3 +150,54 @@
 {"wall_utc": "2026-10-25 10:06:15.067679", "event": "ERROR", "msg": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'fapi.binance.com\\', port=443): Max retries exceeded with url: /fapi/v1/klines?symbol=AAVEUSDT&interval=5m&startTime=1792818300000&limit=1500 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'fapi.binance.com\\', port=443): Failed to resolve \\'fapi.binance.com\\' ([Errno 11001] getaddrinfo failed)\"))'))"}
 {"wall_utc": "2026-10-25 11:06:15.100919", "event": "ERROR", "msg": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'fapi.binance.com\\', port=443): Max retries exceeded with url: /fapi/v1/klines?symbol=AAVEUSDT&interval=5m&startTime=1792818300000&limit=1500 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'fapi.binance.com\\', port=443): Failed to resolve \\'fapi.binance.com\\' ([Errno 11001] getaddrinfo failed)\"))'))"}
 {"wall_utc": "2026-10-25 11:31:29.410787", "event": "RECONCILE", "ok": "False", "corr": 0.939229718581165, "cum": 0.006373281360834269}
+{"wall_utc": "2026-10-25 11:34:19.646099", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 11:34:45.149255", "event": "RUN", "cutoff": "2026-10-25 10:00:00", "new_hours": 30, "seconds": 20.6}
+{"wall_utc": "2026-10-25 12:08:57.747645", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 12:09:33.793034", "event": "RUN", "cutoff": "2026-10-25 11:00:00", "new_hours": 1, "seconds": 27.9}
+{"wall_utc": "2026-10-25 13:09:42.245949", "event": "RUN", "cutoff": "2026-10-25 12:00:00", "new_hours": 1, "seconds": 26.7}
+{"wall_utc": "2026-10-25 14:09:33.575483", "event": "RUN", "cutoff": "2026-10-25 13:00:00", "new_hours": 1, "seconds": 20.4}
+{"wall_utc": "2026-10-25 15:09:14.329836", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 15:09:50.979971", "event": "RUN", "cutoff": "2026-10-25 14:00:00", "new_hours": 1, "seconds": 29.0}
+{"wall_utc": "2026-10-25 16:09:53.234365", "event": "RUN", "cutoff": "2026-10-25 15:00:00", "new_hours": 1, "seconds": 20.6}
+{"wall_utc": "2026-10-25 17:08:50.282262", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 17:09:26.524874", "event": "RUN", "cutoff": "2026-10-25 16:00:00", "new_hours": 1, "seconds": 28.1}
+{"wall_utc": "2026-10-25 18:09:38.169745", "event": "RUN", "cutoff": "2026-10-25 17:00:00", "new_hours": 1, "seconds": 21.0}
+{"wall_utc": "2026-10-25 19:09:24.777221", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 19:09:56.057445", "event": "RUN", "cutoff": "2026-10-25 18:00:00", "new_hours": 1, "seconds": 26.0}
+{"wall_utc": "2026-10-25 20:09:12.513600", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 20:09:53.646981", "event": "RUN", "cutoff": "2026-10-25 19:00:00", "new_hours": 1, "seconds": 33.9}
+{"wall_utc": "2026-10-25 21:09:11.016241", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 21:09:54.888562", "event": "RUN", "cutoff": "2026-10-25 20:00:00", "new_hours": 1, "seconds": 36.8}
+{"wall_utc": "2026-10-25 22:10:00.495757", "event": "RUN", "cutoff": "2026-10-25 21:00:00", "new_hours": 1, "seconds": 34.4}
+{"wall_utc": "2026-10-25 23:10:27.611567", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-25 23:10:54.927163", "event": "RUN", "cutoff": "2026-10-25 23:00:00", "new_hours": 2, "seconds": 22.5}
+{"wall_utc": "2026-10-26 00:09:17.131558", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 00:10:09.330185", "event": "RUN", "cutoff": "2026-10-25 23:00:00", "new_hours": 0, "seconds": 45.5}
+{"wall_utc": "2026-10-26 01:08:58.276352", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 01:09:35.247628", "event": "RUN", "cutoff": "2026-10-26 00:00:00", "new_hours": 1, "seconds": 32.2}
+{"wall_utc": "2026-10-26 02:09:25.569993", "event": "RUN", "cutoff": "2026-10-26 02:00:00", "new_hours": 2, "seconds": 30.8}
+{"wall_utc": "2026-10-26 03:09:42.521596", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 03:10:13.388429", "event": "RUN", "cutoff": "2026-10-26 02:00:00", "new_hours": 0, "seconds": 25.1}
+{"wall_utc": "2026-10-26 04:11:51.020427", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 04:12:17.425265", "event": "RUN", "cutoff": "2026-10-26 04:00:00", "new_hours": 2, "seconds": 21.0}
+{"wall_utc": "2026-10-26 05:10:22.883758", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 05:10:50.282699", "event": "RUN", "cutoff": "2026-10-26 04:00:00", "new_hours": 0, "seconds": 22.2}
+{"wall_utc": "2026-10-26 06:11:11.229292", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 06:11:36.751329", "event": "RUN", "cutoff": "2026-10-26 06:00:00", "new_hours": 2, "seconds": 20.1}
+{"wall_utc": "2026-10-26 07:09:25.107674", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 07:10:01.027139", "event": "RUN", "cutoff": "2026-10-26 06:00:00", "new_hours": 0, "seconds": 29.4}
+{"wall_utc": "2026-10-26 08:08:53.278473", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 08:09:32.631485", "event": "RUN", "cutoff": "2026-10-26 07:00:00", "new_hours": 1, "seconds": 34.5}
+{"wall_utc": "2026-10-26 09:09:13.339971", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 09:09:59.531166", "event": "RUN", "cutoff": "2026-10-26 08:00:00", "new_hours": 1, "seconds": 36.5}
+{"wall_utc": "2026-10-26 10:09:58.538288", "event": "RUN", "cutoff": "2026-10-26 10:00:00", "new_hours": 2, "seconds": 41.8}
+{"wall_utc": "2026-10-26 11:08:49.447649", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 11:09:29.741572", "event": "RUN", "cutoff": "2026-10-26 10:00:00", "new_hours": 0, "seconds": 35.2}
+{"wall_utc": "2026-10-26 12:09:11.970932", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 12:10:16.105315", "event": "RUN", "cutoff": "2026-10-26 11:00:00", "new_hours": 1, "seconds": 57.8}
+{"wall_utc": "2026-10-26 13:09:36.307573", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-26 13:10:35.447642", "event": "RUN", "cutoff": "2026-10-26 12:00:00", "new_hours": 1, "seconds": 47.2}
+{"wall_utc": "2026-10-26 14:10:55.212083", "event": "RUN", "cutoff": "2026-10-26 14:00:00", "new_hours": 2, "seconds": 47.5}
+{"wall_utc": "2026-10-30 16:22:32.668842", "event": "DATA_PARTIAL", "msg": "index CFD bars not fully updated"}
+{"wall_utc": "2026-10-30 16:23:09.768052", "event": "RUN", "cutoff": "2026-10-30 15:00:00", "new_hours": 97, "seconds": 28.0}
+{"wall_utc": "2026-10-30 16:48:08.098023", "event": "RECONCILE", "ok": "False", "corr": 0.980354825514817, "cum": 0.007755606789023687}
