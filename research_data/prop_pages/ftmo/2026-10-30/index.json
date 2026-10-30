@@ -1,16 +1,30 @@
 [
  {
+  "url": "https://ftmo.com/en/",
+  "status": 200,
+  "bytes": 476404,
+  "sha256": "cb25d19e17b63683aae0272fd1d9740eed77e977e98c71096bcb4f08856cf559",
+  "file": "0.html"
+ },
+ {
   "url": "https://ftmo.com/en/faq/",
   "status": 200,
   "bytes": 347892,
-  "sha256": "f08aeac9e03b2355f4088128c894618f6ce82bd3a510d41518ecbf9e4c07fa2f",
-  "file": "0.html"
+  "sha256": "25216b7385406a084be281492d48d918ec90c53bcf09f5e8e373b148cec8bf94",
+  "file": "1.html"
+ },
+ {
+  "url": "https://ftmo.com/en/terms-and-conditions/",
+  "status": 200,
+  "bytes": 228288,
+  "sha256": "140c7dd5c45d6189adba05254603853ff63d6bbddf63edf46530d2621824de38",
+  "file": "2.html"
  },
  {
   "url": "https://ftmo.com/en/trading-objectives/",
   "status": 200,
   "bytes": 376662,
-  "sha256": "b2b368d3b4b000f24c6828ae33276e9ef055c209f71b9733ae1c0d27ad02faee",
-  "file": "1.html"
+  "sha256": "65ed20e866f588b883a44ea2cec1b0c8c28161c324d85423fb3ed531d17d9b9a",
+  "file": "3.html"
  }
 ]

@@ -1,0 +1,13 @@
+[
+ {
+  "url": "https://the5ers.com/faq/",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "url": "https://the5ers.com/",
+  "status": 200,
+  "bytes": 488589,
+  "sha256": "dcdd555ea997b4b3a0a44f8ce91c43299afac9abfdbe5be32ce26ac17fba59a8",
+  "file": "1.html"
+ }
+]

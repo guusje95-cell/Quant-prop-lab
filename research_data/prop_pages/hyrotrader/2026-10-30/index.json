@@ -1,37 +1,107 @@
 [
  {
+  "url": "https://www.hyrotrader.com/",
+  "status": 200,
+  "bytes": 1139063,
+  "sha256": "0f0afb5b9ebe696b6ea8c55fc1e00e927c17d2f7fbb417aaa8c2e68035355caf",
+  "file": "0.html"
+ },
+ {
   "url": "https://www.hyrotrader.com/faq/",
   "status": 200,
   "bytes": 505913,
   "sha256": "82c4186aa07a778dffefef1ba1cbf791bc93d5891efc31fc5d2db54015356861",
-  "file": "0.html"
+  "file": "1.html"
  },
  {
-  "url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+  "url": "https://www.hyrotrader.com/faq/blofin-platform/",
   "status": 200,
-  "bytes": 476360,
-  "sha256": "7d24992c5112864c8c78b6df54d1ea8cd848f8ef488e601acbdbc7da85aa13ee",
-  "file": "1.html"
+  "bytes": 474516,
+  "sha256": "ce991f8d4bd4d01587ea35079a2c15d92507e3a3ea466de32f334d05cb7470c2",
+  "file": "2.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/bybit-platform/",
+  "status": 200,
+  "bytes": 485331,
+  "sha256": "631c8e4ce369f9a30e5641c0781122e3320506867d2cb9a6e67f08eea341a9b2",
+  "file": "3.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/getting-started/are-there-limits-on-which-coins-i-can-trade/",
+  "status": 200,
+  "bytes": 474087,
+  "sha256": "db1e946c8c5d15b9ca5a79984a1357ebf78840126c78716d8a9ebf74bdc0e2a9",
+  "file": "4.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/getting-started/can-i-hold-trades-overnight-and-over-the-weekend/",
+  "status": 200,
+  "bytes": 474123,
+  "sha256": "9ef9eb16a9134d1df0de3c50ae81e09aa2b9b32d7c781a33b269ca5f61024530",
+  "file": "5.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/",
   "status": 200,
   "bytes": 473542,
   "sha256": "474d3def79ef951b26d9d77dfdce89b6d32281543d79f6ce37f737b4de4a2573",
-  "file": "2.html"
+  "file": "6.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/getting-started/which-platforms-can-i-use-for-trading/",
+  "status": 200,
+  "bytes": 478386,
+  "sha256": "97eece69897b2e8874f47dea88bc0ff5236d0c269d65e8e5becd2b0f3b7013ef",
+  "file": "7.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/getting-started/who-can-join-hyrotrader/",
+  "status": 200,
+  "bytes": 474161,
+  "sha256": "6ac4c4f35d6ae2dffef5af90770e8fc6f8862374758340f753fb95c021547fc9",
+  "file": "8.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/",
+  "status": 200,
+  "bytes": 483596,
+  "sha256": "f79c8d6535eb1dcab7ebbed8596fefc8f5eb8761ee52750cd96ca2bf0acc6238",
+  "file": "9.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+  "status": 200,
+  "bytes": 476360,
+  "sha256": "7d24992c5112864c8c78b6df54d1ea8cd848f8ef488e601acbdbc7da85aa13ee",
+  "file": "10.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/rules/",
+  "status": 200,
+  "bytes": 479457,
+  "sha256": "d9836ea46d2f113048f91ba4596aae44e6be9479a06aa9725fbf8cf72bf6d29d",
+  "file": "11.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/trading-restrictions/",
+  "status": 200,
+  "bytes": 472937,
+  "sha256": "e271b2258fa103479fbd22ab6860ff41afcce9034c6db5e0b85ef2c9e60a7111",
+  "file": "12.html"
  },
  {
   "url": "https://www.hyrotrader.com/terms-and-conditions/",
   "status": 200,
   "bytes": 593589,
-  "sha256": "4d8801b666818ae56f92c1b314905f7eefc9c4ccae9d53facb71f02eca666f2f",
-  "file": "3.html"
+  "sha256": "8dee1b222e58c954461d4fc12f74be75bd033a7e2b3380f28ecfeb025234b2b1",
+  "file": "13.html"
  },
  {
-  "url": "https://www.hyrotrader.com/",
+  "url": "https://www.hyrotrader.com/trading-rules/",
   "status": 200,
-  "bytes": 1139063,
-  "sha256": "0f0afb5b9ebe696b6ea8c55fc1e00e927c17d2f7fbb417aaa8c2e68035355caf",
-  "file": "4.html"
+  "bytes": 213404,
+  "sha256": "bfecb4d4eafa5a85e1e331345dab50c8e4329bc08b78674161cbd21050b5eaa4",
+  "file": "14.html"
  }
 ]
