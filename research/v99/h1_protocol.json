@@ -1,0 +1,17 @@
+{
+ "id": "H1b",
+ "date": "2026-10-30",
+ "title": "Robustness of H1 (event short x0.5 when BTC 30-day vol is above its 1-year median) - FLAGGED post hoc",
+ "registered_before_running": true,
+ "why": "H1 passed its rule (+0.096, every period up) but the regime effect was seen in the Gen473 table first. A post-hoc rule that only works at one setting is a selection artefact; a real effect should hold for neighbouring settings and inside every period.",
+ "grid": {"vol_window_days": [20, 30, 60], "threshold_quantile_of_trailing_365d": [0.5, 0.6], "high_vol_scale": [0.5, 0.0]},
+ "cells": 12,
+ "checks": [
+  "per cell: book Sharpe and periods 2022 / 2023-24 / 2025-26 vs v9.8 (same code as H1: results/v98_paper_sleeves.parquet, portfolio_v5)",
+  "event-short sleeve alone: Sharpe in high- vs low-vol days per period (30-day window, median)"
+ ],
+ "robust_if": "at least 10 of 12 cells pass (+0.05 and no period lower) AND the median gain >= 0.05 AND the sleeve is weaker in high-vol days in all three periods",
+ "trials_added": 12,
+ "decision": "robust -> propose as a v9.9 candidate component (user decides; forward evidence from the existing shadow account v98:event_vol_regime); not robust -> drop H1",
+ "promotion": "never without the user's explicit OK; v9.8 stays frozen"
+}
