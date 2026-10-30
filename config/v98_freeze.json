@@ -1,7 +1,7 @@
 {
  "files": {
   "scripts/paper_v5.py": "8dda05cb1420956312cfe8568dcdbaeac8f75a27437538411949381d52ddd646",
-  "scripts/event_live.py": "96a5d51745ecc08891557139c4753f34bf531c8cb02e7f54c13407e52c98ed18",
+  "scripts/event_live.py": "42df15b449cb75698a75d52e470e274d21e3b7db7787e26c15e0243f463037ae",
   "scripts/listing_live.py": "7957f5167f71c6d006a82e99021dcdf15d28c2eef0f2625cc915afaae7e7ab62",
   "scripts/basket_live.py": "438b50e196fe90a5b863dd5c533c3757c73bea4b997b7731de42bb03fc3f7545",
   "scripts/crypto_sleeves.py": "771a20c6623d536c1328b048939f20916f555690612093586e793cbbeec7d126",
@@ -16,14 +16,14 @@
   "src/qpl/lab/propfirms.py": "d471a2a39e15c10fb22b090f3585269ea611e7ef201df586503daf1cacd32b0a",
   "src/qpl/data/coinmetrics.py": "c0a5a22ed13a1d93809bbb693cf924eac74e2ccca0493be64bf7f68fd5eda56c",
   "src/qpl/live/binance_public.py": "b9ef930146f6fa8be999cfaa1485a9808d31bf5fe128e089da2d7fb93ba9339b",
-  "src/qpl/live/binance_announcements.py": "7bc2a69f57df85c6e111b58b036572a9808f10ae0816f5039d752ae4fc26fee3",
+  "src/qpl/live/binance_announcements.py": "7b978dbc40faa06208653c97cdb2fd9705c7351a4cd4dc35b316cac55ebc6342",
   "src/qpl/live/bybit_listings.py": "c9b13f5c2505dd156764765615cb76bd6e98ad75032cb63da4f121a0706aa1a9",
   "src/qpl/live/coinbase_public.py": "6f6ce7c3a836ff25bccdb68056b38ac9540b3ad5d663d3db8f3015309ee057ce",
   "src/qpl/live/ml_feeds.py": "437c317d95baf051d7f688c7cf5f148be5433cd76b3edfdd3374e505787d34c3",
   "src/qpl/bot/planner.py": "dab4961fbc79066916e55e3d8aee7baac34ad2b2306df65a4618b9819cae2d47",
   "src/qpl/bot/rules.py": "261c2022b4e6cb11b673944610025f026bb0b527e0d4c243a2f03cb8076a65d7",
   "src/qpl/bot/runner.py": "8a0d521e50ab3d1d3fae0a95a7a96a08ce9c4f6a02f14bb42a0416cb8e3443de",
-  "config/paper_v98.json": "fb2f48f49d16e85040c8b9395ed9f8acbe3cd228b934364ac824c99c9d241550",
+  "config/paper_v98.json": "5fd796387451cf183c703c7a2444de14fc19a0d29ba0a2eb68c3e054088c83f2",
   "config/listing_crowding.json": "daa84ea9fe9a74c52657f5b33a5a5498d3d1ee905b645d7042fae0ebb5cbc1ec",
   "config/tradfi_perps.json": "135c43c4a511966f4420068cf2a2107c234a3749187cf9686cb6946880741b7a",
   "config/paper_monitor.json": "1b86e82f0fade3131076273acc47fb0ae16675435311d4e294e8b3e55a0332c3",
@@ -44,5 +44,5 @@
   "research_data/upbit": "HEAD:research_data/upbit",
   "data/processed": "HEAD:data/processed"
  },
- "frozen_at_commit": "66bb5fb468bf777ea9493e9586b2ea2406ba832b"
+ "frozen_at_commit": "707698459758fb2bb1234a6aa34ca5818d969059"
 }

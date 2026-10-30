@@ -31,10 +31,16 @@ def fetch(catalog: int = 161, pages: int = 2, size: int = 50, pause: float = 1.0
 
 def update(live: Path, catalog: int = 161, pages: int = 2, log=print) -> int:
     d = Path(live) / "announcements"; d.mkdir(parents=True, exist_ok=True); f = d / f"catalog_{catalog}.json"
-    old = json.loads(f.read_text()) if f.exists() else {"catalog": catalog, "name": "Delisting", "articles": []}
+    empty = {"catalog": catalog, "name": "Delisting", "articles": []}
+    try:
+        old = json.loads(f.read_text(encoding="utf-8")) if f.exists() else empty
+    except ValueError:                                     # an earlier interrupted / failed write left a broken file: rebuild it
+        old = empty
     have = {a["id"] for a in old["articles"]}
     new = [a for a in fetch(catalog, pages) if a["id"] not in have]
     old["articles"] = sorted(old["articles"] + new, key=lambda a: a["releaseDate"], reverse=True)
-    f.write_text(json.dumps(old, ensure_ascii=False, indent=0))
+    tmp = f.with_suffix(".tmp")                            # UTF-8 (titles contain non-ASCII; Windows' default code page cannot
+    tmp.write_text(json.dumps(old, ensure_ascii=False, indent=0), encoding="utf-8")   # encode them) and atomic: the old file stays
+    tmp.replace(f)                                         # intact until the new one is complete
     log(f"  announcements catalog {catalog}: {len(new)} new")
     return len(new)

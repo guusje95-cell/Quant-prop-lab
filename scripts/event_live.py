@@ -76,7 +76,11 @@ def delistings(live: Path | None = LIVE, cut: pd.Timestamp | None = CUT) -> list
     arts = {}
     for f in (ANN / "catalog_161.json", (Path(live) / "announcements/catalog_161.json") if live is not None else None):
         if f is not None and f.exists():
-            arts.update({a["id"]: a for a in json.loads(f.read_text())["articles"]})
+            try:
+                arts.update({a["id"]: a for a in json.loads(f.read_text(encoding="utf-8"))["articles"]})
+            except ValueError:                                         # broken live file (interrupted write): the research archive
+                if f == ANN / "catalog_161.json":                      # still counts; the live copy is rebuilt by the next update
+                    raise
     out = []
     for a in arts.values():
         t = pd.to_datetime(a["releaseDate"], unit="ms")

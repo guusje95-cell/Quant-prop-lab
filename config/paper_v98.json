@@ -31,6 +31,15 @@
   {
    "date": "2026-10-27",
    "change": "before the start: event short limited to Bybit-tradable coins (Gen472), scale re-measured"
+  },
+  {
+   "date": "2026-10-30",
+   "what": "crash fix only: the live Binance delisting catalog is written as UTF-8 and atomically (Windows' default code page could not encode some titles and left an empty file, which crashed every run); a broken live copy is skipped and rebuilt. Strategy and results unchanged (research-pack book 3.211 before and after).",
+   "files": [
+    "src/qpl/live/binance_announcements.py",
+    "scripts/event_live.py"
+   ],
+   "approved_by": "user report 2026-10-30 (paper trader crashing)"
   }
  ]
 }
