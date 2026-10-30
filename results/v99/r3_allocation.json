@@ -1,0 +1,134 @@
+{
+ "v9.8 (equal risk)": [
+  3.24,
+  [
+   3.063,
+   3.91,
+   2.67
+  ]
+ ],
+ "trials": {
+  "0.25": {
+   "2022-24": 3.617,
+   "book": [
+    3.235,
+    [
+     3.07,
+     3.896,
+     2.664
+    ]
+   ],
+   "by year": [
+    3.07,
+    3.672,
+    4.113,
+    2.563,
+    2.79
+   ],
+   "mean multiplier 2022-26": {
+    "C*": 1.03,
+    "trend 4h": 1.02,
+    "Weiss expiry": 0.98,
+    "delev bounce": 1.0,
+    "ridge ML": 0.92,
+    "alt kimchi": 0.99,
+    "diversifier basket": 1.03,
+    "relative crowding 6": 1.02,
+    "listing short": 1.01
+   },
+   "multiplier last quarter": {
+    "C*": 1.01,
+    "trend 4h": 0.96,
+    "Weiss expiry": 0.98,
+    "delev bounce": 1.0,
+    "ridge ML": 0.94,
+    "alt kimchi": 0.99,
+    "diversifier basket": 1.03,
+    "relative crowding 6": 1.05,
+    "listing short": 1.05
+   }
+  },
+  "0.5": {
+   "2022-24": 3.608,
+   "book": [
+    3.228,
+    [
+     3.071,
+     3.879,
+     2.657
+    ]
+   ],
+   "by year": [
+    3.071,
+    3.651,
+    4.102,
+    2.554,
+    2.784
+   ],
+   "mean multiplier 2022-26": {
+    "C*": 1.05,
+    "trend 4h": 1.04,
+    "Weiss expiry": 0.95,
+    "delev bounce": 1.0,
+    "ridge ML": 0.84,
+    "alt kimchi": 0.98,
+    "diversifier basket": 1.07,
+    "relative crowding 6": 1.04,
+    "listing short": 1.02
+   },
+   "multiplier last quarter": {
+    "C*": 1.02,
+    "trend 4h": 0.91,
+    "Weiss expiry": 0.95,
+    "delev bounce": 1.0,
+    "ridge ML": 0.87,
+    "alt kimchi": 0.98,
+    "diversifier basket": 1.06,
+    "relative crowding 6": 1.09,
+    "listing short": 1.11
+   }
+  },
+  "1.0": {
+   "2022-24": 3.581,
+   "book": [
+    3.205,
+    [
+     3.061,
+     3.839,
+     2.638
+    ]
+   ],
+   "by year": [
+    3.061,
+    3.605,
+    4.074,
+    2.534,
+    2.766
+   ],
+   "mean multiplier 2022-26": {
+    "C*": 1.1,
+    "trend 4h": 1.07,
+    "Weiss expiry": 0.91,
+    "delev bounce": 1.0,
+    "ridge ML": 0.69,
+    "alt kimchi": 0.95,
+    "diversifier basket": 1.14,
+    "relative crowding 6": 1.09,
+    "listing short": 1.05
+   },
+   "multiplier last quarter": {
+    "C*": 1.04,
+    "trend 4h": 0.83,
+    "Weiss expiry": 0.9,
+    "delev bounce": 1.0,
+    "ridge ML": 0.74,
+    "alt kimchi": 0.97,
+    "diversifier basket": 1.12,
+    "relative crowding 6": 1.18,
+    "listing short": 1.21
+   }
+  }
+ },
+ "chosen lambda": "0.25",
+ "promote": false
+}

@@ -111,7 +111,7 @@ def evaluate(c: sqlite3.Connection, item_key: str, agenda: dict | None = None) -
         EX.finish(c, e["id"], {}, "error", f"run failed: {(run['error'] or '')[-500:]}", failed=True); return {"decision": "error"}
     res = json.loads((ROOT / it["result_file"]).read_text()); rule = it["decision_rule"]
     vals = {k: _get(res, p) for k, p in rule["values"].items()}
-    passed = bool(eval(rule["pass_if"], {"__builtins__": {}}, {**vals, "all": all, "any": any, "min": min, "max": max}))   # rule text is from the reviewed agenda file, not generated
+    passed = bool(eval(rule["pass_if"], {"__builtins__": {}, **vals, "all": all, "any": any, "min": min, "max": max, "range": range, "len": len, "abs": abs}))   # rule text is from the reviewed agenda file, not generated
     EX.finish(c, e["id"], {"values": vals, "result_file": it["result_file"]}, "pass" if passed else "fail", rule["pass_if"], {"result_file": it["result_file"]})
     with tx(c):
         c.execute("UPDATE hypotheses SET status='closed', verdict=? WHERE key=?", ("supported" if passed else "not supported", f"agent:{item_key}"))

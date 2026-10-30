@@ -1,6 +1,6 @@
 # Quant Trading Hub: implementation status (kept current; resume from here after a restart)
 
-Updated 2026-10-30. Evidence = tests in `tests/test_hub.py` (19 passing; full suite 193 passed on 2026-10-30), and an end-to-end run on the real
+Updated 2026-10-30. Evidence = tests in `tests/test_hub.py` (20 passing; full suite 194 passed on 2026-10-30), and an end-to-end run on the real
 project data in the cloud workspace (init, one worker pass, every dashboard page and its computation buttons).
 
 | # | Subsystem | Status | Evidence / limits |

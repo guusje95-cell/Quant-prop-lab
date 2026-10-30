@@ -74,3 +74,5 @@ hub_data/
 bot_state/
 hub_data_init.log
 hub_worker.log
+results/v99/netpos*.parquet
+results/v99/book_charged.parquet

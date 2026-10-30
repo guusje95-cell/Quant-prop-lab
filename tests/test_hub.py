@@ -250,3 +250,15 @@ def test_dashboard_renders_every_page_on_an_empty_database(tmp_path, monkeypatch
     for p in ["Overview", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"]:
         at.sidebar.radio[0].set_value(p).run()
         assert not at.exception, (p, [e.value for e in at.exception][:1])
+
+
+def test_agent_decision_rule_with_period_checks(c, tmp_path, monkeypatch):
+    from qpl.hub import agent, experiments as EX, jobs as J
+    res = tmp_path / "res.json"; res.write_text(json.dumps({"candidate": [3.3, [3.1, 3.9, 2.8]], "reference_v98": [3.2, [3.0, 3.9, 2.7]]}))
+    monkeypatch.setattr(agent, "ROOT", tmp_path)
+    it = {"key": "k", "title": "t", "status": "approved", "hypothesis": "h", "script": "scripts/hub_research/x.py", "result_file": "res.json",
+          "decision_rule": {"values": {"book": "candidate.0", "ref": "reference_v98.0", "p": "candidate.1", "pr": "reference_v98.1"},
+                            "pass_if": "book >= ref + 0.05 and all(p[i] >= pr[i] for i in range(3))"}}
+    EX.register(c, "agent:k", "agent", {}, status="running")
+    J.enqueue(c, "noop", {}, dedup_key="agent_run:k"); j = J.claim(c, "w"); J.complete(c, j["id"], {})
+    assert agent.evaluate(c, "k", {"items": [it]})["decision"] == "pass"
