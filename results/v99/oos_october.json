@@ -1,0 +1,31 @@
+{
+ "days": 29,
+ "oct_return_unit": -0.02112733760294354,
+ "expected": 0.03546004828334996,
+ "sd": 0.038501191323245317,
+ "z": -1.4697567514522216,
+ "sleeves": {
+  "Oct sum (unit)": {
+   "C*": -0.028,
+   "trend 4h": -0.014,
+   "Weiss expiry": 0.0,
+   "delev bounce": 0.0,
+   "ridge ML": -0.083,
+   "alt kimchi": 0.07,
+   "diversifier basket": -0.008,
+   "relative crowding 6": 0.0,
+   "listing short": 0.066
+  },
+  "z vs 2023-26": {
+   "C*": -1.138,
+   "trend 4h": -0.923,
+   "Weiss expiry": -0.322,
+   "delev bounce": -0.222,
+   "ridge ML": -1.295,
+   "alt kimchi": 0.137,
+   "diversifier basket": -0.84,
+   "relative crowding 6": -0.399,
+   "listing short": 0.392
+  }
+ }
+}
