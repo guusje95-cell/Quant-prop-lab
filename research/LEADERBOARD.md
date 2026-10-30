@@ -1953,3 +1953,8 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - T3 crude stocks vs norm: 0.32 / -0.12 / 0.10, tune 0.16. Does not enter.
 - T4 gasoline / distillate vs norm: -0.71 / -0.23 / 0.38. Does not enter.
 - Reading: weekly inventory levels and surprises are priced in by the next close; no daily-horizon edge. EIA source closed (switch rule); next: FRED macro.
+
+## Gen477 (2026-10-30): FRED market macro signals, track 1b (`config/gen477_protocol.json`, `results/gen477.json`, 4 trials)
+- M1 curve slope -> ZN/ZB: 0.29 / -0.70 / -0.11 (tune -0.15). M3 real-yield momentum -> GC: 0.07 / 0.52 / -0.09 (tune 0.25). M4 breakeven momentum -> CL/HG/GC: 0.07 / 0.46 / -0.11 (tune 0.23). None enter.
+- **M2 credit spread -> ES/NQ (long while Baa-10y fell over 21 days): 0.87 / 0.37 / 0.66, tune 0.65, enters**, but book 1.477 / **1.385** / **1.205**: overlaps the existing equity-timing sleeves (corr 0.54 with the book). Fails.
+- Macro source closed (switch rule). Next: intraday (track 2).

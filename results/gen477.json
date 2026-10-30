@@ -1,0 +1,78 @@
+{
+ "reference": [
+  1.459,
+  1.451,
+  1.218
+ ],
+ "trials": {
+  "M1 curve slope -> Treasuries": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.293,
+    -0.696,
+    -0.113
+   ],
+   "tune": -0.153,
+   "appraisal ES/NQ 2010-22": -0.322,
+   "corr with book 2023-26": -0.03,
+   "enters": false,
+   "book": [
+    1.459,
+    1.451,
+    1.218
+   ],
+   "pass": false
+  },
+  "M2 credit spread -> equities": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.873,
+    0.366,
+    0.657
+   ],
+   "tune": 0.649,
+   "appraisal ES/NQ 2010-22": 0.293,
+   "corr with book 2023-26": 0.54,
+   "enters": true,
+   "book": [
+    1.477,
+    1.385,
+    1.205
+   ],
+   "pass": false
+  },
+  "M3 real-yield momentum -> gold": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.065,
+    0.521,
+    -0.091
+   ],
+   "tune": 0.251,
+   "appraisal ES/NQ 2010-22": 0.318,
+   "corr with book 2023-26": 0.02,
+   "enters": false,
+   "book": [
+    1.436,
+    1.541,
+    1.176
+   ],
+   "pass": false
+  },
+  "M4 breakeven momentum -> commodities": {
+   "sleeve 2010-17 / 2018-22 / 2023-26": [
+    0.067,
+    0.456,
+    -0.107
+   ],
+   "tune": 0.225,
+   "appraisal ES/NQ 2010-22": 0.281,
+   "corr with book 2023-26": -0.04,
+   "enters": false,
+   "book": [
+    1.432,
+    1.499,
+    1.189
+   ],
+   "pass": false
+  }
+ },
+ "passed": []
+}
