@@ -1,0 +1,16 @@
+{
+ "title": "Futures book improvement programme (target: estimated live Sharpe 1.5+)",
+ "agreed": "2026-10-30 with the user",
+ "rules": {
+  "equity_beta": "allowed. A candidate that adds equity exposure may enter when it improves the book. Safeguard: the book may not get worse in 2010-17 or 2018-22 (2018-22 contains the 2022 bear market), so a pure bull-market bet fails; the ES/NQ beta share is reported for every candidate.",
+  "evidence": "backtest on 2010-22 (entry) and 2023-26 (judge), strict rule (+0.05 on 2023-26, no earlier period lower); then paper from 2026-10-01 (unseen). One month of paper says little; paper keeps running and is evaluated over months.",
+  "no_stop": "we keep working until the estimated live Sharpe is good enough for regular payouts. Instead of a stop rule a SWITCH rule: each data source gets a small pre-registered set of tests; when it is used up we move to a new source (new information), never back to re-tuning a tested idea after seeing its result.",
+  "honesty": "every test is pre-registered and counted; the planning Sharpe (after the luck haircut for all futures trials) is reported after every round; nothing changes the paper book without the user's OK."
+ },
+ "sources": [
+  {"track": 1, "source": "EIA weekly petroleum stocks (crude ex SPR, gasoline, distillate) and natural-gas storage", "cost": "free", "status": "Gen476"},
+  {"track": 1, "source": "FRED macro (payrolls, CPI, yield curve)", "cost": "free", "status": "next"},
+  {"track": 2, "source": "intraday 1-minute (ES, NQ, GC, CL owned; more via Databento after a cost quote)", "cost": "owned / quote first", "status": "planned"},
+  {"track": 3, "source": "CME options (skew, positioning)", "cost": "paid, quote first, user decides", "status": "planned"}
+ ]
+}

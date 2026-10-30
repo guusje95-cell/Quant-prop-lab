@@ -1,0 +1,17 @@
+{
+ "gen": 476, "date": "2026-10-30", "registered_before_running": true,
+ "title": "EIA fundamentals: inventories vs their seasonal norm and weekly storage surprises (futures programme, track 1)",
+ "data": "research_data/eia: WCESTUS1w (crude stocks ex SPR), WGTSTUS1w (gasoline), WDISTUS1w (distillate), ngshistory.xls (Lower-48 working gas, 2010+). Week ending Friday F; petroleum data used from the close of F + 6 days, gas data from the close of F + 7 days (after the Wednesday / Thursday releases incl. holiday shifts)",
+ "seasonal_norm": "mean of the same ISO week in the previous 5 years (only data known at the time)",
+ "trials": {
+  "T1 NG storage level": "dev = storage / norm - 1; NG position = -clip(dev / 0.10, -1, 1) (deficit -> long), held until the next report",
+  "T2 NG storage surprise": "s = weekly change - norm of the weekly change; NG position = -sign(s) for 5 trading days after use",
+  "T3 crude stocks level": "dev of crude stocks ex SPR; CL position = -clip(dev / 0.10, -1, 1)",
+  "T4 products level": "gasoline dev -> RB and distillate dev -> HO, same rule, equal-weight sleeve"
+ },
+ "sizing": "position x 0.10 / (60-day realised vol of the market, lagged), cap 3; costs futures_db.cost_frac per unit turnover; daily roll-safe returns",
+ "entry": "stand-alone Sharpe 2010-06..2022 (NG trials 2015..2022 because the 5-year norm needs 5 years) >= 0.3",
+ "judge": "each entrant alone added to the 15-sleeve book: 2023-26 >= 1.218 + 0.05 and 2010-17, 2018-22 not lower; then all entrants together (reported)",
+ "trials_added": 4,
+ "promotion": "never without the user's explicit OK"
+}
