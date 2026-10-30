@@ -66,7 +66,7 @@ def js(x):
 
 c = con()
 st.sidebar.title("Quant Trading Hub")
-page = st.sidebar.radio("View", ["Overview", "Paper Trading", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"])
+page = st.sidebar.radio("View", ["Overview", "Performance", "Paper Trading", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"])
 st.sidebar.caption(f"Database: `{DB.db_path()}`")
 st.sidebar.caption("Live trading: **disabled** (no live adapter exists)" if DB.get_setting(c, "live_trading_enabled") == "false" else "check settings")
 if st.sidebar.button("Refresh data"):
@@ -280,6 +280,88 @@ def strategies():
                 except Exception as e:                                     # noqa: BLE001
                     st.error(str(e))
 
+
+
+# ============================================================================================================ Performance
+@st.cache_data(show_spinner="loading backtest series ...")
+def bt_series(book: str) -> tuple[pd.DataFrame, int]:
+    """(series frame: 'book' + one column per sleeve, periods per year) of a backtest book; returns are fractions of equity."""
+    if book == "Crypto v9.8":
+        x = pd.read_parquet(ROOT / "results/v98_paper_sleeves.parquet").loc["2022-01-01":"2026-09-30 23:00"]
+        return x.rename(columns={"port": "book"}), 365
+    if book == "Futures (15 sleeves)":
+        S, b = futures_data(); return pd.concat([b.rename("book"), S.reindex(b.index)], axis=1), 252
+    if book == "CFD bf2.6 (BrightFunded)":
+        return pd.read_parquet(ROOT / "results/cache_bf26_final.parquet").rename(columns={"portfolio": "book"}).loc["2022-01-01":], 365
+    if book == "Index CFDs (Gen201)":
+        return pd.read_parquet(ROOT / "results/gen201_book.parquet")[["book"]], 252
+    raise KeyError(book)
+
+
+def perf_block(R: pd.DataFrame, ppy: int, splits: dict, scale_vol: bool, min_days_sharpe: int = 0):
+    from qpl.hub import metrics as M
+    D = R.apply(M.to_daily).dropna(how="all").fillna(0.0)
+    if scale_vol:                                                        # comparable drawdowns: every series at 15% annual vol
+        D = D * (0.15 / (D.std() * np.sqrt(ppy))).replace([np.inf], 0.0)
+    rows = {}
+    for c_ in D.columns:
+        m = M.summary(D[c_], ppy)
+        if m.get("status") != "ok":
+            continue
+        few = m["days"] < min_days_sharpe                                     # a Sharpe of a few days is noise, not information
+        rows[c_] = {"days": m["days"], "Sharpe": None if few else m["sharpe"], **{f"Sharpe {k}": None if few else M._sh(D[c_].loc[a:z], ppy) for k, (a, z) in splits.items()},
+                    "return / yr": m["ann_return_arith"], "vol / yr": m["ann_vol"], "max DD": m["max_drawdown"], "longest DD (days)": m["max_dd_days"],
+                    "Calmar": m["calmar"], "% positive days": m["pct_positive_days"], "worst day": m["worst_day"], "best day": m["best_day"], "skew": m["skew"]}
+    T = pd.DataFrame(rows).T
+    fmt = {k: "{:.2f}" for k in T.columns if k.startswith("Sharpe") or k in ("Calmar", "skew")}
+    fmt.update({k: "{:.1%}" for k in ("return / yr", "vol / yr", "max DD", "% positive days", "worst day", "best day")}); fmt["longest DD (days)"] = "{:.0f}"; fmt["days"] = "{:.0f}"
+    st.dataframe(T.style.format(fmt, na_rep="-"), width="stretch")
+    eq = (1 + D).cumprod(); a, b = st.columns(2)
+    a.plotly_chart(px.line(eq, template=TPL, log_y=True, title="Growth of 1 (log scale)", labels={"value": "", "index": ""}).update_layout(height=340), width="stretch")
+    b.plotly_chart(px.area(eq / eq.cummax() - 1, template=TPL, title="Drawdown", labels={"value": "", "index": ""}).update_layout(height=340), width="stretch")
+    win = 126 if ppy == 252 else 182
+    rs = D.rolling(win, min_periods=win // 2).mean() / D.rolling(win, min_periods=win // 2).std() * np.sqrt(ppy)
+    st.plotly_chart(px.line(rs, template=TPL, title=f"Rolling Sharpe ({win} days)", labels={"value": "", "index": ""}).update_layout(height=300), width="stretch")
+    pick = st.selectbox("Monthly returns of", list(D.columns), key=f"mon_{'_'.join(D.columns)[:40]}")
+    mo = D[pick].groupby([D.index.year, D.index.month]).sum().unstack(); mo.columns = [pd.Timestamp(2000, m_, 1).strftime("%b") for m_ in mo.columns]
+    mo["year"] = D[pick].groupby(D.index.year).sum()
+    st.dataframe(mo.style.format("{:.1%}", na_rep="").background_gradient(cmap="RdYlGn", axis=None, vmin=-0.1, vmax=0.1), width="stretch")
+    if D.shape[1] > 1:
+        st.plotly_chart(px.imshow(D.corr().round(2), text_auto=True, template=TPL, zmin=-1, zmax=1, color_continuous_scale="RdBu_r", title="Daily correlation")
+                        .update_layout(height=420), width="stretch")
+
+
+def performance():
+    st.header("Performance")
+    st.caption("Per book and per strategy: statistics, growth, drawdown, rolling Sharpe, monthly returns and correlation. BACKTEST = research series "
+               "(costs included; 2023-26 was seen during research, see the planning Sharpe for the honest live expectation). PAPER = the frozen paper ledgers.")
+    src = st.radio("Source", ["Backtest", "Paper"], horizontal=True)
+    if src == "Backtest":
+        tag("backtest")
+        book = st.selectbox("Book", ["Crypto v9.8", "Futures (15 sleeves)", "CFD bf2.6 (BrightFunded)", "Index CFDs (Gen201)"])
+        R, ppy = bt_series(book)
+        cols = st.multiselect("Series (the book and / or its strategies)", list(R.columns), default=["book"])
+        splits = ({"2010-17": ("2010", "2017"), "2018-22": ("2018", "2022"), "2023-26": ("2023", "2026")} if book.startswith("Futures")
+                  else {"2022": ("2022", "2022"), "2023-24": ("2023", "2024"), "2025-26": ("2025", "2026")})
+        if cols:
+            perf_block(R[cols], ppy, splits, st.checkbox("Scale every series to 15% vol (comparable drawdowns)", value=len(cols) > 1))
+        if book == "CFD bf2.6 (BrightFunded)":
+            st.caption("Per-strategy series of bf2.6 are not stored as a backtest file; per strategy see the paper shadows (Source = Paper).")
+    else:
+        tag("paper")
+        A = q("SELECT a.key, COUNT(e.ts) n, MIN(e.ts) first, MAX(e.ts) last, a.config FROM paper_accounts a JOIN paper_equity e ON e.account_id=a.id GROUP BY a.id ORDER BY a.key")
+        if A.empty:
+            st.info("No paper data yet: start the paper traders and the hub (hub_start.bat), or share their results."); return
+        st.dataframe(A[["key", "n", "first", "last"]].rename(columns={"n": "rows"}), width="stretch", hide_index=True)
+        dflt = [k_ for k_ in ("paper:v98", "paper:bf26", "paper:futures") if k_ in A["key"].tolist()] or A["key"].tolist()[:1]
+        keys = st.multiselect("Accounts", A["key"].tolist(), default=dflt)
+        if keys:
+            E = q("SELECT a.key, e.ts, e.ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key IN (%s)" % ",".join("?" * len(keys)), tuple(keys))
+            R = E.assign(ts=pd.to_datetime(E["ts"])).pivot_table(index="ts", columns="key", values="ret", aggfunc="sum")
+            daily = all(js(A.set_index("key").loc[k_, "config"]).get("ledger_frequency") == "daily" for k_ in keys)
+            first = R.index.min()
+            perf_block(R, 252 if daily else 365, {"paper": (str(first.date()), "2100")}, st.checkbox("Scale to 15% vol", value=False), min_days_sharpe=30)
+            st.caption("Paper periods are short: one standard error of an annual Sharpe after n days is about sqrt(365 / n) (e.g. 2.6 after 56 days).")
 
 # ============================================================================================================ Portfolio & risk
 @st.cache_data(show_spinner="Computing risk...")
@@ -602,5 +684,5 @@ def system():
         st.dataframe(q("SELECT * FROM audit_log ORDER BY id DESC LIMIT 500"), width="stretch", hide_index=True, height=480)
 
 
-{"Overview": overview, "Paper Trading": paper_trading, "Research Lab": research, "Strategy Center": strategies, "Portfolio & Risk": portfolio, "Prop Firm Center": propfirms,
+{"Overview": overview, "Performance": performance, "Paper Trading": paper_trading, "Research Lab": research, "Strategy Center": strategies, "Portfolio & Risk": portfolio, "Prop Firm Center": propfirms,
  "Income Planner": income_page, "Finance": finance_page, "System Health": system}[page]()

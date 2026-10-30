@@ -44,6 +44,12 @@ Notifications: the dashboard's alert list (no external messaging is configured; 
   30 active days). Shows live, before any switch, how "v9.8 + the new sleeve" would have done.
 - The v9.8 book itself keeps running in `paper_v98_start.bat` (frozen baseline).
 
+## Performance (per book and per strategy)
+Dashboard → **Performance**: choose Backtest (crypto v9.8, futures, CFD bf2.6, index CFDs; the book and / or its strategies) or Paper (any paper,
+shadow or engine account). Shows Sharpe overall and per period, return / vol, max and longest drawdown, Calmar, best / worst day, growth (log),
+drawdown, rolling Sharpe, a monthly-returns table and the correlation matrix. 'Scale to 15% vol' makes drawdowns comparable. Paper Sharpe is
+hidden below 30 days (noise).
+
 ## Futures book
 Portfolio & Risk → **Futures book**: equity curve, Sharpe per period, planning Sharpe after the luck haircut, ES/NQ correlation, per-sleeve table
 (asset class, leave-one-out) from the F1 audit (`scripts/hub_research/futures_audit.py`). Prop Firm Center → Compatibility → choose the
