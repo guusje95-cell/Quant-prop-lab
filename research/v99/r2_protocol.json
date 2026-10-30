@@ -1,0 +1,12 @@
+{
+ "id": "v99-R2", "date": "2026-10-30", "registered": "before research_data/bybit_announcements exists (no Bybit announcement has been seen)",
+ "hypothesis": "Bybit delisting announcements carry the same forced selling as Binance spot-delisting announcements (the v9.8 event-short component, Gen467/468); adding them to the event short with the SAME rule raises the v9.8 book.",
+ "events": "research_data/bybit_announcements/announcements.json, list 'delistings'; time = publishTime (ms, fallback dateTimestamp); coins parsed from the title: '<COIN>USDT' / '<COIN>/USDT' / '<COIN>PERP' tokens; A = titles mentioning Spot, B = titles mentioning Perpetual / Contract / Futures; titles about other products (options, margin only, copy trading, earn) ignored",
+ "rule": "identical to the Binance spot-delisting leg of event_live.pnl: short SIZE 0.05 from the first full hour after the announcement for HOLD 14 days, stop if the price rises 30% above the entry, only while the coin has a Bybit perp (Gen472 filter), inside the event short's 0.5 gross cap, 10 bp per unit turnover; a coin already shorted for a Binance delisting is not doubled",
+ "prices": "Binance perp data when the coin trades there (event_live._closes), else hourly closes built from Bybit's public trade files (public.bybit.com/trading, last trade per hour); funding: Binance when available, else 0 (stated limitation: Bybit funding history is not reachable from the cloud)",
+ "variants": "A (spot delistings), B (perp delistings), A+B; the DECISION uses A+B",
+ "reference": "v9.8 book computed the same way as Gen471 (v95 sleeves minus cascade + event_live listing short): 3.211 [3.083, 3.849, 2.661]",
+ "decision": "A+B book >= reference + 0.05 and no period lower (strict rule) -> v9.9 candidate component (user decides)",
+ "trials_added": 3,
+ "promotion": "never without the user's explicit OK; v9.8 stays frozen"
+}

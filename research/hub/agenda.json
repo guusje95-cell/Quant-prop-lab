@@ -61,10 +61,9 @@
    "market": "crypto_futures",
    "family": "event",
    "needs_data": [
-    "research_data/bybit_announcements/announcements.json",
-    "scripts/hub_research/bybit_event_shorts.py"
+    "research_data/bybit_announcements/announcements.json"
    ],
-   "needs_user": "run get_bybit_announcements.bat on the PC (Bybit blocks the cloud), then the script will be written against the real file format",
+   "needs_user": "run get_bybit_announcements.bat on the PC (Bybit blocks the cloud); the script is written and selftested (research/v99/r2_protocol.json, registered before the data exists)",
    "script": "scripts/hub_research/bybit_event_shorts.py",
    "args": [],
    "result_file": "results/hub_research/bybit_event_shorts.json",
@@ -77,7 +76,7 @@
     },
     "pass_if": "book >= ref + 0.05 and all(p[i] >= pr[i] for i in range(3))"
    },
-   "trials": 2,
+   "trials": 3,
    "timeout_s": 7200,
    "priority": {
     "economic_relevance": 5,
