@@ -1,0 +1,9 @@
+{
+ "gen": 479, "date": "2026-10-30", "registered_before_running": true, "flag": "FLAGGED post hoc: the overnight window was found in Gen148 on ES/NQ 1-minute data (all periods seen); independent support: Gen149 index CFDs 0.85 / 0.98 / 1.54 (pass), RTY+YM futures 0.04 / 0.63 / 0.35 (weak). The book effect of the swap has never been computed.",
+ "title": "R1 dip-buying held overnight only (16:00 ET -> 10:00 ET next day) instead of 24 h (futures programme, track 2: intraday)",
+ "rule": "same signal as the book's R1 (gen155 r1v: 4 indicators at the 14:00 ET snapshot, low-vol sizing, ES / NQ / RTY / YM, 0.25 x signal x min(vol250 / vol20, 2)); entry at the 16:00 ET hourly close of the same day, exit at the 10:00 ET hourly close of the next weekday; return from the roll-safe hourly price; cost per side futures_db cost per entry and exit (a round trip every active day)",
+ "trials": 1,
+ "judge": "replace R1 in the 15-sleeve book (EQR refit 2010-22 as fbook.build): 2023-26 >= 1.218 + 0.05 and 2010-17, 2018-22 not lower",
+ "extra_report": "the sleeve alone per period and per index; the daily-flat compatibility (it holds overnight, so it is NOT MFFU / Tradeify compatible)",
+ "promotion": "never without the user's explicit OK; flagged results need forward paper evidence"
+}
