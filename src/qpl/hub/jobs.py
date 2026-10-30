@@ -89,6 +89,7 @@ DEFAULT_SCHEDULES = [  # name, kind, payload, every_minutes, priority
     ("prop_staleness", "prop_staleness", {}, 1440, 6), ("validate_book", "validate_book", {"book": "v98"}, 10080, 7),
     ("validate_futures", "validate_book", {"book": "futures"}, 10080, 7),
     ("daily_summary", "daily_summary", {}, 1440, 8), ("paper_engine", "paper_engine", {}, 15, 1), ("agent", "agent_step", {}, 720, 9), ("integrity", "data_integrity", {}, 1440, 6),
+    ("hl_snapshot", "hl_snapshot", {}, 60, 5),
 ]
 
 

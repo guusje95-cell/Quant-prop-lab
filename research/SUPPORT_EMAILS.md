@@ -55,3 +55,4 @@ Hello, I am based in the Netherlands, so I cannot use the Bybit platform. I woul
 4. Is there an API documentation page for the Hyro platform / agent tokens?
 5. Besides "one account per program type", what are the aggregate simulated-capital limits per person?
 Thank you.
+6. Low-cap rule: how do you classify a coin as low-cap in practice (which market-cap / volume source, and is a newly listed perpetual low-cap by default)? Is there an in-platform flag?

@@ -112,6 +112,11 @@ def h_run_script(c, p):
     return {"stdout_tail": r.stdout[-3000:]}
 
 
+def h_hl_snapshot(c, p):
+    from qpl.live import hl_logger
+    return {"coins": hl_logger.snapshot()}
+
+
 def h_paper_engine(c, p):
     from qpl.hub import paper_engine as PE
     return PE.step_all(c)
@@ -148,4 +153,4 @@ def h_noop(c, p):
 
 HANDLERS = {"ingest": h_ingest, "risk": h_risk, "health": h_health, "backup": h_backup, "prop_staleness": h_prop_staleness,
             "validate_book": h_validate_book, "data_integrity": h_data_integrity, "run_script": h_run_script, "agent_step": h_agent_step,
-            "agent_evaluate": h_agent_evaluate, "daily_summary": h_daily_summary, "paper_engine": h_paper_engine, "noop": h_noop}
+            "agent_evaluate": h_agent_evaluate, "daily_summary": h_daily_summary, "paper_engine": h_paper_engine, "hl_snapshot": h_hl_snapshot, "noop": h_noop}

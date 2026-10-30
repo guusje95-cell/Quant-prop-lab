@@ -290,7 +290,7 @@ def test_shadow_accounts_derive_exactly_from_the_source(c):
     assert not np.allclose(nr.to_numpy(), src["ret"].to_numpy())
     with pytest.raises(ValueError):
         shadow.define(c, "t:same", "paper:v86", "reweighted", {"multipliers": {"C*": 2}})          # immutable definition
-    assert shadow.define(c, "t:waiting", "paper:v98", "sleeve", {"sleeve": "C*"})
+    assert shadow.define(c, "t:waiting", "paper:not_started_yet", "sleeve", {"sleeve": "C*"})      # a source without any ledger yet
     assert "waiting" in shadow.recompute(c, "shadow:t:waiting")["shadow:t:waiting"]["status"]
 
 
