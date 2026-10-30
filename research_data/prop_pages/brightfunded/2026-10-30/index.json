@@ -3,14 +3,14 @@
   "url": "https://brightfunded.com/",
   "status": 200,
   "bytes": 1926918,
-  "sha256": "282904b2c7033b781115d5d4fa4f23eef108f98aedf96bfdf6e99476c3a19d3f",
+  "sha256": "9bc1b1142e1c77b04f2987ba1fd8d957c7d7fd9dcb2e22d034095b554b21533f",
   "file": "0.html"
  },
  {
   "url": "https://brightfunded.com/faq",
   "status": 200,
   "bytes": 90017,
-  "sha256": "324386cca4f28099aa968eb812b55c810161da52daa4285eca22b81325cbab23",
+  "sha256": "72ba27f14e084439c7d691a155752012688fb9333336edcba9743c712cb3d94f",
   "file": "1.html"
  },
  {
@@ -21,14 +21,14 @@
   "url": "https://brightfunded.com/trading-rules",
   "status": 200,
   "bytes": 90017,
-  "sha256": "331f6f157fbd5e2de07442dbc9dbee10fc83f38ba9f384ae32ec8a40713f1660",
+  "sha256": "88982006065e35169d7ce5036fb177867a552bccab553061f426345e833f3ab9",
   "file": "3.html"
  },
  {
   "url": "https://help.brightfunded.com/",
   "status": 200,
   "bytes": 90017,
-  "sha256": "f507a16b356123a66a0147bb6ee7c9a9bdbe2847b56fa58ecc9af31bc8cfd599",
+  "sha256": "bf95c96381a759aea415c60a8391624d0e7837a72ab4e23077ec558ea2584895",
   "file": "4.html"
  }
 ]

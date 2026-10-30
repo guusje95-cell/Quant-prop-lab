@@ -1,107 +1,203 @@
 [
  {
+  "url": "https://docs.hyrotrader.com/",
+  "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+ },
+ {
   "url": "https://www.hyrotrader.com/",
   "status": 200,
-  "bytes": 1139063,
-  "sha256": "0f0afb5b9ebe696b6ea8c55fc1e00e927c17d2f7fbb417aaa8c2e68035355caf",
-  "file": "0.html"
+  "bytes": 1139116,
+  "sha256": "e69a638b6122aa643b9e80c1f137c13c70c2a54934cb125b5ed00eaaf25f513a",
+  "file": "1.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/api/",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "url": "https://www.hyrotrader.com/docs/",
+  "error": "HTTP Error 404: Not Found"
  },
  {
   "url": "https://www.hyrotrader.com/faq/",
   "status": 200,
-  "bytes": 505913,
-  "sha256": "82c4186aa07a778dffefef1ba1cbf791bc93d5891efc31fc5d2db54015356861",
-  "file": "1.html"
+  "bytes": 505956,
+  "sha256": "c095f7daa37b704e85c81f37c015ad678db0aba996b65a4159605e1713fb16e1",
+  "file": "4.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/blofin-platform/",
   "status": 200,
-  "bytes": 474516,
-  "sha256": "ce991f8d4bd4d01587ea35079a2c15d92507e3a3ea466de32f334d05cb7470c2",
-  "file": "2.html"
+  "bytes": 474602,
+  "sha256": "47bcbed53a19827febcd9dc299791b45681339c4ffadbc017426a773a6ffe1e8",
+  "file": "5.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/bybit-platform/",
   "status": 200,
   "bytes": 485331,
-  "sha256": "631c8e4ce369f9a30e5641c0781122e3320506867d2cb9a6e67f08eea341a9b2",
-  "file": "3.html"
+  "sha256": "087e9f4d1d84371a0eede65a5e5f25ffe214fa5b7049f51ca669f42d6425be8d",
+  "file": "6.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/are-there-limits-on-which-coins-i-can-trade/",
   "status": 200,
-  "bytes": 474087,
-  "sha256": "db1e946c8c5d15b9ca5a79984a1357ebf78840126c78716d8a9ebf74bdc0e2a9",
-  "file": "4.html"
+  "bytes": 474044,
+  "sha256": "d3a6b3a61e235331a78c1633faae3a4a9ab81022f6f69106c2407716d77c54d9",
+  "file": "7.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/can-i-hold-trades-overnight-and-over-the-weekend/",
   "status": 200,
   "bytes": 474123,
-  "sha256": "9ef9eb16a9134d1df0de3c50ae81e09aa2b9b32d7c781a33b269ca5f61024530",
-  "file": "5.html"
+  "sha256": "f74c5abe35102ba5b39dc93472cf53781997ba952f2a964c14512039ac4c1204",
+  "file": "8.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/",
   "status": 200,
   "bytes": 473542,
-  "sha256": "474d3def79ef951b26d9d77dfdce89b6d32281543d79f6ce37f737b4de4a2573",
-  "file": "6.html"
+  "sha256": "0ece9249f1d6d6a93e021ad7adb096962a298b9a0009f1608ca0428349f353e4",
+  "file": "9.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/which-platforms-can-i-use-for-trading/",
   "status": 200,
-  "bytes": 478386,
-  "sha256": "97eece69897b2e8874f47dea88bc0ff5236d0c269d65e8e5becd2b0f3b7013ef",
-  "file": "7.html"
+  "bytes": 478472,
+  "sha256": "89b4f3d49408981bc2fed4f89b47760d2865ed25a5cbed3ba89a7ae3cdf73dc1",
+  "file": "10.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/getting-started/who-can-join-hyrotrader/",
   "status": 200,
-  "bytes": 474161,
-  "sha256": "6ac4c4f35d6ae2dffef5af90770e8fc6f8862374758340f753fb95c021547fc9",
-  "file": "8.html"
+  "bytes": 474118,
+  "sha256": "8a452e9c68f535fe7dc227c27aa70bb2e9ede492fd33e1aa3f6800695c550527",
+  "file": "11.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/hyro-platform/",
   "status": 200,
   "bytes": 483596,
-  "sha256": "f79c8d6535eb1dcab7ebbed8596fefc8f5eb8761ee52750cd96ca2bf0acc6238",
-  "file": "9.html"
+  "sha256": "5c8be0d359eada676e3ac0e8b119d776ce6d6d5945b52d78a2a83cfeb6c86e68",
+  "file": "12.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/can-i-manage-multiple-challenges-on-hyro/",
+  "status": 200,
+  "bytes": 470819,
+  "sha256": "f2745c6e4d6a6e57f6c46d4817ebbb86fff79ba22b88c7ca4f4c0762350d5807",
+  "file": "13.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/do-i-need-kyc-to-trade-on-hyro/",
+  "status": 200,
+  "bytes": 470159,
+  "sha256": "b912bf8d8735e71f83068a4ff4c6f59a7dd66c0741ead388ab2dff936d3e2cc8",
+  "file": "14.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/how-can-i-connect-my-hyrotrader-challenge-to-claude/",
+  "status": 200,
+  "bytes": 473896,
+  "sha256": "e4ef2145467a06878ae9effbd1ead1e3c1586e9736f8797d7ca8f1d60b8f21be",
+  "file": "15.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/is-hyrotrader-a-prop-firm-for-trading-agents/",
+  "status": 200,
+  "bytes": 471991,
+  "sha256": "b1ff5c9fe2a899a812b4d7c52dfcac4ac453f5e97914a5fc88ba668eb4ffa4e4",
+  "file": "16.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/slippage-and-pnl-explained/",
+  "status": 200,
+  "bytes": 475540,
+  "sha256": "53ae92b784ab52f311be08088c025c6ae9226ef83ce198de17bb08e840c4e63f",
+  "file": "17.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/what-can-i-trade-on-hyro/",
+  "status": 200,
+  "bytes": 470145,
+  "sha256": "7051a75dfd5abb0bed55dbef6d67524bd2dc817a6bb7ec3724fad42c41305204",
+  "file": "18.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/what-is-the-hyro-platform/",
+  "status": 200,
+  "bytes": 471001,
+  "sha256": "426e730ca5fcda2cca011f005e29b0313fbc3cbd18b44b7576e1933e55bc18f8",
+  "file": "19.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/what-leverage-can-i-use-on-hyro/",
+  "status": 200,
+  "bytes": 470412,
+  "sha256": "542b3722be40453f533233a80b21e42d2773bd08666978fa876ae52fd8334918",
+  "file": "20.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyro-platform/what-order-types-does-hyro-support/",
+  "status": 200,
+  "bytes": 471215,
+  "sha256": "04adad7c0fe5851f4ac8d361fe9765e0d0d1ab0d2a8d266a5ed97feb73d9346e",
+  "file": "21.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
   "status": 200,
   "bytes": 476360,
-  "sha256": "7d24992c5112864c8c78b6df54d1ea8cd848f8ef488e601acbdbc7da85aa13ee",
-  "file": "10.html"
+  "sha256": "3fdf900881612034a27cf7a5cda8893d1b682914e9c4c060ad5820fd54ca8968",
+  "file": "22.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/rules/",
   "status": 200,
-  "bytes": 479457,
-  "sha256": "d9836ea46d2f113048f91ba4596aae44e6be9479a06aa9725fbf8cf72bf6d29d",
-  "file": "11.html"
+  "bytes": 479500,
+  "sha256": "25f18f10fdb52a997ed533dfae22fa8b4a5cd6bd907d86a92c46e9f9b3afae1d",
+  "file": "23.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/rules/how-many-positions-can-i-open/",
+  "status": 200,
+  "bytes": 469606,
+  "sha256": "e7452e68d10e3f47d80a5059d2e07d038c5d0c1506c65a403198c1c69b4449b7",
+  "file": "24.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/rules/what-are-the-risk-management-conditions-at-hyrotrader/",
+  "status": 200,
+  "bytes": 477932,
+  "sha256": "0de8fe7f3a9c2e7ca6a7154ec5a25da2ff577f0ae3c0f3f2b7bf29e1e327b93e",
+  "file": "25.html"
  },
  {
   "url": "https://www.hyrotrader.com/faq/trading-restrictions/",
   "status": 200,
-  "bytes": 472937,
-  "sha256": "e271b2258fa103479fbd22ab6860ff41afcce9034c6db5e0b85ef2c9e60a7111",
-  "file": "12.html"
+  "bytes": 472980,
+  "sha256": "d4fcdc55d8c4332dca9dec84df6f4a725bf915531e348c3c07cae070b2f6c71a",
+  "file": "26.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/trading-restrictions/what-are-prohibited-trading-actions/",
+  "status": 200,
+  "bytes": 472551,
+  "sha256": "ef0bf6c9e65ef2148b35e6fae9c9a91060fc6261ec60ec81e2173c1b574785a7",
+  "file": "27.html"
  },
  {
   "url": "https://www.hyrotrader.com/terms-and-conditions/",
   "status": 200,
-  "bytes": 593589,
-  "sha256": "8dee1b222e58c954461d4fc12f74be75bd033a7e2b3380f28ecfeb025234b2b1",
-  "file": "13.html"
+  "bytes": 593632,
+  "sha256": "36d0d34955dd8c63c6be484b2c2ba523a5d03c095ce0ae7bd2384422bddf5817",
+  "file": "28.html"
  },
  {
   "url": "https://www.hyrotrader.com/trading-rules/",
   "status": 200,
-  "bytes": 213404,
-  "sha256": "bfecb4d4eafa5a85e1e331345dab50c8e4329bc08b78674161cbd21050b5eaa4",
-  "file": "14.html"
+  "bytes": 213339,
+  "sha256": "0d780aadfa5ddb7e9e5b7cc1f7ecf08894f05c96033f4390e3364c64e1f7ffaa",
+  "file": "29.html"
  }
 ]

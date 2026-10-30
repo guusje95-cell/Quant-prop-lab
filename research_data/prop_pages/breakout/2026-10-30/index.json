@@ -7,14 +7,14 @@
   "url": "https://www.breakoutprop.com/",
   "status": 200,
   "bytes": 122948,
-  "sha256": "423b1c62843bd8540e9df0131df9290238b84973ed8e8d9f9ab62dc9b32f8ec1",
+  "sha256": "444840c5836e9a641e4cb28af00a23410c3a8edc7075e3f9450f3dd4d3fedb8e",
   "file": "1.html"
  },
  {
   "url": "https://help.breakoutprop.com/",
   "status": 200,
   "bytes": 122948,
-  "sha256": "e38715735b4c633ba43d90dc4e8871be80df8c40e18f74a9b367c8eff2c11b64",
+  "sha256": "c0a276c32a2cd5577d3c029018669ccfa64085dfc22597eab199d6570529a543",
   "file": "2.html"
  }
 ]

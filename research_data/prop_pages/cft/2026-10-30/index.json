@@ -2,15 +2,15 @@
  {
   "url": "https://cryptofundtrader.com/faq/",
   "status": 200,
-  "bytes": 133976,
-  "sha256": "99920c505cbf9e82943dd15f46a5fae7ba8737fad2019dcc9d7d8a41182cb5a2",
+  "bytes": 133978,
+  "sha256": "930c9e787cc3ab6d4f96e4fcae30e614e51008c6e4740485137b85864d009901",
   "file": "0.html"
  },
  {
   "url": "https://cryptofundtrader.com/",
   "status": 200,
-  "bytes": 430262,
-  "sha256": "d816efa0fcd8291ebd2c41cfc806925fb0f773fad970bdb36dcfb0d4fcfd9bb1",
+  "bytes": 430239,
+  "sha256": "9931d3cc9da476352b2924371a12b962bd42d4e783a5d573d27915efdf66b2a0",
   "file": "1.html"
  }
 ]
