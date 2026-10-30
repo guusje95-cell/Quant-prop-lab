@@ -43,3 +43,15 @@ Hello,
 5. What are the trading fees and how is funding charged?
 
 Thank you.
+
+---
+## HyroTrader: platform and coins (added 2026-10-30)
+Subject: Hyro platform / BloFin from the Netherlands - which coins can I trade?
+
+Hello, I am based in the Netherlands, so I cannot use the Bybit platform. I would like to run my own automated strategy (agent token / API) on a Two-Step challenge.
+1. Which platform do you recommend for traders in the Netherlands: the Hyro platform or BloFin?
+2. Which USDT perpetuals are tradable on the Hyro platform? Is there a list, and how quickly are newly listed coins added?
+3. On BloFin challenges, is the coin list the same as the BloFin demo environment (about 83 perpetuals)?
+4. Is there an API documentation page for the Hyro platform / agent tokens?
+5. Besides "one account per program type", what are the aggregate simulated-capital limits per person?
+Thank you.
