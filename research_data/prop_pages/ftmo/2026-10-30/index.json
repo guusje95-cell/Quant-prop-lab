@@ -1,0 +1,16 @@
+[
+ {
+  "url": "https://ftmo.com/en/faq/",
+  "status": 200,
+  "bytes": 347902,
+  "sha256": "3bfe4ed7c090b873fa490ed08be379c6b50900b7a7c2944bd93f215398421648",
+  "file": "0.html"
+ },
+ {
+  "url": "https://ftmo.com/en/trading-objectives/",
+  "status": 200,
+  "bytes": 376662,
+  "sha256": "90080ceb5ec6c1961b7881c051eb39605b5650c9eb775fe6b9429ad4ff40e74d",
+  "file": "1.html"
+ }
+]

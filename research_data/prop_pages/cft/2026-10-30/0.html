@@ -1,0 +1,2177 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="preload" as="font" type="font/woff" href="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/fonts/HelveticaNeue-Light.woff" crossorigin>
+<script>
+// Defer Intercom — instala stub para que el plugin/GTM detecte Intercom como
+// "ya cargado" y no descargue widget.intercom.io. El script real se carga en
+// la primera interacción del usuario o 5s post-load.
+(function() {
+  var APP_ID = 'vlghu47p';
+  window.intercomSettings = window.intercomSettings || { app_id: APP_ID };
+  var i = function() { i.c(arguments); };
+  i.q = [];
+  i.c = function(args) { i.q.push(args); };
+  window.Intercom = i;
+
+  var loaded = false;
+  function loadIntercom() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://widget.intercom.io/widget/' + APP_ID;
+    document.head.appendChild(s);
+  }
+
+  ['scroll', 'mousedown', 'touchstart', 'keydown'].forEach(function(e) {
+    window.addEventListener(e, loadIntercom, { once: true, passive: true });
+  });
+  function fallback() {
+    (window.requestIdleCallback || function(cb) { setTimeout(cb, 500); })(loadIntercom, { timeout: 2000 });
+  }
+  if (document.readyState === 'complete') fallback();
+  else window.addEventListener('load', fallback, { once: true });
+})();
+</script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<script>
+(function () {
+	try {
+		var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+		var p = new URLSearchParams(window.location.search);
+		var v = {};
+		KEYS.forEach(function (k) { var x = p.get(k); if (x) { v[k] = String(x).slice(0, 150); } });
+		var click = '';
+		['fbclid', 'twclid', 'rdt_cid', 'gclid'].forEach(function (k) { if (!click && p.get(k)) { click = k; } });
+		var pending = !!(v.utm_source || click);
+		var paid = pending && (!!click || /paid|cpc|ppc|cpm|display/i.test(v.utm_medium || ''));
+		var host = window.location.hostname.replace(/^www\./, '');
+		var domain = /(^|\.)cryptofundtrader\.com$/.test(host) ? ';domain=.cryptofundtrader.com' : '';
+
+		// Layer 2: cookie only with consent (CookieConsent banner: analytics or targeting accepted).
+		// Consent: CookieConsent (cc_cookie) or Cookiebot (CookieConsent cookie / window.Cookiebot).
+		var consented = function () {
+			try {
+				if (window.Cookiebot && window.Cookiebot.consent) {
+					return !!(window.Cookiebot.consent.statistics || window.Cookiebot.consent.marketing);
+				}
+				var cb = document.cookie.match(/(?:^|;\s*)CookieConsent=([^;]+)/);
+				if (cb) {
+					var raw = decodeURIComponent(cb[1]);
+					return /statistics:true|marketing:true/.test(raw);
+				}
+				var m = document.cookie.match(/(?:^|;\s*)cc_cookie=([^;]+)/);
+				if (!m) { return false; }
+				var c = JSON.parse(decodeURIComponent(m[1]));
+				var cats = c.categories || c.level || [];
+				return cats.indexOf('analytics') > -1 || cats.indexOf('targeting') > -1;
+			} catch (e) { return false; }
+		};
+		var save = function () {
+			if (!pending || !consented()) { return; }
+			var d = {};
+			KEYS.forEach(function (k) { if (v[k]) { d[k] = v[k]; } });
+			if (click) { d.click = click; }
+			d.ts = Math.floor(Date.now() / 1000);
+			var val = encodeURIComponent(JSON.stringify(d));
+			var set = function (name, days) {
+				document.cookie = name + '=' + val + ';path=/;max-age=' + (days * 86400) + ';SameSite=Lax;Secure' + domain;
+			};
+			set('cft_utm', 90);
+			if (paid) { set('cft_paid', 30); }
+			pending = false;
+		};
+		save();
+		window.addEventListener('cc:onConsent', save);
+		window.addEventListener('cc:onChange', save);
+		window.addEventListener('CookiebotOnAccept', save);
+		window.addEventListener('CookiebotOnConsentReady', save);
+
+		if (!v.utm_source) { return; }
+
+		// Layer 1: URL passthrough on links and forms that stay on cryptofundtrader.com.
+		var decorate = function (url) {
+			try {
+				var u = new URL(url, window.location.href);
+				if (!/(^|\.)cryptofundtrader\.com$/.test(u.hostname) || u.searchParams.get('utm_source')) { return null; }
+				KEYS.forEach(function (k) { if (v[k]) { u.searchParams.set(k, v[k]); } });
+				return u.toString();
+			} catch (e) { return null; }
+		};
+		document.addEventListener('click', function (e) {
+			var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+			if (!a) { return; }
+			var h = a.getAttribute('href') || '';
+			if (!h || h.charAt(0) === '#' || /^(mailto|tel|javascript):/i.test(h)) { return; }
+			var n = decorate(a.href);
+			if (n) { a.href = n; }
+		}, true);
+		document.addEventListener('submit', function (e) {
+			var f = e.target;
+			if (!f || !f.getAttribute || !f.getAttribute('action')) { return; }
+			var n = decorate(f.action);
+			if (n) { f.action = n; }
+		}, true);
+
+		// On the checkout page, hand the UTMs to the order through a hidden field.
+		var addField = function () {
+			var form = document.querySelector('form.checkout, form.woocommerce-checkout');
+			if (!form || form.querySelector('input[name="cft_pt"]')) { return; }
+			var i = document.createElement('input');
+			i.type = 'hidden';
+			i.name = 'cft_pt';
+			i.value = window.location.search.slice(0, 600);
+			form.appendChild(i);
+		};
+		if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', addField); } else { addField(); }
+	} catch (e) {}
+})();
+</script>
+	<script>window._wca = window._wca || [];</script>
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v19.7 (Yoast SEO v19.14) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Crypto Fund Trader - FAQ</title>
+	<meta name="description" content="FAQ - Frequently Asked Questions. How to get funded with Crypto Fund Trader? Trading conditions, evaluation proccess, funded account and more questions resolved %" />
+	<link rel="canonical" href="https://cryptofundtrader.com/faq/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="FAQ" />
+	<meta property="og:description" content="FAQ - Frequently Asked Questions. How to get funded with Crypto Fund Trader? Trading conditions, evaluation proccess, funded account and more questions resolved %" />
+	<meta property="og:url" content="https://cryptofundtrader.com/faq/" />
+	<meta property="og:site_name" content="Crypto Fund Trader" />
+	<meta property="article:modified_time" content="2026-03-30T10:54:31+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://cryptofundtrader.com/faq/","url":"https://cryptofundtrader.com/faq/","name":"Crypto Fund Trader - FAQ","isPartOf":{"@id":"https://cryptofundtrader.com/#website"},"datePublished":"2022-10-19T10:59:12+00:00","dateModified":"2026-03-30T10:54:31+00:00","description":"FAQ - Frequently Asked Questions. How to get funded with Crypto Fund Trader? Trading conditions, evaluation proccess, funded account and more questions resolved %","breadcrumb":{"@id":"https://cryptofundtrader.com/faq/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://cryptofundtrader.com/faq/"]}]},{"@type":"BreadcrumbList","@id":"https://cryptofundtrader.com/faq/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cryptofundtrader.com/"},{"@type":"ListItem","position":2,"name":"FAQ"}]},{"@type":"WebSite","@id":"https://cryptofundtrader.com/#website","url":"https://cryptofundtrader.com/","name":"Crypto Fund Trader","description":"First Crypto Prop Firm","publisher":{"@id":"https://cryptofundtrader.com/#organization"},"alternateName":"CFT","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://cryptofundtrader.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://cryptofundtrader.com/#organization","name":"Crypto Fund Trader","alternateName":"CFT","url":"https://cryptofundtrader.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://cryptofundtrader.com/#/schema/logo/image/","url":"https://cryptofundtrader.com/wp-content/uploads/2025/08/Logo-new-cft-png.png","contentUrl":"https://cryptofundtrader.com/wp-content/uploads/2025/08/Logo-new-cft-png.png","width":991,"height":254,"caption":"Crypto Fund Trader"},"image":{"@id":"https://cryptofundtrader.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//cryptofundtrader.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://cryptofundtrader.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcryptofundtrader.com%2Ffaq%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://cryptofundtrader.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcryptofundtrader.com%2Ffaq%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--cmsmasters-colors-text: var(--cmsmasters-colors-text);--wp--preset--color--cmsmasters-colors-link: var(--cmsmasters-colors-link);--wp--preset--color--cmsmasters-colors-hover: var(--cmsmasters-colors-hover);--wp--preset--color--cmsmasters-colors-heading: var(--cmsmasters-colors-heading);--wp--preset--color--cmsmasters-colors-bg: var(--cmsmasters-colors-bg);--wp--preset--color--cmsmasters-colors-alternate: var(--cmsmasters-colors-alternate);--wp--preset--color--cmsmasters-colors-bd: var(--cmsmasters-colors-bd);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-cmsmasters-colors-text-color{color: var(--wp--preset--color--cmsmasters-colors-text) !important;}.has-cmsmasters-colors-link-color{color: var(--wp--preset--color--cmsmasters-colors-link) !important;}.has-cmsmasters-colors-hover-color{color: var(--wp--preset--color--cmsmasters-colors-hover) !important;}.has-cmsmasters-colors-heading-color{color: var(--wp--preset--color--cmsmasters-colors-heading) !important;}.has-cmsmasters-colors-bg-color{color: var(--wp--preset--color--cmsmasters-colors-bg) !important;}.has-cmsmasters-colors-alternate-color{color: var(--wp--preset--color--cmsmasters-colors-alternate) !important;}.has-cmsmasters-colors-bd-color{color: var(--wp--preset--color--cmsmasters-colors-bd) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-cmsmasters-colors-text-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-text) !important;}.has-cmsmasters-colors-link-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-link) !important;}.has-cmsmasters-colors-hover-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-hover) !important;}.has-cmsmasters-colors-heading-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-heading) !important;}.has-cmsmasters-colors-bg-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-bg) !important;}.has-cmsmasters-colors-alternate-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-alternate) !important;}.has-cmsmasters-colors-bd-background-color{background-color: var(--wp--preset--color--cmsmasters-colors-bd) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-cmsmasters-colors-text-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-text) !important;}.has-cmsmasters-colors-link-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-link) !important;}.has-cmsmasters-colors-hover-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-hover) !important;}.has-cmsmasters-colors-heading-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-heading) !important;}.has-cmsmasters-colors-bg-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-bg) !important;}.has-cmsmasters-colors-alternate-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-alternate) !important;}.has-cmsmasters-colors-bd-border-color{border-color: var(--wp--preset--color--cmsmasters-colors-bd) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='tablepress-default-css' href='https://cryptofundtrader.com/wp-content/tablepress-combined.min.css?ver=15' media='all' />
+<link rel='stylesheet' id='child-custom-style-css' href='https://cryptofundtrader.com/wp-content/themes/cft-break2/style.css?ver=1790860948' media='all' />
+<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=auto&#038;ver=7.0.8' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='https://cryptofundtrader.com/wp-content/plugins/jetpack/css/jetpack.css?ver=12.3.2' media='all' />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script id="tp-js-js-extra">
+var trustpilot_settings = {"key":"uTNtpn9JOo9Xnq41","TrustpilotScriptUrl":"https://invitejs.trustpilot.com/tp.min.js","IntegrationAppUrl":"//ecommscript-integrationapp.trustpilot.com","PreviewScriptUrl":"//ecommplugins-scripts.trustpilot.com/v2.1/js/preview.min.js","PreviewCssUrl":"//ecommplugins-scripts.trustpilot.com/v2.1/css/preview.min.css","PreviewWPCssUrl":"//ecommplugins-scripts.trustpilot.com/v2.1/css/preview_wp.css","WidgetScriptUrl":"//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"};
+//# sourceURL=tp-js-js-extra
+</script>
+<script id="tp-js-js" src="https://cryptofundtrader.com/wp-content/plugins/trustpilot-reviews/review/assets/js/headerScript.min.js?ver=1.0&#039;%20async=&#039;async"></script>
+<script id="jquery-core-js" src="https://cryptofundtrader.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://cryptofundtrader.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="wt-smart-coupon-for-woo-js-extra">
+var WTSmartCouponOBJ = {"ajaxurl":"https://cryptofundtrader.com/wp-admin/admin-ajax.php","wc_ajax_url":"https://cryptofundtrader.com/?wc-ajax=","nonces":{"public":"6b01484f21","apply_coupon":"08ef9a1f17"},"labels":{"please_wait":"Please wait...","choose_variation":"Please choose a variation","error":"Error !!!"},"shipping_method":[],"payment_method":"","is_cart":""};
+//# sourceURL=wt-smart-coupon-for-woo-js-extra
+</script>
+<script id="wt-smart-coupon-for-woo-js" src="https://cryptofundtrader.com/wp-content/plugins/wt-smart-coupons-for-woocommerce/public/js/wt-smart-coupon-public.js?ver=1.6.1"></script>
+<script defer id="woocommerce-analytics-js" src="https://stats.wp.com/s-202644.js"></script>
+<script id="font-awesome-4-shim-js" src="https://cryptofundtrader.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.16.5"></script>
+<link rel="https://api.w.org/" href="https://cryptofundtrader.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://cryptofundtrader.com/wp-json/wp/v2/pages/259" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cryptofundtrader.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0.8" />
+<meta name="generator" content="WooCommerce 7.7.3" />
+<link rel='shortlink' href='https://cryptofundtrader.com/?p=259' />
+<meta name="facebook-domain-verification" content="xq5h752hsdtrmgyua5deddnu8mg7ub" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://relay.cryptofundtrader.com/8m1a7gjlrqvrg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','dd7g24t=DhZLNiYhRzcxSzo3RTQ9QRFPRF9DSg4JWhEECAIYBQESHBIFAA0OAhVcFR4f');</script>
+<!-- End Google Tag Manager -->
+	<style>img#wpstats{display:none}</style>
+		    <script>
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    function setCookie(name, value, days) {
+        const maxAge = days * 24 * 60 * 60;
+        const domain = '.' + window.location.hostname.split('.').slice(-2).join('.');
+        document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; domain=' + domain + '; max-age=' + maxAge + '; secure;';
+    }
+	function deleteCookie(name) {
+        const domain = '.' + window.location.hostname.split('.').slice(-2).join('.');
+        document.cookie = name + '=; path=/; domain=' + domain + '; max-age=0; secure;';
+    }
+    (function () {
+        var click_id = getQueryParam('click_id');
+		var fpr = getQueryParam('fpr');
+		
+        if (click_id) {
+            setCookie('click_id', click_id, 60);
+        }
+		
+        if (fpr) {
+            setCookie('fpr', fpr, 60);
+        }
+    })();
+    </script>
+    	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.16.5; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<meta name="google-site-verification" content="ucAZS7CHSLupQ26omAsPdSSp3VMQYWVWU6YR3ieXDIo" />
+<link rel="icon" href="https://cryptofundtrader.com/wp-content/uploads/2025/08/cropped-fav-icon-512x512-3-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://cryptofundtrader.com/wp-content/uploads/2025/08/cropped-fav-icon-512x512-3-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cryptofundtrader.com/wp-content/uploads/2025/08/cropped-fav-icon-512x512-3-180x180.png" />
+<meta name="msapplication-TileImage" content="https://cryptofundtrader.com/wp-content/uploads/2025/08/cropped-fav-icon-512x512-3-270x270.png" />
+<!-- Twitter conversion tracking base code -->
+<!--<script>
+  ! function ( e, t, n, s, u, a ) {
+    e.twq || ( s = e.twq = function () {
+        s.exe ? s.exe.apply( s, arguments ) : s.queue.push( arguments );
+      }, s.version = '1.1', s.queue = [], u = t.createElement( n ), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js',
+      a = t.getElementsByTagName( n )[ 0 ], a.parentNode.insertBefore( u, a ) )
+  }( window, document, 'script' );
+  twq( 'config', 'od5cd' );
+</script>-->
+<!-- End Twitter conversion tracking base code -->
+<!-- Coinzilla tracking base code -->
+<script src="https://coinzillatag.com/lib/performance.js" async></script>
+<script>
+  window.coinzilla_performance = window.coinzilla_performance || [];
+  coinzilla_performance.push( {} );
+</script>
+<!-- End Coinzilla conversion tracking base code -->
+<!-- Affiliate tracking base code -->
+<script>
+  ( function ( w ) {
+    w.fpr = w.fpr || function () {
+      w.fpr.q = w.fpr.q || [];
+      w.fpr.q[ arguments[ 0 ] == 'set' ? 'unshift' : 'push' ]( arguments );
+    };
+  } )( window );
+  fpr( "init", {
+    cid: "o5thirs9"
+  } );
+  fpr( "click" );
+</script>
+<script src="https://cdn.firstpromoter.com/fpr.js" async></script>
+<!-- End Affiliate tracking base code -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css">
+</head>
+<body id="cmsmasters_body" class="wp-singular page-template-default page page-id-259 wp-embed-responsive wp-theme-cyberbank wp-child-theme-cft-break2 theme-cyberbank woocommerce-no-js cmsmasters-content-layout-fullwidth elementor-default elementor-kit-23 elementor-page elementor-page-259">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://propfirmmatch.com" crossorigin />
+<link rel="dns-prefetch" href="https://propfirmmatch.com" />
+<script
+  defer
+ crossorigin="anonymous"
+  referrerpolicy="origin"
+  src="https://propfirmmatch.com/w/widget/load/cryptofundtrader-payouts.js"
+></script>
+<div id="topbar">
+    <a href="https://cryptofundtrader.com/terminal-waitlist/" target="_blank" rel="noopener noreferrer" class="topbar-yellow">
+    <strong class="topbar-yellow-cta">Join the waitlist</strong>
+    <svg class="topbar-yellow-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    <span class="topbar-yellow-msg">The new terminal is coming soon</span>
+  </a>
+  <style>
+/* ===== PC: mensaje + botón con borde ===== */
+#topbar .topbar-yellow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  background: #FFFF39;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  color: #111;
+  text-align: center;
+}
+#topbar .topbar-yellow-msg{
+  order: 1;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13px;
+}
+#topbar .topbar-yellow-cta{
+  order: 2;
+  font-weight: 700;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+  padding: 4px 24px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  transition: background .2s, color .2s;
+}
+#topbar .topbar-yellow:hover .topbar-yellow-cta{
+  background: #111;
+  color: #FFFF39;
+}
+#topbar .topbar-yellow-arrow{
+  display: none;
+  width: 14px;
+  height: 14px;
+  stroke: #111;
+  flex-shrink: 0;
+}
+#topbar{
+  height: auto !important;
+  z-index: 99999;
+}
+
+/* ===== MÓVIL: "Join the waitlist" en negrita + flecha + mensaje ===== */
+@media (max-width: 768px){
+  #topbar .topbar-yellow{
+    gap: 6px 10px;
+    padding: 16px;
+  }
+  #topbar .topbar-yellow-msg{
+    order: 3;
+    font-size: 13px;
+  }
+  #topbar .topbar-yellow-cta{
+    order: 1;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 13px;
+  }
+  #topbar .topbar-yellow:hover .topbar-yellow-cta{
+    background: none;
+    color: inherit;
+  }
+  #topbar .topbar-yellow-arrow{
+    display: block;
+    order: 2;
+  }
+}
+</style>
+  </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('header');
+
+  // TOPBAR
+  const topbar = document.getElementById('topbar');
+  if (topbar) {
+    const scrollEl = document.getElementById('scroll');
+
+    const syncTopbarOffset = () => {
+      const h = topbar.offsetHeight + 'px';
+      if (header) {
+        header.style.top = h;
+        // --vw-12 solo hereda a #header y sus hijos (#menubutton, #mainmenu):
+        // ahi es donde el tema la usa para alinearse con el alto del topbar.
+        // #mainmenu NO lleva top propio a proposito: al ser hijo de #header
+        // (que ya quedo con su propio top), un top explicito ahi se sumaria
+        // sobre el del padre en vez de reemplazarlo.
+        header.style.setProperty('--vw-12', h);
+      }
+      scrollEl && (scrollEl.style.marginTop = h);
+    };
+
+    topbar.classList.add('on');
+    header && header.classList.add('topbar');
+    syncTopbarOffset();
+    window.addEventListener('resize', syncTopbarOffset);
+
+    const topbarClose = topbar.querySelector('.close');
+    if (topbarClose) {
+      topbarClose.addEventListener('click', () => {
+        topbar.classList.remove('on');
+        header && header.classList.remove('topbar');
+        if (header) {
+          header.style.top = '';
+          header.style.removeProperty('--vw-12');
+        }
+        scrollEl && (scrollEl.style.marginTop = '');
+      });
+    }
+  }
+
+  // POPUP
+  const popupContainer = document.getElementById('popupcontainer');
+  const popup = document.getElementById('popup');
+  if (popupContainer && popup) {
+    const popupClose = popupContainer.querySelector('.close');
+    const popupDelaySeconds = parseInt('5', 10);
+    const popupDelay = isNaN(popupDelaySeconds) ? 0 : popupDelaySeconds * 1000;
+
+    setTimeout(() => {
+      popupContainer.classList.add('on');
+    }, popupDelay);
+
+    const stopPopupVideo = () => {
+      const iframe = popup.querySelector('iframe');
+      if (iframe) {
+        const src = iframe.src;
+        iframe.src = '';
+        iframe.src = src;
+      }
+    };
+
+    const closePopup = () => {
+      popupContainer.classList.remove('on');
+      stopPopupVideo();
+    };
+
+    window.cftClosePopup = closePopup;
+
+    popupClose.addEventListener('click', closePopup);
+
+    popupContainer.addEventListener('click', (e) => {
+      if (!popup.contains(e.target)) {
+        closePopup();
+      }
+    });
+
+    popup.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (link) {
+        closePopup();
+      }
+    });
+  }
+
+  // STICKYBAR
+  const stickybar = document.getElementById('stickybar');
+  if (stickybar) {
+    const stickyClose = stickybar.querySelector('.close');
+    const stickyDelaySeconds = parseInt('8', 10);
+    const stickyDelay = isNaN(stickyDelaySeconds) ? 0 : stickyDelaySeconds * 1000;
+
+    setTimeout(() => {
+      stickybar.classList.add('on');
+    }, stickyDelay);
+
+    stickyClose.addEventListener('click', () => {
+      stickybar.classList.remove('on');
+    });
+  }
+});
+</script>
+<script type="module" src="https://cryptofundtrader.com/wp-content/themes/cft-break2/scriptF3.js"></script>
+
+<div id="preload"></div>
+<header id="header">
+	<a href="/">
+  <div id="logo">
+	  	  <div id="iso"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icon-halloween2.svg"></div>
+	  <div id="typo" style="margin-top:-7px"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/halloween/recursos/logo-letra-halloween.svg?cft-hw"></div>
+	    </div>
+		</a>
+  <div id="menubutton"><span>[</span><span id="menulabel">MENU</span><span>]</span></div>
+  <nav id="mainmenu">
+    <ul>
+      <li id="link2">[<a href="/#programs">Programs</a>]</li>
+      <li id="link1">[<a href="/#howto">How it works</a>]</li>
+      <li id="link3">[<a href="/affiliates/">Affiliates</a>]</li>
+      <li id="link4">
+        [<a>Support
+        </a>
+            <svg width="16px" height="16px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M6 9L12 15L18 9" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            ]
+        <div id="fuera">
+          <a href="/blog" class="no-scramble">Blog</a>
+          <a href="/faq" class="no-scramble">Faq</a>
+          <a href="/contact" class="no-scramble">Contact</a>
+        </div></li>
+
+    </ul>
+
+  </nav>
+  <nav id="secondarymenu">
+    <div id="headrrrss" class="rrssmodule"> <a class="rrssicon" href="https://instagram.com/cryptofundtrader" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/insta.svg"></a> <a class="rrssicon" href="https://twitter.com/cftradercom" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/x.svg"></a> <a class="rrssicon" href="https://youtube.com/@cryptofundtrader" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/yt.svg"></a> <a class="rrssicon" href="https://discord.gg/PFgzUEdrGA" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/discord.svg"></a> <a class="rrssicon" href="https://t.me/cryptofundtradercom" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/telegram.svg"></a> </div>
+    <ul>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/terms-and-conditions/">Terms and Conditions</a></li>
+      <li><a href="/refund-policy/">Refund Policy</a></li>
+      <li><a href="/proof-reserves/">Proof of Scholarship</a></li>
+      <li><a href="/affiliates/">Affiliate Partner</a></li>
+      <li><a href="/trading-theory/">Theory Tools</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/bybit/">CFT x Bybit</a></li>
+      <li><a href="/#programs">Choose your challenge</a></li>
+      <li><a href="/tournaments/">Free tournaments</a></li>
+      <li><a href="https://trading.cryptofundtrader.com/login">Match - Trader Platform</a></li>
+      <li><a href="https://mt5.cryptofundtrader.com/terminal">MT5 Web Terminal</a></li>
+      <li><a href="https://partner.bybitglobal.com/b/120266">BYBIT Platform</a></li>
+      <li><a href="/contact">Contact us</a></li>
+      <li><a href="">Cookies</a></li>
+      <li><a href="https://www.coinscope.co/coin/1-cft/kyc">“KYC Audit”</a></li>
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/competitive-ranking/">Competitive Ranking</a></li>
+    </ul>
+  </nav>
+  <nav id="appicons">
+    <ul>
+      <li id="link7">[<a href="/competitive-ranking/">RANK</a>]</li>
+      <li id="link6">[<a href="https://app.cryptofundtrader.com">DASHBOARD</a>]</li>
+    </ul>
+  </nav>
+  <div id="deghead"></div>
+</header>
+
+<script type="module" src="https://cryptofundtrader.com/wp-content/themes/cft-break2/no-scramble.js?v=1793372427"></script>
+
+<script>
+(function() {
+  const link4 = document.getElementById('link4');
+  const fuera = document.getElementById('fuera');
+  const arrow = link4.querySelector('svg');
+
+  if (!link4 || !fuera) return;
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  link4.addEventListener('click', function(e) {
+    if (!isMobile()) return;
+    if (e.target.closest('#fuera')) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isOpen = link4.classList.toggle('fuera-open');
+
+    if (isOpen) {
+      fuera.style.display = 'flex';
+      requestAnimationFrame(() => {
+        fuera.style.opacity = '1';
+      });
+    } else {
+      fuera.style.opacity = '0';
+      setTimeout(() => { fuera.style.display = 'none'; }, 250);
+    }
+
+    if (arrow) arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+  });                                                                              // ← closing brace added
+
+  document.addEventListener('click', function(e) {
+    if (!isMobile()) return;
+    if (!link4.contains(e.target)) {
+      link4.classList.remove('fuera-open');
+      fuera.style.opacity = '0';
+      setTimeout(() => { fuera.style.display = 'none'; }, 250);
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (!isMobile()) {
+      link4.classList.remove('fuera-open');
+      fuera.style.display = '';
+      fuera.style.opacity = '';
+      if (arrow) arrow.style.transform = '';
+    }
+  });
+})();
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ===== FAQ Live Search (sin tocar .on) =====
+    (function FAQSearch() {
+      const $ = (sel, ctx = document) => ctx.querySelector(sel);
+      const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+      const input = document.getElementById('faqSearch');
+      const clearBtn = document.getElementById('faqSearchClear');
+      const meta = document.getElementById('faqSearchMeta');
+      if (!input) return;
+
+      const faqItems = $$('.faqmodule .faqinterior');
+
+      // Guardamos HTML original para limpiar resaltados
+      const index = faqItems.map(item => {
+        const qEl = $('.visible', item);
+        const aEl = $('.extensible', item);
+        return {
+          el: item,
+          qEl,
+          aEl,
+          qHTML: qEl ? qEl.innerHTML : '',
+          aHTML: aEl ? aEl.innerHTML : '',
+          text: normalize(item.textContent || '')
+        };
+      });
+
+      let t = null;
+      input.addEventListener('input', () => {
+        clearTimeout(t);
+        t = setTimeout(() => runSearch(input.value), 80);
+      });
+
+      clearBtn?.addEventListener('click', () => {
+        input.value = '';
+        runSearch('');
+        input.focus();
+      });
+
+      function runSearch(qRaw) {
+        const q = normalize(qRaw.trim());
+
+        // Reset
+        index.forEach(({ el, qEl, aEl, qHTML, aHTML }) => {
+          el.classList.remove('is-hidden', 'has-match');
+          if (qEl) qEl.innerHTML = qHTML;
+          if (aEl) aEl.innerHTML = aHTML;
+        });
+
+        if (!q) {
+          meta && (meta.textContent = '');
+          return;
+        }
+
+        let matches = 0;
+        const re = new RegExp(`(${escapeRegExp(q)})`, 'gi');
+
+        index.forEach(({ el, qEl, aEl, qHTML, aHTML, text }) => {
+          if (!text.includes(q)) {
+            el.classList.add('is-hidden');
+            return;
+          }
+          matches++;
+          el.classList.add('has-match');
+          if (qEl) qEl.innerHTML = highlight(qHTML, re);
+          if (aEl) aEl.innerHTML = highlight(aHTML, re);
+        });
+
+        meta && (meta.textContent = matches ? `${matches} results` : 'No matches');
+      }
+
+      // Utils
+      function normalize(s) {
+        return (s || '')
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/\p{Diacritic}/gu, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+      function escapeRegExp(s) {
+        return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+      function highlight(html, re) {
+        return html.replace(/>([^<]+)</g, (m, text) => {
+          const replaced = text.replace(re, '<mark class="faq-highlight">$1</mark>');
+          return `>${replaced}<`;
+        });
+      }
+    })();
+  });
+</script>
+
+<div id="scroll">
+  <section id="faqhero">
+    <h1>FAQs</h1>
+    <h3>Frequently asked questions</h3>
+    <div class="faq-search">
+      <input id="faqSearch" type="text" placeholder="Type to search..." autocomplete="off" />
+      <button type="button" id="faqSearchClear" aria-label="Clear search">&times;</button>
+      <div class="faq-search__meta" id="faqSearchMeta" aria-live="polite"></div>
+    </div>
+
+  </section>
+  <h2 class="faqtit">Get Started</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is Crypto Fund Trader?</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader is a simulated trading evaluation firm that gives traders the opportunity to prove their
+            skills through different evaluation programs.</p>
+          <p>Traders who meet the program requirements may qualify for a simulated funded account with up to $300,000 in
+            virtual capital and may become eligible to receive performance-based rewards.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How do I get started?</p>
+        </div>
+        <div class="extensible">
+          <p>To get started, choose the evaluation program that best fits your trading style from the <a
+              style="color: #ffff39;" href="https://cryptofundtrader.com/#programs">Programs</a> section and complete
+            your purchase.</p>
+          <p>Once your purchase is complete, your account credentials will be sent to you within a few minutes. After
+            that, you can log in, start trading, and work toward completing the evaluation requirements.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>The evaluation is a simulated trading challenge designed to test your trading skills, risk management, and
+            ability to follow the program rules.</p>
+          <p>After successfully completing the evaluation requirements, you may qualify for the final stage and become
+            eligible to receive performance-based rewards.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What account sizes are available?</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader offers different simulated account sizes depending on the program selected. Each account
+            size has its own price, rules, and evaluation requirements.</p>
+          <p>Available account sizes may vary by program, including 1-Phase, 2-Phase, and any special programs offered
+            from time to time.</p>
+          <p>For the most up-to-date account sizes and pricing, please visit the <a style="color: #ffff39;"
+              href="https://cryptofundtrader.com/#programs">Programs</a> section.</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Can I earn rewards with Crypto Fund Trader?</p>
+        </div>
+        <div class="extensible">
+          <p>We focus on evaluating skilled traders. Any trader who successfully passes our evaluation and complies with
+            all program rules may become eligible to receive a performance-based reward to help support their trading
+            career.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What payment methods are available?</p>
+        </div>
+        <div class="extensible">
+          <p>We accept payments by credit card, PayPal, Apple Pay, Google Pay, and cryptocurrency through our available
+            payment gateways.</p>
+          <p>Crypto payments are currently supported in multiple cryptocurrencies.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Which countries are allowed to join Crypto Fund Trader?</p>
+        </div>
+        <div class="extensible">
+          <p>Country availability may depend on the trading platform selected.</p>
+          <p><strong>Match-Trader:</strong><br>
+            There are currently no country restrictions for traders using Match-Trader.</p>
+          <p>&nbsp;</p>
+          <p><strong>MetaTrader 5:</strong><br>
+            MetaTrader 5 is not available for users residing in the United States.</p>
+          <p>&nbsp;</p>
+          <p><strong>Bybit:</strong><br>
+            Crypto Fund Trader does not apply additional country restrictions for traders who choose to use Bybit.
+            However, traders must use their own personal Bybit account and are fully responsible for complying with
+            Bybit’s Terms of Service, jurisdictional restrictions, and any rules that may apply in their country of
+            residence.</p>
+          <p>Traders who use Bybit do so at their own discretion and risk. Crypto Fund Trader is not responsible for any
+            breach of Bybit’s terms or for any action taken by Bybit against a user’s account.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="faqtit">EVALUATION PROCESS</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How do I reach the final stage?</p>
+        </div>
+        <div class="extensible">
+          <p>To reach the final stage, you must successfully complete the requirements of your selected evaluation
+            program, such as the 1-Phase or 2-Phase Challenge.</p>
+          <p>After completing the evaluation, your account may be reviewed to confirm that all program rules were
+            followed. If approved, you may qualify for a simulated funded account and become eligible to receive
+            performance-based rewards.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What happens after I pass Phase 1?</p>
+        </div>
+        <div class="extensible">
+          <p>If you selected the 1-Phase Evaluation and pass Phase 1, you will receive your simulated funded account
+            within a few minutes.</p>
+          <p>If you selected the 2-Phase Evaluation and pass Phase 1, you will receive your Phase 2 account within a few
+            minutes.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What happens after I pass Phase 2?</p>
+        </div>
+        <div class="extensible">
+          <p>If you pass Phase 2, you will receive a confirmation email and your simulated funded account will be sent
+            within a few minutes.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What happens if I breach a trading rule?</p>
+        </div>
+        <div class="extensible">
+          <p>If you exceed any drawdown limit or breach any of our program rules, your account may be deactivated and
+            you will be notified by email.</p>
+          <p>This includes the maximum daily drawdown, maximum overall drawdown, trailing drawdown in the 1-Phase
+            Evaluation and Break Evaluation, or any other rule listed in your selected program.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is there a time limit to complete the evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>No. We want to give our traders as much freedom as possible, so there is no maximum time limit to complete
+            the evaluation.</p>
+          <p>You can trade at your own pace and take the time you need.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is there a minimum trading days requirement?</p>
+        </div>
+        <div class="extensible">
+          <p>There is no minimum number of trading days required for evaluations. No waiting periods.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How are the daily and overall maximum loss limits calculated?</p>
+        </div>
+        <div class="extensible">
+          <p>Drawdown breaches are calculated based on equity.</p>
+          <p>The daily maximum loss is calculated based on your account balance at 12:05 AM UTC each day.</p>
+          <p>For the 2-Phase Evaluation, the daily maximum loss is 5%, and the maximum overall loss is fixed at 10% of
+            the initial account balance.</p>
+          <p>For the 1-Phase Evaluation, the daily maximum loss is 4%, and the trailing drawdown rule applies instead of
+            a fixed overall loss limit.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How is the trailing drawdown calculated?</p>
+        </div>
+        <div class="extensible">
+          <p>The trailing drawdown applies only to the 1-Phase Evaluation and Break Evaluations.</p>
+          <p>It is calculated based on balance, meaning it follows the account’s highest balance reached and adjusts
+            accordingly as the account grows.</p>
+          <p>For 1-Phase evaluations only, the trailing drawdown is set at 6% of the initial account balance and moves
+            upward as your account reaches new highs. Once the trailing drawdown reaches the initial account balance, it
+            stops moving and remains fixed.</p>
+          <p><b>Example:</b> If you start with a $100,000 account, your initial trailing drawdown limit is $94,000. If
+            your account grows to $107,000, the trailing drawdown reaches $100,000. From that point, it no longer trails
+            and remains fixed at the initial account balance. If your equity falls below the trailing drawdown limit at
+            any time, the account will be considered breached.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="faqtit">TRADING CONDITIONS</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What instruments can I trade?</p>
+        </div>
+        <div class="extensible">
+          <p>On Bybit you can currently trade more than 550 crypto futures pairs.</p>
+          <p>On Match-Trader and MetaTrader 5 we have more than 720 instruments available thanks to our Data Feed and
+            Liquidity Providers (Crypto, Forex, Indices, Commodities, Stocks...)
+          </p>
+          <ul>
+            <li>556 Cryptocurrencies</li>
+            <li>106 Forex</li>
+            <li>15 Indices</li>
+            <li>22 Commodities</li>
+            <li>25 Stocks</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What trading platform can I use?</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader currently offers access to Match-Trader, MetaTrader 5, and Bybit.</p>
+          <p>The instruments available depend on the trading platform you choose.</p>
+          <br>
+          <p>Match-Trader </p>
+          <p>Match-Trader is available on <a style="color: #ffff39;" href="https://trading.cryptofundtrader.com/"
+              target="_blank" rel="noopener">web</a>, desktop, iOS, and Android.</p>
+          <p>You can try the platform using the following demo credentials:</p>
+          <p>Email: demo@cryptofundtrader.com</p>
+          <p>Password: DemoCFT1</p>
+          <br>
+          <p>MetaTrader 5</p>
+          <p>We also offer <a style="color: #ffff39;" href="https://mt5.cryptofundtrader.com/terminal">MetaTrader 5</a>,
+            one of the most popular retail trading platforms in the market.</p>
+          <p>Demo credentials:</p>
+          <p>Account: 123456</p>
+          <p>Password: 7cZy-gEo</p>
+          <p>Server: RLCrates-Live</p>
+          <br>
+          <p>Crypto Fund Trader also offers access through <a style="color: #ffff39;"
+              href="https://partner.bybitglobal.com/b/120266" target="_blank" rel="noopener">Bybit</a>. To use Bybit,
+            you must create and use your own personal Bybit account. You do not need to complete KYC on Bybit to use it
+            for your Crypto Fund Trader evaluation.</p>
+
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What leverage is available?</p>
+        </div>
+        <div class="extensible">
+          <p>Leverage depends on the account type and the trading platform selected.</p>
+          <br>
+          <p><strong>BYBIT ACCOUNTS:</strong></p>
+          <ul>
+            <li>Leverage is available up to 1:100, depending on the instrument and the conditions provided by Bybit.
+            </li>
+          </ul>
+          <br>
+          <strong>ADVANCED ACCOUNTS (Match-Trader &amp; MetaTrader 5):</strong>
+          <ul>
+            <li>Forex: 1:100 leverage</li>
+            <li>Commodities: 1:100 leverage</li>
+            <li>Indices: 1:100 leverage</li>
+            <li>Cryptos: 1:100 leverage</li>
+            <li>Stocks: 1:100 leverage</li>
+          </ul>
+          <br>
+          <strong>STUDENT ACCOUNTS (CFT Platform &amp; MetaTrader 5):</strong>
+          <ul>
+            <li>Forex: 1:30 leverage</li>
+            <li>Commodities: 1:30 leverage</li>
+            <li>Indices: 1:20 leverage</li>
+            <li>Cryptos: 1:5 leverage</li>
+            <li>Stocks: 1:5 leverage</li>
+          </ul>
+          <br>
+          <strong>Check the account types <a style="color: #ffff39;"
+              href="https://cryptofundtrader.com/terms-and-conditions/#acctype" target="_blank" rel="noopener">here</a> </strong>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What are the spreads?</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader offers competitive spreads, with examples such as EUR/USD from 0 pips and BTC/USDT from
+            1 pip.</p>
+          <p>You can check the available spreads at any time directly through Match-Trader, MetaTrader 5, or Bybit using
+            the demo access below.</p>
+          <br>
+          <p>Match-Trader Demo Credentials:</p>
+          <p>Email: demo@cryptofundtrader.com</p>
+          <p>Password: DemoCFT1</p>
+          <br>
+          <p>MetaTrader 5 Demo credentials:</p>
+          <p>Account: 123456</p>
+          <p>Password: 7cZy-gEo</p>
+          <p>Server: RLCrates-Live</p>
+          <br>
+          <a style="color: #ffff39;" href="https://partner.bybitglobal.com/b/120266" target="_blank"
+            rel="noopener">BYBIT platform</a>
+          <p>On Bybit, spreads and slippage depend entirely on Bybit’s liquidity and market conditions.</p>
+          <br>
+          <p>Crypto Fund Trader does not add any markup, artificial spread, or fictitious slippage to the provider’s
+            price.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What are the commissions?</p>
+        </div>
+
+        <div class="extensible">
+          <p>Crypto Fund Trader offers competitive commissions depending on the platform and instrument traded.</p>
+
+          <br>
+
+          <p><strong>Bybit platform:</strong></p>
+
+          <p>
+            For evaluations carried out through Bybit, traders are subject to Bybit’s native trading fee structure.
+            These are market fees that may vary depending on the trading pair, maker/taker classification, and volume
+            tier.
+            Crypto Fund Trader has no control over these fees and does not apply any additional markup.
+          </p>
+
+          <br>
+
+          <p><strong>Match-Trader &amp; MetaTrader 5:</strong></p>
+
+          <ul>
+            <li>Crypto: 0.0325% per side</li>
+            <li>Commodities: 0.0005% per side</li>
+            <li>Stocks: 0.002% per side</li>
+            <li>Forex: $2.5 per lot per side</li>
+            <li>Indices: 0.005% per lot per side</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Are swap fees charged?</p>
+        </div>
+
+        <div class="extensible">
+          <p>Yes. Swap fees may apply to CFD positions that remain open overnight on Match-Trader and MetaTrader 5.</p>
+          <p>Swap fees are charged on trades open at 00:00 UTC on MetaTrader 5 and 22:00 UTC on Match-Trader.</p>
+
+          <br>
+
+          <p><strong>Bybit</strong></p>
+          <p>Bybit does not use traditional CFD swap fees. Instead, positions may be subject to funding rates, depending
+            on the market and whether the trader holds a long or short position.</p>
+          <p>Funding rates are determined by Bybit and may vary over time. Crypto Fund Trader does not control or add
+            any markup to Bybit funding rates.</p>
+
+          <br>
+
+          <p><strong>Swap calculation — percentage per year</strong></p>
+          <p><strong>Formula:</strong></p>
+          <p>(Lot × Long or Short / 100 / 360) × Open Price</p>
+          <p><strong>Example for 1 lot BTCUSD:</strong></p>
+          <p>(1 × -5 / 100 / 360) × 24,484.24 = -$3.40</p>
+
+          <br>
+
+          <p><strong>Swap calculation — points</strong></p>
+          <p><strong>Formula:</strong></p>
+          <p>Lot × Long or Short × Contract Size × Quote Precision</p>
+          <p><strong>Example for 2 lots XAGUSD:</strong></p>
+          <p>2 × -35.673 × 100 × 0.01 = -$71.35</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Can I trade news?</p>
+        </div>
+        <div class="extensible">
+          <p>Yes. News trading is allowed. We want traders to have the freedom to trade using their own strategy and
+            style.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Can I trade on the weekends?</p>
+        </div>
+        <div class="extensible">
+          <p>Cryptocurrency markets are open 24 hours a day, 7 days a week.</p>
+          <p>
+            Forex markets are open 24 hours a day from Monday to Friday.
+          </p>
+          <p>
+            Commodities, indices, and stocks follow their own trading schedules. You can check the schedule of each
+            instrument directly inside the trading platform by clicking on the asset’s “Info” section.
+          </p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Do you allow overnight and weekend positions?</p>
+        </div>
+        <div class="extensible">
+          <p>Yes. Traders are allowed to keep positions open overnight and over the weekend, regardless of the account
+            type or instrument.</p>
+          <p>This allows traders to use swing trading strategies if they choose to do so.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What strategies are allowed?</p>
+        </div>
+        <div class="extensible">
+          <p>We believe trader freedom is important, so most trading strategies are allowed as long as proper risk
+            management is maintained and all program rules are followed.</p>
+          <p>However, exploitative or unrealistic strategies are not allowed. This includes, but is not limited to,
+            high-frequency trading, tick scalping, latency arbitrage, or any strategy that does not reflect real market
+            trading conditions.</p>
+          <p>We also do not allow gambling-style trading, all-in trading, abusive hedging, or any trading behavior that
+            shows a lack of proper risk management. </p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is there a maximum lot size?</p>
+        </div>
+        <div class="extensible">
+          <p>There is no fixed maximum lot size. The maximum position size depends on your account’s available margin
+            and leverage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="faqtit">Final stage account</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How are rewards structured in the final stage?</p>
+        </div>
+        <div class="extensible">
+          <p>Traders who reach the final stage may become eligible to receive performance-based rewards based on their
+            simulated trading results.</p>
+          <p>Rewards are calculated according to the rules of the selected program and are only available to traders who
+            continue to comply with all program requirements.</p>
+          <p>All trading takes place in a simulated environment. Rewards are based on simulated performance and do not
+            represent actual market profits, investment returns, or real financial exposure.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the maximum allocation per user?</p>
+        </div>
+        <div class="extensible">
+          <p>The maximum simulated funded allocation per user is $300,000.</p>
+          <p>This means that the total starting balance of all active final stage accounts under the same user must not
+            exceed $300,000.</p>
+          <p>Profits generated in final stage accounts do not count toward this allocation limit and may cause the
+            account balance to exceed $300,000.</p>
+          <p>There is no limit on the number of evaluations a user can purchase or have active at the same time, as long
+            as the maximum final stage allocation limit is respected.</p>
+          <p>Ascend Accounts, Instant Accounts and Break Accounts are not included in this allocation limit, as they
+            have their own separate limits.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What scholarship payment methods are available?</p>
+        </div>
+        <div class="extensible">
+          <p><strong>Payment methods:</strong></p>
+          <ul>
+            <li>Directly via bank transfer in <strong>EUR</strong> or <strong>USD</strong>.</li>
+            <li>Transfer <strong>directly</strong> to <strong>crypto wallet</strong> in these available currencies:
+              <ul>
+                <li>USDT (ERC20)</li>
+                <li>USDT (TRC20)</li>
+                <li>Bitcoin (BTC)</li>
+                <li>Ethereum (ETH)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Do I need to complete KYC?</p>
+        </div>
+        <div class="extensible">
+          <p>Yes. Before any scholarship reward can be processed, your KYC must be completed and approved.</p>
+          <p>You can complete your KYC from your dashboard, in the Withdrawals section, after you reach a simulated
+            funded account, complete an Ascend Challenge, or purchase an Instant Account.</p>
+          <p>To complete KYC, you must sign the required contract and pass the verification process. You will be asked
+            to provide one proof of identity document and one proof of address document.</p>
+          <p>Accepted proof of identity documents include: Passport, Driving license, National ID document, or Residence
+            permit.</p>
+          <p>Accepted proof of address documents include: Tax bill, Utility bill, Bank statement, Credit card statement,
+            Bank reference letter, Mortgage statement or contract, Lease agreement, Car or home insurance policy, Car
+            registration document, Letter of employment, Company payslip, Official letter from an educational
+            institution, or Letter issued by a public authority.</p>
+          <p>Proof of address documents must clearly show your full name, address, and issue date.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How can I request my scholarship reward?</p>
+        </div>
+        <div class="extensible">
+          <p>You can request a scholarship reward after trading for at least 15 days, or alternatively, every 30
+            calendar days, as long as no program rules have been violated.</p>
+          <p>There is no maximum number of trading days in the final stage account.</p>
+          <p>If you have the Weekly Payouts add-on, you can request a scholarship reward every 7 traded days, as long as
+            all program requirements are met.</p>
+          <p>To submit a request, you must do so directly from your dashboard.</p>
+          <p>Before your scholarship reward can be processed, your KYC must be completed and approved.</p>
+          <p>After submitting your request, you will receive an email asking for the payment details needed to process
+            your scholarship reward.</p>
+          <p>All trades must be closed before submitting a scholarship reward request. If any trades remain open, they
+            may be manually closed.</p>
+          <p>For account types offered as part of special promotions or special product lines, please refer to their
+            dedicated FAQ section. This includes Break, Instant, and Ascend accounts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How long does it take to receive my scholarship reward?</p>
+        </div>
+        <div class="extensible">
+          <p>Our average processing time for scholarship reward payments is approximately 8 hours. However, our team may
+            take up to 48 business hours to review the request, verify the information, and send the payment.</p>
+          <p>Once the payment has been sent, the time it takes to receive the funds may depend on the selected payment
+            method and provider.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is there any minimum or maximum trading days in final stage account?</p>
+        </div>
+        <div class="extensible">
+          <p>There is no maximum number of trading days in the final stage account. The minimum number of traded days
+            required to request a scholarship reward is 15 days, or alternatively, every 30 calendar days.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What happens to my simulated profits if my final stage account is suspended?</p>
+        </div>
+        <div class="extensible">
+          <p>If your final stage account is suspended while it has simulated profits, you may still be eligible to
+            receive a performance-based scholarship reward of up to 50%, as long as all required conditions are met.
+            This applies only to Final Stage accounts under the 1-Phase and 2-Phase evaluation types.</p>
+          <p>To be eligible for this review:</p>
+          <ol>
+            <li>All trades on the final stage account must have had a Stop Loss.</li>
+            <li>No individual trade may have exceeded 2% risk of the account size.</li>
+            <li>You must have traded for at least 15 days.</li>
+          </ol>
+          <p>If these conditions are met, you have up to 7 calendar days after the rule violation to request a 50%
+            performance reward review from the suspended final stage account.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Can I reset my final stage account after breaking a rule?</p>
+        </div>
+        <div class="extensible">
+          <p>If your final stage account has been suspended, you may be eligible to purchase a reset account if your
+            trading activity meets the following criteria: </p>
+          <ol>
+            <li>All trades on the final stage account must have had a Stop Loss.</li>
+            <li>No individual trade may have exceeded 2% risk of the account size.</li>
+          </ol>
+          <p>Both criteria must be met to qualify for a reset account. If eligible, you have up to 30 calendar days
+            after the rule violation to request the reset. This feature applies only to Final Stage accounts under the
+            1-Phase and 2-Phase evaluation types.</p>
+          <p>The reset account price depends on the account size and evaluation type selected.</p>
+          <p><strong>2-Phase Reset Account Prices</strong></p>
+          <p>$5,000 2-phase reset account – $180.</p>
+          <p>$10,000 2-phase reset account – $345.</p>
+          <p>$25,000 2-phase reset account – $760.</p>
+          <p>$50,000 2-phase reset account – $1140.</p>
+          <p>$100,000 2-phase reset account – $1880.</p>
+          <p>$200,000 2-phase reset account – $3620.</p>
+          <p><strong>1-Phase Reset Account Prices</strong></p>
+          <p>$5,000 1-phase reset account – $198.</p>
+          <p>$10,000 1-phase reset account – $380.</p>
+          <p>$25,000 1-phase reset account – $840.</p>
+          <p>$50,000 1-phase reset account – $1255.</p>
+          <p>$100,000 1-phase reset account – $2079.</p>
+          <p>$200,000 1-phase reset account – $3980.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="faqtit">Evaluation rules</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <h3>ALL PHASES/FUNDED ACCOUNT</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Reverse Trading Rule</p>
+        </div>
+        <div class="extensible">
+          <p>Reverse trading is not allowed when opposite positions are opened at the same time for 60 seconds or
+            longer.</p>
+          <p>If you open a SELL position and want to trade in the opposite direction with a BUY, you must first close
+            all open SELL positions before opening the BUY trade.</p>
+          <p>Opposite trades on different pairs, such as ETH/USD and BTC/USD, are allowed.</p>
+          <p>Opposite trades on the same asset with different quote currencies, such as BTC/USD and BTC/EUR, are not
+            allowed.</p>
+          <p>Opposite trades across different accounts are not allowed.</p>
+          <p>Hedging between two or more accounts controlled by the same user is not allowed, even if the accounts are
+            registered under different email addresses.</p>
+          <p>You may open an opposite trade on the same instrument only if the first trade has been open for at least 24
+            hours.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Gambling / All-In Trading Rule</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader does not allow gambling-style trading or all-in trading behavior.</p>
+          <p>The maximum simulated profit allowed per day and/or per trade is $10,000. If the account equity reaches
+            more than $10,000 in simulated profit in a single day and/or from a single trade, any active trades may be
+            closed, and any amount above the $10,000 limit may be deducted.</p>
+          <p>The daily profit difference is calculated based on the simulated account balance at 12:10 AM UTC.</p>
+          <p>Trades closed in multiple parts, or multiple trades opened around the same time as part of the same
+            strategy, may be considered a single trade for the purpose of this rule.</p>
+        </div>
+      </div>
+      <h3>BYBIT RULES</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Adding extra funds to the sub-account</p>
+        </div>
+        <div class="extensible">
+          <p>Adding extra funds to the assigned Bybit sub-account is not allowed.</p>
+          <p>Any unauthorized deposit, transfer, or addition of funds to the sub-account may result in account
+            suspension.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Disconnecting or modifying the API</p>
+        </div>
+        <div class="extensible">
+          <p>Disconnecting, modifying, altering, or interfering with the assigned API connection is strictly prohibited.
+          </p>
+          <p>Any attempt to disconnect or modify the API connection may result in immediate account suspension.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Spot trading</p>
+        </div>
+        <div class="extensible">
+          <p>Spot trading on the Bybit sub-account is strictly prohibited.</p>
+          <p>Any spot trading activity may result in account suspension.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>USDT pairs only</p>
+        </div>
+        <div class="extensible">
+          <p>Only USDT trading pairs are allowed on Bybit accounts.</p>
+          <p>Trades placed on USDC pairs will not be counted toward the account’s simulated profit or evaluation
+            results.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <h3>PROHIBITED EA TYPES</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>High-Frequency Trading</p>
+        </div>
+        <div class="extensible">
+          <p>High-frequency trading is not allowed. This includes using programs, algorithms, bots, or automated systems
+            to execute a large number of trades within very short periods of time.</p>
+          <p>Crypto Fund Trader does not allow strategies that rely on extremely fast execution, excessive order volume,
+            or trading activity that does not reflect normal market conditions.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Tick scalping</p>
+        </div>
+        <div class="extensible">
+          <p>Tick scalping is not allowed. This includes any strategy that opens and closes trades extremely quickly,
+            especially when placing a large number of trades in a short period of time to capture small price movements.
+          </p>
+          <p>Tick scalping is prohibited whether performed manually or through an Expert Advisor, bot, script, or
+            automated system.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Arbitrage</p>
+        </div>
+        <div class="extensible">
+          <p>Arbitrage strategies are not allowed. This includes the use of bots, Expert Advisors, or automated systems
+            designed to take advantage of the simulated trading environment, pricing delays, execution differences,
+            latency, or any other condition that does not reflect normal market trading.</p>
+          <p>Prohibited strategies include, but are not limited to, news scalping EAs, arbitrage EAs, multi-account
+            reverse trading EAs, or any similar system designed to exploit the platform or data feed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <h2 class="faqtit">Last updates faq</h2>
+  <div class="faqmodule blur">
+    <div class="faqblock">
+      <h3>BYBIT PLATFORM</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How to create an account and connect the API key</p>
+        </div>
+        <div class="extensible">
+          <p>To participate in the evaluation through Bybit, users must create a personal Bybit account at <a
+              href="https://partner.bybitglobal.com/b/120266" target="_blank" rel="noopener">here</a>. Once registered,
+            an
+            API Key must be generated and connected to the Crypto Fund Trader dashboard. Full instructions are provided
+            during the onboarding. The API Key must remain active and unchanged throughout the entire evaluation period.
+          </p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Which countries are allowed?</p>
+        </div>
+        <div class="extensible">
+          <p>Crypto Fund Trader does not apply any additional country restrictions to users who choose to complete their
+            evaluation through Bybit.</p>
+          <p>However, all traders must use their own personal Bybit account and are fully responsible for complying with
+            Bybit’s Terms of Service, jurisdictional restrictions, and any rules that may apply in their country of
+            residence.</p>
+          <p>Traders who use Bybit do so at their own discretion and risk. Crypto Fund Trader is not responsible for any
+            breach of Bybit’s terms or for any action taken by Bybit against the user’s account.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Which instruments can be traded?</p>
+        </div>
+        <div class="extensible">
+          <p>You can trade more than 550 crypto futures pairs on Bybit.</p>
+          <p>During the evaluation, only USDT crypto futures contracts are allowed. Spot trading, options trading, USDC
+            pairs, or any other unsupported instruments are prohibited.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Important information about API keys</p>
+        </div>
+        <div class="extensible">
+          <p>Once an API Key and sub-account are connected to the evaluation, they must not be edited, deleted, or
+            replaced. Doing so will result in the automatic invalidation of the evaluation account. In case the API Key
+            expires, the account will be paused and marked as “pending” until a new valid key is provided and approved.
+          </p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is KYC required on Bybit?</p>
+        </div>
+        <div class="extensible">
+          <p>KYC is <strong>not required</strong> to participate in the evaluation with demo capital. However, each
+            participant is responsible for complying with Bybit’s policies. Crypto Fund Trader does not enforce or
+            bypass any KYC requirements imposed by the platform.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What are the trading fees?</p>
+        </div>
+        <div class="extensible">
+          <p>Trading fees on Bybit evaluations depend on the conditions of each user’s connected <strong>master
+              account</strong>.</p>
+          <p>Fees vary based on trading pair, maker/taker status, and volume tier.</p>
+          <p>
+            Review the full fee structure directly on Bybit at the following <a
+              href="https://www.bybit.com/en/help-center/article/Trading-Fee-Structure" target="_blank"
+              rel="noopener">link</a>.
+          </p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the available leverage?</p>
+        </div>
+        <div class="extensible">
+          <p>Bybit evaluations offer leverage of up to 1:100. The available leverage may depend on the instrument traded
+            and the conditions provided by Bybit.</p>
+        </div>
+      </div>
+      <h3>BREAK EVALUATION</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the maximum allocation in the Break Evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>For Break accounts, traders are not allowed to hold more than five (5) Final Stage accounts at the same
+            time, regardless of the account size.</p>
+          <p>Accounts that are still in the Evaluation phase are not subject to this limit.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What leverage is available in the Break Evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>All Break accounts have a leverage of 1:100, regardless of the asset class traded, account size, or
+            platform used.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the Break Trailing Loss Limit?</p>
+        </div>
+        <div class="extensible">
+          <p>The Trailing Loss Limit applies during both the Break Evaluation and the Break Final Stage.</p>
+          <p>For $25,000 and $50,000 Break accounts, traders must not register losses in any open or closed demo trades
+            which, in total, exceed 4% of the highest demo account balance reached.</p>
+          <p>For $100,000 Break accounts, traders must not register losses in any open or closed demo trades which, in
+            total, exceed 3% of the highest demo account balance reached.</p>
+          <p>If the applicable Trailing Loss Limit is exceeded at any time, the account may be considered to have
+            breached the applicable trading rules.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the Consistency Rule?</p>
+        </div>
+        <div class="extensible">
+          <p>The Consistency Rule applies only to Break Final Stage accounts.</p>
+          <p>No single trading day may account for more than 40% of the total profits generated on the account.</p>
+          <p>When you request a scholarship reward, we review the account to ensure that no single day’s profit
+            represents more than 40% of your total profits to date.</p>
+          <p>For example, if your total profit is $5,000, your best trading day can be a maximum of $2,000. If one
+            trading day exceeds this amount, you will need to continue trading until your profits are more evenly
+            distributed before submitting a new request.</p>
+          <p>The Consistency Rule is checked only when a scholarship reward request is submitted. It does not prevent
+            you from continuing to trade.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the Break Activation Fee?</p>
+        </div>
+        <div class="extensible">
+          <p>The Break Activation Fee is paid after successfully completing the Break Evaluation in order to proceed to the Break Final Stage.</p>
+          <p>If all applicable conditions and rules have been met, the option to pay the Activation Fee may become available through your personal dashboard.</p>
+          <p>After the option becomes available, the trader will have 30 days to pay the Activation Fee. If the Activation Fee is not paid within this period, the option may expire and access to the Break Final Stage may no longer be available.</p>
+          <p>The applicable Activation Fees are:</p>
+          <ul>
+            <li>$25,000 Break account: $138</li>
+            <li>$50,000 Break account: $198</li>
+            <li>$100,000 Break account: $328</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How can I request a scholarship reward on Break accounts?</p>
+        </div>
+        <div class="extensible">
+          <p>Break accounts offer payouts on demand once the trader has successfully passed the Evaluation phase, paid
+            the applicable Activation Fee, and moved to the Final Stage, provided that no program rules have been
+            violated.</p>
+          <p>There is no minimum number of traded days required to request a scholarship reward on Break accounts.</p>
+          <p>Traders must also comply with the Consistency Rule before submitting a scholarship reward request.</p>
+          <p>Requests must be submitted directly from the trader’s dashboard, where payment details can also be
+            provided.</p>
+          <p>Before a scholarship reward can be processed, KYC must be completed and approved.</p>
+          <p>All trades must be closed before submitting a scholarship reward request. If any trades remain open, they
+            may be manually closed.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is copy trading allowed in Break accounts?</p>
+        </div>
+        <div class="extensible">
+          <p>Yes, but only during the Evaluation phase and only between the trader’s own Break accounts.</p>
+          <p>Copy trading between different traders, third parties, groups, or unrelated accounts is prohibited. This
+            includes coordinated or mirrored trading activity, such as similar entries, exits, instruments, trade
+            direction, timing, or position sizing that cannot reasonably be attributed to coincidence.</p>
+          <p>Copy trading or coordinated activity is not allowed in the Final Stage.</p>
+        </div>
+      </div>
+      <h3>ASCEND EVALUATION</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the maximum allocation in the Ascend Evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>Ascend Evaluation accounts are not included in the standard maximum allocation limit that applies to other
+            account types.</p>
+          <p>This means that your Ascend allocation is calculated separately from any other accounts you may have.</p>
+          <p>However, the maximum simulated profit limit per day and/or per trade still applies.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What leverage is available in the Ascend Evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>Ascend Evaluation accounts have the following leverage:</p>
+          <ul>
+            <li>Forex: 1:30 leverage</li>
+            <li>Commodities: 1:30 leverage</li>
+            <li>Indices: 1:20 leverage</li>
+            <li>Cryptos: 1:5 leverage</li>
+            <li>Stocks: 1:5 leverage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How can I request a scholarship reward?</p>
+        </div>
+        <div class="extensible">
+          <p>If you have an Ascend account, you can request a scholarship reward once you complete the Phase 2 profit
+            target. No additional profit percentage is required.</p>
+          <p>The value of each scholarship reward depends on the Ascend Evaluation selected.</p>
+          <p>Once the Phase 2 profit target is completed, the account will be closed and converted into a redeemable
+            ticket, which will be available in your dashboard under the Withdrawals section.</p>
+          <p>If your KYC has been completed and approved, you will be able to redeem the ticket and request your
+            scholarship reward.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Is copy trading allowed in Ascend accounts?</p>
+        </div>
+        <div class="extensible">
+          <p>No. Copy trading between Ascend accounts is prohibited.</p>
+          <p>This includes coordinated or mirrored trading activity, such as similar entries, exits, instruments, trade
+            direction, timing, or position sizing that cannot reasonably be attributed to coincidence.</p>
+          <p>If copy trading or coordinated activity is detected, Crypto Fund Trader may withhold or revoke the
+            redeemable ticket, restart or cancel the evaluation, or take action based on internal data and evidence.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>News trading rule</p>
+        </div>
+        <div class="extensible">
+          <p>In the Ascend Evaluation, you cannot open new trades or increase your risk during high-impact news events
+            or market openings.</p>
+          <p>This restriction applies from 2 minutes before until 2 minutes after the event.</p>
+          <p>During this time, you cannot open new positions, add volume to existing positions, or risk more than 2% of
+            the account’s initial balance.</p>
+          <p>Breaking this rule may result in account suspension.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faqblock">
+      <h3>3 PHASES EVALUATION</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How are the daily and overall maximum loss limits calculated?</p>
+        </div>
+        <div class="extensible">
+          <p>Drawdown breaches are calculated based on equity.</p>
+          <p>The daily maximum loss is 5% and is calculated based on your account balance at 12:05 AM UTC each day.</p>
+          <p>The maximum overall loss is fixed at 5% of the initial account balance.</p>
+          <p>The account will be considered breached if your equity falls below any of these limits.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What leverage is available in the 3-Phase Evaluation?</p>
+        </div>
+        <div class="extensible">
+          <p>The leverage available in the 3-Phase Evaluation depends on whether you select an Advanced Account or a
+            Student Account.</p>
+          <p><strong>ADVANCED ACCOUNTS:</strong></p>
+          <ul>
+            <li>Forex: 1:100 leverage</li>
+            <li>Commodities: 1:100 leverage</li>
+            <li>Indices: 1:100 leverage</li>
+            <li>Cryptos: 1:100 leverage</li>
+            <li>Stocks: 1:100 leverage</li>
+          </ul>
+          <p><strong>STUDENT ACCOUNTS:</strong></p>
+          <ul>
+            <li>Forex: 1:30 leverage</li>
+            <li>Commodities: 1:30 leverage</li>
+            <li>Indices: 1:20 leverage</li>
+            <li>Cryptos: 1:5 leverage</li>
+            <li>Stocks: 1:5 leverage</li>
+          </ul>
+          <br>
+          <strong>Check the account types <a style="color: #ffff39;"
+              href="https://cryptofundtrader.com/terms-and-conditions/#acctype" target="_blank" rel="noopener">here</a> </strong>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How can I request a scholarship reward?</p>
+        </div>
+        <div class="extensible">
+          <p>For the 3-Phase Evaluation, you can request your first scholarship reward after only 5 traded days, as long
+            as no program rules have been violated.</p>
+          <p>After your first request, you can request a scholarship reward after trading for at least 15 days, or
+            alternatively, every 30 calendar days.</p>
+          <p>To submit a request, you must do so directly from your <a style="color: #ffff39;"
+              href="https://app.cryptofundtrader.com/" target="_blank" rel="noopener">dashboard</a>.</p>
+          <p>Before your scholarship reward can be processed, your KYC must be completed and approved.</p>
+          <p>After submitting your request, you will receive an email asking for the payment details needed to process
+            your scholarship reward.</p>
+          <p>All trades must be closed before submitting a scholarship reward request. If any trades remain open, they
+            may be manually closed.</p>
+        </div>
+      </div>
+      <h3>INSTANT EVALUATION</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What is the maximum allocation per user?</p>
+        </div>
+        <div class="extensible">
+          <p>Instant Evaluation accounts are not included in the standard maximum allocation limit that applies to other
+            account types.</p>
+          <p>This means that your Instant Evaluation allocation is calculated separately from any other accounts you may
+            have.</p>
+          <p>However, each user can only have up to three active Instant Evaluation accounts at the same time.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What leverage is available in Instant Accounts?</p>
+        </div>
+        <div class="extensible">
+          <p>Instant Accounts have the following leverage:</p>
+          <ul>
+            <li>Forex: 1:30 leverage</li>
+            <li>Commodities: 1:30 leverage</li>
+            <li>Indices: 1:20 leverage</li>
+            <li>Cryptos: 1:5 leverage</li>
+            <li>Stocks: 1:5 leverage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How can I request a scholarship reward &amp; upgrade my Instant Account?</p>
+        </div>
+        <div class="extensible">
+          <p>If you have an Instant Account, you can request a Withdrawal &amp; Upgrade once your account reaches 10%
+            simulated profit. There is no minimum trading days requirement for this option.</p>
+          <p>When you request a Withdrawal &amp; Upgrade, your scholarship reward will be processed and your Instant
+            Account
+            will be upgraded to the next phase.</p>
+          <p>If you want to request a scholarship reward before reaching 10% simulated profit, you may do so under the
+            same conditions as other evaluations.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>How much can I scale my Instant Account?</p>
+        </div>
+        <div class="extensible">
+          <p>You can scale your Instant Account up to $1,280,000.</p>
+          <p>Every time your account reaches 10% simulated profit and you request the “Withdrawal &amp; Upgrade” from
+            the
+            dashboard, your account will double in demo size.</p>
+          <p>You can find this information when selecting your preferred account in the “SCALE UP STRUCTURE” section.
+          </p>
+        </div>
+      </div>
+      <h3>ADD-ONS</h3>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>What are add-ons and how do they work?</p>
+        </div>
+        <div class="extensible">
+          <p>Add-ons are optional features that can be added to your evaluation before purchase. They allow traders to
+            customize certain conditions of their selected program.</p>
+          <p><span style="font-weight: 400;">Available add-ons for 2-Phase Evaluations:</span></p>
+          <p>– Weekly Scholarship Request: This add-on costs 20% of the evaluation price and allows traders to request a
+            scholarship reward after 7 traded days.<br>
+            – 90% Bonus Performance: This add-on costs 20% of the evaluation price and increases the trader’s
+            eligibility to receive up to 90% of the performance-based scholarship reward. </p>
+          <p>– Daily Drawdown 6%: This add-on costs 15% of the evaluation price and increases the daily loss limit to
+            6%.<br>
+            – Max Drawdown 12%: This add-on costs 25% of the evaluation price and increases the maximum loss limit to
+            12%.
+          </p>
+          <p><span style="font-weight: 400;">Available add-ons for 1-Phase Evaluations:</span></p>
+          <p>– Weekly Scholarship Request: This add-on costs 20% of the evaluation price and allows traders to request a
+            scholarship reward after 7 traded days.<br>
+            – 90% Bonus Performance: This add-on costs 20% of the evaluation price and increases the trader’s
+            eligibility to receive up to 90% of the performance-based scholarship reward.</p>
+        </div>
+      </div>
+      <div class="faqinterior">
+        <div class="visible">
+          <p>Can I purchase multiple evaluations with add-ons?</p>
+        </div>
+        <div class="extensible">
+          <p>Yes. You can purchase multiple evaluations with add-ons in the same order.</p>
+          <p>The final price will be calculated based on the total price of the selected evaluations and add-ons. Each
+            account will be created with the add-ons selected during purchase.</p>
+          <p>If your cart includes a 1-Phase Evaluation, drawdown add-ons will not be available.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="footer" class="faq">
+    <img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/cryp.png" id="cryp">
+    <h2>Get in<span></span>touch!</h2>
+    <h3>CRYPTO FUND TRADER IS AN EVALUATION FIRM WHERE WE BOOST THE BEST
+      TRADERS IN ADDITION TO TESTING THEIR QUALITIES.</h3>
+    <div id="footermail">support@cryptofundtrader.com</div>
+    <div id="footerrrss" class="rrssmodule">
+      <a class="rrssicon" href="https://instagram.com/cryptofundtrader" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/insta.svg"></a>
+<a class="rrssicon" href="https://twitter.com/cftradercom" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/x.svg"></a>
+<a class="rrssicon" href="https://youtube.com/@cryptofundtrader" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/yt.svg"></a>
+<a class="rrssicon" href="https://discord.gg/PFgzUEdrGA" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/discord.svg"></a>
+<a class="rrssicon" href="https://t.me/cryptofundtradercom" target="_blank"><img src="https://cryptofundtrader.com/wp-content/themes/cft-break2/recursos/icons/telegram.svg"></a>     </div>
+    <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cft-break2/*","/wp-content/themes/cyberbank/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="pswp__bg"></div>
+	<div class="pswp__scroll-wrap">
+		<div class="pswp__container">
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+		</div>
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+				<div class="pswp__counter"></div>
+				<button class="pswp__button pswp__button--close" aria-label="Close (Esc)"></button>
+				<button class="pswp__button pswp__button--share" aria-label="Share"></button>
+				<button class="pswp__button pswp__button--fs" aria-label="Toggle fullscreen"></button>
+				<button class="pswp__button pswp__button--zoom" aria-label="Zoom in/out"></button>
+				<div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div>
+			</div>
+			<button class="pswp__button pswp__button--arrow--left" aria-label="Previous (arrow left)"></button>
+			<button class="pswp__button pswp__button--arrow--right" aria-label="Next (arrow right)"></button>
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/template" id="tmpl-variation-template">
+	<div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
+	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
+	<div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
+</script>
+<script type="text/template" id="tmpl-unavailable-variation-template">
+	<p>Sorry, this product is unavailable. Please choose a different combination.</p>
+</script>
+<script id="wc-aelia-foundation-classes-frontend-js" src="https://cryptofundtrader.com/wp-content/plugins/wc-aelia-foundation-classes/src/js/frontend/frontend.js"></script>
+<script id="jquery-blockui-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.7.7.3"></script>
+<script id="js-cookie-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.7.7.3"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%"};
+//# sourceURL=woocommerce-js-extra
+</script>
+<script id="woocommerce-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=7.7.3"></script>
+<script id="gtm-server-side-js-extra">
+var varGtmServerSide = {"ajax":"https://cryptofundtrader.com/wp-admin/admin-ajax.php","security":"43bd4a487b","currency":"USD","is_custom_event_name":"yes","DATA_LAYER_CUSTOM_EVENT_NAME":"_stape","user_data":[]};
+//# sourceURL=gtm-server-side-js-extra
+</script>
+<script id="gtm-server-side-js" src="https://cryptofundtrader.com/wp-content/plugins/gtm-server-side/assets/js/javascript.js?ver=2.3.7"></script>
+<script id="confirmo-custom-script-js-extra">
+var confirmoParams = {"imageUrl":"https://cryptofundtrader.com/wp-content/plugins/confirmo-for-woocommerce/public/img/confirmo.svg"};
+//# sourceURL=confirmo-custom-script-js-extra
+</script>
+<script id="confirmo-custom-script-js" src="https://cryptofundtrader.com/wp-content/plugins/confirmo-for-woocommerce/public/js/confirmo-crypto-gateway.js?ver=2.7.0"></script>
+<script id="lazysizes-js" src="https://cryptofundtrader.com/wp-content/plugins/cmsmasters-elementor-addon/assets/lib/lazysizes/lazysizes.min.js?ver=5.3.0"></script>
+<script id="imagesloaded-js" src="https://cryptofundtrader.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="cyberbank-frontend-js-extra">
+var cmsmasters_localize_vars = {"tablet_breakpoint":"1025","tablet_max_breakpoint":"1024","mobile_breakpoint":"768","mobile_max_breakpoint":"767","assets_data":{"script":{"swiper":{"src":"https://cryptofundtrader.com/wp-content/themes/cyberbank/assets/lib/swiper/js/swiper.min.js"}}}};
+//# sourceURL=cyberbank-frontend-js-extra
+</script>
+<script id="cyberbank-frontend-js" src="https://cryptofundtrader.com/wp-content/themes/cyberbank/assets/js/frontend.min.js?ver=1.0.0"></script>
+<script id="happy-elementor-addons-js-extra">
+var HappyLocalize = {"ajax_url":"https://cryptofundtrader.com/wp-admin/admin-ajax.php","nonce":"c3bee7648c","pdf_js_lib":"https://cryptofundtrader.com/wp-content/plugins/happy-elementor-addons/assets/vendor/pdfjs/lib"};
+//# sourceURL=happy-elementor-addons-js-extra
+</script>
+<script id="happy-elementor-addons-js" src="https://cryptofundtrader.com/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=3.10.1"></script>
+<script id="eael-general-js-extra">
+var localize = {"ajaxurl":"https://cryptofundtrader.com/wp-admin/admin-ajax.php","nonce":"4bd33375ec","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https://cryptofundtrader.com/faq/","cart_redirectition":"","cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http://wiki.lexisnexis.com/academic/images/f/fb/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"70873d6d9a","eael_register_nonce":"2286d92a81","eael_lostpassword_nonce":"49ceeec882","eael_resetpassword_nonce":"40847f5df8"};
+//# sourceURL=eael-general-js-extra
+</script>
+<script id="eael-general-js" src="https://cryptofundtrader.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=5.8.11"></script>
+<script defer id="jetpack-stats-js" src="https://stats.wp.com/e-202644.js"></script>
+<script id="jetpack-stats-js-after">
+_stq = window._stq || [];
+_stq.push([ "view", {v:'ext',blog:'211946051',post:'259',tz:'0',srv:'cryptofundtrader.com',j:'1:12.3.2'} ]);
+_stq.push([ "clickTrackerInit", "211946051", "259" ]);
+//# sourceURL=jetpack-stats-js-after
+</script>
+<script id="zoom-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js?ver=1.7.21-wc.7.7.3"></script>
+<script id="flexslider-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/flexslider/jquery.flexslider.min.js?ver=2.7.2-wc.7.7.3"></script>
+<script id="photoswipe-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.7.7.3"></script>
+<script id="photoswipe-ui-default-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js?ver=4.1.1-wc.7.7.3"></script>
+<script id="underscore-js" src="https://cryptofundtrader.com/wp-includes/js/underscore.min.js?ver=1.13.8"></script>
+<script id="wp-util-js-extra">
+var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
+//# sourceURL=wp-util-js-extra
+</script>
+<script id="wp-util-js" src="https://cryptofundtrader.com/wp-includes/js/wp-util.min.js?ver=7.0.8"></script>
+<script id="wc-add-to-cart-variation-js-extra">
+var wc_add_to_cart_variation_params = {"wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
+//# sourceURL=wc-add-to-cart-variation-js-extra
+</script>
+<script id="wc-add-to-cart-variation-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=7.7.3"></script>
+<script id="wc-single-product-js-extra">
+var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes","flexslider":{"rtl":false,"animation":"slide","smoothHeight":true,"directionNav":false,"controlNav":"thumbnails","slideshow":false,"animationSpeed":500,"animationLoop":false,"allowOneSlide":false},"zoom_enabled":"1","zoom_options":[],"photoswipe_enabled":"1","photoswipe_options":{"shareEl":false,"closeOnScroll":false,"history":false,"hideAnimationDuration":0,"showAnimationDuration":0},"flexslider_enabled":"1"};
+//# sourceURL=wc-single-product-js-extra
+</script>
+<script id="wc-single-product-js" src="https://cryptofundtrader.com/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=7.7.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://cryptofundtrader.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.8"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://cryptofundtrader.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script data-cfasync="false">
+  document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+      var logout_link = document.querySelectorAll('a[href*="wp-login.php?action=logout"]');
+      if (logout_link) {
+        for(var i=0; i < logout_link.length; i++) {
+          logout_link[i].addEventListener( "click", function() {
+            Intercom('shutdown');
+          });
+        }
+      }
+    }
+  };
+</script>
+<script data-cfasync="false">
+  window.intercomSettings = {"app_id":"vlghu47p","installation_type":"wordpress","installation_version":"3.0.2"};
+</script>
+<script data-cfasync="false">(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/vlghu47p';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script><!-- Cookies style -->
+<style>
+.cc_div .c-bn {
+	color: #000;
+    z-index: 99;
+    padding: .3vw .75vw;
+    font-size: var(--p0);
+    transition: 500ms ease;
+    cursor: pointer;
+    border-radius: .3vw;
+    overflow: hidden;
+    font-family: Fraktion;
+    text-transform: uppercase;
+	display: inline-block;
+    flex: 1;
+}
+#c-bns button:first-child, #s-bns button:first-child {
+    background: transparent;
+    background: var(--yellow);
+	border: 1px solid var(--yellow);
+    color: #000;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
+    <script>
+        window.addEventListener('load', function(){
+
+            // obtain plugin
+            var cc = initCookieConsent();
+
+            // run plugin with your configuration
+            cc.run({
+                current_lang: 'en',
+                autoclear_cookies: true,                   // default: false
+                page_scripts: true,                        // default: false
+
+                // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+                // delay: 0,                               // default: 0
+                // auto_language: '',                      // default: null; could also be 'browser' or 'document'
+                // autorun: true,                          // default: true
+                // force_consent: false,                   // default: false
+                // hide_from_bots: true,                   // default: true
+                // remove_cookie_tables: false             // default: false
+                // cookie_name: 'cc_cookie',               // default: 'cc_cookie'
+                // cookie_expiration: 182,                 // default: 182 (days)
+                // cookie_necessary_only_expiration: 182   // default: disabled
+                // cookie_domain: location.hostname,       // default: current domain
+                // cookie_path: '/',                       // default: root
+                // cookie_same_site: 'Lax',                // default: 'Lax'
+                // use_rfc_cookie: false,                  // default: false
+                // revision: 0,                            // default: 0
+
+                onFirstAction: function(user_preferences, cookie){
+                    // callback triggered only once on the first accept/reject action
+                    console.log(cookie);
+                },
+
+                onAccept: function (cookie) {
+                    // callback triggered on the first accept/reject action, and after each page load
+                    console.log("Exit");
+                },
+
+                onChange: function (cookie, changed_categories) {
+                    // callback triggered when user changes preferences after consent has already been given
+                    console.log("Exit");
+                },
+
+                languages: {
+                    'en': {
+                        consent_modal: {
+                            title: 'We use cookies!!',
+                            description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                            primary_btn: {
+                                text: 'Accept all',
+                                role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                            },
+                            secondary_btn: {
+                                text: 'Reject all',
+                                role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                            }
+                        },
+                        settings_modal: {
+                            title: 'Cookie preferences',
+                            save_settings_btn: 'Save settings',
+                            accept_all_btn: 'Accept all',
+                            reject_all_btn: 'Reject all',
+                            close_btn_label: 'Close',
+                            // cookie_table_caption: 'Cookie list',
+                            cookie_table_headers: [
+                                {col1: 'Name'},
+                                {col2: 'Domain'},
+                                {col3: 'Expiration'},
+                                {col4: 'Description'}
+                            ],
+                            blocks: [
+                                {
+                                    title: 'Cookie usage 📢',
+                                    description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="https://cryptofundtrader.com/privacy-policy/" class="cc-link">privacy policy</a>.'
+                                }, {
+                                    title: 'Strictly necessary cookies',
+                                    description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                    toggle: {
+                                        value: 'necessary',
+                                        enabled: true,
+                                        readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                                    }
+                                }, {
+                                    title: 'Performance and Analytics cookies',
+                                    description: 'These cookies allow the website to remember the choices you have made in the past',
+                                    toggle: {
+                                        value: 'analytics',     // your cookie category
+                                        enabled: false,
+                                        readonly: false
+                                    },
+                                    cookie_table: [             // list of all expected cookies
+                                        {
+                                            col1: '^_ga',       // match all cookies starting with "_ga"
+                                            col2: 'google.com',
+                                            col3: '2 years',
+                                            col4: 'description ...',
+                                            is_regex: true
+                                        },
+                                        {
+                                            col1: '_gid',
+                                            col2: 'google.com',
+                                            col3: '1 day',
+                                            col4: 'description ...',
+                                        }
+                                    ]
+                                }, {
+                                    title: 'Advertisement and Targeting cookies',
+                                    description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                                    toggle: {
+                                        value: 'targeting',
+                                        enabled: false,
+                                        readonly: false
+                                    }
+                                }, {
+                                    title: 'More information',
+                                    description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="https://cryptofundtrader.com/contact">contact us</a>.',
+                                }
+                            ]
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+<!-- Google tag (gtag.js) -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRLMF0N24J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SRLMF0N24J');
+</script>-->
+
+<nav>
+      <ul>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/terms-and-conditions/">Terms and Conditions</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/proof-reserves/">Proof of Scholarship</a></li>  
+        <li><a href="/affiliates/">Affiliate Partner</a></li>
+        <li><a href="/trading-theory/">Theory Tools</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/bybit/">CFT x Bybit</a></li>
+        <li><a href="/choose-your-challenge/">Choose your challenge</a></li>
+        <li><a href="/tournaments/">Free tournaments</a></li>
+        <li><a href="https://trading.cryptofundtrader.com/login">Match-Trader Platform</a></li>
+        <li><a href="https://mt5.cryptofundtrader.com/terminal">MT5 Web Terminal</a></li>
+        <li><a href="https://partner.bybitglobal.com/b/120266">BYBIT Platform</a></li>
+        <li><a href="/contact">Contact us</a></li>
+        <li><a href="">Cookies</a></li>
+        <li><a href="https://www.coinscope.co/coin/1-cft/kyc">“KYC Audit”</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <div id="footerin">
+      <div id="footerinlinks">
+        <ul>
+          <li>Bahnhofstrasse 21, 6300, Zug, Switzerland</li>
+          <li>SWISS RLCRATES AG (CHE-162.567.204)</li>
+          <li>Crypto Fund Trader © 2026 All Rights Reserved.</li>
+        </ul>
+      </div>
+      <div id="footerintext">SWISS RLCRATES AG is a provider of educational services, all information available on our
+        site is intended solely for the study purposes related to trading on financial markets. Accordingly, we do not
+        offer financial, investment, tax, brokerage or other advice and/or services. Trading in financial markets is a
+        high-risk activity, past performance do not guarantee future ones. It is highly advised not to risk more, than
+        you can afford to lose. Brokers and operators of trading platforms are persons or entities that are separate
+        from SWISS RLCRATES AG and their own terms and conditions will apply when you use their services and products.
+        Neither SWISS RLCRATES AG nor RLCRATES, S.L. (the company that provides services with MT5) operate in countries
+		where crypto or CFD’s activity is not allowed. The content in our platform is applicable to the extent local 
+		laws and/or regulations permit. SWISS RLCRATES AG acts as a payment/marketing agent for RLCRATES SL. 
+		SWISS RLCRATES AG is not authorized or licensed in Switzerland and does not offer any trading services with MT5
+		neither conducts any regulated activities.</div>
+    </div>
+</body>
+</html>  </section>
+</div>
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->

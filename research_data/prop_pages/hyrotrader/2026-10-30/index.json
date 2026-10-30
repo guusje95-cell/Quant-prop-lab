@@ -1,0 +1,37 @@
+[
+ {
+  "url": "https://www.hyrotrader.com/faq/",
+  "status": 200,
+  "bytes": 505870,
+  "sha256": "7a839944f3ada6852a6d0360fabdb46b877c01a49fa6609db3cf0015c823d667",
+  "file": "0.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+  "status": 200,
+  "bytes": 476360,
+  "sha256": "7d24992c5112864c8c78b6df54d1ea8cd848f8ef488e601acbdbc7da85aa13ee",
+  "file": "1.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/",
+  "status": 200,
+  "bytes": 473542,
+  "sha256": "474d3def79ef951b26d9d77dfdce89b6d32281543d79f6ce37f737b4de4a2573",
+  "file": "2.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/terms-and-conditions/",
+  "status": 200,
+  "bytes": 593632,
+  "sha256": "799a1e005b8bac7b70cd2a172995f71d3c362033dacc462d06b82c6fb57aadbb",
+  "file": "3.html"
+ },
+ {
+  "url": "https://www.hyrotrader.com/",
+  "status": 200,
+  "bytes": 1138998,
+  "sha256": "6d18dded53c8f5569ce97fed27acfc853f977825e77889ee890f469c9d0767f6",
+  "file": "4.html"
+ }
+]

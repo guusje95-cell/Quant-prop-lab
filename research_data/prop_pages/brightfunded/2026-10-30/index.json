@@ -1,0 +1,16 @@
+[
+ {
+  "url": "https://brightfunded.com/faq",
+  "status": 200,
+  "bytes": 90017,
+  "sha256": "33f63da5e626a66400fbcbb845f03fa841ed82a7ff7d2d25c3f23999699a6f1f",
+  "file": "0.html"
+ },
+ {
+  "url": "https://brightfunded.com/",
+  "status": 200,
+  "bytes": 1966943,
+  "sha256": "b7daff8bb87514fe2c257eb3f7051339ced95dc02fe4e2dc3e4a2cddd95009cc",
+  "file": "1.html"
+ }
+]
