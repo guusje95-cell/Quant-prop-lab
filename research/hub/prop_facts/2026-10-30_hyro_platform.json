@@ -1,0 +1,15 @@
+{
+ "_doc": "HyroTrader official FAQ pages saved by get_prop_rules.bat on the user's PC on 2026-10-30 (research_data/prop_pages/hyrotrader/2026-10-30). Quotes copied from the saved pages.",
+ "facts": [
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "overnight_holding", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/getting-started/can-i-hold-trades-overnight-and-over-the-weekend/", "quote": "Can I hold trades overnight and over the weekend? Yes, both. Nothing is closed for you at the end of the day or the week."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "weekend_holding", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/getting-started/can-i-hold-trades-overnight-and-over-the-weekend/", "quote": "Yes, both. Nothing is closed for you at the end of the day or the week."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "instruments", "value": "USDT perpetuals only; Hyro platform: 700+ pairs on live Bybit market data, no Bybit account needed; BloFin: 80+ pairs", "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/getting-started/which-platforms-can-i-use-for-trading/",
+   "quote": "Hyro Our own trading platform, built into HyroTrader. No exchange account needed ... It runs on live Bybit market data and includes realistic trading fees and slippage. 700+ trading pairs ... Living in a country where Bybit isn't available? Choose Hyro"},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "low_cap_position_cap", "value": "0.05 of the initial balance IN TOTAL across low-cap coins, incl. leverage", "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/getting-started/are-there-limits-on-which-coins-i-can-trade/",
+   "quote": "Low-cap coins (market cap under $100M, 24h volume between $500K and $5M, or Innovation Zone listings) are limited to 5% of your initial balance in total, including leverage."}
+ ]
+}
