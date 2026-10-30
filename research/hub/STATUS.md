@@ -30,8 +30,9 @@ project data in the cloud workspace (init, one worker pass, every dashboard page
 1. Prop rules: verify HyroTrader / CFT / Breakout facts from official pages (run `get_prop_rules.bat`, then record quotes). Until then every
    compatibility result is at best "potentially compatible".
 2. Paper engine: first live run on the PC still to be observed (the Binance data provider is untested from the cloud). The v9.8 sleeves themselves are not Lab plug-ins: per-sleeve views come from shadow accounts, not from the engine.
-3. Futures book: backtest + validation + compatibility in the hub; **no futures paper trader yet**: it needs a daily CME data source on the PC (Databento is paid; free sources lack the second contract that some sleeves need). Decision for the user. CFD book: registered only (bf2.6 rejected).
+3. Futures book: backtest + validation + compatibility in the hub, and a **futures paper trader** (`futures_paper_update.bat`: capped Databento top-up after a free cost quote, then `scripts/futures_paper.py` appends each completed CME day once; exact rebuild check 1e-17, simulated incremental path 1e-16; the hub ingests `paper_trading/futures` as a daily ledger). Not yet run on the PC. CFD: the bf2.6 paper trader (`paper_bf26_start.bat`, still computes on the research pack) ran 4 days in October; the hub derives shadows `bf26:without_carry`, `bf26:index_cfds`, `bf26:crypto_cfds_only` from it.
 4. The research agent has one runnable approved item; the Bybit item waits for `get_bybit_announcements.bat`.
+6. R1 limit-order study: Bybit tick re-measurement (`scripts/v99/r1b_ticks.py`) and a read-only order-book logger (`book_logger_start.bat`, 23:59-00:12 UTC, public data) for a queue-aware fill model; the logger is untested from the cloud (Bybit answers 403 here).
 5. External notifications (e-mail / Telegram) not configured: needs the user's choice and credentials (would go in a secret store, not in code).
 
 Dashboard fix 2026-10-30: one SQLite connection per Streamlit thread (a rerun on another thread raised 'SQLite objects created in a thread ...').

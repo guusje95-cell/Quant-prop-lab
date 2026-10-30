@@ -1,15 +1,22 @@
-# Thuis te doen (bijgewerkt 2026-10-30)
+# Thuis te doen (bijgewerkt 2026-10-30, avond)
 
-Volgorde aanhouden. Alles is gratis, zonder account of sleutel, en plaatst geen orders.
+Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaatst.
 
 1. **`git pull`** in de map Quant-prop-lab.
-2. **Paper v9.8 starten:** sluit het v96-venster, dubbelklik **`paper_v98_start.bat`** (laat open staan). Gebruikt de al gedownloade v96-data.
-3. **Quant Trading Hub starten:** dubbelklik **`hub_start.bat`** (laat open staan) of eenmalig **`hub_task_scheduler.bat`** (dan draait hij elke 15 min zonder venster).
-4. **Dashboard:** **`hub_dashboard.bat`** -> http://localhost:8502
-5. **`get_bybit_announcements.bat`**: Bybit listings/delistings voor onderzoek R2 (pusht zelf).
-6. **`get_prop_rules.bat`**: bewaart de officiele regelpagina's van de prop firms (pusht zelf). Daarna in het dashboard (Prop Firm Center -> Rules & sources) de regels die je echt op de site leest als "verified" vastleggen, met URL en letterlijk citaat.
-7. Optioneel: **`get_wiki_attention.bat`** (Wikipedia-aandacht, Gen459).
-8. Na een paar dagen paper: **`paper_v98_share.bat`** zodat de resultaten in de hub en bij Claude komen.
+2. **Paper v9.8 starten:** sluit het v96-venster, dubbelklik **`paper_v98_start.bat`** (laat open staan).
+3. **NIEUW - CFD paper (bf2.6) weer starten:** dubbelklik **`paper_bf26_start.bat`** (laat open staan, naast v9.8). Draaide eerder maar 4 dagen.
+   De hub maakt er automatisch schaduw-accounts van: zonder carry (de eerlijke versie), alleen index-CFD's, alleen crypto-CFD's.
+4. **NIEUW - orderboek-logger:** dubbelklik **`book_logger_start.bat`** (laat open staan). Alleen openbare Bybit-data, geen sleutel, geen orders.
+   Eerste regel moet zeggen "20 of 20 coins answered".
+5. **NIEUW - futures paper:** dubbelklik **`futures_paper_update.bat`**. Plak je Databento-sleutel (blijft alleen in dat venster).
+   Hij toont eerst GRATIS de prijs; typ daarna het maximum (bijv. 1) of 0 om niets te kopen. Daarna 1x per dag draaien.
+6. **Quant Trading Hub starten:** **`hub_start.bat`** (laat open staan) of eenmalig **`hub_task_scheduler.bat`**.
+7. **Dashboard:** **`hub_dashboard.bat`** -> http://localhost:8502
+8. **`get_bybit_announcements.bat`**: Bybit listings/delistings voor onderzoek R2 (pusht zelf).
+9. **`get_prop_rules.bat`**: officiele regelpagina's; daarna in het dashboard de regels die je echt leest als "verified" vastleggen (URL + citaat).
+10. Optioneel: **`get_wiki_attention.bat`**.
+11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
+    `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
 Daarna tegen Claude zeggen: "thuis gedaan".
 

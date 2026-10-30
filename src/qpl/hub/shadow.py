@@ -60,7 +60,7 @@ def define(c: sqlite3.Connection, key: str, source: str, kind: str, spec: dict, 
                       (full, f"derived from {source}", capital, "running", json.dumps(cfg), now())).lastrowid
         audit(c, actor, "define_shadow", "paper_accounts", i, cfg)
     if kind != "sleeve":
-        RG.add_portfolio_version(c, f"shadow:{key}", "crypto_futures", "1", [source], {"kind": kind, "spec": spec}, state="paper_trading",
+        RG.add_portfolio_version(c, f"shadow:{key}", "cfd" if source.startswith("paper:bf") else "crypto_futures", "1", [source], {"kind": kind, "spec": spec}, state="paper_trading",
                                  notes=description, purpose="shadow paper account", actor=actor)
     return i
 
@@ -173,4 +173,18 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
                       description="candidate H1: v9.8 with the event short halved in high BTC vol (flagged post hoc)", actor="system"))
     ids.append(define(c, "v98:without_ridge", source, "reweighted", {"multipliers": {"ridge ML": 0.0}},
                       description="diagnostic: v9.8 without the ridge ML sleeve (leave-one-out was -0.04 in the backtest)", actor="system"))
+    if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
+        ids += ensure_cfd_defaults(c)
     return ids
+
+
+def ensure_cfd_defaults(c: sqlite3.Connection, source: str = "paper:bf26") -> list[int]:
+    """CFD views of the BrightFunded paper run (bf2.6): the honest book without the withdrawn carry sleeves (Gen377), the index-CFD
+    sleeve alone (US100 / US500 / US30: P6 vol-managed + R1 dip + P1 IBS; the stand-alone index-CFD account idea of Gen201) and the
+    crypto-CFD part without indices."""
+    return [define(c, "bf26:without_carry", source, "reweighted", {"multipliers": {"premium carry": 0.0, "premium carry BF": 0.0}}, risk=2.0,
+                   description="bf2.6 without the two premium-carry sleeves (withdrawn; honest backtest about 2.3, Gen377)", actor="system"),
+            define(c, "bf26:index_cfds", source, "sleeve", {"sleeve": "vol-managed indices", "vol_target": 0.15}, risk=1.0,
+                   description="index CFDs alone (US100 / US500 / US30; P6 + R1 + P1) at 15% vol: forward test of a separate index-CFD account", actor="system"),
+            define(c, "bf26:crypto_cfds_only", source, "reweighted", {"multipliers": {"vol-managed indices": 0.0, "premium carry": 0.0, "premium carry BF": 0.0}}, risk=2.0,
+                   description="crypto CFDs only, without carry and without indices (what remains of bf2.6 next to the crypto book)", actor="system")]

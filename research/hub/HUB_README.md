@@ -47,7 +47,13 @@ Notifications: the dashboard's alert list (no external messaging is configured; 
 ## Futures book
 Portfolio & Risk → **Futures book**: equity curve, Sharpe per period, planning Sharpe after the luck haircut, ES/NQ correlation, per-sleeve table
 (asset class, leave-one-out) from the F1 audit (`scripts/hub_research/futures_audit.py`). Prop Firm Center → Compatibility → choose the
-book (crypto / futures). Backtest only: there is no futures paper trader until a daily CME data source is chosen.
+book (crypto / futures). Paper: `futures_paper_update.bat` once a day (Databento key typed in the window; free cost quote first, downloads only up to the amount you
+type), or `futures_paper_once.bat` without downloading. The ledger `paper_trading/futures/ledger_hourly.csv` has one row per CME trading day
+and appears in the hub as `paper:futures` (daily health thresholds). Days after 2026-09-30 were never seen by the research.
+
+## CFD paper
+`paper_bf26_start.bat` runs the BrightFunded CFD book bf2.6 (crypto CFDs + US100/US500/US30). The hub adds shadow accounts from its ledger:
+`bf26:without_carry` (the honest version), `bf26:index_cfds` (index CFDs alone: a possible separate account) and `bf26:crypto_cfds_only`.
 
 ## Research agent
 `research/hub/agenda.json` holds pre-registered hypotheses (rationale, data needed, whitelisted script, decision rule, priority
