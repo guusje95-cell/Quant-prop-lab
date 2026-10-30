@@ -11,6 +11,7 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 5. **NIEUW - futures paper:** dubbelklik **`futures_paper_update.bat`**. Plak je Databento-sleutel (blijft alleen in dat venster).
    Hij toont eerst GRATIS de prijs; typ daarna het maximum (bijv. 1) of 0 om niets te kopen. Daarna 1x per dag draaien.
 5b. **NIEUW - korte-rente-futures (futures-onderzoek):** **`get_futures_stir.bat`** (zelfde Databento-sleutel). Toont eerst gratis de prijs; typ het maximum dat je wilt uitgeven (of 0). Pusht zelf.
+5c. **NIEUW - prijsopgave opties-data:** **`get_options_quote.bat`** (zelfde sleutel). Downloadt en kost NIETS, toont alleen prijzen en pusht die. Daarna beslis jij.
 6. **Quant Trading Hub starten:** **`hub_start.bat`** (laat open staan) of eenmalig **`hub_task_scheduler.bat`**.
 7. **Dashboard:** **`hub_dashboard.bat`** -> http://localhost:8502
 8. **`get_bybit_announcements.bat`**: Bybit listings/delistings voor onderzoek R2 (pusht zelf).
