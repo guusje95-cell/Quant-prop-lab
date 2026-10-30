@@ -8,7 +8,7 @@ set PYTHONPATH=src
 python -m qpl.live.bybit_check
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/bybit
 echo   git commit -m "bybit check"
 echo   git push

@@ -12,7 +12,7 @@ echo.
 set /p MAXC=Download if the TOTAL is at most how many dollars? (0 = do not download): 
 python -m qpl.live.databento_stir --max-cost %MAXC%
 echo.
-git pull --no-edit
+git pull --no-rebase --no-edit
 git add research_data/databento_stir
 git commit -m "databento STIR futures"
 git push

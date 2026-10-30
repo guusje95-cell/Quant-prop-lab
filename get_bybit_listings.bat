@@ -7,6 +7,6 @@ set PYTHONPATH=%~dp0src
 python -m qpl.live.bybit_listings
 git add research_data/bybit_listings
 git commit -m "Bybit listings data (Gen431)"
-git pull --no-edit
+git pull --no-rebase --no-edit
 git push
 pause

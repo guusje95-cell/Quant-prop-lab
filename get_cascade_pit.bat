@@ -8,7 +8,7 @@ set PYTHONPATH=src
 python -m qpl.lab.binance_vision cascadepit
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/binance_pit
 echo   git commit -m "cascade pit data"
 echo   git push

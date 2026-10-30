@@ -23,7 +23,7 @@
   "src/qpl/bot/planner.py": "dab4961fbc79066916e55e3d8aee7baac34ad2b2306df65a4618b9819cae2d47",
   "src/qpl/bot/rules.py": "261c2022b4e6cb11b673944610025f026bb0b527e0d4c243a2f03cb8076a65d7",
   "src/qpl/bot/runner.py": "8a0d521e50ab3d1d3fae0a95a7a96a08ce9c4f6a02f14bb42a0416cb8e3443de",
-  "config/paper_v98.json": "5fd796387451cf183c703c7a2444de14fc19a0d29ba0a2eb68c3e054088c83f2",
+  "config/paper_v98.json": "4e49553fe6edd9e0c1e514976985654e669304942fc9c4f1cd97d4b9ac4d6653",
   "config/listing_crowding.json": "daa84ea9fe9a74c52657f5b33a5a5498d3d1ee905b645d7042fae0ebb5cbc1ec",
   "config/tradfi_perps.json": "135c43c4a511966f4420068cf2a2107c234a3749187cf9686cb6946880741b7a",
   "config/paper_monitor.json": "1b86e82f0fade3131076273acc47fb0ae16675435311d4e294e8b3e55a0332c3",
@@ -32,7 +32,7 @@
   "paper_v98_start.bat": "521defbfdd039ead6b831897ae1b3719c7f648ffdfdf0c8000803bdb3a3c0b73",
   "paper_v98_once.bat": "7a12e193e1e68829162ba08ac2fa76d5be8ec8a1bd309431e0de7e89864a016e",
   "paper_v98_status.bat": "ba6a2405156834bddd66510283098b5726cb4161f8f0e227db6442a93620a431",
-  "paper_v98_share.bat": "bf348cfb5c519fc5ccddff397819c2cff12762135140a9a7a28340078fc7b138"
+  "paper_v98_share.bat": "72e9e6b0b21fc7be15b2adc25dfa83335ae69b8b8e8b326fbe9330b197d76bae"
  },
  "data_trees_at_HEAD": {
   "research_data/binance": "458e1b0364c3b811739f66226309f4b09a2c943c",
@@ -44,5 +44,5 @@
   "research_data/upbit": "HEAD:research_data/upbit",
   "data/processed": "HEAD:data/processed"
  },
- "frozen_at_commit": "707698459758fb2bb1234a6aa34ca5818d969059"
+ "frozen_at_commit": "0c259b82475158f0b813e262b582126986614025"
 }

@@ -452,7 +452,7 @@ def propfirms():
             snaps = sorted((ROOT / "research_data/prop_pages").glob(f"{rs.set_index('id').loc[rid, 'firm']}/*/index.json"))
             st.caption(f"Saved official page snapshots for this firm: {len(snaps)} (get_prop_rules.bat on your PC)" + (f", newest {snaps[-1].parent.name}" if snaps else ""))
     with t2:
-        prof = st.radio("Book", ["crypto", "futures"], horizontal=True, format_func=lambda k: prop.PROFILES[k]["name"])
+        prof = st.radio("Book", list(prop.PROFILES), horizontal=True, format_func=lambda k: prop.PROFILES[k]["name"])
         if st.button("Assess this book against every current rule set"):
             out = [prop.compatibility(c, int(i), prop.PROFILES[prof]) for i in rs[rs.superseded_at.isna()]["id"]]
             st.session_state["compat"] = out

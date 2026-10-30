@@ -1,11 +1,65 @@
 {
- "_doc": "Official rule pages the hub snapshots (get_prop_rules.bat on the PC: python -m qpl.hub.prop_snapshots). Add URLs as you find them. Snapshots are saved, never interpreted automatically: a fact becomes 'verified' only when a person records the quote via the dashboard.",
- "hyrotrader": ["https://www.hyrotrader.com/faq/", "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
-                "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/", "https://www.hyrotrader.com/terms-and-conditions/", "https://www.hyrotrader.com/"],
- "cft": ["https://cryptofundtrader.com/faq/", "https://cryptofundtrader.com/"],
- "brightfunded": ["https://brightfunded.com/faq", "https://brightfunded.com/"],
- "ftmo": ["https://ftmo.com/en/faq/", "https://ftmo.com/en/trading-objectives/"],
- "topstep": ["https://help.topstep.com/", "https://www.topstep.com/"],
- "breakout": ["https://www.breakoutprop.com/faq"],
- "apex": ["https://apextraderfunding.com/help-center/"]
+ "_doc": "Official rule pages the hub snapshots (get_prop_rules.bat on the PC: python -m qpl.hub.prop_snapshots). Add URLs as you find them. Snapshots are saved, never interpreted automatically: a fact becomes 'verified' only when a person records the quote via the dashboard. 2026-10-30: added FundedNext, The5ers, SizeProp, Breakout pages, HyroTrader platform / coin / weekend pages (URLs inferred from the FAQ slug pattern; a 404 is recorded, not fatal) and the BloFin API docs (blocked from the cloud).",
+ "hyrotrader": [
+  "https://www.hyrotrader.com/",
+  "https://www.hyrotrader.com/faq/",
+  "https://www.hyrotrader.com/faq/blofin-platform/",
+  "https://www.hyrotrader.com/faq/bybit-platform/",
+  "https://www.hyrotrader.com/faq/getting-started/are-there-limits-on-which-coins-i-can-trade/",
+  "https://www.hyrotrader.com/faq/getting-started/can-i-hold-trades-overnight-and-over-the-weekend/",
+  "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/",
+  "https://www.hyrotrader.com/faq/getting-started/which-platforms-can-i-use-for-trading/",
+  "https://www.hyrotrader.com/faq/getting-started/who-can-join-hyrotrader/",
+  "https://www.hyrotrader.com/faq/hyro-platform/",
+  "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+  "https://www.hyrotrader.com/faq/rules/",
+  "https://www.hyrotrader.com/faq/trading-restrictions/",
+  "https://www.hyrotrader.com/terms-and-conditions/",
+  "https://www.hyrotrader.com/trading-rules/"
+ ],
+ "cft": [
+  "https://cryptofundtrader.com/faq/",
+  "https://cryptofundtrader.com/"
+ ],
+ "brightfunded": [
+  "https://brightfunded.com/",
+  "https://brightfunded.com/faq",
+  "https://brightfunded.com/faq/can-you-trade-with-an-ea",
+  "https://brightfunded.com/trading-rules",
+  "https://help.brightfunded.com/"
+ ],
+ "ftmo": [
+  "https://ftmo.com/en/",
+  "https://ftmo.com/en/faq/",
+  "https://ftmo.com/en/terms-and-conditions/",
+  "https://ftmo.com/en/trading-objectives/"
+ ],
+ "topstep": [
+  "https://help.topstep.com/",
+  "https://www.topstep.com/"
+ ],
+ "breakout": [
+  "https://www.breakoutprop.com/faq",
+  "https://www.breakoutprop.com/",
+  "https://help.breakoutprop.com/"
+ ],
+ "apex": [
+  "https://apextraderfunding.com/help-center/"
+ ],
+ "fundednext": [
+  "https://fundednext.com/faq",
+  "https://help.fundednext.com/",
+  "https://fundednext.com/"
+ ],
+ "the5ers": [
+  "https://the5ers.com/faq/",
+  "https://the5ers.com/"
+ ],
+ "sizeprop": [
+  "https://sizeprop.com/faq",
+  "https://sizeprop.com/"
+ ],
+ "blofin_api": [
+  "https://docs.blofin.com/index.html"
+ ]
 }

@@ -13,7 +13,7 @@ set /p MAXC=Download if the TOTAL is at most how many dollars? (0 = do not downl
 python -m qpl.live.databento_futures --roots UB NKD PL TN EMD --priority --download --max-cost %MAXC%
 echo.
 echo Then share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/databento
 echo   git commit -m "databento extra roots"
 echo   git push

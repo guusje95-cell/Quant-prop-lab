@@ -1,0 +1,58 @@
+{
+ "v9.8 (Bybit filter)": {
+  "event short": [
+   1.754,
+   0.048,
+   1.367
+  ],
+  "book": [
+   3.211,
+   [
+    3.083,
+    3.849,
+    2.661
+   ]
+  ]
+ },
+ "event short on BloFin-demo coins only": {
+  "event short": [
+   1.96,
+   -0.53,
+   -0.246
+  ],
+  "book": [
+   2.681,
+   [
+    1.973,
+    3.489,
+    2.233
+   ]
+  ]
+ },
+ "event short on BloFin-live coins only": {
+  "event short": [
+   1.983,
+   -0.141,
+   1.237
+  ],
+  "book": [
+   3.168,
+   [
+    3.038,
+    3.753,
+    2.677
+   ]
+  ]
+ },
+ "no event short": {
+  "event short": null,
+  "book": [
+   2.776,
+   [
+    2.064,
+    3.664,
+    2.294
+   ]
+  ]
+ }
+}

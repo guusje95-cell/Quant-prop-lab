@@ -7,6 +7,6 @@ set QPL_PAPER=bf26
 python scripts\paper_v5.py reconcile
 git add paper_trading/bf26/ledger_hourly.csv paper_trading/bf26/daily.csv paper_trading/bf26/status.md paper_trading/bf26/book_next_hour.json paper_trading/bf26/events.jsonl paper_trading/bf26/reconcile.csv paper_trading/bf26/orders.csv
 git commit -m "Paper bf26 results"
-git pull --no-edit
+git pull --no-rebase --no-edit
 git push
 pause

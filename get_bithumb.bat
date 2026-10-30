@@ -7,7 +7,7 @@ set PYTHONPATH=src
 python -m qpl.live.bithumb
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/more
 echo   git commit -m "bithumb"
 echo   git push

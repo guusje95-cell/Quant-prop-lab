@@ -7,7 +7,7 @@ set PYTHONPATH=src
 python -m qpl.live.hyperliquid_check
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/hyperliquid
 echo   git commit -m "hyperliquid check"
 echo   git push

@@ -20,6 +20,12 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
+## Nieuw (30-10 avond)
+- **`get_prop_rules.bat`** nog een keer: nu ook FundedNext, The5ers, SizeProp, Breakout, HyroTrader-platformpagina's en de BloFin API-docs.
+- **`venue_check_blofin.bat`**: welke v9.8-posities op BloFin handelbaar zijn (geen sleutel, geen orders).
+- Op brightfunded.com de FAQ 'Can You Trade With an EA?' en weekend/overnight lezen en in het dashboard vastleggen.
+- Bij HyroTrader (chat/support) vragen: welke coins zijn verhandelbaar op het Hyro-platform, en worden nieuwe listings snel toegevoegd? (zie research/SUPPORT_EMAILS.md)
+
 Daarna tegen Claude zeggen: "thuis gedaan".
 
 ## Nog open vragen / beslissingen

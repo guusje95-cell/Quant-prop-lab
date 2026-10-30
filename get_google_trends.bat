@@ -8,7 +8,7 @@ python -c "import pytrends" 2>nul || pip install -q pytrends
 python -m qpl.live.google_trends
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/attention
 echo   git commit -m "google trends"
 echo   git push

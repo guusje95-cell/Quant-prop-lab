@@ -6,7 +6,7 @@ set PYTHONPATH=src
 python -m qpl.live.vix_data
 echo.
 echo Then share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/more2
 echo   git commit -m "vix data"
 echo   git push

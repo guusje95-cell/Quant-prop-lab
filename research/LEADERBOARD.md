@@ -1968,3 +1968,14 @@ HyroTrader $200k, challenge 1.5 / funded 1.5 / stop 0.5, v9.5 shifted to each li
 - R1 overnight alone 0.37 / 0.51 / 1.19 (24 h: 0.46 / 0.68 / 1.02); per index 2023-26 ES 1.14, NQ 1.45, RTY 0.79, YM 0.54; corr with the 24 h version 0.58.
 - Book with the swap: 1.454 / 1.433 / **1.273** vs 1.459 / 1.451 / 1.218: +0.055 in 2023-26 but 2010-17 -0.005 and 2018-22 -0.018. **Fails the strict rule (near miss)** and the window was found post hoc. Not adopted.
 - Futures programme so far: 0 of 11.
+
+## Focus decision + verified firm rules (2026-10-30)
+- **User decision: focus on crypto and CFD; futures parked** (paper only). Basis: `results/hub_research/income_futures.json` (futures accounts add about EUR 20-470 a month next to crypto even at live Sharpe 0.65-1.5).
+- **Official pages (saved by the user's PC, `research/hub/prop_facts/2026-10-30_official_pages.json`, verified quotes):** HyroTrader allows own-strategy bots and issues agent tokens; copy trading / mirroring prohibited; **one account per program type at a time** (Zero-, One-, Two-Step) plus aggregate caps; the Netherlands is not a prohibited jurisdiction, but Bybit is restricted there and VPNs are not allowed -> trade through the **Hyro platform or BloFin**; low-cap coins < 5% of the initial balance. CFT: max allocation $300k per user; swaps on MT5 / Match-Trader. BrightFunded: swap-free add-on exists; EA policy not captured.
+- **Rule-compliant scale plan (`results/hub_research/income_scale_plan.json`, model):** at crypto 1.65 / CFD 1.3: HyroTrader Two-Step only EUR 2.1k a month (year-2 mean); all three HyroTrader program types EUR 3.1k; **+ BrightFunded CFD $200k EUR 4.8k** (P(2-year loss) 5%). The earlier "two HyroTrader Two-Step accounts" plan is NOT allowed by the terms. EUR 10k a month needs more eligible firms or the firms' scaling plans.
+
+## Venue check: BloFin (HyroTrader's non-Bybit option for the Netherlands; `results/hub_research/blofin_coverage.json`, descriptive, FLAGGED)
+- BloFin DEMO (what HyroTrader BloFin challenges trade) lists 83 USDT perps, live 503. Share of the v9.8 gross exposure on demo-listed coins: 89-95% a year (today's list; survivorship ignored).
+- **But the event short trades fresh listings, which the demo does not carry:** event short restricted to BloFin-demo coins 1.96 / -0.53 / -0.25, **book 2.681 [1.973, 3.489, 2.233]** (without the event short at all 2.776; v9.8 3.211). On BloFin live coins: 3.168 [3.038, 3.753, 2.677].
+- **Consequence:** the venue decides the edge. On a BloFin challenge v9.8 should run WITHOUT the event short (or the event short only where the coin is listed, which is worse). The Hyro platform's coin list is unknown: pages added to `config/prop_sources.json`.
+- New: `src/qpl/bot/venue_blofin.py` (public data only: listing / lot-size check of a paper book, `BlofinPaper` paper adapter with lot rounding), `venue_check_blofin.bat`.

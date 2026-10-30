@@ -8,7 +8,7 @@ set PYTHONPATH=src
 python -m qpl.live.deribit_options
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/deribit_options
 echo   git commit -m "deribit options"
 echo   git push

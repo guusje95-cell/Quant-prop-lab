@@ -40,6 +40,13 @@
     "scripts/event_live.py"
    ],
    "approved_by": "user report 2026-10-30 (paper trader crashing)"
+  },
+  {
+   "date": "2026-10-30",
+   "what": "share launcher only: 'git pull --no-rebase --no-edit' so sharing works when the PC and the cloud both committed. No effect on computation.",
+   "files": [
+    "paper_v98_share.bat"
+   ]
   }
  ]
 }

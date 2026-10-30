@@ -29,7 +29,7 @@ DEFAULT_PLAN = [  # (preset, start offset days, challenge budget)
 
 def simulate(hourly_unit: pd.Series, scenario: dict, plan: list[dict] = None, target_month_eur: float = 10_000.0, usd_per_eur: float = 1.08,
              tax_rate: float = 0.37, horizon_days: int = 730, n_paths: int = 400, risk: float = 1.5, stop_frac: float = 0.5,
-             window=("2022-01-01", "2026-09-30 23:00"), seed: int = 5) -> dict:
+             window=("2022-01-01", "2026-09-30 23:00"), seed: int = 5, return_paths: bool = False) -> dict:
     plan = plan or DEFAULT_PLAN; rng = np.random.default_rng(seed)
     h = shift_to_sharpe(hourly_unit, scenario["live_sharpe"]).loc[window[0]:window[1]]
     months = horizon_days // 30; Mo = np.zeros((n_paths, months))
@@ -82,7 +82,8 @@ def simulate(hourly_unit: pd.Series, scenario: dict, plan: list[dict] = None, ta
             "worst_cumulative_cash_eur_p10": float(np.percentile(cum.min(axis=1), 10)),
             "median_days_to_first_cash": float(np.nanmedian(first_pay)) if np.isfinite(first_pay).any() else None,
             "target_month_eur": target_month_eur,
-            "caveat": "model estimate conditional on the assumed live Sharpe and firm rules (project presets, mostly unverified); accounts on one strategy move together; tax is a flat placeholder, not advice"}
+            "caveat": "model estimate conditional on the assumed live Sharpe and firm rules (project presets, mostly unverified); accounts on one strategy move together; tax is a flat placeholder, not advice",
+            **({"monthly_paths_eur": Mo} if return_paths else {})}
 
 
 def required_accounts(hourly_unit: pd.Series, scenario: dict, target_month_eur: float = 10_000.0, preset: str = "HyroTrader Two-Step $200k",
