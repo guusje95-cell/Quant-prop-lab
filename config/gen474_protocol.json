@@ -1,0 +1,42 @@
+{
+ "gen": 474,
+ "date": "2026-10-30",
+ "title": "Four user-supplied technical-analysis ideas on crypto, futures and CFDs",
+ "source": "user request 2026-10-30: Triple EMA ribbon alignment; HMA slope turn (and whether TEMA helps); pin-bar rejection wick; slow-EMA trend pullback continuation",
+ "registered_before_running": true,
+ "bars": "daily bars; signal at the bar close, position held from the next bar (no same-bar fill)",
+ "variants": {
+  "ribbon": "EMA 8 / 21 / 55 of close: long when EMA8 > EMA21 > EMA55, short when EMA8 < EMA21 < EMA55, else flat",
+  "hma": "HMA(21) = WMA(2*WMA(close,10) - WMA(close,21), 4): long while the HMA slope is up (HMA_t > HMA_t-1), short while down (a slope turn flips the position)",
+  "hma_tema": "hma, but long only when also close > TEMA(21) and short only when close < TEMA(21) (TEMA = 3*E1 - 3*E2 + E3, EMA span 21); else flat",
+  "pinbar": "bullish pin: lower wick >= 0.6 * range, body <= 0.3 * range, and low <= the lowest low of the previous 10 bars; bearish mirror with the upper wick and the 10-bar high; hold 5 bars in the signal direction (a newer signal replaces an older one)",
+  "pullback": "uptrend = EMA50 > EMA200 and close > EMA200; long entry when the previous close <= EMA20 and the close > EMA20 (pullback resumed); exit at close < EMA50, after 20 bars, or on an opposite entry; short is the mirror image"
+ },
+ "parameters": "fixed textbook values above, no tuning; 5 variants x 3 markets = 15 trials",
+ "sizing": "per instrument position = signal * 0.10 / (60-day realised vol, annualised, lagged one bar), capped at 3x; sleeve = mean over instruments",
+ "markets": {
+  "crypto": {
+   "universe": ["BTC", "ETH", "LTC", "XRP", "ADA", "DOGE", "SOL", "DOT", "AVAX", "LINK", "BCH"],
+   "data": "Binance USDT-M perpetuals (binance_pack), daily bars 00:00 UTC, P&L hourly",
+   "costs": "7.5 bp per unit turnover (Bybit/Binance taker 5.5 bp + 2 bp half spread) + actual funding paid / received",
+   "periods": ["2022", "2023-2024", "2025-2026-09"],
+   "judge": "add the sleeve to v9.8 (v95 sleeves minus cascade + event_live listing short) via portfolio_v5; pass = book Sharpe >= reference + 0.05 AND no period lower (project strict rule)"
+  },
+  "futures": {
+   "universe": "the 24 non-crypto CME markets of futures_db.NONCRYPTO",
+   "data": "Databento hourly front contract, aggregated to the CME trading date; back-adjusted with roll-safe returns (OHLC of the day's final contract scaled to the adjusted close)",
+   "costs": "futures_db.cost_frac (one tick + commission) per unit turnover",
+   "periods": ["2010-06..2017", "2018-2022", "2023-2026-09"],
+   "judge": "add to the current 15-sleeve book (fbook.build, read-only: nothing is saved); pass = book 2023-26 >= reference + 0.05 AND 2010-17 and 2018-22 not lower; also reported: stand-alone futures_db.passes and the ES/NQ beta appraisal"
+  },
+  "cfd": {
+   "universe": "every Dukascopy 1h series except BTCUSD / ETHUSD (crypto covered above): 14 index, 13 FX, 2 metal, 3 energy, copper, 2 bond CFDs",
+   "data": "Dukascopy hourly bid, resampled to UTC days (weekdays)",
+   "costs_per_side": {"index": 1.5, "fx": 0.7, "fx_jpy_cross": 1.0, "XAUUSD": 2.0, "XAGUSD": 4.0, "WTI/BRENT": 4.0, "NATGAS": 8.0, "COPPER": 5.0, "bond": 2.0, "unit": "bp of notional, assumption"},
+   "swap": "main case swap-free account (as the BrightFunded books); sensitivity: 3%/yr financing on gross exposure",
+   "periods": ["2018-07..2020", "2021-2022", "2023-2026-09"],
+   "judge": "stand-alone futures_db.passes-style rule (period 1 > 0, period 2 >= 0.5, period 3 >= 0.3) AND adding to the Gen201 index-CFD book raises 2023-26 by >= 0.05 with 2021-22 not lower"
+  }
+ },
+ "promotion": "nothing is promoted without the user's explicit OK; v9.8 stays frozen"
+}
