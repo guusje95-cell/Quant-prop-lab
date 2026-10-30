@@ -1,0 +1,61 @@
+{
+ "_doc": "Research agenda of the hub's autonomous agent (qpl.hub.agent). Only items with status 'approved' run. Each item is pre-registered here (hypothesis, data, script, decision rule) before it runs; editing an item after it ran does not change its recorded experiment (the config hash includes the protocol). Statuses: proposed (needs a human), approved, retired.",
+ "items": [
+  {
+   "key": "event_short_vol_regime",
+   "title": "Halve the event short when BTC 30-day vol is above its 1-year median",
+   "status": "approved",
+   "hypothesis": "New-coin short squeezes are more violent in volatile markets; halving the event short in high-vol regimes raises the v9.8 book Sharpe by >= 0.05 with no period lower.",
+   "rationale": "Gen473 regime table: event short Sharpe -0.41 in high BTC vol vs 1.94 in low vol. FLAGGED post hoc (seen before testing); a pass still needs a human decision and out-of-sample paper evidence.",
+   "market": "crypto_futures", "family": "event / regime",
+   "needs_data": ["results/v98_paper_sleeves.parquet", "research_data/binance"],
+   "script": "scripts/hub_research/event_regime_scaling.py", "args": [],
+   "result_file": "results/hub_research/event_regime_scaling.json",
+   "decision_rule": {"values": {"book": "candidate.0", "ref": "reference_v98.0", "p": "candidate.1", "pr": "reference_v98.1"},
+                     "pass_if": "book >= ref + 0.05 and all(p[i] >= pr[i] for i in range(3))"},
+   "periods": {"development": ["2022-01-01", "2022-12-31"], "validation": ["2023-01-01", "2024-12-31"], "holdout": ["2025-01-01", "2026-09-30"]},
+   "cost_model": {"as in the v9.8 sleeves": "10 bp event short, real funding"},
+   "trials": 1, "timeout_s": 3600,
+   "priority": {"economic_relevance": 4, "information_gain": 3, "diversification": 2, "cost_hours": 0.3, "similar_test_exists": false}
+  },
+  {
+   "key": "bybit_event_shorts",
+   "title": "Bybit listing / delisting announcements as event shorts (R2)",
+   "status": "approved",
+   "hypothesis": "Bybit delisting announcements and Bybit-first listings carry the same selling pressure as Binance's; adding them to the event short raises the book by >= 0.05 with no period lower.",
+   "rationale": "Same mechanism as the strongest v9.8 edge (Gen468); Bybit is HyroTrader's exchange.",
+   "market": "crypto_futures", "family": "event",
+   "needs_data": ["research_data/bybit_announcements/announcements.json", "scripts/hub_research/bybit_event_shorts.py"],
+   "needs_user": "run get_bybit_announcements.bat on the PC (Bybit blocks the cloud), then the script will be written against the real file format",
+   "script": "scripts/hub_research/bybit_event_shorts.py", "args": [],
+   "result_file": "results/hub_research/bybit_event_shorts.json",
+   "decision_rule": {"values": {"book": "candidate.0", "ref": "reference_v98.0", "p": "candidate.1", "pr": "reference_v98.1"},
+                     "pass_if": "book >= ref + 0.05 and all(p[i] >= pr[i] for i in range(3))"},
+   "trials": 2, "timeout_s": 7200,
+   "priority": {"economic_relevance": 5, "information_gain": 4, "diversification": 3, "cost_hours": 1, "similar_test_exists": false}
+  },
+  {
+   "key": "weiss_full_weight_v98",
+   "title": "Weiss expiry at full instead of half weight in v9.8",
+   "status": "proposed",
+   "hypothesis": "Weiss is uncorrelated with every sleeve and earns +0.13 of book Sharpe on 1.6% of the risk; full weight raises the v9.8 book by >= 0.05 with no period lower.",
+   "rationale": "Gen448 tested this on v9.6 (near miss, 2025-26 lower). Re-testing on a new reference is post hoc: needs a human decision.",
+   "market": "crypto_futures", "family": "allocation",
+   "needs_data": ["results/v98_paper_sleeves.parquet"], "script": "scripts/hub_research/weiss_weight.py", "result_file": "results/hub_research/weiss_weight.json",
+   "decision_rule": {"values": {"book": "candidate.0", "ref": "reference_v98.0", "p": "candidate.1", "pr": "reference_v98.1"}, "pass_if": "book >= ref + 0.05 and all(p[i] >= pr[i] for i in range(3))"},
+   "trials": 1, "priority": {"economic_relevance": 3, "information_gain": 2, "diversification": 1, "cost_hours": 0.2, "similar_test_exists": true}
+  },
+  {
+   "key": "limit_fill_measurement",
+   "title": "Measure real limit-order fill rates in the dry-run bot (R1 follow-up)",
+   "status": "proposed",
+   "hypothesis": "Resting limits at the touch for the daily sleeves fill >= 85% within 60 minutes on Bybit, which would make the R1 central gain (+0.10) credible.",
+   "rationale": "OHLC cannot model queue position; only real order-book interaction can. Needs the bot's market-data access on the user's PC (read-only, no orders).",
+   "market": "crypto_futures", "family": "execution",
+   "needs_data": ["bot_state/fill_measurements.csv"], "needs_user": "a read-only order-book logger on the PC (to be built); no orders are placed",
+   "script": "scripts/hub_research/fill_rates.py", "result_file": "results/hub_research/fill_rates.json",
+   "decision_rule": {"values": {"fill": "fill_rate_60m"}, "pass_if": "fill >= 0.85"},
+   "trials": 1, "priority": {"economic_relevance": 4, "information_gain": 4, "diversification": 1, "cost_hours": 0.5, "similar_test_exists": false}
+  }
+ ]
+}

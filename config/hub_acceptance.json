@@ -1,0 +1,7 @@
+{
+ "_note": "Acceptance criteria per use case (Quant Trading Hub, qpl.hub.validation.evaluate). A pass is necessary, not sufficient: promotion also needs a recorded human decision. Sharpe on daily returns, 365-day years for crypto.",
+ "paper_trading": {"min_days": 365, "min_period_sharpe": 0.0, "min_selection_adjusted_sharpe": 0.0, "min_bootstrap_p5_sharpe": 0.0, "max_drawdown": 0.35, "max_pbo": 0.5},
+ "prop_challenge": {"min_days": 730, "min_period_sharpe": 0.5, "min_selection_adjusted_sharpe": 1.0, "min_bootstrap_p5_sharpe": 1.0, "max_drawdown": 0.15, "max_pbo": 0.3},
+ "own_capital": {"min_days": 1095, "min_period_sharpe": 0.5, "min_selection_adjusted_sharpe": 1.0, "min_bootstrap_p5_sharpe": 0.8, "max_drawdown": 0.25, "max_pbo": 0.3},
+ "research_target_v99": {"min_days": 1095, "min_period_sharpe": 1.0, "min_selection_adjusted_sharpe": 2.0, "min_bootstrap_p5_sharpe": 2.0, "max_drawdown": 0.15, "max_pbo": 0.2}
+}
