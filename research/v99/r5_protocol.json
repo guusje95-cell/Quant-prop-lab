@@ -1,0 +1,11 @@
+{
+ "id": "v99-R5", "date": "2026-10-30", "registered": "before any ETF flow number was analysed (the page was only parsed for its format)",
+ "hypothesis": "US spot-bitcoin ETF net flows measure institutional demand that keeps arriving for days (allocation decisions are spread out); a strong 5-day flow impulse predicts BTC drift over the next days.",
+ "data": "research_data/etf/farside_btc.html (Farside Investors, all US spot BTC ETFs, daily total net flow in US$ m, 2024-01-11..2026-10-29, saved by the user)",
+ "timing": "flow of US trading day D is used from 00:00 UTC of D+2 (publication can be late on D+1 UTC), held until the next value",
+ "signal": "f5 = sum of the last 5 daily total flows; z = f5 / sd of f5 over the previous 120 trading days (min 60); BTC perp position = 0.5 x clip(z / 2, -1, 1)",
+ "costs": "5.5 bp taker + 0.5 bp half spread per unit turnover; Binance BTC funding",
+ "judge": "added as a 10th sleeve to v9.8 (crypto_sleeves.portfolio_v5; the sleeve is 0 before 2024): book >= 3.211 + 0.05 and no period lower (2022 / 2023-24 / 2025-26)",
+ "also_reported": "correlation of daily flows with same-day and next-day BTC returns (descriptive)",
+ "trials_added": 1
+}
