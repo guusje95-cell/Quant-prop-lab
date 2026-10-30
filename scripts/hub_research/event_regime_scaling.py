@@ -4,6 +4,7 @@ risk then; halving it when BTC's 30-day volatility (known before the day) is abo
 book's Sharpe. Decision rule (pre-registered in research/hub/agenda.json): book +0.05 and no period lower than v9.8.
 Writes results/hub_research/event_regime_scaling.json."""
 import json
+import os
 import sys
 from pathlib import Path
 import numpy as np
@@ -25,5 +26,5 @@ b0 = unit(CS.portfolio_v5(H)[0]); H1 = H.copy(); H1["listing short"] = H["listin
 ref, new = [shp(b0), per(b0)], [shp(b1), per(b1)]
 out = {"reference_v98": ref, "candidate": new, "share_of_days_scaled": round(float(hi.loc["2022":END].mean()), 3),
        "pass": bool(new[0] >= ref[0] + 0.05 and all(new[1][i] >= ref[1][i] for i in range(3))), "flag": "post hoc (regime effect seen in Gen473)"}
-(ROOT / "results/hub_research").mkdir(parents=True, exist_ok=True)
-(ROOT / "results/hub_research/event_regime_scaling.json").write_text(json.dumps(out, indent=1)); print(json.dumps(out))
+OUTD = Path(os.environ.get("QPL_AGENT_OUT", ROOT / "results/hub_research")); OUTD.mkdir(parents=True, exist_ok=True)   # hub agent: hub_data/agent_results
+(OUTD / "event_regime_scaling.json").write_text(json.dumps(out, indent=1)); print(json.dumps(out))

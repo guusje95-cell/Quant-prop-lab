@@ -109,7 +109,8 @@ def evaluate(c: sqlite3.Connection, item_key: str, agenda: dict | None = None) -
         raise RuntimeError("run job not finished yet")
     if run["status"] != "done":
         EX.finish(c, e["id"], {}, "error", f"run failed: {(run['error'] or '')[-500:]}", failed=True); return {"decision": "error"}
-    res = json.loads((ROOT / it["result_file"]).read_text()); rule = it["decision_rule"]
+    local = ROOT / "hub_data" / "agent_results" / Path(it["result_file"]).name           # written by the agent's own run (see handlers)
+    res = json.loads((local if local.exists() else ROOT / it["result_file"]).read_text()); rule = it["decision_rule"]
     vals = {k: _get(res, p) for k, p in rule["values"].items()}
     passed = bool(eval(rule["pass_if"], {"__builtins__": {}, **vals, "all": all, "any": any, "min": min, "max": max, "range": range, "len": len, "abs": abs}))   # rule text is from the reviewed agenda file, not generated
     EX.finish(c, e["id"], {"values": vals, "result_file": it["result_file"]}, "pass" if passed else "fail", rule["pass_if"], {"result_file": it["result_file"]})

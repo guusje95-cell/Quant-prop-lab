@@ -105,6 +105,7 @@ def h_run_script(c, p):
         raise PermissionError(f"script {path} is not in an allowed research directory {ALLOWED_SCRIPT_DIRS}")
     env = {k: v for k, v in os.environ.items() if not any(s in k.upper() for s in ("KEY", "SECRET", "TOKEN", "PASSWORD"))}   # no credentials in research jobs
     env["PYTHONPATH"] = str(ROOT / "src")
+    env["QPL_AGENT_OUT"] = str(ROOT / "hub_data" / "agent_results")      # agent results stay local (hub_data is not in git): no clash with shared results
     r = subprocess.run([sys.executable, path, *map(str, p.get("args", []))], cwd=ROOT, capture_output=True, text=True, env=env, timeout=int(p.get("timeout_s", 3600)))
     if r.returncode != 0:
         raise RuntimeError(f"exit {r.returncode}: {r.stderr[-2000:]}")

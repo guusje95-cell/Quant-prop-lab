@@ -5,6 +5,7 @@ added to the v9.8 event short with the Binance spot-delisting rule. Needs resear
 import gzip
 import io
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -111,7 +112,8 @@ def main():
     out["candidate"] = out["variants"]["A+B"]["book"]; out["pass"] = out["variants"]["A+B"]["pass"]
     if selftest:
         print("SELFTEST ONLY (hand-made events): nothing recorded"); return
-    p = ROOT / "results/hub_research/bybit_event_shorts.json"; p.write_text(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
+    d = Path(os.environ.get("QPL_AGENT_OUT", ROOT / "results/hub_research")); d.mkdir(parents=True, exist_ok=True)   # hub agent: hub_data/agent_results
+    p = d / "bybit_event_shorts.json"; p.write_text(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":
