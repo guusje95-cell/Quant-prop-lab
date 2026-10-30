@@ -1,0 +1,15 @@
+{
+ "gen": 478, "date": "2026-10-30", "registered_before_running": true, "status": "waiting for data (get_futures_stir.bat on the user's PC)",
+ "title": "Short-rate (STIR) futures: a new asset class for the futures book (programme track 2b)",
+ "why": "The book has no short-rate exposure. STIR futures carry the market's Fed path; two documented premia: trend in rate expectations (one of the strongest trend markets in managed-futures research) and the term premium (markets over-price hikes, so long deferred STIR contracts earns a premium).",
+ "data": "Databento GLBX ohlcv-1h: ZQ .v.0/.v.1/.v.6, SR3 .v.0/.v.1/.v.4, GE .v.0/.v.1/.v.4. The 1-year-out series STIR1Y = GE.v.4 until 2018-12-31, SR3.v.4 from 2019-01-01 (roll-safe returns per contract, daily at the CME close).",
+ "trials": {
+  "S1 STIR trend": "STIR1Y and ZQ.v.6: position = mean of sign(63-day return) and sign(252-day return), each market equal weight",
+  "S2 STIR term premium": "STIR1Y: position = clip((price .v.0 - price .v.4) / 0.25, 0, 1) (long the deferred contract when hikes are priced in)"
+ },
+ "sizing": "position x 0.10 / (60-day realised vol, lagged); no 3x cap (STIR vol is tiny, the EQR weights rescale; required notional leverage is reported); costs one tick + $2.50 commission per side (ZQ tick 0.0025 x $4,167 per point; SR3 / GE tick 0.0025-0.005 x $2,500 per point, the larger tick used)",
+ "entry": "stand-alone Sharpe 2010-06..2022 >= 0.3",
+ "judge": "each entrant alone added to the 15-sleeve book: 2023-26 >= 1.218 + 0.05 and 2010-17, 2018-22 not lower; together reported",
+ "trials_added": 2,
+ "promotion": "never without the user's explicit OK"
+}
