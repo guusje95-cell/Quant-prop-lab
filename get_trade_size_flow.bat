@@ -8,7 +8,7 @@ set PYTHONPATH=src
 python -m qpl.live.trade_size_flow
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/trade_size
 echo   git commit -m "trade size flow"
 echo   git push

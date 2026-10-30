@@ -7,7 +7,7 @@ set PYTHONPATH=src
 python -m qpl.live.more_data
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/coinbase research_data/more
 echo   git commit -m "more data"
 echo   git push

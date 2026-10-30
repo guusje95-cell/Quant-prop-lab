@@ -7,7 +7,7 @@ python -c "import MetaTrader5" 2>nul || pip install -q MetaTrader5
 python scripts\mt5_export_specs.py
 echo.
 echo Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/firm_specs
 echo   git commit -m "firm specs"
 echo   git push

@@ -6,6 +6,6 @@ set PYTHONPATH=%~dp0src
 python -m qpl.live.wiki_attention
 git add research_data/attention/wiki_pageviews.parquet
 git commit -m "Wikipedia page views (Gen459)"
-git pull --no-edit
+git pull --no-rebase --no-edit
 git push
 pause

@@ -6,7 +6,7 @@ set PYTHONPATH=src
 python -m qpl.live.bithumb BTC ETH AAVE ADA ATOM AVAX BCH DOGE DOT ETC FIL LINK NEAR SOL TRX UNI XLM XRP
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/more
 echo   git commit -m "bithumb"
 echo   git push

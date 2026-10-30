@@ -8,7 +8,7 @@ set /p DATABENTO_API_KEY=Paste your Databento API key (stays in this window only
 python -m qpl.live.databento_buy spy_imbalance
 echo.
 echo Then share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/databento_extra
 echo   git commit -m "spy imbalance"
 echo   git push

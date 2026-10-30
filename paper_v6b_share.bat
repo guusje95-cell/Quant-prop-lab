@@ -7,6 +7,6 @@ set QPL_PAPER=v6b
 python scripts\paper_v5.py reconcile
 git add paper_trading/v6b/ledger_hourly.csv paper_trading/v6b/daily.csv paper_trading/v6b/status.md paper_trading/v6b/book_next_hour.json paper_trading/v6b/events.jsonl paper_trading/v6b/reconcile.csv paper_trading/v6b/orders.csv
 git commit -m "Paper v6b shadow results"
-git pull --no-edit
+git pull --no-rebase --no-edit
 git push
 pause

@@ -7,7 +7,7 @@ set PYTHONPATH=src
 python scripts\duka_slow_fetch.py XPTUSD XAUUSD USA500IDXUSD USATECHIDXUSD LIGHTCMDUSD USTBONDTRUSD
 echo.
 echo Then share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/dukascopy_daily
 echo   git commit -m "dukascopy daily"
 echo   git push

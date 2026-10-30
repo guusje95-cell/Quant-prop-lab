@@ -4,7 +4,7 @@ cd /d "%~dp0"
 if exist .venv\Scripts\activate.bat call .venv\Scripts\activate.bat
 set PYTHONPATH=%~dp0src
 python -m qpl.hub.prop_snapshots
-git pull --no-edit
+git pull --no-rebase --no-edit
 git add research_data/prop_pages
 git commit -m "prop rule pages"
 git push

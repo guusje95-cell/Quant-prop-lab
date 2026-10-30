@@ -7,7 +7,7 @@ set PYTHONPATH=src
 python -m qpl.live.flow_data3
 echo.
 echo Done. Share it with Claude:
-echo   git pull --no-edit
+echo   git pull --no-rebase --no-edit
 echo   git add research_data/more research_data/binance_fiat
 echo   git commit -m "flow data 3"
 echo   git push

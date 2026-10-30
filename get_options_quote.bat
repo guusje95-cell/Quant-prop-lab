@@ -7,7 +7,7 @@ set PYTHONPATH=%~dp0src
 python -c "import databento" 2>nul || pip install -q databento
 if "%DATABENTO_API_KEY%"=="" set /p DATABENTO_API_KEY=Paste your Databento API key (stays in this window only): 
 python -m qpl.live.databento_options_quote
-git pull --no-edit
+git pull --no-rebase --no-edit
 git add research_data/databento_options_quote.csv
 git commit -m "options cost quote"
 git push
