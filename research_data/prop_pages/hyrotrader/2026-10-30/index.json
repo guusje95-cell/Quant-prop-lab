@@ -24,14 +24,14 @@
   "url": "https://www.hyrotrader.com/terms-and-conditions/",
   "status": 200,
   "bytes": 593589,
-  "sha256": "04caf1e4bc427c780e2244f9c72cd201eeb8d82757c6b36ff9986ace9ab6d7fc",
+  "sha256": "4d8801b666818ae56f92c1b314905f7eefc9c4ccae9d53facb71f02eca666f2f",
   "file": "3.html"
  },
  {
   "url": "https://www.hyrotrader.com/",
   "status": 200,
-  "bytes": 1138998,
-  "sha256": "aca4de98347d1d0db2c63a88a84e8a8bbf4c9fbe1ed18aef8a648fda21dead77",
+  "bytes": 1139063,
+  "sha256": "0f0afb5b9ebe696b6ea8c55fc1e00e927c17d2f7fbb417aaa8c2e68035355caf",
   "file": "4.html"
  }
 ]
