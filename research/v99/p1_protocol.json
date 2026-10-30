@@ -1,0 +1,13 @@
+{
+ "id": "v99-P1", "date": "2026-10-30", "registered": "before running p1_params.py",
+ "request": "user: search sleeve parameters / optimise until something improves. Done as SELECT-ON-THE-PAST, JUDGE-ONCE so a find is real.",
+ "grids": {
+  "trend 4h": "Donchian entry lookback sets {(15,20,30) current, (10,15,20), (20,30,40), (10,20,40)} x coins {BTC/ETH/SOL current, BTC/ETH/SOL/BNB/XRP}: 7 new",
+  "delev bounce": "OI-drop threshold {0.08, 0.10 current, 0.12, 0.15} x hold days {1, 2 current, 3}: 11 new",
+  "alt kimchi": "z threshold sets {(0.75,1,1.25) current, (0.5,0.75,1), (1,1.25,1.5), (0.5,1,1.5)}: 3 new"
+ },
+ "selection": "per sleeve: the variant with the highest v9.8 book Sharpe on 2022-01-01..2024-12-31 (development); ties -> current",
+ "judge": "the chosen variants together (and each alone, reported): adopt only if the book on 2025-01-01..2026-09-30 (holdout) >= current + 0.05 and the full 2022-26 book is not lower",
+ "trials_added": 21,
+ "note": "2025-26 has been looked at in earlier research, so it is not a pristine holdout; selection never uses it"
+}
