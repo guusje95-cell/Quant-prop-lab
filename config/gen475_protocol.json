@@ -1,0 +1,13 @@
+{
+ "gen": 475,
+ "date": "2026-10-30",
+ "title": "Natural-gas injection-season short (non-equity futures diversifier)",
+ "registered_before_running": true,
+ "context": "F1 audit (results/hub_research/futures_audit.json): 72% of the futures book's 2023-26 risk is equity timing; the non-equity sub-book fell to 0.40 in 2023-26. Most non-equity ideas are already tested (LEADERBOARD Gen114-241, incl. month-end Treasuries, gold/silver, carry, value, curve trend); natural-gas seasonality is not.",
+ "hypothesis": "NG futures carry a storage risk premium during the injection season (contango, producers hedge, storage owners are paid to hold): short the NG front contract from 1 April to 31 October earns a positive return that is unrelated to equities.",
+ "rule": "position = -0.10 / (60-day realised vol of NG daily returns, annualised, lagged), capped at 3x, on trading days in April..October; flat November..March; costs futures_db.cost_frac per unit turnover; daily roll-safe returns (futures_db.daily)",
+ "trials": 1,
+ "entry_bar": "stand-alone 2010-06..2022 Sharpe >= 0.3 and ES/NQ appraisal 2010-22 > 0 (rule_timing_vs_buyhold)",
+ "judge": "add to the 15-sleeve book (fbook.build, read-only): book 2023-26 >= 1.218 + 0.05 AND 2010-17 and 2018-22 not lower (strict rule)",
+ "promotion": "nothing changes without the user's explicit OK"
+}
