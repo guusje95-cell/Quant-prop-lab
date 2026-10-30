@@ -8,9 +8,30 @@
   "honesty": "every test is pre-registered and counted; the planning Sharpe (after the luck haircut for all futures trials) is reported after every round; nothing changes the paper book without the user's OK."
  },
  "sources": [
-  {"track": 1, "source": "EIA weekly petroleum stocks (crude ex SPR, gasoline, distillate) and natural-gas storage", "cost": "free", "status": "Gen476"},
-  {"track": 1, "source": "FRED macro (payrolls, CPI, yield curve)", "cost": "free", "status": "next"},
-  {"track": 2, "source": "intraday 1-minute (ES, NQ, GC, CL owned; more via Databento after a cost quote)", "cost": "owned / quote first", "status": "planned"},
-  {"track": 3, "source": "CME options (skew, positioning)", "cost": "paid, quote first, user decides", "status": "planned"}
- ]
+  {
+   "track": 1,
+   "source": "EIA weekly petroleum stocks (crude ex SPR, gasoline, distillate) and natural-gas storage",
+   "cost": "free",
+   "status": "Gen476"
+  },
+  {
+   "track": 1,
+   "source": "FRED macro (payrolls, CPI, yield curve)",
+   "cost": "free",
+   "status": "next"
+  },
+  {
+   "track": 2,
+   "source": "intraday 1-minute (ES, NQ, GC, CL owned; more via Databento after a cost quote)",
+   "cost": "owned / quote first",
+   "status": "planned"
+  },
+  {
+   "track": 3,
+   "source": "CME options (skew, positioning)",
+   "cost": "paid, quote first, user decides",
+   "status": "planned"
+  }
+ ],
+ "status": "PARKED 2026-10-30 by the user's decision: focus on crypto and CFD. Futures keeps paper trading (futures_paper_update.bat) as a bonus / diversifier; no further research spend. Reason: results/hub_research/income_futures.json (3 x 50k futures accounts add about EUR 20-470 a month even at live Sharpe 0.65-1.5)."
 }

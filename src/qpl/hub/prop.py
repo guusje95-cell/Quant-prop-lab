@@ -147,7 +147,10 @@ V98_PROFILE = {"name": "crypto book v9.8", "markets": ["crypto_perps"], "venue":
 FUTURES_PROFILE = {"name": "futures book (15 sleeves)", "markets": ["cme_futures"], "venue": "CME micro futures", "needs_api_bot": True,
                    "holds_overnight": True, "holds_weekend": True, "trades_news": True, "orders_per_day": 10, "uses_low_cap_coins": False,
                    "country": "Netherlands", "note": "swing book: the daily-flat version scores 0.36 / 0.72 / 0.84 (LEADERBOARD)"}
-PROFILES = {"crypto": V98_PROFILE, "futures": FUTURES_PROFILE}
+CFD_PROFILE = {"name": "CFD book bf2.6 without carry (MT5)", "markets": ["crypto_cfd", "cfd"], "venue": "MT5 crypto + index CFDs", "needs_api_bot": True,
+               "holds_overnight": True, "holds_weekend": True, "trades_news": True, "orders_per_day": 20, "uses_low_cap_coins": False,
+               "country": "Netherlands", "note": "needs a swap-free account (swaps cost about 49% a year, Gen331)"}
+PROFILES = {"crypto": V98_PROFILE, "futures": FUTURES_PROFILE, "cfd": CFD_PROFILE}
 
 
 def compatibility(c: sqlite3.Connection, rule_set_id: int, profile: dict = V98_PROFILE, version_id: int | None = None,
@@ -271,6 +274,10 @@ def load_fact_files(c: sqlite3.Connection, pattern: str = "research/hub/prop_fac
         for x in d["facts"]:
             r = c.execute("SELECT s.id FROM prop_rule_sets s JOIN prop_firms p ON p.id=s.firm_id WHERE p.key=? AND s.account_type=? AND s.superseded_at IS NULL",
                           (x["firm"], x["account_type"])).fetchone()
+            if not r and "policy" in x["account_type"] and x["firm"] in FIRM_INFO:      # firm-wide policy facts get their own rule set
+                add_rule_set(c, x["firm"], x["account_type"], {"source": Path(f).name}, [], day)
+                r = c.execute("SELECT s.id FROM prop_rule_sets s JOIN prop_firms p ON p.id=s.firm_id WHERE p.key=? AND s.account_type=? AND s.superseded_at IS NULL",
+                              (x["firm"], x["account_type"])).fetchone()
             if not r:
                 skipped += 1; continue
             if c.execute("SELECT 1 FROM prop_rule_facts WHERE rule_set_id=? AND field=? AND COALESCE(source_url,'')=? AND checked_at=?",

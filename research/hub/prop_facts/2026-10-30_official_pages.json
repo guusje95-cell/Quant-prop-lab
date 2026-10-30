@@ -1,0 +1,32 @@
+{
+ "_doc": "Facts read from the firms' OFFICIAL pages, saved by get_prop_rules.bat on the user's PC on 2026-10-30 (research_data/prop_pages/<firm>/2026-10-30/, sha256 in index.json). 'verified' = the quoted sentence is on the saved official page. Firm-wide rules are stored as a 'firm policy' rule set and apply to every account type of that firm.",
+ "facts": [
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "bots_allowed", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+   "quote": "Yes. HyroTrader allows trading bots, as long as the strategy is your own."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "api_trading", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/getting-started/can-i-use-a-trading-bot-or-an-ai-agent/",
+   "quote": "You can automate it with a bot, a script or an AI agent, and we issue agent tokens for exactly that.", "note": "Bybit challenges: bot on the Bybit demo API; Hyro challenges: the Hyro platform; BloFin: BloFin demo API"},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "copy_trading", "value": false, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+   "quote": "Copying someone else's strategy is not allowed. This includes ready-made bots running another person's strategy, copy-trading services, account mirroring and external signal providers."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "max_accounts", "value": "one per program type (Zero-, One-, Two-Step) at a time; aggregate simulated-capital limits per the Trading Rules", "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/terms-and-conditions/", "quote": "4.5 One account per person You may hold only one Account for each program type simultaneously."},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "country_netherlands", "value": true, "status": "verified", "confidence": "medium",
+   "source_url": "https://www.hyrotrader.com/terms-and-conditions/", "quote": "12.1 Prohibited Jurisdictions (hard block) ... Afghanistan, Belarus, Burma (Myanmar), ... Venezuela, Yemen, Zimbabwe (the Netherlands is not listed)",
+   "note": "Bybit itself is restricted in the Netherlands and HyroTrader says 'you must not use a VPN': trade through the Hyro platform or BloFin, not Bybit"},
+  {"firm": "hyrotrader", "account_type": "firm policy (official pages)", "field": "low_cap_position_cap", "value": 0.05, "status": "verified", "confidence": "high",
+   "source_url": "https://www.hyrotrader.com/", "quote": "Low-cap Altcoins Market cap < $100M <5% of initial balance incl. leverage"},
+  {"firm": "cft", "account_type": "firm policy (official pages)", "field": "max_allocation_usd", "value": 300000, "status": "verified", "confidence": "high",
+   "source_url": "https://cryptofundtrader.com/faq/", "quote": "The maximum simulated funded allocation per user is $300,000."},
+  {"firm": "cft", "account_type": "firm policy (official pages)", "field": "bots_allowed", "value": true, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://cryptofundtrader.com/faq/", "quote": "PROHIBITED EA TYPES High-Frequency Trading ... Tick scalping ... Arbitrage", "note": "EAs / bots are implied allowed except the prohibited types; no explicit 'bots allowed' sentence was captured"},
+  {"firm": "cft", "account_type": "firm policy (official pages)", "field": "swap_on_cfd_platforms", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://cryptofundtrader.com/faq/", "quote": "Swap fees may apply to CFD positions that remain open overnight on Match-Trader and MetaTrader 5.",
+   "note": "the crypto book on MT5 / Match-Trader pays swaps (Gen331: about -49% a year without swap-free); CFT's Bybit platform is not usable from the Netherlands"},
+  {"firm": "brightfunded", "account_type": "firm policy (official pages)", "field": "swap_free_addon", "value": true, "status": "verified", "confidence": "high",
+   "source_url": "https://brightfunded.com/", "quote": "CHALLENGE ADD-ONS Swap-Free Weekly Payouts 100% Challenge Fee Refund"},
+  {"firm": "brightfunded", "account_type": "firm policy (official pages)", "field": "bots_allowed", "value": null, "status": "not_found", "confidence": "low",
+   "source_url": "https://brightfunded.com/", "quote": "FAQ title only: 'Can You Trade With an EA?' (answer not on the saved page)", "note": "open the FAQ article on the PC and record it"}
+ ]
+}

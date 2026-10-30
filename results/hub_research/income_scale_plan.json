@@ -1,0 +1,122 @@
+{
+ "assumptions": "Scale plan within the firms' verified rules (2026-10-30 official pages): HyroTrader one account per program type (Zero-, One-,\nTwo-Step), CFT not usable from the Netherlands for the crypto book (Bybit platform restricted, MT5 / Match-Trader charge swaps),\nBrightFunded swap-free CFD account for the CFD book. Model estimate (presets mostly unverified; HyroTrader aggregate caps unknown).\nCrypto and CFD use the SAME bootstrap path (seed) because the books are 0.82 correlated: conservative. Writes results/hub_research/income_scale_plan.json.",
+ "rows": [
+  {
+   "crypto live Sharpe": 1.65,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader Two-Step only",
+   "year-2 mean month EUR": 2135,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.08,
+   "2-year total p10 / p50 EUR": [
+    -6025,
+    40344
+   ],
+   "P(2-year loss)": 0.18
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader 3 program types",
+   "year-2 mean month EUR": 3105,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.11,
+   "2-year total p10 / p50 EUR": [
+    1459,
+    63665
+   ],
+   "P(2-year loss)": 0.09
+  },
+  {
+   "crypto live Sharpe": 1.65,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader 3 + BrightFunded CFD",
+   "year-2 mean month EUR": 4844,
+   "year-2 median month EUR": -278,
+   "P(month >= 10k) year 2": 0.17,
+   "2-year total p10 / p50 EUR": [
+    23693,
+    93976
+   ],
+   "P(2-year loss)": 0.05
+  },
+  {
+   "crypto live Sharpe": 1.75,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader Two-Step only",
+   "year-2 mean month EUR": 2421,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.09,
+   "2-year total p10 / p50 EUR": [
+    -3612,
+    42238
+   ],
+   "P(2-year loss)": 0.11
+  },
+  {
+   "crypto live Sharpe": 1.75,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader 3 program types",
+   "year-2 mean month EUR": 3362,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.12,
+   "2-year total p10 / p50 EUR": [
+    2786,
+    64949
+   ],
+   "P(2-year loss)": 0.09
+  },
+  {
+   "crypto live Sharpe": 1.75,
+   "CFD live Sharpe": 1.3,
+   "plan": "HyroTrader 3 + BrightFunded CFD",
+   "year-2 mean month EUR": 5101,
+   "year-2 median month EUR": -278,
+   "P(month >= 10k) year 2": 0.19,
+   "2-year total p10 / p50 EUR": [
+    24229,
+    101236
+   ],
+   "P(2-year loss)": 0.04
+  },
+  {
+   "crypto live Sharpe": 1.4,
+   "CFD live Sharpe": 1.1,
+   "plan": "HyroTrader Two-Step only",
+   "year-2 mean month EUR": 1746,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.07,
+   "2-year total p10 / p50 EUR": [
+    -6025,
+    34378
+   ],
+   "P(2-year loss)": 0.22
+  },
+  {
+   "crypto live Sharpe": 1.4,
+   "CFD live Sharpe": 1.1,
+   "plan": "HyroTrader 3 program types",
+   "year-2 mean month EUR": 2264,
+   "year-2 median month EUR": -139,
+   "P(month >= 10k) year 2": 0.09,
+   "2-year total p10 / p50 EUR": [
+    -9910,
+    44715
+   ],
+   "P(2-year loss)": 0.19
+  },
+  {
+   "crypto live Sharpe": 1.4,
+   "CFD live Sharpe": 1.1,
+   "plan": "HyroTrader 3 + BrightFunded CFD",
+   "year-2 mean month EUR": 3521,
+   "year-2 median month EUR": -278,
+   "P(month >= 10k) year 2": 0.13,
+   "2-year total p10 / p50 EUR": [
+    8071,
+    70428
+   ],
+   "P(2-year loss)": 0.07
+  }
+ ]
+}
