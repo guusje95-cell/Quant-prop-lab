@@ -55,7 +55,7 @@
   {
    "key": "bybit_event_shorts",
    "title": "Bybit listing / delisting announcements as event shorts (R2)",
-   "status": "approved",
+   "status": "done",
    "hypothesis": "Bybit delisting announcements and Bybit-first listings carry the same selling pressure as Binance's; adding them to the event short raises the book by >= 0.05 with no period lower.",
    "rationale": "Same mechanism as the strongest v9.8 edge (Gen468); Bybit is HyroTrader's exchange.",
    "market": "crypto_futures",
@@ -84,7 +84,8 @@
     "diversification": 3,
     "cost_hours": 1,
     "similar_test_exists": false
-   }
+   },
+   "result": "FAIL: A+B book 3.228 [3.055, 3.938, 2.632] vs 3.211 [3.083, 3.849, 2.661] (+0.017, 2022 and 2025-26 lower); 224 Bybit perp-delisting events, spot titles carry no coin names"
   },
   {
    "key": "weiss_full_weight_v98",
