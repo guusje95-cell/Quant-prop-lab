@@ -193,7 +193,7 @@ def book_risk():
 
 def portfolio():
     st.header("Portfolio & Risk")
-    t1, t2, t3 = st.tabs(["Crypto book v9.8", "Paper accounts", "Risk limits & events"])
+    t1, t2, t5, t3 = st.tabs(["Crypto book v9.8", "Paper accounts", "Shadow accounts (per strategy / portfolio variants)", "Risk limits & events"])
     with t1:
         tag("backtest")
         if not (ROOT / "results/v98_paper_sleeves.parquet").exists():
@@ -222,12 +222,58 @@ def portfolio():
                 st.json(health.check_account(c, k), expanded=True)
             st.dataframe(q("SELECT ts, coin, side, usd, type, reason FROM paper_orders o JOIN paper_accounts a ON a.id=o.account_id WHERE a.key=? ORDER BY ts DESC LIMIT 200", (k,)),
                          width="stretch", hide_index=True, height=240)
+    with t5:
+        shadow_tab()
     with t3:
         from qpl.hub import risk
         risk.ensure_defaults(c)
         st.dataframe(q("SELECT * FROM risk_limits"), width="stretch", hide_index=True)
         st.dataframe(q("SELECT * FROM risk_events ORDER BY id DESC LIMIT 100"), width="stretch", hide_index=True)
         st.caption("A 'stop' on paper:v98 also writes the dry-run bot's kill switch bot_state/STOP. Recovery always needs a manual review.")
+
+
+def shadow_tab():
+    from qpl.hub import shadow
+    tag("paper")
+    st.caption("Shadow accounts are built EXACTLY from a running paper trader's frozen hourly ledger (same hours, fills and costs), "
+               "per strategy or as an alternative portfolio. Hours before a shadow was defined are a retroactive replay; only hours after it are forward paper evidence.")
+    S = q("SELECT a.id, a.key, a.initial_capital, a.config, a.last_data_ts, SUM(CASE WHEN e.retro=0 THEN 1 ELSE 0 END) forward_hours, COUNT(e.ts) hours, "
+          "SUM(CASE WHEN e.retro=0 THEN e.ret ELSE 0 END) forward_return_sum FROM paper_accounts a LEFT JOIN paper_equity e ON e.account_id=a.id "
+          "WHERE a.key LIKE 'shadow:%' GROUP BY a.id ORDER BY a.key")
+    if S.empty:
+        st.info("No shadow accounts yet. They are created automatically at the next ingest (hub_start.bat), or define one below.")
+    else:
+        S["source"] = S["config"].map(lambda x: js(x)["source"]); S["kind"] = S["config"].map(lambda x: js(x)["kind"])
+        S["description"] = S["config"].map(lambda x: js(x).get("description", "")); S["defined_at"] = S["config"].map(lambda x: js(x)["defined_at"][:16])
+        st.dataframe(S[["key", "source", "kind", "defined_at", "hours", "forward_hours", "forward_return_sum", "last_data_ts", "description"]], width="stretch", hide_index=True)
+        pick = st.multiselect("Compare equity", S["key"].tolist(), default=S["key"].tolist()[:4])
+        if pick:
+            E = q("SELECT a.key, e.ts, e.equity / a.initial_capital AS growth, e.retro FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key IN (%s)" % ",".join("?" * len(pick)), tuple(pick))
+            if len(E):
+                fig = px.line(E, x="ts", y="growth", color="key", template=TPL, title="Growth of 1 (dashed region = retroactive replay)")
+                fd = E[E.retro == 0]["ts"].min()
+                if isinstance(fd, str):
+                    fig.add_vline(x=fd, line_dash="dash")
+                st.plotly_chart(fig.update_layout(height=360), width="stretch")
+    with st.form("new_shadow"):
+        st.markdown("**Define a new shadow account** (immutable once defined; a change = a new key)")
+        cc = st.columns(4)
+        key = cc[0].text_input("Key (e.g. v98:weiss_x2)"); src = cc[1].selectbox("Source paper account", q("SELECT key FROM paper_accounts WHERE key LIKE 'paper:%' ORDER BY key DESC")["key"].tolist() or ["paper:v98"])
+        kind = cc[2].selectbox("Kind", ["sleeve", "reweighted", "custom", "rule"]); risk_ = cc[3].number_input("Risk multiplier", 0.1, 3.0, 1.5, 0.1)
+        sleeves = q("SELECT DISTINCT sleeve FROM paper_sleeve_pnl")["sleeve"].tolist()
+        cc2 = st.columns(3)
+        slv = cc2[0].selectbox("Sleeve (kind = sleeve)", sleeves or ["C*"]); spec_json = cc2[1].text_input("Multipliers / weights JSON (reweighted / custom)", '{"Weiss expiry": 2.0}')
+        rule = cc2[2].selectbox("Rule (kind = rule)", list(shadow.RULES)); desc = st.text_input("Why (hypothesis / purpose)")
+        if st.form_submit_button("Define and compute"):
+            try:
+                spec = {"sleeve": slv, "vol_target": 0.15} if kind == "sleeve" else {"rule": rule} if kind == "rule" else (
+                    {"multipliers": js(spec_json)} if kind == "reweighted" else {"weights": js(spec_json)})
+                shadow.define(c, key, src, kind, spec, risk=risk_, description=desc)
+                st.success(shadow.recompute(c, f"shadow:{key}")); st.rerun()
+            except Exception as e:                                         # noqa: BLE001
+                st.error(str(e))
+    if st.button("Recompute all shadows now"):
+        st.json(shadow.recompute(c))
 
 
 # ============================================================================================================ Prop firms

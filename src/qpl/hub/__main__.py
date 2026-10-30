@@ -23,8 +23,9 @@ def _print(x):
 
 
 def cmd_init(a):
-    from qpl.hub import ingest, jobs, prop, risk
+    from qpl.hub import ingest, jobs, prop, risk, shadow
     c = DB.init(); out = {"migrations": "ok", "ingest": ingest.all_sources(c), "prop": prop.seed_from_project(c)}
+    shadow.ensure_defaults(c); out["shadows"] = shadow.recompute(c)
     risk.ensure_defaults(c); jobs.ensure_schedules(c); _print(out)
 
 

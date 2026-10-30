@@ -17,8 +17,10 @@ ALLOWED_SCRIPT_DIRS = ("scripts/v99/", "scripts/hub_research/")
 
 
 def h_ingest(c, p):
-    from qpl.hub import ingest
-    return {"protocols": ingest.protocols(c), "paper": ingest.paper_accounts(c), "datasets": ingest.datasets(c)} if p.get("light", True) else ingest.all_sources(c)
+    from qpl.hub import ingest, shadow
+    out = {"protocols": ingest.protocols(c), "paper": ingest.paper_accounts(c), "datasets": ingest.datasets(c)} if p.get("light", True) else ingest.all_sources(c)
+    shadow.ensure_defaults(c); out["shadows"] = shadow.recompute(c)
+    return out
 
 
 def h_risk(c, p):

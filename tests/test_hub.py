@@ -138,7 +138,7 @@ def _paper(c, key, rets, start="2026-10-01"):
         aid = c.execute("INSERT INTO paper_accounts (key, source_dir, initial_capital, status, created_at) VALUES (?,?,?,?,?)",
                         (key, "x", 100000, "running", now())).lastrowid
         eq = 100000 * np.cumprod(1 + np.array(rets)); ts = pd.date_range(start, periods=len(rets), freq="h")
-        c.executemany("INSERT INTO paper_equity VALUES (?,?,?,?,?)", [(aid, str(t), float(r), float(e), 0) for t, r, e in zip(ts, rets, eq)])
+        c.executemany("INSERT INTO paper_equity (account_id, ts, ret, equity, late) VALUES (?,?,?,?,?)", [(aid, str(t), float(r), float(e), 0) for t, r, e in zip(ts, rets, eq)])
     return aid
 
 
@@ -262,3 +262,22 @@ def test_agent_decision_rule_with_period_checks(c, tmp_path, monkeypatch):
     EX.register(c, "agent:k", "agent", {}, status="running")
     J.enqueue(c, "noop", {}, dedup_key="agent_run:k"); j = J.claim(c, "w"); J.complete(c, j["id"], {})
     assert agent.evaluate(c, "k", {"items": [it]})["decision"] == "pass"
+
+
+def test_shadow_accounts_derive_exactly_from_the_source(c):
+    from qpl.hub import ingest, shadow
+    ingest.paper_accounts(c)
+    shadow.define(c, "t:same", "paper:v86", "reweighted", {"multipliers": {}}, risk=2.0)
+    shadow.define(c, "t:cstar", "paper:v86", "sleeve", {"sleeve": "C*", "vol_target": 0.15})
+    shadow.define(c, "t:noridge", "paper:v86", "reweighted", {"multipliers": {"ridge ML": 0.0}}, risk=2.0)
+    r = shadow.recompute(c)
+    assert r["shadow:t:same"]["hours"] == 46 and r["shadow:t:same"]["forward_hours"] == 0          # defined after the run: all retroactive
+    src = pd.read_sql_query("SELECT ts, ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='paper:v86' ORDER BY ts", c)
+    sh = pd.read_sql_query("SELECT ts, ret, retro FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='shadow:t:same' ORDER BY ts", c)
+    assert np.abs(src["ret"].to_numpy() - sh["ret"].to_numpy()).max() < 1e-15 and sh["retro"].all()  # neutral shadow == the paper book
+    nr = pd.read_sql_query("SELECT ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='shadow:t:noridge' ORDER BY ts", c)["ret"]
+    assert not np.allclose(nr.to_numpy(), src["ret"].to_numpy())
+    with pytest.raises(ValueError):
+        shadow.define(c, "t:same", "paper:v86", "reweighted", {"multipliers": {"C*": 2}})          # immutable definition
+    assert shadow.define(c, "t:waiting", "paper:v98", "sleeve", {"sleeve": "C*"})
+    assert "waiting" in shadow.recompute(c, "shadow:t:waiting")["shadow:t:waiting"]["status"]
