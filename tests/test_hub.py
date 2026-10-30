@@ -178,6 +178,17 @@ def test_prop_rule_versions_and_compatibility(c):
     assert prop.compatibility(c, rid)["status"] == "incompatible"                        # crypto book vs futures firm
 
 
+def test_futures_profile_uses_firm_policy_facts(c):
+    from qpl.hub import prop
+    combine = prop.add_rule_set(c, "mffu", "Combine 50k", {"account": 50000}, [], "2026-10-30")
+    assert prop.compatibility(c, combine, prop.FUTURES_PROFILE, store=False)["status"] == "potentially_compatible"   # nothing known yet
+    prop.add_rule_set(c, "mffu", "futures swing policy (project notes)", {"source": "test"},
+                      [{"field": "overnight_holding", "value": False, "status": "verified", "source_url": "https://example.test/mffu",
+                        "quote": "positions are closed at 16:10 ET", "checked_at": "2026-10-30"}], "2026-10-30")
+    assert prop.compatibility(c, combine, prop.FUTURES_PROFILE, store=False)["status"] == "incompatible"       # firm-wide policy applies
+    assert prop.compatibility(c, combine, prop.V98_PROFILE, store=False)["status"] == "incompatible"           # crypto book: wrong market
+
+
 def test_nominal_account_is_not_loss_capacity():
     from qpl.lab import propfirms as PF
     f = PF.PRESETS["HyroTrader Two-Step $200k"]

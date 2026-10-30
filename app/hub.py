@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import threading
 from pathlib import Path
 
 import numpy as np
@@ -37,8 +38,19 @@ def tag(*k):
 
 
 @st.cache_resource
+def _init_db():
+    DB.init(); return True                                     # migrations once per server process
+
+
+_local = threading.local()
+
+
 def con():
-    return DB.init()
+    """One connection per thread: Streamlit runs each rerun in its own thread and sqlite3 objects must stay in theirs."""
+    _init_db()
+    if getattr(_local, "c", None) is None:
+        _local.c = DB.connect()
+    return _local.c
 
 
 def q(sql, params=()):
@@ -282,7 +294,9 @@ def book_risk():
 
 def portfolio():
     st.header("Portfolio & Risk")
-    t1, t2, t5, t3 = st.tabs(["Crypto book v9.8", "Paper accounts", "Shadow accounts (per strategy / portfolio variants)", "Risk limits & events"])
+    t1, t6, t2, t5, t3 = st.tabs(["Crypto book v9.8", "Futures book", "Paper accounts", "Shadow accounts (per strategy / portfolio variants)", "Risk limits & events"])
+    with t6:
+        futures_tab()
     with t1:
         tag("backtest")
         if not (ROOT / "results/v98_paper_sleeves.parquet").exists():
@@ -319,6 +333,46 @@ def portfolio():
         st.dataframe(q("SELECT * FROM risk_limits"), width="stretch", hide_index=True)
         st.dataframe(q("SELECT * FROM risk_events ORDER BY id DESC LIMIT 100"), width="stretch", hide_index=True)
         st.caption("A 'stop' on paper:v98 also writes the dry-run bot's kill switch bot_state/STOP. Recovery always needs a manual review.")
+
+
+@st.cache_data(ttl=3600, show_spinner="rebuilding the futures book from its saved sleeves ...")
+def futures_data():
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "scripts"))
+    import fbook
+    S = fbook.sleeves(); return S, fbook.build(S)
+
+
+def futures_tab():
+    tag("backtest")
+    if not (ROOT / "results/book_sleeves_current.parquet").exists():
+        st.warning("results/book_sleeves_current.parquet not found"); return
+    S, b = futures_data()
+    A = js((ROOT / "results/hub_research/futures_audit.json").read_text()) if (ROOT / "results/hub_research/futures_audit.json").exists() else {}
+    sh = lambda x, a, z: float(x.loc[a:z].mean() / x.loc[a:z].std() * np.sqrt(252))
+    k = st.columns(5)
+    for col, (lab, a, z) in zip(k, (("2010-17", "2010-06", "2017"), ("2018-22", "2018", "2022"), ("2023-26", "2023", "2026-09-30"))):
+        col.metric(f"Sharpe {lab}", f"{sh(b, a, z):.2f}")
+    pl = A.get("planning Sharpe, full 2010-26", {})
+    k[3].metric("Planning Sharpe (N=460)", pl.get("N=460", "run audit"), help="backtest Sharpe minus the expected best-of-N luck of the futures research so far (F1 audit)")
+    k[4].metric("ES/NQ corr 2023-26", A.get("ES/NQ beta by split", {}).get("2023-2026", {}).get("corr", "-"),
+                help="most of the 2023-26 result is equity exposure; beta-adjusted 2023-26 Sharpe in the audit")
+    st.plotly_chart(px.line((1 + b).cumprod(), template=TPL, title="Futures book, growth of 1 (10% vol target, EQR, daily)",
+                            labels={"value": "growth of 1", "index": ""}).update_layout(height=320, showlegend=False), width="stretch")
+    sl = A.get("sleeves")
+    if sl:
+        T = pd.DataFrame(sl).T
+        T[["2010-17", "2018-22", "2023-26"]] = pd.DataFrame(T.pop("alone").tolist(), index=T.index)
+        st.subheader("Sleeves")
+        st.dataframe(T[["class", "2010-17", "2018-22", "2023-26", "appraisal 2010-22", "EQR weight", "risk share 2023-26", "book 2023-26 without it"]],
+                     width="stretch")
+        a, c2 = st.columns(2)
+        a.plotly_chart(px.pie(names=list(A["risk share 2023-26 by class"]), values=[max(v, 0) for v in A["risk share 2023-26 by class"].values()],
+                              template=TPL, title="Risk share 2023-26 by asset class").update_layout(height=300), width="stretch")
+        sb = A.get("sub-books (EQR, same construction)", {})
+        c2.table(pd.DataFrame(sb, index=["2010-17", "2018-22", "2023-26"]).T)
+    st.caption("Status: validation (backtest only). No futures paper trader exists yet: it needs a daily CME data source on your PC "
+               "(see research/hub/STATUS.md). Needs a futures firm that allows overnight holding AND bots (Prop Firm Center, profile 'futures').")
 
 
 def shadow_tab():
@@ -398,12 +452,13 @@ def propfirms():
             snaps = sorted((ROOT / "research_data/prop_pages").glob(f"{rs.set_index('id').loc[rid, 'firm']}/*/index.json"))
             st.caption(f"Saved official page snapshots for this firm: {len(snaps)} (get_prop_rules.bat on your PC)" + (f", newest {snaps[-1].parent.name}" if snaps else ""))
     with t2:
-        if st.button("Assess the v9.8 crypto book against every current rule set"):
-            out = [prop.compatibility(c, int(i)) for i in rs[rs.superseded_at.isna()]["id"]]
+        prof = st.radio("Book", ["crypto", "futures"], horizontal=True, format_func=lambda k: prop.PROFILES[k]["name"])
+        if st.button("Assess this book against every current rule set"):
+            out = [prop.compatibility(c, int(i), prop.PROFILES[prof]) for i in rs[rs.superseded_at.isna()]["id"]]
             st.session_state["compat"] = out
         res = st.session_state.get("compat") or [js(x) for x in q("SELECT reasons FROM compat_assessments ORDER BY id DESC LIMIT 40")["reasons"]]
         if res:
-            st.dataframe(pd.DataFrame([{"firm": r["firm"], "account": r["account_type"], "status": r["status"], "blocking": "; ".join(r["blocking"]),
+            st.dataframe(pd.DataFrame([{"book": r.get("profile", ""), "firm": r["firm"], "account": r["account_type"], "status": r["status"], "blocking": "; ".join(r["blocking"]),
                                         "missing / unverified": len(r["missing_or_unverified"])} for r in res]), width="stretch", hide_index=True)
             st.caption("Status 'verified compatible' requires every needed rule to be verified from an official source; otherwise the best possible status is 'potentially compatible'.")
     with t3:

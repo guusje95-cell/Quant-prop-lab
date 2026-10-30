@@ -55,7 +55,16 @@ def h_prop_staleness(c, p):
     return {"stale_or_unchecked": len(st), "unverified_current": unver}
 
 
+def futures_book() -> pd.Series:
+    """Daily futures book (15 sleeves, EQR, 10% vol target) rebuilt from the saved sleeves (scripts/fbook.py)."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import fbook
+    return fbook.build(fbook.sleeves())
+
+
 def book_series(book: str = "v98") -> pd.Series:
+    if book == "futures":
+        return futures_book()
     f = ROOT / ("results/v98_paper_sleeves.parquet" if book == "v98" else f"results/cache_{book}_final.parquet")
     x = pd.read_parquet(f); s = x["port"] if "port" in x else x.iloc[:, 0]
     return s.groupby(s.index.floor("D")).sum().loc["2022-01-01":]
@@ -64,8 +73,12 @@ def book_series(book: str = "v98") -> pd.Series:
 def h_validate_book(c, p):
     from qpl.hub import experiments as EX, validation as V
     s = book_series(p.get("book", "v98"))
-    n = int(c.execute("SELECT COALESCE(SUM(trials_added),0) FROM experiments WHERE kind='protocol'").fetchone()[0]) or 1849
-    rep = V.evaluate(s, n, p.get("use_case", "prop_challenge"))
+    if p.get("book") == "futures":                                   # futures research count (F1 audit), trading-day annualisation
+        n, ppy = int(p.get("n_trials", 460)), 252
+        splits = {"2010-17": ("2010-06-01", "2017-12-31"), "2018-22": ("2018-01-01", "2022-12-31"), "2023-26": ("2023-01-01", "2026-09-30")}
+    else:
+        n, ppy, splits = int(c.execute("SELECT COALESCE(SUM(trials_added),0) FROM experiments WHERE kind='protocol'").fetchone()[0]) or 1849, 365, None
+    rep = V.evaluate(s, n, p.get("use_case", "prop_challenge"), splits=splits, ppy=ppy)
     key = f"monitor:validate:{p.get('book', 'v98')}:{now()[:10]}"
     eid = EX.register(c, key, "descriptive", {"book": p.get("book", "v98"), "use_case": p.get("use_case", "prop_challenge"), "n_trials": n},
                       title=f"periodic validation of book {p.get('book', 'v98')}", trials_added=0, source="hub:validate_book")

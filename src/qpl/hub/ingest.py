@@ -118,6 +118,17 @@ SLEEVES_V98 = {
 }
 
 
+SLEEVES_FUT = {  # name -> (asset class, description); classes as in scripts/hub_research/futures_audit.py
+    "F3": ("rates", "Treasury month-end long (last days of the month) on ZN/ZB/ZF"), "F5": ("equity", "vol-managed long ES/NQ"),
+    "G1": ("multi-asset", "time-series trend on 24 markets"), "P1": ("equity", "IBS long-only ES/NQ at 16:00 ET"),
+    "A3": ("rates", "Treasury auction cycle"), "U5": ("multi-asset", "cross-sectional 252-day momentum, 6 per side"),
+    "K3": ("equity", "pension rebalancing"), "R1": ("equity", "dip-buying ensemble 14:00 ET, low-vol sized"),
+    "T1": ("equity", "turn of month"), "T2": ("equity", "pre-holiday"), "FC": ("equity", "FOMC-cycle weeks 2/4/6"),
+    "MM": ("equity", "mid-month flow"), "BC": ("rates", "big-move continuation ZF/ZN/ZB"), "SH": ("energy", "autumn heating-oil crack"),
+    "OIL": ("equity", "long ES/NQ after oil fell (Driesprong)"),
+}
+
+
 def strategies(c: sqlite3.Connection) -> dict:
     n = 0
     for name, (code, fam, desc) in SLEEVES_V98.items():
@@ -134,10 +145,20 @@ def strategies(c: sqlite3.Connection) -> dict:
     RG.upsert_strategy(c, "futures:book", "Futures book (15 sleeves)", "futures", "trend / carry / calendar", "Gen205-238 futures book (ES, NQ, Treasuries, commodities)")
     RG.add_version(c, "futures:book", "gen238", "scripts/gen23x futures scripts", {"book": "futures", "ref": "Gen238"}, state="validation",
                    notes="2022-26 Sharpe about 1.24 (Gen435), needs a futures firm allowing overnight holding and bots")
+    for name, (cls, desc) in SLEEVES_FUT.items():
+        key = "futures:" + name.lower()
+        RG.upsert_strategy(c, key, f"{name} ({desc})", "futures", cls, desc)
+        RG.add_version(c, key, "gen238", "scripts/futures_book_build.py :: " + name, {"book": "futures", "sleeve": name}, state="validation",
+                       notes="backtest only (results/book_sleeves_current.parquet); no futures paper trader yet")
+    RG.add_portfolio_version(c, "futures_book", "futures", "gen238", list(SLEEVES_FUT),
+                             {"method": "EQR: 1/sd over sleeves with positive 2010-22 Sharpe, fit 2010-22", "vol_target": 0.10, "vol_window_days": 60,
+                              "leverage_cap": 3.0, "code": "scripts/fbook.py build"}, {"frequency": "daily"}, state="validation",
+                             purpose="futures prop account that allows overnight holding and bots",
+                             notes="backtest 1.459 / 1.451 / 1.218; planning about 0.64 at N = 460 (F1 audit); 72% of 2023-26 risk is equity timing")
     RG.upsert_strategy(c, "cfd:bf26", "BrightFunded CFD book bf2.6", "cfd", "crypto CFDs + index CFDs", "MT5 CFD version of the crypto book")
     RG.add_version(c, "cfd:bf26", "bf2.6", "scripts/cfd_book.py", {"book": "bf26"}, state="rejected",
                    notes="contains the withdrawn carry sleeves; honest version about 2.3 (Gen377); not in the plan")
-    return {"crypto_sleeves": n}
+    return {"crypto_sleeves": n, "futures_sleeves": len(SLEEVES_FUT)}
 
 
 def paper_accounts(c: sqlite3.Connection, base: Path = ROOT / "paper_trading") -> dict:

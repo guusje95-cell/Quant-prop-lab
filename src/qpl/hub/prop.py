@@ -26,6 +26,9 @@ FIRM_INFO = {  # key -> (name, markets, platforms, website)
     "fundednext": ("FundedNext", ["cfd", "crypto_cfd"], ["MT4", "MT5", "cTrader"], "https://fundednext.com"),
     "topstep": ("Topstep", ["cme_futures"], ["TopstepX", "NinjaTrader", "Tradovate"], "https://www.topstep.com"),
     "apex": ("Apex Trader Funding", ["cme_futures"], ["Rithmic", "Tradovate"], "https://apextraderfunding.com"),
+    "mffu": ("MyFundedFutures", ["cme_futures"], ["Tradovate", "NinjaTrader", "Rithmic"], "https://myfundedfutures.com"),
+    "tradeify": ("Tradeify", ["cme_futures"], ["Tradovate", "NinjaTrader", "Rithmic"], "https://tradeify.co"),
+    "propshop": ("PropShop Trader", ["cme_futures"], ["Tickblaze", "Rithmic"], "https://propshoptrader.com"),
 }
 PRESET_FIRM = {"Crypto Fund Trader": "cft", "FTMO": "ftmo", "HyroTrader": "hyrotrader", "Breakout": "breakout", "SizeProp": "sizeprop",
                "FundedNext": "fundednext", "BrightFunded": "brightfunded", "Topstep": "topstep", "Apex": "apex"}
@@ -98,7 +101,28 @@ def seed_from_project(c: sqlite3.Connection) -> dict:
                 facts.append({"field": field, "value": val.get("value"), "status": st, "source_url": val.get("source"), "checked_at": "2026-10-09",
                               "confidence": "medium" if st == "verified" else "low", "note": val.get("conflict")})
         add_rule_set(c, fk, f"{e.get('product', key)} (config/prop_firms.json)", {"source": "config/prop_firms.json", "key": key}, facts, effective_from="2026-10-09"); n += 1
-    return {"rule_sets": n, "fact_files": load_fact_files(c)}
+    return {"rule_sets": n, "futures_policy": seed_futures_policy(c), "fact_files": load_fact_files(c)}
+
+
+# Futures-firm holding rules as recorded in the project (research/LEADERBOARD.md, "Futures firm rule check" 2026-10-20 and the Gen270s
+# overview). The user read MFFU / Tradeify help pages; nothing here has a stored URL + quote, so nothing is 'verified'.
+FUTURES_POLICY = {
+    "mffu": [("overnight_holding", False, "uncertain", "user check 2026-10-20: auto-flatten 16:10 ET (LEADERBOARD 'Futures firm rule check')")],
+    "tradeify": [("overnight_holding", False, "uncertain", "user check 2026-10-20: flat by 16:45 ET (LEADERBOARD 'Futures firm rule check')")],
+    "topstep": [("overnight_holding", False, "uncertain", "project overview: positions are closed at the session close (verify)")],
+    "apex": [("overnight_holding", False, "uncertain", "project overview: positions are closed at the session close (verify)")],
+    "propshop": [("overnight_holding", True, "assumption", "affiliate-type sources mention 'Direct swing' accounts; verify on the official site"),
+                 ("bots_allowed", True, "assumption", "reviews mention bots via Tickblaze; conflicting reports, verify")],
+}
+
+
+def seed_futures_policy(c: sqlite3.Connection) -> int:
+    n = 0
+    for fk, rows in FUTURES_POLICY.items():
+        facts = [{"field": f, "value": v, "status": stt, "source_url": "research/LEADERBOARD.md", "checked_at": "2026-10-20", "confidence": "low", "note": note}
+                 for f, v, stt, note in rows]
+        add_rule_set(c, fk, "futures swing policy (project notes)", {"source": "research/LEADERBOARD.md futures firm rule check"}, facts, effective_from="2026-10-20"); n += 1
+    return n
 
 
 def facts(c: sqlite3.Connection, rule_set_id: int) -> dict:
@@ -120,12 +144,20 @@ def stale_facts(c: sqlite3.Connection, days: int = STALE_DAYS) -> list[dict]:
 V98_PROFILE = {"name": "crypto book v9.8", "markets": ["crypto_perps"], "venue": "Bybit USDT perps", "needs_api_bot": True, "holds_overnight": True,
                "holds_weekend": True, "trades_news": True, "orders_per_day": 20, "uses_low_cap_coins": True, "max_low_cap_frac": 0.05,
                "funded_notional_x": 1.9, "worst_day_at_risk_1_5": None, "country": "Netherlands"}
+FUTURES_PROFILE = {"name": "futures book (15 sleeves)", "markets": ["cme_futures"], "venue": "CME micro futures", "needs_api_bot": True,
+                   "holds_overnight": True, "holds_weekend": True, "trades_news": True, "orders_per_day": 10, "uses_low_cap_coins": False,
+                   "country": "Netherlands", "note": "swing book: the daily-flat version scores 0.36 / 0.72 / 0.84 (LEADERBOARD)"}
+PROFILES = {"crypto": V98_PROFILE, "futures": FUTURES_PROFILE}
 
 
 def compatibility(c: sqlite3.Connection, rule_set_id: int, profile: dict = V98_PROFILE, version_id: int | None = None,
                   portfolio_version_id: int | None = None, store: bool = True) -> dict:
     rs = c.execute("SELECT s.*, p.key firm, p.markets FROM prop_rule_sets s JOIN prop_firms p ON p.id=s.firm_id WHERE s.id=?", (rule_set_id,)).fetchone()
-    F = facts(c, rule_set_id); reasons, unknown, hard_no = [], [], []
+    F = {}
+    for pr in c.execute("SELECT id FROM prop_rule_sets WHERE firm_id=? AND superseded_at IS NULL AND account_type LIKE '%policy%' AND id<>?",
+                        (rs["firm_id"], rule_set_id)):
+        F.update(facts(c, pr["id"]))                                       # firm-wide policy facts apply to every account type ...
+    F.update(facts(c, rule_set_id)); reasons, unknown, hard_no = [], [], []   # ... unless the rule set records its own
     mk = set(json.loads(rs["markets"] or "[]"))
     if not set(profile["markets"]) & mk:
         hard_no.append(f"firm markets {sorted(mk)} do not include {profile['markets']}")

@@ -25,6 +25,7 @@ backup | verify-backup FILE | restore FILE | enqueue KIND | finance-add ... | fi
 | prop_staleness | 1 day | loads fact files, flags rules unchecked or older than 30 days |
 | data_integrity | 1 day | v98 freeze guard (alerts if a baseline file changed) + data catalogue |
 | validate_book | 7 days | full validation of the v9.8 book (DSR, Harvey-Liu, bootstrap, stress, acceptance criteria) recorded as an experiment |
+| validate_futures | 7 days | the same for the futures book (N = 460 futures trials, trading-day annualisation) |
 | agent | 12 h | research agent: next approved agenda item → registered experiment → run → judged by its pre-registered rule |
 | daily_summary | 1 day | summary file + notification-centre entry |
 
@@ -42,6 +43,11 @@ Notifications: the dashboard's alert list (no external messaging is configured; 
   an engine account), combined with the book's own equal-risk rule (`portfolio_v5`, so a 10th sleeve gets 1/10 of the risk once it has
   30 active days). Shows live, before any switch, how "v9.8 + the new sleeve" would have done.
 - The v9.8 book itself keeps running in `paper_v98_start.bat` (frozen baseline).
+
+## Futures book
+Portfolio & Risk → **Futures book**: equity curve, Sharpe per period, planning Sharpe after the luck haircut, ES/NQ correlation, per-sleeve table
+(asset class, leave-one-out) from the F1 audit (`scripts/hub_research/futures_audit.py`). Prop Firm Center → Compatibility → choose the
+book (crypto / futures). Backtest only: there is no futures paper trader until a daily CME data source is chosen.
 
 ## Research agent
 `research/hub/agenda.json` holds pre-registered hypotheses (rationale, data needed, whitelisted script, decision rule, priority
