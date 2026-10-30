@@ -230,3 +230,23 @@ def test_income_never_counts_sharpe_as_income():
     r0 = income.simulate(h, {**income.SCENARIOS["base"], "live_sharpe": 0.0}, n_paths=40, horizon_days=360)
     r2 = income.simulate(h, {**income.SCENARIOS["base"], "live_sharpe": 3.0}, n_paths=40, horizon_days=360)
     assert r2["monthly_net_cash_eur_before_tax"]["mean"] > r0["monthly_net_cash_eur_before_tax"]["mean"]
+
+
+def test_verified_fact_needs_source_and_quote(c):
+    from qpl.hub import prop
+    r = prop.add_rule_set(c, "hyrotrader", "T2", {"account": 100000}, [], "2026-10-30")
+    with pytest.raises(ValueError):
+        prop.record_fact(c, r, "bots_allowed", True, "verified", None, None)
+    with pytest.raises(ValueError):
+        prop.record_fact(c, r, "bots_allowed", True, "verified", "https://x.test", "")
+    prop.record_fact(c, r, "bots_allowed", True, "verified", "https://x.test/rules", "Trading bots connected via API are permitted.")
+    assert prop.facts(c, r)["bots_allowed"]["status"] == "verified"
+
+
+def test_dashboard_renders_every_page_on_an_empty_database(tmp_path, monkeypatch):
+    monkeypatch.setenv("QPL_HUB_DB", str(tmp_path / "empty.sqlite"))
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(str(ROOT / "app/hub.py"), default_timeout=300); at.run()
+    for p in ["Overview", "Research Lab", "Strategy Center", "Portfolio & Risk", "Prop Firm Center", "Income Planner", "Finance", "System Health"]:
+        at.sidebar.radio[0].set_value(p).run()
+        assert not at.exception, (p, [e.value for e in at.exception][:1])

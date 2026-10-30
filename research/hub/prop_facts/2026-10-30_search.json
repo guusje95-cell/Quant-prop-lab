@@ -1,0 +1,32 @@
+{
+ "_doc": "Prop-rule facts gathered on 2026-10-30 by web SEARCH from the cloud session. The firms' own websites could not be opened from the cloud (DNS blocked by the environment's network policy), so no fact here is 'verified': status 'uncertain' = consistent across third-party summaries or seen in a search result pointing at the firm's own FAQ, but the page itself was not read. Verify on the official page (get_prop_rules.bat on the PC, then the dashboard's 'Record / verify a rule' form) before any decision.",
+ "facts": [
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "bots_allowed", "value": true, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+   "quote": "search summary of the official FAQ: trading bots connected via API are permitted; self-developed, custom and third-party bots permitted; copy trading, account mirroring and external signal providers not allowed; high-frequency strategies not permitted",
+   "note": "one third-party blog claims only custom-built bots are allowed during the evaluation (conflict)"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "copy_trading", "value": false, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://www.hyrotrader.com/faq/hyrotrader-account/can-i-use-trading-bots-or-signal-bots-during-the-challenge-or-on-a-funded-account/",
+   "quote": "search summary: copy trading, account mirroring and external signal providers are not allowed"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "targets", "value": [0.10, 0.05], "status": "uncertain", "confidence": "medium",
+   "source_url": "https://thetrustedprop.com/blogs/hyrotrader-challenge-types-rules-and-payouts", "quote": "Phase 1 10%, Phase 2 5% (several third-party reviews agree)"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "daily_loss", "value": 0.05, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://proptradingvibes.com/blog/hyrotrader-account-types", "quote": "5% daily drawdown; two modes: Standard follows intraday peak equity, Swing fixes the reference at start-of-day equity",
+   "note": "the mode matters for the simulator (daily_basis); the project preset uses start-of-day equity"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "max_loss", "value": 0.10, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://cryptoslate.com/prop-firms/hyrotrader-review/", "quote": "10% maximum loss, static from the initial balance (reviews agree it is not trailing)"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "per_trade_loss_cap", "value": 0.03, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://proptradingvibes.com/blog/hyrotrader-prohibited-strategies", "quote": "a single realized trade loss above 3% of the initial balance can violate the rules"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "min_days", "value": "conflicting: 5 per phase vs 10 / 5", "status": "ambiguous", "confidence": "low",
+   "source_url": "https://thetrustedprop.com/prop-firms/hyrotrader/challenges", "quote": "sources disagree on minimum trading days"},
+  {"firm": "hyrotrader", "account_type": "HyroTrader Two-Step $200k", "field": "prohibited_strategies", "value": "martingale, grid, cross-account hedging, HFT", "status": "uncertain", "confidence": "medium",
+   "source_url": "https://proptradingvibes.com/blog/hyrotrader-prohibited-strategies", "quote": "Martingale and grid trading, cross-account hedging are banned"},
+  {"firm": "topstep", "account_type": "Topstep 50k Combine (futures)", "field": "overnight_holding", "value": false, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://topstepbrokerage.com/blog/trade-desk-trade-flattening", "quote": "positions must be closed by 3:10 PM CT; risk managers begin flattening at 3:08 PM CT (described by Topstep as a legacy rule; one 2026 guide says funded accounts may hold overnight)",
+   "note": "rules reportedly changed four times between 2025-11 and 2026-04"},
+  {"firm": "topstep", "account_type": "Topstep 50k Combine (futures)", "field": "bots_allowed", "value": true, "status": "uncertain", "confidence": "medium",
+   "source_url": "https://blog.traderspost.io/article/topstep-review", "quote": "TopstepX API supports automation; legitimate automated strategies permitted; HFT / sim-exploiting automation prohibited; automation must run from a personal device (no VPS / VPN)"},
+  {"firm": "topstep", "account_type": "Topstep 50k Combine (futures)", "field": "vps_allowed", "value": false, "status": "uncertain", "confidence": "low",
+   "source_url": "https://blog.traderspost.io/article/topstep-review", "quote": "several sources: all automated trading must run from a personal device; VPS and VPN usage prohibited"}
+ ]
+}

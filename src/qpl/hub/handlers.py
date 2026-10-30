@@ -43,6 +43,7 @@ def h_backup(c, p):
 
 def h_prop_staleness(c, p):
     from qpl.hub import prop
+    prop.load_fact_files(c)
     st = prop.stale_facts(c)
     unver = c.execute("SELECT COUNT(*) FROM prop_rule_facts f JOIN prop_rule_sets s ON s.id=f.rule_set_id WHERE s.superseded_at IS NULL AND f.status<>'verified'").fetchone()[0]
     if st:

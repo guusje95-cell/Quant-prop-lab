@@ -72,3 +72,5 @@ paper_trading/v98/_recompute*
 # Quant Trading Hub local state (database, backups, summaries)
 hub_data/
 bot_state/
+hub_data_init.log
+hub_worker.log

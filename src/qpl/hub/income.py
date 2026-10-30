@@ -77,7 +77,7 @@ def simulate(hourly_unit: pd.Series, scenario: dict, plan: list[dict] = None, ta
             "monthly_net_cash_eur_before_tax": {"mean": float(Mo.mean()), "p10": float(np.percentile(Mo, 10)), "p50": float(np.percentile(Mo, 50)), "p90": float(np.percentile(Mo, 90))},
             "second_year_mean_month_eur": float(second_year.mean()),
             "P_month_at_or_above_target_in_year2": float(hit.mean()), "P_three_consecutive_target_months_in_year2": float(streak3),
-            "P_net_loss_over_horizon": float((cum[:, -1] < 0).mean()), "horizon_net_eur_p10_p50_p90": [float(np.percentile(cum[:, -1], q)) for q in (10, 50, 90)],
+            "P_net_loss_over_horizon": float((cum[:, -1] < 0).mean()), "horizon_net_eur_mean": float(cum[:, -1].mean()), "horizon_net_eur_p10_p50_p90": [float(np.percentile(cum[:, -1], q)) for q in (10, 50, 90)],
             "annual_after_tax_eur_mean": [float(x) for x in after_tax.mean(axis=0)],
             "worst_cumulative_cash_eur_p10": float(np.percentile(cum.min(axis=1), 10)),
             "median_days_to_first_cash": float(np.nanmedian(first_pay)) if np.isfinite(first_pay).any() else None,

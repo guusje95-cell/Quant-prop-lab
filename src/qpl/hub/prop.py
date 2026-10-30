@@ -98,7 +98,7 @@ def seed_from_project(c: sqlite3.Connection) -> dict:
                 facts.append({"field": field, "value": val.get("value"), "status": st, "source_url": val.get("source"), "checked_at": "2026-10-09",
                               "confidence": "medium" if st == "verified" else "low", "note": val.get("conflict")})
         add_rule_set(c, fk, f"{e.get('product', key)} (config/prop_firms.json)", {"source": "config/prop_firms.json", "key": key}, facts, effective_from="2026-10-09"); n += 1
-    return {"rule_sets": n}
+    return {"rule_sets": n, "fact_files": load_fact_files(c)}
 
 
 def facts(c: sqlite3.Connection, rule_set_id: int) -> dict:
@@ -216,3 +216,37 @@ def simulate(c: sqlite3.Connection, rule_set_id: int, hourly_unit: pd.Series, su
             c.execute("INSERT INTO challenge_sims (rule_set_id, subject, returns_source, sharpe_level, config, results, ts) VALUES (?,?,?,?,?,?,?)",
                       (rule_set_id, subject, returns_source, None if sharpe_level is None else str(sharpe_level), json.dumps(cfg, default=str), json.dumps(res, default=str), now()))
     return {"config": cfg, "results": res}
+
+
+def record_fact(c: sqlite3.Connection, rule_set_id: int, field: str, value, status: str, source_url: str | None, quote: str | None,
+                checked_at: str | None = None, confidence: str | None = None, note: str | None = None, actor: str = "user") -> int:
+    """Add a dated fact to a rule set. 'verified' requires an official source URL and the exact quote (no unsourced verification)."""
+    if status == "verified" and (not source_url or not str(source_url).startswith("http") or not quote or len(quote.strip()) < 10):
+        raise ValueError("a verified rule needs the official page URL and the exact quoted text")
+    with tx(c):
+        i = c.execute("INSERT INTO prop_rule_facts (rule_set_id, field, value, status, source_url, quote, checked_at, confidence, note) VALUES (?,?,?,?,?,?,?,?,?)",
+                      (rule_set_id, field, json.dumps(value, default=str), status, source_url, quote, checked_at or now()[:10], confidence, note)).lastrowid
+        audit(c, actor, "record_fact", "prop_rule_facts", i, {"rule_set": rule_set_id, "field": field, "status": status})
+    return i
+
+
+def load_fact_files(c: sqlite3.Connection, pattern: str = "research/hub/prop_facts/*.json") -> dict:
+    """Attach the facts of every fact file to the CURRENT rule set of its firm / account type (idempotent: same field + source + date is skipped)."""
+    import glob
+    n = skipped = 0
+    for f in sorted(glob.glob(str(ROOT / pattern))):
+        d = json.loads(Path(f).read_text()); day = Path(f).name[:10]
+        for x in d["facts"]:
+            r = c.execute("SELECT s.id FROM prop_rule_sets s JOIN prop_firms p ON p.id=s.firm_id WHERE p.key=? AND s.account_type=? AND s.superseded_at IS NULL",
+                          (x["firm"], x["account_type"])).fetchone()
+            if not r:
+                skipped += 1; continue
+            if c.execute("SELECT 1 FROM prop_rule_facts WHERE rule_set_id=? AND field=? AND COALESCE(source_url,'')=? AND checked_at=?",
+                         (r["id"], x["field"], x.get("source_url") or "", day)).fetchone():
+                continue
+            with tx(c):
+                c.execute("INSERT INTO prop_rule_facts (rule_set_id, field, value, status, source_url, quote, checked_at, confidence, note) VALUES (?,?,?,?,?,?,?,?,?)",
+                          (r["id"], x["field"], json.dumps(x.get("value"), default=str), x["status"], x.get("source_url"), x.get("quote"), day, x.get("confidence"),
+                           (x.get("note") or "") + f" [{Path(f).name}]"))
+            n += 1
+    return {"facts_added": n, "skipped_no_rule_set": skipped}

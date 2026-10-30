@@ -1,0 +1,21 @@
+{
+ "reference_v98": [
+  3.24,
+  [
+   3.063,
+   3.91,
+   2.67
+  ]
+ ],
+ "candidate": [
+  3.336,
+  [
+   3.122,
+   3.971,
+   2.817
+  ]
+ ],
+ "share_of_days_scaled": 0.45,
+ "pass": true,
+ "flag": "post hoc (regime effect seen in Gen473)"
+}

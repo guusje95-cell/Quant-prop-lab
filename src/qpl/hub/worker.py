@@ -68,6 +68,8 @@ def run(once: bool = False, poll_s: float = 15.0) -> dict:
                     p.kill(); p.wait(); J.fail(c, job["id"], "worker shutdown: requeued"); break
                 J.heartbeat(c, job["id"]); time.sleep(2)
             ru1 = os.times(); cpu = (ru1.children_user + ru1.children_system) - (ru0.children_user + ru0.children_system)
+            if cpu <= 0:                                                    # Windows reports no child CPU times: count wall time instead
+                cpu = time.time() - t0
             with DB.tx(c):
                 DB.audit(c, "worker", "job_cpu", "jobs", job["id"], {"cpu_s": round(cpu, 1), "wall_s": round(time.time() - t0, 1)})
             ran.append(job["id"])
