@@ -1,0 +1,32 @@
+{
+ "days of flow data": 698,
+ "sleeve 2024 / 2025-26": [
+  0.957,
+  0.235
+ ],
+ "sleeve by year": {
+  "2024": 0.957,
+  "2025": -0.323,
+  "2026": 0.964
+ },
+ "corr flow vs same-day BTC return": 0.405,
+ "corr flow vs next-day BTC return": 0.055,
+ "corr sleeve vs v9.8 (daily)": 0.313,
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "book with ETF flows": [
+  3.086,
+  [
+   3.083,
+   3.708,
+   2.447
+  ]
+ ],
+ "pass": false
+}
