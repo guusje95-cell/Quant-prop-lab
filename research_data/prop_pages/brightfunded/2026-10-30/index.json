@@ -3,14 +3,14 @@
   "url": "https://brightfunded.com/faq",
   "status": 200,
   "bytes": 90017,
-  "sha256": "33f63da5e626a66400fbcbb845f03fa841ed82a7ff7d2d25c3f23999699a6f1f",
+  "sha256": "aeebff4e9e0131f56e47e386c0b84dbc51f70b8264a0c11397e760facd94272d",
   "file": "0.html"
  },
  {
   "url": "https://brightfunded.com/",
   "status": 200,
-  "bytes": 1966943,
-  "sha256": "b7daff8bb87514fe2c257eb3f7051339ced95dc02fe4e2dc3e4a2cddd95009cc",
+  "bytes": 1926918,
+  "sha256": "36bbc7434a04ec2ee2d2406eda7348ca236bad360313efc495763f96b10d350f",
   "file": "1.html"
  }
 ]

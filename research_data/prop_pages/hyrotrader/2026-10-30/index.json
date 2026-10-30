@@ -2,8 +2,8 @@
  {
   "url": "https://www.hyrotrader.com/faq/",
   "status": 200,
-  "bytes": 505870,
-  "sha256": "7a839944f3ada6852a6d0360fabdb46b877c01a49fa6609db3cf0015c823d667",
+  "bytes": 505913,
+  "sha256": "82c4186aa07a778dffefef1ba1cbf791bc93d5891efc31fc5d2db54015356861",
   "file": "0.html"
  },
  {
@@ -23,15 +23,15 @@
  {
   "url": "https://www.hyrotrader.com/terms-and-conditions/",
   "status": 200,
-  "bytes": 593632,
-  "sha256": "799a1e005b8bac7b70cd2a172995f71d3c362033dacc462d06b82c6fb57aadbb",
+  "bytes": 593589,
+  "sha256": "04caf1e4bc427c780e2244f9c72cd201eeb8d82757c6b36ff9986ace9ab6d7fc",
   "file": "3.html"
  },
  {
   "url": "https://www.hyrotrader.com/",
   "status": 200,
   "bytes": 1138998,
-  "sha256": "6d18dded53c8f5569ce97fed27acfc853f977825e77889ee890f469c9d0767f6",
+  "sha256": "aca4de98347d1d0db2c63a88a84e8a8bbf4c9fbe1ed18aef8a648fda21dead77",
   "file": "4.html"
  }
 ]
