@@ -1,0 +1,22 @@
+{
+ "id": "v99-R14", "date": "2026-10-31", "registered": "before running r14_sector_network.py",
+ "why": "two cross-sectional families never tested here (COVERAGE_MAP / grep of all protocols): industry (sector) momentum, which in equities is stronger and more robust than stock momentum (Moskowitz-Grinblatt 1999), and network momentum, where an asset follows the momentum of the assets it is linked to (Pu, Roberts, Dong, Zohren 2023). Plain crypto XS momentum was rejected earlier; these use different information (group / neighbour returns, not the coin's own)",
+ "universe": "60 perps: 20 pack coins + 40 extra-pack coins, hourly closes and Binance funding; a coin enters once it has 120 days of history",
+ "sectors": {
+  "payments": ["BTC", "XRP", "XLM", "BCH", "LTC", "DASH", "ZEC", "ETC", "IOTA"],
+  "L1": ["ETH", "SOL", "BNB", "ADA", "AVAX", "DOT", "NEAR", "ATOM", "TRX", "ALGO", "APT", "SUI", "EGLD", "HBAR", "NEO", "XTZ", "TIA", "KSM", "ZIL", "ICP"],
+  "L2": ["ARB", "OP", "IMX", "STX"],
+  "DeFi": ["AAVE", "UNI", "1INCH", "COMP", "CRV", "DYDX", "LDO", "RUNE", "SNX", "SUSHI", "YFI", "INJ"],
+  "gaming": ["AXS", "SAND", "MANA", "ENJ", "GALA", "APE", "CHZ"],
+  "meme": ["DOGE", "1000PEPE", "1000SHIB"],
+  "infra": ["LINK", "FIL", "GRT", "WLD", "THETA"]
+ },
+ "trials": {
+  "A sector momentum": "every Monday 00:00 UTC: sector return = equal-weight mean of its eligible coins' 30-day returns (sectors with >= 2 eligible coins); long the top 2 sectors, short the bottom 2, equal weight per sector, split equally over its coins; dollar neutral; hold one week",
+  "B network momentum": "every Monday 00:00 UTC: own signal m_j = 30-day return / 90-day daily vol; neighbours = the 5 coins with the highest 90-day daily-return correlation; s_i = mean of the neighbours' m_j; long the top fifth, short the bottom fifth by s_i, equal weight; dollar neutral; hold one week",
+  "C network minus own (residual)": "as B but s_i minus m_i (neighbour momentum the coin has NOT yet followed: the catch-up effect in the paper)"
+ },
+ "costs": "8 bp per side on traded notional at the rebalance + Binance funding paid / received hourly",
+ "judge": "as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 3
+}
