@@ -1,0 +1,82 @@
+{
+ "reference v9.8": {
+  "dev 2022-24": 3.587,
+  "holdout 2025-26": 2.661,
+  "full": 3.211,
+  "periods": [
+   3.083,
+   3.849,
+   2.661
+  ]
+ },
+ "P3": {
+  "window 30": {
+   "dev 2022-24": 3.335,
+   "holdout 2025-26": 2.091,
+   "full": 2.839,
+   "periods": [
+    3.094,
+    3.459,
+    2.091
+   ]
+  },
+  "window 60": {
+   "dev 2022-24": 3.526,
+   "holdout 2025-26": 2.275,
+   "full": 3.004,
+   "periods": [
+    3.266,
+    3.654,
+    2.275
+   ]
+  },
+  "chosen": "none",
+  "adopt": false
+ },
+ "P4": {
+  "trend 4h": {
+   "dev 2022-24": 3.585,
+   "holdout 2025-26": 2.634,
+   "full": 3.201,
+   "periods": [
+    3.059,
+    3.858,
+    2.634
+   ],
+   "pass (flagged)": false
+  },
+  "delev bounce": {
+   "dev 2022-24": 3.587,
+   "holdout 2025-26": 2.66,
+   "full": 3.219,
+   "periods": [
+    3.055,
+    3.858,
+    2.66
+   ],
+   "pass (flagged)": false
+  },
+  "alt kimchi": {
+   "dev 2022-24": 3.569,
+   "holdout 2025-26": 2.663,
+   "full": 3.2,
+   "periods": [
+    3.061,
+    3.832,
+    2.663
+   ],
+   "pass (flagged)": false
+  },
+  "all three": {
+   "dev 2022-24": 3.569,
+   "holdout 2025-26": 2.637,
+   "full": 3.2,
+   "periods": [
+    3.012,
+    3.851,
+    2.637
+   ],
+   "pass (flagged)": false
+  }
+ }
+}
