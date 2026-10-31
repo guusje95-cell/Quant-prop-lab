@@ -1,0 +1,19 @@
+{
+ "id": "v99-R12", "date": "2026-10-31", "registered": "before running r12_signal_info.py",
+ "request": "user: keep researching price-action strategies until something is found",
+ "question": "do the R8-R11 entry signals carry ANY directional information, independent of the fixed 1:2 exit? (diagnostic; it adds no sleeve by itself)",
+ "data": "1-hour bars of all 20 Binance USDT-M perps in the pack, 2022-01..2026-09",
+ "signals": {
+  "S1 day-level break": "first 1-h close above the previous UTC day's high (long) / below its low (short), per day and side",
+  "S2 day-level sweep-reclaim": "bar trades beyond the previous day's high (low) and closes back inside -> short (long), first per day and side",
+  "S3 week-level break": "as S1 with the previous week (Mon-Sun)",
+  "S4 week-level sweep-reclaim": "as S2 with the previous week",
+  "S5 Asia-range break": "range 00-08 UTC; first 1-h close outside it between 08 and 16 UTC",
+  "S6 Asia-range sweep-reclaim": "between 08 and 16 UTC a bar trades beyond the Asia high (low) and closes back inside -> short (long)",
+  "S7 equal highs/lows break": "R10 pool definition; 1-h close beyond the pool -> break direction",
+  "S8 round-number sweep-reclaim": "R10 trial A definition"
+ },
+ "measure": "signed forward return side * (close[t+h] / close[t] - 1) in bp for h = 1, 4, 24 hours from the signal bar's close; mean, t-stat with day-clustered errors, split 2022-24 / 2025-26",
+ "gate_for_follow_up": "a signal / horizon goes to R13 (exit design, own protocol) only if |mean| > 16 bp (round-trip cost incl. alts) AND |t| >= 3 in BOTH 2022-24 and 2025-26 with the same sign (negative = fade). Otherwise the fixed-level price-action family is closed",
+ "trials_added": "0 now (diagnostic); 24 signal-horizon cells are counted as trials if any follow-up is built"
+}
