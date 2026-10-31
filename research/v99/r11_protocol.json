@@ -1,0 +1,15 @@
+{
+ "id": "v99-R11", "date": "2026-10-31", "registered": "before running r11_alts.py",
+ "request": "user: keep researching intraday price-action strategies",
+ "idea": "R9/R10 failed on the 5 most liquid perps. Altcoins move more per hour, so a fixed cost is a smaller share of the stop; maybe patterns that are arbitraged away on BTC still work there. Only the three least-bad R9/R10 rules are carried over (no new tuning), plus one trend-filtered variant",
+ "universe": "the 15 Binance USDT-M perps in the data pack that R8-R10 did NOT use: AAVE ADA ATOM AVAX BCH DOGE DOT ETC FIL LINK LTC NEAR TRX UNI XLM; 2022-01..2026-09",
+ "costs": "taker 8 bp per side (alts are wider than the majors' 6 bp); sizing as R9: 0.25% risk per trade, cap 5x, 1:2 RR, stop first",
+ "trials": {
+  "A week breakout on 1-hour closes (R9 F rules)": "unchanged rules, alt universe",
+  "B equal highs/lows breakout (R10 C rules)": "unchanged rules, alt universe",
+  "C Asia-range breakout (R9 A rules)": "unchanged rules, alt universe",
+  "D week breakout with trend filter (all 20 coins)": "R9 F rules, but longs only when the previous daily close > its 50-day average and shorts only when below; BTC ETH SOL BNB XRP use 6 bp, alts 8 bp"
+ },
+ "judge": "as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 4
+}
