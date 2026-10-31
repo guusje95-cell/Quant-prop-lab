@@ -58,7 +58,8 @@ def run(Xb, o=0.0, W=60, delta=1.0, d=0):
             h = (s + pd.Timedelta(minutes=W - 5)).floor("h")
             if h in diff.index:
                 diff[h] += cand - base; gain.append(((cand - base) / abs(x) * 1e4, t))
-    g = pd.Series([a for a, _ in gain], index=pd.DatetimeIndex([b for _, b in gain])) if gain else pd.Series(dtype=float)
+    g = (pd.Series([a for a, _ in gain], index=pd.DatetimeIndex([b for _, b in gain])).sort_index() if gain
+         else pd.Series(dtype=float, index=pd.DatetimeIndex([])))
     w = lambda s: round(float(s.mean()), 2) if len(s) else None
     return diff, {"orders": n_tr, "fill rate": round(n_fill / max(n_tr, 1), 3), "mean gain bp": w(g),
                   "mean gain bp 2022-24": w(g.loc[:"2024"]), "mean gain bp 2025-26": w(g.loc["2025":])}
