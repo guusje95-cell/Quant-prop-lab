@@ -1,0 +1,113 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "reference v9.8 with the 4.5% low-cap cap (risk 1.5)": [
+  3.067,
+  [
+   2.486,
+   3.868,
+   2.599
+  ]
+ ],
+ "variants": {
+  "hold 7 days (registered)": {
+   "events used": 138,
+   "event sleeve 2022 / 23-24 / 25-26": [
+    1.919,
+    0.153,
+    1.621
+   ],
+   "book": [
+    3.281,
+    [
+     3.203,
+     3.876,
+     2.75
+    ]
+   ],
+   "book with low-cap cap": [
+    3.109,
+    [
+     2.517,
+     3.899,
+     2.655
+    ]
+   ],
+   "book gain, leave one year out": {
+    "without 2022": 0.058,
+    "without 2023": 0.084,
+    "without 2024": 0.077,
+    "without 2025": 0.034,
+    "without 2026": 0.097
+   }
+  },
+  "hold 3 days (neighbour)": {
+   "events used": 138,
+   "event sleeve 2022 / 23-24 / 25-26": [
+    1.926,
+    0.138,
+    1.534
+   ],
+   "book": [
+    3.262,
+    [
+     3.177,
+     3.871,
+     2.719
+    ]
+   ],
+   "book with low-cap cap": [
+    3.101,
+    [
+     2.537,
+     3.89,
+     2.635
+    ]
+   ],
+   "book gain, leave one year out": {
+    "without 2022": 0.04,
+    "without 2023": 0.061,
+    "without 2024": 0.055,
+    "without 2025": 0.027,
+    "without 2026": 0.07
+   }
+  },
+  "hold 14 days (neighbour)": {
+   "events used": 138,
+   "event sleeve 2022 / 23-24 / 25-26": [
+    1.9,
+    0.112,
+    1.748
+   ],
+   "book": [
+    3.285,
+    [
+     3.179,
+     3.86,
+     2.79
+    ]
+   ],
+   "book with low-cap cap": [
+    3.118,
+    [
+     2.522,
+     3.885,
+     2.691
+    ]
+   ],
+   "book gain, leave one year out": {
+    "without 2022": 0.068,
+    "without 2023": 0.09,
+    "without 2024": 0.089,
+    "without 2025": 0.021,
+    "without 2026": 0.099
+   }
+  }
+ }
+}
