@@ -1,0 +1,7 @@
+{
+ "id": "v99-R1c", "date": "2026-10-31", "registered": "before any order-book log exists",
+ "what": "queue-aware confirmation of R1 (limit orders at the 00:00 UTC rebalance) with the live Bybit order-book logger and Bybit public trades",
+ "rule": "per v9.8 paper order at 00:00 UTC: a limit at the touch joins the back of the queue (size at the touch in the first snapshot >= 00:00:00); filled if taker volume at our price within 60 minutes exceeds queue ahead + our size, or on a trade-through; else crossed at the window end; gain in bp vs a taker order at 00:00",
+ "decision": "after at least 15 logged days: R1 confirmed if the notional-weighted mean gain >= +1.5 bp (half of the R1b tick estimate of 2.99 bp); otherwise the bot goes back to the 15-minute window",
+ "trials_added": 0
+}
