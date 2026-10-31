@@ -1,0 +1,64 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "A co-skewness (long low)": {
+  "rebalances": 249,
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.079,
+   -0.854,
+   -0.421
+  ],
+  "corr with v9.8 (daily)": -0.063,
+  "book": [
+   2.945,
+   [
+    3.032,
+    3.432,
+    2.419
+   ]
+  ],
+  "pass": false
+ },
+ "B downside beta (long high, beta-scaled)": {
+  "rebalances": 249,
+  "sleeve 2022 / 23-24 / 25-26": [
+   1.165,
+   -1.356,
+   -1.699
+  ],
+  "corr with v9.8 (daily)": -0.036,
+  "book": [
+   2.886,
+   [
+    3.393,
+    3.336,
+    2.195
+   ]
+  ],
+  "pass": false
+ },
+ "C relative downside beta": {
+  "rebalances": 249,
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.754,
+   -1.824,
+   -0.969
+  ],
+  "corr with v9.8 (daily)": -0.077,
+  "book": [
+   2.853,
+   [
+    3.126,
+    3.222,
+    2.353
+   ]
+  ],
+  "pass": false
+ }
+}
