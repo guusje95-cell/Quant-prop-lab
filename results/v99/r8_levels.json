@@ -1,0 +1,90 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "S1 day sweep-reclaim": {
+  "trades": 7293,
+  "trades per coin per year": 307.1,
+  "win rate (R > 0)": 0.364,
+  "mean R per trade after costs": -0.313,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -4.344,
+   -7.319,
+   -10.739
+  ],
+  "book": [
+   0.616,
+   [
+    0.998,
+    1.544,
+    -0.547
+   ]
+  ],
+  "pass": false
+ },
+ "S2 day breakout": {
+  "trades": 7320,
+  "trades per coin per year": 308.2,
+  "win rate (R > 0)": 0.359,
+  "mean R per trade after costs": -0.288,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -4.554,
+   -6.477,
+   -7.187
+  ],
+  "book": [
+   1.252,
+   [
+    1.855,
+    1.735,
+    0.454
+   ]
+  ],
+  "pass": false
+ },
+ "S3 week sweep-reclaim": {
+  "trades": 1078,
+  "trades per coin per year": 45.4,
+  "win rate (R > 0)": 0.327,
+  "mean R per trade after costs": -0.298,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -2.316,
+   -2.549,
+   -3.569
+  ],
+  "book": [
+   2.391,
+   [
+    2.709,
+    3.004,
+    1.627
+   ]
+  ],
+  "pass": false
+ },
+ "S4 week breakout": {
+  "trades": 1087,
+  "trades per coin per year": 45.8,
+  "win rate (R > 0)": 0.37,
+  "mean R per trade after costs": -0.129,
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.683,
+   -1.561,
+   -1.834
+  ],
+  "book": [
+   2.672,
+   [
+    3.099,
+    3.111,
+    1.998
+   ]
+  ],
+  "pass": false
+ }
+}
