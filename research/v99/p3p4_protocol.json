@@ -1,0 +1,7 @@
+{
+ "id": "v99-P3/P4", "date": "2026-10-31", "registered": "before running p3p4.py",
+ "P3": {"what": "sleeve-level vol targeting before portfolio_v5: each sleeve's hourly P&L x clip(sd_365 / sd_w, 0.5, 2) of its own daily P&L, lagged one day (w = 30 or 60 days); like Gen221 in the futures book",
+        "selection": "the window with the higher 2022-24 book Sharpe (or none if neither beats the current)", "judge": "2025-26 >= current + 0.05 and full 2022-26 not lower", "trials": 2},
+ "P4": {"what": "fixed neighbourhood ensembles (no selection): trend 4h = mean of the 8 P1 trend variants, delev bounce = mean of the 9 variants with threshold 0.08-0.12 and hold 1-3, alt kimchi = mean of the 4 P1 threshold sets; each alone and all three together",
+        "flag": "FLAGGED post hoc: the variants' results were seen in P1", "judge": "strict rule on the full book: >= 3.211 + 0.05 and no period lower", "trials": 4}
+}
