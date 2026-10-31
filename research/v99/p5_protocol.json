@@ -1,0 +1,9 @@
+{
+ "id": "v99-P5", "date": "2026-10-31", "registered": "before running p5_lowcap_alloc.py",
+ "why": "the total low-cap cap (4.5% of the initial balance, bot rule since 2026-10-30) binds in about 40% of hours at risk 1.5 and costs about 0.15 Sharpe when applied pro rata; WHICH event positions keep their size inside the budget is a free design choice",
+ "variants": {"pro rata": "current bot rule", "newest first": "positions ranked by the hours since their entry (youngest keep full size until the budget is used, the rest is scaled down / zero)", "oldest first": "the reverse"},
+ "budget": "per hour: 0.045 / (listing-short weight x book multiplier x 0.902 x risk 1.5), from the uncapped run, lagged one hour (as in lowcap_cap_effect)",
+ "selection": "highest 2022-24 book Sharpe; ties -> pro rata",
+ "judge": "2025-26 >= pro rata + 0.05 and full 2022-26 not lower",
+ "trials_added": 2
+}
