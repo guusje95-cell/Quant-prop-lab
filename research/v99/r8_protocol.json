@@ -1,0 +1,17 @@
+{
+ "id": "v99-R8", "date": "2026-10-31", "registered": "before running r8_levels.py",
+ "request": "user: intraday level strategies (close above / below previous day or week high / low, liquidity sweeps) with a fixed 1:2 risk-reward",
+ "prior_evidence": "early HTF sweep / failed-breakout / breakout tests on 1-hour CFD/FX + BTC: gross +0.06 R per trade < costs ~0.1 R (LEADERBOARD rows HTFD / HTF); never tested on 5-minute crypto with PDH/PDL / PWH/PWL and 1:2",
+ "data": "Binance USDT-M perps, 5-minute OHLC (binance_pack.k5; 1-minute crypto data is not in the pack), BTC ETH SOL BNB XRP, 2022-01..2026-09",
+ "levels": "previous UTC day high / low (PDH / PDL); previous ISO week (Mon 00:00 UTC) high / low (PWH / PWL)",
+ "trials": {
+  "S1 day sweep-reclaim": "price trades above PDH, then a 5-min bar CLOSES back below PDH -> short at that close; stop = highest high since the sweep began (+1 tick-equivalent 0.02%); target = entry - 2 x risk. Mirror at PDL. First signal per level per day.",
+  "S2 day breakout": "first 5-min CLOSE above PDH -> long at that close; stop = low of that bar; target = entry + 2 x risk. Mirror at PDL.",
+  "S3 week sweep-reclaim": "S1 with PWH / PWL, first signal per level per week",
+  "S4 week breakout": "S2 with PWH / PWL"
+ },
+ "exits": "stop or target, whichever is hit first in a later bar (both in one bar -> stop, conservative); else closed at 23:55 UTC (day versions) or at the week end (week versions)",
+ "sizing_costs": "risk 0.25% of the sleeve per trade (position = 0.25% / stop distance, capped at 5x notional); costs 6 bp per side on notional (Bybit taker 5.5 + spread) + funding ignored for trades shorter than a day (stated)",
+ "judge": "stand-alone after costs per period (2022 / 2023-24 / 2025-26) and as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period lower",
+ "trials_added": 4
+}
