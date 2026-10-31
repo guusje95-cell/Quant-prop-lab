@@ -20,7 +20,7 @@ budget = (0.045 / (w * m * 0.902 * 1.5)).replace([np.inf], np.nan).shift(1).fill
 
 def hook_for(mode):
     def hook(P, CF):
-        P = P.copy(); A = P.to_numpy(); nz = A != 0
+        P = P.copy(); A = P.to_numpy(dtype=float, copy=True); nz = A != 0
         age = np.zeros_like(A)                                      # hours since the start of the current position run, per column
         for j in range(A.shape[1]):
             run = 0
