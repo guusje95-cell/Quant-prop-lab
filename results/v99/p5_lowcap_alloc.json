@@ -1,0 +1,21 @@
+{
+ "variants": {
+  "pro rata": {
+   "dev 2022-24": 3.392,
+   "holdout 2025-26": 2.538,
+   "full": 3.042
+  },
+  "newest first": {
+   "dev 2022-24": 3.335,
+   "holdout 2025-26": 2.607,
+   "full": 3.036
+  },
+  "oldest first": {
+   "dev 2022-24": 3.391,
+   "holdout 2025-26": 2.496,
+   "full": 3.025
+  }
+ },
+ "chosen": "pro rata",
+ "adopt": false
+}

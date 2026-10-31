@@ -1,0 +1,8 @@
+{
+ "id": "v99-P6", "date": "2026-10-31", "registered": "before running p6_regime.py", "flag": "FLAGGED: the regime split (book 3.60 above / 2.86 below BTC's 200-day average) was seen in Gen473",
+ "rule": "book exposure x s on days when BTC's previous close is below its N-day simple average (known the day before), 1.0 otherwise",
+ "grid": {"N": [100, 200], "s": [0.5, 0.75]},
+ "selection": "highest 2022-24 book Sharpe (book rescaled to the same 2022-24 vol as v9.8); ties -> no change",
+ "judge": "2025-26 >= v9.8 + 0.05 and full 2022-26 not lower",
+ "trials_added": 4
+}
