@@ -1,0 +1,11 @@
+{
+ "id": "v99-R13", "date": "2026-10-31", "registered": "before running r13_limit_all.py",
+ "why": "R1 (limit orders, +0.09..0.11, confirmed on Bybit ticks by R1b) covers only the daily-sleeve part of the 00:00 net trade. Turnover by hour (netpos.parquet): 00 UTC 56% (of which the daily part is R1), 08 UTC 17%, 10 UTC 11%, 16 UTC 8.5%, other hours 7%. The rest still pays taker + half spread.",
+ "method": "r1_limit.py accounting unchanged (Binance 5-min bars, class half spreads, fill only on a trade-through by delta, else cross at the window end; adverse selection included by construction), applied to new buckets of net trades on the 20 pack coins: B0 = rest of the 00:00 net trade (net minus the R1 daily part), B8 = 08:00, B16 = 16:00, B10 = 10:00, Bx = all other hours",
+ "variants": "central o=0 W=60 delta=1 d=0 (= R1 central); conservative o=0 W=60 delta=3 d=10",
+ "reference": "control (v9.8 Bybit taker on net trades, 3.283) + R1 central (3.377)",
+ "candidate": "reference + the buckets whose central AND conservative gains are both positive per order (chosen per bucket on 2022-24 only), judged once on the full period",
+ "judge": "candidate >= reference + 0.05 overall, no period (2022 / 2023-24 / 2025-26) lower, conservative variant also >= reference",
+ "follow_up": "a passing bucket is re-measured on Bybit ticks (R1b method) before it goes into the bot",
+ "trials_added": 5
+}
