@@ -1,0 +1,68 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "coins loaded": 60,
+ "A sector momentum": {
+  "rebalances": 249,
+  "gross exposure": 1.0,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -1.049,
+   0.982,
+   0.42
+  ],
+  "corr with v9.8 (daily)": 0.053,
+  "book": [
+   3.181,
+   [
+    2.852,
+    3.978,
+    2.58
+   ]
+  ],
+  "pass": false
+ },
+ "B network momentum": {
+  "rebalances": 249,
+  "gross exposure": 1.0,
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.19,
+   0.591,
+   -0.606
+  ],
+  "corr with v9.8 (daily)": 0.058,
+  "book": [
+   3.201,
+   [
+    3.463,
+    3.899,
+    2.402
+   ]
+  ],
+  "pass": false
+ },
+ "C network minus own": {
+  "rebalances": 249,
+  "gross exposure": 1.0,
+  "sleeve 2022 / 23-24 / 25-26": [
+   1.005,
+   -0.982,
+   -1.283
+  ],
+  "corr with v9.8 (daily)": -0.101,
+  "book": [
+   3.027,
+   [
+    3.43,
+    3.673,
+    2.18
+   ]
+  ],
+  "pass": false
+ }
+}
