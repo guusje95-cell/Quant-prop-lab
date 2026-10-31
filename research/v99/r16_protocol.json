@@ -1,0 +1,12 @@
+{
+ "id": "v99-R16", "date": "2026-10-31", "registered": "after downloading the Coinbase first-trade dates, BEFORE computing any return around them",
+ "why": "the 'Coinbase effect' (e.g. Coinbase listing announcements move prices strongly; event studies find a run-up and a later reversal). No protocol here has used Coinbase listings (grep: 0). We only have the first TRADE hour (public API), not the announcement time, so the tradable question is the after-listing drift: sell the news (reversal) or continuation",
+ "events": "first trading hour on Coinbase Exchange (USD / USDT / USDC product, earliest per base coin) between 2022-01-01 and 2026-09-23 (research_data/coinbase_listings/first_trade.json, scripts/v99/get_coinbase_listings.py), for coins that already trade as a Binance USDT perp at that hour (event_live._closes); stablecoins and wrapped assets excluded (base in USDT USDC DAI PYUSD EURC WBTC CBETH)",
+ "trials": {
+  "A sell the news": "short at the close of the first Coinbase trading hour (one hour after it starts), size = the v9.8 event short size (5% of equity), hold 7 days, stop at +30% (same conventions as the listing short), funding charged",
+  "B continuation": "long at the same time, hold 24 hours, no stop, funding charged"
+ },
+ "costs": "10 bp per side (alt perps around events)",
+ "judge": "added to the v9.8 event short (listing short) like R2; book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower; at least 30 events",
+ "trials_added": 2
+}
