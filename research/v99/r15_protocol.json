@@ -1,0 +1,12 @@
+{
+ "id": "v99-R15", "date": "2026-10-31", "registered": "before running r15_coskew.py",
+ "why": "risk-premium families never tested here (grep of all protocols: co-skew 0, downside beta 0): investors pay for lottery-like upside and fear crash exposure. Harvey-Siddique (2000): assets with negative co-skewness earn a premium; Ang-Chen-Xing (2006): high downside beta earns a premium. In crypto the market factor is BTC. BAB (beta) was a near miss earlier; these use the shape of the co-movement, not beta",
+ "universe": "the 60 R14 perps minus BTC (BTC is the market), same loader, eligibility (120 days), costs (8 bp per side + funding), weekly rebalance on Monday 00:00 UTC",
+ "trials": {
+  "A co-skewness": "90-day daily returns: coskew_i = E[e_i * e_m^2] / (sqrt(E[e_i^2]) * E[e_m^2]) with e = demeaned returns, m = BTC; long the fifth with the LOWEST co-skewness, short the HIGHEST; equal weight, dollar neutral",
+  "B downside beta": "180-day daily returns: beta of coin on BTC using only days with BTC return below its mean; long the fifth with the HIGHEST downside beta, short the LOWEST, each leg scaled to beta-neutral using the full-sample 180-day beta (leg weights 0.5 / mean beta of the leg, capped at 1)",
+  "C relative downside beta": "B with downside beta minus ordinary beta (Ang-Chen-Xing's relative measure), equal weight, dollar neutral"
+ },
+ "judge": "as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 3
+}
