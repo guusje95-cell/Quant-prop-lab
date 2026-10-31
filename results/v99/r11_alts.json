@@ -1,0 +1,86 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "A week breakout on 1-hour closes (alts)": {
+  "trades": 3037,
+  "win rate": 0.356,
+  "mean R after costs": -0.078,
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.681,
+   -1.233,
+   -1.524
+  ],
+  "book": [
+   2.76,
+   [
+    3.129,
+    3.287,
+    2.049
+   ]
+  ],
+  "pass": false
+ },
+ "B equal highs/lows breakout (alts)": {
+  "trades": 6525,
+  "win rate": 0.351,
+  "mean R after costs": -0.149,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -1.944,
+   -3.262,
+   -3.037
+  ],
+  "book": [
+   2.204,
+   [
+    2.452,
+    2.607,
+    1.683
+   ]
+  ],
+  "pass": false
+ },
+ "C Asia-range breakout (alts)": {
+  "trades": 21058,
+  "win rate": 0.378,
+  "mean R after costs": -0.126,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -2.961,
+   -3.029,
+   -3.454
+  ],
+  "book": [
+   2.194,
+   [
+    2.127,
+    2.902,
+    1.531
+   ]
+  ],
+  "pass": false
+ },
+ "D week breakout with 50-day trend filter (20 coins)": {
+  "trades": 2578,
+  "win rate": 0.351,
+  "mean R after costs": -0.075,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -0.376,
+   -0.818,
+   -0.873
+  ],
+  "book": [
+   2.799,
+   [
+    2.889,
+    3.325,
+    2.23
+   ]
+  ],
+  "pass": false
+ }
+}
