@@ -1,0 +1,124 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "A Asia-range breakout": {
+  "trades": 7124,
+  "win rate": 0.377,
+  "mean R after costs": -0.114,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -1.932,
+   -2.495,
+   -2.302
+  ],
+  "book": [
+   2.375,
+   [
+    2.584,
+    2.904,
+    1.756
+   ]
+  ],
+  "pass": false
+ },
+ "B Asia-range sweep (Judas)": {
+  "trades": 8149,
+  "win rate": 0.337,
+  "mean R after costs": -0.484,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -8.343,
+   -12.615,
+   -14.174
+  ],
+  "book": [
+   -0.459,
+   [
+    0.213,
+    0.15,
+    -1.424
+   ]
+  ],
+  "pass": false
+ },
+ "C NY opening-range breakout": {
+  "trades": 8698,
+  "win rate": 0.382,
+  "mean R after costs": -0.137,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -2.643,
+   -3.02,
+   -2.928
+  ],
+  "book": [
+   2.169,
+   [
+    2.218,
+    2.737,
+    1.582
+   ]
+  ],
+  "pass": false
+ },
+ "D 1-hour FVG fill (limit)": {
+  "trades": 17532,
+  "win rate": 0.268,
+  "mean R after costs": -0.668,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -17.385,
+   -19.646,
+   -21.569
+  ],
+  "book": [
+   -2.47,
+   [
+    -1.665,
+    -1.879,
+    -3.485
+   ]
+  ],
+  "pass": false
+ },
+ "E day sweep on 1-hour closes": {
+  "trades": 6660,
+  "win rate": 0.386,
+  "mean R after costs": -0.16,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -1.787,
+   -3.895,
+   -6.211
+  ],
+  "book": [
+   1.758,
+   [
+    2.319,
+    2.485,
+    0.733
+   ]
+  ],
+  "pass": false
+ },
+ "F week breakout on 1-hour closes (FLAGGED)": {
+  "trades": 1027,
+  "win rate": 0.368,
+  "mean R after costs": -0.02,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -0.359,
+   -0.219,
+   0.055
+  ],
+  "book": [
+   2.877,
+   [
+    2.801,
+    3.344,
+    2.449
+   ]
+  ],
+  "pass": false
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "v99-R10", "date": "2026-10-31", "registered": "before running r10_liquidity.py (R9 A-D known, E-F still running)",
+ "request": "user: more liquidity / price-action strategies with 1:2 risk-reward",
+ "lesson_from_R8_R9": "tight stops (sweep extreme +-0.02%, FVG edge) make costs 0.3-0.8 R per trade; every R10 trial uses a MINIMUM stop distance of 1x ATR(24 one-hour bars) so the round-trip cost is at most ~0.1 R",
+ "data": "Binance USDT-M perps, 1-hour bars resampled from 5-minute OHLC, BTC ETH SOL BNB XRP, 2022-01..2026-09",
+ "trials": {
+  "A round-number sweep-reclaim": "levels = multiples of a round step (step = 10^floor(log10(price)) / 2 e.g. BTC 5000, ETH 500, SOL 50): a 1-h bar trades beyond the nearest level and closes back on the other side -> fade (short above, long below); stop = max(sweep extreme, 1 ATR) beyond entry; target 2R; max hold 48 h",
+  "B equal highs / lows sweep-reclaim": "liquidity pool = two 1-h swing highs (lows) (pivot with 3 bars each side) within the last 120 h whose prices differ by <= 0.15%; a bar trades beyond the higher (lower) of the two and closes back below (above) it -> fade; stop = max(sweep extreme, 1 ATR); target 2R; max hold 48 h; a pool is used once",
+  "C equal highs / lows breakout": "same pools; a 1-h close beyond the pool -> trade in the break direction; stop 1 ATR; target 2R; max hold 48 h"
+ },
+ "sizing_costs": "risk 0.25% of the sleeve per trade (position = 0.25% / stop distance, cap 5x); taker 6 bp per side; stop and target in the same bar -> stop; one open trade per coin per trial",
+ "diagnostic": "gross mean R (before costs) reported next to net R",
+ "judge": "as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 3
+}
