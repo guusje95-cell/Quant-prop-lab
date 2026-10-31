@@ -1,0 +1,9 @@
+{
+ "id": "v99-R7", "date": "2026-10-31", "registered": "before any token-unlock data was obtained (nothing purchased yet; needs the user's OK)",
+ "hypothesis": "Large scheduled token unlocks put new supply in the hands of investors / team who sell; the market partly front-runs it. Short the coin's perp ahead of a large unlock: the same forced-supply mechanism as the event short.",
+ "data_options": "DefiLlama emissions (Supporter $15/month if it includes emissions, else Pro $300/month for one month) or Tokenomist API (Standard $249.95/month); vesting schedules are fixed in advance, so the event dates are known before they happen",
+ "events": "unlocks of at least 1% of the circulating supply at the time (cliff or a single-day tranche), coin with a Binance USDT perp and a Bybit perp at the entry",
+ "rule": "short 0.05 (event-short units) from 00:00 UTC 7 days before the unlock until 00:00 UTC 3 days after it, 30% stop, inside the event short's 0.5 gross cap and the total low-cap cap, 10 bp per unit turnover + funding",
+ "judge": "added to the event short of v9.8: book >= 3.211 + 0.05 and no period (2022, 2023-24, 2025-26) lower",
+ "trials_added": 1
+}
