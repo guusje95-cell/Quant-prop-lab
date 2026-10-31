@@ -1,0 +1,195 @@
+{
+ "control": [
+  3.283,
+  [
+   3.082,
+   3.959,
+   2.72
+  ]
+ ],
+ "buckets": {
+  "R1 (daily part of 00:00)": {
+   "central": {
+    "orders": 21449,
+    "fill rate": 0.959,
+    "mean gain bp": 4.17,
+    "mean gain bp 2022-24": 4.23,
+    "mean gain bp 2025-26": 4.09
+   },
+   "conservative": {
+    "orders": 21449,
+    "fill rate": 0.925,
+    "mean gain bp": 1.35,
+    "mean gain bp 2022-24": 1.16,
+    "mean gain bp 2025-26": 1.66
+   },
+   "control + this bucket": [
+    3.377,
+    [
+     3.162,
+     4.057,
+     2.817
+    ]
+   ]
+  },
+  "B0 rest of 00:00": {
+   "central": {
+    "orders": 7836,
+    "fill rate": 0.959,
+    "mean gain bp": 2.86,
+    "mean gain bp 2022-24": 2.87,
+    "mean gain bp 2025-26": 2.84
+   },
+   "conservative": {
+    "orders": 7836,
+    "fill rate": 0.928,
+    "mean gain bp": 0.92,
+    "mean gain bp 2022-24": 0.9,
+    "mean gain bp 2025-26": 0.95
+   },
+   "control + this bucket": [
+    3.3,
+    [
+     3.103,
+     3.978,
+     2.733
+    ]
+   ]
+  },
+  "B8 08:00": {
+   "central": {
+    "orders": 9982,
+    "fill rate": 0.946,
+    "mean gain bp": 2.27,
+    "mean gain bp 2022-24": 2.85,
+    "mean gain bp 2025-26": 1.3
+   },
+   "conservative": {
+    "orders": 9982,
+    "fill rate": 0.907,
+    "mean gain bp": 0.68,
+    "mean gain bp 2022-24": 0.74,
+    "mean gain bp 2025-26": 0.57
+   },
+   "control + this bucket": [
+    3.264,
+    [
+     3.101,
+     3.918,
+     2.708
+    ]
+   ]
+  },
+  "B10 10:00": {
+   "central": {
+    "orders": 114,
+    "fill rate": 0.982,
+    "mean gain bp": 3.75,
+    "mean gain bp 2022-24": 4.5,
+    "mean gain bp 2025-26": 2.48
+   },
+   "conservative": {
+    "orders": 114,
+    "fill rate": 0.877,
+    "mean gain bp": -0.46,
+    "mean gain bp 2022-24": -2.64,
+    "mean gain bp 2025-26": 3.27
+   },
+   "control + this bucket": [
+    3.308,
+    [
+     3.091,
+     4.004,
+     2.732
+    ]
+   ]
+  },
+  "B16 16:00": {
+   "central": {
+    "orders": 9994,
+    "fill rate": 0.971,
+    "mean gain bp": 3.63,
+    "mean gain bp 2022-24": 3.96,
+    "mean gain bp 2025-26": 3.08
+   },
+   "conservative": {
+    "orders": 9994,
+    "fill rate": 0.931,
+    "mean gain bp": 0.57,
+    "mean gain bp 2022-24": 0.34,
+    "mean gain bp 2025-26": 0.93
+   },
+   "control + this bucket": [
+    3.294,
+    [
+     3.104,
+     3.971,
+     2.724
+    ]
+   ]
+  },
+  "Bx other hours": {
+   "central": {
+    "orders": 13840,
+    "fill rate": 0.958,
+    "mean gain bp": 2.81,
+    "mean gain bp 2022-24": 2.91,
+    "mean gain bp 2025-26": 2.64
+   },
+   "conservative": {
+    "orders": 13840,
+    "fill rate": 0.909,
+    "mean gain bp": 0.14,
+    "mean gain bp 2022-24": 0.05,
+    "mean gain bp 2025-26": 0.29
+   },
+   "control + this bucket": [
+    3.284,
+    [
+     3.087,
+     3.953,
+     2.725
+    ]
+   ]
+  }
+ },
+ "reference (control + R1)": [
+  3.377,
+  [
+   3.162,
+   4.057,
+   2.817
+  ]
+ ],
+ "chosen on 2022-24": [
+  "B0 rest of 00:00",
+  "B8 08:00",
+  "B16 16:00",
+  "Bx other hours"
+ ],
+ "candidate central": [
+  3.387,
+  [
+   3.228,
+   4.04,
+   2.827
+  ]
+ ],
+ "candidate conservative": [
+  3.264,
+  [
+   3.093,
+   3.855,
+   2.774
+  ]
+ ],
+ "reference conservative": [
+  3.292,
+  [
+   3.062,
+   3.952,
+   2.759
+  ]
+ ],
+ "pass": false
+}
