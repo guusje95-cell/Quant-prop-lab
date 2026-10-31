@@ -178,6 +178,43 @@
     "cost_hours": 0.5,
     "similar_test_exists": true
    }
+  },
+  {
+   "key": "hl1_open_interest",
+   "title": "Hyperliquid open-interest strategies on the hub's forward snapshots (HL1-A crowding fade, HL1-B squeeze setup)",
+   "status": "proposed",
+   "hypothesis": "Open-interest build-ups mark crowded positioning that later unwinds; Hyperliquid OI has no public history, so it is recorded going forward.",
+   "rationale": "New information collected by the hub since 2026-10-30; protocol research/v99/h2_protocol.json registered before any data existed. The script waits (exit 0, status waiting) until 90 days exist. Approve this item from about 2027-01-31 (90 days of snapshots); until then `python scripts/v99/hl1_oi.py` only reports the days available.",
+   "market": "crypto_futures",
+   "family": "positioning",
+   "needs_data": [
+    "research_data/hyperliquid_live"
+   ],
+   "script": "scripts/v99/hl1_oi.py",
+   "args": [],
+   "result_file": "results/v99/hl1_oi.json",
+   "decision_rule": {
+    "values": {
+     "a": "HL1-A crowding build-up fade.candidate",
+     "b": "HL1-B squeeze setup.candidate"
+    },
+    "pass_if": "a or b"
+   },
+   "periods": {
+    "forward": [
+     "2026-10-30",
+     "2027-01-31"
+    ]
+   },
+   "trials": 2,
+   "timeout_s": 3600,
+   "priority": {
+    "economic_relevance": 4,
+    "information_gain": 4,
+    "diversification": 3,
+    "cost_hours": 0.2,
+    "similar_test_exists": false
+   }
   }
  ]
 }

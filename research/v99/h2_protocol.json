@@ -1,0 +1,13 @@
+{
+ "id": "v99-HL1", "date": "2026-10-31", "registered": "before any Hyperliquid open-interest history exists (the hub started logging on 2026-10-30)",
+ "data": "research_data/hyperliquid_live/*.csv (hub job hl_snapshot: hourly open interest, funding, premium, mark price, volume of ~180 Hyperliquid perps)",
+ "universe": "coins with at least 30 days of snapshots and a Bybit USDT perp (research_data/bybit_listings/instruments.json, plus the live list)",
+ "trials": {
+  "HL1-A crowding build-up fade": "each day at 00:00 UTC rank coins by their 7-day open-interest change (in coins); short the top fifth, long the bottom fifth, equal weight, held one day (market neutral)",
+  "HL1-B squeeze setup": "long coins whose open interest rose > 20% over 3 days while the price fell (shorts piling in), held 3 days; equal weight"
+ },
+ "costs": "6 bp per side + Hyperliquid funding from the snapshots",
+ "when": "run once at least 90 days of snapshots exist (about end of January 2027); before that the script only reports how many days are available",
+ "decision": "a trial becomes an inclusion candidate if its net Sharpe over the sample >= 1.0 AND its daily correlation with the v9.8 paper ledger < 0.3; inclusion itself then follows the usual strict rule on the forward data",
+ "trials_added": 2
+}
