@@ -1,0 +1,17 @@
+{
+ "id": "v99-R9", "date": "2026-10-31", "registered": "before running r9_sessions.py",
+ "request": "user: more intraday price-action strategies (sessions, liquidity, FVG) with 1:2 risk-reward",
+ "lesson_from_R8": "the gross edge was small (+0.1 R) and costs on tight stops large (~0.4 R): these variants use session ranges (wider stops), 1-hour bars or limit (maker) entries",
+ "data": "Binance USDT-M perps 5-minute OHLC (paths) / 1-hour bars (signals for D-F), BTC ETH SOL BNB XRP, 2022-01..2026-09",
+ "trials": {
+  "A Asia-range breakout": "range = high / low of 00:00-08:00 UTC; first 5-min close outside the range between 08:00 and 16:00 -> trade in that direction; stop = range midpoint; target 2R; else close 23:55",
+  "B Asia-range sweep (Judas)": "between 08:00 and 16:00 price trades beyond the Asia high (low) and a 5-min bar closes back inside -> fade; stop = sweep extreme +-0.02%; target 2R; else close 23:55",
+  "C NY opening-range breakout": "range = 13:30-14:00 UTC; first 5-min close outside it before 20:00 -> trade; stop = other side of the range; target 2R; else close 23:55",
+  "D 1-hour FVG fill (limit)": "bullish gap when 1-h low[t] > high[t-2]: limit buy at low[t] valid 24 h, stop = high[t-2] - 0.02%, target 2R, max hold 48 h; mirror for bearish gaps; maker 2 bp entry",
+  "E day sweep on 1-hour closes": "R8 S1 with 1-hour bars (wider stops)",
+  "F week breakout on 1-hour closes (FLAGGED)": "R8 S4 with 1-hour bars; chosen because S4 was the least bad in R8"
+ },
+ "sizing_costs": "risk 0.25% of the sleeve per trade (position = 0.25% / stop distance, cap 5x); taker 6 bp per side, maker entry 2 bp (D); stop and target in the same bar -> stop",
+ "judge": "stand-alone per period and as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period lower",
+ "trials_added": 6
+}

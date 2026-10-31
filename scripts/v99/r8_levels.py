@@ -54,24 +54,29 @@ def trades(k, period, mode):
     return out
 
 
-V = pd.read_parquet(ROOT / "results/v95_sleeves.parquet"); idx = V.index; V7 = V.drop(columns="cascade limit strict")
-s8, _, _ = EL.pnl(idx); V8 = V7.assign(**{"listing short": s8})
-dd = lambda h: h.groupby(h.index.floor("D")).sum()
-unit = lambda h: h * 0.15 / (dd(h.loc["2022":"2024"]).std() * np.sqrt(365))
-def shp(h, a, z):
-    d = dd(h.loc[a:z]); return round(float(d.mean() / d.std() * np.sqrt(365)), 3) if d.std() > 0 else None
-per = lambda h: [shp(h, "2022", "2022"), shp(h, "2023", "2024"), shp(h, "2025", "2026-09-30")]
-b0 = unit(CS.portfolio_v5(V8)[0]); ref = [shp(b0, "2022", "2026-09-30"), per(b0)]
-K = {c: B.k5(c)[["open", "high", "low", "close"]] for c in COINS}
-out = {"reference v9.8": ref}
-for name, per_, mode in (("S1 day sweep-reclaim", "D", "sweep"), ("S2 day breakout", "D", "break"), ("S3 week sweep-reclaim", "W", "sweep"), ("S4 week breakout", "W", "break")):
-    T = [x for c in COINS for x in trades(K[c], per_, mode)]
-    s = pd.Series([v for _, v in T], index=pd.DatetimeIndex([t for t, _ in T])).groupby(level=0).sum()
-    h = s.groupby(s.index.floor("h")).sum().reindex(idx).fillna(0.0) / len(COINS)
-    R = np.array([v for _, v in T]) / RISK
-    b = unit(CS.portfolio_v5(V8.assign(**{name: h}))[0]); r = [shp(b, "2022", "2026-09-30"), per(b)]
-    out[name] = {"trades": len(T), "trades per coin per year": round(len(T) / len(COINS) / 4.75, 1), "win rate (R > 0)": round(float((R > 0).mean()), 3),
-                 "mean R per trade after costs": round(float(R.mean()), 3), "sleeve 2022 / 23-24 / 25-26": per(h), "book": r,
-                 "pass": bool(r[0] >= ref[0] + 0.05 and all(r[1][i] >= ref[1][i] for i in range(3)))}
-    print(name, out[name], flush=True)
-(ROOT / "results/v99/r8_levels.json").write_text(json.dumps(out, indent=1))
+def main():
+    V = pd.read_parquet(ROOT / "results/v95_sleeves.parquet"); idx = V.index; V7 = V.drop(columns="cascade limit strict")
+    s8, _, _ = EL.pnl(idx); V8 = V7.assign(**{"listing short": s8})
+    dd = lambda h: h.groupby(h.index.floor("D")).sum()
+    unit = lambda h: h * 0.15 / (dd(h.loc["2022":"2024"]).std() * np.sqrt(365))
+    def shp(h, a, z):
+        d = dd(h.loc[a:z]); return round(float(d.mean() / d.std() * np.sqrt(365)), 3) if d.std() > 0 else None
+    per = lambda h: [shp(h, "2022", "2022"), shp(h, "2023", "2024"), shp(h, "2025", "2026-09-30")]
+    b0 = unit(CS.portfolio_v5(V8)[0]); ref = [shp(b0, "2022", "2026-09-30"), per(b0)]
+    K = {c: B.k5(c)[["open", "high", "low", "close"]] for c in COINS}
+    out = {"reference v9.8": ref}
+    for name, per_, mode in (("S1 day sweep-reclaim", "D", "sweep"), ("S2 day breakout", "D", "break"), ("S3 week sweep-reclaim", "W", "sweep"), ("S4 week breakout", "W", "break")):
+        T = [x for c in COINS for x in trades(K[c], per_, mode)]
+        s = pd.Series([v for _, v in T], index=pd.DatetimeIndex([t for t, _ in T])).groupby(level=0).sum()
+        h = s.groupby(s.index.floor("h")).sum().reindex(idx).fillna(0.0) / len(COINS)
+        R = np.array([v for _, v in T]) / RISK
+        b = unit(CS.portfolio_v5(V8.assign(**{name: h}))[0]); r = [shp(b, "2022", "2026-09-30"), per(b)]
+        out[name] = {"trades": len(T), "trades per coin per year": round(len(T) / len(COINS) / 4.75, 1), "win rate (R > 0)": round(float((R > 0).mean()), 3),
+                     "mean R per trade after costs": round(float(R.mean()), 3), "sleeve 2022 / 23-24 / 25-26": per(h), "book": r,
+                     "pass": bool(r[0] >= ref[0] + 0.05 and all(r[1][i] >= ref[1][i] for i in range(3)))}
+        print(name, out[name], flush=True)
+    (ROOT / "results/v99/r8_levels.json").write_text(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()
