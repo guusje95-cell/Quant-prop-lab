@@ -1,0 +1,8 @@
+{
+ "id": "v99-R22", "date": "2026-11-01", "registered": "before running r22_upbit_r16rules.py; FLAGGED: partly informed by Gen456 (Upbit listings with the 30-day listing-short rule: book +0.024, a near miss)",
+ "why": "Coinbase (US retail) listings are followed by a 7-day decline (R16, placebo-checked in R16c); Kraken is not (R18). Upbit is the other venue whose listings draw a retail crowd (Korean retail); test it with the R16 rules unchanged",
+ "events": "first Upbit KRW hourly candle (research_data/more/upbit_KRW-*_1h.parquet, as Gen456) from 2021-06-01, Binance perp trading >= 7 days earlier, BTC / ETH / TradFi excluded; Upbit no longer serves delisted markets (biases against the short)",
+ "trial": "R16 A rules: short 5% of the Binance perp from the close of the first Upbit hour, 7 days, +30% stop, 10 bp per side, funding",
+ "judge": "alone: book >= 3.211 + 0.05, no period lower than v9.8; added to R16 A: book >= 3.267 + 0.05, no period lower than v9.8 + R16 A (both reported; adoption needs the second)",
+ "trials_added": 1
+}
