@@ -1,0 +1,11 @@
+{
+ "id": "v99-R18", "date": "2026-11-01", "registered": "while the Kraken first-trade download runs, BEFORE computing any return around Kraken listings",
+ "why": "R16 (Coinbase sell-the-news short) passed; the mechanism (a listing on a large US retail venue is the end of a run-up) should also hold for Kraken, the other large US venue. Testing it is an out-of-venue replication of R16, with the R16 rules unchanged",
+ "events": "first trade of each Kraken USD pair (public Trades since=0; research_data/kraken_listings/first_trade.json, scripts/v99/get_kraken_listings.py), 2022-01-01..2026-09-23, non-stable, coin already trading as a Binance USDT perp (event_live._closes); Kraken does not serve delisted pairs (biases against the short)",
+ "trials": {
+  "A Kraken sell the news": "R16 A unchanged (short 5% from the close of the first Kraken hour, 7 days, +30% stop, 10 bp per side, funding), judged against v9.8",
+  "B Coinbase + Kraken": "R16 A events plus the Kraken events; a coin already short from an event in the last 7 days is not shorted again; judged INCREMENTALLY against v9.8 + R16 A (3.267 [3.181, 3.884, 2.719])"
+ },
+ "judge": "A: book >= 3.211 + 0.05, no period lower than v9.8; B: book >= 3.267 + 0.05, no period lower than v9.8 + R16 A; >= 30 Kraken events",
+ "trials_added": 2
+}
