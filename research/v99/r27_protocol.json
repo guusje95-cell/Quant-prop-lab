@@ -1,0 +1,11 @@
+{
+ "id": "v99-R27", "date": "2026-11-01", "registered": "before running r27_ml_return.py (user request: return prediction with Random Forest / neural networks; gradient boosting was Gen108 ML2, rejected)",
+ "setup": "the v9.8 ridge ML sleeve unchanged (ridge_live.predictions with kb, volscale, spot, vrp, cal; monthly walk-forward refit, prediction / in-sample sd clipped to [-1, 1], weight 0.5 x prediction, 5 bp), only the regressor is swapped",
+ "trials": {
+  "A random forest": "RandomForestRegressor(n_estimators=300, max_depth=4, min_samples_leaf=50, max_features=0.5, random_state=0)",
+  "B neural network": "MLPRegressor(hidden_layer_sizes=(16,), alpha=1.0, early_stopping=True, max_iter=500, random_state=0)"
+ },
+ "implementation": "book = v9.8 with its ridge ML sleeve + (sleeve from the new model - sleeve from the ridge), both rebuilt with crypto_sleeves._from_daily_weights",
+ "judge": "book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 2
+}
