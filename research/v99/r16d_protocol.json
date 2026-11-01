@@ -1,0 +1,12 @@
+{
+ "id": "v99-R16d", "date": "2026-11-01", "registered": "after computing the first-hour Coinbase premium of the R16 events (distribution only: median +0.34%, 52 of 135 above +0.5%), BEFORE relating it to any trade return",
+ "why": "if the R16 effect is US retail euphoria at the Coinbase listing, the first-hour Coinbase premium over the Binance perp measures that euphoria; a larger premium should be followed by a larger decline",
+ "premium": "close of the first Coinbase hour (USD / USDC / USDT product) / close of the Binance perp in the same hour - 1; |premium| > 50% = a different token under the same ticker: such events are dropped in every variant incl. the baseline",
+ "trials": {
+  "A premium filter": "R16 A rules, only events with premium > +0.5%",
+  "B premium sizing": "R16 A rules, size 7.5% if premium > +0.5%, else 2.5% (about the same total risk)"
+ },
+ "baseline": "R16 A on the same cleaned event set",
+ "judge": "a variant replaces R16 A only if its book >= the cleaned R16 A book + 0.03 with no period lower; also reported: mean trade return above / below the threshold",
+ "trials_added": 2
+}
