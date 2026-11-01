@@ -289,6 +289,8 @@ def bt_series(book: str) -> tuple[pd.DataFrame, int]:
     if book == "Crypto v9.8":
         x = pd.read_parquet(ROOT / "results/v98_paper_sleeves.parquet").loc["2022-01-01":"2026-09-30 23:00"]
         return x.rename(columns={"port": "book"}), 365
+    if book == "Crypto v9.9 candidate (v9.8 + Coinbase sleeve)":
+        return pd.read_parquet(ROOT / "results/v99/v99_candidate_book.parquet"), 365
     if book == "Futures (15 sleeves)":
         S, b = futures_data(); return pd.concat([b.rename("book"), S.reindex(b.index)], axis=1), 252
     if book == "CFD bf2.6 (BrightFunded)":
@@ -338,9 +340,10 @@ def performance():
     src = st.radio("Source", ["Backtest", "Paper"], horizontal=True)
     if src == "Backtest":
         tag("backtest")
-        book = st.selectbox("Book", ["Crypto v9.8", "Futures (15 sleeves)", "CFD bf2.6 (BrightFunded)", "Index CFDs (Gen201)"])
+        book = st.selectbox("Book", ["Crypto v9.8", "Crypto v9.9 candidate (v9.8 + Coinbase sleeve)", "Futures (15 sleeves)", "CFD bf2.6 (BrightFunded)", "Index CFDs (Gen201)"])
         R, ppy = bt_series(book)
-        cols = st.multiselect("Series (the book and / or its strategies)", list(R.columns), default=["book"])
+        cols = st.multiselect("Series (the book and / or its strategies)", list(R.columns),
+                              default=["book", "v9.8 book"] if "v9.8 book" in R.columns else ["book"])
         splits = ({"2010-17": ("2010", "2017"), "2018-22": ("2018", "2022"), "2023-26": ("2023", "2026")} if book.startswith("Futures")
                   else {"2022": ("2022", "2022"), "2023-24": ("2023", "2024"), "2025-26": ("2025", "2026")})
         if cols:
