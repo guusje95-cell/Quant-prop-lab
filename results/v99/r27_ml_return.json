@@ -1,0 +1,50 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "corr(rebuilt ridge, v9.8 ridge ML) daily": 1.0,
+ "rebuilt ridge sleeve": [
+  -0.285,
+  1.943,
+  1.535
+ ],
+ "A random forest": {
+  "sleeve 2022 / 23-24 / 25-26": [
+   -0.173,
+   0.998,
+   1.476
+  ],
+  "corr with ridge weights": 0.512,
+  "book": [
+   3.096,
+   [
+    3.111,
+    3.524,
+    2.674
+   ]
+  ],
+  "pass": false
+ },
+ "B neural network": {
+  "sleeve 2022 / 23-24 / 25-26": [
+   0.245,
+   0.272,
+   1.566
+  ],
+  "corr with ridge weights": 0.478,
+  "book": [
+   3.147,
+   [
+    3.118,
+    3.612,
+    2.693
+   ]
+  ],
+  "pass": false
+ }
+}
