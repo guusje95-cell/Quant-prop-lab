@@ -182,6 +182,12 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
     ids.append(define(c, "v98:plus_coinbase_short", source, "plus", {"sleeve": "listing short", "account": "paper:cbshort"},
                       description="v9.9 candidate R16: v9.8 + Coinbase sell-the-news short in the event sleeve (backtest 3.27-3.28; "
                                   "+0.04 with the low-cap cap); forward paper from 2026-11-01", actor="system"))
+    if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:cbshort'").fetchone():
+        ids.append(define(c, "v98:venue_sleeve_coinbase", source, "composite",
+                          {"extra": [{"account": "paper:cbshort", "name": "venue listing short", "prefix": "results/v99/cbshort_sleeve_prefix.parquet"}]},
+                          description="v9.9 candidate R30 (flagged): the Coinbase sell-the-news short as a SEPARATE 10th sleeve with its own equal-risk "
+                                      "budget (backtest 3.42; with the 4.5% low-cap cap 3.35 vs 3.06); the live bot must apply the total low-cap cap",
+                          actor="system"))
     if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
         ids += ensure_cfd_defaults(c)
     return ids
