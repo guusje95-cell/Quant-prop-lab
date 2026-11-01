@@ -1,0 +1,11 @@
+{
+ "id": "v99-R23", "date": "2026-11-01", "registered": "before running r23_meta_event.py",
+ "why": "meta-labeling (signal filtering) was never tested (grep: 0). R16d / R22 showed large differences between events, and the book improves only if the event sleeve's own Sharpe rises: a filter / sizer of individual event shorts is the direct way",
+ "trades": "every v9.8 event-short trade (contiguous non-zero position of one coin in event_live.pnl; listing shorts and spot-delisting shorts), P&L = position x hourly return - funding - 10 bp per side",
+ "features (known at entry, the close before the first held hour)": ["run-up: coin log return over the previous 24 h (or since its first close if shorter)", "coin funding rate: last settlement before entry", "BTC 30-day log return (daily closes to the previous day)", "BTC 30-day daily vol", "event type: 1 = spot delisting, 0 = listing"],
+ "model": "logistic regression (sklearn, L2, C = 1, standardised features), label = trade P&L > 0; walk-forward: a trade is scored by a model fit on trades that CLOSED before its entry, at least 60 of them, else multiplier 1",
+ "trials": {"A filter": "keep the trade if p >= 0.5, else skip it", "B sizer": "multiplier = clip(p / mean of the model's in-sample p, 0.5, 1.5)"},
+ "implementation": "candidate event sleeve = v9.8 event sleeve + sum over trades (multiplier - 1) x trade P&L (the gross cap is not re-applied; reported: correlation of the rebuilt trade sum with the real sleeve)",
+ "judge": "book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 2
+}
