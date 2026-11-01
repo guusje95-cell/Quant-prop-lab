@@ -1,0 +1,156 @@
+{
+ "Coinbase only": {
+  "book": [
+   3.421,
+   [
+    3.169,
+    4.065,
+    2.9
+   ]
+  ],
+  "effective short per event coin, % of equity at risk 1.5: median / p95 / max": [
+   4.35,
+   13.02,
+   25.68
+  ],
+  "venue sleeve total when active: median / max %": [
+   5.01,
+   29.17
+  ],
+  "half weight (as Weiss)": [
+   3.358,
+   [
+    3.111,
+    4.013,
+    2.845
+   ]
+  ],
+  "with the 4.5% total low-cap cap (risk 1.5)": [
+   3.347,
+   [
+    2.547,
+    4.242,
+    2.872
+   ]
+  ],
+  "placebo dates (separate sleeve)": {
+   "-90 days": [
+    3.059,
+    [
+     3.073,
+     3.473,
+     2.643
+    ]
+   ],
+   "-60 days": [
+    3.158,
+    [
+     3.016,
+     3.636,
+     2.742
+    ]
+   ],
+   "+60 days": [
+    3.148,
+    [
+     3.329,
+     3.728,
+     2.442
+    ]
+   ],
+   "+90 days": [
+    2.973,
+    [
+     3.021,
+     3.519,
+     2.391
+    ]
+   ]
+  }
+ },
+ "Coinbase + Upbit": {
+  "book": [
+   3.432,
+   [
+    3.325,
+    4.023,
+    2.89
+   ]
+  ],
+  "effective short per event coin, % of equity at risk 1.5: median / p95 / max": [
+   3.93,
+   10.77,
+   19.63
+  ],
+  "venue sleeve total when active: median / max %": [
+   5.01,
+   27.87
+  ],
+  "half weight (as Weiss)": [
+   3.377,
+   [
+    3.212,
+    4.016,
+    2.837
+   ]
+  ],
+  "with the 4.5% total low-cap cap (risk 1.5)": [
+   3.387,
+   [
+    2.624,
+    4.177,
+    2.988
+   ]
+  ],
+  "placebo dates (separate sleeve)": {
+   "-90 days": [
+    3.211,
+    [
+     3.052,
+     3.705,
+     2.786
+    ]
+   ],
+   "-60 days": [
+    3.136,
+    [
+     2.999,
+     3.526,
+     2.821
+    ]
+   ],
+   "+60 days": [
+    3.227,
+    [
+     3.539,
+     3.769,
+     2.5
+    ]
+   ],
+   "+90 days": [
+    3.135,
+    [
+     3.16,
+     3.649,
+     2.583
+    ]
+   ]
+  }
+ },
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "reference v9.8 with the cap": [
+  3.061,
+  [
+   2.465,
+   3.87,
+   2.592
+  ]
+ ]
+}

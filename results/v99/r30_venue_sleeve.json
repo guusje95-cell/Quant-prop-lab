@@ -1,0 +1,51 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "reference v9.8 + R16 A inside the event sleeve": [
+  3.267,
+  [
+   3.181,
+   3.884,
+   2.719
+  ]
+ ],
+ "sleeve Coinbase + Upbit 2022 / 23-24 / 25-26": [
+  1.425,
+  1.757,
+  1.087
+ ],
+ "sleeve Coinbase only": [
+  1.472,
+  1.678,
+  0.984
+ ],
+ "corr with event sleeve (daily)": 0.28,
+ "A Coinbase + Upbit, separate sleeve": {
+  "book": [
+   3.432,
+   [
+    3.325,
+    4.023,
+    2.89
+   ]
+  ],
+  "pass": true
+ },
+ "B Coinbase only, separate sleeve": {
+  "book": [
+   3.421,
+   [
+    3.169,
+    4.065,
+    2.9
+   ]
+  ],
+  "pass": true
+ }
+}
