@@ -1,0 +1,50 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "A US500 mid-month payday": {
+  "months": 59,
+  "mean return per payday window %": -0.214,
+  "share of positive windows": 0.441,
+  "t": -1.14,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -0.32,
+   -0.567,
+   -0.606
+  ],
+  "book": [
+   2.918,
+   [
+    2.874,
+    3.592,
+    2.298
+   ]
+  ],
+  "pass": false
+ },
+ "B BTC/ETH mid-month payday": {
+  "months": 59,
+  "mean return per payday window %": 0.243,
+  "share of positive windows": 0.492,
+  "t": 0.36,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -0.1,
+   1.054,
+   -0.602
+  ],
+  "book": [
+   3.107,
+   [
+    2.962,
+    3.907,
+    2.432
+   ]
+  ],
+  "pass": false
+ }
+}
