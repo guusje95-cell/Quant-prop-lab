@@ -1,0 +1,3402 @@
+{
+"0GUSD": {
+"base": "0G",
+"altname": "0GUSD",
+"first_trade_utc": "2025-09-22 10:01:21"
+},
+"1INCHUSD": {
+"base": "1INCH",
+"altname": "1INCHUSD",
+"first_trade_utc": "2021-08-10 15:32:27"
+},
+"2ZUSD": {
+"base": "2Z",
+"altname": "2ZUSD",
+"first_trade_utc": "2025-10-02 13:00:17"
+},
+"AAVEUSD": {
+"base": "AAVE",
+"altname": "AAVEUSD",
+"first_trade_utc": "2020-12-15 14:16:34"
+},
+"ABUSD": {
+"base": "AB",
+"altname": "ABUSD",
+"first_trade_utc": "2025-08-08 14:02:47"
+},
+"ACAUSD": {
+"base": "ACA",
+"altname": "ACAUSD",
+"first_trade_utc": "2022-01-25 19:33:48"
+},
+"ACHUSD": {
+"base": "ACH",
+"altname": "ACHUSD",
+"first_trade_utc": "2022-05-31 14:35:06"
+},
+"ACTUSD": {
+"base": "ACT",
+"altname": "ACTUSD",
+"first_trade_utc": "2025-01-27 15:21:23"
+},
+"ACUUSD": {
+"base": "ACU",
+"altname": "ACUUSD",
+"first_trade_utc": "2026-01-20 12:00:38"
+},
+"ACXUSD": {
+"base": "ACX",
+"altname": "ACXUSD",
+"first_trade_utc": "2025-02-06 15:14:25"
+},
+"ADAUSD": {
+"base": "ADA",
+"altname": "ADAUSD",
+"first_trade_utc": "2018-09-28 13:25:00"
+},
+"ADIUSD": {
+"base": "ADI",
+"altname": "ADIUSD",
+"first_trade_utc": "2025-12-09 12:04:54"
+},
+"ADXUSD": {
+"base": "ADX",
+"altname": "ADXUSD",
+"first_trade_utc": "2022-06-09 14:43:47"
+},
+"AEROUSD": {
+"base": "AERO",
+"altname": "AEROUSD",
+"first_trade_utc": "2025-03-05 15:29:56"
+},
+"AEVOUSD": {
+"base": "AEVO",
+"altname": "AEVOUSD",
+"first_trade_utc": "2024-05-30 17:06:33"
+},
+"AI3USD": {
+"base": "AI3",
+"altname": "AI3USD",
+"first_trade_utc": "2025-08-27 14:00:47"
+},
+"AINUSD": {
+"base": "AIN",
+"altname": "AINUSD",
+"first_trade_utc": "2025-11-04 15:12:36"
+},
+"AIOUSD": {
+"base": "AIO",
+"altname": "AIOUSD",
+"first_trade_utc": "2025-11-14 15:00:08"
+},
+"AIOZUSD": {
+"base": "AIOZ",
+"altname": "AIOZUSD",
+"first_trade_utc": "2025-07-11 14:01:01"
+},
+"AIUSD": {
+"base": "AI",
+"altname": "AIUSD",
+"first_trade_utc": "2026-04-29 11:00:40"
+},
+"AIXBTUSD": {
+"base": "AIXBT",
+"altname": "AIXBTUSD",
+"first_trade_utc": "2025-02-21 15:00:22"
+},
+"AKEUSD": {
+"base": "AKE",
+"altname": "AKEUSD",
+"first_trade_utc": "2025-08-22 14:10:17"
+},
+"AKTUSD": {
+"base": "AKT",
+"altname": "AKTUSD",
+"first_trade_utc": "2022-02-01 15:34:22"
+},
+"ALCHUSD": {
+"base": "ALCH",
+"altname": "ALCHUSD",
+"first_trade_utc": "2025-04-18 10:01:37"
+},
+"ALCXUSD": {
+"base": "ALCX",
+"altname": "ALCXUSD",
+"first_trade_utc": "2022-04-01 14:38:55"
+},
+"ALEOUSD": {
+"base": "ALEO",
+"altname": "ALEOUSD",
+"first_trade_utc": "2026-01-29 15:03:48"
+},
+"ALGOUSD": {
+"base": "ALGO",
+"altname": "ALGOUSD",
+"first_trade_utc": "2020-01-22 15:28:16"
+},
+"ALICEUSD": {
+"base": "ALICE",
+"altname": "ALICEUSD",
+"first_trade_utc": "2022-02-25 16:10:21"
+},
+"ALIGNUSD": {
+"base": "ALIGN",
+"altname": "ALIGNUSD",
+"first_trade_utc": "2026-08-20 19:05:46"
+},
+"ALKIMIUSD": {
+"base": "ALKIMI",
+"altname": "ALKIMIUSD",
+"first_trade_utc": "2025-08-19 11:04:09"
+},
+"ALLOUSD": {
+"base": "ALLO",
+"altname": "ALLOUSD",
+"first_trade_utc": "2025-11-11 13:01:03"
+},
+"ALPHAUSD": {
+"base": "ALPHA",
+"altname": "ALPHAUSD",
+"first_trade_utc": "2022-08-26 21:46:10"
+},
+"ALTHEAUSD": {
+"base": "ALTHEA",
+"altname": "ALTHEAUSD",
+"first_trade_utc": "2025-10-08 14:04:17"
+},
+"ALTUSD": {
+"base": "ALT",
+"altname": "ALTUSD",
+"first_trade_utc": "2024-05-30 16:58:52"
+},
+"AMIUSD": {
+"base": "AMI",
+"altname": "AMIUSD",
+"first_trade_utc": "2026-03-06 13:11:27"
+},
+"ANIMEUSD": {
+"base": "ANIME",
+"altname": "ANIMEUSD",
+"first_trade_utc": "2025-10-20 15:01:26"
+},
+"ANKRUSD": {
+"base": "ANKR",
+"altname": "ANKRUSD",
+"first_trade_utc": "2021-05-24 15:43:52"
+},
+"ANONUSD": {
+"base": "ANON",
+"altname": "ANONUSD",
+"first_trade_utc": "2025-03-04 15:58:44"
+},
+"APENFTUSD": {
+"base": "APENFT",
+"altname": "APENFTUSD",
+"first_trade_utc": "2025-03-20 15:18:52"
+},
+"APEUSD": {
+"base": "APE",
+"altname": "APEUSD",
+"first_trade_utc": "2022-03-17 13:22:43"
+},
+"API3USD": {
+"base": "API3",
+"altname": "API3USD",
+"first_trade_utc": "2022-05-05 14:37:58"
+},
+"APRUSD": {
+"base": "APR",
+"altname": "APRUSD",
+"first_trade_utc": "2025-10-23 15:03:36"
+},
+"APTUSD": {
+"base": "APT",
+"altname": "APTUSD",
+"first_trade_utc": "2022-10-19 01:44:14"
+},
+"APUUSD": {
+"base": "APU",
+"altname": "APUUSD",
+"first_trade_utc": "2024-11-12 14:09:53"
+},
+"APXUSDUSD": {
+"base": "APXUSD",
+"altname": "APXUSDUSD",
+"first_trade_utc": "2026-04-20 13:04:23"
+},
+"ARBUSD": {
+"base": "ARB",
+"altname": "ARBUSD",
+"first_trade_utc": "2023-03-23 13:01:15"
+},
+"ARCUSD": {
+"base": "ARC",
+"altname": "ARCUSD",
+"first_trade_utc": "2025-04-17 16:40:51"
+},
+"ARKMUSD": {
+"base": "ARKM",
+"altname": "ARKMUSD",
+"first_trade_utc": "2024-05-30 16:43:45"
+},
+"ARPAUSD": {
+"base": "ARPA",
+"altname": "ARPAUSD",
+"first_trade_utc": "2022-07-28 14:37:12"
+},
+"ARUSD": {
+"base": "AR",
+"altname": "ARUSD",
+"first_trade_utc": "2025-04-28 13:28:01"
+},
+"ARXUSD": {
+"base": "ARX",
+"altname": "ARXUSD",
+"first_trade_utc": "2026-06-22 12:15:55"
+},
+"ASSETUSD": {
+"base": "ASSET",
+"altname": "ASSETUSD",
+"first_trade_utc": "2026-04-30 15:03:19"
+},
+"ASTERUSD": {
+"base": "ASTER",
+"altname": "ASTERUSD",
+"first_trade_utc": "2025-10-20 14:01:49"
+},
+"ASTRUSD": {
+"base": "ASTR",
+"altname": "ASTRUSD",
+"first_trade_utc": "2022-01-18 18:50:04"
+},
+"ATHUSD": {
+"base": "ATH",
+"altname": "ATHUSD",
+"first_trade_utc": "2024-11-12 14:08:50"
+},
+"ATLASUSD": {
+"base": "ATLAS",
+"altname": "ATLASUSD",
+"first_trade_utc": "2022-01-27 17:02:29"
+},
+"ATOMUSD": {
+"base": "ATOM",
+"altname": "ATOMUSD",
+"first_trade_utc": "2019-04-22 18:13:37"
+},
+"AUCTIONUSD": {
+"base": "AUCTION",
+"altname": "AUCTIONUSD",
+"first_trade_utc": "2024-08-13 17:01:57"
+},
+"AUDIOUSD": {
+"base": "AUDIO",
+"altname": "AUDIOUSD",
+"first_trade_utc": "2022-02-25 15:40:07"
+},
+"AUDUSD": {
+"base": "AUD",
+"altname": "AUDUSD",
+"first_trade_utc": "2020-06-16 21:49:33"
+},
+"AUDXUSD": {
+"base": "AUDX",
+"altname": "AUDXUSD",
+"first_trade_utc": "2025-12-19 15:03:35"
+},
+"AUGURUSD": {
+"base": "AUGUR",
+"altname": "AUGURUSD",
+"first_trade_utc": "2026-07-31 15:21:24"
+},
+"AUSD": {
+"base": "A",
+"altname": "AUSD",
+"first_trade_utc": "2025-07-23 09:42:29"
+},
+"AUSDUSD": {
+"base": "AUSD",
+"altname": "AUSDUSD",
+"first_trade_utc": "2026-01-08 15:06:03"
+},
+"AVAAIUSD": {
+"base": "AVAAI",
+"altname": "AVAAIUSD",
+"first_trade_utc": "2025-03-04 16:32:18"
+},
+"AVAUSD": {
+"base": "AVA",
+"altname": "AVAUSD",
+"first_trade_utc": "2026-05-15 12:03:52"
+},
+"AVAXUSD": {
+"base": "AVAX",
+"altname": "AVAXUSD",
+"first_trade_utc": "2021-12-21 15:34:24"
+},
+"AVLUSD": {
+"base": "AVL",
+"altname": "AVLUSD",
+"first_trade_utc": "2026-08-27 14:08:32"
+},
+"AVNTUSD": {
+"base": "AVNT",
+"altname": "AVNTUSD",
+"first_trade_utc": "2025-09-09 14:20:14"
+},
+"AXSUSD": {
+"base": "AXS",
+"altname": "AXSUSD",
+"first_trade_utc": "2021-07-13 15:32:28"
+},
+"AZTECUSD": {
+"base": "AZTEC",
+"altname": "AZTECUSD",
+"first_trade_utc": "2026-02-12 08:33:02"
+},
+"B2USD": {
+"base": "B2",
+"altname": "B2USD",
+"first_trade_utc": "2025-10-07 14:03:37"
+},
+"B3USD": {
+"base": "B3",
+"altname": "B3USD",
+"first_trade_utc": "2025-03-14 15:34:56"
+},
+"BABYSHARKUSD": {
+"base": "BABYSHARK",
+"altname": "BABYSHARKUSD",
+"first_trade_utc": "2026-05-14 10:07:45"
+},
+"BABYUSD": {
+"base": "BABY",
+"altname": "BABYUSD",
+"first_trade_utc": "2025-04-17 16:09:11"
+},
+"BADGERUSD": {
+"base": "BADGER",
+"altname": "BADGERUSD",
+"first_trade_utc": "2021-08-03 15:32:52"
+},
+"BALUSD": {
+"base": "BAL",
+"altname": "BALUSD",
+"first_trade_utc": "2020-09-17 14:40:04"
+},
+"BANANAS31USD": {
+"base": "BANANAS31",
+"altname": "BANANAS31USD",
+"first_trade_utc": "2025-04-30 19:34:38"
+},
+"BANDUSD": {
+"base": "BAND",
+"altname": "BANDUSD",
+"first_trade_utc": "2021-08-10 15:33:13"
+},
+"BASEDUSD": {
+"base": "BASED",
+"altname": "BASEDUSD",
+"first_trade_utc": "2026-03-30 10:44:55"
+},
+"BATUSD": {
+"base": "BAT",
+"altname": "BATUSD",
+"first_trade_utc": "2019-08-22 16:33:44"
+},
+"BCHUSD": {
+"base": "BCH",
+"altname": "BCHUSD",
+"first_trade_utc": "2017-08-01 16:01:37"
+},
+"BDXNUSD": {
+"base": "BDXN",
+"altname": "BDXNUSD",
+"first_trade_utc": "2025-06-03 10:05:41"
+},
+"BEAMUSD": {
+"base": "BEAM",
+"altname": "BEAMUSD",
+"first_trade_utc": "2024-04-11 14:34:33"
+},
+"BERAUSD": {
+"base": "BERA",
+"altname": "BERAUSD",
+"first_trade_utc": "2025-02-06 13:01:04"
+},
+"BERTUSD": {
+"base": "BERT",
+"altname": "BERTUSD",
+"first_trade_utc": "2025-09-26 14:01:44"
+},
+"BGBUSD": {
+"base": "BGB",
+"altname": "BGBUSD",
+"first_trade_utc": "2026-01-30 15:04:30"
+},
+"BICOUSD": {
+"base": "BICO",
+"altname": "BICOUSD",
+"first_trade_utc": "2022-02-25 15:52:46"
+},
+"BIGTIMEUSD": {
+"base": "BIGTIME",
+"altname": "BIGTIMEUSD",
+"first_trade_utc": "2024-06-20 14:26:58"
+},
+"BILLUSD": {
+"base": "BILL",
+"altname": "BILLUSD",
+"first_trade_utc": "2026-05-04 09:02:38"
+},
+"BILLYUSD": {
+"base": "BILLY",
+"altname": "BILLYUSD",
+"first_trade_utc": "2025-10-09 14:28:53"
+},
+"BIOUSD": {
+"base": "BIO",
+"altname": "BIOUSD",
+"first_trade_utc": "2025-02-04 18:33:37"
+},
+"BKSUSD": {
+"base": "BKS",
+"altname": "BKSUSD",
+"first_trade_utc": "2025-11-05 12:00:09"
+},
+"BLENDUSD": {
+"base": "BLEND",
+"altname": "BLENDUSD",
+"first_trade_utc": "2026-04-24 13:08:47"
+},
+"BLESSUSD": {
+"base": "BLESS",
+"altname": "BLESSUSD",
+"first_trade_utc": "2025-09-23 21:33:20"
+},
+"BLUAIUSD": {
+"base": "BLUAI",
+"altname": "BLUAIUSD",
+"first_trade_utc": "2025-10-21 16:15:03"
+},
+"BLUEUSD": {
+"base": "BLUE",
+"altname": "BLUEUSD",
+"first_trade_utc": "2025-11-20 15:08:48"
+},
+"BLURUSD": {
+"base": "BLUR",
+"altname": "BLURUSD",
+"first_trade_utc": "2023-02-14 18:36:11"
+},
+"BLZUSD": {
+"base": "BLZ",
+"altname": "BLZUSD",
+"first_trade_utc": "2022-08-26 14:49:27"
+},
+"BMBUSD": {
+"base": "BMB",
+"altname": "BMBUSD",
+"first_trade_utc": "2025-11-12 14:00:46"
+},
+"BMTUSD": {
+"base": "BMT",
+"altname": "BMTUSD",
+"first_trade_utc": "2025-03-11 11:59:36"
+},
+"BNBUSD": {
+"base": "BNB",
+"altname": "BNBUSD",
+"first_trade_utc": "2025-04-22 14:01:01"
+},
+"BNCUSD": {
+"base": "BNC",
+"altname": "BNCUSD",
+"first_trade_utc": "2021-10-26 15:30:43"
+},
+"BNKRUSD": {
+"base": "BNKR",
+"altname": "BNKRUSD",
+"first_trade_utc": "2026-07-29 14:00:54"
+},
+"BNTUSD": {
+"base": "BNT",
+"altname": "BNTUSD",
+"first_trade_utc": "2021-05-24 15:37:09"
+},
+"BOBAUSD": {
+"base": "BOBA",
+"altname": "BOBAUSD",
+"first_trade_utc": "2022-08-26 14:58:21"
+},
+"BOBUSD": {
+"base": "BOB",
+"altname": "BOBUSD",
+"first_trade_utc": "2025-11-20 14:00:58"
+},
+"BODENUSD": {
+"base": "BODEN",
+"altname": "BODENUSD",
+"first_trade_utc": "2024-06-04 14:39:05"
+},
+"BONKUSD": {
+"base": "BONK",
+"altname": "BONKUSD",
+"first_trade_utc": "2023-12-22 16:58:44"
+},
+"BONZOUSD": {
+"base": "BONZO",
+"altname": "BONZOUSD",
+"first_trade_utc": "2026-04-08 15:45:56"
+},
+"BOSUSD": {
+"base": "BOS",
+"altname": "BOSUSD",
+"first_trade_utc": "2025-10-29 13:02:03"
+},
+"BREVUSD": {
+"base": "BREV",
+"altname": "BREVUSD",
+"first_trade_utc": "2026-01-06 14:08:52"
+},
+"BRL1USD": {
+"base": "BRL1",
+"altname": "BRL1USD",
+"first_trade_utc": "2025-12-03 16:56:50"
+},
+"BTRUSD": {
+"base": "BTR",
+"altname": "BTRUSD",
+"first_trade_utc": "2025-08-27 11:03:52"
+},
+"BTTUSD": {
+"base": "BTT",
+"altname": "BTTUSD",
+"first_trade_utc": "2022-07-01 16:58:33"
+},
+"C98USD": {
+"base": "C98",
+"altname": "C98USD",
+"first_trade_utc": "2022-09-29 14:38:54"
+},
+"CAKEUSD": {
+"base": "CAKE",
+"altname": "CAKEUSD",
+"first_trade_utc": "2025-05-02 06:26:13"
+},
+"CAMPUSD": {
+"base": "CAMP",
+"altname": "CAMPUSD",
+"first_trade_utc": "2025-08-27 09:00:17"
+},
+"CAPUSD": {
+"base": "CAP",
+"altname": "CAPUSD",
+"first_trade_utc": "2026-06-26 12:00:20"
+},
+"CARVUSD": {
+"base": "CARV",
+"altname": "CARVUSD",
+"first_trade_utc": "2025-08-08 16:09:07"
+},
+"CASHUSD": {
+"base": "CASH",
+"altname": "CASHUSD",
+"first_trade_utc": "2026-01-27 14:06:09"
+},
+"CATUSD": {
+"base": "CAT",
+"altname": "CATUSD",
+"first_trade_utc": "2025-05-22 16:11:16"
+},
+"CCDUSD": {
+"base": "CCD",
+"altname": "CCDUSD",
+"first_trade_utc": "2025-07-24 14:01:36"
+},
+"CCUSD": {
+"base": "CC",
+"altname": "CCUSD",
+"first_trade_utc": "2025-11-10 07:00:50"
+},
+"CELOUSD": {
+"base": "CELO",
+"altname": "CELOUSD",
+"first_trade_utc": "2025-04-07 15:49:18"
+},
+"CELRUSD": {
+"base": "CELR",
+"altname": "CELRUSD",
+"first_trade_utc": "2022-08-26 17:53:25"
+},
+"CFGUSD": {
+"base": "CFG",
+"altname": "CFGUSD",
+"first_trade_utc": "2022-04-29 18:41:47"
+},
+"CFXUSD": {
+"base": "CFX",
+"altname": "CFXUSD",
+"first_trade_utc": "2026-02-06 15:00:10"
+},
+"CHECKUSD": {
+"base": "CHECK",
+"altname": "CHECKUSD",
+"first_trade_utc": "2025-11-21 00:08:58"
+},
+"CHEEMSUSD": {
+"base": "CHEEMS",
+"altname": "CHEEMSUSD",
+"first_trade_utc": "2025-04-30 16:22:26"
+},
+"CHEXUSD": {
+"base": "CHEX",
+"altname": "CHEXUSD",
+"first_trade_utc": "2025-06-18 14:21:27"
+},
+"CHILLHOUSEUSD": {
+"base": "CHILLHOUSE",
+"altname": "CHILLHOUSEUSD",
+"first_trade_utc": "2025-07-16 15:05:15"
+},
+"CHIPUSD": {
+"base": "CHIP",
+"altname": "CHIPUSD",
+"first_trade_utc": "2026-04-22 13:34:11"
+},
+"CHRUSD": {
+"base": "CHR",
+"altname": "CHRUSD",
+"first_trade_utc": "2022-06-09 14:33:15"
+},
+"CHZUSD": {
+"base": "CHZ",
+"altname": "CHZUSD",
+"first_trade_utc": "2021-07-13 15:33:21"
+},
+"CLANKERUSD": {
+"base": "CLANKER",
+"altname": "CLANKERUSD",
+"first_trade_utc": "2025-05-19 15:31:30"
+},
+"CLOUDUSD": {
+"base": "CLOUD",
+"altname": "CLOUDUSD",
+"first_trade_utc": "2024-07-18 15:36:29"
+},
+"CLVUSD": {
+"base": "CLV",
+"altname": "CLVUSD",
+"first_trade_utc": "2025-02-06 01:17:00"
+},
+"CMETHUSD": {
+"base": "CMETH",
+"altname": "CMETHUSD",
+"first_trade_utc": "2025-06-18 08:25:18"
+},
+"COMPUSD": {
+"base": "COMP",
+"altname": "COMPUSD",
+"first_trade_utc": "2020-07-15 14:02:10"
+},
+"COOKIEUSD": {
+"base": "COOKIE",
+"altname": "COOKIEUSD",
+"first_trade_utc": "2025-05-08 15:47:36"
+},
+"COPMUSD": {
+"base": "COPM",
+"altname": "COPMUSD",
+"first_trade_utc": "2025-12-23 21:37:41"
+},
+"COQUSD": {
+"base": "COQ",
+"altname": "COQUSD",
+"first_trade_utc": "2025-07-07 13:24:34"
+},
+"CORNUSD": {
+"base": "CORN",
+"altname": "CORNUSD",
+"first_trade_utc": "2025-03-28 10:01:00"
+},
+"COTIUSD": {
+"base": "COTI",
+"altname": "COTIUSD",
+"first_trade_utc": "2022-06-09 14:34:34"
+},
+"COWUSD": {
+"base": "COW",
+"altname": "COWUSD",
+"first_trade_utc": "2025-01-15 20:54:08"
+},
+"CPOOLUSD": {
+"base": "CPOOL",
+"altname": "CPOOLUSD",
+"first_trade_utc": "2024-08-13 19:42:44"
+},
+"CQTUSD": {
+"base": "CQT",
+"altname": "CQTUSD",
+"first_trade_utc": "2021-07-06 15:32:03"
+},
+"CROUSD": {
+"base": "CRO",
+"altname": "CROUSD",
+"first_trade_utc": "2025-01-29 15:17:45"
+},
+"CRVUSD": {
+"base": "CRV",
+"altname": "CRVUSD",
+"first_trade_utc": "2020-09-17 14:12:24"
+},
+"CSPRUSD": {
+"base": "CSPR",
+"altname": "CSPRUSD",
+"first_trade_utc": "2026-07-21 14:01:56"
+},
+"CTCUSD": {
+"base": "CTC",
+"altname": "CTCUSD",
+"first_trade_utc": "2025-09-15 14:03:06"
+},
+"CTRUSD": {
+"base": "CTR",
+"altname": "CTRUSD",
+"first_trade_utc": "2026-05-26 13:05:15"
+},
+"CTSIUSD": {
+"base": "CTSI",
+"altname": "CTSIUSD",
+"first_trade_utc": "2021-08-03 15:56:36"
+},
+"CTUSD": {
+"base": "CT",
+"altname": "CTUSD",
+"first_trade_utc": "2026-09-30 10:00:49"
+},
+"CVCUSD": {
+"base": "CVC",
+"altname": "CVCUSD",
+"first_trade_utc": "2022-05-19 14:33:14"
+},
+"CVXUSD": {
+"base": "CVX",
+"altname": "CVXUSD",
+"first_trade_utc": "2022-03-29 17:07:34"
+},
+"CXTUSD": {
+"base": "CXT",
+"altname": "CXTUSD",
+"first_trade_utc": "2024-08-08 13:39:11"
+},
+"CYBERUSD": {
+"base": "CYBER",
+"altname": "CYBERUSD",
+"first_trade_utc": "2025-02-18 20:27:35"
+},
+"DAGUSD": {
+"base": "DAG",
+"altname": "DAGUSD",
+"first_trade_utc": "2025-11-11 15:03:11"
+},
+"DAIUSD": {
+"base": "DAI",
+"altname": "DAIUSD",
+"first_trade_utc": "2019-09-25 14:10:03"
+},
+"DASHUSD": {
+"base": "DASH",
+"altname": "DASHUSD",
+"first_trade_utc": "2017-04-12 17:28:32"
+},
+"DBRUSD": {
+"base": "DBR",
+"altname": "DBRUSD",
+"first_trade_utc": "2024-10-17 08:32:03"
+},
+"DCRUSD": {
+"base": "DCR",
+"altname": "DCRUSD",
+"first_trade_utc": "2026-05-22 14:03:26"
+},
+"DEBITUSD": {
+"base": "DEBIT",
+"altname": "DEBITUSD",
+"first_trade_utc": "2026-10-02 15:04:53"
+},
+"DEEPUSD": {
+"base": "DEEP",
+"altname": "DEEPUSD",
+"first_trade_utc": "2025-06-05 15:10:12"
+},
+"DEGENUSD": {
+"base": "DEGEN",
+"altname": "DEGENUSD",
+"first_trade_utc": "2025-05-21 16:51:00"
+},
+"DENTUSD": {
+"base": "DENT",
+"altname": "DENTUSD",
+"first_trade_utc": "2022-07-01 14:38:26"
+},
+"DGAIUSD": {
+"base": "DGAI",
+"altname": "DGAIUSD",
+"first_trade_utc": "2026-08-24 08:03:02"
+},
+"DMCUSD": {
+"base": "DMC",
+"altname": "DMCUSD",
+"first_trade_utc": "2025-06-24 10:59:58"
+},
+"DNAUSD": {
+"base": "DNA",
+"altname": "DNAUSD",
+"first_trade_utc": "2026-10-19 15:01:29"
+},
+"DOGSUSD": {
+"base": "DOGS",
+"altname": "DOGSUSD",
+"first_trade_utc": "2025-02-13 15:34:17"
+},
+"DOGUSD": {
+"base": "DOG",
+"altname": "DOGUSD",
+"first_trade_utc": "2025-06-27 13:59:48"
+},
+"DOLOUSD": {
+"base": "DOLO",
+"altname": "DOLOUSD",
+"first_trade_utc": "2025-04-24 20:16:23"
+},
+"DOSUSD": {
+"base": "DOS",
+"altname": "DOSUSD",
+"first_trade_utc": "2026-08-10 22:45:25"
+},
+"DOTUSD": {
+"base": "DOT",
+"altname": "DOTUSD",
+"first_trade_utc": "2020-08-18 17:02:07"
+},
+"DOVUUSD": {
+"base": "DOVU",
+"altname": "DOVUUSD",
+"first_trade_utc": "2026-03-03 19:31:14"
+},
+"DRIFTUSD": {
+"base": "DRIFT",
+"altname": "DRIFTUSD",
+"first_trade_utc": "2024-06-20 14:25:16"
+},
+"DRVUSD": {
+"base": "DRV",
+"altname": "DRVUSD",
+"first_trade_utc": "2025-01-15 00:51:01"
+},
+"DUALUSD": {
+"base": "DUAL",
+"altname": "DUALUSD",
+"first_trade_utc": "2026-03-31 14:00:59"
+},
+"DUCKUSD": {
+"base": "DUCK",
+"altname": "DUCKUSD",
+"first_trade_utc": "2025-03-19 15:01:38"
+},
+"DYDXUSD": {
+"base": "DYDX",
+"altname": "DYDXUSD",
+"first_trade_utc": "2021-09-14 15:30:37"
+},
+"DYMUSD": {
+"base": "DYM",
+"altname": "DYMUSD",
+"first_trade_utc": "2024-02-06 20:17:26"
+},
+"EATUSD": {
+"base": "EAT",
+"altname": "EATUSD",
+"first_trade_utc": "2025-10-29 12:59:54"
+},
+"EDGEUSD": {
+"base": "EDGE",
+"altname": "EDGEUSD",
+"first_trade_utc": "2025-04-02 14:03:56"
+},
+"EDGEXUSD": {
+"base": "EDGEX",
+"altname": "EDGEXUSD",
+"first_trade_utc": "2026-05-06 11:03:53"
+},
+"EDUUSD": {
+"base": "EDU",
+"altname": "EDUUSD",
+"first_trade_utc": "2025-11-13 15:03:30"
+},
+"EGLDUSD": {
+"base": "EGLD",
+"altname": "EGLDUSD",
+"first_trade_utc": "2022-06-16 16:17:06"
+},
+"EIGENUSD": {
+"base": "EIGEN",
+"altname": "EIGENUSD",
+"first_trade_utc": "2024-10-01 06:07:12"
+},
+"ELIZAOSUSD": {
+"base": "ELIZAOS",
+"altname": "ELIZAOSUSD",
+"first_trade_utc": "2025-12-19 15:07:42"
+},
+"ELXUSD": {
+"base": "ELX",
+"altname": "ELXUSD",
+"first_trade_utc": "2025-03-07 10:03:55"
+},
+"ENAUSD": {
+"base": "ENA",
+"altname": "ENAUSD",
+"first_trade_utc": "2024-05-30 18:31:54"
+},
+"ENJUSD": {
+"base": "ENJ",
+"altname": "ENJUSD",
+"first_trade_utc": "2021-05-20 15:34:19"
+},
+"ENSOUSD": {
+"base": "ENSO",
+"altname": "ENSOUSD",
+"first_trade_utc": "2025-10-14 14:01:08"
+},
+"ENSUSD": {
+"base": "ENS",
+"altname": "ENSUSD",
+"first_trade_utc": "2022-02-25 15:40:55"
+},
+"EPTUSD": {
+"base": "EPT",
+"altname": "EPTUSD",
+"first_trade_utc": "2025-07-08 14:51:49"
+},
+"ESPORTSUSD": {
+"base": "ESPORTS",
+"altname": "ESPORTSUSD",
+"first_trade_utc": "2025-11-28 14:05:36"
+},
+"ESPUSD": {
+"base": "ESP",
+"altname": "ESPUSD",
+"first_trade_utc": "2026-02-12 13:00:14"
+},
+"ESUSD": {
+"base": "ES",
+"altname": "ESUSD",
+"first_trade_utc": "2025-07-16 10:02:40"
+},
+"ESXUSD": {
+"base": "ESX",
+"altname": "ESXUSD",
+"first_trade_utc": "2025-06-19 20:46:01"
+},
+"ETHFIUSD": {
+"base": "ETHFI",
+"altname": "ETHFIUSD",
+"first_trade_utc": "2024-05-30 16:48:10"
+},
+"EULUSD": {
+"base": "EUL",
+"altname": "EULUSD",
+"first_trade_utc": "2022-11-28 12:27:50"
+},
+"EURCUSD": {
+"base": "EURC",
+"altname": "EURCUSD",
+"first_trade_utc": "2025-09-23 16:48:16"
+},
+"EUROPUSD": {
+"base": "EUROP",
+"altname": "EUROPUSD",
+"first_trade_utc": "2025-03-12 15:12:56"
+},
+"EURQUSD": {
+"base": "EURQ",
+"altname": "EURQUSD",
+"first_trade_utc": "2024-11-21 14:24:42"
+},
+"EURRUSD": {
+"base": "EURR",
+"altname": "EURRUSD",
+"first_trade_utc": "2025-02-01 21:09:42"
+},
+"EVAAUSD": {
+"base": "EVAA",
+"altname": "EVAAUSD",
+"first_trade_utc": "2025-12-17 11:14:08"
+},
+"EVUSD": {
+"base": "EV",
+"altname": "EVUSD",
+"first_trade_utc": "2026-05-12 14:02:41"
+},
+"EWTUSD": {
+"base": "EWT",
+"altname": "EWTUSD",
+"first_trade_utc": "2021-03-03 15:33:15"
+},
+"FARTCOINUSD": {
+"base": "FARTCOIN",
+"altname": "FARTCOINUSD",
+"first_trade_utc": "2025-01-23 15:03:21"
+},
+"FETUSD": {
+"base": "FET",
+"altname": "FETUSD",
+"first_trade_utc": "2022-05-06 14:45:11"
+},
+"FFUSD": {
+"base": "FF",
+"altname": "FFUSD",
+"first_trade_utc": "2025-09-29 13:30:11"
+},
+"FHEUSD": {
+"base": "FHE",
+"altname": "FHEUSD",
+"first_trade_utc": "2025-04-10 17:58:32"
+},
+"FIDAUSD": {
+"base": "FIDA",
+"altname": "FIDAUSD",
+"first_trade_utc": "2022-01-27 18:25:58"
+},
+"FIDDUSD": {
+"base": "FIDD",
+"altname": "FIDDUSD",
+"first_trade_utc": "2026-02-04 15:03:19"
+},
+"FIGHTUSD": {
+"base": "FIGHT",
+"altname": "FIGHTUSD",
+"first_trade_utc": "2026-01-22 13:00:07"
+},
+"FILUSD": {
+"base": "FIL",
+"altname": "FILUSD",
+"first_trade_utc": "2020-10-15 17:01:09"
+},
+"FISUSD": {
+"base": "FIS",
+"altname": "FISUSD",
+"first_trade_utc": "2022-06-16 14:36:58"
+},
+"FLOCKUSD": {
+"base": "FLOCK",
+"altname": "FLOCKUSD",
+"first_trade_utc": "2026-01-09 15:16:37"
+},
+"FLOKIUSD": {
+"base": "FLOKI",
+"altname": "FLOKIUSD",
+"first_trade_utc": "2024-07-16 16:59:40"
+},
+"FLOWUSD": {
+"base": "FLOW",
+"altname": "FLOWUSD",
+"first_trade_utc": "2021-01-27 15:34:27"
+},
+"FLRUSD": {
+"base": "FLR",
+"altname": "FLRUSD",
+"first_trade_utc": "2023-01-10 03:09:31"
+},
+"FLUXUSD": {
+"base": "FLUX",
+"altname": "FLUXUSD",
+"first_trade_utc": "2022-11-28 16:09:26"
+},
+"FOLDUSD": {
+"base": "FOLD",
+"altname": "FOLDUSD",
+"first_trade_utc": "2026-08-25 15:01:26"
+},
+"FOLKSUSD": {
+"base": "FOLKS",
+"altname": "FOLKSUSD",
+"first_trade_utc": "2025-11-06 13:05:32"
+},
+"FORESTUSD": {
+"base": "FOREST",
+"altname": "FORESTUSD",
+"first_trade_utc": "2025-11-06 14:00:41"
+},
+"FORTHUSD": {
+"base": "FORTH",
+"altname": "FORTHUSD",
+"first_trade_utc": "2022-06-16 14:40:46"
+},
+"FRNTUSD": {
+"base": "FRNT",
+"altname": "FRNTUSD",
+"first_trade_utc": "2026-01-07 16:00:31"
+},
+"FUNUSD": {
+"base": "FUN",
+"altname": "FUNUSD",
+"first_trade_utc": "2026-01-15 14:01:09"
+},
+"FWOGUSD": {
+"base": "FWOG",
+"altname": "FWOGUSD",
+"first_trade_utc": "2024-12-11 15:27:01"
+},
+"FXSUSD": {
+"base": "FXS",
+"altname": "FXSUSD",
+"first_trade_utc": "2022-03-30 02:09:46"
+},
+"GAIAUSD": {
+"base": "GAIA",
+"altname": "GAIAUSD",
+"first_trade_utc": "2025-07-30 09:00:20"
+},
+"GAIBUSD": {
+"base": "GAIB",
+"altname": "GAIBUSD",
+"first_trade_utc": "2025-11-19 11:55:17"
+},
+"GALAUSD": {
+"base": "GALA",
+"altname": "GALAUSD",
+"first_trade_utc": "2022-02-25 15:42:00"
+},
+"GAME2USD": {
+"base": "GAME2",
+"altname": "GAME2USD",
+"first_trade_utc": "2025-11-26 12:01:35"
+},
+"GASUSD": {
+"base": "GAS",
+"altname": "GASUSD",
+"first_trade_utc": "2026-05-08 15:22:51"
+},
+"GENIUSUSD": {
+"base": "GENIUS",
+"altname": "GENIUSUSD",
+"first_trade_utc": "2026-05-15 14:03:55"
+},
+"GFIUSD": {
+"base": "GFI",
+"altname": "GFIUSD",
+"first_trade_utc": "2024-09-19 16:01:01"
+},
+"GHIBLIUSD": {
+"base": "GHIBLI",
+"altname": "GHIBLIUSD",
+"first_trade_utc": "2025-03-27 18:50:54"
+},
+"GHSTUSD": {
+"base": "GHST",
+"altname": "GHSTUSD",
+"first_trade_utc": "2021-05-17 15:43:01"
+},
+"GIBUSD": {
+"base": "GIB",
+"altname": "GIBUSD",
+"first_trade_utc": "2026-04-03 15:00:34"
+},
+"GIGAUSD": {
+"base": "GIGA",
+"altname": "GIGAUSD",
+"first_trade_utc": "2024-10-29 14:11:56"
+},
+"GLMRUSD": {
+"base": "GLMR",
+"altname": "GLMRUSD",
+"first_trade_utc": "2022-01-11 19:31:52"
+},
+"GMTUSD": {
+"base": "GMT",
+"altname": "GMTUSD",
+"first_trade_utc": "2022-04-29 18:43:19"
+},
+"GMXUSD": {
+"base": "GMX",
+"altname": "GMXUSD",
+"first_trade_utc": "2023-03-21 15:50:07"
+},
+"GNOTUSD": {
+"base": "GNOT",
+"altname": "GNOTUSD",
+"first_trade_utc": "2026-09-16 14:00:45"
+},
+"GNOUSD": {
+"base": "GNO",
+"altname": "GNOUSD",
+"first_trade_utc": "2017-05-01 17:20:28"
+},
+"GOATUSD": {
+"base": "GOAT",
+"altname": "GOATUSD",
+"first_trade_utc": "2024-12-11 15:22:47"
+},
+"GOMININGUSD": {
+"base": "GOMINING",
+"altname": "GOMININGUSD",
+"first_trade_utc": "2025-08-06 14:07:16"
+},
+"GRASSUSD": {
+"base": "GRASS",
+"altname": "GRASSUSD",
+"first_trade_utc": "2025-01-27 15:02:47"
+},
+"GRIFFAINUSD": {
+"base": "GRIFFAIN",
+"altname": "GRIFFAINUSD",
+"first_trade_utc": "2025-01-23 15:03:46"
+},
+"GRTUSD": {
+"base": "GRT",
+"altname": "GRTUSD",
+"first_trade_utc": "2020-12-18 21:42:11"
+},
+"GSTUSD": {
+"base": "GST",
+"altname": "GSTUSD",
+"first_trade_utc": "2022-04-29 18:46:58"
+},
+"GTCUSD": {
+"base": "GTC",
+"altname": "GTCUSD",
+"first_trade_utc": "2022-06-16 14:44:19"
+},
+"GUNUSD": {
+"base": "GUN",
+"altname": "GUNUSD",
+"first_trade_utc": "2025-04-01 17:50:47"
+},
+"GUSD": {
+"base": "G",
+"altname": "GUSD",
+"first_trade_utc": "2025-01-22 15:01:20"
+},
+"GWEIUSD": {
+"base": "GWEI",
+"altname": "GWEIUSD",
+"first_trade_utc": "2026-01-21 16:33:30"
+},
+"HBARUSD": {
+"base": "HBAR",
+"altname": "HBARUSD",
+"first_trade_utc": "2025-07-10 16:08:27"
+},
+"HDXUSD": {
+"base": "HDX",
+"altname": "HDXUSD",
+"first_trade_utc": "2023-01-24 18:42:17"
+},
+"HFTUSD": {
+"base": "HFT",
+"altname": "HFTUSD",
+"first_trade_utc": "2022-11-07 14:28:59"
+},
+"HIPPOUSD": {
+"base": "HIPPO",
+"altname": "HIPPOUSD",
+"first_trade_utc": "2025-05-27 15:50:47"
+},
+"HMSTRUSD": {
+"base": "HMSTR",
+"altname": "HMSTRUSD",
+"first_trade_utc": "2025-04-21 22:40:02"
+},
+"HNTUSD": {
+"base": "HNT",
+"altname": "HNTUSD",
+"first_trade_utc": "2024-03-14 12:10:06"
+},
+"HOLOUSD": {
+"base": "HOLO",
+"altname": "HOLOUSD",
+"first_trade_utc": "2025-11-06 16:10:01"
+},
+"HONEYUSD": {
+"base": "HONEY",
+"altname": "HONEYUSD",
+"first_trade_utc": "2024-07-03 14:04:07"
+},
+"HOUSEUSD": {
+"base": "HOUSE",
+"altname": "HOUSEUSD",
+"first_trade_utc": "2025-07-29 14:44:22"
+},
+"HPOS10IUSD": {
+"base": "HPOS10I",
+"altname": "HPOS10IUSD",
+"first_trade_utc": "2025-01-29 15:56:03"
+},
+"HSKUSD": {
+"base": "HSK",
+"altname": "HSKUSD",
+"first_trade_utc": "2026-01-26 13:02:12"
+},
+"HYPEUSD": {
+"base": "HYPE",
+"altname": "HYPEUSD",
+"first_trade_utc": "2026-01-28 15:09:52"
+},
+"IAGUSD": {
+"base": "IAG",
+"altname": "IAGUSD",
+"first_trade_utc": "2025-11-20 13:01:27"
+},
+"ICNTUSD": {
+"base": "ICNT",
+"altname": "ICNTUSD",
+"first_trade_utc": "2025-07-03 12:50:33"
+},
+"ICPUSD": {
+"base": "ICP",
+"altname": "ICPUSD",
+"first_trade_utc": "2022-03-18 15:45:18"
+},
+"IDEXUSD": {
+"base": "IDEX",
+"altname": "IDEXUSD",
+"first_trade_utc": "2022-05-31 14:34:59"
+},
+"IDOSUSD": {
+"base": "IDOS",
+"altname": "IDOSUSD",
+"first_trade_utc": "2026-03-05 14:00:59"
+},
+"IMXUSD": {
+"base": "IMX",
+"altname": "IMXUSD",
+"first_trade_utc": "2022-02-25 15:57:51"
+},
+"INITUSD": {
+"base": "INIT",
+"altname": "INITUSD",
+"first_trade_utc": "2025-04-24 11:06:13"
+},
+"INJUSD": {
+"base": "INJ",
+"altname": "INJUSD",
+"first_trade_utc": "2021-08-10 15:59:28"
+},
+"INUSD": {
+"base": "IN",
+"altname": "INUSD",
+"first_trade_utc": "2026-01-20 13:02:13"
+},
+"INXUSD": {
+"base": "INX",
+"altname": "INXUSD",
+"first_trade_utc": "2026-01-30 19:00:14"
+},
+"IPUSD": {
+"base": "IP",
+"altname": "IPUSD",
+"first_trade_utc": "2025-03-10 15:02:13"
+},
+"IRUSD": {
+"base": "IR",
+"altname": "IRUSD",
+"first_trade_utc": "2025-12-17 12:01:06"
+},
+"JAILSTOOLUSD": {
+"base": "JAILSTOOL",
+"altname": "JAILSTOOLUSD",
+"first_trade_utc": "2025-02-09 22:06:00"
+},
+"JASMYUSD": {
+"base": "JASMY",
+"altname": "JASMYUSD",
+"first_trade_utc": "2022-04-01 14:48:06"
+},
+"JITOSOLUSD": {
+"base": "JITOSOL",
+"altname": "JITOSOLUSD",
+"first_trade_utc": "2025-06-26 16:02:17"
+},
+"JOEUSD": {
+"base": "JOE",
+"altname": "JOEUSD",
+"first_trade_utc": "2025-07-07 16:06:56"
+},
+"JSTUSD": {
+"base": "JST",
+"altname": "JSTUSD",
+"first_trade_utc": "2025-04-01 16:40:01"
+},
+"JTOUSD": {
+"base": "JTO",
+"altname": "JTOUSD",
+"first_trade_utc": "2023-12-20 20:07:02"
+},
+"JUNOUSD": {
+"base": "JUNO",
+"altname": "JUNOUSD",
+"first_trade_utc": "2022-08-05 15:26:04"
+},
+"JUPUSD": {
+"base": "JUP",
+"altname": "JUPUSD",
+"first_trade_utc": "2024-01-31 16:04:07"
+},
+"KAITOUSD": {
+"base": "KAITO",
+"altname": "KAITOUSD",
+"first_trade_utc": "2025-02-20 13:15:01"
+},
+"KASUSD": {
+"base": "KAS",
+"altname": "KASUSD",
+"first_trade_utc": "2024-11-19 13:57:01"
+},
+"KATUSD": {
+"base": "KAT",
+"altname": "KATUSD",
+"first_trade_utc": "2026-03-18 13:13:43"
+},
+"KAVAUSD": {
+"base": "KAVA",
+"altname": "KAVAUSD",
+"first_trade_utc": "2020-07-15 14:10:47"
+},
+"KEEPUSD": {
+"base": "KEEP",
+"altname": "KEEPUSD",
+"first_trade_utc": "2020-11-24 14:01:16"
+},
+"KERNELUSD": {
+"base": "KERNEL",
+"altname": "KERNELUSD",
+"first_trade_utc": "2025-04-14 12:29:30"
+},
+"KEYUSD": {
+"base": "KEY",
+"altname": "KEYUSD",
+"first_trade_utc": "2022-07-01 14:39:52"
+},
+"KGENUSD": {
+"base": "KGEN",
+"altname": "KGENUSD",
+"first_trade_utc": "2025-10-22 12:42:01"
+},
+"KIIUSD": {
+"base": "KII",
+"altname": "KIIUSD",
+"first_trade_utc": "2026-08-14 13:12:59"
+},
+"KINUSD": {
+"base": "KIN",
+"altname": "KINUSD",
+"first_trade_utc": "2022-01-27 15:35:14"
+},
+"KMNOUSD": {
+"base": "KMNO",
+"altname": "KMNOUSD",
+"first_trade_utc": "2024-08-13 17:12:35"
+},
+"KNCUSD": {
+"base": "KNC",
+"altname": "KNCUSD",
+"first_trade_utc": "2020-07-15 14:03:00"
+},
+"KNTQUSD": {
+"base": "KNTQ",
+"altname": "KNTQUSD",
+"first_trade_utc": "2026-05-27 14:02:20"
+},
+"KOBANUSD": {
+"base": "KOBAN",
+"altname": "KOBANUSD",
+"first_trade_utc": "2025-05-14 15:03:53"
+},
+"KP3RUSD": {
+"base": "KP3R",
+"altname": "KP3RUSD",
+"first_trade_utc": "2022-02-25 19:48:11"
+},
+"KSMUSD": {
+"base": "KSM",
+"altname": "KSMUSD",
+"first_trade_utc": "2020-09-17 14:05:01"
+},
+"KTAUSD": {
+"base": "KTA",
+"altname": "KTAUSD",
+"first_trade_utc": "2025-08-05 14:04:48"
+},
+"KULAUSD": {
+"base": "KULA",
+"altname": "KULAUSD",
+"first_trade_utc": "2025-12-16 15:06:39"
+},
+"L3USD": {
+"base": "L3",
+"altname": "L3USD",
+"first_trade_utc": "2024-07-30 10:33:53"
+},
+"LAPTOPUSD": {
+"base": "LAPTOP",
+"altname": "LAPTOPUSD",
+"first_trade_utc": "2026-09-09 13:55:32"
+},
+"LAVAUSD": {
+"base": "LAVA",
+"altname": "LAVAUSD",
+"first_trade_utc": "2025-12-10 10:03:01"
+},
+"LAYERUSD": {
+"base": "LAYER",
+"altname": "LAYERUSD",
+"first_trade_utc": "2025-03-04 19:58:43"
+},
+"LCAPUSD": {
+"base": "LCAP",
+"altname": "LCAPUSD",
+"first_trade_utc": "2025-09-24 13:33:52"
+},
+"LCXUSD": {
+"base": "LCX",
+"altname": "LCXUSD",
+"first_trade_utc": "2022-06-16 15:18:52"
+},
+"LDOUSD": {
+"base": "LDO",
+"altname": "LDOUSD",
+"first_trade_utc": "2022-05-05 14:44:39"
+},
+"LIGHTERUSD": {
+"base": "LIGHTER",
+"altname": "LIGHTERUSD",
+"first_trade_utc": "2026-08-17 17:54:28"
+},
+"LINEAUSD": {
+"base": "LINEA",
+"altname": "LINEAUSD",
+"first_trade_utc": "2025-09-11 11:42:34"
+},
+"LINKUSD": {
+"base": "LINK",
+"altname": "LINKUSD",
+"first_trade_utc": "2019-09-25 14:00:04"
+},
+"LIONUSD": {
+"base": "LION",
+"altname": "LIONUSD",
+"first_trade_utc": "2025-10-31 14:07:12"
+},
+"LITUSD": {
+"base": "LIT",
+"altname": "LITUSD",
+"first_trade_utc": "2024-08-29 22:45:55"
+},
+"LMWRUSD": {
+"base": "LMWR",
+"altname": "LMWRUSD",
+"first_trade_utc": "2023-05-16 12:00:45"
+},
+"LOCKINUSD": {
+"base": "LOCKIN",
+"altname": "LOCKINUSD",
+"first_trade_utc": "2025-01-21 15:15:26"
+},
+"LOFIUSD": {
+"base": "LOFI",
+"altname": "LOFIUSD",
+"first_trade_utc": "2025-05-13 14:01:22"
+},
+"LPTUSD": {
+"base": "LPT",
+"altname": "LPTUSD",
+"first_trade_utc": "2021-05-20 15:34:21"
+},
+"LQTYUSD": {
+"base": "LQTY",
+"altname": "LQTYUSD",
+"first_trade_utc": "2025-01-22 22:56:54"
+},
+"LRCUSD": {
+"base": "LRC",
+"altname": "LRCUSD",
+"first_trade_utc": "2021-08-03 15:35:14"
+},
+"LSETHUSD": {
+"base": "LSETH",
+"altname": "LSETHUSD",
+"first_trade_utc": "2025-03-17 15:49:11"
+},
+"LSKUSD": {
+"base": "LSK",
+"altname": "LSKUSD",
+"first_trade_utc": "2019-11-19 15:38:04"
+},
+"LSSOLUSD": {
+"base": "LSSOL",
+"altname": "LSSOLUSD",
+"first_trade_utc": "2025-09-03 14:02:34"
+},
+"LUNAUSD": {
+"base": "LUNA",
+"altname": "LUNAUSD",
+"first_trade_utc": "2021-12-16 15:31:38"
+},
+"MANAUSD": {
+"base": "MANA",
+"altname": "MANAUSD",
+"first_trade_utc": "2020-12-15 14:08:29"
+},
+"MANTRAUSD": {
+"base": "MANTRA",
+"altname": "MANTRAUSD",
+"first_trade_utc": "2026-03-04 14:01:06"
+},
+"MASKUSD": {
+"base": "MASK",
+"altname": "MASKUSD",
+"first_trade_utc": "2022-04-01 14:41:36"
+},
+"MATUSD": {
+"base": "MAT",
+"altname": "MATUSD",
+"first_trade_utc": "2025-06-19 12:10:48"
+},
+"MEGAUSD": {
+"base": "MEGA",
+"altname": "MEGAUSD",
+"first_trade_utc": "2026-04-30 11:06:19"
+},
+"MELANIAUSD": {
+"base": "MELANIA",
+"altname": "MELANIAUSD",
+"first_trade_utc": "2025-01-20 11:14:11"
+},
+"MEMEUSD": {
+"base": "MEME",
+"altname": "MEMEUSD",
+"first_trade_utc": "2024-08-29 16:10:39"
+},
+"MERLUSD": {
+"base": "MERL",
+"altname": "MERLUSD",
+"first_trade_utc": "2025-07-03 13:15:20"
+},
+"METHUSD": {
+"base": "METH",
+"altname": "METHUSD",
+"first_trade_utc": "2025-06-20 13:28:13"
+},
+"METISUSD": {
+"base": "METIS",
+"altname": "METISUSD",
+"first_trade_utc": "2025-04-09 18:10:07"
+},
+"METUSD": {
+"base": "MET",
+"altname": "METUSD",
+"first_trade_utc": "2025-11-03 15:07:51"
+},
+"MEUSD": {
+"base": "ME",
+"altname": "MEUSD",
+"first_trade_utc": "2025-01-28 16:03:13"
+},
+"MEWUSD": {
+"base": "MEW",
+"altname": "MEWUSD",
+"first_trade_utc": "2024-10-08 16:10:56"
+},
+"MEZOUSD": {
+"base": "MEZO",
+"altname": "MEZOUSD",
+"first_trade_utc": "2026-04-01 14:00:20"
+},
+"MFUSD": {
+"base": "MF",
+"altname": "MFUSD",
+"first_trade_utc": "2025-10-06 14:03:46"
+},
+"MIMUSD": {
+"base": "MIM",
+"altname": "MIMUSD",
+"first_trade_utc": "2025-08-08 19:17:55"
+},
+"MINAUSD": {
+"base": "MINA",
+"altname": "MINAUSD",
+"first_trade_utc": "2021-06-01 00:01:08"
+},
+"MIRAUSD": {
+"base": "MIRA",
+"altname": "MIRAUSD",
+"first_trade_utc": "2025-09-26 11:59:41"
+},
+"MIRUSD": {
+"base": "MIR",
+"altname": "MIRUSD",
+"first_trade_utc": "2021-08-10 15:34:37"
+},
+"MNGOUSD": {
+"base": "MNGO",
+"altname": "MNGOUSD",
+"first_trade_utc": "2022-01-27 18:28:55"
+},
+"MNTUSD": {
+"base": "MNT",
+"altname": "MNTUSD",
+"first_trade_utc": "2024-07-03 14:01:11"
+},
+"MOCAUSD": {
+"base": "MOCA",
+"altname": "MOCAUSD",
+"first_trade_utc": "2025-08-20 14:02:41"
+},
+"MOGUSD": {
+"base": "MOG",
+"altname": "MOGUSD",
+"first_trade_utc": "2024-08-29 16:07:34"
+},
+"MONUSD": {
+"base": "MON",
+"altname": "MONUSD",
+"first_trade_utc": "2025-11-24 15:00:11"
+},
+"MOODENGUSD": {
+"base": "MOODENG",
+"altname": "MOODENGUSD",
+"first_trade_utc": "2024-12-18 15:14:29"
+},
+"MORPHOUSD": {
+"base": "MORPHO",
+"altname": "MORPHOUSD",
+"first_trade_utc": "2024-11-21 12:15:15"
+},
+"MOVRUSD": {
+"base": "MOVR",
+"altname": "MOVRUSD",
+"first_trade_utc": "2021-08-27 09:00:15"
+},
+"MSOLUSD": {
+"base": "MSOL",
+"altname": "MSOLUSD",
+"first_trade_utc": "2022-04-29 18:47:22"
+},
+"MUBARAKUSD": {
+"base": "MUBARAK",
+"altname": "MUBARAKUSD",
+"first_trade_utc": "2025-04-30 19:03:02"
+},
+"MULTIUSD": {
+"base": "MULTI",
+"altname": "MULTIUSD",
+"first_trade_utc": "2022-03-29 16:33:35"
+},
+"MUSD": {
+"base": "M",
+"altname": "MUSD",
+"first_trade_utc": "2025-07-03 08:03:09"
+},
+"MXNBUSD": {
+"base": "MXNB",
+"altname": "MXNBUSD",
+"first_trade_utc": "2025-10-14 14:07:24"
+},
+"MYXUSD": {
+"base": "MYX",
+"altname": "MYXUSD",
+"first_trade_utc": "2025-10-13 14:04:11"
+},
+"NANOUSD": {
+"base": "NANO",
+"altname": "NANOUSD",
+"first_trade_utc": "2019-11-06 13:49:08"
+},
+"NEARUSD": {
+"base": "NEAR",
+"altname": "NEARUSD",
+"first_trade_utc": "2022-06-16 14:40:05"
+},
+"NEIROUSD": {
+"base": "NEIRO",
+"altname": "NEIROUSD",
+"first_trade_utc": "2024-12-05 15:33:34"
+},
+"NEOUSD": {
+"base": "NEO",
+"altname": "NEOUSD",
+"first_trade_utc": "2026-05-08 15:23:18"
+},
+"NESUSD": {
+"base": "NES",
+"altname": "NESUSD",
+"first_trade_utc": "2026-06-24 13:00:18"
+},
+"NEXOUSD": {
+"base": "NEXO",
+"altname": "NEXOUSD",
+"first_trade_utc": "2026-10-22 15:00:54"
+},
+"NEXUSD": {
+"base": "NEX",
+"altname": "NEXUSD",
+"first_trade_utc": "2026-05-20 15:02:24"
+},
+"NIGHTUSD": {
+"base": "NIGHT",
+"altname": "NIGHTUSD",
+"first_trade_utc": "2025-12-09 10:00:09"
+},
+"NILUSD": {
+"base": "NIL",
+"altname": "NILUSD",
+"first_trade_utc": "2025-03-26 14:14:43"
+},
+"NMRUSD": {
+"base": "NMR",
+"altname": "NMRUSD",
+"first_trade_utc": "2022-05-05 14:39:15"
+},
+"NOBODYUSD": {
+"base": "NOBODY",
+"altname": "NOBODYUSD",
+"first_trade_utc": "2025-09-11 16:00:46"
+},
+"NOCKUSD": {
+"base": "NOCK",
+"altname": "NOCKUSD",
+"first_trade_utc": "2026-06-25 14:21:31"
+},
+"NODEUSD": {
+"base": "NODE",
+"altname": "NODEUSD",
+"first_trade_utc": "2025-07-31 10:06:24"
+},
+"NOSUSD": {
+"base": "NOS",
+"altname": "NOSUSD",
+"first_trade_utc": "2024-06-04 14:57:46"
+},
+"NOTUSD": {
+"base": "NOT",
+"altname": "NOTUSD",
+"first_trade_utc": "2025-02-13 16:25:47"
+},
+"NPCUSD": {
+"base": "NPC",
+"altname": "NPCUSD",
+"first_trade_utc": "2025-06-25 12:06:59"
+},
+"NTRNUSD": {
+"base": "NTRN",
+"altname": "NTRNUSD",
+"first_trade_utc": "2024-07-16 18:10:23"
+},
+"OBOLUSD": {
+"base": "OBOL",
+"altname": "OBOLUSD",
+"first_trade_utc": "2025-11-07 15:08:28"
+},
+"OCEANUSD": {
+"base": "OCEAN",
+"altname": "OCEANUSD",
+"first_trade_utc": "2021-03-03 15:32:27"
+},
+"ODOSUSD": {
+"base": "ODOS",
+"altname": "ODOSUSD",
+"first_trade_utc": "2025-02-21 15:00:47"
+},
+"OGNUSD": {
+"base": "OGN",
+"altname": "OGNUSD",
+"first_trade_utc": "2021-07-13 15:32:27"
+},
+"OKBUSD": {
+"base": "OKB",
+"altname": "OKBUSD",
+"first_trade_utc": "2026-04-03 14:00:31"
+},
+"OMGUSD": {
+"base": "OMG",
+"altname": "OMGUSD",
+"first_trade_utc": "2019-10-29 14:15:31"
+},
+"OMIUSD": {
+"base": "OMI",
+"altname": "OMIUSD",
+"first_trade_utc": "2025-12-23 20:01:01"
+},
+"OMNIUSD": {
+"base": "OMNI",
+"altname": "OMNIUSD",
+"first_trade_utc": "2024-12-04 17:10:19"
+},
+"ONDOUSD": {
+"base": "ONDO",
+"altname": "ONDOUSD",
+"first_trade_utc": "2024-04-11 14:27:32"
+},
+"ONEUSD": {
+"base": "ONE",
+"altname": "ONEUSD",
+"first_trade_utc": "2026-09-09 15:09:24"
+},
+"OOBUSD": {
+"base": "OOB",
+"altname": "OOBUSD",
+"first_trade_utc": "2025-11-12 15:02:33"
+},
+"OPENUSD": {
+"base": "OPEN",
+"altname": "OPENUSD",
+"first_trade_utc": "2025-09-08 12:17:43"
+},
+"OPNUSD": {
+"base": "OPN",
+"altname": "OPNUSD",
+"first_trade_utc": "2026-03-05 13:01:37"
+},
+"OPUSD": {
+"base": "OP",
+"altname": "OPUSD",
+"first_trade_utc": "2023-09-29 09:38:08"
+},
+"ORCAUSD": {
+"base": "ORCA",
+"altname": "ORCAUSD",
+"first_trade_utc": "2022-01-27 19:39:40"
+},
+"ORDERUSD": {
+"base": "ORDER",
+"altname": "ORDERUSD",
+"first_trade_utc": "2025-04-25 23:39:40"
+},
+"OSMOUSD": {
+"base": "OSMO",
+"altname": "OSMOUSD",
+"first_trade_utc": "2024-06-25 18:46:33"
+},
+"OUSDUSD": {
+"base": "OUSD",
+"altname": "OUSDUSD",
+"first_trade_utc": "2026-09-30 15:03:13"
+},
+"OXTUSD": {
+"base": "OXT",
+"altname": "OXTUSD",
+"first_trade_utc": "2020-06-02 13:56:14"
+},
+"PACKUSD": {
+"base": "PACK",
+"altname": "PACKUSD",
+"first_trade_utc": "2026-03-09 17:07:42"
+},
+"PACTUSD": {
+"base": "PACT",
+"altname": "PACTUSD",
+"first_trade_utc": "2026-02-26 14:06:52"
+},
+"PARTIUSD": {
+"base": "PARTI",
+"altname": "PARTIUSD",
+"first_trade_utc": "2025-07-08 14:21:42"
+},
+"PAXGUSD": {
+"base": "PAXG",
+"altname": "PAXGUSD",
+"first_trade_utc": "2019-10-29 22:52:18"
+},
+"PEAQUSD": {
+"base": "PEAQ",
+"altname": "PEAQUSD",
+"first_trade_utc": "2025-07-02 13:30:46"
+},
+"PENDLEUSD": {
+"base": "PENDLE",
+"altname": "PENDLEUSD",
+"first_trade_utc": "2024-06-06 14:19:08"
+},
+"PENGUUSD": {
+"base": "PENGU",
+"altname": "PENGUUSD",
+"first_trade_utc": "2025-01-28 15:01:24"
+},
+"PEPECOINUSD": {
+"base": "PEPECOIN",
+"altname": "PEPECOINUSD",
+"first_trade_utc": "2026-02-18 21:02:41"
+},
+"PEPEUSD": {
+"base": "PEPE",
+"altname": "PEPEUSD",
+"first_trade_utc": "2023-05-16 15:40:20"
+},
+"PEPUSD": {
+"base": "PEP",
+"altname": "PEPUSD",
+"first_trade_utc": "2026-02-11 15:00:15"
+},
+"PERPUSD": {
+"base": "PERP",
+"altname": "PERPUSD",
+"first_trade_utc": "2021-07-13 15:33:21"
+},
+"PHAUSD": {
+"base": "PHA",
+"altname": "PHAUSD",
+"first_trade_utc": "2021-10-08 15:32:34"
+},
+"PIEVERSEUSD": {
+"base": "PIEVERSE",
+"altname": "PIEVERSEUSD",
+"first_trade_utc": "2026-05-20 14:03:43"
+},
+"PIPEUSD": {
+"base": "PIPE",
+"altname": "PIPEUSD",
+"first_trade_utc": "2025-10-08 15:01:25"
+},
+"PIUSD": {
+"base": "PI",
+"altname": "PIUSD",
+"first_trade_utc": "2026-03-13 15:00:07"
+},
+"PLAYUSD": {
+"base": "PLAY",
+"altname": "PLAYUSD",
+"first_trade_utc": "2025-09-11 08:20:14"
+},
+"PLUMEUSD": {
+"base": "PLUME",
+"altname": "PLUMEUSD",
+"first_trade_utc": "2025-04-23 15:03:05"
+},
+"PNTUSD": {
+"base": "PNT",
+"altname": "PNTUSD",
+"first_trade_utc": "2026-10-05 12:02:38"
+},
+"PNUTUSD": {
+"base": "PNUT",
+"altname": "PNUTUSD",
+"first_trade_utc": "2024-12-18 15:00:47"
+},
+"POLISUSD": {
+"base": "POLIS",
+"altname": "POLISUSD",
+"first_trade_utc": "2022-01-27 17:04:17"
+},
+"POLSUSD": {
+"base": "POLS",
+"altname": "POLSUSD",
+"first_trade_utc": "2022-08-26 14:57:32"
+},
+"POLUSD": {
+"base": "POL",
+"altname": "POLUSD",
+"first_trade_utc": "2023-12-21 21:21:37"
+},
+"PONDUSD": {
+"base": "POND",
+"altname": "PONDUSD",
+"first_trade_utc": "2022-08-26 15:43:19"
+},
+"PONKEUSD": {
+"base": "PONKE",
+"altname": "PONKEUSD",
+"first_trade_utc": "2024-10-15 16:07:13"
+},
+"PONSUSD": {
+"base": "PONS",
+"altname": "PONSUSD",
+"first_trade_utc": "2026-09-25 16:16:55"
+},
+"POPCATUSD": {
+"base": "POPCAT",
+"altname": "POPCATUSD",
+"first_trade_utc": "2024-09-19 16:00:30"
+},
+"PORTALUSD": {
+"base": "PORTAL",
+"altname": "PORTALUSD",
+"first_trade_utc": "2024-06-20 14:21:23"
+},
+"POWRUSD": {
+"base": "POWR",
+"altname": "POWRUSD",
+"first_trade_utc": "2022-03-29 17:17:33"
+},
+"PRCLUSD": {
+"base": "PRCL",
+"altname": "PRCLUSD",
+"first_trade_utc": "2024-08-13 18:27:49"
+},
+"PRIMEUSD": {
+"base": "PRIME",
+"altname": "PRIMEUSD",
+"first_trade_utc": "2024-08-13 19:07:43"
+},
+"PROMPTUSD": {
+"base": "PROMPT",
+"altname": "PROMPTUSD",
+"first_trade_utc": "2025-04-10 13:05:18"
+},
+"PROSUSD": {
+"base": "PROS",
+"altname": "PROSUSD",
+"first_trade_utc": "2026-04-28 13:06:51"
+},
+"PROUSD": {
+"base": "PRO",
+"altname": "PROUSD",
+"first_trade_utc": "2025-09-17 16:04:21"
+},
+"PROVEUSD": {
+"base": "PROVE",
+"altname": "PROVEUSD",
+"first_trade_utc": "2025-08-29 14:02:44"
+},
+"PTBUSD": {
+"base": "PTB",
+"altname": "PTBUSD",
+"first_trade_utc": "2025-09-03 13:01:13"
+},
+"PUFFERUSD": {
+"base": "PUFFER",
+"altname": "PUFFERUSD",
+"first_trade_utc": "2024-10-14 13:01:50"
+},
+"PUMPUSD": {
+"base": "PUMP",
+"altname": "PUMPUSD",
+"first_trade_utc": "2025-07-14 16:59:49"
+},
+"PUPSUSD": {
+"base": "PUPS",
+"altname": "PUPSUSD",
+"first_trade_utc": "2025-08-15 14:01:17"
+},
+"PWTUSD": {
+"base": "PWT",
+"altname": "PWTUSD",
+"first_trade_utc": "2026-08-24 13:04:31"
+},
+"PYTHUSD": {
+"base": "PYTH",
+"altname": "PYTHUSD",
+"first_trade_utc": "2023-12-05 15:11:15"
+},
+"PYUSDUSD": {
+"base": "PYUSD",
+"altname": "PYUSDUSD",
+"first_trade_utc": "2023-08-21 14:24:45"
+},
+"QCADUSD": {
+"base": "QCAD",
+"altname": "QCADUSD",
+"first_trade_utc": "2026-04-20 14:04:20"
+},
+"QIUSD": {
+"base": "QI",
+"altname": "QIUSD",
+"first_trade_utc": "2025-07-07 15:03:09"
+},
+"QNTUSD": {
+"base": "QNT",
+"altname": "QNTUSD",
+"first_trade_utc": "2022-03-29 15:45:46"
+},
+"QTUMUSD": {
+"base": "QTUM",
+"altname": "QTUMUSD",
+"first_trade_utc": "2018-09-28 14:00:59"
+},
+"QUAIUSD": {
+"base": "QUAI",
+"altname": "QUAIUSD",
+"first_trade_utc": "2026-04-09 15:18:25"
+},
+"QUIDUSD": {
+"base": "QUID",
+"altname": "QUIDUSD",
+"first_trade_utc": "2026-08-04 13:00:24"
+},
+"QUSD": {
+"base": "Q",
+"altname": "QUSD",
+"first_trade_utc": "2025-09-02 08:08:29"
+},
+"RADUSD": {
+"base": "RAD",
+"altname": "RADUSD",
+"first_trade_utc": "2022-05-19 14:35:44"
+},
+"RAILSUSD": {
+"base": "RAILS",
+"altname": "RAILSUSD",
+"first_trade_utc": "2026-02-04 16:01:54"
+},
+"RAREUSD": {
+"base": "RARE",
+"altname": "RAREUSD",
+"first_trade_utc": "2022-03-29 16:01:25"
+},
+"RARIUSD": {
+"base": "RARI",
+"altname": "RARIUSD",
+"first_trade_utc": "2021-05-17 15:32:56"
+},
+"RAYUSD": {
+"base": "RAY",
+"altname": "RAYUSD",
+"first_trade_utc": "2021-09-28 15:33:36"
+},
+"RBCUSD": {
+"base": "RBC",
+"altname": "RBCUSD",
+"first_trade_utc": "2022-03-29 15:36:14"
+},
+"REDUSD": {
+"base": "RED",
+"altname": "REDUSD",
+"first_trade_utc": "2025-03-06 13:05:30"
+},
+"REKTUSD": {
+"base": "REKT",
+"altname": "REKTUSD",
+"first_trade_utc": "2025-08-27 14:02:25"
+},
+"RENDERUSD": {
+"base": "RENDER",
+"altname": "RENDERUSD",
+"first_trade_utc": "2024-08-06 12:36:06"
+},
+"RENUSD": {
+"base": "REN",
+"altname": "RENUSD",
+"first_trade_utc": "2021-05-14 15:33:27"
+},
+"REPPOUSD": {
+"base": "REPPO",
+"altname": "REPPOUSD",
+"first_trade_utc": "2026-04-23 14:04:58"
+},
+"REQUSD": {
+"base": "REQ",
+"altname": "REQUSD",
+"first_trade_utc": "2022-05-31 14:36:02"
+},
+"REUSD": {
+"base": "RE",
+"altname": "REUSD",
+"first_trade_utc": "2026-06-18 14:00:05"
+},
+"REZUSD": {
+"base": "REZ",
+"altname": "REZUSD",
+"first_trade_utc": "2024-07-16 17:06:41"
+},
+"RIVERUSD": {
+"base": "RIVER",
+"altname": "RIVERUSD",
+"first_trade_utc": "2025-11-04 13:18:12"
+},
+"RIZEUSD": {
+"base": "RIZE",
+"altname": "RIZEUSD",
+"first_trade_utc": "2025-05-15 15:00:11"
+},
+"RLCUSD": {
+"base": "RLC",
+"altname": "RLCUSD",
+"first_trade_utc": "2022-05-05 14:40:59"
+},
+"RLSUSD": {
+"base": "RLS",
+"altname": "RLSUSD",
+"first_trade_utc": "2025-12-01 12:00:24"
+},
+"RLUSDUSD": {
+"base": "RLUSD",
+"altname": "RLUSDUSD",
+"first_trade_utc": "2025-04-02 15:12:38"
+},
+"RNBWUSD": {
+"base": "RNBW",
+"altname": "RNBWUSD",
+"first_trade_utc": "2026-02-05 17:40:24"
+},
+"ROBOUSD": {
+"base": "ROBO",
+"altname": "ROBOUSD",
+"first_trade_utc": "2026-03-03 19:00:44"
+},
+"ROLLUSD": {
+"base": "ROLL",
+"altname": "ROLLUSD",
+"first_trade_utc": "2026-01-16 12:00:27"
+},
+"RPLUSD": {
+"base": "RPL",
+"altname": "RPLUSD",
+"first_trade_utc": "2022-09-29 15:31:05"
+},
+"RSCUSD": {
+"base": "RSC",
+"altname": "RSCUSD",
+"first_trade_utc": "2025-11-17 15:03:52"
+},
+"RSRUSD": {
+"base": "RSR",
+"altname": "RSRUSD",
+"first_trade_utc": "2024-11-26 15:06:47"
+},
+"RUJIUSD": {
+"base": "RUJI",
+"altname": "RUJIUSD",
+"first_trade_utc": "2025-06-24 18:31:06"
+},
+"RUNEUSD": {
+"base": "RUNE",
+"altname": "RUNEUSD",
+"first_trade_utc": "2022-05-06 14:51:07"
+},
+"RVVUSD": {
+"base": "RVV",
+"altname": "RVVUSD",
+"first_trade_utc": "2025-11-25 16:06:43"
+},
+"SAFEUSD": {
+"base": "SAFE",
+"altname": "SAFEUSD",
+"first_trade_utc": "2024-05-30 17:00:39"
+},
+"SAGAUSD": {
+"base": "SAGA",
+"altname": "SAGAUSD",
+"first_trade_utc": "2024-07-16 17:00:00"
+},
+"SAHARAUSD": {
+"base": "SAHARA",
+"altname": "SAHARAUSD",
+"first_trade_utc": "2025-06-26 12:00:37"
+},
+"SAMOUSD": {
+"base": "SAMO",
+"altname": "SAMOUSD",
+"first_trade_utc": "2022-04-29 19:05:18"
+},
+"SANDUSD": {
+"base": "SAND",
+"altname": "SANDUSD",
+"first_trade_utc": "2021-05-20 15:33:12"
+},
+"SAPIENUSD": {
+"base": "SAPIEN",
+"altname": "SAPIENUSD",
+"first_trade_utc": "2025-08-20 17:00:14"
+},
+"SAUCEUSD": {
+"base": "SAUCE",
+"altname": "SAUCEUSD",
+"first_trade_utc": "2026-03-17 15:00:07"
+},
+"SBRUSD": {
+"base": "SBR",
+"altname": "SBRUSD",
+"first_trade_utc": "2022-01-27 18:30:34"
+},
+"SCAUSD": {
+"base": "SCA",
+"altname": "SCAUSD",
+"first_trade_utc": "2025-10-27 14:08:01"
+},
+"SCORUSD": {
+"base": "SCOR",
+"altname": "SCORUSD",
+"first_trade_utc": "2026-03-20 14:00:25"
+},
+"SCRTUSD": {
+"base": "SCRT",
+"altname": "SCRTUSD",
+"first_trade_utc": "2022-04-01 16:18:32"
+},
+"SCUSD": {
+"base": "SC",
+"altname": "SCUSD",
+"first_trade_utc": "2019-10-09 14:40:17"
+},
+"SEIUSD": {
+"base": "SEI",
+"altname": "SEIUSD",
+"first_trade_utc": "2023-08-15 15:05:06"
+},
+"SENTUSD": {
+"base": "SENT",
+"altname": "SENTUSD",
+"first_trade_utc": "2026-01-22 12:01:58"
+},
+"SFIUSD": {
+"base": "SFI",
+"altname": "SFIUSD",
+"first_trade_utc": "2026-10-23 15:02:01"
+},
+"SGBUSD": {
+"base": "SGB",
+"altname": "SGBUSD",
+"first_trade_utc": "2022-02-22 19:31:52"
+},
+"SHAPEUSD": {
+"base": "SHAPE",
+"altname": "SHAPEUSD",
+"first_trade_utc": "2026-03-19 16:00:27"
+},
+"SHIBUSD": {
+"base": "SHIB",
+"altname": "SHIBUSD",
+"first_trade_utc": "2021-11-30 15:31:14"
+},
+"SHXUSD": {
+"base": "SHX",
+"altname": "SHXUSD",
+"first_trade_utc": "2025-10-22 15:00:24"
+},
+"SIDEKICKUSD": {
+"base": "SIDEKICK",
+"altname": "SIDEKICKUSD",
+"first_trade_utc": "2025-10-13 14:01:23"
+},
+"SIGMAUSD": {
+"base": "SIGMA",
+"altname": "SIGMAUSD",
+"first_trade_utc": "2025-01-28 16:05:06"
+},
+"SIGNUSD": {
+"base": "SIGN",
+"altname": "SIGNUSD",
+"first_trade_utc": "2026-04-17 15:01:44"
+},
+"SKRUSD": {
+"base": "SKR",
+"altname": "SKRUSD",
+"first_trade_utc": "2026-01-21 02:00:04"
+},
+"SKYUSD": {
+"base": "SKY",
+"altname": "SKYUSD",
+"first_trade_utc": "2024-10-02 17:00:36"
+},
+"SLAYUSD": {
+"base": "SLAY",
+"altname": "SLAYUSD",
+"first_trade_utc": "2025-08-14 14:00:15"
+},
+"SLXUSD": {
+"base": "SLX",
+"altname": "SLXUSD",
+"first_trade_utc": "2026-05-25 21:49:51"
+},
+"SN44USD": {
+"base": "SN44",
+"altname": "SN44USD",
+"first_trade_utc": "2026-07-30 14:14:25"
+},
+"SN51USD": {
+"base": "SN51",
+"altname": "SN51USD",
+"first_trade_utc": "2026-07-09 14:04:44"
+},
+"SN62USD": {
+"base": "SN62",
+"altname": "SN62USD",
+"first_trade_utc": "2026-07-21 15:41:57"
+},
+"SN64USD": {
+"base": "SN64",
+"altname": "SN64USD",
+"first_trade_utc": "2026-07-07 14:00:32"
+},
+"SN75USD": {
+"base": "SN75",
+"altname": "SN75USD",
+"first_trade_utc": "2026-07-14 14:14:32"
+},
+"SN8USD": {
+"base": "SN8",
+"altname": "SN8USD",
+"first_trade_utc": "2026-07-16 15:35:23"
+},
+"SNEKUSD": {
+"base": "SNEK",
+"altname": "SNEKUSD",
+"first_trade_utc": "2025-04-28 15:02:44"
+},
+"SNXUSD": {
+"base": "SNX",
+"altname": "SNXUSD",
+"first_trade_utc": "2020-09-17 13:47:13"
+},
+"SODAUSD": {
+"base": "SODA",
+"altname": "SODAUSD",
+"first_trade_utc": "2026-08-14 14:06:12"
+},
+"SOFIDUSD": {
+"base": "SOFID",
+"altname": "SOFIDUSD",
+"first_trade_utc": "2026-09-04 15:05:13"
+},
+"SOLUSD": {
+"base": "SOL",
+"altname": "SOLUSD",
+"first_trade_utc": "2021-06-17 15:32:57"
+},
+"SOLVUSD": {
+"base": "SOLV",
+"altname": "SOLVUSD",
+"first_trade_utc": "2025-12-11 18:09:24"
+},
+"SOMIUSD": {
+"base": "SOMI",
+"altname": "SOMIUSD",
+"first_trade_utc": "2025-10-15 13:01:19"
+},
+"SONICUSD": {
+"base": "SONIC",
+"altname": "SONICUSD",
+"first_trade_utc": "2025-02-04 18:39:26"
+},
+"SOONUSD": {
+"base": "SOON",
+"altname": "SOONUSD",
+"first_trade_utc": "2025-09-26 14:01:45"
+},
+"SOSOUSD": {
+"base": "SOSO",
+"altname": "SOSOUSD",
+"first_trade_utc": "2025-07-17 14:03:04"
+},
+"SPACEUSD": {
+"base": "SPACE",
+"altname": "SPACEUSD",
+"first_trade_utc": "2026-01-23 12:05:18"
+},
+"SPELLUSD": {
+"base": "SPELL",
+"altname": "SPELLUSD",
+"first_trade_utc": "2022-04-01 14:40:04"
+},
+"SPKUSD": {
+"base": "SPK",
+"altname": "SPKUSD",
+"first_trade_utc": "2025-06-20 20:29:09"
+},
+"SPXUSD": {
+"base": "SPX",
+"altname": "SPXUSD",
+"first_trade_utc": "2024-12-11 15:31:40"
+},
+"SRMUSD": {
+"base": "SRM",
+"altname": "SRMUSD",
+"first_trade_utc": "2021-06-17 15:36:03"
+},
+"SSVUSD": {
+"base": "SSV",
+"altname": "SSVUSD",
+"first_trade_utc": "2022-11-28 12:30:14"
+},
+"STABLEUSD": {
+"base": "STABLE",
+"altname": "STABLEUSD",
+"first_trade_utc": "2025-12-08 13:00:12"
+},
+"STBLUSD": {
+"base": "STBL",
+"altname": "STBLUSD",
+"first_trade_utc": "2025-09-16 15:34:33"
+},
+"STGUSD": {
+"base": "STG",
+"altname": "STGUSD",
+"first_trade_utc": "2022-09-29 14:39:03"
+},
+"STORJUSD": {
+"base": "STORJ",
+"altname": "STORJUSD",
+"first_trade_utc": "2020-07-15 13:59:02"
+},
+"STRKUSD": {
+"base": "STRK",
+"altname": "STRKUSD",
+"first_trade_utc": "2024-02-20 12:32:35"
+},
+"STUSD": {
+"base": "ST",
+"altname": "STUSD",
+"first_trade_utc": "2026-04-15 10:39:07"
+},
+"STXUSD": {
+"base": "STX",
+"altname": "STXUSD",
+"first_trade_utc": "2022-10-12 13:22:10"
+},
+"SUIUSD": {
+"base": "SUI",
+"altname": "SUIUSD",
+"first_trade_utc": "2023-05-03 12:06:05"
+},
+"SUKUUSD": {
+"base": "SUKU",
+"altname": "SUKUUSD",
+"first_trade_utc": "2025-10-09 14:02:20"
+},
+"SUNDOGUSD": {
+"base": "SUNDOG",
+"altname": "SUNDOGUSD",
+"first_trade_utc": "2025-02-25 15:16:38"
+},
+"SUNUSD": {
+"base": "SUN",
+"altname": "SUNUSD",
+"first_trade_utc": "2025-04-08 16:58:11"
+},
+"SUPERUSD": {
+"base": "SUPER",
+"altname": "SUPERUSD",
+"first_trade_utc": "2022-05-19 14:33:27"
+},
+"SUPUSD": {
+"base": "SUP",
+"altname": "SUPUSD",
+"first_trade_utc": "2026-02-05 15:00:29"
+},
+"SUSD": {
+"base": "S",
+"altname": "SUSD",
+"first_trade_utc": "2025-05-05 15:03:00"
+},
+"SUSHIUSD": {
+"base": "SUSHI",
+"altname": "SUSHIUSD",
+"first_trade_utc": "2021-05-24 15:37:51"
+},
+"SWARMSUSD": {
+"base": "SWARMS",
+"altname": "SWARMSUSD",
+"first_trade_utc": "2025-02-04 19:01:33"
+},
+"SWEATUSD": {
+"base": "SWEAT",
+"altname": "SWEATUSD",
+"first_trade_utc": "2025-07-02 14:39:29"
+},
+"SWELLUSD": {
+"base": "SWELL",
+"altname": "SWELLUSD",
+"first_trade_utc": "2024-11-07 10:04:10"
+},
+"SXTUSD": {
+"base": "SXT",
+"altname": "SXTUSD",
+"first_trade_utc": "2025-05-08 13:03:45"
+},
+"SYNDUSD": {
+"base": "SYND",
+"altname": "SYNDUSD",
+"first_trade_utc": "2025-10-28 14:03:00"
+},
+"SYNUSD": {
+"base": "SYN",
+"altname": "SYNUSD",
+"first_trade_utc": "2022-09-29 15:33:40"
+},
+"SYRUPUSD": {
+"base": "SYRUP",
+"altname": "SYRUPUSD",
+"first_trade_utc": "2024-11-13 15:05:28"
+},
+"TACUSD": {
+"base": "TAC",
+"altname": "TACUSD",
+"first_trade_utc": "2025-07-15 22:29:56"
+},
+"TAKEUSD": {
+"base": "TAKE",
+"altname": "TAKEUSD",
+"first_trade_utc": "2025-11-18 13:02:45"
+},
+"TAOUSD": {
+"base": "TAO",
+"altname": "TAOUSD",
+"first_trade_utc": "2024-06-25 19:09:29"
+},
+"TBTCUSD": {
+"base": "TBTC",
+"altname": "TBTCUSD",
+"first_trade_utc": "2020-11-25 03:43:30"
+},
+"TCSUSD": {
+"base": "TCS",
+"altname": "TCSUSD",
+"first_trade_utc": "2026-09-09 21:04:16"
+},
+"TELUSD": {
+"base": "TEL",
+"altname": "TELUSD",
+"first_trade_utc": "2026-01-22 14:00:25"
+},
+"TGBPUSD": {
+"base": "TGBP",
+"altname": "TGBPUSD",
+"first_trade_utc": "2025-11-11 14:23:05"
+},
+"THQUSD": {
+"base": "THQ",
+"altname": "THQUSD",
+"first_trade_utc": "2025-12-16 15:04:49"
+},
+"TIAUSD": {
+"base": "TIA",
+"altname": "TIAUSD",
+"first_trade_utc": "2023-10-31 16:57:47"
+},
+"TLMUSD": {
+"base": "TLM",
+"altname": "TLMUSD",
+"first_trade_utc": "2022-06-09 14:38:14"
+},
+"TMXUSD": {
+"base": "TMX",
+"altname": "TMXUSD",
+"first_trade_utc": "2026-08-25 10:00:18"
+},
+"TNSRUSD": {
+"base": "TNSR",
+"altname": "TNSRUSD",
+"first_trade_utc": "2024-06-04 14:36:45"
+},
+"TOKENUSD": {
+"base": "TOKEN",
+"altname": "TOKENUSD",
+"first_trade_utc": "2025-01-15 19:41:02"
+},
+"TONUSD": {
+"base": "TON",
+"altname": "TONUSD",
+"first_trade_utc": "2024-10-11 16:01:54"
+},
+"TOSHIUSD": {
+"base": "TOSHI",
+"altname": "TOSHIUSD",
+"first_trade_utc": "2025-02-21 15:10:01"
+},
+"TRACUSD": {
+"base": "TRAC",
+"altname": "TRACUSD",
+"first_trade_utc": "2024-06-25 18:47:46"
+},
+"TREADUSD": {
+"base": "TREAD",
+"altname": "TREADUSD",
+"first_trade_utc": "2026-09-16 13:05:49"
+},
+"TREEUSD": {
+"base": "TREE",
+"altname": "TREEUSD",
+"first_trade_utc": "2025-07-29 14:37:11"
+},
+"TREMPUSD": {
+"base": "TREMP",
+"altname": "TREMPUSD",
+"first_trade_utc": "2024-06-04 14:30:28"
+},
+"TRIAUSD": {
+"base": "TRIA",
+"altname": "TRIAUSD",
+"first_trade_utc": "2026-02-03 10:00:11"
+},
+"TRUMPUSD": {
+"base": "TRUMP",
+"altname": "TRUMPUSD",
+"first_trade_utc": "2025-01-18 20:17:00"
+},
+"TRUSTUSD": {
+"base": "TRUST",
+"altname": "TRUSTUSD",
+"first_trade_utc": "2025-11-05 11:00:09"
+},
+"TRUUSD": {
+"base": "TRU",
+"altname": "TRUUSD",
+"first_trade_utc": "2022-08-26 15:59:09"
+},
+"TRXUSD": {
+"base": "TRX",
+"altname": "TRXUSD",
+"first_trade_utc": "2020-03-05 14:53:32"
+},
+"TURBOUSD": {
+"base": "TURBO",
+"altname": "TURBOUSD",
+"first_trade_utc": "2024-08-13 17:13:51"
+},
+"TUSD": {
+"base": "T",
+"altname": "TUSD",
+"first_trade_utc": "2022-05-05 14:39:35"
+},
+"TXUSD": {
+"base": "TX",
+"altname": "TXUSD",
+"first_trade_utc": "2026-03-06 14:04:02"
+},
+"U2UUSD": {
+"base": "U2U",
+"altname": "U2UUSD",
+"first_trade_utc": "2025-10-17 14:03:11"
+},
+"UAIUSD": {
+"base": "UAI",
+"altname": "UAIUSD",
+"first_trade_utc": "2025-11-06 13:00:28"
+},
+"UFDUSD": {
+"base": "UFD",
+"altname": "UFDUSD",
+"first_trade_utc": "2025-03-10 15:01:55"
+},
+"UMAUSD": {
+"base": "UMA",
+"altname": "UMAUSD",
+"first_trade_utc": "2022-04-01 15:14:53"
+},
+"UMXMUSD": {
+"base": "UMXM",
+"altname": "UMXMUSD",
+"first_trade_utc": "2026-04-23 14:17:13"
+},
+"UNFIUSD": {
+"base": "UNFI",
+"altname": "UNFIUSD",
+"first_trade_utc": "2022-07-01 14:39:05"
+},
+"UNITASUSD": {
+"base": "UNITAS",
+"altname": "UNITASUSD",
+"first_trade_utc": "2026-03-13 12:01:19"
+},
+"UNIUSD": {
+"base": "UNI",
+"altname": "UNIUSD",
+"first_trade_utc": "2020-10-15 13:49:55"
+},
+"UPUSD": {
+"base": "UP",
+"altname": "UPUSD",
+"first_trade_utc": "2026-02-10 17:00:06"
+},
+"USATUSD": {
+"base": "USAT",
+"altname": "USATUSD",
+"first_trade_utc": "2026-01-27 16:03:10"
+},
+"USD1USD": {
+"base": "USD1",
+"altname": "USD1USD",
+"first_trade_utc": "2025-08-30 14:28:51"
+},
+"USDCUSD": {
+"base": "USDC",
+"altname": "USDCUSD",
+"first_trade_utc": "2020-01-08 15:17:49"
+},
+"USDDUSD": {
+"base": "USDD",
+"altname": "USDDUSD",
+"first_trade_utc": "2025-04-01 16:41:55"
+},
+"USDEUSD": {
+"base": "USDE",
+"altname": "USDEUSD",
+"first_trade_utc": "2025-09-24 14:13:10"
+},
+"USDGOUSD": {
+"base": "USDGO",
+"altname": "USDGOUSD",
+"first_trade_utc": "2026-08-19 15:02:49"
+},
+"USDGUSD": {
+"base": "USDG",
+"altname": "USDGUSD",
+"first_trade_utc": "2024-11-04 22:06:13"
+},
+"USDPTUSD": {
+"base": "USDPT",
+"altname": "USDPTUSD",
+"first_trade_utc": "2026-07-09 15:11:07"
+},
+"USDQUSD": {
+"base": "USDQ",
+"altname": "USDQUSD",
+"first_trade_utc": "2024-11-21 14:18:04"
+},
+"USDRUSD": {
+"base": "USDR",
+"altname": "USDRUSD",
+"first_trade_utc": "2025-02-01 20:19:49"
+},
+"USDSMUSD": {
+"base": "USDSM",
+"altname": "USDSMUSD",
+"first_trade_utc": "2026-08-25 14:17:25"
+},
+"USDSUIUSD": {
+"base": "USDSUI",
+"altname": "USDSUIUSD",
+"first_trade_utc": "2026-10-05 14:33:07"
+},
+"USDSUSD": {
+"base": "USDS",
+"altname": "USDSUSD",
+"first_trade_utc": "2024-10-02 17:02:08"
+},
+"USDTZUSD": {
+"base": "USDT",
+"altname": "USDTUSD",
+"first_trade_utc": "2017-03-29 17:05:27"
+},
+"USDUCUSD": {
+"base": "USDUC",
+"altname": "USDUCUSD",
+"first_trade_utc": "2025-07-01 14:05:55"
+},
+"USELESSUSD": {
+"base": "USELESS",
+"altname": "USELESSUSD",
+"first_trade_utc": "2025-08-13 16:06:32"
+},
+"USTABLESUSD": {
+"base": "USTABLES",
+"altname": "USTABLESUSD",
+"first_trade_utc": "2026-09-02 10:07:53"
+},
+"USUALUSD": {
+"base": "USUAL",
+"altname": "USUALUSD",
+"first_trade_utc": "2025-01-29 17:20:19"
+},
+"USUSD": {
+"base": "US",
+"altname": "USUSD",
+"first_trade_utc": "2025-12-11 13:00:20"
+},
+"UUSD": {
+"base": "U",
+"altname": "UUSD",
+"first_trade_utc": "2025-09-04 09:00:36"
+},
+"UXLINKUSD": {
+"base": "UXLINK",
+"altname": "UXLINKUSD",
+"first_trade_utc": "2025-09-10 14:00:37"
+},
+"VANRYUSD": {
+"base": "VANRY",
+"altname": "VANRYUSD",
+"first_trade_utc": "2024-11-26 15:03:51"
+},
+"VELODROMEUSD": {
+"base": "VELODROME",
+"altname": "VELODROMEUSD",
+"first_trade_utc": "2025-02-18 19:48:53"
+},
+"VELOUSD": {
+"base": "VELO",
+"altname": "VELOUSD",
+"first_trade_utc": "2026-03-17 15:00:19"
+},
+"VELVETUSD": {
+"base": "VELVET",
+"altname": "VELVETUSD",
+"first_trade_utc": "2025-10-30 15:12:28"
+},
+"VETUSD": {
+"base": "VET",
+"altname": "VETUSD",
+"first_trade_utc": "2026-01-02 14:05:44"
+},
+"VFYUSD": {
+"base": "VFY",
+"altname": "VFYUSD",
+"first_trade_utc": "2025-10-22 14:00:30"
+},
+"VINEUSD": {
+"base": "VINE",
+"altname": "VINEUSD",
+"first_trade_utc": "2025-02-04 17:19:21"
+},
+"VIRTUALUSD": {
+"base": "VIRTUAL",
+"altname": "VIRTUALUSD",
+"first_trade_utc": "2025-02-12 15:11:44"
+},
+"VOOIUSD": {
+"base": "VOOI",
+"altname": "VOOIUSD",
+"first_trade_utc": "2025-12-18 13:00:04"
+},
+"VSNUSD": {
+"base": "VSN",
+"altname": "VSNUSD",
+"first_trade_utc": "2025-07-16 11:34:59"
+},
+"VTHOUSD": {
+"base": "VTHO",
+"altname": "VTHOUSD",
+"first_trade_utc": "2026-01-09 15:11:34"
+},
+"VULTUSD": {
+"base": "VULT",
+"altname": "VULTUSD",
+"first_trade_utc": "2025-10-28 13:00:04"
+},
+"VVVUSD": {
+"base": "VVV",
+"altname": "VVVUSD",
+"first_trade_utc": "2025-02-27 15:05:33"
+},
+"WALUSD": {
+"base": "WAL",
+"altname": "WALUSD",
+"first_trade_utc": "2025-03-27 10:00:06"
+},
+"WARDUSD": {
+"base": "WARD",
+"altname": "WARDUSD",
+"first_trade_utc": "2026-02-04 12:03:28"
+},
+"WARUSD": {
+"base": "WAR",
+"altname": "WARUSD",
+"first_trade_utc": "2026-02-24 15:03:45"
+},
+"WAXLUSD": {
+"base": "WAXL",
+"altname": "WAXLUSD",
+"first_trade_utc": "2022-11-28 12:30:37"
+},
+"WBTCUSD": {
+"base": "WBTC",
+"altname": "WBTCUSD",
+"first_trade_utc": "2021-08-03 17:34:09"
+},
+"WBTUSD": {
+"base": "WBT",
+"altname": "WBTUSD",
+"first_trade_utc": "2026-03-05 10:05:03"
+},
+"WCTUSD": {
+"base": "WCT",
+"altname": "WCTUSD",
+"first_trade_utc": "2025-04-15 12:16:17"
+},
+"WELLUSD": {
+"base": "WELL",
+"altname": "WELLUSD",
+"first_trade_utc": "2025-02-26 15:55:21"
+},
+"WEMIXUSD": {
+"base": "WEMIX",
+"altname": "WEMIXUSD",
+"first_trade_utc": "2026-07-07 15:07:07"
+},
+"WENUSD": {
+"base": "WEN",
+"altname": "WENUSD",
+"first_trade_utc": "2024-06-04 14:42:17"
+},
+"WFBUSD": {
+"base": "WFB",
+"altname": "WFBUSD",
+"first_trade_utc": "2026-03-10 15:00:17"
+},
+"WIFUSD": {
+"base": "WIF",
+"altname": "WIFUSD",
+"first_trade_utc": "2024-02-01 16:04:26"
+},
+"WINGSUSD": {
+"base": "WINGS",
+"altname": "WINGSUSD",
+"first_trade_utc": "2026-04-22 15:00:09"
+},
+"WINUSD": {
+"base": "WIN",
+"altname": "WINUSD",
+"first_trade_utc": "2025-04-08 19:41:01"
+},
+"WLDUSD": {
+"base": "WLD",
+"altname": "WLDUSD",
+"first_trade_utc": "2025-03-05 18:00:16"
+},
+"WLFIUSD": {
+"base": "WLFI",
+"altname": "WLFIUSD",
+"first_trade_utc": "2025-09-01 13:13:27"
+},
+"WMTXUSD": {
+"base": "WMTX",
+"altname": "WMTXUSD",
+"first_trade_utc": "2025-09-04 12:06:05"
+},
+"WOJAKUSD": {
+"base": "WOJAK",
+"altname": "WOJAKUSD",
+"first_trade_utc": "2026-09-30 14:00:28"
+},
+"WOOUSD": {
+"base": "WOO",
+"altname": "WOOUSD",
+"first_trade_utc": "2022-02-25 15:59:36"
+},
+"WUSD": {
+"base": "W",
+"altname": "WUSD",
+"first_trade_utc": "2024-04-03 12:03:06"
+},
+"XANUSD": {
+"base": "XAN",
+"altname": "XANUSD",
+"first_trade_utc": "2025-09-29 10:09:26"
+},
+"XAUTUSD": {
+"base": "XAUT",
+"altname": "XAUTUSD",
+"first_trade_utc": "2025-09-12 12:06:57"
+},
+"XCNUSD": {
+"base": "XCN",
+"altname": "XCNUSD",
+"first_trade_utc": "2022-08-26 15:13:13"
+},
+"XDCUSD": {
+"base": "XDC",
+"altname": "XDCUSD",
+"first_trade_utc": "2025-09-02 14:02:02"
+},
+"XDGUSD": {
+"base": "DOGE",
+"altname": "XDGUSD",
+"first_trade_utc": "2019-12-19 18:20:38"
+},
+"XDPUSD": {
+"base": "XDP",
+"altname": "XDPUSD",
+"first_trade_utc": "2026-09-28 13:16:28"
+},
+"XETCZUSD": {
+"base": "ETC",
+"altname": "ETCUSD",
+"first_trade_utc": "2016-07-27 08:39:38"
+},
+"XETHZUSD": {
+"base": "ETH",
+"altname": "ETHUSD",
+"first_trade_utc": "2015-08-07 14:03:25"
+},
+"XIONUSD": {
+"base": "XION",
+"altname": "XIONUSD",
+"first_trade_utc": "2025-09-12 12:06:07"
+},
+"XL1USD": {
+"base": "XL1",
+"altname": "XL1USD",
+"first_trade_utc": "2025-09-16 13:00:13"
+},
+"XLTCZUSD": {
+"base": "LTC",
+"altname": "LTCUSD",
+"first_trade_utc": "2013-10-24 13:34:46"
+},
+"XMLNZUSD": {
+"base": "MLN",
+"altname": "MLNUSD",
+"first_trade_utc": "2019-12-19 16:31:20"
+},
+"XMNUSD": {
+"base": "XMN",
+"altname": "XMNUSD",
+"first_trade_utc": "2025-10-09 13:00:26"
+},
+"XNYUSD": {
+"base": "XNY",
+"altname": "XNYUSD",
+"first_trade_utc": "2025-07-25 14:01:00"
+},
+"XPLUSD": {
+"base": "XPL",
+"altname": "XPLUSD",
+"first_trade_utc": "2025-09-25 13:00:10"
+},
+"XTERUSD": {
+"base": "XTER",
+"altname": "XTERUSD",
+"first_trade_utc": "2025-08-06 14:07:09"
+},
+"XTZUSD": {
+"base": "XTZ",
+"altname": "XTZUSD",
+"first_trade_utc": "2018-10-16 15:03:02"
+},
+"XU3O8USD": {
+"base": "XU3O8",
+"altname": "XU3O8USD",
+"first_trade_utc": "2026-07-30 15:08:02"
+},
+"XXBTZUSD": {
+"base": "BTC",
+"altname": "XBTUSD",
+"first_trade_utc": "2013-10-06 21:34:16"
+},
+"XXLMZUSD": {
+"base": "XLM",
+"altname": "XLMUSD",
+"first_trade_utc": "2017-01-17 20:17:52"
+},
+"XXMRZUSD": {
+"base": "XMR",
+"altname": "XMRUSD",
+"first_trade_utc": "2017-01-02 19:14:51"
+},
+"XXRPZUSD": {
+"base": "XRP",
+"altname": "XRPUSD",
+"first_trade_utc": "2017-05-18 15:46:56"
+},
+"XYOUSD": {
+"base": "XYO",
+"altname": "XYOUSD",
+"first_trade_utc": "2025-08-13 13:42:15"
+},
+"XZECZUSD": {
+"base": "ZEC",
+"altname": "ZECUSD",
+"first_trade_utc": "2016-10-29 00:11:41"
+},
+"YALAUSD": {
+"base": "YALA",
+"altname": "YALAUSD",
+"first_trade_utc": "2025-10-21 15:20:34"
+},
+"YBUSD": {
+"base": "YB",
+"altname": "YBUSD",
+"first_trade_utc": "2025-10-15 11:00:15"
+},
+"YFIUSD": {
+"base": "YFI",
+"altname": "YFIUSD",
+"first_trade_utc": "2020-10-15 14:20:21"
+},
+"YGGUSD": {
+"base": "YGG",
+"altname": "YGGUSD",
+"first_trade_utc": "2022-02-25 16:13:20"
+},
+"YOMUSD": {
+"base": "YOM",
+"altname": "YOMUSD",
+"first_trade_utc": "2026-06-05 10:00:13"
+},
+"ZAMAUSD": {
+"base": "ZAMA",
+"altname": "ZAMAUSD",
+"first_trade_utc": "2026-02-02 13:00:04"
+},
+"ZBCNUSD": {
+"base": "ZBCN",
+"altname": "ZBCNUSD",
+"first_trade_utc": "2025-10-15 15:00:43"
+},
+"ZBTUSD": {
+"base": "ZBT",
+"altname": "ZBTUSD",
+"first_trade_utc": "2025-10-17 13:00:44"
+},
+"ZCHFUSD": {
+"base": "ZCHF",
+"altname": "ZCHFUSD",
+"first_trade_utc": "2026-10-08 14:00:07"
+},
+"ZEREBROUSD": {
+"base": "ZEREBRO",
+"altname": "ZEREBROUSD",
+"first_trade_utc": "2025-01-27 15:01:58"
+},
+"ZETAUSD": {
+"base": "ZETA",
+"altname": "ZETAUSD",
+"first_trade_utc": "2024-05-30 16:39:53"
+},
+"ZEURZUSD": {
+"base": "EUR",
+"altname": "EURUSD",
+"first_trade_utc": "2020-03-12 14:44:13"
+},
+"ZEUSUSD": {
+"base": "ZEUS",
+"altname": "ZEUSUSD",
+"first_trade_utc": "2024-06-04 14:43:57"
+},
+"ZEXUSD": {
+"base": "ZEX",
+"altname": "ZEXUSD",
+"first_trade_utc": "2024-08-13 20:36:10"
+},
+"ZGBPZUSD": {
+"base": "GBP",
+"altname": "GBPUSD",
+"first_trade_utc": "2020-03-12 15:05:22"
+},
+"ZIGUSD": {
+"base": "ZIG",
+"altname": "ZIGUSD",
+"first_trade_utc": "2025-09-04 14:03:48"
+},
+"ZKPUSD": {
+"base": "ZKP",
+"altname": "ZKPUSD",
+"first_trade_utc": "2025-12-19 13:00:10"
+},
+"ZKUSD": {
+"base": "ZK",
+"altname": "ZKUSD",
+"first_trade_utc": "2024-08-14 18:38:45"
+},
+"ZORAUSD": {
+"base": "ZORA",
+"altname": "ZORAUSD",
+"first_trade_utc": "2025-04-23 15:02:54"
+},
+"ZRCUSD": {
+"base": "ZRC",
+"altname": "ZRCUSD",
+"first_trade_utc": "2025-10-29 15:05:51"
+},
+"ZROUSD": {
+"base": "ZRO",
+"altname": "ZROUSD",
+"first_trade_utc": "2024-06-21 17:03:54"
+},
+"ZRXUSD": {
+"base": "ZRX",
+"altname": "ZRXUSD",
+"first_trade_utc": "2021-05-14 15:35:46"
+}
+}
