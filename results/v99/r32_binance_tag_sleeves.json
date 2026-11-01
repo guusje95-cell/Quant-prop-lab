@@ -1,0 +1,86 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "parsed": {
+  "monitoring tag": 162,
+  "futures delisting": 42
+ },
+ "A monitoring-tag short": {
+  "coins traded": 110,
+  "sleeve 2022 / 23-24 / 25-26": [
+   null,
+   0.252,
+   -0.138
+  ],
+  "corr with event short": 0.305,
+  "book": [
+   2.952,
+   [
+    3.083,
+    3.375,
+    2.464
+   ]
+  ],
+  "pass": false,
+  "placebo": {
+   "-60 days": [
+    2.964,
+    [
+     3.083,
+     2.902,
+     2.991
+    ]
+   ],
+   "+60 days": [
+    3.144,
+    [
+     3.083,
+     3.982,
+     2.36
+    ]
+   ]
+  }
+ },
+ "B futures-delisting short": {
+  "coins traded": 41,
+  "sleeve 2022 / 23-24 / 25-26": [
+   -1.44,
+   0.357,
+   0.863
+  ],
+  "corr with event short": 0.11,
+  "book": [
+   3.281,
+   [
+    3.083,
+    3.868,
+    2.797
+   ]
+  ],
+  "pass": true,
+  "placebo": {
+   "-60 days": [
+    3.177,
+    [
+     3.083,
+     3.834,
+     2.602
+    ]
+   ],
+   "+60 days": [
+    2.204,
+    [
+     3.083,
+     3.847,
+     0.715
+    ]
+   ]
+  }
+ }
+}

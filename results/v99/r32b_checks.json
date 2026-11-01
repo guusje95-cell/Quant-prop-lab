@@ -1,0 +1,66 @@
+{
+ "futures-delisting events by year (parsed)": {
+  "2022": 3,
+  "2024": 21,
+  "2025": 14,
+  "2026": 4
+ },
+ "v9.8 + futures-delisting sleeve (uncapped / capped)": [
+  [
+   3.281,
+   [
+    3.083,
+    3.868,
+    2.797
+   ]
+  ],
+  [
+   3.124,
+   [
+    2.464,
+    3.918,
+    2.697
+   ]
+  ]
+ ],
+ "v9.8 + Coinbase sleeve (uncapped / capped)": [
+  [
+   3.421,
+   [
+    3.169,
+    4.065,
+    2.9
+   ]
+  ],
+  [
+   3.347,
+   [
+    2.547,
+    4.242,
+    2.872
+   ]
+  ]
+ ],
+ "v9.8 + Coinbase + futures-delisting sleeves (uncapped / capped)": [
+  [
+   3.471,
+   [
+    3.169,
+    4.017,
+    3.05
+   ]
+  ],
+  [
+   3.438,
+   [
+    2.548,
+    4.276,
+    3.066
+   ]
+  ]
+ ],
+ "futures-delisting effective short % of equity when active: median / max": [
+  5.15,
+  8.16
+ ]
+}
