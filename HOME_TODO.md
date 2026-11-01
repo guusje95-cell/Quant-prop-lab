@@ -26,9 +26,9 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
   `paper_trading/cbshort/`. In het dashboard verschijnt schaduw-account **v98:plus_coinbase_short** naast v9.8. v9.8 zelf verandert niet.
 - Af en toe meepushen: `git add paper_trading/cbshort paper_trading/venueshort paper_trading/fdshort research_data/coinbase_listings research_data/upbit_listings` -> commit -> push.
 - **Waar zie je het?** Alleen na een HERSTART van de hub (sluit het hub-venster, dubbelklik `hub_start.bat`). Binnen een uur (eerste ingest):
-  * Paper Trading -> tab **Shadow accounts**: `v98:plus_coinbase_short`, `v98:venue_sleeve_coinbase`, `v98:venue_sleeve_coinbase_upbit` en `v98:venue_coinbase_plus_futures_delisting`.
+  * Paper Trading -> tab **Shadow accounts**: `v98:plus_coinbase_short`, `v98:venue_sleeve_coinbase`, `v98:venue_sleeve_coinbase_upbit` `v98:venue_coinbase_plus_futures_delisting` en **`v99cand:all`** (het nieuwe 'beste portfolio': alles samen).
   * Performance -> Source **Paper** -> kies die accounts naast paper:v98.
-  * Performance -> Source **Backtest** -> Book **"Crypto v9.9 candidate (v9.8 + Coinbase sleeve)"**: de backtest-curve naast v9.8.
+  * Performance -> Source **Backtest** -> Book **"Crypto v9.9 candidates (best portfolio = ALL)"**: de backtest-curve van alles samen naast v9.8 (standaard: beide met de low-cap-limiet).
   Zolang er geen nieuwe listing is, lopen de schaduwen exact gelijk met v9.8 (de short-sleeve staat dan op 0).
 
 ## Nieuw (30-10 avond)

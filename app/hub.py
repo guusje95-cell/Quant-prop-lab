@@ -289,7 +289,7 @@ def bt_series(book: str) -> tuple[pd.DataFrame, int]:
     if book == "Crypto v9.8":
         x = pd.read_parquet(ROOT / "results/v98_paper_sleeves.parquet").loc["2022-01-01":"2026-09-30 23:00"]
         return x.rename(columns={"port": "book"}), 365
-    if book == "Crypto v9.9 candidate (v9.8 + Coinbase sleeve)":
+    if book == "Crypto v9.9 candidates (best portfolio = ALL)":
         return pd.read_parquet(ROOT / "results/v99/v99_candidate_book.parquet"), 365
     if book == "Futures (15 sleeves)":
         S, b = futures_data(); return pd.concat([b.rename("book"), S.reindex(b.index)], axis=1), 252
@@ -340,10 +340,10 @@ def performance():
     src = st.radio("Source", ["Backtest", "Paper"], horizontal=True)
     if src == "Backtest":
         tag("backtest")
-        book = st.selectbox("Book", ["Crypto v9.8", "Crypto v9.9 candidate (v9.8 + Coinbase sleeve)", "Futures (15 sleeves)", "CFD bf2.6 (BrightFunded)", "Index CFDs (Gen201)"])
+        book = st.selectbox("Book", ["Crypto v9.8", "Crypto v9.9 candidates (best portfolio = ALL)", "Futures (15 sleeves)", "CFD bf2.6 (BrightFunded)", "Index CFDs (Gen201)"])
         R, ppy = bt_series(book)
         cols = st.multiselect("Series (the book and / or its strategies)", list(R.columns),
-                              default=["book", "v9.8 book"] if "v9.8 book" in R.columns else ["book"])
+                              default=["ALL with low-cap cap", "v9.8 with low-cap cap"] if "ALL with low-cap cap" in R.columns else ["book"])
         splits = ({"2010-17": ("2010", "2017"), "2018-22": ("2018", "2022"), "2023-26": ("2023", "2026")} if book.startswith("Futures")
                   else {"2022": ("2022", "2022"), "2023-24": ("2023", "2024"), "2025-26": ("2025", "2026")})
         if cols:
@@ -356,7 +356,7 @@ def performance():
         if A.empty:
             st.info("No paper data yet: start the paper traders and the hub (hub_start.bat), or share their results."); return
         st.dataframe(A[["key", "n", "first", "last"]].rename(columns={"n": "rows"}), width="stretch", hide_index=True)
-        dflt = [k_ for k_ in ("paper:v98", "paper:bf26", "paper:futures") if k_ in A["key"].tolist()] or A["key"].tolist()[:1]
+        dflt = [k_ for k_ in ("paper:v98", "shadow:v99cand:all", "paper:bf26", "paper:futures") if k_ in A["key"].tolist()] or A["key"].tolist()[:1]
         keys = st.multiselect("Accounts", A["key"].tolist(), default=dflt)
         if keys:
             E = q("SELECT a.key, e.ts, e.ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key IN (%s)" % ",".join("?" * len(keys)), tuple(keys))

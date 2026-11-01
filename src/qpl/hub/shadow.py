@@ -199,6 +199,12 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
                                      {"account": "paper:fdshort", "name": "futures-delisting short", "prefix": "results/v99/fdshort_sleeve_prefix.parquet"}]},
                           description="v9.9 candidates R30 B + R32 B (both flagged): Coinbase sell-the-news and Binance futures-delisting shorts as two separate "
                                       "sleeves (backtest 3.47; with the 4.5% low-cap cap 3.44 vs 3.06); futures delistings are thin (42 events 2022-26)", actor="system"))
+    if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:venueshort'").fetchone() and c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:fdshort'").fetchone():
+        ids.append(define(c, "v99cand:all", source, "composite",
+                          {"extra": [{"account": "paper:venueshort", "name": "venue listing short", "prefix": "results/v99/venueshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:fdshort", "name": "futures-delisting short", "prefix": "results/v99/fdshort_sleeve_prefix.parquet"}]},
+                          description="v9.9 'best portfolio' candidate = v9.8 + Coinbase/Upbit sell-the-news sleeve + Binance futures-delisting sleeve "
+                                      "(backtest 3.49; with the 4.5% low-cap cap 3.47 vs v9.8 3.06; flagged components)", actor="system"))
     if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
         ids += ensure_cfd_defaults(c)
     return ids
