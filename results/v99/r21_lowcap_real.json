@@ -1,0 +1,14 @@
+{
+ "window": [
+  "2025-11-03",
+  "2026-09-30"
+ ],
+ "coins with CoinGecko data": 131,
+ "share of event-short notional that is low-cap (official)": 0.9,
+ "book Sharpe in the window": {
+  "uncapped": 2.59,
+  "cap, every event coin low-cap (conservative)": 2.602,
+  "cap, official classification": 2.645
+ },
+ "note": "Sharpe of ~11 months is noisy; the useful number is the DIFFERENCE between the two capped books (same months)"
+}
