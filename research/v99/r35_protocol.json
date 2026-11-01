@@ -1,0 +1,5 @@
+{"id": "v99-R35", "date": "2026-11-01", "registered": "after counting the titles (no returns looked at), before running r35_funding_interval.py",
+ "why": "Binance shortens a perp's funding settlement interval (8 h -> 4 h / 1 h) when its funding sits at the cap, i.e. when positioning is extremely one-sided; crowded positions tend to unwind (funding-flush / squeeze mechanism). Never tested as an event (grep 'settlement frequency': 0)",
+ "events": "titles containing 'Funding Rate Settlement Frequency' (catalogs 48 / 49 / 157 / 93 / 161, deduplicated) with the <SYM>USDT symbols in the title, 2021-06..2026-09-23, perp trading at the release",
+ "rule": "direction against the crowd: the coin's last funding rate before the release > 0 -> short, < 0 -> long, = 0 -> no trade; 5% of equity from the first whole hour after the release + 1 h, 7 days, exit at a 30% adverse move, 10 bp per side, funding paid / received; one trade per coin per 7 days",
+ "trial": "as a separate 10th sleeve", "checks": "placebo +-60 days", "judge": "book >= 3.211 + 0.05 and no period lower; >= 30 trades", "trials_added": 1}
