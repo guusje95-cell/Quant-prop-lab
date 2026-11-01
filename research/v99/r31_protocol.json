@@ -1,0 +1,5 @@
+{"id": "v99-R31", "date": "2026-11-01", "registered": "before running r31_bybit_sleeve.py; FLAGGED: re-test of R2 B (Bybit perp-delisting shorts merged into the event short: +0.017, rejected) under the R30 construction lesson",
+ "why": "R30 showed that an event stream that adds little INSIDE the event sleeve (equal-risk budget fixed) can add a lot as its own sleeve; R2 B is the other event stream that was only tested merged",
+ "sleeve": "'bybit delisting short' = the R2 B events (Bybit 'delist ... perpetual' announcements, research_data/bybit_announcements) with the event-short rules of bybit_event_shorts.make_hook, P&L = event_live.pnl with the hook minus event_live.pnl without it (the extra shorts only)",
+ "trial": "v9.8 + 'bybit delisting short' as a 10th sleeve", "checks": "placebo: the same events moved by +-60 days; with the 4.5% total low-cap cap (every coin low-cap)",
+ "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
