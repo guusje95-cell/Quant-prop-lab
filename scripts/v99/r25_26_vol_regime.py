@@ -32,7 +32,7 @@ def garch_forecast(x: pd.Series, refit=30, min_obs=365) -> pd.Series:
 def portfolio_alt(H, vol=0.15, start="2022-01-01", kind="garch"):
     D = H.groupby(H.index.floor("D")).sum(); W = CS.v5_weights(D, list(H.columns)); Wh = W.reindex(H.index.floor("D")).set_axis(H.index)
     raw = (H * Wh).sum(axis=1); rawd = raw.groupby(raw.index.floor("D")).sum()
-    lvl = (vol / (rawd.rolling(365, min_periods=60).std() * np.sqrt(365))).shift(1); x1 = (rawd * lvl).dropna()
+    lvl = (vol / (rawd.rolling(365, min_periods=60).std() * np.sqrt(365))).shift(1); x1 = (rawd * lvl).replace([np.inf, -np.inf], np.nan).dropna()
     g = garch_forecast(x1)                                                    # index t: forecast for day t+1 made with data to t
     sd30 = x1.rolling(30).std()
     est = g if kind == "garch" else (g + sd30) / 2

@@ -1,0 +1,55 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "R25 A GARCH(1,1) vol target": {
+  "book": [
+   3.093,
+   [
+    2.885,
+    3.846,
+    2.546
+   ]
+  ],
+  "pass": false
+ },
+ "R25 B mean of GARCH and 30-day std": {
+  "book": [
+   3.147,
+   [
+    2.985,
+    3.883,
+    2.559
+   ]
+  ],
+  "pass": false
+ },
+ "R26 share of days in stress": 0.078,
+ "R26 A x0.5 when P(stress) > 0.5": {
+  "book": [
+   3.216,
+   [
+    3.034,
+    3.798,
+    2.748
+   ]
+  ],
+  "pass": false
+ },
+ "R26 B x(1 - 0.5 P)": {
+  "book": [
+   3.218,
+   [
+    3.021,
+    3.81,
+    2.747
+   ]
+  ],
+  "pass": false
+ }
+}
