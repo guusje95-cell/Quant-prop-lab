@@ -1,0 +1,41 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "trades": 510,
+ "scored walk-forward": 445,
+ "win rate": 0.537,
+ "corr(rebuilt trade sum, real sleeve) daily": 1.0,
+ "scored trades: mean P&L (bp of equity) p>=0.5 / p<0.5": [
+  18.42,
+  30.13
+ ],
+ "share skipped by A": 0.302,
+ "A filter": {
+  "book": [
+   3.157,
+   [
+    3.083,
+    3.73,
+    2.64
+   ]
+  ],
+  "pass": false
+ },
+ "B sizer": {
+  "book": [
+   3.197,
+   [
+    3.083,
+    3.793,
+    2.678
+   ]
+  ],
+  "pass": false
+ }
+}
