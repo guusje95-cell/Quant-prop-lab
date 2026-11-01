@@ -24,9 +24,9 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 - Alleen **`git pull`** en de hub herstarten (`hub_start.bat`). De hub draait elk uur de job **cbshort_paper**: hij kijkt (openbare
   Coinbase-API, geen sleutel, geen orders) of er een nieuwe coin op Coinbase is gekomen en houdt een paper-short bij in
   `paper_trading/cbshort/`. In het dashboard verschijnt schaduw-account **v98:plus_coinbase_short** naast v9.8. v9.8 zelf verandert niet.
-- Af en toe meepushen: `git add paper_trading/cbshort paper_trading/venueshort research_data/coinbase_listings research_data/upbit_listings` -> commit -> push.
+- Af en toe meepushen: `git add paper_trading/cbshort paper_trading/venueshort paper_trading/fdshort research_data/coinbase_listings research_data/upbit_listings` -> commit -> push.
 - **Waar zie je het?** Alleen na een HERSTART van de hub (sluit het hub-venster, dubbelklik `hub_start.bat`). Binnen een uur (eerste ingest):
-  * Paper Trading -> tab **Shadow accounts**: `v98:plus_coinbase_short`, `v98:venue_sleeve_coinbase` en `v98:venue_sleeve_coinbase_upbit`.
+  * Paper Trading -> tab **Shadow accounts**: `v98:plus_coinbase_short`, `v98:venue_sleeve_coinbase`, `v98:venue_sleeve_coinbase_upbit` en `v98:venue_coinbase_plus_futures_delisting`.
   * Performance -> Source **Paper** -> kies die accounts naast paper:v98.
   * Performance -> Source **Backtest** -> Book **"Crypto v9.9 candidate (v9.8 + Coinbase sleeve)"**: de backtest-curve naast v9.8.
   Zolang er geen nieuwe listing is, lopen de schaduwen exact gelijk met v9.8 (de short-sleeve staat dan op 0).

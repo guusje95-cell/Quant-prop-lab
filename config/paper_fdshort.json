@@ -1,0 +1,8 @@
+{
+ "name": "Paper sleeve: Binance futures-delisting short (v9.9 candidate R32 B, flagged, thin)",
+ "registered": "2026-11-01, before any announcement after 2026-11-01 was seen",
+ "what": "qpl.live.coinbase_short.step (hub job 'cbshort_paper', hourly): 'Binance Futures Will Delist <SYM>USDT ... Perpetual' titles (not 'Multiple') from the live announcement catalog that the v9.8 paper trader downloads -> short 5% of equity of that Binance perp from the first whole hour after the release + 1 h, 14 days, +30% stop, 10 bp per side, funding. Frozen hourly ledger paper_trading/fdshort/ledger_hourly.csv",
+ "frozen": {"account": 200000, "risk": 1.0, "start_after": "2026-11-01"},
+ "reference": {"backtest": "R32 B: 41 coins 2022-26, book 3.281 vs 3.211; with the Coinbase sleeve and the 4.5% low-cap cap 3.438 vs 3.347"},
+ "changes": []
+}

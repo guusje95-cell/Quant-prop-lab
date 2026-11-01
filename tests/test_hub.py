@@ -412,3 +412,16 @@ def test_upbit_detector_seeds_existing_markets(tmp_path, monkeypatch):
     markets.append({"market": "KRW-NEW"})
     assert UP.detector(log=lambda *a: None) == 1
     ev = UP.events(pd.Timestamp("2026-11-01")); assert list(ev) == ["NEW"] and ev["NEW"][0] == pd.Timestamp("2026-11-05 13:00")
+
+
+def test_futures_delisting_parser(tmp_path, monkeypatch):
+    import json as _j
+    from qpl.live import coinbase_short as CB
+    d = tmp_path / "paper_trading/v98/data/announcements"; d.mkdir(parents=True)
+    ms = int(pd.Timestamp("2026-11-03 10:20").value // 1e6)
+    arts = [{"id": 1, "title": "Binance Futures Will Delist USDⓈ-M FOOUSDT Perpetual Contract (2026-11-10)", "releaseDate": ms},
+            {"id": 2, "title": "Binance Futures Will Delist Multiple USDⓈ-M Perpetual Contracts (2026-11-10)", "releaseDate": ms},
+            {"id": 3, "title": "Binance Will Delist BAR on 2026-11-10", "releaseDate": ms}]
+    (d / "catalog_161.json").write_text(_j.dumps({"articles": arts}), encoding="utf-8")
+    monkeypatch.setattr(CB, "ROOT", tmp_path)
+    assert CB.futures_delistings() == [("FOO", pd.Timestamp("2026-11-03 10:00"))]          # entry = close of the 11:00 bar

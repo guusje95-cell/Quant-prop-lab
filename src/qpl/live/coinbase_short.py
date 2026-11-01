@@ -101,7 +101,7 @@ def funding(coin: str, start: pd.Timestamp, end: pd.Timestamp) -> pd.Series:
     return pd.Series([float(r["fundingRate"]) for r in rows], index=pd.to_datetime([r["fundingTime"] for r in rows], unit="ms").floor("h")) if rows else pd.Series(dtype=float)
 
 
-def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timestamp | None = None) -> pd.Series:
+def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timestamp | None = None, hold_h: int = HOLD_H) -> pd.Series:
     """hourly P&L (fraction of equity) labelled by bar open, from the R16b rules; cl = closes by bar open time. If our detector saw the
     listing later than T + 1 h, the entry is the close of the bar in which it was detected (no P&L before we could have known)."""
     entry_bar = T.floor("h") + pd.Timedelta(hours=1)                    # close of this bar (at T + 2 h) is the entry
@@ -109,7 +109,7 @@ def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timest
         entry_bar = max(entry_bar, detected.floor("h"))
     if entry_bar not in cl.index:
         return pd.Series(dtype=float)
-    p0 = cl.loc[entry_bar]; path = cl.loc[entry_bar:entry_bar + pd.Timedelta(hours=HOLD_H)]
+    p0 = cl.loc[entry_bar]; path = cl.loc[entry_bar:entry_bar + pd.Timedelta(hours=hold_h)]
     hit = path.index[(path >= p0 * (1 + STOP)).to_numpy()]; last = hit[0] if len(hit) else path.index[-1]
     path = path.loc[:last]; r = path.pct_change().iloc[1:]
     pnl = -SIZE * r
@@ -117,13 +117,13 @@ def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timest
     pnl = pnl + SIZE * settle
     if len(pnl):
         pnl.iloc[0] -= SIZE * COST                                       # entry (charged in the first held bar)
-        done = len(hit) > 0 or last >= entry_bar + pd.Timedelta(hours=HOLD_H)
+        done = len(hit) > 0 or last >= entry_bar + pd.Timedelta(hours=hold_h)
         if done:
             pnl.iloc[-1] -= SIZE * COST
     return pnl
 
 
-def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path, col: str, min_perp_days: dict, now: pd.Timestamp) -> dict:
+def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path, col: str, min_perp_days: dict, now: pd.Timestamp, hold_h: dict | None = None) -> dict:
     """E = [(coin, first venue hour, detected time or None, venue)]; a coin is not shorted again within 7 days (as in R18 / R22 / R30)"""
     last_done = now.floor("h") - pd.Timedelta(hours=1); total = pd.Series(0.0, index=pd.date_range(START, last_done, freq="h")); traded = {}; last = {}
     for coin, T, det, venue in sorted(E, key=lambda e: e[1]):
@@ -136,7 +136,10 @@ def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path,
             traded[key] = "no Binance perp at the listing"; continue
         if min_perp_days.get(venue) and cl.index.min() > T - pd.Timedelta(days=min_perp_days[venue]):
             traded[key] = f"Binance perp younger than {min_perp_days[venue]} days"; continue
-        p = trade_pnl(cl, funding(coin, T - pd.Timedelta(days=1), T + pd.Timedelta(hours=HOLD_H + 4)), T, det)
+        hh = (hold_h or {}).get(venue, HOLD_H)
+        if hh > HOLD_H:
+            cl = klines(coin, T.floor("h") - back, T + pd.Timedelta(hours=hh + 4))
+        p = trade_pnl(cl, funding(coin, T - pd.Timedelta(days=1), T + pd.Timedelta(hours=hh + 4)), T, det, hh)
         total = total.add(p.reindex(total.index).fillna(0.0), fill_value=0.0); traded[key] = f"{len(p)} hours"; last[coin] = T
     out.mkdir(parents=True, exist_ok=True); f = out / "ledger_hourly.csv"
     L = pd.read_csv(f) if f.exists() else pd.DataFrame(columns=["hour", col, "port", "computed_at", "lag_h", "late"])
@@ -166,7 +169,29 @@ def step(log=print) -> dict:
     UE = [(c, T, d, "upbit") for c, (T, d) in UP.events(START).items()]
     res["coinbase"] = _run(CE, OUT, COL, {}, now)
     res["coinbase + upbit"] = _run(CE + UE, ROOT / "paper_trading/venueshort", "venue listing short", {"upbit": 7}, now)
+    FE = [(c, T, None, "binance futures delisting") for c, T in futures_delistings()]
+    res["binance futures delisting"] = _run(FE, ROOT / "paper_trading/fdshort", "futures-delisting short", {}, now, {"binance futures delisting": 14 * 24})
     return res
+
+
+def futures_delistings() -> list[tuple[str, pd.Timestamp]]:
+    """'Binance Futures Will Delist <SYM>USDT ... Perpetual' announcements (not 'Multiple') at or after START, from the research archive and
+    the live catalog the v9.8 paper trader downloads (paper_trading/v98/data/announcements/catalog_161.json). The entry rule of R32 B
+    (first whole hour after the release + 1 h) is expressed as T = release.ceil('h') - 1 h for trade_pnl (entry = close of bar T + 1 h)."""
+    import re
+    arts = {}
+    for f in (ROOT / "research_data/binance_announcements/catalog_161.json", ROOT / "paper_trading/v98/data/announcements/catalog_161.json"):
+        try:
+            arts.update({a["id"]: a for a in json.loads(f.read_text(encoding="utf-8"))["articles"]})
+        except (OSError, ValueError, KeyError):
+            continue
+    out = []
+    for a in arts.values():
+        t = pd.to_datetime(a["releaseDate"], unit="ms")
+        if t < START or not a["title"].startswith("Binance Futures Will Delist") or "Multiple" in a["title"]:
+            continue
+        out += [(x[:-4], t.ceil("h") - pd.Timedelta(hours=1)) for x in re.findall(r"([A-Z0-9]{2,15}USDT)", a["title"])]
+    return out
 
 
 if __name__ == "__main__":
