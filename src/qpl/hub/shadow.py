@@ -205,6 +205,13 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
                                      {"account": "paper:fdshort", "name": "futures-delisting short", "prefix": "results/v99/fdshort_sleeve_prefix.parquet"}]},
                           description="v9.9 'best portfolio' candidate = v9.8 + Coinbase/Upbit sell-the-news sleeve + Binance futures-delisting sleeve "
                                       "(backtest 3.49; with the 4.5% low-cap cap 3.47 vs v9.8 3.06; flagged components)", actor="system"))
+    if all(c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (k_,)).fetchone() for k_ in ("paper:venueshort", "paper:fdshort", "paper:addshort")):
+        ids.append(define(c, "v99cand:all_plus_add", source, "composite",
+                          {"extra": [{"account": "paper:venueshort", "name": "venue listing short", "prefix": "results/v99/venueshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:fdshort", "name": "futures-delisting short", "prefix": "results/v99/fdshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:addshort", "name": "binance add short", "prefix": "results/v99/addshort_sleeve_prefix.parquet"}]},
+                          description="v9.9 candidate ALL + R34 'Binance Will Add ... Margin' sell-the-news sleeve (backtest 3.61; capped 3.54 vs ALL 3.47); "
+                                      "R34 evidence is 2025-26 only and mostly young coins", actor="system"))
     if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
         ids += ensure_cfd_defaults(c)
     return ids

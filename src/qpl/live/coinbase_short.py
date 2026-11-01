@@ -171,7 +171,33 @@ def step(log=print) -> dict:
     res["coinbase + upbit"] = _run(CE + UE, ROOT / "paper_trading/venueshort", "venue listing short", {"upbit": 7}, now)
     FE = [(c, T, None, "binance futures delisting") for c, T in futures_delistings()]
     res["binance futures delisting"] = _run(FE, ROOT / "paper_trading/fdshort", "futures-delisting short", {}, now, {"binance futures delisting": 14 * 24})
+    try:
+        from qpl.live import binance_announcements as BA
+        res["new binance 'add' announcements"] = BA.update(ROOT / "paper_trading/eventdata", catalog=48, log=lambda *a: None)
+    except Exception as e:                                               # noqa: BLE001
+        res["new binance 'add' announcements"] = f"failed: {e}"
+    AE = [(c, T, None, "binance add") for c, T in binance_adds()]
+    res["binance add"] = _run(AE, ROOT / "paper_trading/addshort", "binance add short", {"binance add": 7}, now)
     return res
+
+
+def binance_adds() -> list[tuple[str, pd.Timestamp]]:
+    """'Binance Will Add <Name> (<TICKER>) on ... Margin' announcements (catalog 48, new listings) at or after START (R34); the coin's
+    Binance perp must be >= 7 days old (checked in _run). T = release.ceil('h') - 1 h, so the entry is the first whole hour + 1 h."""
+    import re
+    arts = {}
+    for f in (ROOT / "research_data/binance_announcements/catalog_48.json", ROOT / "paper_trading/eventdata/announcements/catalog_48.json"):
+        try:
+            arts.update({a["id"]: a for a in json.loads(f.read_text(encoding="utf-8"))["articles"]})
+        except (OSError, ValueError, KeyError):
+            continue
+    out = []
+    for a in arts.values():
+        t = pd.to_datetime(a["releaseDate"], unit="ms")
+        if t < START or not re.match(r"Binance Will Add .+ on .*Margin", a["title"]):
+            continue
+        out += [(tk, t.ceil("h") - pd.Timedelta(hours=1)) for tk in re.findall(r"\(([A-Z0-9]{2,15})\)", a["title"])]
+    return out
 
 
 def futures_delistings() -> list[tuple[str, pd.Timestamp]]:

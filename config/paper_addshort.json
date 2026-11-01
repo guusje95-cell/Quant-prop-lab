@@ -1,0 +1,8 @@
+{
+ "name": "Paper sleeve: 'Binance Will Add ... Margin' sell-the-news short (v9.9 candidate R34, evidence 2025-26 only)",
+ "registered": "2026-11-01, before any announcement after 2026-11-01 was seen",
+ "what": "qpl.live.coinbase_short.step (hub job 'cbshort_paper', hourly): Binance announcement catalog 48 (public CMS, saved in paper_trading/eventdata) -> titles 'Binance Will Add <Name> (<TICKER>) on ... Margin' -> short 5% of equity of that coin's Binance perp (>= 7 days old) from the first whole hour after the release + 1 h, 7 days, +30% stop, 10 bp, funding. Frozen hourly ledger paper_trading/addshort/ledger_hourly.csv",
+ "frozen": {"account": 200000, "risk": 1.0, "start_after": "2026-11-01"},
+ "reference": {"backtest": "R34: 41 trades 2024-26, mean +17.8%, book 3.377 vs 3.211; ALL + this sleeve capped 3.544 vs ALL 3.468"},
+ "changes": []
+}
