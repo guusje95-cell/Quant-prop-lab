@@ -1,0 +1,6 @@
+{"id": "v99-R36", "date": "2026-11-01", "registered": "while the Binance.US first-trade download runs, BEFORE computing any return around those dates",
+ "why": "third test of the retail-venue access mechanism (Coinbase and Upbit work as separate sleeves, Kraken / Hyperliquid did not): Binance.US is a US retail fiat venue",
+ "events": "first trading hour of each Binance.US USD / USDT pair (research_data/binanceus_listings/first_trade.json, get_binanceus_listings.py; delisted pairs missing), earliest per base coin, 2022-01-01..2026-09-23, non-stable, coin trading as a Binance USDT perp at that hour",
+ "trial": "R16 A rules (short 5% from the first venue hour's close, 7 days, +30% stop, 10 bp, funding) as a separate 10th sleeve; a coin is not shorted twice within 7 days",
+ "checks": "placebo +-60 days; overlap with Coinbase events; on top of ALL (v9.8 + Coinbase/Upbit + futures-delisting sleeves)",
+ "judge": "book >= 3.211 + 0.05 and no period lower; >= 30 trades", "trials_added": 1}
