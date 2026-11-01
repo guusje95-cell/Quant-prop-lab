@@ -1,0 +1,21 @@
+{
+ "id": "v99-R24-R26", "date": "2026-11-01", "registered": "before running r24_meta_trend.py and r25_26_vol_regime.py (user request: try every ML application: signal filtering, volatility prediction, regime detection)",
+ "R24 meta-labeling of trend 4h (2 trials)": {
+  "trades": "base trend4h (BTC / ETH / SOL 4-hour breakout, crypto_sleeves.trend4h; daily corr 0.985 with the v9.8 sleeve): one trade = one non-zero stretch of a coin's direction",
+  "features at entry": ["breakout strength: (close - broken 20-bar channel) / 4-hour ATR(20)", "BTC 30-day return x trade side", "coin 30-day vol", "coin funding at entry x side", "trade side (+1 / -1)"],
+  "model": "walk-forward logistic regression (fit on trades closed before entry, >= 60), label = trade P&L > 0",
+  "trials": {"A filter": "skip when p < 0.5", "B sizer": "multiplier clip(p / mean in-sample p, 0.5, 1.5)"},
+  "implementation": "v9.8 trend sleeve + sum over trades (multiplier - 1) x trade P&L of the base version"
+ },
+ "R25 volatility prediction for the book's vol target (2 trials)": {
+  "now": "portfolio_v5 targets 15% with the 30-day std of the level-scaled daily book (Gen-era tests: EWMA, HAR, hourly RV all lost)",
+  "A GARCH(1,1)": "normal GARCH(1,1) (arch package) on the same daily series, refit every 30 days on all earlier days (>= 365), one-day-ahead vol forecast from the fitted recursion; same 1.5x cap and one-day lag",
+  "B average": "mean of the GARCH forecast and the 30-day std"
+ },
+ "R26 regime detection (2 trials)": {
+  "model": "2-state Gaussian HMM (hmmlearn) on BTC daily log return and 30-day vol, refit every 30 days on all earlier days (>= 730); the state with the higher vol is 'stress'; filtered probability of stress from data up to the previous day",
+  "A": "book x0.5 when P(stress) > 0.5", "B": "book x (1 - 0.5 P(stress))"
+ },
+ "judge": "every trial: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 6
+}
