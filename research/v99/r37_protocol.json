@@ -1,0 +1,5 @@
+{"id": "v99-R37", "date": "2026-11-01", "registered": "while the Bithumb download runs, BEFORE computing any return around Bithumb listings",
+ "why": "Upbit (Korean retail) listings work as a sell-the-news sleeve (R22 / R30); Bithumb is the second Korean retail venue (same crowd, separate listing dates)",
+ "events": "first hour of each Bithumb KRW market (public v1 API, research_data/bithumb_listings/first_trade.json, get_bithumb_listings.py; delisted markets missing), 2022-01-01..2026-09-23, non-stable, Binance perp >= 7 days old (as Upbit in R22)",
+ "trials": {"A Bithumb sleeve": "R16 A rules as a separate 10th sleeve, judged vs v9.8", "B Korean + Coinbase venue sleeve": "the ALL venue sleeve with Bithumb events added (Coinbase + Upbit + Bithumb, one short per coin per 7 days), judged vs ALL (3.491 [3.325, 4.003, 3.033])"},
+ "checks": "placebo +-60 days; overlap with Upbit", "judge": "A: >= 3.211 + 0.05, no period lower, >= 30 trades; B: >= ALL + 0.05, no period lower", "trials_added": 2}
