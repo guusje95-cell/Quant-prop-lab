@@ -1,0 +1,6 @@
+{"id": "v99-R34", "date": "2026-11-01", "registered": "after counting the titles (no returns looked at), before running r34_binance_add.py",
+ "why": "'Binance Will Add <Name> (<TICKER>) on Earn, Buy Crypto, Convert, VIP Loan & Margin [& Futures]' opens Binance's main retail products AND margin (short supply) for a coin at once: the access / sell-the-news mechanism of R16 plus the lifting of a short-sale constraint (Miller 1977); never tested here (grep 'VIP Loan': 0)",
+ "events": "those titles in the Binance announcement archive (catalogs 48 / 49 / 157 / 93, deduplicated by id), tickers in parentheses, 2021-06..2026-09-23, coins whose Binance USDT perp traded >= 7 days before the announcement (brand-new coins are the listing short's)",
+ "trial": "R16 A rules from the first whole hour after the release + 1 h (short 5% of the perp, 7 days, +30% stop, 10 bp, funding), as a separate 10th sleeve (R30 construction)",
+ "checks": "placebo +-60 days; with the Coinbase sleeve; with the 4.5% low-cap cap",
+ "judge": "book >= 3.211 + 0.05 and no period lower; >= 30 events", "trials_added": 1}
