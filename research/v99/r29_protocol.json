@@ -1,0 +1,4 @@
+{"id": "v99-R29", "date": "2026-11-01", "registered": "before running r29_bandit.py (user request: dynamic allocation with bandits / RL)",
+ "method": "exponentiated-gradient (EXP3-style full-information bandit) on top of the v9.8 equal-risk weights: at each month start, multiplier m_i proportional to exp(eta x trailing 182-day Sharpe of sleeve i), normalised to mean 1 over active sleeves, clipped to [0.5, 2]; Sharpe from days before the month only",
+ "trials": {"A bandit": "eta = 0.5, one set of weights", "B contextual bandit": "eta = 0.5, Sharpe measured only on past days in the same BTC context (close above / below its 200-day average, known the day before) and the multipliers for today's context used"},
+ "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 2}

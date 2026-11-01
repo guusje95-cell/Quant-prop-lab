@@ -1,0 +1,2 @@
+{"id": "v99-R28", "date": "2026-11-01", "registered": "before running r28_loo.py", "what": "leave-one-sleeve-out of v9.8 (9 sleeves): a sleeve is removed only if the book WITHOUT it is >= 3.211 + 0.05 with no period lower (the strict rule); otherwise diagnostic only",
+ "trials_added": 9}
