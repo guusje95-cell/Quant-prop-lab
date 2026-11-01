@@ -9,6 +9,8 @@ no keys, never places an order.
    paper_trading/cbshort/ledger_hourly.csv (frozen ledger, same format as the v9.8 paper trader; 'hour' = bar open, 'port' = sleeve
    return as a fraction of equity). The hub ingests it as paper:cbshort and the shadow 'v98:plus_coinbase_short' adds it to the v9.8
    paper book through the listing-short weight. v9.8 itself is unchanged.
+3. The same rules on Coinbase + new Upbit KRW listings (qpl.live.upbit_listings; Upbit coins need a >= 7-day-old Binance perp, R22)
+   -> paper_trading/venueshort (paper:venueshort; R30 A).
 
     python -m qpl.live.coinbase_short            # one detector + paper step (the hub job 'cbshort_paper' runs it every hour)"""
 from __future__ import annotations
@@ -121,32 +123,50 @@ def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timest
     return pnl
 
 
-def step(log=print) -> dict:
-    try:
-        new = detector(log)
-    except Exception as e:                                               # noqa: BLE001 - the ledger must advance even if Coinbase is down
-        new = f"detector failed: {e}"
-    now = pd.Timestamp.now(tz="UTC").tz_localize(None); last_done = now.floor("h") - pd.Timedelta(hours=1)
-    E = events(); total = pd.Series(0.0, index=pd.date_range(START, last_done, freq="h")); traded = {}
-    for coin, (T, det) in E.items():
-        cl = klines(coin, T.floor("h") - pd.Timedelta(hours=3), T + pd.Timedelta(hours=HOLD_H + 4))
+def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path, col: str, min_perp_days: dict, now: pd.Timestamp) -> dict:
+    """E = [(coin, first venue hour, detected time or None, venue)]; a coin is not shorted again within 7 days (as in R18 / R22 / R30)"""
+    last_done = now.floor("h") - pd.Timedelta(hours=1); total = pd.Series(0.0, index=pd.date_range(START, last_done, freq="h")); traded = {}; last = {}
+    for coin, T, det, venue in sorted(E, key=lambda e: e[1]):
+        key = f"{coin} ({venue})"
+        if coin in last and T - last[coin] < pd.Timedelta(days=7):
+            traded[key] = "skipped: same coin shorted within 7 days"; continue
+        back = pd.Timedelta(days=min_perp_days.get(venue, 0)) + pd.Timedelta(hours=3)
+        cl = klines(coin, T.floor("h") - back, T + pd.Timedelta(hours=HOLD_H + 4))
         if cl is None or not ((cl.index >= T.floor("h") - pd.Timedelta(hours=3)) & (cl.index <= T.floor("h"))).any():
-            traded[coin] = "no Binance perp at the listing"; continue
+            traded[key] = "no Binance perp at the listing"; continue
+        if min_perp_days.get(venue) and cl.index.min() > T - pd.Timedelta(days=min_perp_days[venue]):
+            traded[key] = f"Binance perp younger than {min_perp_days[venue]} days"; continue
         p = trade_pnl(cl, funding(coin, T - pd.Timedelta(days=1), T + pd.Timedelta(hours=HOLD_H + 4)), T, det)
-        total = total.add(p.reindex(total.index).fillna(0.0), fill_value=0.0); traded[coin] = f"{len(p)} hours"
-    OUT.mkdir(parents=True, exist_ok=True); f = OUT / "ledger_hourly.csv"
-    L = pd.read_csv(f) if f.exists() else pd.DataFrame(columns=["hour", COL, "port", "computed_at", "lag_h", "late"])
+        total = total.add(p.reindex(total.index).fillna(0.0), fill_value=0.0); traded[key] = f"{len(p)} hours"; last[coin] = T
+    out.mkdir(parents=True, exist_ok=True); f = out / "ledger_hourly.csv"
+    L = pd.read_csv(f) if f.exists() else pd.DataFrame(columns=["hour", col, "port", "computed_at", "lag_h", "late"])
     have = set(L["hour"].astype(str)); rows = []
     for h, v in total.items():
-        k = str(h)
-        if k in have:
+        if str(h) in have:
             continue                                                     # frozen: an hour is written once
         lag = (now - (h + pd.Timedelta(hours=1))).total_seconds() / 3600
-        rows.append({"hour": k, COL: float(v), "port": float(v), "computed_at": str(now), "lag_h": round(lag, 3), "late": lag > 30})
+        rows.append({"hour": str(h), col: float(v), "port": float(v), "computed_at": str(now), "lag_h": round(lag, 3), "late": lag > 30})
     if rows:
         L = pd.concat([L, pd.DataFrame(rows)], ignore_index=True); tmp = f.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(f)
-    (OUT / "events.json").write_text(json.dumps({c: {"first_coinbase_hour": str(E[c][0]), "detected": str(E[c][1]), "status": s} for c, s in traded.items()}, indent=1), encoding="utf-8")
-    return {"new_products": new, "events_since_start": len(E), "hours_written": len(rows), "events": traded}
+    (out / "events.json").write_text(json.dumps({k: {"status": s} for k, s in traded.items()}, indent=1), encoding="utf-8")
+    return {"events": len(E), "hours_written": len(rows), "status": traded}
+
+
+def step(log=print) -> dict:
+    """Coinbase only (paper:cbshort; R16 / R30 B) and Coinbase + Upbit (paper:venueshort; R30 A)."""
+    from qpl.live import upbit_listings as UP
+    res = {}
+    for name, fn in (("coinbase", detector), ("upbit", UP.detector)):
+        try:
+            res[f"new {name} listings"] = fn(log)
+        except Exception as e:                                           # noqa: BLE001 - the ledgers must advance even if a venue is down
+            res[f"new {name} listings"] = f"detector failed: {e}"
+    now = pd.Timestamp.now(tz="UTC").tz_localize(None)
+    CE = [(c, T, d, "coinbase") for c, (T, d) in events().items()]
+    UE = [(c, T, d, "upbit") for c, (T, d) in UP.events(START).items()]
+    res["coinbase"] = _run(CE, OUT, COL, {}, now)
+    res["coinbase + upbit"] = _run(CE + UE, ROOT / "paper_trading/venueshort", "venue listing short", {"upbit": 7}, now)
+    return res
 
 
 if __name__ == "__main__":

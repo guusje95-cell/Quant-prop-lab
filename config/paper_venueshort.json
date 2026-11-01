@@ -1,0 +1,8 @@
+{
+ "name": "Paper sleeve: Coinbase + Upbit sell-the-news short (v9.9 candidate R30 A, flagged)",
+ "registered": "2026-11-01, before any listing after 2026-11-01 was seen",
+ "what": "qpl.live.coinbase_short.step (hub job 'cbshort_paper', hourly): new Coinbase products (public API) and new Upbit KRW markets (qpl.live.upbit_listings, public API; existing markets are seeded on the first run and never traded) -> short the coin's Binance USDT perp 5% of equity from the close of the hour after the first venue hour (or the detection hour if later), 7 days, +30% stop, 10 bp per side, funding; Upbit coins need a >= 7-day-old Binance perp; one short per coin per 7 days. Frozen hourly ledger paper_trading/venueshort/ledger_hourly.csv",
+ "frozen": {"account": 200000, "risk": 1.0, "start_after": "2026-11-01", "risk_note": "'port' = sleeve P&L as a fraction of equity; the hub shadow v98:venue_sleeve_coinbase_upbit adds it as a separate sleeve with the book's construction rule"},
+ "reference": {"backtest": "R30 A: book 3.432 vs 3.211; with the 4.5% low-cap cap 3.387 vs 3.061"},
+ "changes": []
+}

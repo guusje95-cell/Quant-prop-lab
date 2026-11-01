@@ -1,0 +1,1796 @@
+{
+"KRW-GEOD": {
+"base": "GEOD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WAXP": {
+"base": "WAXP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CARV": {
+"base": "CARV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LSK": {
+"base": "LSK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-0G": {
+"base": "0G",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WIF": {
+"base": "WIF",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TRAC": {
+"base": "TRAC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BORA": {
+"base": "BORA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PUNDIX": {
+"base": "PUNDIX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PROS": {
+"base": "PROS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USD1": {
+"base": "USD1",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PROM": {
+"base": "PROM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BAT": {
+"base": "BAT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HUNT": {
+"base": "HUNT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PENGU": {
+"base": "PENGU",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FIL": {
+"base": "FIL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BEAM": {
+"base": "BEAM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-META2": {
+"base": "META2",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DOOD": {
+"base": "DOOD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WAVES": {
+"base": "WAVES",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USDC": {
+"base": "USDC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MOVE": {
+"base": "MOVE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TREE": {
+"base": "TREE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USDE": {
+"base": "USDE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USDG": {
+"base": "USDG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WET": {
+"base": "WET",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USDT": {
+"base": "USDT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-USDS": {
+"base": "USDS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-2Z": {
+"base": "2Z",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BOUNTY": {
+"base": "BOUNTY",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KAITO": {
+"base": "KAITO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LPT": {
+"base": "LPT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FOLD": {
+"base": "FOLD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ETHFI": {
+"base": "ETHFI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DKA": {
+"base": "DKA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ANKR": {
+"base": "ANKR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ALGO": {
+"base": "ALGO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SHIB": {
+"base": "SHIB",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-QUID": {
+"base": "QUID",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-UNI": {
+"base": "UNI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BIO": {
+"base": "BIO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WLFI": {
+"base": "WLFI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-UP2": {
+"base": "UP2",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TOKAMAK": {
+"base": "TOKAMAK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SKY": {
+"base": "SKY",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CYBER": {
+"base": "CYBER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SKR": {
+"base": "SKR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DOGE": {
+"base": "DOGE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WLD": {
+"base": "WLD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PEPE": {
+"base": "PEPE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HBAR": {
+"base": "HBAR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KMNO": {
+"base": "KMNO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BCH": {
+"base": "BCH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NEWT": {
+"base": "NEWT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SEI": {
+"base": "SEI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-JPYC": {
+"base": "JPYC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-JST": {
+"base": "JST",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AAVE": {
+"base": "AAVE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-JTO": {
+"base": "JTO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-JUP": {
+"base": "JUP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BFC": {
+"base": "BFC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-VVV": {
+"base": "VVV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AI": {
+"base": "AI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PIEVERSE": {
+"base": "PIEVERSE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ALT": {
+"base": "ALT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-B3": {
+"base": "B3",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LAYER": {
+"base": "LAYER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TRX": {
+"base": "TRX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-POWR": {
+"base": "POWR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-EUL": {
+"base": "EUL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ATOM": {
+"base": "ATOM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ARKM": {
+"base": "ARKM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CRV": {
+"base": "CRV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CRO": {
+"base": "CRO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NXPC": {
+"base": "NXPC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-A": {
+"base": "A",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TRUMP": {
+"base": "TRUMP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-F": {
+"base": "F",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-G": {
+"base": "G",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CELO": {
+"base": "CELO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AERO": {
+"base": "AERO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CTC": {
+"base": "CTC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NIL": {
+"base": "NIL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ANIME": {
+"base": "ANIME",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-APT": {
+"base": "APT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MOCA": {
+"base": "MOCA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-API3": {
+"base": "API3",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AHT": {
+"base": "AHT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-EGLD": {
+"base": "EGLD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BLEND": {
+"base": "BLEND",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ERA": {
+"base": "ERA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NCT": {
+"base": "NCT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FF": {
+"base": "FF",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CP": {
+"base": "CP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CASHCAT": {
+"base": "CASHCAT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CT": {
+"base": "CT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PLUME": {
+"base": "PLUME",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ESP": {
+"base": "ESP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CC": {
+"base": "CC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NEO": {
+"base": "NEO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ETC": {
+"base": "ETC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IOTA": {
+"base": "IOTA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IOST": {
+"base": "IOST",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AKT": {
+"base": "AKT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-COW": {
+"base": "COW",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-VIRTUAL": {
+"base": "VIRTUAL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RLUSD": {
+"base": "RLUSD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ETH": {
+"base": "ETH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IQ": {
+"base": "IQ",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NEAR": {
+"base": "NEAR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PRL": {
+"base": "PRL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AGLD": {
+"base": "AGLD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ID": {
+"base": "ID",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IO": {
+"base": "IO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IN": {
+"base": "IN",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MANTRA": {
+"base": "MANTRA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WAL": {
+"base": "WAL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PENDLE": {
+"base": "PENDLE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BLUR": {
+"base": "BLUR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PYUSD": {
+"base": "PYUSD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AWE": {
+"base": "AWE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-THETA": {
+"base": "THETA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AXL": {
+"base": "AXL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HP": {
+"base": "HP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SAND": {
+"base": "SAND",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-WCT": {
+"base": "WCT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-YGG": {
+"base": "YGG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AXS": {
+"base": "AXS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ARDR": {
+"base": "ARDR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-POD": {
+"base": "POD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ME": {
+"base": "ME",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TRUST": {
+"base": "TRUST",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SONIC": {
+"base": "SONIC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ARB": {
+"base": "ARB",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RSR": {
+"base": "RSR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-POL": {
+"base": "POL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CVC": {
+"base": "CVC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-T": {
+"base": "T",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ARX": {
+"base": "ARX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-W": {
+"base": "W",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ARK": {
+"base": "ARK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AVNT": {
+"base": "AVNT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-O": {
+"base": "O",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LA": {
+"base": "LA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HYPER": {
+"base": "HYPER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ATH": {
+"base": "ATH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LIT": {
+"base": "LIT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-NMR": {
+"base": "NMR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TAIKO": {
+"base": "TAIKO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RE": {
+"base": "RE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AVAX": {
+"base": "AVAX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XAUT": {
+"base": "XAUT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CPOOL": {
+"base": "CPOOL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CAP": {
+"base": "CAP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IMX": {
+"base": "IMX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SC": {
+"base": "SC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-INJ": {
+"base": "INJ",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MVL": {
+"base": "MVL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HIVE": {
+"base": "HIVE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CBK": {
+"base": "CBK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PUFFER": {
+"base": "PUFFER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XLM": {
+"base": "XLM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-OP": {
+"base": "OP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SAFE": {
+"base": "SAFE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GLM": {
+"base": "GLM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SUPER": {
+"base": "SUPER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LINEA": {
+"base": "LINEA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DATA": {
+"base": "DATA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KERNEL": {
+"base": "KERNEL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-POKT": {
+"base": "POKT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AXIS": {
+"base": "AXIS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SENT": {
+"base": "SENT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZKC": {
+"base": "ZKC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KNC": {
+"base": "KNC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZKP": {
+"base": "ZKP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AUCTION": {
+"base": "AUCTION",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ORDER": {
+"base": "ORDER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FCT2": {
+"base": "FCT2",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MTL": {
+"base": "MTL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-VET": {
+"base": "VET",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PONS": {
+"base": "PONS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TAO": {
+"base": "TAO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-QTUM": {
+"base": "QTUM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-LINK": {
+"base": "LINK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XRP": {
+"base": "XRP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CHZ": {
+"base": "CHZ",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ASTR": {
+"base": "ASTR",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZK": {
+"base": "ZK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ENA": {
+"base": "ENA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MANA": {
+"base": "MANA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-OPEN": {
+"base": "OPEN",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PYTH": {
+"base": "PYTH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MPLX": {
+"base": "MPLX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ENS": {
+"base": "ENS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GRT": {
+"base": "GRT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PUMP": {
+"base": "PUMP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XTZ": {
+"base": "XTZ",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CKB": {
+"base": "CKB",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GTC": {
+"base": "GTC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KAVA": {
+"base": "KAVA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TOSHI": {
+"base": "TOSHI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BARD": {
+"base": "BARD",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZRO": {
+"base": "ZRO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RAY": {
+"base": "RAY",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ONDO": {
+"base": "ONDO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZRX": {
+"base": "ZRX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GMT": {
+"base": "GMT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TFUEL": {
+"base": "TFUEL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CFG": {
+"base": "CFG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-AZTEC": {
+"base": "AZTEC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CFX": {
+"base": "CFX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XPL": {
+"base": "XPL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZAMA": {
+"base": "ZAMA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MASK": {
+"base": "MASK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-EURC": {
+"base": "EURC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-COMP": {
+"base": "COMP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZETA": {
+"base": "ZETA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RED": {
+"base": "RED",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-TIA": {
+"base": "TIA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ADA": {
+"base": "ADA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ELF": {
+"base": "ELF",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SOON": {
+"base": "SOON",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-STEEM": {
+"base": "STEEM",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ELSA": {
+"base": "ELSA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SPK": {
+"base": "SPK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SOPH": {
+"base": "SOPH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SPX": {
+"base": "SPX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MED": {
+"base": "MED",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-1INCH": {
+"base": "1INCH",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KAT": {
+"base": "KAT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MEW": {
+"base": "MEW",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ORBS": {
+"base": "ORBS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-RENDER": {
+"base": "RENDER",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ORCA": {
+"base": "ORCA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BERA": {
+"base": "BERA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SIGN": {
+"base": "SIGN",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DOS": {
+"base": "DOS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SLX": {
+"base": "SLX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-VANA": {
+"base": "VANA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DOT": {
+"base": "DOT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-EDGE": {
+"base": "EDGE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MET2": {
+"base": "MET2",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MBL": {
+"base": "MBL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FLUID": {
+"base": "FLUID",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BIGTIME": {
+"base": "BIGTIME",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SNT": {
+"base": "SNT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SOL": {
+"base": "SOL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-QKC": {
+"base": "QKC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BMT": {
+"base": "BMT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DRV": {
+"base": "DRV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-META": {
+"base": "META",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-IRYS": {
+"base": "IRYS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SAHARA": {
+"base": "SAHARA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MLK": {
+"base": "MLK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-VTHO": {
+"base": "VTHO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KITE": {
+"base": "KITE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MINA": {
+"base": "MINA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MMT": {
+"base": "MMT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-CHIP": {
+"base": "CHIP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZORA": {
+"base": "ZORA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XCN": {
+"base": "XCN",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GAS": {
+"base": "GAS",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MEGA": {
+"base": "MEGA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MNT": {
+"base": "MNT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MOC": {
+"base": "MOC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MOODENG": {
+"base": "MOODENG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-XEC": {
+"base": "XEC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MON": {
+"base": "MON",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MORPHO": {
+"base": "MORPHO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZIL": {
+"base": "ZIL",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GAME2": {
+"base": "GAME2",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-STX": {
+"base": "STX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-FLOCK": {
+"base": "FLOCK",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BSB": {
+"base": "BSB",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-PROVE": {
+"base": "PROVE",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BSV": {
+"base": "BSV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SUI": {
+"base": "SUI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SYRUP": {
+"base": "SYRUP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BTC": {
+"base": "BTC",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BABY": {
+"base": "BABY",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HOLO": {
+"base": "HOLO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-MIRA": {
+"base": "MIRA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SUN": {
+"base": "SUN",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ZBT": {
+"base": "ZBT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ONG": {
+"base": "ONG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BTT": {
+"base": "BTT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ENSO": {
+"base": "ENSO",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BIRB": {
+"base": "BIRB",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ONT": {
+"base": "ONT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-SOMI": {
+"base": "SOMI",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-GRVT": {
+"base": "GRVT",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-KAIA": {
+"base": "KAIA",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-DEEP": {
+"base": "DEEP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-HOME": {
+"base": "HOME",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-STRAX": {
+"base": "STRAX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-ICP": {
+"base": "ICP",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-OPG": {
+"base": "OPG",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-BREV": {
+"base": "BREV",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+},
+"KRW-POLYX": {
+"base": "POLYX",
+"seed": true,
+"first_trade_utc": null,
+"detected_utc": "2026-11-01 18:21:42"
+}
+}

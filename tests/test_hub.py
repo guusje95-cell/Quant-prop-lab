@@ -401,3 +401,14 @@ def test_coinbase_short_trade_rules():
     D = {"X-USD": {"base": "X", "first_trade_utc": "2026-11-05 13:00:00"}, "USDC-USD": {"base": "USDC", "first_trade_utc": "2026-11-05 13:00:00"},
          "OLD-USD": {"base": "OLD", "first_trade_utc": "2024-01-01 00:00:00"}}
     assert list(CB.events(D)) == ["X"]
+
+
+def test_upbit_detector_seeds_existing_markets(tmp_path, monkeypatch):
+    from qpl.live import upbit_listings as UP
+    monkeypatch.setattr(UP, "FILE", tmp_path / "ft.json")
+    markets = [{"market": "KRW-AAA"}, {"market": "BTC-AAA"}]
+    monkeypatch.setattr(UP, "_get", lambda path, params=None: markets if path == "/market/all" else [{"candle_date_time_utc": "2026-11-05T13:00:00"}])
+    assert UP.detector(log=lambda *a: None) == 0 and UP.events(pd.Timestamp("2026-11-01")) == {}          # first run: seed only
+    markets.append({"market": "KRW-NEW"})
+    assert UP.detector(log=lambda *a: None) == 1
+    ev = UP.events(pd.Timestamp("2026-11-01")); assert list(ev) == ["NEW"] and ev["NEW"][0] == pd.Timestamp("2026-11-05 13:00")
