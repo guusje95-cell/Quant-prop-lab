@@ -1,0 +1,14 @@
+{
+ "id": "v99-R17", "date": "2026-11-01", "registered": "after downloading DefiLlama fees / TVL (scripts/v99/get_defillama_fees.py), BEFORE computing any signal or return",
+ "why": "fundamentals were never used cross-sectionally here (grep: protocol fees 0, value factor 0; earlier DefiLlama use was market-wide only: stablecoins, DEX volume, total TVL). Equities: earnings momentum / post-earnings drift; crypto: usage (fees paid by users) that grows faster than price should be underpriced by attention-driven traders",
+ "data": "DefiLlama daily fees (protocol for DeFi tokens, chain for L1 / L2 tokens) and TVL, fixed mapping in get_defillama_fees.py; each daily value used with a 1-day lag (only days before the rebalance day). Caveat: DefiLlama back-fills new adapters, so early history is not strictly point in time",
+ "universe": "R14 loader coins with the needed series: >= 90 days of fees (A, B) or TVL (C) before the rebalance and positive 28-day sums; at least 8 eligible coins, else no position",
+ "trials": {
+  "A fee momentum": "g = log(fees of the last 28 days / fees of the 28 days before); long the top third, short the bottom third, equal weight, dollar neutral",
+  "B fees vs price": "g minus log(price change over the same 28 days): usage growing faster than price -> long",
+  "C TVL vs price": "log(TVL change over 28 days) minus log(price change over 28 days) -> long the top third, short the bottom third"
+ },
+ "rebalance_costs": "weekly on Monday 00:00 UTC, 8 bp per side + Binance funding (R14 sleeve code)",
+ "judge": "as a 10th v9.8 sleeve: book >= 3.211 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower",
+ "trials_added": 3
+}
