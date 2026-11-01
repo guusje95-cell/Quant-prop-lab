@@ -1,0 +1,2 @@
+{"id": "v99-R33", "date": "2026-11-01", "registered": "before running r33_weiss_weight.py (hub agenda item 'Weiss full weight', proposed earlier and never run)",
+ "trial": "v5_weights with weiss_scale = 1.0 instead of 0.5 (Weiss expiry at full equal-risk weight), everything else v9.8", "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
