@@ -1,0 +1,42 @@
+{
+ "cleaned events with a premium": 132,
+ "baseline R16 A (cleaned)": [
+  3.267,
+  [
+   3.181,
+   3.884,
+   2.718
+  ]
+ ],
+ "premium > 0.5%: n, mean trade %": [
+  50,
+  2.22
+ ],
+ "premium <= 0.5%: n, mean trade %": [
+  82,
+  9.19
+ ],
+ "corr(premium, trade return)": -0.252,
+ "A premium filter": {
+  "book": [
+   3.209,
+   [
+    3.09,
+    3.863,
+    2.64
+   ]
+  ],
+  "pass": false
+ },
+ "B premium sizing": {
+  "book": [
+   3.237,
+   [
+    3.137,
+    3.88,
+    2.667
+   ]
+  ],
+  "pass": false
+ }
+}
