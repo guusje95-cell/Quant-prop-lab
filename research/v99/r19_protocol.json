@@ -1,0 +1,8 @@
+{
+ "id": "v99-R19", "date": "2026-11-01", "registered": "after downloading the Hyperliquid listing hours, BEFORE computing any return around them",
+ "why": "new access for a new crowd: a Hyperliquid perp listing gives leveraged on-chain traders a venue (the Coinbase mechanism in R16, but for perps). Sell the news after the listing pop",
+ "events": "first funding hour of each Hyperliquid perp (public fundingHistory, research_data/hyperliquid_listings/first_funding.json, scripts/v99/get_hl_listings.py) from 2023-07-01 (the launch batch excluded) to 2026-09-23, for coins whose Binance USDT perp traded at least 7 days before (so the event is not a brand-new token, which the v9.8 listing short already covers); delisted HL perps included as far as the API still lists them",
+ "trial": {"A HL listing sell the news": "R16 A rules unchanged: short 5% of the Binance perp from the close of the first HL hour, 7 days, +30% stop, 10 bp per side, funding"},
+ "judge": "book >= 3.211 + 0.05 and no period lower than v9.8; at least 30 events; reported also on top of v9.8 + R16 A",
+ "trials_added": 1
+}

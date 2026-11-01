@@ -1,0 +1,1177 @@
+{
+"BTC": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 40
+},
+"ETH": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 25
+},
+"ATOM": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"MATIC": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": true,
+"maxLeverage": 20
+},
+"DYDX": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"SOL": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 20
+},
+"AVAX": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"BNB": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"APE": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"OP": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"LTC": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"ARB": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"DOGE": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"INJ": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"SUI": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"kPEPE": {
+"first_funding_utc": "2023-05-12 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"CRV": {
+"first_funding_utc": "2023-05-15 16:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"LDO": {
+"first_funding_utc": "2023-05-16 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"LINK": {
+"first_funding_utc": "2023-05-18 08:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"STX": {
+"first_funding_utc": "2023-05-18 08:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"RNDR": {
+"first_funding_utc": "2023-05-18 08:00:00",
+"delisted": true,
+"maxLeverage": 20
+},
+"CFX": {
+"first_funding_utc": "2023-05-25 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"FTM": {
+"first_funding_utc": "2023-05-25 00:00:00",
+"delisted": true,
+"maxLeverage": 10
+},
+"GMX": {
+"first_funding_utc": "2023-05-25 00:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SNX": {
+"first_funding_utc": "2023-05-25 00:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"XRP": {
+"first_funding_utc": "2023-06-18 00:00:00",
+"delisted": false,
+"maxLeverage": 20
+},
+"BCH": {
+"first_funding_utc": "2023-06-30 03:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"APT": {
+"first_funding_utc": "2023-06-30 03:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"AAVE": {
+"first_funding_utc": "2023-07-18 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"COMP": {
+"first_funding_utc": "2023-07-18 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"MKR": {
+"first_funding_utc": "2023-07-21 05:00:00",
+"delisted": true,
+"maxLeverage": 10
+},
+"WLD": {
+"first_funding_utc": "2023-07-24 14:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"FXS": {
+"first_funding_utc": "2023-07-30 21:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"HPOS": {
+"first_funding_utc": "2023-07-31 20:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"RLB": {
+"first_funding_utc": "2023-08-02 04:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"UNIBOT": {
+"first_funding_utc": "2023-08-02 04:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"YGG": {
+"first_funding_utc": "2023-08-06 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"TRX": {
+"first_funding_utc": "2023-08-06 16:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"kSHIB": {
+"first_funding_utc": "2023-08-11 23:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"UNI": {
+"first_funding_utc": "2023-08-11 23:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"SEI": {
+"first_funding_utc": "2023-08-15 13:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"RUNE": {
+"first_funding_utc": "2023-08-15 14:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"OX": {
+"first_funding_utc": "2023-08-17 22:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"FRIEND": {
+"first_funding_utc": "2023-08-21 03:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"SHIA": {
+"first_funding_utc": "2023-08-26 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"CYBER": {
+"first_funding_utc": "2023-08-31 02:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"ZRO": {
+"first_funding_utc": "2023-09-07 03:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"BLZ": {
+"first_funding_utc": "2023-09-12 12:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"DOT": {
+"first_funding_utc": "2023-09-12 12:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"BANANA": {
+"first_funding_utc": "2023-09-15 12:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"TRB": {
+"first_funding_utc": "2023-09-17 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"FTT": {
+"first_funding_utc": "2023-09-25 13:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"LOOM": {
+"first_funding_utc": "2023-09-28 23:00:00",
+"delisted": true,
+"maxLeverage": 10
+},
+"OGN": {
+"first_funding_utc": "2023-10-01 03:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"RDNT": {
+"first_funding_utc": "2023-10-03 03:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"ARK": {
+"first_funding_utc": "2023-10-06 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BNT": {
+"first_funding_utc": "2023-10-08 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"CANTO": {
+"first_funding_utc": "2023-10-09 16:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"REQ": {
+"first_funding_utc": "2023-10-11 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BIGTIME": {
+"first_funding_utc": "2023-10-11 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"KAS": {
+"first_funding_utc": "2023-10-12 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ORBS": {
+"first_funding_utc": "2023-10-13 20:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BLUR": {
+"first_funding_utc": "2023-10-18 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"TIA": {
+"first_funding_utc": "2023-10-19 23:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"BSV": {
+"first_funding_utc": "2023-10-20 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ADA": {
+"first_funding_utc": "2023-10-22 06:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"TON": {
+"first_funding_utc": "2023-10-22 06:00:00",
+"delisted": true,
+"maxLeverage": 10
+},
+"MINA": {
+"first_funding_utc": "2023-10-24 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"POLYX": {
+"first_funding_utc": "2023-10-24 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GAS": {
+"first_funding_utc": "2023-10-24 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PENDLE": {
+"first_funding_utc": "2023-10-26 16:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"STG": {
+"first_funding_utc": "2023-10-26 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"FET": {
+"first_funding_utc": "2023-10-26 16:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"STRAX": {
+"first_funding_utc": "2023-10-26 16:00:00",
+"delisted": true,
+"maxLeverage": 10
+},
+"NEAR": {
+"first_funding_utc": "2023-11-01 17:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"MEME": {
+"first_funding_utc": "2023-11-03 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ORDI": {
+"first_funding_utc": "2023-11-07 17:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"BADGER": {
+"first_funding_utc": "2023-11-09 15:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"NEO": {
+"first_funding_utc": "2023-11-09 15:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"ZEN": {
+"first_funding_utc": "2023-11-09 15:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"FIL": {
+"first_funding_utc": "2023-11-14 04:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"PYTH": {
+"first_funding_utc": "2023-11-14 23:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"SUSHI": {
+"first_funding_utc": "2023-11-17 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ILV": {
+"first_funding_utc": "2023-11-17 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"IMX": {
+"first_funding_utc": "2023-11-17 16:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"kBONK": {
+"first_funding_utc": "2023-11-20 00:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"GMT": {
+"first_funding_utc": "2023-11-26 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SUPER": {
+"first_funding_utc": "2023-11-26 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"USTC": {
+"first_funding_utc": "2023-11-27 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"NFTI": {
+"first_funding_utc": "2023-11-30 01:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"JUP": {
+"first_funding_utc": "2023-12-03 01:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"kLUNC": {
+"first_funding_utc": "2023-12-05 20:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"RSR": {
+"first_funding_utc": "2023-12-05 20:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GALA": {
+"first_funding_utc": "2023-12-05 20:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"JTO": {
+"first_funding_utc": "2023-12-07 17:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"NTRN": {
+"first_funding_utc": "2023-12-12 19:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"ACE": {
+"first_funding_utc": "2023-12-18 14:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MAV": {
+"first_funding_utc": "2023-12-20 13:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"WIF": {
+"first_funding_utc": "2023-12-22 16:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"CAKE": {
+"first_funding_utc": "2023-12-30 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PEOPLE": {
+"first_funding_utc": "2024-01-03 17:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ENS": {
+"first_funding_utc": "2024-01-05 15:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"ETC": {
+"first_funding_utc": "2024-01-12 01:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"XAI": {
+"first_funding_utc": "2024-01-15 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MANTA": {
+"first_funding_utc": "2024-01-18 22:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"UMA": {
+"first_funding_utc": "2024-01-19 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ONDO": {
+"first_funding_utc": "2024-01-20 15:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"ALT": {
+"first_funding_utc": "2024-01-25 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ZETA": {
+"first_funding_utc": "2024-02-02 01:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"DYM": {
+"first_funding_utc": "2024-02-06 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MAVIA": {
+"first_funding_utc": "2024-02-06 23:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"W": {
+"first_funding_utc": "2024-02-07 18:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"PANDORA": {
+"first_funding_utc": "2024-02-09 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"STRK": {
+"first_funding_utc": "2024-02-14 15:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"PIXEL": {
+"first_funding_utc": "2024-02-19 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"AI": {
+"first_funding_utc": "2024-02-19 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"TAO": {
+"first_funding_utc": "2024-02-19 14:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"AR": {
+"first_funding_utc": "2024-02-28 05:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"MYRO": {
+"first_funding_utc": "2024-03-05 17:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"kFLOKI": {
+"first_funding_utc": "2024-03-12 00:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"BOME": {
+"first_funding_utc": "2024-03-15 18:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ETHFI": {
+"first_funding_utc": "2024-03-21 01:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"ENA": {
+"first_funding_utc": "2024-04-02 14:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"MNT": {
+"first_funding_utc": "2024-04-05 02:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"TNSR": {
+"first_funding_utc": "2024-04-08 22:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SAGA": {
+"first_funding_utc": "2024-04-21 07:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MERL": {
+"first_funding_utc": "2024-04-23 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"HBAR": {
+"first_funding_utc": "2024-04-24 06:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"POPCAT": {
+"first_funding_utc": "2024-04-28 08:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"OMNI": {
+"first_funding_utc": "2024-04-29 03:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"EIGEN": {
+"first_funding_utc": "2024-04-30 04:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"REZ": {
+"first_funding_utc": "2024-04-30 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"NOT": {
+"first_funding_utc": "2024-05-17 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"TURBO": {
+"first_funding_utc": "2024-05-31 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"BRETT": {
+"first_funding_utc": "2024-06-11 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"IO": {
+"first_funding_utc": "2024-06-12 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ZK": {
+"first_funding_utc": "2024-06-12 12:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"BLAST": {
+"first_funding_utc": "2024-06-26 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"LISTA": {
+"first_funding_utc": "2024-06-28 04:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"MEW": {
+"first_funding_utc": "2024-07-23 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"RENDER": {
+"first_funding_utc": "2024-07-31 11:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"kDOGS": {
+"first_funding_utc": "2024-09-03 06:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"POL": {
+"first_funding_utc": "2024-09-17 07:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"CATI": {
+"first_funding_utc": "2024-09-25 06:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"CELO": {
+"first_funding_utc": "2024-09-25 06:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"HMSTR": {
+"first_funding_utc": "2024-09-27 05:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SCR": {
+"first_funding_utc": "2024-10-09 04:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"NEIROETH": {
+"first_funding_utc": "2024-10-23 13:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"kNEIRO": {
+"first_funding_utc": "2024-10-23 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GOAT": {
+"first_funding_utc": "2024-10-23 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MOODENG": {
+"first_funding_utc": "2024-10-25 10:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GRASS": {
+"first_funding_utc": "2024-10-28 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PURR": {
+"first_funding_utc": "2024-11-04 10:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PNUT": {
+"first_funding_utc": "2024-11-14 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"XLM": {
+"first_funding_utc": "2024-11-23 03:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"CHILLGUY": {
+"first_funding_utc": "2024-11-25 06:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"SAND": {
+"first_funding_utc": "2024-12-04 13:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"IOTA": {
+"first_funding_utc": "2024-12-04 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ALGO": {
+"first_funding_utc": "2024-12-04 13:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"HYPE": {
+"first_funding_utc": "2024-12-05 10:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"ME": {
+"first_funding_utc": "2024-12-10 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MOVE": {
+"first_funding_utc": "2024-12-11 05:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"VIRTUAL": {
+"first_funding_utc": "2024-12-16 05:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"PENGU": {
+"first_funding_utc": "2024-12-17 15:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"USUAL": {
+"first_funding_utc": "2024-12-18 17:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"FARTCOIN": {
+"first_funding_utc": "2024-12-20 12:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"AI16Z": {
+"first_funding_utc": "2025-01-01 05:00:00",
+"delisted": true,
+"maxLeverage": 5
+},
+"AIXBT": {
+"first_funding_utc": "2025-01-01 05:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ZEREBRO": {
+"first_funding_utc": "2025-01-02 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BIO": {
+"first_funding_utc": "2025-01-03 14:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GRIFFAIN": {
+"first_funding_utc": "2025-01-07 06:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SPX": {
+"first_funding_utc": "2025-01-07 06:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"S": {
+"first_funding_utc": "2025-01-17 08:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"MORPHO": {
+"first_funding_utc": "2025-01-17 09:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"TRUMP": {
+"first_funding_utc": "2025-01-18 06:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"MELANIA": {
+"first_funding_utc": "2025-01-20 01:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ANIME": {
+"first_funding_utc": "2025-01-21 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"VINE": {
+"first_funding_utc": "2025-01-23 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"VVV": {
+"first_funding_utc": "2025-01-28 01:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"JELLY": {
+"first_funding_utc": "2025-01-30 05:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BERA": {
+"first_funding_utc": "2025-02-06 14:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"TST": {
+"first_funding_utc": "2025-02-09 12:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"LAYER": {
+"first_funding_utc": "2025-02-11 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"IP": {
+"first_funding_utc": "2025-02-13 10:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"OM": {
+"first_funding_utc": "2025-02-16 16:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"KAITO": {
+"first_funding_utc": "2025-02-20 14:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"NIL": {
+"first_funding_utc": "2025-03-24 14:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PAXG": {
+"first_funding_utc": "2025-04-06 16:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"PROMPT": {
+"first_funding_utc": "2025-04-12 03:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"BABY": {
+"first_funding_utc": "2025-04-12 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"WCT": {
+"first_funding_utc": "2025-04-15 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"HYPER": {
+"first_funding_utc": "2025-04-22 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ZORA": {
+"first_funding_utc": "2025-04-23 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"INIT": {
+"first_funding_utc": "2025-04-24 12:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"DOOD": {
+"first_funding_utc": "2025-05-09 14:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"LAUNCHCOIN": {
+"first_funding_utc": "2025-05-14 15:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"NXPC": {
+"first_funding_utc": "2025-05-15 09:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SOPH": {
+"first_funding_utc": "2025-05-28 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"RESOLV": {
+"first_funding_utc": "2025-06-10 15:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SYRUP": {
+"first_funding_utc": "2025-06-26 06:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PUMP": {
+"first_funding_utc": "2025-07-10 04:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"PROVE": {
+"first_funding_utc": "2025-08-06 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"YZY": {
+"first_funding_utc": "2025-08-21 04:00:00",
+"delisted": true,
+"maxLeverage": 3
+},
+"XPL": {
+"first_funding_utc": "2025-08-22 10:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"WLFI": {
+"first_funding_utc": "2025-08-23 11:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"LINEA": {
+"first_funding_utc": "2025-09-01 10:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"SKY": {
+"first_funding_utc": "2025-09-17 06:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ASTER": {
+"first_funding_utc": "2025-09-19 11:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"AVNT": {
+"first_funding_utc": "2025-09-21 08:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"STBL": {
+"first_funding_utc": "2025-09-22 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"0G": {
+"first_funding_utc": "2025-09-22 11:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"HEMI": {
+"first_funding_utc": "2025-09-24 08:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"APEX": {
+"first_funding_utc": "2025-09-27 07:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"2Z": {
+"first_funding_utc": "2025-10-02 14:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ZEC": {
+"first_funding_utc": "2025-10-02 14:00:00",
+"delisted": false,
+"maxLeverage": 10
+},
+"MON": {
+"first_funding_utc": "2025-10-08 05:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"MET": {
+"first_funding_utc": "2025-10-10 11:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"MEGA": {
+"first_funding_utc": "2025-10-22 16:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"CC": {
+"first_funding_utc": "2025-10-31 13:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"ICP": {
+"first_funding_utc": "2025-11-08 04:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"AERO": {
+"first_funding_utc": "2025-11-11 07:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"STABLE": {
+"first_funding_utc": "2025-12-08 14:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"FOGO": {
+"first_funding_utc": "2025-12-11 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"LIT": {
+"first_funding_utc": "2025-12-22 16:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"XMR": {
+"first_funding_utc": "2026-01-15 09:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"AXS": {
+"first_funding_utc": "2026-01-18 04:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"DASH": {
+"first_funding_utc": "2026-01-18 04:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"SKR": {
+"first_funding_utc": "2026-01-22 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"AZTEC": {
+"first_funding_utc": "2026-02-12 09:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"CHIP": {
+"first_funding_utc": "2026-04-22 03:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"GRAM": {
+"first_funding_utc": "2026-07-02 10:00:00",
+"delisted": false,
+"maxLeverage": 5
+},
+"CASHCAT": {
+"first_funding_utc": "2026-07-11 05:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"PONS": {
+"first_funding_utc": "2026-08-31 04:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"USELESS": {
+"first_funding_utc": "2026-09-08 17:00:00",
+"delisted": false,
+"maxLeverage": 3
+},
+"XTEN": {
+"first_funding_utc": "2026-10-27 07:00:00",
+"delisted": false,
+"maxLeverage": 3
+}
+}
