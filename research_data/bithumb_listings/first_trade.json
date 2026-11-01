@@ -1,0 +1,1958 @@
+{
+"KRW-BTC": {
+"base": "BTC",
+"first_trade_utc": "2015-11-20 05:00:00"
+},
+"KRW-ETH": {
+"base": "ETH",
+"first_trade_utc": "2016-09-28 15:00:00"
+},
+"KRW-ETC": {
+"base": "ETC",
+"first_trade_utc": "2017-05-18 05:00:00"
+},
+"KRW-XRP": {
+"base": "XRP",
+"first_trade_utc": "2017-05-30 15:00:00"
+},
+"KRW-BCH": {
+"base": "BCH",
+"first_trade_utc": "2017-08-04 04:00:00"
+},
+"KRW-QTUM": {
+"base": "QTUM",
+"first_trade_utc": "2017-10-20 04:00:00"
+},
+"KRW-A": {
+"base": "A",
+"first_trade_utc": "2017-12-11 15:00:00"
+},
+"KRW-TRX": {
+"base": "TRX",
+"first_trade_utc": "2018-04-06 02:00:00"
+},
+"KRW-ELF": {
+"base": "ELF",
+"first_trade_utc": "2018-04-11 15:00:00"
+},
+"KRW-KNC": {
+"base": "KNC",
+"first_trade_utc": "2018-04-25 15:00:00"
+},
+"KRW-GLM": {
+"base": "GLM",
+"first_trade_utc": "2018-05-02 15:00:00"
+},
+"KRW-ZIL": {
+"base": "ZIL",
+"first_trade_utc": "2018-05-10 02:00:00"
+},
+"KRW-WAXP": {
+"base": "WAXP",
+"first_trade_utc": "2018-05-15 15:00:00"
+},
+"KRW-POWR": {
+"base": "POWR",
+"first_trade_utc": "2018-05-15 15:00:00"
+},
+"KRW-STEEM": {
+"base": "STEEM",
+"first_trade_utc": "2018-05-23 15:00:00"
+},
+"KRW-ZRX": {
+"base": "ZRX",
+"first_trade_utc": "2018-05-30 05:00:00"
+},
+"KRW-SNT": {
+"base": "SNT",
+"first_trade_utc": "2018-06-13 15:00:00"
+},
+"KRW-ADA": {
+"base": "ADA",
+"first_trade_utc": "2018-06-13 15:00:00"
+},
+"KRW-BAT": {
+"base": "BAT",
+"first_trade_utc": "2018-11-22 05:00:00"
+},
+"KRW-THETA": {
+"base": "THETA",
+"first_trade_utc": "2018-08-24 05:00:00"
+},
+"KRW-CVC": {
+"base": "CVC",
+"first_trade_utc": "2024-03-14 05:00:00"
+},
+"KRW-WAVES": {
+"base": "WAVES",
+"first_trade_utc": "2018-09-20 03:00:00"
+},
+"KRW-LINK": {
+"base": "LINK",
+"first_trade_utc": "2018-09-20 03:00:00"
+},
+"KRW-ENJ": {
+"base": "ENJ",
+"first_trade_utc": "2018-09-28 05:00:00"
+},
+"KRW-VET": {
+"base": "VET",
+"first_trade_utc": "2018-09-21 01:00:00"
+},
+"KRW-MTL": {
+"base": "MTL",
+"first_trade_utc": "2019-01-24 05:00:00"
+},
+"KRW-IOST": {
+"base": "IOST",
+"first_trade_utc": "2018-12-05 15:00:00"
+},
+"KRW-AMO": {
+"base": "AMO",
+"first_trade_utc": "2019-01-02 01:00:00"
+},
+"KRW-BSV": {
+"base": "BSV",
+"first_trade_utc": "2018-11-20 00:00:00"
+},
+"KRW-ORBS": {
+"base": "ORBS",
+"first_trade_utc": "2019-04-18 01:00:00"
+},
+"KRW-TFUEL": {
+"base": "TFUEL",
+"first_trade_utc": "2021-03-31 05:00:00"
+},
+"KRW-ANKR": {
+"base": "ANKR",
+"first_trade_utc": "2019-05-03 02:00:00"
+},
+"KRW-CRO": {
+"base": "CRO",
+"first_trade_utc": "2019-07-24 05:00:00"
+},
+"KRW-CHR": {
+"base": "CHR",
+"first_trade_utc": "2019-09-10 15:00:00"
+},
+"KRW-MBL": {
+"base": "MBL",
+"first_trade_utc": "2019-12-09 15:00:00"
+},
+"KRW-FCT2": {
+"base": "FCT2",
+"first_trade_utc": "2019-11-06 15:00:00"
+},
+"KRW-MEV": {
+"base": "MEV",
+"first_trade_utc": "2020-02-18 15:00:00"
+},
+"KRW-COS": {
+"base": "COS",
+"first_trade_utc": "2020-03-10 15:00:00"
+},
+"KRW-EL": {
+"base": "EL",
+"first_trade_utc": "2020-03-24 15:00:00"
+},
+"KRW-HIVE": {
+"base": "HIVE",
+"first_trade_utc": "2020-08-19 15:00:00"
+},
+"KRW-XPR": {
+"base": "XPR",
+"first_trade_utc": "2020-04-28 15:00:00"
+},
+"KRW-EGG": {
+"base": "EGG",
+"first_trade_utc": "2020-04-21 15:00:00"
+},
+"KRW-BORA": {
+"base": "BORA",
+"first_trade_utc": "2020-08-04 15:00:00"
+},
+"KRW-ARPA": {
+"base": "ARPA",
+"first_trade_utc": "2020-05-12 15:00:00"
+},
+"KRW-CTC": {
+"base": "CTC",
+"first_trade_utc": "2021-12-22 15:00:00"
+},
+"KRW-CKB": {
+"base": "CKB",
+"first_trade_utc": "2021-05-09 15:00:00"
+},
+"KRW-UNI": {
+"base": "UNI",
+"first_trade_utc": "2020-10-13 15:00:00"
+},
+"KRW-YFI": {
+"base": "YFI",
+"first_trade_utc": "2020-11-10 15:00:00"
+},
+"KRW-UMA": {
+"base": "UMA",
+"first_trade_utc": "2020-12-16 03:00:00"
+},
+"KRW-AAVE": {
+"base": "AAVE",
+"first_trade_utc": "2021-03-04 02:00:00"
+},
+"KRW-COMP": {
+"base": "COMP",
+"first_trade_utc": "2021-03-11 02:00:00"
+},
+"KRW-RSR": {
+"base": "RSR",
+"first_trade_utc": "2021-06-22 02:00:00"
+},
+"KRW-NMR": {
+"base": "NMR",
+"first_trade_utc": "2021-08-03 02:00:00"
+},
+"KRW-RLC": {
+"base": "RLC",
+"first_trade_utc": "2021-05-06 05:00:00"
+},
+"KRW-UOS": {
+"base": "UOS",
+"first_trade_utc": "2021-08-24 02:00:00"
+},
+"KRW-SAND": {
+"base": "SAND",
+"first_trade_utc": "2020-11-12 04:00:00"
+},
+"KRW-AWE": {
+"base": "AWE",
+"first_trade_utc": "2023-04-06 02:00:00"
+},
+"KRW-BEL": {
+"base": "BEL",
+"first_trade_utc": "2021-01-28 02:00:00"
+},
+"KRW-OBSR": {
+"base": "OBSR",
+"first_trade_utc": "2020-12-02 15:00:00"
+},
+"KRW-ADP": {
+"base": "ADP",
+"first_trade_utc": "2020-11-26 04:00:00"
+},
+"KRW-GHX": {
+"base": "GHX",
+"first_trade_utc": "2021-06-04 02:00:00"
+},
+"KRW-CBK": {
+"base": "CBK",
+"first_trade_utc": "2025-01-15 15:00:00"
+},
+"KRW-MVC": {
+"base": "MVC",
+"first_trade_utc": "2021-03-28 15:00:00"
+},
+"KRW-GRT": {
+"base": "GRT",
+"first_trade_utc": "2021-02-25 03:00:00"
+},
+"KRW-BIOT": {
+"base": "BIOT",
+"first_trade_utc": "2021-03-08 03:00:00"
+},
+"KRW-MAPO": {
+"base": "MAPO",
+"first_trade_utc": "2021-04-26 02:00:00"
+},
+"KRW-CTSI": {
+"base": "CTSI",
+"first_trade_utc": "2021-06-18 05:00:00"
+},
+"KRW-MANA": {
+"base": "MANA",
+"first_trade_utc": "2021-04-11 15:00:00"
+},
+"KRW-LPT": {
+"base": "LPT",
+"first_trade_utc": "2021-05-09 15:00:00"
+},
+"KRW-SUSHI": {
+"base": "SUSHI",
+"first_trade_utc": "2021-03-22 03:00:00"
+},
+"KRW-PUNDIX": {
+"base": "PUNDIX",
+"first_trade_utc": "2021-03-31 15:00:00"
+},
+"KRW-CELR": {
+"base": "CELR",
+"first_trade_utc": "2021-06-03 03:00:00"
+},
+"KRW-BFC": {
+"base": "BFC",
+"first_trade_utc": "2021-08-24 02:00:00"
+},
+"KRW-ALICE": {
+"base": "ALICE",
+"first_trade_utc": "2021-04-11 15:00:00"
+},
+"KRW-OGN": {
+"base": "OGN",
+"first_trade_utc": "2022-04-26 15:00:00"
+},
+"KRW-COTI": {
+"base": "COTI",
+"first_trade_utc": "2021-12-22 15:00:00"
+},
+"KRW-CAKE": {
+"base": "CAKE",
+"first_trade_utc": "2021-06-10 05:00:00"
+},
+"KRW-BNT": {
+"base": "BNT",
+"first_trade_utc": "2021-06-29 05:00:00"
+},
+"KRW-XVS": {
+"base": "XVS",
+"first_trade_utc": "2021-06-10 05:00:00"
+},
+"KRW-SWAP": {
+"base": "SWAP",
+"first_trade_utc": "2022-04-20 15:00:00"
+},
+"KRW-CHZ": {
+"base": "CHZ",
+"first_trade_utc": "2021-04-29 05:00:00"
+},
+"KRW-AXS": {
+"base": "AXS",
+"first_trade_utc": "2021-08-11 15:00:00"
+},
+"KRW-DAO": {
+"base": "DAO",
+"first_trade_utc": "2022-01-19 15:00:00"
+},
+"KRW-SIX": {
+"base": "SIX",
+"first_trade_utc": "2022-04-26 15:00:00"
+},
+"KRW-USDS": {
+"base": "USDS",
+"first_trade_utc": "2021-06-02 15:00:00"
+},
+"KRW-SHIB": {
+"base": "SHIB",
+"first_trade_utc": "2023-02-22 15:00:00"
+},
+"KRW-POL": {
+"base": "POL",
+"first_trade_utc": "2021-06-06 15:00:00"
+},
+"KRW-WOO": {
+"base": "WOO",
+"first_trade_utc": "2022-01-19 15:00:00"
+},
+"KRW-ACH": {
+"base": "ACH",
+"first_trade_utc": "2022-04-13 05:00:00"
+},
+"KRW-XLM": {
+"base": "XLM",
+"first_trade_utc": "2018-11-16 04:00:00"
+},
+"KRW-ONT": {
+"base": "ONT",
+"first_trade_utc": "2020-09-08 15:00:00"
+},
+"KRW-META": {
+"base": "META",
+"first_trade_utc": "2020-05-06 15:00:00"
+},
+"KRW-KAIA": {
+"base": "KAIA",
+"first_trade_utc": "2021-05-13 15:00:00"
+},
+"KRW-ONG": {
+"base": "ONG",
+"first_trade_utc": "2020-09-08 15:00:00"
+},
+"KRW-ALGO": {
+"base": "ALGO",
+"first_trade_utc": "2020-07-29 15:00:00"
+},
+"KRW-JST": {
+"base": "JST",
+"first_trade_utc": "2020-12-01 04:00:00"
+},
+"KRW-XTZ": {
+"base": "XTZ",
+"first_trade_utc": "2020-08-18 15:00:00"
+},
+"KRW-MLK": {
+"base": "MLK",
+"first_trade_utc": "2020-08-26 15:00:00"
+},
+"KRW-DOT": {
+"base": "DOT",
+"first_trade_utc": "2020-10-06 15:00:00"
+},
+"KRW-ATOM": {
+"base": "ATOM",
+"first_trade_utc": "2020-11-26 04:00:00"
+},
+"KRW-TEMCO": {
+"base": "TEMCO",
+"first_trade_utc": "2020-12-08 15:00:00"
+},
+"KRW-DOGE": {
+"base": "DOGE",
+"first_trade_utc": "2021-05-13 15:00:00"
+},
+"KRW-KSM": {
+"base": "KSM",
+"first_trade_utc": "2021-05-24 15:00:00"
+},
+"KRW-CTK": {
+"base": "CTK",
+"first_trade_utc": "2021-06-30 15:00:00"
+},
+"KRW-BNB": {
+"base": "BNB",
+"first_trade_utc": "2021-05-26 15:00:00"
+},
+"KRW-NFT": {
+"base": "NFT",
+"first_trade_utc": "2022-01-05 15:00:00"
+},
+"KRW-SUN": {
+"base": "SUN",
+"first_trade_utc": "2021-06-15 15:00:00"
+},
+"KRW-XEC": {
+"base": "XEC",
+"first_trade_utc": "2021-08-26 15:00:00"
+},
+"KRW-SOL": {
+"base": "SOL",
+"first_trade_utc": "2021-08-18 15:00:00"
+},
+"KRW-EGLD": {
+"base": "EGLD",
+"first_trade_utc": "2022-02-09 15:00:00"
+},
+"KRW-MASK": {
+"base": "MASK",
+"first_trade_utc": "2023-07-26 15:00:00"
+},
+"KRW-C98": {
+"base": "C98",
+"first_trade_utc": "2022-01-25 15:00:00"
+},
+"KRW-MED": {
+"base": "MED",
+"first_trade_utc": "2022-01-12 15:00:00"
+},
+"KRW-1INCH": {
+"base": "1INCH",
+"first_trade_utc": "2022-01-12 15:00:00"
+},
+"KRW-CRV": {
+"base": "CRV",
+"first_trade_utc": "2023-06-15 05:00:00"
+},
+"KRW-BOBA": {
+"base": "BOBA",
+"first_trade_utc": "2021-12-29 15:00:00"
+},
+"KRW-DYDX": {
+"base": "DYDX",
+"first_trade_utc": "2023-05-03 05:00:00"
+},
+"KRW-MINA": {
+"base": "MINA",
+"first_trade_utc": "2023-11-08 15:00:00"
+},
+"KRW-JOE": {
+"base": "JOE",
+"first_trade_utc": "2023-08-30 15:00:00"
+},
+"KRW-ENS": {
+"base": "ENS",
+"first_trade_utc": "2024-05-27 15:00:00"
+},
+"KRW-BTT": {
+"base": "BTT",
+"first_trade_utc": "2022-01-04 15:00:00"
+},
+"KRW-REQ": {
+"base": "REQ",
+"first_trade_utc": "2022-05-10 15:00:00"
+},
+"KRW-CSPR": {
+"base": "CSPR",
+"first_trade_utc": "2022-03-17 15:00:00"
+},
+"KRW-AVAX": {
+"base": "AVAX",
+"first_trade_utc": "2022-03-10 15:00:00"
+},
+"KRW-TDROP": {
+"base": "TDROP",
+"first_trade_utc": "2022-02-17 15:00:00"
+},
+"KRW-HBAR": {
+"base": "HBAR",
+"first_trade_utc": "2023-09-13 15:00:00"
+},
+"KRW-FANC": {
+"base": "FANC",
+"first_trade_utc": "2023-03-01 15:00:00"
+},
+"KRW-MAY": {
+"base": "MAY",
+"first_trade_utc": "2022-03-10 15:00:00"
+},
+"KRW-REI": {
+"base": "REI",
+"first_trade_utc": "2022-03-27 15:00:00"
+},
+"KRW-T": {
+"base": "T",
+"first_trade_utc": "2022-03-16 15:00:00"
+},
+"KRW-MBX": {
+"base": "MBX",
+"first_trade_utc": "2022-05-06 03:00:00"
+},
+"KRW-GMT": {
+"base": "GMT",
+"first_trade_utc": "2022-05-03 05:00:00"
+},
+"KRW-TAVA": {
+"base": "TAVA",
+"first_trade_utc": "2022-07-05 15:00:00"
+},
+"KRW-D": {
+"base": "D",
+"first_trade_utc": "2023-01-26 15:00:00"
+},
+"KRW-APE": {
+"base": "APE",
+"first_trade_utc": "2023-07-17 15:00:00"
+},
+"KRW-WNCG": {
+"base": "WNCG",
+"first_trade_utc": "2023-06-13 05:00:00"
+},
+"KRW-AL": {
+"base": "AL",
+"first_trade_utc": "2022-11-23 05:00:00"
+},
+"KRW-XCN": {
+"base": "XCN",
+"first_trade_utc": "2022-10-19 15:00:00"
+},
+"KRW-AZIT": {
+"base": "AZIT",
+"first_trade_utc": "2022-12-15 15:00:00"
+},
+"KRW-FLR": {
+"base": "FLR",
+"first_trade_utc": "2023-01-09 15:00:00"
+},
+"KRW-SFP": {
+"base": "SFP",
+"first_trade_utc": "2023-01-31 15:00:00"
+},
+"KRW-STAT": {
+"base": "STAT",
+"first_trade_utc": "2022-12-28 15:00:00"
+},
+"KRW-CRTS": {
+"base": "CRTS",
+"first_trade_utc": "2023-02-07 15:00:00"
+},
+"KRW-LM": {
+"base": "LM",
+"first_trade_utc": "2023-02-22 15:00:00"
+},
+"KRW-GRND": {
+"base": "GRND",
+"first_trade_utc": "2023-06-20 01:00:00"
+},
+"KRW-APT": {
+"base": "APT",
+"first_trade_utc": "2023-03-01 15:00:00"
+},
+"KRW-BLUR": {
+"base": "BLUR",
+"first_trade_utc": "2023-02-16 05:00:00"
+},
+"KRW-HOOK": {
+"base": "HOOK",
+"first_trade_utc": "2023-03-28 15:00:00"
+},
+"KRW-LWP": {
+"base": "LWP",
+"first_trade_utc": "2023-03-08 15:00:00"
+},
+"KRW-OP": {
+"base": "OP",
+"first_trade_utc": "2023-04-10 05:00:00"
+},
+"KRW-ROA": {
+"base": "ROA",
+"first_trade_utc": "2023-10-05 15:00:00"
+},
+"KRW-GMX": {
+"base": "GMX",
+"first_trade_utc": "2023-04-26 05:00:00"
+},
+"KRW-STX": {
+"base": "STX",
+"first_trade_utc": "2023-05-23 05:00:00"
+},
+"KRW-XPLA": {
+"base": "XPLA",
+"first_trade_utc": "2023-03-15 15:00:00"
+},
+"KRW-AHT": {
+"base": "AHT",
+"first_trade_utc": "2025-01-10 05:00:00"
+},
+"KRW-ARB": {
+"base": "ARB",
+"first_trade_utc": "2023-03-24 05:00:00"
+},
+"KRW-INJ": {
+"base": "INJ",
+"first_trade_utc": "2023-04-04 05:00:00"
+},
+"KRW-HFT": {
+"base": "HFT",
+"first_trade_utc": "2023-08-09 15:00:00"
+},
+"KRW-RPL": {
+"base": "RPL",
+"first_trade_utc": "2023-04-18 05:00:00"
+},
+"KRW-IMX": {
+"base": "IMX",
+"first_trade_utc": "2023-06-28 15:00:00"
+},
+"KRW-CFX": {
+"base": "CFX",
+"first_trade_utc": "2023-05-16 05:00:00"
+},
+"KRW-ACS": {
+"base": "ACS",
+"first_trade_utc": "2023-06-22 05:00:00"
+},
+"KRW-FRAX": {
+"base": "FRAX",
+"first_trade_utc": "2023-08-23 15:00:00"
+},
+"KRW-CELO": {
+"base": "CELO",
+"first_trade_utc": "2023-08-02 15:00:00"
+},
+"KRW-LDO": {
+"base": "LDO",
+"first_trade_utc": "2023-05-09 05:00:00"
+},
+"KRW-S": {
+"base": "S",
+"first_trade_utc": "2023-07-17 15:00:00"
+},
+"KRW-FET": {
+"base": "FET",
+"first_trade_utc": "2023-06-06 15:00:00"
+},
+"KRW-SUI": {
+"base": "SUI",
+"first_trade_utc": "2023-05-03 15:00:00"
+},
+"KRW-NCT": {
+"base": "NCT",
+"first_trade_utc": "2023-06-27 05:00:00"
+},
+"KRW-FLOKI": {
+"base": "FLOKI",
+"first_trade_utc": "2023-05-18 05:00:00"
+},
+"KRW-ID": {
+"base": "ID",
+"first_trade_utc": "2023-09-15 01:00:00"
+},
+"KRW-RENDER": {
+"base": "RENDER",
+"first_trade_utc": "2023-07-17 15:00:00"
+},
+"KRW-OSMO": {
+"base": "OSMO",
+"first_trade_utc": "2023-12-25 15:00:00"
+},
+"KRW-FIL": {
+"base": "FIL",
+"first_trade_utc": "2025-01-05 15:00:00"
+},
+"KRW-ILV": {
+"base": "ILV",
+"first_trade_utc": "2023-08-16 15:00:00"
+},
+"KRW-MAV": {
+"base": "MAV",
+"first_trade_utc": "2023-07-12 15:00:00"
+},
+"KRW-AUDIO": {
+"base": "AUDIO",
+"first_trade_utc": "2023-12-04 03:00:00"
+},
+"KRW-AGI": {
+"base": "AGI",
+"first_trade_utc": "2023-09-05 05:00:00"
+},
+"KRW-ASTR": {
+"base": "ASTR",
+"first_trade_utc": "2023-09-20 15:00:00"
+},
+"KRW-WLD": {
+"base": "WLD",
+"first_trade_utc": "2023-07-23 15:00:00"
+},
+"KRW-FLUX": {
+"base": "FLUX",
+"first_trade_utc": "2023-09-07 05:00:00"
+},
+"KRW-AGLD": {
+"base": "AGLD",
+"first_trade_utc": "2025-01-15 15:00:00"
+},
+"KRW-AR": {
+"base": "AR",
+"first_trade_utc": "2024-05-27 15:00:00"
+},
+"KRW-EDU": {
+"base": "EDU",
+"first_trade_utc": "2023-09-25 15:00:00"
+},
+"KRW-SEI": {
+"base": "SEI",
+"first_trade_utc": "2023-08-14 15:00:00"
+},
+"KRW-WAXL": {
+"base": "WAXL",
+"first_trade_utc": "2024-01-07 15:00:00"
+},
+"KRW-MOC": {
+"base": "MOC",
+"first_trade_utc": "2023-11-27 03:00:00"
+},
+"KRW-PEPE": {
+"base": "PEPE",
+"first_trade_utc": "2023-05-17 15:00:00"
+},
+"KRW-CYBER": {
+"base": "CYBER",
+"first_trade_utc": "2023-08-29 05:00:00"
+},
+"KRW-ARKM": {
+"base": "ARKM",
+"first_trade_utc": "2023-10-05 05:00:00"
+},
+"KRW-PYR": {
+"base": "PYR",
+"first_trade_utc": "2023-10-26 03:00:00"
+},
+"KRW-IOTX": {
+"base": "IOTX",
+"first_trade_utc": "2023-12-03 15:00:00"
+},
+"KRW-PENDLE": {
+"base": "PENDLE",
+"first_trade_utc": "2023-11-17 03:00:00"
+},
+"KRW-BICO": {
+"base": "BICO",
+"first_trade_utc": "2024-11-24 15:00:00"
+},
+"KRW-API3": {
+"base": "API3",
+"first_trade_utc": "2023-11-07 03:00:00"
+},
+"KRW-MNT": {
+"base": "MNT",
+"first_trade_utc": "2024-02-12 15:00:00"
+},
+"KRW-GTC": {
+"base": "GTC",
+"first_trade_utc": "2024-02-06 15:00:00"
+},
+"KRW-METIS": {
+"base": "METIS",
+"first_trade_utc": "2024-11-20 15:00:00"
+},
+"KRW-TIA": {
+"base": "TIA",
+"first_trade_utc": "2023-10-31 15:00:00"
+},
+"KRW-ICP": {
+"base": "ICP",
+"first_trade_utc": "2024-06-11 15:00:00"
+},
+"KRW-NEO": {
+"base": "NEO",
+"first_trade_utc": "2024-01-30 15:00:00"
+},
+"KRW-GAS": {
+"base": "GAS",
+"first_trade_utc": "2024-01-31 03:00:00"
+},
+"KRW-BIGTIME": {
+"base": "BIGTIME",
+"first_trade_utc": "2023-11-30 03:00:00"
+},
+"KRW-ZETA": {
+"base": "ZETA",
+"first_trade_utc": "2024-05-15 15:00:00"
+},
+"KRW-ARK": {
+"base": "ARK",
+"first_trade_utc": "2024-01-24 15:00:00"
+},
+"KRW-YGG": {
+"base": "YGG",
+"first_trade_utc": "2024-01-07 15:00:00"
+},
+"KRW-HUNT": {
+"base": "HUNT",
+"first_trade_utc": "2024-03-14 05:00:00"
+},
+"KRW-KAVA": {
+"base": "KAVA",
+"first_trade_utc": "2024-01-22 15:00:00"
+},
+"KRW-MAGIC": {
+"base": "MAGIC",
+"first_trade_utc": "2024-01-15 05:00:00"
+},
+"KRW-AUCTION": {
+"base": "AUCTION",
+"first_trade_utc": "2024-10-23 15:00:00"
+},
+"KRW-USDT": {
+"base": "USDT",
+"first_trade_utc": "2023-12-07 03:00:00"
+},
+"KRW-USDC": {
+"base": "USDC",
+"first_trade_utc": "2023-12-09 03:00:00"
+},
+"KRW-RAD": {
+"base": "RAD",
+"first_trade_utc": "2024-01-15 03:00:00"
+},
+"KRW-LSK": {
+"base": "LSK",
+"first_trade_utc": "2024-02-05 15:00:00"
+},
+"KRW-ACE": {
+"base": "ACE",
+"first_trade_utc": "2023-12-17 15:00:00"
+},
+"KRW-SKL": {
+"base": "SKL",
+"first_trade_utc": "2024-11-26 15:00:00"
+},
+"KRW-IQ": {
+"base": "IQ",
+"first_trade_utc": "2024-03-19 05:00:00"
+},
+"KRW-PYTH": {
+"base": "PYTH",
+"first_trade_utc": "2024-02-26 15:00:00"
+},
+"KRW-MANTA": {
+"base": "MANTA",
+"first_trade_utc": "2024-01-17 15:00:00"
+},
+"KRW-AKT": {
+"base": "AKT",
+"first_trade_utc": "2024-04-22 15:00:00"
+},
+"KRW-BEAM": {
+"base": "BEAM",
+"first_trade_utc": "2024-10-23 15:00:00"
+},
+"KRW-PHA": {
+"base": "PHA",
+"first_trade_utc": "2026-03-19 15:00:00"
+},
+"KRW-JTO": {
+"base": "JTO",
+"first_trade_utc": "2024-09-04 15:00:00"
+},
+"KRW-JUP": {
+"base": "JUP",
+"first_trade_utc": "2024-02-01 05:00:00"
+},
+"KRW-STRK": {
+"base": "STRK",
+"first_trade_utc": "2024-02-19 15:00:00"
+},
+"KRW-SC": {
+"base": "SC",
+"first_trade_utc": "2024-03-26 15:00:00"
+},
+"KRW-TRAC": {
+"base": "TRAC",
+"first_trade_utc": "2025-12-02 15:00:00"
+},
+"KRW-BONK": {
+"base": "BONK",
+"first_trade_utc": "2024-05-15 15:00:00"
+},
+"KRW-TOKAMAK": {
+"base": "TOKAMAK",
+"first_trade_utc": "2024-11-11 15:00:00"
+},
+"KRW-AIOZ": {
+"base": "AIOZ",
+"first_trade_utc": "2024-05-06 15:00:00"
+},
+"KRW-ZK": {
+"base": "ZK",
+"first_trade_utc": "2024-06-16 15:00:00"
+},
+"KRW-ONDO": {
+"base": "ONDO",
+"first_trade_utc": "2024-04-22 15:00:00"
+},
+"KRW-ALT": {
+"base": "ALT",
+"first_trade_utc": "2024-11-13 15:00:00"
+},
+"KRW-TAO": {
+"base": "TAO",
+"first_trade_utc": "2025-09-17 15:00:00"
+},
+"KRW-NEAR": {
+"base": "NEAR",
+"first_trade_utc": "2024-05-06 15:00:00"
+},
+"KRW-RON": {
+"base": "RON",
+"first_trade_utc": "2024-12-12 15:00:00"
+},
+"KRW-STRAX": {
+"base": "STRAX",
+"first_trade_utc": "2024-03-26 15:00:00"
+},
+"KRW-XAI": {
+"base": "XAI",
+"first_trade_utc": "2024-06-04 15:00:00"
+},
+"KRW-W": {
+"base": "W",
+"first_trade_utc": "2024-04-02 15:00:00"
+},
+"KRW-POLYX": {
+"base": "POLYX",
+"first_trade_utc": "2024-07-10 15:00:00"
+},
+"KRW-CORE": {
+"base": "CORE",
+"first_trade_utc": "2024-06-23 15:00:00"
+},
+"KRW-BB": {
+"base": "BB",
+"first_trade_utc": "2024-11-26 15:00:00"
+},
+"KRW-POKT": {
+"base": "POKT",
+"first_trade_utc": "2025-06-09 15:00:00"
+},
+"KRW-REZ": {
+"base": "REZ",
+"first_trade_utc": "2025-03-31 15:00:00"
+},
+"KRW-ENA": {
+"base": "ENA",
+"first_trade_utc": "2025-02-24 15:00:00"
+},
+"KRW-MOCA": {
+"base": "MOCA",
+"first_trade_utc": "2024-12-16 05:00:00"
+},
+"KRW-ETHFI": {
+"base": "ETHFI",
+"first_trade_utc": "2024-09-04 15:00:00"
+},
+"KRW-MEW": {
+"base": "MEW",
+"first_trade_utc": "2024-06-06 15:00:00"
+},
+"KRW-ZRO": {
+"base": "ZRO",
+"first_trade_utc": "2024-06-19 15:00:00"
+},
+"KRW-IO": {
+"base": "IO",
+"first_trade_utc": "2024-08-06 15:00:00"
+},
+"KRW-TAIKO": {
+"base": "TAIKO",
+"first_trade_utc": "2024-07-08 15:00:00"
+},
+"KRW-BRETT": {
+"base": "BRETT",
+"first_trade_utc": "2024-07-08 15:00:00"
+},
+"KRW-ATH": {
+"base": "ATH",
+"first_trade_utc": "2024-08-13 15:00:00"
+},
+"KRW-PCI": {
+"base": "PCI",
+"first_trade_utc": "2024-07-14 15:00:00"
+},
+"KRW-AVAIL": {
+"base": "AVAIL",
+"first_trade_utc": "2024-07-22 15:00:00"
+},
+"KRW-GRAM": {
+"base": "GRAM",
+"first_trade_utc": "2024-11-20 15:00:00"
+},
+"KRW-G": {
+"base": "G",
+"first_trade_utc": "2024-07-26 05:00:00"
+},
+"KRW-LISTA": {
+"base": "LISTA",
+"first_trade_utc": "2025-07-23 15:00:00"
+},
+"KRW-PEAQ": {
+"base": "PEAQ",
+"first_trade_utc": "2025-01-01 15:00:00"
+},
+"KRW-EIGEN": {
+"base": "EIGEN",
+"first_trade_utc": "2024-10-01 15:00:00"
+},
+"KRW-CFG": {
+"base": "CFG",
+"first_trade_utc": "2026-03-03 15:00:00"
+},
+"KRW-VERONA": {
+"base": "VERONA",
+"first_trade_utc": "2025-11-25 15:00:00"
+},
+"KRW-ORDER": {
+"base": "ORDER",
+"first_trade_utc": "2024-12-02 15:00:00"
+},
+"KRW-MERL": {
+"base": "MERL",
+"first_trade_utc": "2025-07-23 15:00:00"
+},
+"KRW-SCR": {
+"base": "SCR",
+"first_trade_utc": "2024-12-12 15:00:00"
+},
+"KRW-SWELL": {
+"base": "SWELL",
+"first_trade_utc": "2024-11-13 15:00:00"
+},
+"KRW-SKY": {
+"base": "SKY",
+"first_trade_utc": "2024-10-15 15:00:00"
+},
+"KRW-PONKE": {
+"base": "PONKE",
+"first_trade_utc": "2024-11-18 15:00:00"
+},
+"KRW-MVL": {
+"base": "MVL",
+"first_trade_utc": "2024-11-11 15:00:00"
+},
+"KRW-CARV": {
+"base": "CARV",
+"first_trade_utc": "2024-10-28 15:00:00"
+},
+"KRW-PUFFER": {
+"base": "PUFFER",
+"first_trade_utc": "2024-11-24 15:00:00"
+},
+"KRW-TURBO": {
+"base": "TURBO",
+"first_trade_utc": "2024-11-11 15:00:00"
+},
+"KRW-RAY": {
+"base": "RAY",
+"first_trade_utc": "2024-11-18 15:00:00"
+},
+"KRW-SAFE": {
+"base": "SAFE",
+"first_trade_utc": "2025-01-09 15:00:00"
+},
+"KRW-VIRTUAL": {
+"base": "VIRTUAL",
+"first_trade_utc": "2024-11-28 15:00:00"
+},
+"KRW-MOVE": {
+"base": "MOVE",
+"first_trade_utc": "2024-12-10 01:00:00"
+},
+"KRW-F": {
+"base": "F",
+"first_trade_utc": "2024-12-09 15:00:00"
+},
+"KRW-DEEP": {
+"base": "DEEP",
+"first_trade_utc": "2025-01-07 15:00:00"
+},
+"KRW-MORPHO": {
+"base": "MORPHO",
+"first_trade_utc": "2024-12-04 15:00:00"
+},
+"KRW-MOODENG": {
+"base": "MOODENG",
+"first_trade_utc": "2024-12-15 15:00:00"
+},
+"KRW-DBR": {
+"base": "DBR",
+"first_trade_utc": "2024-12-19 15:00:00"
+},
+"KRW-NIL": {
+"base": "NIL",
+"first_trade_utc": "2025-03-24 15:00:00"
+},
+"KRW-ME": {
+"base": "ME",
+"first_trade_utc": "2024-12-11 00:00:00"
+},
+"KRW-INIT": {
+"base": "INIT",
+"first_trade_utc": "2025-05-29 15:00:00"
+},
+"KRW-ZRC": {
+"base": "ZRC",
+"first_trade_utc": "2025-01-12 15:00:00"
+},
+"KRW-IOTA": {
+"base": "IOTA",
+"first_trade_utc": "2025-01-10 15:00:00"
+},
+"KRW-PENGU": {
+"base": "PENGU",
+"first_trade_utc": "2024-12-23 15:00:00"
+},
+"KRW-ACX": {
+"base": "ACX",
+"first_trade_utc": "2025-03-21 15:00:00"
+},
+"KRW-AERO": {
+"base": "AERO",
+"first_trade_utc": "2025-01-23 15:00:00"
+},
+"KRW-THE": {
+"base": "THE",
+"first_trade_utc": "2025-02-13 15:00:00"
+},
+"KRW-AMP": {
+"base": "AMP",
+"first_trade_utc": "2025-04-03 15:00:00"
+},
+"KRW-VANA": {
+"base": "VANA",
+"first_trade_utc": "2025-01-01 15:00:00"
+},
+"KRW-XYO": {
+"base": "XYO",
+"first_trade_utc": "2025-04-24 15:00:00"
+},
+"KRW-A8": {
+"base": "A8",
+"first_trade_utc": "2025-01-13 15:00:00"
+},
+"KRW-SONIC": {
+"base": "SONIC",
+"first_trade_utc": "2025-01-09 15:00:00"
+},
+"KRW-WIF": {
+"base": "WIF",
+"first_trade_utc": "2025-06-09 15:00:00"
+},
+"KRW-CPOOL": {
+"base": "CPOOL",
+"first_trade_utc": "2025-10-21 15:00:00"
+},
+"KRW-DATA": {
+"base": "DATA",
+"first_trade_utc": "2025-02-12 15:00:00"
+},
+"KRW-DKA": {
+"base": "DKA",
+"first_trade_utc": "2025-01-16 15:00:00"
+},
+"KRW-SOLV": {
+"base": "SOLV",
+"first_trade_utc": "2025-01-23 15:00:00"
+},
+"KRW-BLUE": {
+"base": "BLUE",
+"first_trade_utc": "2025-05-21 15:00:00"
+},
+"KRW-QKC": {
+"base": "QKC",
+"first_trade_utc": "2025-01-22 15:00:00"
+},
+"KRW-HP": {
+"base": "HP",
+"first_trade_utc": "2025-01-15 15:00:00"
+},
+"KRW-GAME2": {
+"base": "GAME2",
+"first_trade_utc": "2025-01-14 15:00:00"
+},
+"KRW-ERA": {
+"base": "ERA",
+"first_trade_utc": "2025-07-17 16:00:00"
+},
+"KRW-ARDR": {
+"base": "ARDR",
+"first_trade_utc": "2025-01-22 15:00:00"
+},
+"KRW-BOUNTY": {
+"base": "BOUNTY",
+"first_trade_utc": "2025-01-16 15:00:00"
+},
+"KRW-SHELL": {
+"base": "SHELL",
+"first_trade_utc": "2025-02-27 15:00:00"
+},
+"KRW-BERA": {
+"base": "BERA",
+"first_trade_utc": "2025-02-05 15:00:00"
+},
+"KRW-BIO": {
+"base": "BIO",
+"first_trade_utc": "2025-08-18 15:00:00"
+},
+"KRW-PLUME": {
+"base": "PLUME",
+"first_trade_utc": "2025-03-04 15:00:00"
+},
+"KRW-OBT": {
+"base": "OBT",
+"first_trade_utc": "2025-03-13 15:00:00"
+},
+"KRW-TRUMP": {
+"base": "TRUMP",
+"first_trade_utc": "2025-01-20 15:00:00"
+},
+"KRW-KERNEL": {
+"base": "KERNEL",
+"first_trade_utc": "2025-04-15 15:00:00"
+},
+"KRW-COOKIE": {
+"base": "COOKIE",
+"first_trade_utc": "2025-02-09 15:00:00"
+},
+"KRW-GNO": {
+"base": "GNO",
+"first_trade_utc": "2025-02-18 15:00:00"
+},
+"KRW-VTHO": {
+"base": "VTHO",
+"first_trade_utc": "2025-01-30 15:00:00"
+},
+"KRW-ANIME": {
+"base": "ANIME",
+"first_trade_utc": "2025-01-30 15:00:00"
+},
+"KRW-RED": {
+"base": "RED",
+"first_trade_utc": "2025-03-24 15:00:00"
+},
+"KRW-LAYER": {
+"base": "LAYER",
+"first_trade_utc": "2025-02-12 00:00:00"
+},
+"KRW-GPS": {
+"base": "GPS",
+"first_trade_utc": "2026-02-23 15:00:00"
+},
+"KRW-WCT": {
+"base": "WCT",
+"first_trade_utc": "2025-04-15 15:00:00"
+},
+"KRW-FLOCK": {
+"base": "FLOCK",
+"first_trade_utc": "2025-05-29 15:00:00"
+},
+"KRW-KAITO": {
+"base": "KAITO",
+"first_trade_utc": "2025-02-19 15:00:00"
+},
+"KRW-BMT": {
+"base": "BMT",
+"first_trade_utc": "2025-03-17 15:00:00"
+},
+"KRW-C": {
+"base": "C",
+"first_trade_utc": "2025-07-28 15:00:00"
+},
+"KRW-SOON": {
+"base": "SOON",
+"first_trade_utc": "2025-05-22 15:00:00"
+},
+"KRW-PAXG": {
+"base": "PAXG",
+"first_trade_utc": "2025-03-20 15:00:00"
+},
+"KRW-XAUT": {
+"base": "XAUT",
+"first_trade_utc": "2025-12-31 15:00:00"
+},
+"KRW-AVL": {
+"base": "AVL",
+"first_trade_utc": "2025-03-06 15:00:00"
+},
+"KRW-B3": {
+"base": "B3",
+"first_trade_utc": "2025-05-27 15:00:00"
+},
+"KRW-COW": {
+"base": "COW",
+"first_trade_utc": "2025-03-04 15:00:00"
+},
+"KRW-WAL": {
+"base": "WAL",
+"first_trade_utc": "2025-03-26 15:00:00"
+},
+"KRW-BABY": {
+"base": "BABY",
+"first_trade_utc": "2025-04-10 15:00:00"
+},
+"KRW-XTER": {
+"base": "XTER",
+"first_trade_utc": "2025-05-28 15:00:00"
+},
+"KRW-NXPC": {
+"base": "NXPC",
+"first_trade_utc": "2025-05-14 15:00:00"
+},
+"KRW-0G": {
+"base": "0G",
+"first_trade_utc": "2025-09-21 15:00:00"
+},
+"KRW-GRASS": {
+"base": "GRASS",
+"first_trade_utc": "2025-04-24 15:00:00"
+},
+"KRW-ORCA": {
+"base": "ORCA",
+"first_trade_utc": "2025-03-27 15:00:00"
+},
+"KRW-BR": {
+"base": "BR",
+"first_trade_utc": "2026-10-05 15:00:00"
+},
+"KRW-KMNO": {
+"base": "KMNO",
+"first_trade_utc": "2025-09-18 15:00:00"
+},
+"KRW-PUMPBTC": {
+"base": "PUMPBTC",
+"first_trade_utc": "2025-04-21 15:00:00"
+},
+"KRW-EPT": {
+"base": "EPT",
+"first_trade_utc": "2025-05-07 15:00:00"
+},
+"KRW-HAEDAL": {
+"base": "HAEDAL",
+"first_trade_utc": "2025-05-01 15:00:00"
+},
+"KRW-PARTI": {
+"base": "PARTI",
+"first_trade_utc": "2025-05-07 15:00:00"
+},
+"KRW-SXT": {
+"base": "SXT",
+"first_trade_utc": "2025-05-12 15:00:00"
+},
+"KRW-PROMPT": {
+"base": "PROMPT",
+"first_trade_utc": "2025-05-19 15:00:00"
+},
+"KRW-SIGN": {
+"base": "SIGN",
+"first_trade_utc": "2025-04-29 15:00:00"
+},
+"KRW-BTR": {
+"base": "BTR",
+"first_trade_utc": "2025-09-24 15:00:00"
+},
+"KRW-SAHARA": {
+"base": "SAHARA",
+"first_trade_utc": "2025-06-25 15:00:00"
+},
+"KRW-HEMI": {
+"base": "HEMI",
+"first_trade_utc": "2025-09-23 15:00:00"
+},
+"KRW-HOME": {
+"base": "HOME",
+"first_trade_utc": "2025-06-23 15:00:00"
+},
+"KRW-LA": {
+"base": "LA",
+"first_trade_utc": "2025-06-04 15:00:00"
+},
+"KRW-SOPH": {
+"base": "SOPH",
+"first_trade_utc": "2025-06-01 15:00:00"
+},
+"KRW-HYPER": {
+"base": "HYPER",
+"first_trade_utc": "2025-07-09 15:00:00"
+},
+"KRW-PROVE": {
+"base": "PROVE",
+"first_trade_utc": "2025-08-06 05:00:00"
+},
+"KRW-CUDIS": {
+"base": "CUDIS",
+"first_trade_utc": "2025-09-25 15:00:00"
+},
+"KRW-FORT": {
+"base": "FORT",
+"first_trade_utc": "2025-06-18 15:00:00"
+},
+"KRW-TOSHI": {
+"base": "TOSHI",
+"first_trade_utc": "2025-09-16 15:00:00"
+},
+"KRW-HUMA": {
+"base": "HUMA",
+"first_trade_utc": "2025-06-18 15:00:00"
+},
+"KRW-HNT": {
+"base": "HNT",
+"first_trade_utc": "2026-06-01 05:00:00"
+},
+"KRW-SPK": {
+"base": "SPK",
+"first_trade_utc": "2025-06-16 15:00:00"
+},
+"KRW-USD1": {
+"base": "USD1",
+"first_trade_utc": "2025-08-31 15:00:00"
+},
+"KRW-BOB": {
+"base": "BOB",
+"first_trade_utc": "2025-12-02 15:00:00"
+},
+"KRW-SYRUP": {
+"base": "SYRUP",
+"first_trade_utc": "2025-06-26 15:00:00"
+},
+"KRW-NEWT": {
+"base": "NEWT",
+"first_trade_utc": "2025-06-25 01:00:00"
+},
+"KRW-ALLO": {
+"base": "ALLO",
+"first_trade_utc": "2025-12-08 15:00:00"
+},
+"KRW-DOOD": {
+"base": "DOOD",
+"first_trade_utc": "2025-10-16 15:00:00"
+},
+"KRW-TREE": {
+"base": "TREE",
+"first_trade_utc": "2025-08-07 15:00:00"
+},
+"KRW-EUL": {
+"base": "EUL",
+"first_trade_utc": "2025-09-04 15:00:00"
+},
+"KRW-AVNT": {
+"base": "AVNT",
+"first_trade_utc": "2025-09-15 04:00:00"
+},
+"KRW-OPEN": {
+"base": "OPEN",
+"first_trade_utc": "2025-09-09 15:00:00"
+},
+"KRW-PUMP": {
+"base": "PUMP",
+"first_trade_utc": "2025-09-10 15:00:00"
+},
+"KRW-IRYS": {
+"base": "IRYS",
+"first_trade_utc": "2025-11-26 15:00:00"
+},
+"KRW-DEXE": {
+"base": "DEXE",
+"first_trade_utc": "2025-12-18 15:00:00"
+},
+"KRW-SD": {
+"base": "SD",
+"first_trade_utc": "2025-08-25 15:00:00"
+},
+"KRW-BARD": {
+"base": "BARD",
+"first_trade_utc": "2025-09-17 15:00:00"
+},
+"KRW-TOWNS": {
+"base": "TOWNS",
+"first_trade_utc": "2025-08-12 15:00:00"
+},
+"KRW-MIRA": {
+"base": "MIRA",
+"first_trade_utc": "2025-09-25 15:00:00"
+},
+"KRW-CAMP": {
+"base": "CAMP",
+"first_trade_utc": "2025-08-28 15:00:00"
+},
+"KRW-XAN": {
+"base": "XAN",
+"first_trade_utc": "2025-10-06 15:00:00"
+},
+"KRW-THQ": {
+"base": "THQ",
+"first_trade_utc": "2025-12-22 15:00:00"
+},
+"KRW-POPCAT": {
+"base": "POPCAT",
+"first_trade_utc": "2025-09-24 15:00:00"
+},
+"KRW-WLFI": {
+"base": "WLFI",
+"first_trade_utc": "2025-08-31 15:00:00"
+},
+"KRW-2Z": {
+"base": "2Z",
+"first_trade_utc": "2025-10-01 15:00:00"
+},
+"KRW-LINEA": {
+"base": "LINEA",
+"first_trade_utc": "2025-09-10 16:00:00"
+},
+"KRW-SAPIEN": {
+"base": "SAPIEN",
+"first_trade_utc": "2025-12-04 15:00:00"
+},
+"KRW-HOLO": {
+"base": "HOLO",
+"first_trade_utc": "2025-09-16 15:00:00"
+},
+"KRW-MPLX": {
+"base": "MPLX",
+"first_trade_utc": "2026-07-02 15:00:00"
+},
+"KRW-ZKC": {
+"base": "ZKC",
+"first_trade_utc": "2025-09-14 15:00:00"
+},
+"KRW-ASTER": {
+"base": "ASTER",
+"first_trade_utc": "2025-10-09 15:00:00"
+},
+"KRW-XPL": {
+"base": "XPL",
+"first_trade_utc": "2025-09-28 15:00:00"
+},
+"KRW-FF": {
+"base": "FF",
+"first_trade_utc": "2025-09-28 15:00:00"
+},
+"KRW-SOMI": {
+"base": "SOMI",
+"first_trade_utc": "2025-09-30 15:00:00"
+},
+"KRW-MON": {
+"base": "MON",
+"first_trade_utc": "2025-11-24 15:00:00"
+},
+"KRW-FLUID": {
+"base": "FLUID",
+"first_trade_utc": "2025-09-25 15:00:00"
+},
+"KRW-SUPER": {
+"base": "SUPER",
+"first_trade_utc": "2025-10-01 15:00:00"
+},
+"KRW-IN": {
+"base": "IN",
+"first_trade_utc": "2025-10-16 15:00:00"
+},
+"KRW-EDEN": {
+"base": "EDEN",
+"first_trade_utc": "2025-12-15 15:00:00"
+},
+"KRW-RECALL": {
+"base": "RECALL",
+"first_trade_utc": "2025-10-20 15:00:00"
+},
+"KRW-USDE": {
+"base": "USDE",
+"first_trade_utc": "2026-01-13 15:00:00"
+},
+"KRW-ENSO": {
+"base": "ENSO",
+"first_trade_utc": "2025-10-28 15:00:00"
+},
+"KRW-YB": {
+"base": "YB",
+"first_trade_utc": "2025-10-16 15:00:00"
+},
+"KRW-STABLE": {
+"base": "STABLE",
+"first_trade_utc": "2025-12-10 15:00:00"
+},
+"KRW-ZBT": {
+"base": "ZBT",
+"first_trade_utc": "2025-10-16 15:00:00"
+},
+"KRW-ZORA": {
+"base": "ZORA",
+"first_trade_utc": "2025-10-20 15:00:00"
+},
+"KRW-SENT": {
+"base": "SENT",
+"first_trade_utc": "2026-01-28 15:00:00"
+},
+"KRW-MMT": {
+"base": "MMT",
+"first_trade_utc": "2025-11-03 15:00:00"
+},
+"KRW-MET": {
+"base": "MET",
+"first_trade_utc": "2025-11-17 15:00:00"
+},
+"KRW-KITE": {
+"base": "KITE",
+"first_trade_utc": "2025-11-02 15:00:00"
+},
+"KRW-US": {
+"base": "US",
+"first_trade_utc": "2026-10-01 15:00:00"
+},
+"KRW-TRUST": {
+"base": "TRUST",
+"first_trade_utc": "2025-11-04 15:00:00"
+},
+"KRW-ESP": {
+"base": "ESP",
+"first_trade_utc": "2026-02-23 15:00:00"
+},
+"KRW-PIEVERSE": {
+"base": "PIEVERSE",
+"first_trade_utc": "2025-11-23 15:00:00"
+},
+"KRW-CHECK": {
+"base": "CHECK",
+"first_trade_utc": "2026-07-22 15:00:00"
+},
+"KRW-CC": {
+"base": "CC",
+"first_trade_utc": "2026-06-23 05:00:00"
+},
+"KRW-CYS": {
+"base": "CYS",
+"first_trade_utc": "2026-03-11 15:00:00"
+},
+"KRW-DOS": {
+"base": "DOS",
+"first_trade_utc": "2026-08-10 15:00:00"
+},
+"KRW-EDGE": {
+"base": "EDGE",
+"first_trade_utc": "2026-03-03 15:00:00"
+},
+"KRW-SPACE": {
+"base": "SPACE",
+"first_trade_utc": "2026-06-16 05:00:00"
+},
+"KRW-WET": {
+"base": "WET",
+"first_trade_utc": "2025-12-14 15:00:00"
+},
+"KRW-BREV": {
+"base": "BREV",
+"first_trade_utc": "2026-01-06 15:00:00"
+},
+"KRW-BILL": {
+"base": "BILL",
+"first_trade_utc": "2026-05-27 15:00:00"
+},
+"KRW-KAT": {
+"base": "KAT",
+"first_trade_utc": "2026-03-25 15:00:00"
+},
+"KRW-ZKP": {
+"base": "ZKP",
+"first_trade_utc": "2025-12-25 15:00:00"
+},
+"KRW-AT": {
+"base": "AT",
+"first_trade_utc": "2026-10-20 15:00:00"
+},
+"KRW-META2": {
+"base": "META2",
+"first_trade_utc": "2026-08-03 15:00:00"
+},
+"KRW-ZAMA": {
+"base": "ZAMA",
+"first_trade_utc": "2026-04-13 15:00:00"
+},
+"KRW-GWEI": {
+"base": "GWEI",
+"first_trade_utc": "2026-02-26 05:00:00"
+},
+"KRW-SKR": {
+"base": "SKR",
+"first_trade_utc": "2026-01-21 15:00:00"
+},
+"KRW-UP": {
+"base": "UP",
+"first_trade_utc": "2026-05-12 15:00:00"
+},
+"KRW-LIT": {
+"base": "LIT",
+"first_trade_utc": "2026-02-15 15:00:00"
+},
+"KRW-Q": {
+"base": "Q",
+"first_trade_utc": "2026-09-27 15:00:00"
+},
+"KRW-ELSA": {
+"base": "ELSA",
+"first_trade_utc": "2026-01-28 15:00:00"
+},
+"KRW-BIRB": {
+"base": "BIRB",
+"first_trade_utc": "2026-02-02 15:00:00"
+},
+"KRW-UB": {
+"base": "UB",
+"first_trade_utc": "2026-08-06 04:00:00"
+},
+"KRW-AZTEC": {
+"base": "AZTEC",
+"first_trade_utc": "2026-02-19 15:00:00"
+},
+"KRW-SLX": {
+"base": "SLX",
+"first_trade_utc": "2026-05-31 15:00:00"
+},
+"KRW-NEX": {
+"base": "NEX",
+"first_trade_utc": "2026-07-02 15:00:00"
+},
+"KRW-ROBO": {
+"base": "ROBO",
+"first_trade_utc": "2026-03-18 05:00:00"
+},
+"KRW-BLEND": {
+"base": "BLEND",
+"first_trade_utc": "2026-04-28 15:00:00"
+},
+"KRW-USELESS": {
+"base": "USELESS",
+"first_trade_utc": "2026-09-08 05:00:00"
+},
+"KRW-MANTRA": {
+"base": "MANTRA",
+"first_trade_utc": "2026-03-02 15:00:00"
+},
+"KRW-CTR": {
+"base": "CTR",
+"first_trade_utc": "2026-06-08 15:00:00"
+},
+"KRW-MEGA": {
+"base": "MEGA",
+"first_trade_utc": "2026-04-29 15:00:00"
+},
+"KRW-VVV": {
+"base": "VVV",
+"first_trade_utc": "2026-03-31 15:00:00"
+},
+"KRW-BASED": {
+"base": "BASED",
+"first_trade_utc": "2026-04-20 15:00:00"
+},
+"KRW-AI": {
+"base": "AI",
+"first_trade_utc": "2026-05-17 15:00:00"
+},
+"KRW-GEOD": {
+"base": "GEOD",
+"first_trade_utc": "2026-07-26 15:00:00"
+},
+"KRW-CHIP": {
+"base": "CHIP",
+"first_trade_utc": "2026-04-20 15:00:00"
+},
+"KRW-BSB": {
+"base": "BSB",
+"first_trade_utc": "2026-08-06 15:00:00"
+},
+"KRW-ICNT": {
+"base": "ICNT",
+"first_trade_utc": "2026-07-06 15:00:00"
+},
+"KRW-EDGEX": {
+"base": "EDGEX",
+"first_trade_utc": "2026-05-06 15:00:00"
+},
+"KRW-PRL": {
+"base": "PRL",
+"first_trade_utc": "2026-04-26 15:00:00"
+},
+"KRW-PROS": {
+"base": "PROS",
+"first_trade_utc": "2026-05-07 15:00:00"
+},
+"KRW-OPG": {
+"base": "OPG",
+"first_trade_utc": "2026-05-22 05:00:00"
+},
+"KRW-AVA": {
+"base": "AVA",
+"first_trade_utc": "2026-09-17 05:00:00"
+},
+"KRW-NEXO": {
+"base": "NEXO",
+"first_trade_utc": "2026-08-20 15:00:00"
+},
+"KRW-RLUSD": {
+"base": "RLUSD",
+"first_trade_utc": "2026-07-28 15:00:00"
+},
+"KRW-AEON": {
+"base": "AEON",
+"first_trade_utc": "2026-07-28 15:00:00"
+},
+"KRW-ZEST": {
+"base": "ZEST",
+"first_trade_utc": "2026-10-12 05:00:00"
+},
+"KRW-GRVT": {
+"base": "GRVT",
+"first_trade_utc": "2026-07-31 05:00:00"
+},
+"KRW-SPX": {
+"base": "SPX",
+"first_trade_utc": "2026-06-15 15:00:00"
+},
+"KRW-EURC": {
+"base": "EURC",
+"first_trade_utc": "2026-08-27 15:00:00"
+},
+"KRW-RE": {
+"base": "RE",
+"first_trade_utc": "2026-06-18 15:00:00"
+},
+"KRW-HPP": {
+"base": "HPP",
+"first_trade_utc": "2026-06-10 05:00:00"
+},
+"KRW-DRV": {
+"base": "DRV",
+"first_trade_utc": "2026-07-13 15:00:00"
+},
+"KRW-ARX": {
+"base": "ARX",
+"first_trade_utc": "2026-06-25 15:00:00"
+},
+"KRW-CAP": {
+"base": "CAP",
+"first_trade_utc": "2026-06-30 05:00:00"
+},
+"KRW-QUID": {
+"base": "QUID",
+"first_trade_utc": "2026-08-03 15:00:00"
+},
+"KRW-KGEN": {
+"base": "KGEN",
+"first_trade_utc": "2026-10-11 15:00:00"
+},
+"KRW-O": {
+"base": "O",
+"first_trade_utc": "2026-07-28 05:00:00"
+},
+"KRW-BANK": {
+"base": "BANK",
+"first_trade_utc": "2026-07-26 15:00:00"
+},
+"KRW-AIA": {
+"base": "AIA",
+"first_trade_utc": "2026-10-08 05:00:00"
+},
+"KRW-CP": {
+"base": "CP",
+"first_trade_utc": "2026-09-07 15:00:00"
+},
+"KRW-TRB": {
+"base": "TRB",
+"first_trade_utc": "2026-08-12 05:00:00"
+},
+"KRW-USDG": {
+"base": "USDG",
+"first_trade_utc": "2026-08-03 15:00:00"
+},
+"KRW-PYBOBO": {
+"base": "PYBOBO",
+"first_trade_utc": "2026-10-21 05:00:00"
+},
+"KRW-PROM": {
+"base": "PROM",
+"first_trade_utc": "2026-08-24 04:00:00"
+},
+"KRW-ACU": {
+"base": "ACU",
+"first_trade_utc": "2026-10-15 05:00:00"
+},
+"KRW-FOLD": {
+"base": "FOLD",
+"first_trade_utc": "2026-08-28 05:00:00"
+},
+"KRW-DEBIT": {
+"base": "DEBIT",
+"first_trade_utc": "2026-09-09 15:00:00"
+},
+"KRW-XDP": {
+"base": "XDP",
+"first_trade_utc": "2026-10-08 15:00:00"
+},
+"KRW-PYUSD": {
+"base": "PYUSD",
+"first_trade_utc": "2026-09-27 15:00:00"
+},
+"KRW-PONS": {
+"base": "PONS",
+"first_trade_utc": "2026-10-07 15:00:00"
+},
+"KRW-CASHCAT": {
+"base": "CASHCAT",
+"first_trade_utc": "2026-10-07 15:00:00"
+},
+"KRW-POD": {
+"base": "POD",
+"first_trade_utc": "2026-10-05 15:00:00"
+},
+"KRW-CT": {
+"base": "CT",
+"first_trade_utc": "2026-10-18 15:00:00"
+},
+"KRW-AXIS": {
+"base": "AXIS",
+"first_trade_utc": "2026-10-24 03:00:00"
+}
+}
