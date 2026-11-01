@@ -1,4 +1,4 @@
-# Thuis te doen (bijgewerkt 2026-10-30, avond)
+# Thuis te doen (bijgewerkt 2026-11-01)
 
 Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaatst.
 
@@ -19,6 +19,12 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 10. Optioneel: **`get_wiki_attention.bat`**.
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
+
+## Nieuw (1-11): Coinbase-short paper (v9.9-kandidaat R16)
+- Alleen **`git pull`** en de hub herstarten (`hub_start.bat`). De hub draait elk uur de job **cbshort_paper**: hij kijkt (openbare
+  Coinbase-API, geen sleutel, geen orders) of er een nieuwe coin op Coinbase is gekomen en houdt een paper-short bij in
+  `paper_trading/cbshort/`. In het dashboard verschijnt schaduw-account **v98:plus_coinbase_short** naast v9.8. v9.8 zelf verandert niet.
+- Af en toe meepushen: `git add paper_trading/cbshort research_data/coinbase_listings` -> commit -> push.
 
 ## Nieuw (30-10 avond)
 - **`get_prop_rules.bat`** nog een keer: nu ook FundedNext, The5ers, SizeProp, Breakout, HyroTrader-platformpagina's en de BloFin API-docs.

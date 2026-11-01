@@ -373,3 +373,31 @@ def test_composite_shadow_adds_a_sleeve_with_the_book_rule(c, tmp_path, monkeypa
     assert np.abs(plus.to_numpy() - refp.to_numpy()).max() < 1e-12 and not np.allclose(plus, same)   # 4th sleeve enters via the same rule
     with pytest.raises(ValueError):
         shadow.define(c, "tt:bad", "paper:tt", "composite", {"extra": [{"name": "x", "account": "engine:missing"}]})
+
+
+def test_plus_shadow_adds_extra_sleeve_through_its_weight(c):
+    from qpl.hub import ingest, shadow
+    ingest.paper_accounts(c)
+    shadow.define(c, "t:plus_missing", "paper:v86", "plus", {"sleeve": "C*", "account": "paper:does_not_exist"})
+    shadow.define(c, "t:same2", "paper:v86", "reweighted", {"multipliers": {}})
+    r = shadow.recompute(c)
+    a = pd.read_sql_query("SELECT ret FROM paper_equity e JOIN paper_accounts p ON p.id=e.account_id WHERE p.key='shadow:t:plus_missing' ORDER BY ts", c)["ret"]
+    b = pd.read_sql_query("SELECT ret FROM paper_equity e JOIN paper_accounts p ON p.id=e.account_id WHERE p.key='shadow:t:same2' ORDER BY ts", c)["ret"]
+    assert r["shadow:t:plus_missing"]["hours"] == 46 and np.abs(a.to_numpy() - b.to_numpy()).max() < 1e-15   # no extra account yet: = the book
+
+
+def test_coinbase_short_trade_rules():
+    from qpl.live import coinbase_short as CB
+    T = pd.Timestamp("2025-01-01 14:00"); idx = pd.date_range("2025-01-01 10:00", periods=300, freq="h")
+    cl = pd.Series(100.0, index=idx); cl.loc["2025-01-01 16:00":] = 90.0                           # drop after the entry (close of 15:00)
+    p = CB.trade_pnl(cl, pd.Series(dtype=float), T)
+    assert p.index[0] == pd.Timestamp("2025-01-01 16:00") and len(p) == CB.HOLD_H                  # 7 days held from the 15:00 close
+    assert abs(p.sum() - (CB.SIZE * 0.10 - 2 * CB.SIZE * CB.COST)) < 1e-12                         # short gains 10%, two costs
+    up = pd.Series(100.0, index=idx); up.loc["2025-01-01 20:00":] = 131.0                            # stop at +30% on a close
+    q = CB.trade_pnl(up, pd.Series(dtype=float), T)
+    assert q.index[-1] == pd.Timestamp("2025-01-01 20:00") and abs(q.sum() + CB.SIZE * 0.31 + 2 * CB.SIZE * CB.COST) < 1e-12
+    late = CB.trade_pnl(cl, pd.Series(dtype=float), T, detected=pd.Timestamp("2025-01-01 18:30"))   # detected late: no P&L before
+    assert late.index[0] == pd.Timestamp("2025-01-01 19:00") and abs(late.sum() + 2 * CB.SIZE * CB.COST) < 1e-12
+    D = {"X-USD": {"base": "X", "first_trade_utc": "2026-11-05 13:00:00"}, "USDC-USD": {"base": "USDC", "first_trade_utc": "2026-11-05 13:00:00"},
+         "OLD-USD": {"base": "OLD", "first_trade_utc": "2024-01-01 00:00:00"}}
+    assert list(CB.events(D)) == ["X"]

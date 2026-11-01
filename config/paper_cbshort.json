@@ -1,0 +1,10 @@
+{
+ "name": "Paper sleeve: Coinbase sell-the-news short (v9.9 candidate R16 / R16b)",
+ "registered": "2026-11-01, before any listing after 2026-11-01 was seen",
+ "what": "qpl.live.coinbase_short (hub job 'cbshort_paper', hourly): public Coinbase product list -> first trading hour of each new non-stable product; short the coin's Binance USDT perp 5% of equity from the close of the next hour (or the hour of detection if later) for 7 days, out at +30%; 10 bp per side; Binance funding. Frozen hourly ledger paper_trading/cbshort/ledger_hourly.csv",
+ "frozen": {"account": 200000, "risk": 1.0, "start_after": "2026-11-01", "risk_note": "'port' = sleeve P&L as a fraction of equity (same units as the v9.8 'listing short' sleeve); the hub shadow v98:plus_coinbase_short adds it through the listing-short weight"},
+ "reference": {"backtest": "R16b: 138 events 2022-26, mean +6.4% per trade, book 3.281 vs 3.211; live-code replay 137 trades, mean +5.6%"},
+ "gate": "decided with the v9.8 paper gate (mid-December 2026); expect only 2-6 listings a month, so a few months are needed before the sleeve says anything on its own",
+ "not_modelled": "overlap with a v9.8 listing short of the same coin (R16b skips it; the shadow simply adds), the Bybit-availability filter, the event-sleeve gross cap",
+ "changes": []
+}

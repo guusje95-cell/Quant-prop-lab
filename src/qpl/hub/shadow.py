@@ -7,6 +7,8 @@ hours, the same fills and costs as the source run, combined differently. Kinds:
   reweighted    the source book with per-sleeve multipliers on its own weights (e.g. ridge x0, Weiss x2)
   custom        fixed weights on the unit sleeve P&L
   rule          the source book with a rule-based multiplier (registered rules below; they use only data known before the hour)
+  plus          the source book plus another paper account's sleeve P&L added INTO one of its sleeves through that sleeve's own
+                book weight (e.g. the Coinbase sell-the-news short added to the event short, as tested in v9.9 R16)
 Every shadow records when it was DEFINED: hours before that are a retroactive replay (shown separately), hours after it are forward
 paper evidence. A shadow never changes the source paper trader."""
 from __future__ import annotations
@@ -39,7 +41,7 @@ RULES = {"event_short_vol_regime": {"sleeve": "listing short", "fn": _btc_vol_re
 
 def define(c: sqlite3.Connection, key: str, source: str, kind: str, spec: dict, capital: float = 200_000.0, risk: float = 1.5,
            description: str = "", actor: str = "user") -> int:
-    if kind not in ("sleeve", "reweighted", "custom", "rule", "composite"):
+    if kind not in ("sleeve", "reweighted", "custom", "rule", "composite", "plus"):
         raise ValueError(kind)
     if kind == "composite":
         for x in spec.get("extra", []):
@@ -97,6 +99,10 @@ def returns(c: sqlite3.Connection, key: str) -> pd.Series | None:
         return (P * w).sum(axis=1)
     if k == "composite":
         return _composite(c, cfg, P)
+    if k == "plus":
+        x = _account_hourly(c, s["account"]).reindex(P.index).fillna(0.0) if c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (s["account"],)).fetchone() \
+            else pd.Series(0.0, index=P.index)
+        return (P * W).sum(axis=1) + W[s["sleeve"]] * x
     rule = RULES[s["rule"]]; mult = pd.DataFrame(1.0, index=P.index, columns=P.columns)
     mult[rule["sleeve"]] = rule["fn"](P.index, s.get("live_dir") or str(ROOT / "paper_trading" / cfg["source"].split(":", 1)[1] / "data"))
     return (P * W * mult).sum(axis=1)
@@ -173,6 +179,9 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
                       description="candidate H1: v9.8 with the event short halved in high BTC vol (flagged post hoc)", actor="system"))
     ids.append(define(c, "v98:without_ridge", source, "reweighted", {"multipliers": {"ridge ML": 0.0}},
                       description="diagnostic: v9.8 without the ridge ML sleeve (leave-one-out was -0.04 in the backtest)", actor="system"))
+    ids.append(define(c, "v98:plus_coinbase_short", source, "plus", {"sleeve": "listing short", "account": "paper:cbshort"},
+                      description="v9.9 candidate R16: v9.8 + Coinbase sell-the-news short in the event sleeve (backtest 3.27-3.28; "
+                                  "+0.04 with the low-cap cap); forward paper from 2026-11-01", actor="system"))
     if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
         ids += ensure_cfd_defaults(c)
     return ids
