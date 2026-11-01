@@ -1,0 +1,2498 @@
+{
+"BTCUSDT": {
+"base": "BTC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"ETHUSDT": {
+"base": "ETH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"XRPUSDT": {
+"base": "XRP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"BCHUSDT": {
+"base": "BCH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"LTCUSDT": {
+"base": "LTC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"BNBUSDT": {
+"base": "BNB",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-23 08:00:00"
+},
+"ADAUSDT": {
+"base": "ADA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"BATUSDT": {
+"base": "BAT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"ETCUSDT": {
+"base": "ETC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"XLMUSDT": {
+"base": "XLM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"ZRXUSDT": {
+"base": "ZRX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"DOGEUSDT": {
+"base": "DOGE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-10-25 01:00:00"
+},
+"ATOMUSDT": {
+"base": "ATOM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-11-01 01:00:00"
+},
+"NEOUSDT": {
+"base": "NEO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-11-01 01:00:00"
+},
+"VETUSDT": {
+"base": "VET",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-11-08 01:00:00"
+},
+"QTUMUSDT": {
+"base": "QTUM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2019-11-15 01:00:00"
+},
+"ONTUSDT": {
+"base": "ONT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-02-14 02:00:00"
+},
+"KNCUSDT": {
+"base": "KNC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-07-17 13:00:00"
+},
+"VTHOUSDT": {
+"base": "VTHO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-07-24 13:00:00"
+},
+"COMPUSDT": {
+"base": "COMP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-08-11 13:00:00"
+},
+"HNTUSDT": {
+"base": "HNT",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2020-08-18 13:00:00"
+},
+"MKRUSDT": {
+"base": "MKR",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2020-08-20 13:00:00"
+},
+"ONEUSDT": {
+"base": "ONE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-08-27 13:00:00"
+},
+"BANDUSDT": {
+"base": "BAND",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-08-28 13:00:00"
+},
+"STORJUSDT": {
+"base": "STORJ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-09-02 13:00:00"
+},
+"BUSDUSDT": {
+"base": "BUSD",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2020-09-14 16:00:00"
+},
+"UNIUSDT": {
+"base": "UNI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-09-17 18:00:00"
+},
+"SOLUSDT": {
+"base": "SOL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-09-18 13:00:00"
+},
+"EGLDUSDT": {
+"base": "EGLD",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-09-24 13:00:00"
+},
+"PAXGUSDT": {
+"base": "PAXG",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-09-25 13:00:00"
+},
+"OXTUSDT": {
+"base": "OXT",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2020-09-25 13:00:00"
+},
+"ZENUSDT": {
+"base": "ZEN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2020-12-17 14:00:00"
+},
+"FILUSDT": {
+"base": "FIL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-06-18 13:00:00"
+},
+"AAVEUSDT": {
+"base": "AAVE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-07-15 13:00:00"
+},
+"GRTUSDT": {
+"base": "GRT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-20 01:00:00"
+},
+"SHIBUSDT": {
+"base": "SHIB",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-09-15 14:00:00"
+},
+"CRVUSDT": {
+"base": "CRV",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-09-23 13:00:00"
+},
+"AXSUSDT": {
+"base": "AXS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-11-11 13:00:00"
+},
+"AVAXUSDT": {
+"base": "AVAX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-11-18 13:00:00"
+},
+"CTSIUSDT": {
+"base": "CTSI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-11-25 13:00:00"
+},
+"DOTUSDT": {
+"base": "DOT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-12-02 13:00:00"
+},
+"YFIUSDT": {
+"base": "YFI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-12-02 13:00:00"
+},
+"1INCHUSDT": {
+"base": "1INCH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-12-10 01:00:00"
+},
+"FTMUSDT": {
+"base": "FTM",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2021-12-17 01:00:00"
+},
+"USDCUSDT": {
+"base": "USDC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2021-12-24 01:00:00"
+},
+"MATICUSDT": {
+"base": "MATIC",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-01-05 01:00:00"
+},
+"MANAUSDT": {
+"base": "MANA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-06 01:00:00"
+},
+"ALGOUSDT": {
+"base": "ALGO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-07 01:00:00"
+},
+"LINKUSDT": {
+"base": "LINK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-14 01:00:00"
+},
+"EOSUSDT": {
+"base": "EOS",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-01-13 01:00:00"
+},
+"ZECUSDT": {
+"base": "ZEC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-13 01:00:00"
+},
+"ENJUSDT": {
+"base": "ENJ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-20 01:00:00"
+},
+"NEARUSDT": {
+"base": "NEAR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-20 01:00:00"
+},
+"OMGUSDT": {
+"base": "OMG",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-01-21 01:00:00"
+},
+"SUSHIUSDT": {
+"base": "SUSHI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-01-21 01:00:00"
+},
+"LRCUSDT": {
+"base": "LRC",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-01-26 01:00:00"
+},
+"LPTUSDT": {
+"base": "LPT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-02-10 01:00:00"
+},
+"POLYUSDT": {
+"base": "POLY",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-02-11 01:00:00"
+},
+"NMRUSDT": {
+"base": "NMR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-02-16 01:00:00"
+},
+"SLPUSDT": {
+"base": "SLP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-02-17 01:00:00"
+},
+"ANTUSDT": {
+"base": "ANT",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-02-17 13:00:00"
+},
+"CHZUSDT": {
+"base": "CHZ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-01 13:00:00"
+},
+"OGNUSDT": {
+"base": "OGN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-03 01:00:00"
+},
+"GALAUSDT": {
+"base": "GALA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-04 01:00:00"
+},
+"TLMUSDT": {
+"base": "TLM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-08 13:00:00"
+},
+"SNXUSDT": {
+"base": "SNX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-09 01:00:00"
+},
+"AUDIOUSDT": {
+"base": "AUDIO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-09 13:00:00"
+},
+"ENSUSDT": {
+"base": "ENS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-10 01:00:00"
+},
+"REQUSDT": {
+"base": "REQ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-24 12:00:00"
+},
+"APEUSDT": {
+"base": "APE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-18 00:00:00"
+},
+"FLUXUSDT": {
+"base": "FLUX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-03-30 00:00:00"
+},
+"TRXUSDT": {
+"base": "TRX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-01 00:00:00"
+},
+"COTIUSDT": {
+"base": "COTI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-06 12:00:00"
+},
+"VOXELUSDT": {
+"base": "VOXEL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-08 12:00:00"
+},
+"RLCUSDT": {
+"base": "RLC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-12 12:00:00"
+},
+"USTUSDT": {
+"base": "UST",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-04-14 00:00:00"
+},
+"BICOUSDT": {
+"base": "BICO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-14 12:00:00"
+},
+"API3USDT": {
+"base": "API3",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-21 00:00:00"
+},
+"BNTUSDT": {
+"base": "BNT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-26 12:00:00"
+},
+"IMXUSDT": {
+"base": "IMX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-04-28 00:00:00"
+},
+"SPELLUSDT": {
+"base": "SPELL",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-04-28 12:00:00"
+},
+"JASMYUSDT": {
+"base": "JASMY",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-05-05 00:00:00"
+},
+"FLOWUSDT": {
+"base": "FLOW",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-05 12:00:00"
+},
+"GTCUSDT": {
+"base": "GTC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-03 12:00:00"
+},
+"THETAUSDT": {
+"base": "THETA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-10 12:00:00"
+},
+"TFUELUSDT": {
+"base": "TFUEL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-10 12:00:00"
+},
+"OCEANUSDT": {
+"base": "OCEAN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-12 12:00:00"
+},
+"LAZIOUSDT": {
+"base": "LAZIO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-16 12:00:00"
+},
+"SANTOSUSDT": {
+"base": "SANTOS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-17 12:00:00"
+},
+"ALPINEUSDT": {
+"base": "ALPINE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-18 12:00:00"
+},
+"PORTOUSDT": {
+"base": "PORTO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-19 12:00:00"
+},
+"RENUSDT": {
+"base": "REN",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-05-26 12:00:00"
+},
+"CELRUSDT": {
+"base": "CELR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-05-27 12:00:00"
+},
+"SKLUSDT": {
+"base": "SKL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-01 12:00:00"
+},
+"VITEUSDT": {
+"base": "VITE",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-06-02 12:00:00"
+},
+"WAXPUSDT": {
+"base": "WAXP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-08 12:00:00"
+},
+"LTOUSDT": {
+"base": "LTO",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-06-09 12:00:00"
+},
+"FETUSDT": {
+"base": "FET",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-10 12:00:00"
+},
+"BONDUSDT": {
+"base": "BOND",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-06-14 12:00:00"
+},
+"LOKAUSDT": {
+"base": "LOKA",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-06-16 12:00:00"
+},
+"ICPUSDT": {
+"base": "ICP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-21 12:00:00"
+},
+"TUSDT": {
+"base": "T",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-22 12:00:00"
+},
+"OPUSDT": {
+"base": "OP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-23 12:00:00"
+},
+"ROSEUSDT": {
+"base": "ROSE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-07-06 12:00:00"
+},
+"CELOUSDT": {
+"base": "CELO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-06-29 12:00:00"
+},
+"KDAUSDT": {
+"base": "KDA",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-07-19 13:00:00"
+},
+"KSMUSDT": {
+"base": "KSM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-07-20 12:00:00"
+},
+"ACHUSDT": {
+"base": "ACH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-07-21 12:00:00"
+},
+"DARUSDT": {
+"base": "DAR",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-07-26 12:00:00"
+},
+"RNDRUSDT": {
+"base": "RNDR",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-07-27 12:00:00"
+},
+"SYSUSDT": {
+"base": "SYS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-02 12:00:00"
+},
+"RADUSDT": {
+"base": "RAD",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-03 12:00:00"
+},
+"ILVUSDT": {
+"base": "ILV",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-10 12:00:00"
+},
+"LDOUSDT": {
+"base": "LDO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-11 12:00:00"
+},
+"RAREUSDT": {
+"base": "RARE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-16 12:00:00"
+},
+"LSKUSDT": {
+"base": "LSK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-24 12:00:00"
+},
+"DGBUSDT": {
+"base": "DGB",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-31 12:00:00"
+},
+"REEFUSDT": {
+"base": "REEF",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-08-30 12:00:00"
+},
+"SRMUSDT": {
+"base": "SRM",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-09-02 12:00:00"
+},
+"ALICEUSDT": {
+"base": "ALICE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-09-06 12:00:00"
+},
+"FORTHUSDT": {
+"base": "FORTH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-09-09 12:00:00"
+},
+"ASTRUSDT": {
+"base": "ASTR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-09-14 12:00:00"
+},
+"BTRSTUSDT": {
+"base": "BTRST",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-09-21 12:00:00"
+},
+"GALUSDT": {
+"base": "GAL",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-09-28 12:00:00"
+},
+"SANDUSDT": {
+"base": "SAND",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-10-05 12:00:00"
+},
+"BALUSDT": {
+"base": "BAL",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-10-12 12:00:00"
+},
+"GLMUSDT": {
+"base": "GLM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-10-19 12:00:00"
+},
+"CLVUSDT": {
+"base": "CLV",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-10-25 12:00:00"
+},
+"TUSDUSDT": {
+"base": "TUSD",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-10-26 12:00:00"
+},
+"QNTUSDT": {
+"base": "QNT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-03 12:00:00"
+},
+"STGUSDT": {
+"base": "STG",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-11-08 12:00:00"
+},
+"AXLUSDT": {
+"base": "AXL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-09 12:00:00"
+},
+"KAVAUSDT": {
+"base": "KAVA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-15 12:00:00"
+},
+"APTUSDT": {
+"base": "APT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-16 12:00:00"
+},
+"MASKUSDT": {
+"base": "MASK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-23 12:00:00"
+},
+"BOSONUSDT": {
+"base": "BOSON",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2022-11-30 12:00:00"
+},
+"PONDUSDT": {
+"base": "POND",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-12-07 12:00:00"
+},
+"MXCUSDT": {
+"base": "MXC",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-12-13 12:00:00"
+},
+"JAMUSDT": {
+"base": "JAM",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2022-12-14 12:00:00"
+},
+"TRACUSDT": {
+"base": "TRAC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-03-08 12:00:00"
+},
+"PROMUSDT": {
+"base": "PROM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-01-04 12:00:00"
+},
+"DIAUSDT": {
+"base": "DIA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-01-10 12:00:00"
+},
+"LOOMUSDT": {
+"base": "LOOM",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-02-02 12:00:00"
+},
+"STMXUSDT": {
+"base": "STMX",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-02-09 12:00:00"
+},
+"BTCUSD": {
+"base": "BTC",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-17 10:00:00"
+},
+"ETHUSD": {
+"base": "ETH",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-18 14:00:00"
+},
+"BCHUSD": {
+"base": "BCH",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-18 15:00:00"
+},
+"LTCUSD": {
+"base": "LTC",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-18 15:00:00"
+},
+"USDTUSD": {
+"base": "USDT",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-17 10:00:00"
+},
+"BNBUSD": {
+"base": "BNB",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-18 15:00:00"
+},
+"ADAUSD": {
+"base": "ADA",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"BATUSD": {
+"base": "BAT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"ETCUSD": {
+"base": "ETC",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"XLMUSD": {
+"base": "XLM",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"ZRXUSD": {
+"base": "ZRX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-09-25 12:00:00"
+},
+"LINKUSD": {
+"base": "LINK",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-10-11 01:00:00"
+},
+"RVNUSD": {
+"base": "RVN",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-10-11 01:00:00"
+},
+"DASHUSD": {
+"base": "DASH",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-10-16 01:00:00"
+},
+"ZECUSD": {
+"base": "ZEC",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-10-18 01:00:00"
+},
+"ALGOUSD": {
+"base": "ALGO",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-10-18 01:00:00"
+},
+"IOTAUSD": {
+"base": "IOTA",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-10-23 01:00:00"
+},
+"BUSDUSD": {
+"base": "BUSD",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-10-23 01:00:00"
+},
+"WAVESUSD": {
+"base": "WAVES",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-10-30 01:00:00"
+},
+"ATOMUSD": {
+"base": "ATOM",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-11-01 01:00:00"
+},
+"NEOUSD": {
+"base": "NEO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-11-01 01:00:00"
+},
+"QTUMUSD": {
+"base": "QTUM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-11-15 01:00:00"
+},
+"ICXUSD": {
+"base": "ICX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-12-13 02:00:00"
+},
+"ENJUSD": {
+"base": "ENJ",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2019-12-13 02:00:00"
+},
+"ONTUSD": {
+"base": "ONT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-02-14 02:00:00"
+},
+"ZILUSD": {
+"base": "ZIL",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-02-21 02:00:00"
+},
+"VETUSD": {
+"base": "VET",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-02-21 02:00:00"
+},
+"XTZUSD": {
+"base": "XTZ",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-03-16 13:00:00"
+},
+"HBARUSD": {
+"base": "HBAR",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-05-15 13:00:00"
+},
+"OMGUSD": {
+"base": "OMG",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-05-29 13:00:00"
+},
+"MATICUSD": {
+"base": "MATIC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-06-05 13:00:00"
+},
+"EOSUSD": {
+"base": "EOS",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-06-23 13:00:00"
+},
+"DOGEUSD": {
+"base": "DOGE",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-07-08 13:00:00"
+},
+"KNCUSD": {
+"base": "KNC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-07-17 13:00:00"
+},
+"VTHOUSD": {
+"base": "VTHO",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-07-24 13:00:00"
+},
+"USDCUSD": {
+"base": "USDC",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-07-24 13:00:00"
+},
+"COMPUSD": {
+"base": "COMP",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-11 13:00:00"
+},
+"MANAUSD": {
+"base": "MANA",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-13 13:00:00"
+},
+"HNTUSD": {
+"base": "HNT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-18 13:00:00"
+},
+"MKRUSD": {
+"base": "MKR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-20 13:00:00"
+},
+"DAIUSD": {
+"base": "DAI",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-20 13:00:00"
+},
+"ONEUSD": {
+"base": "ONE",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-08-27 13:00:00"
+},
+"BANDUSD": {
+"base": "BAND",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-08-28 13:00:00"
+},
+"STORJUSD": {
+"base": "STORJ",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-09-02 13:00:00"
+},
+"UNIUSD": {
+"base": "UNI",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-09-17 18:00:00"
+},
+"SOLUSD": {
+"base": "SOL",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2020-09-18 13:00:00"
+},
+"EGLDUSD": {
+"base": "EGLD",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-09-24 13:00:00"
+},
+"PAXGUSD": {
+"base": "PAXG",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-09-25 13:00:00"
+},
+"OXTUSD": {
+"base": "OXT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-09-25 13:00:00"
+},
+"ZENUSD": {
+"base": "ZEN",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2020-12-17 14:00:00"
+},
+"FILUSD": {
+"base": "FIL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-06-18 13:00:00"
+},
+"AAVEUSD": {
+"base": "AAVE",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-07-15 13:00:00"
+},
+"GRTUSD": {
+"base": "GRT",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-07-15 13:00:00"
+},
+"SUSHIUSD": {
+"base": "SUSHI",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-07-23 13:00:00"
+},
+"ANKRUSD": {
+"base": "ANKR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-07-29 12:00:00"
+},
+"CRVUSD": {
+"base": "CRV",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-09-23 13:00:00"
+},
+"AXSUSD": {
+"base": "AXS",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-11-11 13:00:00"
+},
+"AVAXUSD": {
+"base": "AVAX",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-11-18 13:00:00"
+},
+"CTSIUSD": {
+"base": "CTSI",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-11-25 13:00:00"
+},
+"DOTUSD": {
+"base": "DOT",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2021-12-02 13:00:00"
+},
+"YFIUSD": {
+"base": "YFI",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-12-02 13:00:00"
+},
+"1INCHUSD": {
+"base": "1INCH",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-12-10 01:00:00"
+},
+"FTMUSD": {
+"base": "FTM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2021-12-17 01:00:00"
+},
+"NEARUSD": {
+"base": "NEAR",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-01-20 01:00:00"
+},
+"LRCUSD": {
+"base": "LRC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-01-26 01:00:00"
+},
+"KSHIBUSD": {
+"base": "KSHIB",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-01-25 01:00:00"
+},
+"LPTUSD": {
+"base": "LPT",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-02-10 01:00:00"
+},
+"NMRUSD": {
+"base": "NMR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-02-16 01:00:00"
+},
+"SLPUSD": {
+"base": "SLP",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-02-17 01:00:00"
+},
+"ANTUSD": {
+"base": "ANT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-02-17 13:00:00"
+},
+"XNOUSD": {
+"base": "XNO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-02-18 04:00:00"
+},
+"CHZUSD": {
+"base": "CHZ",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-01 13:00:00"
+},
+"OGNUSD": {
+"base": "OGN",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-03 01:00:00"
+},
+"GALAUSD": {
+"base": "GALA",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-03-04 01:00:00"
+},
+"TLMUSD": {
+"base": "TLM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-08 13:00:00"
+},
+"SNXUSD": {
+"base": "SNX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-09 01:00:00"
+},
+"AUDIOUSD": {
+"base": "AUDIO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-09 13:00:00"
+},
+"REQUSD": {
+"base": "REQ",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-24 12:00:00"
+},
+"APEUSD": {
+"base": "APE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-18 00:00:00"
+},
+"FLUXUSD": {
+"base": "FLUX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-03-30 00:00:00"
+},
+"TRXUSD": {
+"base": "TRX",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-04-01 00:00:00"
+},
+"COTIUSD": {
+"base": "COTI",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-06 12:00:00"
+},
+"VOXELUSD": {
+"base": "VOXEL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-08 12:00:00"
+},
+"RLCUSD": {
+"base": "RLC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-12 12:00:00"
+},
+"BICOUSD": {
+"base": "BICO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-14 12:00:00"
+},
+"API3USD": {
+"base": "API3",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-21 00:00:00"
+},
+"ENSUSD": {
+"base": "ENS",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-04-22 00:00:00"
+},
+"BNTUSD": {
+"base": "BNT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-26 12:00:00"
+},
+"IMXUSD": {
+"base": "IMX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-28 00:00:00"
+},
+"SPELLUSD": {
+"base": "SPELL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-04-28 12:00:00"
+},
+"JASMYUSD": {
+"base": "JASMY",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-05 00:00:00"
+},
+"FLOWUSD": {
+"base": "FLOW",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-05 12:00:00"
+},
+"GTCUSD": {
+"base": "GTC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-03 12:00:00"
+},
+"THETAUSD": {
+"base": "THETA",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-05-10 12:00:00"
+},
+"TFUELUSD": {
+"base": "TFUEL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-10 12:00:00"
+},
+"OCEANUSD": {
+"base": "OCEAN",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-12 12:00:00"
+},
+"LAZIOUSD": {
+"base": "LAZIO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-16 12:00:00"
+},
+"SANTOSUSD": {
+"base": "SANTOS",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-17 12:00:00"
+},
+"ALPINEUSD": {
+"base": "ALPINE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-18 12:00:00"
+},
+"PORTOUSD": {
+"base": "PORTO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-19 12:00:00"
+},
+"RENUSD": {
+"base": "REN",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-26 12:00:00"
+},
+"CELRUSD": {
+"base": "CELR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-05-27 12:00:00"
+},
+"SKLUSD": {
+"base": "SKL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-01 12:00:00"
+},
+"VITEUSD": {
+"base": "VITE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-02 12:00:00"
+},
+"WAXPUSD": {
+"base": "WAXP",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-08 12:00:00"
+},
+"LTOUSD": {
+"base": "LTO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-09 12:00:00"
+},
+"FETUSD": {
+"base": "FET",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-06-10 12:00:00"
+},
+"BONDUSD": {
+"base": "BOND",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-14 12:00:00"
+},
+"LOKAUSD": {
+"base": "LOKA",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-16 12:00:00"
+},
+"ICPUSD": {
+"base": "ICP",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-06-21 12:00:00"
+},
+"TUSD": {
+"base": "T",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-22 12:00:00"
+},
+"OPUSD": {
+"base": "OP",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-06-23 12:00:00"
+},
+"ROSEUSD": {
+"base": "ROSE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-06 12:00:00"
+},
+"CELOUSD": {
+"base": "CELO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-06-29 12:00:00"
+},
+"KDAUSD": {
+"base": "KDA",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-19 12:00:00"
+},
+"KSMUSD": {
+"base": "KSM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-20 12:00:00"
+},
+"ACHUSD": {
+"base": "ACH",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-21 12:00:00"
+},
+"DARUSD": {
+"base": "DAR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-26 12:00:00"
+},
+"RNDRUSD": {
+"base": "RNDR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-07-27 12:00:00"
+},
+"SYSUSD": {
+"base": "SYS",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-02 12:00:00"
+},
+"RADUSD": {
+"base": "RAD",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-03 12:00:00"
+},
+"ILVUSD": {
+"base": "ILV",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-10 12:00:00"
+},
+"LDOUSD": {
+"base": "LDO",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-11 12:00:00"
+},
+"RAREUSD": {
+"base": "RARE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-16 12:00:00"
+},
+"LSKUSD": {
+"base": "LSK",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-24 12:00:00"
+},
+"DGBUSD": {
+"base": "DGB",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-08-31 12:00:00"
+},
+"REEFUSD": {
+"base": "REEF",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-08-30 12:00:00"
+},
+"ALICEUSD": {
+"base": "ALICE",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-09-06 12:00:00"
+},
+"FORTHUSD": {
+"base": "FORTH",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-09-09 12:00:00"
+},
+"ASTRUSD": {
+"base": "ASTR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-09-14 12:00:00"
+},
+"BTRSTUSD": {
+"base": "BTRST",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-09-21 12:00:00"
+},
+"GALUSD": {
+"base": "GAL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-09-28 12:00:00"
+},
+"SANDUSD": {
+"base": "SAND",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2022-10-05 12:00:00"
+},
+"BALUSD": {
+"base": "BAL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-10-12 12:00:00"
+},
+"POLYXUSD": {
+"base": "POLYX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-10-17 12:00:00"
+},
+"GLMUSD": {
+"base": "GLM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-10-19 12:00:00"
+},
+"CLVUSD": {
+"base": "CLV",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-10-25 12:00:00"
+},
+"TUSDUSD": {
+"base": "TUSD",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-10-26 12:00:00"
+},
+"QNTUSD": {
+"base": "QNT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-03 12:00:00"
+},
+"STGUSD": {
+"base": "STG",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-08 12:00:00"
+},
+"AXLUSD": {
+"base": "AXL",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-09 12:00:00"
+},
+"KAVAUSD": {
+"base": "KAVA",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-15 12:00:00"
+},
+"APTUSD": {
+"base": "APT",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-16 12:00:00"
+},
+"MASKUSD": {
+"base": "MASK",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-23 12:00:00"
+},
+"BOSONUSD": {
+"base": "BOSON",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-11-30 12:00:00"
+},
+"PONDUSD": {
+"base": "POND",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-12-07 12:00:00"
+},
+"MXCUSD": {
+"base": "MXC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-12-13 12:00:00"
+},
+"JAMUSD": {
+"base": "JAM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2022-12-14 12:00:00"
+},
+"PROMUSD": {
+"base": "PROM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-01-04 12:00:00"
+},
+"DIAUSD": {
+"base": "DIA",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-01-10 12:00:00"
+},
+"LOOMUSD": {
+"base": "LOOM",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-02-02 12:00:00"
+},
+"STMXUSD": {
+"base": "STMX",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-02-09 12:00:00"
+},
+"SHIBUSD": {
+"base": "SHIB",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2023-02-24 12:00:00"
+},
+"TRACUSD": {
+"base": "TRAC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-03-08 12:00:00"
+},
+"POLYXUSDT": {
+"base": "POLYX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-04-05 12:00:00"
+},
+"IOSTUSDT": {
+"base": "IOST",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-04-19 12:00:00"
+},
+"IOSTUSD": {
+"base": "IOST",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-04-19 12:00:00"
+},
+"FLOKI8USDT": {
+"base": "FLOKI8",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-04-25 12:00:00"
+},
+"FLOKI8USD": {
+"base": "FLOKI8",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-04-25 12:00:00"
+},
+"ARBUSDT": {
+"base": "ARB",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-04-26 12:00:00"
+},
+"ARBUSD": {
+"base": "ARB",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-04-26 12:00:00"
+},
+"FLOKIUSDT": {
+"base": "FLOKI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-04-25 12:00:00"
+},
+"FLOKIUSD": {
+"base": "FLOKI",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2023-04-25 12:00:00"
+},
+"XECUSDT": {
+"base": "XEC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-05-10 12:00:00"
+},
+"XECUSD": {
+"base": "XEC",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-05-10 12:00:00"
+},
+"BLURUSDT": {
+"base": "BLUR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-05-24 12:00:00"
+},
+"BLURUSD": {
+"base": "BLUR",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2023-05-24 12:00:00"
+},
+"ANKRUSDT": {
+"base": "ANKR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"DAIUSDT": {
+"base": "DAI",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"DASHUSDT": {
+"base": "DASH",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"HBARUSDT": {
+"base": "HBAR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"ICXUSDT": {
+"base": "ICX",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"IOTAUSDT": {
+"base": "IOTA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"RVNUSDT": {
+"base": "RVN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"WAVESUSDT": {
+"base": "WAVES",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"XNOUSDT": {
+"base": "XNO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"XTZUSDT": {
+"base": "XTZ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"ZILUSDT": {
+"base": "ZIL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-06-27 02:00:00"
+},
+"ORBSUSDT": {
+"base": "ORBS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-08-03 12:00:00"
+},
+"CUDOSUSDT": {
+"base": "CUDOS",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2023-08-16 09:00:00"
+},
+"ADXUSDT": {
+"base": "ADX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-08-23 09:00:00"
+},
+"FORTUSDT": {
+"base": "FORT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-08-30 09:00:00"
+},
+"SUIUSDT": {
+"base": "SUI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-10-25 09:00:00"
+},
+"ONGUSDT": {
+"base": "ONG",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2023-11-08 09:00:00"
+},
+"GUSDT": {
+"base": "G",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-08-20 11:00:00"
+},
+"RENDERUSDT": {
+"base": "RENDER",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-08-22 12:00:00"
+},
+"BONKUSDT": {
+"base": "BONK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-11-13 11:00:00"
+},
+"MAGICUSDT": {
+"base": "MAGIC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-11-20 11:00:00"
+},
+"PEPEUSDT": {
+"base": "PEPE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-12-05 11:00:00"
+},
+"WIFUSDT": {
+"base": "WIF",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-12-11 11:00:00"
+},
+"IOTXUSDT": {
+"base": "IOTX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2024-12-18 11:00:00"
+},
+"PNUTUSDT": {
+"base": "PNUT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-01-09 11:00:00"
+},
+"PENGUUSDT": {
+"base": "PENGU",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-01-16 11:00:00"
+},
+"POLUSDT": {
+"base": "POL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-01-16 12:00:00"
+},
+"TRUMPUSDT": {
+"base": "TRUMP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-01-23 11:00:00"
+},
+"NEIROUSDT": {
+"base": "NEIRO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-02-13 11:00:00"
+},
+"SUIUSD": {
+"base": "SUI",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-19 13:00:00"
+},
+"XRPUSD": {
+"base": "XRP",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2019-09-18 14:00:00"
+},
+"BONKUSD": {
+"base": "BONK",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-20 13:00:00"
+},
+"PEPEUSD": {
+"base": "PEPE",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-21 13:00:00"
+},
+"POLUSD": {
+"base": "POL",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-21 13:00:00"
+},
+"RENDERUSD": {
+"base": "RENDER",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-24 13:00:00"
+},
+"TRUMPUSD": {
+"base": "TRUMP",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-02-25 13:00:00"
+},
+"EIGENUSD": {
+"base": "EIGEN",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2025-02-27 11:00:00"
+},
+"EIGENUSDT": {
+"base": "EIGEN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-02-27 11:00:00"
+},
+"MEUSDT": {
+"base": "ME",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-03-06 11:00:00"
+},
+"MEUSD": {
+"base": "ME",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-03-06 11:00:00"
+},
+"DUSDT": {
+"base": "D",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2025-03-07 11:00:00"
+},
+"METISUSDT": {
+"base": "METIS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-03-13 12:00:00"
+},
+"METISUSD": {
+"base": "METIS",
+"quote": "USD",
+"status": "BREAK",
+"first_trade_utc": "2025-03-13 12:00:00"
+},
+"JUPUSD": {
+"base": "JUP",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-03-20 11:00:00"
+},
+"JUPUSDT": {
+"base": "JUP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-03-20 11:00:00"
+},
+"SUSD": {
+"base": "S",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-03-21 11:00:00"
+},
+"SUSDT": {
+"base": "S",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-03-21 11:00:00"
+},
+"JTOUSDT": {
+"base": "JTO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-03-27 11:00:00"
+},
+"ORCAUSDT": {
+"base": "ORCA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-04-03 11:00:00"
+},
+"DATAUSDT": {
+"base": "DATA",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2025-04-10 11:00:00"
+},
+"VIRTUALUSDT": {
+"base": "VIRTUAL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-04-29 11:00:00"
+},
+"AIXBTUSDT": {
+"base": "AIXBT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-05-08 11:00:00"
+},
+"KAITOUSDT": {
+"base": "KAITO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-05-15 11:00:00"
+},
+"TURBOUSDT": {
+"base": "TURBO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-05-22 11:00:00"
+},
+"HYPEUSD": {
+"base": "HYPE",
+"quote": "USD",
+"status": "TRADING",
+"first_trade_utc": "2025-06-06 11:00:00"
+},
+"HYPEUSDT": {
+"base": "HYPE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-06 11:00:00"
+},
+"ENAUSDT": {
+"base": "ENA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-12 11:00:00"
+},
+"LAYERUSDT": {
+"base": "LAYER",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-12 11:00:00"
+},
+"FARTCOINUSDT": {
+"base": "FARTCOIN",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-18 11:00:00"
+},
+"SPXUSDT": {
+"base": "SPX",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-19 11:00:00"
+},
+"POPCATUSDT": {
+"base": "POPCAT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-25 11:00:00"
+},
+"MOODENGUSDT": {
+"base": "MOODENG",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-06-26 11:00:00"
+},
+"ANIMEUSDT": {
+"base": "ANIME",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-16 11:00:00"
+},
+"1000MOGUSDT": {
+"base": "1000MOG",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-17 11:00:00"
+},
+"ONDOUSDT": {
+"base": "ONDO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-23 11:00:00"
+},
+"1000REKTUSDT": {
+"base": "1000REKT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-24 11:00:00"
+},
+"XDCUSDT": {
+"base": "XDC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-30 11:00:00"
+},
+"BRETTUSDT": {
+"base": "BRETT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-07-31 11:00:00"
+},
+"WLDUSDT": {
+"base": "WLD",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-08-06 11:00:00"
+},
+"TOSHIUSDT": {
+"base": "TOSHI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-08-07 11:00:00"
+},
+"USELESSUSDT": {
+"base": "USELESS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-08-14 11:00:00"
+},
+"A2ZUSDT": {
+"base": "A2Z",
+"quote": "USDT",
+"status": "BREAK",
+"first_trade_utc": "2025-08-21 12:00:00"
+},
+"NOBODYUSDT": {
+"base": "NOBODY",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-08-28 11:00:00"
+},
+"PUMPUSDT": {
+"base": "PUMP",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-10 11:00:00"
+},
+"AUSDT": {
+"base": "A",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-11 12:00:00"
+},
+"MEWUSDT": {
+"base": "MEW",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-18 11:00:00"
+},
+"SKYUSDT": {
+"base": "SKY",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-18 12:00:00"
+},
+"GIGAUSDT": {
+"base": "GIGA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-25 11:00:00"
+},
+"DOODUSDT": {
+"base": "DOOD",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-09-30 11:00:00"
+},
+"ASTERUSDT": {
+"base": "ASTER",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-16 11:00:00"
+},
+"DUSKUSDT": {
+"base": "DUSK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-22 11:00:00"
+},
+"GASUSDT": {
+"base": "GAS",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-23 11:00:00"
+},
+"AVNTUSDT": {
+"base": "AVNT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-24 02:00:00"
+},
+"USD1USDT": {
+"base": "USD1",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-29 11:00:00"
+},
+"WLFIUSDT": {
+"base": "WLFI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-10-29 10:00:00"
+},
+"SEIUSDT": {
+"base": "SEI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-11-13 11:00:00"
+},
+"PURRUSDT": {
+"base": "PURR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-11-14 01:00:00"
+},
+"TIAUSDT": {
+"base": "TIA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-11-06 11:00:00"
+},
+"CAKEUSDT": {
+"base": "CAKE",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-12-10 14:00:00"
+},
+"TWTUSDT": {
+"base": "TWT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2025-12-18 13:00:00"
+},
+"TROLLUSDT": {
+"base": "TROLL",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-01-23 02:00:00"
+},
+"RHEAUSDT": {
+"base": "RHEA",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-02-12 12:00:00"
+},
+"NPCUSDT": {
+"base": "NPC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-03-04 11:00:00"
+},
+"BMTUSDT": {
+"base": "BMT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-03-26 15:00:00"
+},
+"LOFIUSDT": {
+"base": "LOFI",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-04-24 02:00:00"
+},
+"LMWRUSDT": {
+"base": "LMWR",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-04-30 11:00:00"
+},
+"USDUCUSDT": {
+"base": "USDUC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-05-07 11:00:00"
+},
+"INJUSDT": {
+"base": "INJ",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-05-14 11:00:00"
+},
+"WODUSDT": {
+"base": "WOD",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-05-28 11:00:00"
+},
+"BERTUSDT": {
+"base": "BERT",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-06-05 02:00:00"
+},
+"1MWOJAKUSDT": {
+"base": "1MWOJAK",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-06-18 02:00:00"
+},
+"VELOUSDT": {
+"base": "VELO",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-07-17 04:00:00"
+},
+"BTTCUSDT": {
+"base": "BTTC",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-09-10 11:00:00"
+},
+"GRAMUSDT": {
+"base": "GRAM",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-08-06 11:00:00"
+},
+"0GUSDT": {
+"base": "0G",
+"quote": "USDT",
+"status": "TRADING",
+"first_trade_utc": "2026-08-28 02:00:00"
+}
+}
