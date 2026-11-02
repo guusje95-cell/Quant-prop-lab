@@ -1,0 +1,128 @@
+{
+ "v9.8 capped": [
+  3.061,
+  [
+   2.465,
+   3.87,
+   2.592
+  ]
+ ],
+ "events per sleeve": {
+  "venue": 181,
+  "add": 40,
+  "hodler": 54,
+  "fd": 36
+ },
+ "base (additive rebuild of R45 capped 3.550)": [
+  3.54,
+  [
+   2.686,
+   4.133,
+   3.376
+  ]
+ ],
+ "share of sleeve P&L from its best 10% events": {
+  "venue": 0.942,
+  "add": 0.567,
+  "hodler": 0.736,
+  "fd": 2.184
+ },
+ "S1 drop best 5% events": {
+  "book": [
+   3.294,
+   [
+    2.76,
+    3.985,
+    2.835
+   ]
+  ],
+  "beats v9.8 capped +0.05, no period lower": true
+ },
+ "S1 drop best 10% events": {
+  "book": [
+   3.06,
+   [
+    2.688,
+    3.946,
+    2.288
+   ]
+  ],
+  "beats v9.8 capped +0.05, no period lower": false
+ },
+ "S3 entry +1 h": {
+  "book": [
+   3.519,
+   [
+    2.578,
+    4.102,
+    3.424
+   ]
+  ],
+  "beats": true
+ },
+ "S3 entry +3 h": {
+  "book": [
+   3.592,
+   [
+    2.566,
+    4.183,
+    3.534
+   ]
+  ],
+  "beats": true
+ },
+ "S3 entry +6 h": {
+  "book": [
+   3.572,
+   [
+    2.585,
+    4.101,
+    3.562
+   ]
+  ],
+  "beats": true
+ },
+ "S4 cost 20 bp/side": {
+  "book": [
+   3.519,
+   [
+    2.677,
+    4.117,
+    3.342
+   ]
+  ],
+  "beats": true
+ },
+ "S4 cost 30 bp/side": {
+  "book": [
+   3.498,
+   [
+    2.668,
+    4.1,
+    3.308
+   ]
+  ],
+  "beats": true
+ },
+ "S2 event bootstrap (200)": {
+  "gain vs v9.8 capped: mean / p5 / p50 / p95": [
+   0.21,
+   -0.034,
+   0.218,
+   0.417
+  ],
+  "P(gain <= 0)": 0.08,
+  "P(any period lower than v9.8)": 0.36,
+  "per-period gain p5": [
+   -0.012,
+   -0.232,
+   -0.128
+  ]
+ },
+ "judge": {
+  "S1 drop 10%": false,
+  "S2 P(gain<=0) < 5%": false,
+  "S3 +3 h >= v9.8 + 0.05": true,
+  "S4 2x cost >= v9.8 + 0.05": true
+ }
+}
