@@ -1,0 +1,8 @@
+{"id": "FPA-4", "date": "2026-11-02", "flag": "FLAGGED: the overnight / day asymmetry was SEEN in FPA-3b on gold 2018-26",
+ "registered": "before looking at gold 2013-17 or at silver in any form",
+ "rule": "H1 'metal overnight': long from the 18:00 ET price (Globex reopen) to the 08:00 ET price, flat during US hours; prices = Dukascopy hourly closes (the close of the 17:00 ET bar is the 18:00 price, the close of the 07:00 ET bar the 08:00 price); 1 bp per side; 1x notional",
+ "out_of_sample_judge": {"A gold 2013-01..2017-12 (unseen)": "H1 Sharpe >= 0.5 AND H1 overnight-minus-day spread Sharpe > 0",
+                         "B silver XAGUSD 2013-01..2026-09 (never used in this project's price-action work)": "H1 Sharpe >= 0.3 AND spread Sharpe > 0"},
+ "also_reported": "gold 2018-22 / 2023-26 (seen), buy-and-hold over the same windows, and the futures book (scripts/fbook.build, no save) with an equal-weight gold + silver overnight sleeve: 2010-17 / 2018-22 / 2023-26",
+ "verdict": "a candidate only if A and B both pass; then the futures-book entrant rule decides (2023-26 > 1.218 + 0.05, no earlier period lower)",
+ "trials_added": 1}
