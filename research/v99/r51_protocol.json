@@ -1,0 +1,4 @@
+{"id": "R51", "date": "2026-11-02", "registered": "before computing", "trials_added": 1,
+ "flag": "FLAGGED: transfer of C9 (CFD book) after R33 failed on v9.8 (+0.039, 2025-26 lower)",
+ "change": "the v9.9 candidate (R45 Bybit-filtered ALL + add + HODLer, 4.5% total low-cap cap at risk 1.5; per-event rebuild 3.540 [2.686, 4.133, 3.376]) with Weiss expiry at full equal-risk weight; Weiss gross capped at 1.9x equity at risk 1.5 (HyroTrader funded notional cap 2x minus margin)",
+ "judge": "book >= 3.590 and no period lower"}
