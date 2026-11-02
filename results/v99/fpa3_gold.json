@@ -1,0 +1,42 @@
+{
+ "G1 overnight minus day": {
+  "active days": 1733,
+  "Sharpe dev / judge": [
+   0.448,
+   1.077
+  ],
+  "corr with gold": -0.147,
+  "pass": false
+ },
+ "G2 London AM fix fade": {
+  "active days": 1535,
+  "Sharpe dev / judge": [
+   -1.65,
+   -0.421
+  ],
+  "corr with gold": 0.03,
+  "pass": false
+ },
+ "G3 P5 replication on gold": {
+  "active days": 331,
+  "Sharpe dev / judge": [
+   0.519,
+   0.514
+  ],
+  "corr with gold": 0.043,
+  "pass": true
+ },
+ "G4 US 08:30 data drift": {
+  "active days": 154,
+  "Sharpe dev / judge": [
+   0.11,
+   -0.649
+  ],
+  "corr with gold": 0.015,
+  "pass": false
+ },
+ "reference: gold buy-and-hold (18:00 -> 17:00 ET daily)": [
+  0.657,
+  1.108
+ ]
+}

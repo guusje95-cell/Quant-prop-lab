@@ -1,0 +1,15 @@
+{
+ "id": "FPA-3b",
+ "date": "2026-11-02",
+ "registered": "after FPA-3, before any check below",
+ "G3 checks (same bar as FPA-1b)": {
+  "control": "unconditional 30-min ORB on the COMEX session",
+  "placebo": "20 random-day draws at the NR7 frequency (seed 7)",
+  "neighbourhood": "NR4/5/6/8/10 with 30 min; NR7 with 15/45/60 min",
+  "costs": "2x"
+ },
+ "combined sleeve": "'compression breakout' = equal-weight daily mean of P5 (US500/US100/US30) and G3 (gold); reported stand-alone and as a futures-book entrant (fbook.build, no save)",
+ "G1 description (no selection)": "overnight leg and day leg separately, by year",
+ "judge": "G3 candidate only if: beats the unconditional control on judge, actual judge above the placebo p90, >= 6 of 8 neighbours with judge >= 0.3, 2x costs judge >= 0.3",
+ "trials_added": 0
+}
