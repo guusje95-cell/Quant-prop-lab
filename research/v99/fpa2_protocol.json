@@ -1,0 +1,9 @@
+{"id": "FPA-2", "date": "2026-11-02", "registered": "after FPA-1 / FPA-1b (NR7 + 30-minute ORB real but cost-sensitive; fades lose; breaks continue), before any FPA-2 result",
+ "data_costs_sizing": "as FPA-1 (US500 / US100 / US30 5-minute Dukascopy, New York session 09:30-15:55, 1 bp per side, 0.25% risk per trade, cap 4x, flat 15:55)",
+ "families": {
+   "Q1 inside day + 30-minute ORB": "previous regular session's high < the session before's high AND low > its low; then the P5 breakout rule (first 5-minute close beyond the 09:30-10:00 range after 10:00, stop at the other side, exit 15:55)",
+   "Q2 narrow initial balance extension": "first-hour (09:30-10:30) range < 0.5 x ATR (14-day): first 5-minute close beyond the first-hour range after 10:30 -> enter that way, stop at the first-hour midpoint, exit 15:55",
+   "Q3 confirmed gap-and-go": "|gap| / ATR > 0.6 and at 10:00 the price is beyond the 09:30 open in the gap direction and less than half of the gap has been filled at any time since 09:30 -> enter at 10:00 in the gap direction, stop at the 09:30-10:00 extreme against it, exit 15:55",
+   "Q4 out-of-market replication of P5": "the unchanged P5 rule (NR7 of the regular session + 30-minute opening range) on DE40 (Frankfurt 09:00-17:25 local time, opening range 09:00-09:30, exit 17:25), 1 bp per side"},
+ "judge": "as FPA-1: net Sharpe >= 0.5 on 2018-22 AND on 2023-26 (Q4: one market); a Q4 pass counts as an independent confirmation of P5 (and would justify a second look at its cost question with real fills)",
+ "trials_added": 4}
