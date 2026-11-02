@@ -1,0 +1,13 @@
+{"id": "FPA-1", "date": "2026-11-02", "registered": "before any FPA result; after checking which intraday ideas were already tested (5-min ORB on US100, DE40 / pre-market range breakouts Gen260, Gao intraday momentum Gen47, closing imbalance Gen242-243, crypto level / sweep / NR7 R8-R12, Gen474 TA)",
+ "program": "config/futures_program.json queued_research FPA (user-approved start 2026-11-02)",
+ "data": "Dukascopy 5-minute BID bars US500 / US100 / US30 (proxies for ES / NQ / YM), 2018-01 .. 2026-10; times converted to New York; regular session 09:30-16:00 ET; overnight = 18:00 (previous day) to 09:30",
+ "costs": "1.0 bp of notional per side (about 1 tick + commission on ES / NQ micro); fills at 5-minute bar closes; stops at the stop price when the bar's high / low crosses it (stop checked before target within a bar = conservative)",
+ "sizing": "each trade risks 0.25% of equity at its stop (notional capped at 4x equity); flat by 15:55 ET every day (intraday-prop compatible); one trade per family per market per day",
+ "families": {
+   "P1 gap fill": "cash-open gap g = 09:30 open / previous 16:00 close - 1; if 0.1 <= |g| / ATR <= 0.6 (ATR = 14-day mean true range of the regular session, in %), fade at the 09:35 close; target the previous close; stop 1 x |g| beyond the entry; exit 12:00 ET",
+   "P2 gap and go": "if |g| / ATR > 0.6 and the first 15-minute bar (09:30-09:45) closes in the gap direction: enter at 09:45 in the gap direction; stop at the opposite extreme of that 15 minutes; exit 15:55",
+   "P3 overnight sweep-reclaim": "between 09:30 and 10:30 a 5-minute bar trades above the overnight high and CLOSES back below it -> short at that close, stop at the bar's high, target the overnight midpoint (mirror for the overnight low); exit 15:55",
+   "P4 VWAP pullback on trend days": "at 10:30 ET: if the 09:30-10:30 move exceeds 0.4 x ATR in direction d and the 10:30 close is beyond the first-hour midpoint in direction d, the first 5-minute bar between 10:30 and 14:00 that touches session VWAP (low <= VWAP for d = up) -> enter d at its close; stop at the first-hour low (high for d = down); exit 15:55",
+   "P5 NR7 + 30-minute opening range": "if the previous regular session's range is the smallest of the last 7: after 10:00 enter on the first 5-minute close beyond the 09:30-10:00 range, stop at the other side of the range, exit 15:55"},
+ "judge": "per family: equal-weight daily P&L of the three markets; net Sharpe (252) >= 0.5 on 2018-22 (dev) AND >= 0.5 on 2023-26 (judge, once). Survivors then get placebo (entries shifted one day) and neighbourhood checks, and are tested as a futures-book entrant (fbook.judge) and as a stand-alone intraday book",
+ "trials_added": 5}
