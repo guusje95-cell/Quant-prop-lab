@@ -87,6 +87,36 @@ def events(D: dict | None = None) -> dict[str, tuple[pd.Timestamp, pd.Timestamp 
     return {c: v for c, v in first.items() if v[0] >= START}
 
 
+_BYBIT: dict | None = None
+
+
+def bybit_launch(coin: str) -> pd.Timestamp | None:
+    """launch time of the coin's Bybit USDT linear perp (public v5 instruments list, cached per run; HyroTrader trades Bybit prices).
+    None = not listed on Bybit; if Bybit cannot be reached the check is skipped (returns 'unknown' = pd.Timestamp.min)."""
+    global _BYBIT
+    if _BYBIT is None:
+        _BYBIT = {}
+        try:
+            cur = None
+            for _ in range(20):
+                q = {"category": "linear", "limit": 1000, **({"cursor": cur} if cur else {})}
+                j = _get("https://api.bybit.com/v5/market/instruments-info", q) or {}
+                for x in (j.get("result") or {}).get("list", []):
+                    if x.get("quoteCoin") == "USDT" and x.get("launchTime"):
+                        _BYBIT[x["baseCoin"]] = pd.Timestamp(int(x["launchTime"]), unit="ms")
+                cur = (j.get("result") or {}).get("nextPageCursor")
+                if not cur:
+                    break
+        except Exception:                                                 # noqa: BLE001
+            _BYBIT = {}
+    if not _BYBIT:
+        return pd.Timestamp.min
+    for b in (coin, "1000" + coin, coin.replace("1000", "")):
+        if b in _BYBIT:
+            return _BYBIT[b]
+    return None
+
+
 def klines(coin: str, start: pd.Timestamp, end: pd.Timestamp) -> pd.Series | None:
     """hourly closes indexed by bar OPEN time (completed bars only), or None if Binance has no such USDT perp"""
     rows = _get(f"{FAPI}/fapi/v1/klines", {"symbol": f"{coin}USDT", "interval": "1h", "startTime": int(start.value // 1e6), "endTime": int(end.value // 1e6), "limit": 1500})
@@ -136,6 +166,9 @@ def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path,
             traded[key] = "no Binance perp at the listing"; continue
         if min_perp_days.get(venue) and cl.index.min() > T - pd.Timedelta(days=min_perp_days[venue]):
             traded[key] = f"Binance perp younger than {min_perp_days[venue]} days"; continue
+        bl = bybit_launch(coin)                                          # R45: only coins HyroTrader can trade (Bybit perp at the entry)
+        if bl is None or bl > T + pd.Timedelta(hours=2):
+            traded[key] = "no Bybit perp at the entry (not tradable on HyroTrader)"; continue
         hh = (hold_h or {}).get(venue, HOLD_H)
         if hh > HOLD_H:
             cl = klines(coin, T.floor("h") - back, T + pd.Timedelta(hours=hh + 4))
