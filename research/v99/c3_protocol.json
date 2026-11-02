@@ -1,0 +1,5 @@
+{"id": "v99-C3", "date": "2026-11-02", "registered": "before computing any CFD version of the ensembles",
+ "why": "Gen383 neighbourhood ensembles (trend 4h = mean of Donchian 15 / 20 / 30; alt kimchi = mean of thresholds 0.75 / 1.0 / 1.25) are part of the crypto book since v9.2 (Gen385, user-accepted) but the CFD book still runs the single-parameter versions. Port only, no new parameters",
+ "change": "in the bf2.7 candidate replace 'trend 4h' by the ensemble (CFD coins, cfd_book costs) and 'alt kimchi' by the ensemble (ALT_CFD coins, measured spread + 1.2 bp), exactly the bf2.6 code otherwise; first reproduce the two current CFD sleeves from the bf2.6 dump (must match)",
+ "reference": "bf2.7 candidate 2.947 [1.751, 4.077, 2.432] (as rebuilt in C2)",
+ "judge": "book >= 2.997 and no period lower", "trials_added": 1}
