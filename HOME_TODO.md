@@ -1,4 +1,4 @@
-# Thuis te doen (bijgewerkt 2026-11-01)
+# Thuis te doen (bijgewerkt 2026-11-02)
 
 Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaatst.
 
@@ -19,6 +19,12 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 10. Optioneel: **`get_wiki_attention.bat`**.
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
+
+## Nieuw (2-11): v9.9-kandidaat bot in DRY-RUN (optie a) - los van v9.8, GEEN paper-account
+- Na `git pull`: dubbelklik **`bot_v99_dryrun.bat`** (laat open staan, naast `paper_v98_start.bat` en de hub). Geen sleutel, geen orders.
+  Hij bouwt elk uur `paper_trading/v99cand/book_next_hour.json` (v9.8-boek herwogen + de 4 event-sleeves) en logt de orders die hij
+  ZOU plaatsen in `bot_state_v99cand/orders_log.csv`. v9.8 en zijn paper-validatie veranderen niet; v9.9 wordt niet geactiveerd.
+- Af en toe meepushen: `git add paper_trading/v99cand` (de bot-state blijft lokaal).
 
 ## Nieuw (1-11): Coinbase-short paper (v9.9-kandidaat R16)
 - Alleen **`git pull`** en de hub herstarten (`hub_start.bat`). De hub draait elk uur de job **cbshort_paper**: hij kijkt (openbare

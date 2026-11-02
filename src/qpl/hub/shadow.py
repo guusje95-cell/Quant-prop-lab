@@ -128,6 +128,9 @@ def _composite(c, cfg: dict, P: pd.DataFrame) -> pd.Series:
     import crypto_sleeves as CS
     s = cfg["spec"]; ver = cfg["source"].split(":", 1)[1]
     pre = ROOT / s.get("prefix", f"results/{ver}_paper_sleeves.parquet")
+    if "prefix" not in s and (ROOT / f"results/{ver}_oct_oos.parquet").exists():   # 2026-11-02: the research pack ends 30 Sep; the October
+        pre = ROOT / f"results/{ver}_oct_oos.parquet"                               # live recompute closes the gap to the paper start (without
+                                                                                    # it the 30-day vol target saw a month-long hole: level ~30% low)
     H = P.copy()
     if pre.exists():
         X = pd.read_parquet(pre).drop(columns=["port"], errors="ignore")

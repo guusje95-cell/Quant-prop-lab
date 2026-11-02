@@ -153,9 +153,22 @@ def trade_pnl(cl: pd.Series, fu: pd.Series, T: pd.Timestamp, detected: pd.Timest
     return pnl
 
 
+def position_at(cl: pd.Series, T: pd.Timestamp, detected: pd.Timestamp | None, hold_h: int, h1: pd.Timestamp) -> float:
+    """the sleeve's position (fraction of equity, -SIZE = short) DURING hour h1 under exactly the trade_pnl rules, using only bars that
+    closed before h1 (no lookahead): short from bar entry_bar + 1 to entry_bar + hold_h, out after the first close >= +30% of the entry."""
+    entry_bar = T.floor("h") + pd.Timedelta(hours=1)
+    if detected is not None:
+        entry_bar = max(entry_bar, detected.floor("h"))
+    if not (entry_bar + pd.Timedelta(hours=1) <= h1 <= entry_bar + pd.Timedelta(hours=hold_h)) or entry_bar not in cl.index:
+        return 0.0
+    path = cl.loc[entry_bar:h1 - pd.Timedelta(hours=1)]
+    return 0.0 if (path >= cl.loc[entry_bar] * (1 + STOP)).any() else -SIZE
+
+
 def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path, col: str, min_perp_days: dict, now: pd.Timestamp, hold_h: dict | None = None) -> dict:
     """E = [(coin, first venue hour, detected time or None, venue)]; a coin is not shorted again within 7 days (as in R18 / R22 / R30)"""
     last_done = now.floor("h") - pd.Timedelta(hours=1); total = pd.Series(0.0, index=pd.date_range(START, last_done, freq="h")); traded = {}; last = {}
+    opened = {}                                                          # coin -> position during the running hour (for the v9.9 dry-run book)
     for coin, T, det, venue in sorted(E, key=lambda e: e[1]):
         key = f"{coin} ({venue})"
         if coin in last and T - last[coin] < pd.Timedelta(days=7):
@@ -174,6 +187,9 @@ def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path,
             cl = klines(coin, T.floor("h") - back, T + pd.Timedelta(hours=hh + 4))
         p = trade_pnl(cl, funding(coin, T - pd.Timedelta(days=1), T + pd.Timedelta(hours=hh + 4)), T, det, hh)
         total = total.add(p.reindex(total.index).fillna(0.0), fill_value=0.0); traded[key] = f"{len(p)} hours"; last[coin] = T
+        pos = position_at(cl, T, det, hh, now.floor("h"))
+        if pos:
+            opened[coin] = opened.get(coin, 0.0) + pos
     out.mkdir(parents=True, exist_ok=True); f = out / "ledger_hourly.csv"
     L = pd.read_csv(f) if f.exists() else pd.DataFrame(columns=["hour", col, "port", "computed_at", "lag_h", "late"])
     have = set(L["hour"].astype(str)); rows = []
@@ -184,6 +200,8 @@ def _run(E: list[tuple[str, pd.Timestamp, pd.Timestamp | None, str]], out: Path,
         rows.append({"hour": str(h), col: float(v), "port": float(v), "computed_at": str(now), "lag_h": round(lag, 3), "late": lag > 30})
     if rows:
         L = pd.concat([L, pd.DataFrame(rows)], ignore_index=True); tmp = f.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(f)
+    (out / "open_positions.json").write_text(json.dumps({"for_hour_utc": str(now.floor("h")), "made_at_utc": str(now), "sleeve": col,
+                                                         "positions": opened}, indent=1), encoding="utf-8")
     (out / "events.json").write_text(json.dumps({k: {"status": s} for k, s in traded.items()}, indent=1), encoding="utf-8")
     return {"events": len(E), "hours_written": len(rows), "status": traded}
 
