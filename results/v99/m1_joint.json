@@ -1,0 +1,102 @@
+{
+ "backtest Sharpe 2022-26": {
+  "A": 3.54,
+  "B": 3.634,
+  "C": 2.92,
+  "D": 2.947
+ },
+ "venue Sharpe by period": {
+  "A": [
+   3.54,
+   [
+    2.686,
+    4.133,
+    3.376
+   ]
+  ],
+  "B": [
+   3.634,
+   [
+    3.469,
+    3.916,
+    3.399
+   ]
+  ],
+  "C": [
+   2.92,
+   [
+    2.064,
+    3.246,
+    3.043
+   ]
+  ],
+  "D": [
+   2.947,
+   [
+    1.751,
+    4.077,
+    2.432
+   ]
+  ]
+ },
+ "planning Sharpe used": {
+  "A": 1.95,
+  "B": 2.04,
+  "C": 1.33,
+  "D": 1.36
+ },
+ "per account (2-year net USD)": {
+  "HyroTrader $200k": {
+   "mean": 99737,
+   "p10": 36708,
+   "P_loss": 0.005,
+   "fees mean": 3227
+  },
+  "BrightFunded $200k (bf2.7)": {
+   "mean": 46793,
+   "p10": 1143,
+   "P_loss": 0.092,
+   "fees mean": 3331
+  },
+  "CFT $200k (Bybit)": {
+   "mean": 103101,
+   "p10": 38531,
+   "P_loss": 0.0,
+   "fees mean": 3243
+  },
+  "Propr 3 x $100k (Hyperliquid)": {
+   "mean": 71344,
+   "p10": 8043,
+   "P_loss": 0.08,
+   "fees mean": 7938
+  }
+ },
+ "stack": {
+  "HyroTrader $200k": {
+   "mean": 99737,
+   "p10": 36708,
+   "p50": 99631,
+   "P_loss": 0.005
+  },
+  "HyroTrader $200k + BrightFunded $200k (bf2.7)": {
+   "mean": 146530,
+   "p10": 45392,
+   "p50": 137936,
+   "P_loss": 0.005
+  },
+  "HyroTrader $200k + BrightFunded $200k (bf2.7) + CFT $200k (Bybit)": {
+   "mean": 249631,
+   "p10": 86891,
+   "p50": 247225,
+   "P_loss": 0.0
+  },
+  "HyroTrader $200k + BrightFunded $200k (bf2.7) + CFT $200k (Bybit) + Propr 3 x $100k (Hyperliquid)": {
+   "mean": 320975,
+   "p10": 100198,
+   "p50": 309847,
+   "P_loss": 0.007
+  }
+ },
+ "P(every account loses)": 0.0,
+ "outcome correlation (mean pairwise)": 0.741
+}
