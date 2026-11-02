@@ -1,0 +1,9 @@
+{"id": "FPA-3", "date": "2026-11-02", "registered": "after receiving research_data/dukascopy/XAUUSD_5m.parquet (2018-01..2026-10), before computing anything on it",
+ "market": "XAUUSD 5-minute Dukascopy BID (proxy for COMEX GC / MGC); costs 1 bp per side (about 1 tick + commission on MGC); fills at 5-minute closes",
+ "families": {
+   "G1 overnight minus day (market neutral)": "each trading day: long from the 18:00 ET close (Globex reopen) to the 08:20 ET close, short from 08:20 to the 17:00 ET close; mechanism: documented gold return asymmetry between Asian / London hours and US hours (fixing-related selling, Caminschi & Heaney 2014); 2 round trips a day",
+   "G2 London AM fix fade": "the move from 09:30 to 10:30 London time is faded from the 10:35 London close to the 12:00 London close (1x notional, sign of the move; skip if |move| < 0.05%)",
+   "G3 P5 replication": "the unchanged P5 rule on gold's COMEX session (NR7 of the 08:20-13:25 ET session, opening range 08:20-08:50, breakout after 08:50 on a 5-minute close, stop at the other side, exit 13:25, 0.25% risk per trade)",
+   "G4 US 08:30 data drift": "if the 08:30-08:45 ET move exceeds 0.3 x the 14-day mean daily range (in %), go with it from the 08:45 close to the 11:30 ET close (1x notional)"},
+ "judge": "net Sharpe (252) >= 0.5 on 2018-22 AND on 2023-26; also reported: correlation with buy-and-hold gold (G2-G4 are directional by event, G1 is market neutral by construction)",
+ "trials_added": 4}
