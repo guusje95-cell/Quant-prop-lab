@@ -1,0 +1,6 @@
+{"id": "v99-R44", "date": "2026-11-02", "registered": "after counting the events (27 Coinbase listings without a Binance perp but with Bybit trades on the listing day), before computing any return on them",
+ "why": "out-of-sample check and extension of the R30 venue sleeve: Coinbase / Upbit listings of coins that have NO Binance perp at the listing but trade as a Bybit perp (the venue HyroTrader uses) were never looked at",
+ "events": "Coinbase (R16 events) and Upbit (R22 rules: Bybit perp trading >= 7 days before) listings without a usable Binance perp; Bybit hourly closes from public.bybit.com trade files (bybit_event_shorts.bybit_closes); no funding available (charged 0: optimistic by roughly a few bp a day for shorts in negative funding)",
+ "rule": "R16 A: short 5% from the first venue hour's close (+1 h), 7 days, +30% stop, 10 bp per side",
+ "trials": {"A new events alone": "per-trade statistics and as a separate sleeve vs v9.8 (needs >= 20 trades)", "B extended venue sleeve": "ALL + add + HODLer with the venue sleeve extended by these events, vs ALL + add + HODLer (3.706)"},
+ "judge": "B: >= 3.706 + 0.05 and no period lower; A reported (out-of-sample check of the Coinbase effect: mean trade return > 0 and hit rate > 50%)", "trials_added": 2}
