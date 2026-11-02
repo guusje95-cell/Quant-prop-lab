@@ -1,0 +1,207 @@
+{
+ "reference ALL + add + HODLer": [
+  3.706,
+  [
+   3.325,
+   4.003,
+   3.581
+  ]
+ ],
+ "new trades": 23,
+ "by venue": {
+  "coinbase": 23
+ },
+ "mean trade %": 0.41,
+ "median %": 2.34,
+ "hit rate": 0.522,
+ "by year (n, mean %)": {
+  "2022": [
+   7,
+   6.91
+  ],
+  "2023": [
+   1,
+   8.59
+  ],
+  "2024": [
+   5,
+   4.5
+  ],
+  "2025": [
+   8,
+   0.25
+  ],
+  "2026": [
+   2,
+   -36.03
+  ]
+ },
+ "A out-of-sample check passed (mean > 0 and hit > 50%)": true,
+ "A as a separate sleeve vs v9.8": [
+  2.983,
+  [
+   3.122,
+   3.858,
+   2.022
+  ]
+ ],
+ "v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "B extended venue sleeve": {
+  "book": [
+   3.675,
+   [
+    3.423,
+    4.01,
+    3.434
+   ]
+  ],
+  "pass": false
+ },
+ "trades": [
+  {
+   "coin": "STX",
+   "venue": "coinbase",
+   "t": "2022-01-20 18:00:00",
+   "trade return %": 42.29
+  },
+  {
+   "coin": "RNDR",
+   "venue": "coinbase",
+   "t": "2022-02-03 19:00:00",
+   "trade return %": -2.18
+  },
+  {
+   "coin": "BIT",
+   "venue": "coinbase",
+   "t": "2022-06-07 16:00:00",
+   "trade return %": 18.6
+  },
+  {
+   "coin": "XCN",
+   "venue": "coinbase",
+   "t": "2022-06-28 18:00:00",
+   "trade return %": -1.48
+  },
+  {
+   "coin": "BOBA",
+   "venue": "coinbase",
+   "t": "2022-06-30 16:00:00",
+   "trade return %": -15.81
+  },
+  {
+   "coin": "CVX",
+   "venue": "coinbase",
+   "t": "2022-09-08 16:00:00",
+   "trade return %": 4.6
+  },
+  {
+   "coin": "ILV",
+   "venue": "coinbase",
+   "t": "2022-10-13 16:00:00",
+   "trade return %": 2.34
+  },
+  {
+   "coin": "FLR",
+   "venue": "coinbase",
+   "t": "2023-04-14 17:00:00",
+   "trade return %": 8.59
+  },
+  {
+   "coin": "MOBILE",
+   "venue": "coinbase",
+   "t": "2024-02-22 17:00:00",
+   "trade return %": 16.19
+  },
+  {
+   "coin": "G",
+   "venue": "coinbase",
+   "t": "2024-08-13 16:00:00",
+   "trade return %": -4.03
+  },
+  {
+   "coin": "DEGEN",
+   "venue": "coinbase",
+   "t": "2024-10-15 16:00:00",
+   "trade return %": 15.46
+  },
+  {
+   "coin": "SWELL",
+   "venue": "coinbase",
+   "t": "2024-11-07 20:00:00",
+   "trade return %": -29.38
+  },
+  {
+   "coin": "PRCL",
+   "venue": "coinbase",
+   "t": "2024-12-17 17:00:00",
+   "trade return %": 24.27
+  },
+  {
+   "coin": "IP",
+   "venue": "coinbase",
+   "t": "2025-02-13 16:00:00",
+   "trade return %": -38.79
+  },
+  {
+   "coin": "ATH",
+   "venue": "coinbase",
+   "t": "2025-03-13 16:00:00",
+   "trade return %": 10.35
+  },
+  {
+   "coin": "L3",
+   "venue": "coinbase",
+   "t": "2025-03-27 16:00:00",
+   "trade return %": 65.25
+  },
+  {
+   "coin": "PROMPT",
+   "venue": "coinbase",
+   "t": "2025-04-10 19:00:00",
+   "trade return %": -47.27
+  },
+  {
+   "coin": "USD1",
+   "venue": "coinbase",
+   "t": "2025-08-21 17:00:00",
+   "trade return %": -0.06
+  },
+  {
+   "coin": "DBR",
+   "venue": "coinbase",
+   "t": "2025-10-29 16:00:00",
+   "trade return %": 31.46
+  },
+  {
+   "coin": "WET",
+   "venue": "coinbase",
+   "t": "2025-12-09 22:00:00",
+   "trade return %": -30.15
+  },
+  {
+   "coin": "BEAM",
+   "venue": "coinbase",
+   "t": "2025-12-16 18:00:00",
+   "trade return %": 11.2
+  },
+  {
+   "coin": "SKR",
+   "venue": "coinbase",
+   "t": "2026-01-21 16:00:00",
+   "trade return %": -32.33
+  },
+  {
+   "coin": "BIRB",
+   "venue": "coinbase",
+   "t": "2026-01-28 15:00:00",
+   "trade return %": -39.73
+  }
+ ]
+}
