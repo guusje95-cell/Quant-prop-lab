@@ -1,0 +1,41 @@
+{
+ "weights": {
+  "T1": 0.14,
+  "T2": 0.342,
+  "FC": 0.109,
+  "MM": 0.173,
+  "K3": 0.151,
+  "OIL": 0.086
+ },
+ "reference bf2.7 candidate": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "sleeve": [
+  0.804,
+  [
+   0.465,
+   1.914,
+   0.251
+  ]
+ ],
+ "book with it": [
+  2.929,
+  [
+   1.642,
+   4.218,
+   2.3
+  ]
+ ],
+ "pass": false,
+ "corr sleeve vs crypto v9.8": -0.023,
+ "corr sleeve vs US index sleeve": 0.62,
+ "corr book vs crypto v9.8 before / after": [
+  0.863,
+  0.788
+ ]
+}
