@@ -1,0 +1,68 @@
+{
+ "XAUUSD": {
+  "2013-17": {
+   "overnight": 0.754,
+   "spread overnight-day": 0.88,
+   "buy-and-hold": -0.298,
+   "days": 992
+  },
+  "2018-22": {
+   "overnight": 0.841,
+   "spread overnight-day": 0.28,
+   "buy-and-hold": 0.361,
+   "days": 999
+  },
+  "2023-26": {
+   "overnight": 1.652,
+   "spread overnight-day": 1.004,
+   "buy-and-hold": 0.963,
+   "days": 744
+  },
+  "2013-26": {
+   "overnight": 1.078,
+   "spread overnight-day": 0.72,
+   "buy-and-hold": 0.335,
+   "days": 2735
+  }
+ },
+ "XAGUSD": {
+  "2013-17": {
+   "overnight": 0.812,
+   "spread overnight-day": 1.276,
+   "buy-and-hold": -0.539,
+   "days": 990
+  },
+  "2018-22": {
+   "overnight": 1.267,
+   "spread overnight-day": 1.427,
+   "buy-and-hold": 0.059,
+   "days": 978
+  },
+  "2023-26": {
+   "overnight": 0.956,
+   "spread overnight-day": 0.854,
+   "buy-and-hold": 0.386,
+   "days": 762
+  },
+  "2013-26": {
+   "overnight": 0.979,
+   "spread overnight-day": 1.154,
+   "buy-and-hold": 0.012,
+   "days": 2730
+  }
+ },
+ "A gold 2013-17 pass": true,
+ "B silver 2013-26 pass": true,
+ "futures book 2010-17 / 2018-22 / 2023-26: without / with": [
+  [
+   1.459,
+   1.451,
+   1.218
+  ],
+  [
+   1.558,
+   1.589,
+   1.425
+  ]
+ ]
+}

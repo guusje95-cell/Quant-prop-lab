@@ -1,0 +1,13 @@
+{
+ "id": "FPA-4b",
+ "date": "2026-11-02",
+ "registered": "after FPA-4 passed, before any check below",
+ "checks": {
+  "costs": "2x and 3x (2 / 3 bp per side; overnight spreads are wider, silver especially)",
+  "timing": "start 19:00 or 20:00 ET instead of 18:00 (avoid the thin reopen); end 07:00 or 09:00 ET instead of 08:00",
+  "by year": "overnight-leg Sharpe per calendar year, gold and silver",
+  "split": "Asian part (18:00 -> 03:00 ET) vs London part (03:00 -> 08:00 ET)"
+ },
+ "judge": "robust if the futures-book gain stays >= +0.05 with every period not lower at 3x costs and in each of the 4 timing variants, and the overnight leg is positive in at least 10 of 14 years for both metals",
+ "trials_added": 0
+}
