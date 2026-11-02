@@ -1,0 +1,5 @@
+{"id": "CME-B", "date": "2026-11-02", "registered": "before computing the basis series",
+ "why": "the CME bitcoin futures premium over spot measures how crowded regulated / institutional leveraged longs are (cash-and-carry demand). Momentum of the basis and CME positioning failed earlier; the LEVEL as a contrarian timing signal was never tested",
+ "signal": "daily at 00:00 UTC: annualised basis b = (CME front BTC close (Databento BTC.v.0, last hourly close before 00:00) / Binance BTCUSDT perp close - 1) x 365 / days to the front contract's expiry (last Friday of the month, 15:00 UTC; switch to BTC.v.1 in the last 5 days); z = (b - 90-day mean) / 90-day sd; position in BTC and ETH perps: -0.15 x clip(z, -2, 2) / 2 (contrarian), held for the next day; 5 bp per side, Binance funding",
+ "judge": "as a sleeve of crypto v9.8 (portfolio_v5, strict rule: book >= 3.211 + 0.05, no period lower) AND of the bf2.7 CFD candidate (>= 2.947 + 0.05, no period lower; CFD costs, no funding)",
+ "trials_added": 1}
