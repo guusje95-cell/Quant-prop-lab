@@ -1,0 +1,8 @@
+{"id": "v99-R49", "date": "2026-11-02", "registered": "after counting the titles (69 Launchpool + 7 Megadrop with a ticker), before running r49_launchpool.py",
+ "flag": "FLAGGED: Gen469 already saw these tokens' listing-short returns (as x2 sizing inside the event short: failed, 2025-26 better); the separate-sleeve form is chosen because R30 / R42 showed separate sleeves add more than merged ones",
+ "why": "Launchpool / Megadrop farm rewards are free tokens to BNB lockers that are sold when the perp/spot opens (forced supply), the same mechanism as the HODLer airdrop (R42)",
+ "events": "titles containing 'Launchpool' or 'Megadrop' with the ticker in parentheses (catalogs 48 / 49 / 157 / 93), 2021-06..2026-09-23; entry at the first hour the coin's Binance USDT perp trades at or after the announcement, within 72 h (else no trade); only coins with a Bybit perp at entry (R45 filter)",
+ "rule": "R16 A rules (short 5% from the close of that hour, 7 days, +30% stop, 10 bp, funding), one trade per coin per 7 days, as a separate sleeve",
+ "checks": "placebo +-60 days; overlap with the HODLer events",
+ "judge": "on top of the best candidate (R45 Bybit-filtered ALL + add + HODLer, 4.5% total low-cap cap, risk 1.5 = 3.550 [2.686, 4.170, 3.360]): capped book >= 3.600 and no period lower; >= 30 trades",
+ "trials_added": 1}

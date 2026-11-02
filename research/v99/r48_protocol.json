@@ -1,0 +1,10 @@
+{"id": "v99-R48", "date": "2026-11-02", "registered": "before computing any of the stressed books below",
+ "why": "the best v9.9 candidate (ALL + add + HODLer, Bybit filter, 4.5% low-cap cap: 3.550 [2.686, 4.170, 3.360] vs v9.8 capped 3.061 [2.465, 3.870, 2.592]) rests on four event sleeves with few events, partly from one 2025 'young coins dumped' regime. Before it goes to paper it must show that the gain is not a handful of trades or luck, and that it survives live frictions",
+ "base": "exactly R45 Bybit-filtered, capped (4.5% total low-cap, risk 1.5); the four new sleeves are stressed together, v9.8 sleeves untouched",
+ "stresses": {
+   "S1 drop winners": "remove the best 5% and the best 10% of events (by stand-alone trade return) in EACH new sleeve",
+   "S2 event bootstrap": "resample the events of each new sleeve with replacement (200 draws, seed 48); report the distribution of capped book minus v9.8 capped",
+   "S3 entry delay": "every new-sleeve entry 1 h, 3 h and 6 h later (live detection / announcement latency)",
+   "S4 costs": "2x and 3x the 10 bp per side on the new sleeves"},
+ "judge": "robust if ALL of: S1 drop-10% book >= 3.061 + 0.05 with no period lower than v9.8 capped; S2 P(gain <= 0) < 5%; S3 +3 h book >= 3.111; S4 2x costs book >= 3.111. Otherwise the candidate's planning Sharpe gets an extra discount equal to the shortfall (reported, not optimised)",
+ "trials_added": 0, "note": "diagnostic only: no parameter is chosen from these results"}
