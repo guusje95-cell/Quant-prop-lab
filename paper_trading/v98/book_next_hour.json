@@ -1,94 +1,72 @@
 {
- "for_hour_utc": "2026-10-30 18:00:00",
- "made_at_utc": "2026-10-30 18:11:19.429955",
- "data_cutoff_utc": "2026-10-30 18:00:00",
- "equity": 199588.28,
+ "for_hour_utc": "2026-11-02 08:00:00",
+ "made_at_utc": "2026-11-02 08:11:06.093673",
+ "data_cutoff_utc": "2026-11-02 08:00:00",
+ "equity": 198871.57,
  "risk": 2.0,
  "target_notional_usd": {
-  "ETH": -70973.74,
-  "BTC": -68252.65,
-  "SOL": -35633.5,
-  "PREDICT": -3705.72,
-  "CT": -3705.72,
-  "XLM": 1324.68,
-  "AVAX": 2649.37,
-  "NEAR": 2649.37,
-  "UNI": 2649.37,
-  "LINK": 3974.05,
-  "ADA": 3974.05,
-  "DOT": 3974.05,
-  "FIL": 3974.05,
-  "BCH": 3974.05,
-  "ATOM": 3974.05,
-  "AAVE": 3974.05,
-  "ETC": 3974.05,
-  "TRX": 3974.05,
-  "XRP": 5418.04,
-  "BNB": 14412.99,
-  "DOGE": 22325.06
+  "ETH": -66850.48,
+  "SOL": -47812.87,
+  "BTC": -17972.11,
+  "PREDICT": -4662.81,
+  "ADA": -3287.82,
+  "XLM": -3287.82,
+  "LINK": -1643.91,
+  "AAVE": -1643.91,
+  "UNI": -1643.91,
+  "NEAR": -1643.91,
+  "ETC": -1643.91,
+  "XRP": 626.24,
+  "BNB": 17770.24,
+  "DOGE": 23127.66
  },
  "by_sleeve_usd": {
   "1000PEPE": {},
   "1000SHIB": {},
   "1INCH": {},
   "AAVE": {
-   "alt kimchi": 3974.05
+   "alt kimchi": -1643.91
   },
   "ADA": {
-   "alt kimchi": 3974.05
+   "alt kimchi": -3287.82
   },
   "ALGO": {},
   "APE": {},
   "APT": {},
   "ARB": {},
-  "ATOM": {
-   "alt kimchi": 3974.05
-  },
-  "AVAX": {
-   "alt kimchi": 2649.37
-  },
+  "ATOM": {},
+  "AVAX": {},
   "AXS": {},
-  "BCH": {
-   "alt kimchi": 3974.05
-  },
+  "BCH": {},
   "BNB": {
-   "relative crowding 6": 14412.99
+   "relative crowding 6": 17770.24
   },
   "BTC": {
-   "trend 4h": -18941.67,
-   "ridge ML": -38746.42,
-   "diversifier basket": -12390.3,
-   "relative crowding 6": 1825.75
+   "trend 4h": 10251.15,
+   "ridge ML": -31898.63,
+   "diversifier basket": 2419.03,
+   "relative crowding 6": 1256.33
   },
   "CHZ": {},
   "COMP": {},
   "CRV": {},
-  "CT": {
-   "listing short": -3705.72
-  },
   "DASH": {},
   "DOGE": {
-   "alt kimchi": 2649.37,
-   "relative crowding 6": 19675.69
+   "relative crowding 6": 23127.66
   },
-  "DOT": {
-   "alt kimchi": 3974.05
-  },
+  "DOT": {},
   "DYDX": {},
   "EGLD": {},
   "ENJ": {},
   "ETC": {
-   "alt kimchi": 3974.05
+   "alt kimchi": -1643.91
   },
   "ETH": {
-   "trend 4h": -19614.67,
-   "ridge ML": -38746.42,
-   "diversifier basket": 2724.86,
-   "relative crowding 6": -15337.51
+   "ridge ML": -39318.88,
+   "diversifier basket": -10267.93,
+   "relative crowding 6": -17263.67
   },
-  "FIL": {
-   "alt kimchi": 3974.05
-  },
+  "FIL": {},
   "GALA": {},
   "GRT": {},
   "HBAR": {},
@@ -99,44 +77,42 @@
   "KSM": {},
   "LDO": {},
   "LINK": {
-   "alt kimchi": 3974.05
+   "alt kimchi": -1643.91
   },
   "LTC": {},
   "MANA": {},
   "NEAR": {
-   "alt kimchi": 2649.37
+   "alt kimchi": -1643.91
   },
   "NEO": {},
   "OP": {},
   "PREDICT": {
-   "listing short": -3705.72
+   "listing short": -4662.81
   },
   "RUNE": {},
   "SAND": {},
   "SNX": {},
   "SOL": {
-   "trend 4h": -17586.64,
-   "alt kimchi": 3974.05,
-   "relative crowding 6": -22020.91
+   "trend 4h": -19008.24,
+   "alt kimchi": -1643.91,
+   "relative crowding 6": -27160.71
   },
   "STX": {},
   "SUI": {},
   "SUSHI": {},
   "THETA": {},
   "TIA": {},
-  "TRX": {
-   "alt kimchi": 3974.05
-  },
+  "TRX": {},
   "UNI": {
-   "alt kimchi": 2649.37
+   "alt kimchi": -1643.91
   },
   "WLD": {},
   "XLM": {
-   "alt kimchi": 1324.68
+   "alt kimchi": -3287.82
   },
   "XRP": {
-   "alt kimchi": 3974.05,
-   "relative crowding 6": 1443.99
+   "alt kimchi": -1643.91,
+   "relative crowding 6": 2270.15
   },
   "XTZ": {},
   "YFI": {},
@@ -147,15 +123,15 @@
  "cascade_open_trades": [],
  "weiss": null,
  "sleeve_multipliers": {
-  "C*": 0.5509,
-  "trend 4h": 0.6924,
-  "Weiss expiry": 1.3855,
-  "delev bounce": 0.3624,
-  "ridge ML": 0.1941,
-  "alt kimchi": 0.0996,
-  "diversifier basket": 0.4711,
-  "relative crowding 6": 1.2842,
-  "listing short": 0.1857
+  "C*": 0.5955,
+  "trend 4h": 0.7362,
+  "Weiss expiry": 1.3522,
+  "delev bounce": 0.4,
+  "ridge ML": 0.1977,
+  "alt kimchi": 0.124,
+  "diversifier basket": 0.5036,
+  "relative crowding 6": 1.5394,
+  "listing short": 0.2345
  },
  "note": "simulation only - no order is sent anywhere"
 }
