@@ -1,0 +1,6 @@
+{"id": "v99-C2", "date": "2026-11-02", "registered": "before computing the sleeve or any book with it",
+ "why": "the CFD book's only non-crypto sleeve trades US100/US500/US30. BrightFunded also lists GER30, UK100, JAP225, EU50, FRA40 and ASX (AUS200). Volatility-managed equity exposure (Moreira & Muir 2017) is documented across international markets, and non-US index CFDs are close to uncorrelated with crypto: a natural way to lift the CFD book AND lower its correlation with the crypto account",
+ "sleeve": "'vol-managed intl indices': per index the existing P6 rule unchanged (scripts/index_sleeve.py: position 0.5 x min(0.15 / 20-day realised vol, 2), set from the previous day), on Dukascopy hourly BID closes of DE40, UK100, JP225, EU50, FR40, AUS200, equal-weighted (mean over the six); cost per side max(1 bp, half the measured BrightFunded spread); swap-free (as the account)",
+ "reference": "bf2.7 candidate (C1 C: honest bf + rc6 CFD + basket CFD) 2.941 [1.731, 4.077, 2.432]; same construction (portfolio_v5, 0.15 / sd 2022-24); periods 2022 / 2023-24 / 2025-26-09",
+ "judge": "book >= 2.991 and no period lower", "also_reported": "sleeve by period, correlation with the crypto v9.8 book, 2x costs",
+ "trials_added": 1}
