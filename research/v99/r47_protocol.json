@@ -1,0 +1,6 @@
+{"id": "v99-R47", "date": "2026-11-02", "registered": "after counting the stop-outs (252 of 510 event-short trades end early), before computing any return after them",
+ "why": "the event shorts lose in hype phases (2023-24): a +30% stop means a squeeze; forced buying by other shorts and momentum traders tends to continue (squeeze continuation / momentum ignition). A long after the stop is the natural hedge of the event sleeve, strongest exactly when it loses",
+ "events": "every v9.8 event-short trade (event_live.pnl, rebuilt as in R23) that ends more than 1.5 days before its planned hold (14 days delisting, 30 days listing) and not at the data end = a stop-out",
+ "rule": "long 5% of equity in that coin's Binance perp from the close of the hour after the stop-out for 7 days, exit at -25% from the entry close, 10 bp per side, funding; one trade per coin at a time; as a separate sleeve",
+ "checks": "placebo: the same coins with the long entry moved +14 days and -14 days (where prices exist); on top of ALL + add + HODLer, also with the 4.5% total low-cap cap",
+ "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
