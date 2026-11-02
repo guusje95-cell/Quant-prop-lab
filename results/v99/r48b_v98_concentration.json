@@ -1,0 +1,27 @@
+{
+ "v9.8 capped": [
+  3.061,
+  [
+   2.465,
+   3.87,
+   2.592
+  ]
+ ],
+ "event coins": 617,
+ "v9.8 without its best 5% event coins (capped)": [
+  2.934,
+  [
+   2.389,
+   3.839,
+   2.338
+  ]
+ ],
+ "v9.8 without its best 10% event coins (capped)": [
+  2.797,
+  [
+   2.239,
+   3.805,
+   2.101
+  ]
+ ]
+}
