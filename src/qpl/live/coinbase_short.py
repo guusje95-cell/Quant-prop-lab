@@ -178,7 +178,32 @@ def step(log=print) -> dict:
         res["new binance 'add' announcements"] = f"failed: {e}"
     AE = [(c, T, None, "binance add") for c, T in binance_adds()]
     res["binance add"] = _run(AE, ROOT / "paper_trading/addshort", "binance add short", {"binance add": 7}, now)
+    HE = [(c, T, None, "binance hodler") for c, T in hodler_airdrops()]
+    res["binance hodler"] = _run(HE, ROOT / "paper_trading/hodlershort", "hodler short", {}, now)
     return res
+
+
+def hodler_airdrops() -> list[tuple[str, pd.Timestamp]]:
+    """'... (<TICKER>) on Binance HODLer Airdrops' announcements at or after START (R42): T = the first hour the coin's Binance USDT perp
+    trades at or after the release, within 72 h (entry at the close of the bar T + 1 h in trade_pnl's convention, i.e. one hour later
+    than R42's first-perp-hour close; conservative). Coins whose perp has not started yet are retried next hour."""
+    import re
+    arts = {}
+    for f in (ROOT / "research_data/binance_announcements/catalog_48.json", ROOT / "paper_trading/eventdata/announcements/catalog_48.json"):
+        try:
+            arts.update({a["id"]: a for a in json.loads(f.read_text(encoding="utf-8"))["articles"]})
+        except (OSError, ValueError, KeyError):
+            continue
+    out = []
+    for a in arts.values():
+        t = pd.to_datetime(a["releaseDate"], unit="ms")
+        if t < START or "HODLer Airdrop" not in a["title"]:
+            continue
+        for tk in re.findall(r"\(([A-Z0-9]{2,15})\)", a["title"]):
+            cl = klines(tk, t.floor("h"), t + pd.Timedelta(hours=73))
+            if cl is not None and len(cl):
+                out.append((tk, cl.index[0]))
+    return out
 
 
 def binance_adds() -> list[tuple[str, pd.Timestamp]]:

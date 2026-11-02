@@ -1,0 +1,8 @@
+{
+ "name": "Paper sleeve: Binance HODLer-airdrop sell-the-news short (v9.9 candidate R42, flagged, evidence 2025-26)",
+ "registered": "2026-11-02, before any announcement after 2026-11-01 was seen",
+ "what": "qpl.live.coinbase_short.step (hub job 'cbshort_paper', hourly): Binance catalog 48 titles with 'HODLer Airdrop' -> once the coin's Binance USDT perp trades (within 72 h), short 5% of equity for 7 days, +30% stop, 10 bp, funding. Frozen hourly ledger paper_trading/hodlershort/ledger_hourly.csv",
+ "frozen": {"account": 200000, "risk": 1.0, "start_after": "2026-11-01"},
+ "reference": {"backtest": "R42: 59 trades, mean +19.2%, book 3.405 vs 3.211; ALL + add + hodler capped 3.600 vs 3.544"},
+ "changes": []
+}
