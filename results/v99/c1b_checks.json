@@ -1,0 +1,38 @@
+{
+ "as tested": [
+  2.941,
+  [
+   1.731,
+   4.077,
+   2.432
+  ]
+ ],
+ "costs x2": [
+  2.842,
+  [
+   1.634,
+   3.975,
+   2.336
+  ]
+ ],
+ "costs x3": [
+  2.743,
+  [
+   1.537,
+   3.872,
+   2.24
+  ]
+ ],
+ "entry 1 h late": [
+  2.935,
+  [
+   1.692,
+   4.057,
+   2.456
+  ]
+ ],
+ "gross of the two new sleeves before book weights (x equity at sleeve level): median / p99": [
+  0.458,
+  1.032
+ ]
+}

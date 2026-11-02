@@ -1,0 +1,110 @@
+{
+ "costs per side bp": {
+  "BTC": 1.38,
+  "ETH": 4.31,
+  "SOL": 3.07,
+  "XRP": 2.74,
+  "BNB": 2.53,
+  "DOGE": 12.16
+ },
+ "reference honest bf (no carry)": [
+  2.3,
+  [
+   0.236,
+   3.754,
+   2.143
+  ]
+ ],
+ "bf2.6 (with carry)": [
+  2.83,
+  [
+   0.43,
+   4.067,
+   2.927
+  ]
+ ],
+ "sleeve rc6 CFD": [
+  1.459,
+  [
+   1.322,
+   1.505,
+   1.583
+  ]
+ ],
+ "sleeve basket CFD": [
+  2.832,
+  [
+   3.543,
+   3.453,
+   1.699
+  ]
+ ],
+ "corr with crypto v9.8 book": {
+  "rc6 CFD": 0.285,
+  "basket CFD": 0.577,
+  "honest bf": 0.733
+ },
+ "A honest bf + rc6 CFD": {
+  "book": [
+   2.72,
+   [
+    1.208,
+    3.95,
+    2.361
+   ]
+  ],
+  "pass": true,
+  "on bf2.6 (descriptive)": [
+   3.116,
+   [
+    1.267,
+    4.105,
+    3.112
+   ]
+  ],
+  "bf2.6 strict (descriptive)": true,
+  "corr with crypto v9.8": 0.82
+ },
+ "B honest bf + basket CFD": {
+  "book": [
+   2.625,
+   [
+    1.029,
+    3.87,
+    2.278
+   ]
+  ],
+  "pass": true,
+  "on bf2.6 (descriptive)": [
+   3.093,
+   [
+    1.157,
+    4.187,
+    2.998
+   ]
+  ],
+  "bf2.6 strict (descriptive)": true,
+  "corr with crypto v9.8": 0.789
+ },
+ "C honest bf + both": {
+  "book": [
+   2.941,
+   [
+    1.731,
+    4.077,
+    2.432
+   ]
+  ],
+  "pass": true,
+  "on bf2.6 (descriptive)": [
+   3.305,
+   [
+    1.792,
+    4.243,
+    3.124
+   ]
+  ],
+  "bf2.6 strict (descriptive)": true,
+  "corr with crypto v9.8": 0.862
+ }
+}
