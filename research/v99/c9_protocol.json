@@ -1,0 +1,4 @@
+{"id": "C9", "date": "2026-11-02", "registered": "before computing", "trials_added": 1,
+ "why": "C4: in the CFD book Weiss expiry is the third-largest contributor (+0.14) with the lowest correlation to crypto (0.14), but runs at HALF weight (the crypto-book convention since Gen72). R33 tested full weight in the CRYPTO book only (+0.039, 2025-26 lower)",
+ "change": "bf2.7 candidate with Weiss expiry at full equal-risk weight (crypto_sleeves.v5_weights weiss_scale 1.0 instead of 0.5); nothing else",
+ "judge": "book >= 2.947 + 0.05 and no period lower"}
