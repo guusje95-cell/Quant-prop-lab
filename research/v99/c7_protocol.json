@@ -1,0 +1,6 @@
+{"id": "v99-C7", "date": "2026-11-02", "registered": "after looking only at the 2010-22 fit-period Sharpe of the six futures sleeves (0.31-0.77, all positive), before any 2022-26 number or book",
+ "why": "the futures book's US equity-timing sleeves (turn of month T1, pre-holiday T2, FOMC-cycle weeks FC, mid-month flow MM, pension rebalancing K3, long after an oil fall OIL; each adopted earlier with out-of-sample evidence on ES/NQ) were never moved to the BrightFunded index CFDs (US500 / US100), which are listed. They are calendar / flow effects, close to uncorrelated with crypto",
+ "sleeve": "'US equity calendar CFD': equal-risk mix of the six daily futures sleeve returns (results/book_sleeves_current.parquet; weights 1 / sd over 2010-22, the futures-book rule) used as a PROXY for the same positions in US500 / US100 CFDs (FLAGGED: futures returns, not CFD prices; futures costs; a swap-free CFD avoids the financing a futures long pays, so the proxy is slightly conservative), booked at 21:00 UTC of each trading day",
+ "reference": "bf2.7 candidate 2.947 [1.751, 4.077, 2.432]",
+ "judge": "book >= 2.997 and no period lower",
+ "trials_added": 1}
