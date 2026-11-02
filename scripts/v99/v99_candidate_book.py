@@ -15,6 +15,7 @@ import r16_coinbase as R16
 import r22_upbit_r16rules as R22
 import r32_binance_tag_sleeves as R32
 import r34_binance_add as R34
+import r42_hodler as R42
 
 V = pd.read_parquet(ROOT / "results/v95_sleeves.parquet"); idx = V.index; V7 = V.drop(columns="cascade limit strict")
 s8, pos8, _ = EL.pnl(idx); V8 = V7.assign(**{"listing short": s8}); SC = 0.902; RISK = 1.5
@@ -36,6 +37,7 @@ hu, Pu = RB.venue(list(R16.events().items()) + list(R22.upbit_events().items()),
 hf, _ = R32.sleeve(R32.events()["futures delisting"], 14, idx); gf = (hf != 0).astype(float) * 0.05
 H_all = V8.assign(**{"venue listing short": hu, "futures-delisting short": hf})
 ha, Pa = RB.venue(list(R34.events().items()), idx); H_add = H_all.assign(**{"binance add short": ha})
+hh, Ph = RB.venue(list(R42.events().items()), idx); H_hod = H_add.assign(**{"hodler short": hh})
 out = pd.DataFrame({"book": CS.portfolio_v5(H)[0] * SC, "v9.8 book": CS.portfolio_v5(V8)[0] * SC,
                     "book with low-cap cap": capped(H, {"venue listing short": P.abs().sum(axis=1)}) * SC,
                     "v9.8 with low-cap cap": capped(V8, {}) * SC,
@@ -43,5 +45,7 @@ out = pd.DataFrame({"book": CS.portfolio_v5(H)[0] * SC, "v9.8 book": CS.portfoli
                     "ALL with low-cap cap": capped(H_all, {"venue listing short": Pu.abs().sum(axis=1), "futures-delisting short": gf}) * SC,
                     "ALL + Binance add (R34)": CS.portfolio_v5(H_add)[0] * SC,
                     "ALL + Binance add with low-cap cap": capped(H_add, {"venue listing short": Pu.abs().sum(axis=1), "futures-delisting short": gf, "binance add short": Pa.abs().sum(axis=1)}) * SC,
-                    "venue listing short (sleeve)": h, "binance add short (sleeve)": ha, "Coinbase+Upbit sleeve": hu, "futures-delisting short (sleeve)": hf}).loc["2022-01-01":"2026-09-30 23:00"].fillna(0.0)
+                    "ALL + add + HODLer (R42)": CS.portfolio_v5(H_hod)[0] * SC,
+                    "ALL + add + HODLer with low-cap cap": capped(H_hod, {"venue listing short": Pu.abs().sum(axis=1), "futures-delisting short": gf, "binance add short": Pa.abs().sum(axis=1), "hodler short": Ph.abs().sum(axis=1)}) * SC,
+                    "venue listing short (sleeve)": h, "binance add short (sleeve)": ha, "hodler short (sleeve)": hh, "Coinbase+Upbit sleeve": hu, "futures-delisting short (sleeve)": hf}).loc["2022-01-01":"2026-09-30 23:00"].fillna(0.0)
 out.to_parquet(ROOT / "results/v99/v99_candidate_book.parquet"); print(out.shape)
