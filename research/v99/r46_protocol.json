@@ -1,0 +1,5 @@
+{"id": "v99-R46", "date": "2026-11-02", "registered": "before running r46_bybit_listing_sleeve.py; FLAGGED: Gen431 / Gen453 tested the same events MERGED into the listing short (near miss, then fail); this is the R30 separate-sleeve construction",
+ "events": "Gen431 unchanged: Bybit USDT perps launched >= LL.FIRST, first-24h turnover >= $10M, not a Binance listing event within 7 days (Bybit-only / Bybit-first), TradFi excluded; Bybit hourly closes and funding from research_data/bybit_listings (first 40 days)",
+ "rule": "the v9.6 listing-short rule (listing_live.positions: short from the first UTC midnight >= 24 h after the first bar, 30 days, 30% stop), own gross cap 0.5, 10 bp, Bybit funding; as a separate 10th sleeve",
+ "checks": "no date placebo possible (prices exist only for the first 40 days); by-year sleeve; on top of ALL + add + HODLer with and without the 4.5% total low-cap cap",
+ "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
