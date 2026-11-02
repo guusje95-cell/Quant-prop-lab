@@ -1,0 +1,9 @@
+{"id": "v99-C6", "date": "2026-11-02", "registered": "before running the grid",
+ "why": "the CFD account's euros depend more on deployment (risk, daily stop, number of accounts) than on +0.05 Sharpe",
+ "returns": "bf2.7 candidate book (C1 C) hourly at 15% vol, shifted to an ASSUMED live Sharpe (qpl.hub.income.simulate, 20-day block bootstrap of 2022-01..2026-09 days, 400 paths, 2 years)",
+ "firm": "BrightFunded Two-Step Classic $200k preset (10% / 5% targets, 5% daily, 10% static max loss, 80% split, 14-day cadence; fee $757)",
+ "grid": {"live Sharpe": [1.0, 1.36, 1.7], "risk": [1.0, 1.25, 1.5, 1.75, 2.0, 2.5], "daily stop (fraction of the 5% limit)": [0.4, 0.5, 0.6],
+          "plan": ["one account", "two accounts (second after 180 days)"]},
+ "decision_rule": "at the planning Sharpe 1.36: the (risk, stop) with the highest 2-year mean net EUR among cells with P(net loss over 2 years) <= 0.25; it must also stay positive in mean at Sharpe 1.0. Second account: only if it raises the mean net AND the p10 of 2-year net does not fall",
+ "caveat": "a model estimate on assumed Sharpe; firm presets partly unverified; accounts on one strategy move together; descriptive, 0 alpha trials",
+ "trials_added": 0}
