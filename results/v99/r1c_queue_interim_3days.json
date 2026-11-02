@@ -1,0 +1,9 @@
+{
+ "orders": 29,
+ "days": 2,
+ "fill rate (queue model)": 1.0,
+ "of which by trade-through": 1.0,
+ "mean gain bp (notional-weighted)": 4.2,
+ "median queue ahead USD": 10013,
+ "R1b reference (Bybit ticks, trade-through)": 2.99
+}
