@@ -1,0 +1,7 @@
+{"id": "FPA-5", "date": "2026-11-02", "registered": "before loading NQ 2010-17 for this rule",
+ "why": "P5 (NR7 + 30-minute opening-range breakout, FPA-1) is the only price-action survivor: it passed dev / judge on Dukascopy US indices, failed the 2x-cost check, did not replicate on DE40 and only partly on gold. An honest test needs (1) data it has never seen and (2) real futures trade prices",
+ "tests": {"A out-of-period": "the unchanged P5 rule on Databento NQ 1-minute TRADES (front contract per day by bar count), resampled to 5-minute bars, 2010-06 .. 2017-12 (never used for P5)",
+           "B same-period futures check": "the same code on Databento NQ and ES 1-minute trades 2018-01 .. 2026-09 (does the Dukascopy result hold on real futures prices?)"},
+ "costs": "1 bp per side (as FPA-1) and 0.5 bp (a realistic micro-contract cost with limit entries is not assumed; 0.5 bp only reported)",
+ "judge": "A: net Sharpe >= 0.4 on NQ 2010-17 at 1 bp; B: NQ and ES each >= 0.3 at 1 bp over 2018-26. P5 becomes a futures-book CANDIDATE only if A and B pass",
+ "trials_added": 1}
