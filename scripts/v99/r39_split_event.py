@@ -20,7 +20,14 @@ def main():
         d = dd(x.loc[a:z]); return round(float(d.mean() / d.std() * np.sqrt(365)), 3) if d.std() > 0 else None
     per = lambda x: [shp(x, "2022", "2022"), shp(x, "2023", "2024"), shp(x, "2025", "2026-09-30")]
     book = lambda H: (lambda b: [shp(b, "2022", "2026-09-30"), per(b)])(unit(CS.portfolio_v5(H)[0]))
-    keep = lambda pref: (lambda P, CF: P.where(np.array([c.startswith("spo_") == pref for c in P.columns])[None, :], 0.0))
+    def keep(pref):
+        def hook(P, CF):
+            P = P.copy()
+            for c in P.columns:
+                if c.startswith("spo_") != pref:
+                    P[c] = 0.0
+            return P
+        return hook
     sl, _, _ = EL.pnl(idx, pre_cap=keep(False)); sd, _, _ = EL.pnl(idx, pre_cap=keep(True))
     ref = book(V8); r = book(V7.assign(**{"listing short": sl, "delisting short": sd}))
     out = {"reference v9.8": ref, "listing part 2022 / 23-24 / 25-26": per(sl), "delisting part": per(sd), "event short (both)": per(s8),
