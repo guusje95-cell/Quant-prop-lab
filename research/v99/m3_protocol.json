@@ -1,0 +1,9 @@
+{"id": "M3", "date": "2026-11-02", "registered": "before computing any variant", "trials_added": 0,
+ "why": "the CFD book (bf2.7 candidate) may run at several CFD prop firms; each firm lists other crypto CFDs, charges another commission and may restrict weekend crypto trading. 0 alpha trials: the strategy is unchanged, only the firm's tradable universe and costs",
+ "variants": {
+   "BF BrightFunded (reference)": "bf2.7 candidate as in C1: 11 CFD coins, measured spreads, 1.2 bp commission",
+   "FN FundedNext swap-free": "crypto CFDs BTC ETH XRP ADA DOGE LINK LTC XLM (no SOL / AVAX / DOT / BCH / BNB); commission 4 bp per side; relative crowding on the 4 listed of its 6 coins (BTC ETH XRP DOGE); trend 4h on BTC ETH; alt kimchi on the listed altcoins; indices as BF",
+   "FN-wd FundedNext, crypto on weekdays only": "FN with every crypto sleeve flat from Friday 21:00 UTC to Sunday 21:00 UTC (P&L zeroed; the extra weekend round trip is not charged = optimistic)",
+   "BF-c3 / BF-c4 / BF-c6": "BF universe with 3.25 / 4 / 6 bp commission per side (typical other CFD firms)"},
+ "report": "backtest Sharpe 2022-26 and by period; planning Sharpe with the same deduction as bf2.7 (2.947 -> 1.36)",
+ "data_note": "spreads: half the measured BrightFunded spread for every firm (other firms' spreads are unknown)"}
