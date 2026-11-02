@@ -31,7 +31,8 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
   diversifier basket als BrightFunded-CFD's (gebruikt alleen de v9.8-data, read-only). Vanaf 3-11 00:00 UTC.
 - Dashboard -> Paper Trading -> Shadow accounts: **`bf27cand:honest_plus_rc6_basket`** naast `bf26:without_carry`.
 - Optioneel (beter niveau van de schaduw, 5-20 min): dubbelklik **`oos_october_bf26.bat`** (rekent bf2.6 door tot zijn paper-start, pusht zelf).
-- Af en toe meepushen: `git add paper_trading/rc6cfd paper_trading/basketcfd` -> commit -> push.
+- Af en toe meepushen: `git add paper_trading/rc6cfd paper_trading/basketcfd paper_trading/trendcfd paper_trading/altkcfd` -> commit -> push.
+- NIEUW (2-11 laat): ook schaduw **`bf28cand:weiss_full_ensembles`** (bf2.8: + Weiss vol gewicht + ensembles; backtest 3,06). Alleen hub herstarten na `git pull`.
 
 ## Nieuw (2-11): v9.9-kandidaat bot in DRY-RUN (optie a) - los van v9.8, GEEN paper-account
 - Na `git pull`: dubbelklik **`bot_v99_dryrun.bat`** (laat open staan, naast `paper_v98_start.bat` en de hub). Geen sleutel, geen orders.

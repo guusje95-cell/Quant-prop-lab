@@ -148,7 +148,14 @@ def _composite(c, cfg: dict, P: pd.DataFrame) -> pd.Series:
     if scale is None:
         pc = ROOT / f"config/paper_{ver}.json"
         scale = json.loads(pc.read_text())["frozen"].get(f"{ver}_scale", 1.0) if pc.exists() else 1.0
-    ph, _, _ = CS.portfolio_v5(H, start=str(H.index[0].date()))
+    ws = s.get("weiss_scale")                                          # bf2.8 (C10): Weiss expiry at full weight (default: the book's half)
+    if ws is not None:
+        orig = CS.v5_weights; CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: orig(D, sleeves, weiss_scale=ws)
+    try:
+        ph, _, _ = CS.portfolio_v5(H, start=str(H.index[0].date()))
+    finally:
+        if ws is not None:
+            CS.v5_weights = orig
     return (ph * scale).reindex(P.index).fillna(0.0)
 
 
@@ -247,4 +254,14 @@ def ensure_cfd_defaults(c: sqlite3.Connection, source: str = "paper:bf26") -> li
                            {"account": "paper:basketcfd", "name": "basket CFD", "prefix": "results/v99/basketcfd_sleeve_prefix.parquet"}]}, risk=2.0,
                 description="bf2.7 candidate (C1, user-approved shadow 2026-11-02): bf2.6 without carry + v9.8's relative crowding 6 and diversifier "
                             "basket as BrightFunded CFDs (backtest 2.94 [1.73, 4.08, 2.43] vs honest bf 2.30); bf2.6 itself unchanged", actor="system")]
-        if all(c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (k_,)).fetchone() for k_ in ("paper:rc6cfd", "paper:basketcfd")) else [])
+        if all(c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (k_,)).fetchone() for k_ in ("paper:rc6cfd", "paper:basketcfd")) else []) + (
+        [define(c, "bf28cand:weiss_full_ensembles", source, "composite",
+                {"multipliers": {"premium carry": 0.0, "premium carry BF": 0.0, "trend 4h": 0.0, "alt kimchi": 0.0}, "weiss_scale": 1.0,
+                 "extra": [{"account": "paper:rc6cfd", "name": "rc6 CFD", "prefix": "results/v99/rc6cfd_sleeve_prefix.parquet"},
+                           {"account": "paper:basketcfd", "name": "basket CFD", "prefix": "results/v99/basketcfd_sleeve_prefix.parquet"},
+                           {"account": "paper:trendcfd", "name": "trend 4h ens CFD", "prefix": "results/v99/trendenscfd_sleeve_prefix.parquet"},
+                           {"account": "paper:altkcfd", "name": "alt kimchi ens CFD", "prefix": "results/v99/altkenscfd_sleeve_prefix.parquet"}]}, risk=2.0,
+                description="bf2.8 candidate (C10, user-approved shadow 2026-11-02): bf2.7 + Weiss expiry at full weight + Gen383 ensembles of "
+                            "trend 4h and alt kimchi (backtest 3.06 [1.88, 4.19, 2.53] vs bf2.7 2.95; the 4x Weiss gross cap is applied by the "
+                            "MT5 bridge's 1:5 crypto cap, not in this return series); bf2.6 itself unchanged", actor="system")]
+        if all(c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (k_,)).fetchone() for k_ in ("paper:rc6cfd", "paper:basketcfd", "paper:trendcfd", "paper:altkcfd")) else [])

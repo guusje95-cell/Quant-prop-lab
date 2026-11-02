@@ -1,0 +1,15 @@
+{
+ "name": "Paper sleeve (bf2.8 candidate, C10): trend 4h neighbourhood ensemble (Donchian 15/20/30) on BrightFunded CFDs",
+ "registered": "2026-11-02, before the first paper hour (2026-11-03 00:00 UTC)",
+ "what": "qpl.live.cfd_extra.ensembles (hub job 'cfdx_paper', hourly; v9.8 live data read-only); frozen ledger paper_trading/trendcfd/ledger_hourly.csv",
+ "frozen": {
+  "account": 200000,
+  "risk": 1.0,
+  "start_after": "2026-11-03"
+ },
+ "reference": {
+  "backtest": "C3 / C10 (results/v99/c3_ensembles.json, c10_bf28.json); live code reproduces C3 exactly; point-in-time selftest PASSED (results/v99/c10_selftest.json)"
+ },
+ "gate": "with the bf2.6 paper gate; shadow only",
+ "changes": []
+}

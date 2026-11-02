@@ -453,3 +453,26 @@ def test_cfd_extra_pnl_and_frozen_ledger(tmp_path, monkeypatch):
     X._compute(pd.Timestamp("2026-11-03 05:00"), pd.Timestamp("2026-11-03 05:05"))
     L = pd.read_csv(out["basket CFD"] / "ledger_hourly.csv")
     assert len(L) == 5 and np.allclose(L["port"].iloc[:3], 0.001) and np.allclose(L["port"].iloc[3:], 0.009)
+
+
+def test_composite_weiss_scale(c, tmp_path, monkeypatch):
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import crypto_sleeves as CS
+    from qpl.hub import shadow
+    from qpl.hub.db import now, tx
+    rng = np.random.default_rng(9); idx = pd.date_range("2024-01-01", "2026-03-31 23:00", freq="h"); paper_from = pd.Timestamp("2026-01-01")
+    H = pd.DataFrame({s: rng.normal(0.00003, 0.002, len(idx)) for s in ("A", "B", "Weiss expiry")}, index=idx)
+    pre = tmp_path / "pre.parquet"; H[H.index < paper_from].to_parquet(pre); P = H[H.index >= paper_from]
+    with tx(c):
+        src = c.execute("INSERT INTO paper_accounts (key, source_dir, initial_capital, status, created_at) VALUES ('paper:ww','x',1,'running',?)", (now(),)).lastrowid
+        c.executemany("INSERT INTO paper_sleeve_pnl VALUES (?,?,?,?,?)", [(src, str(t), s, float(v), 0.0) for s in P.columns for t, v in P[s].items()])
+    monkeypatch.setattr(shadow, "ROOT", tmp_path)
+    shadow.define(c, "ww:full", "paper:ww", "composite", {"prefix": "pre.parquet", "scale": 1.0, "weiss_scale": 1.0}, risk=1.0)
+    got = shadow.returns(c, "shadow:ww:full")
+    orig = CS.v5_weights; CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: orig(D, sleeves, weiss_scale=1.0)
+    try:
+        ref = CS.portfolio_v5(H, start="2024-01-01")[0].reindex(P.index)
+    finally:
+        CS.v5_weights = orig
+    assert np.abs(got.to_numpy() - ref.to_numpy()).max() < 1e-12 and CS.v5_weights is orig

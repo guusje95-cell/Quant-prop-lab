@@ -22,7 +22,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[3]
 START = pd.Timestamp("2026-11-03 00:00")
-OUT = {"rc6 CFD": ROOT / "paper_trading/rc6cfd", "basket CFD": ROOT / "paper_trading/basketcfd"}
+OUT = {"rc6 CFD": ROOT / "paper_trading/rc6cfd", "basket CFD": ROOT / "paper_trading/basketcfd",
+       "trend 4h ens CFD": ROOT / "paper_trading/trendcfd", "alt kimchi ens CFD": ROOT / "paper_trading/altkcfd"}     # bf2.8 (C10) adds the last two
 V98 = ROOT / "paper_trading/v98"
 
 
@@ -62,13 +63,36 @@ def sleeves(index: pd.DatetimeIndex, pos: dict | None = None) -> dict[str, pd.Se
     return {k: cfd_pnl(v.reindex(index), R, cost) for k, v in P.items()}
 
 
+def ensembles(index: pd.DatetimeIndex) -> dict[str, pd.Series]:
+    """bf2.8 (C10, user-approved shadow 2026-11-02): the Gen383 neighbourhood ensembles as BrightFunded CFD sleeves, exactly the C3 code:
+    trend 4h = mean of Donchian 15 / 20 / 30 positions on the CFD coins (cfd_book costs); alt kimchi = mean of thresholds 0.75 / 1.0 / 1.25
+    on the altcoin CFDs (measured spread + 1.2 bp); no funding."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import alt_kimchi as AK
+    import cfd_book as CB
+    import crypto_sleeves as CS
+    from qpl.lab import binance_pack as B
+    CB.measured_costs()
+    R = CB.hourly_returns(index[-1]).reindex(index).fillna(0.0)
+    tpos = sum(CS.trend4h(n_in=n, n_out=n // 2, positions=True)[1] for n in (15, 20, 30)) / 3
+    trend = CB.sleeve_pnl(tpos.reindex(columns=CB.CFD).fillna(0.0), R)
+    ws = [AK.weights(th=t) for t in (0.75, 1.0, 1.25)]; aw = sum(ws) / len(ws)
+    ac = [c for c in aw.columns if c in CB.ALT_CFD]; aw = aw[ac]
+    ar = B.panel("close", "1h", ac).pct_change(fill_method=None).reindex(index).fillna(0.0)
+    ap = aw.reindex(aw.index.append(pd.DatetimeIndex([aw.index[-1] + pd.Timedelta(days=1)]))).shift(1)
+    p_ = ap.reindex(index.floor("D")).set_axis(index).fillna(0.0)
+    acost = pd.Series({c: CB.ALT_SPREAD[c] + CB.COMM for c in ac}) / 1e4
+    altk = (p_ * ar).sum(axis=1) - p_.diff().abs().fillna(p_.abs()).mul(acost, axis=1).sum(axis=1)
+    return {"trend 4h ens CFD": trend.reindex(index).fillna(0.0), "alt kimchi ens CFD": altk.reindex(index).fillna(0.0)}
+
+
 def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
     """child process (env QPL_LIVE_PACK / QPL_CUTOFF set before the loaders import): append every completed hour >= START up to cutoff."""
     last = cutoff - pd.Timedelta(hours=1)
     if last < START:
         return {"status": f"waiting: first hour {START}"}
     ix = pd.date_range("2021-01-01", cutoff, freq="h")                  # includes the running hour `cutoff` for its positions
-    P = positions(ix); S = sleeves(ix, P)
+    P = positions(ix); S = sleeves(ix, P); S.update(ensembles(ix))
     res = {}
     for col, d in OUT.items():
         d.mkdir(parents=True, exist_ok=True); f = d / "ledger_hourly.csv"
@@ -82,6 +106,8 @@ def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
         if rows:
             L = pd.concat([L, pd.DataFrame(rows)], ignore_index=True); tmp = f.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(f)
         res[col] = len(rows)
+        if col not in P:
+            continue
         row = P[col].loc[cutoff]                                         # positions during the running hour (bf2.7 dry-run book)
         (d / "open_positions.json").write_text(json.dumps({"for_hour_utc": str(cutoff), "made_at_utc": str(now), "sleeve": col,
                                                            "positions": {c: round(float(v), 6) for c, v in row.items() if abs(v) > 1e-9}}, indent=1))
