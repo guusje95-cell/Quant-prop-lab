@@ -1,0 +1,65 @@
+{
+ "Bybit launch times known": 1130,
+ "events kept / total": {
+  "venue": [
+   214,
+   408
+  ],
+  "add": [
+   40,
+   41
+  ],
+  "hodler": [
+   54,
+   59
+  ],
+  "futures delisting": [
+   37,
+   42
+  ]
+ },
+ "as tested (Binance perps)": {
+  "uncapped": [
+   3.706,
+   [
+    3.325,
+    4.003,
+    3.581
+   ]
+  ],
+  "capped (4.5% low-cap, risk 1.5)": [
+   3.6,
+   [
+    2.625,
+    4.217,
+    3.482
+   ]
+  ]
+ },
+ "Bybit-filtered": {
+  "uncapped": [
+   3.634,
+   [
+    3.469,
+    3.916,
+    3.399
+   ]
+  ],
+  "capped (4.5% low-cap, risk 1.5)": [
+   3.55,
+   [
+    2.686,
+    4.17,
+    3.36
+   ]
+  ]
+ },
+ "v9.8 capped": [
+  3.061,
+  [
+   2.465,
+   3.87,
+   2.592
+  ]
+ ]
+}
