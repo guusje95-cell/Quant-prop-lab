@@ -1,0 +1,8 @@
+{"id": "v99-C1", "date": "2026-11-02", "registered": "before computing any CFD version of these sleeves",
+ "why": "the user's second account is BrightFunded (crypto CFDs, swap-free). Non-crypto CFD edges were searched before (Gen73 / 77 / 117 / 201 / 340 / 474) without a strong result. The two strongest v9.x crypto sleeves that are NOT event shorts (relative crowding 6: leave-one-out +0.21 in v9.8; diversifier basket: +0.19) trade only BTC ETH SOL XRP BNB DOGE, all listed as BrightFunded CFDs, and were never ported to the CFD book",
+ "reference": "honest BrightFunded book = bf2.6 sleeves without the two premium-carry sleeves (Gen377), from the bf2.6 research dump (results/v99/bf26_sleeves_dump.parquet), crypto_sleeves.portfolio_v5, scaled 0.15 / sd 2022-24; periods 2022 / 2023-24 / 2025-26-09",
+ "sleeves": {"rc6 CFD": "basket_live.rc_positions (unchanged signal) on the CFDs; Binance perp hourly closes as the price (cfd_book convention); NO funding (swap-free); cost per side = half the measured BrightFunded spread + 1.2 bp commission (cfd_book.measured_costs)",
+             "basket CFD": "basket_live.basket weights (BTC / ETH members, unchanged) as CFD positions, same returns / costs / no funding"},
+ "trials": ["A honest bf + rc6 CFD", "B honest bf + basket CFD", "C honest bf + both"],
+ "judge": "each: book >= reference + 0.05 and no period lower (strict rule). Also reported (descriptive): the same on full bf2.6, and the correlation of each new CFD sleeve with the crypto v9.8 book",
+ "trials_added": 3}
