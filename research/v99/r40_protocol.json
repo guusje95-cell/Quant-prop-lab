@@ -1,0 +1,4 @@
+{"id": "v99-R40", "date": "2026-11-02", "registered": "before running r40_levcut_sleeve.py; FLAGGED: re-test of R6 (leverage / margin-tier cuts merged into the event short: 3.206, rejected) as a separate sleeve",
+ "events": "R6 events unchanged (titles with Update + leverage / margin tier naming <COIN>USDT, catalogs 49 / 161 / 48 / 93)",
+ "rule": "R6 rule unchanged (bybit_event_shorts.make_hook: event-short delisting leg, 5%, +30% stop, event_live costs); extra P&L = event_live.pnl with the hook minus without",
+ "trial": "as a separate 10th sleeve", "checks": "placebo +-60 days; on top of ALL", "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
