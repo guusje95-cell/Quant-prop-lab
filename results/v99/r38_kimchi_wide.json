@@ -1,0 +1,79 @@
+{
+ "reference v9.8": [
+  3.211,
+  [
+   3.083,
+   3.849,
+   2.661
+  ]
+ ],
+ "extra coins": [
+  "1000PEPE",
+  "1000SHIB",
+  "1INCH",
+  "ALGO",
+  "APT",
+  "ARB",
+  "AXS",
+  "CHZ",
+  "COMP",
+  "CRV",
+  "EGLD",
+  "GRT",
+  "HBAR",
+  "ICP",
+  "IMX",
+  "INJ",
+  "IOTA",
+  "MANA",
+  "NEO",
+  "OP",
+  "SAND",
+  "STX",
+  "SUI",
+  "THETA",
+  "TIA",
+  "WLD",
+  "XTZ",
+  "ZIL"
+ ],
+ "with funding": 28,
+ "extra sleeve 2022 / 23-24 / 25-26": [
+  0.465,
+  1.074,
+  0.584
+ ],
+ "v9.8 alt kimchi": [
+  0.295,
+  1.211,
+  0.744
+ ],
+ "merged alt kimchi": [
+  0.388,
+  1.156,
+  0.65
+ ],
+ "corr extra vs alt kimchi (daily)": 0.89,
+ "A wider alt-kimchi sleeve": {
+  "book": [
+   3.221,
+   [
+    3.098,
+    3.89,
+    2.637
+   ]
+  ],
+  "pass": false
+ },
+ "B separate sleeve": {
+  "book": [
+   3.099,
+   [
+    3.027,
+    3.84,
+    2.411
+   ]
+  ],
+  "pass": false
+ }
+}

@@ -1,0 +1,4 @@
+{"id": "v99-R39", "date": "2026-11-01", "registered": "before running r39_split_event.py; FLAGGED: construction idea from the R30 lesson",
+ "why": "the v9.8 event short holds two streams in ONE sleeve (Gen426 listing shorts and Gen468 spot-delisting shorts); with the equal-risk rule a second stream mostly raises the sleeve's vol (R22). Split, each gets its own risk budget",
+ "construction": "event_live.pnl with a pre_cap hook that keeps only listing columns -> 'listing short'; only 'spo_' columns -> 'delisting short'; each keeps the event short's 0.5 gross cap",
+ "trial": "v9.8 with the event short replaced by these two sleeves", "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 1}
