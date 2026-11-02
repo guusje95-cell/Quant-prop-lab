@@ -41,6 +41,29 @@ def detector(log=print) -> int:
     return new
 
 
+def log_warnings(log=print) -> int:
+    """forward data for later research: Upbit's per-market warning / caution flags (public market/all?is_details=true). Every change of
+    a KRW market's flags is appended to research_data/upbit_listings/warnings_<YYYY-MM>.csv (the first run records all markets)."""
+    import csv
+    M = {m["market"]: m.get("market_event") or {} for m in _get("/market/all", {"is_details": "true"}) if m["market"].startswith("KRW-")}
+    state_f = FILE.parent / "warnings_state.json"; old = json.loads(state_f.read_text()) if state_f.exists() else {}
+    now = str(pd.Timestamp.now(tz="UTC").tz_localize(None).floor("s")); rows = []
+    for m, ev in M.items():
+        flags = {"warning": bool(ev.get("warning")), **{k: bool(v) for k, v in (ev.get("caution") or {}).items()}}
+        if old.get(m) != flags:
+            rows.append({"ts_utc": now, "market": m, **flags}); old[m] = flags
+    if rows:
+        f = FILE.parent / f"warnings_{now[:7]}.csv"; new = not f.exists(); FILE.parent.mkdir(parents=True, exist_ok=True)
+        keys = sorted({k for r in rows for k in r}, key=lambda k: (k != "ts_utc", k != "market", k))
+        with open(f, "a", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, keys, extrasaction="ignore")
+            if new:
+                w.writeheader()
+            w.writerows(rows)
+        tmp = state_f.with_suffix(".tmp"); tmp.write_text(json.dumps(old), encoding="utf-8"); tmp.replace(state_f)
+    return len(rows)
+
+
 def events(start: pd.Timestamp) -> dict[str, tuple[pd.Timestamp, pd.Timestamp]]:
     D = json.loads(FILE.read_text()) if FILE.exists() else {}
     return {v["base"]: (pd.Timestamp(v["first_trade_utc"]), pd.Timestamp(v["detected_utc"])) for v in D.values()

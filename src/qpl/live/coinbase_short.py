@@ -159,7 +159,7 @@ def step(log=print) -> dict:
     """Coinbase only (paper:cbshort; R16 / R30 B) and Coinbase + Upbit (paper:venueshort; R30 A)."""
     from qpl.live import upbit_listings as UP
     res = {}
-    for name, fn in (("coinbase", detector), ("upbit", UP.detector)):
+    for name, fn in (("coinbase", detector), ("upbit", UP.detector), ("upbit warning changes", UP.log_warnings)):
         try:
             res[f"new {name} listings"] = fn(log)
         except Exception as e:                                           # noqa: BLE001 - the ledgers must advance even if a venue is down

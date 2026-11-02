@@ -24,7 +24,7 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 - Alleen **`git pull`** en de hub herstarten (`hub_start.bat`). De hub draait elk uur de job **cbshort_paper**: hij kijkt (openbare
   Coinbase-API, geen sleutel, geen orders) of er een nieuwe coin op Coinbase is gekomen en houdt een paper-short bij in
   `paper_trading/cbshort/`. In het dashboard verschijnt schaduw-account **v98:plus_coinbase_short** naast v9.8. v9.8 zelf verandert niet.
-- Af en toe meepushen: `git add paper_trading/cbshort paper_trading/venueshort paper_trading/fdshort paper_trading/addshort paper_trading/eventdata research_data/coinbase_listings research_data/upbit_listings` -> commit -> push.
+- Af en toe meepushen: `git add paper_trading/cbshort paper_trading/venueshort paper_trading/fdshort paper_trading/addshort paper_trading/eventdata research_data/coinbase_listings research_data/upbit_listings` -> commit -> push (die map bevat nu ook `warnings_*.csv`: Upbit-waarschuwingen per coin, voor later onderzoek).
 - **Waar zie je het?** Alleen na een HERSTART van de hub (sluit het hub-venster, dubbelklik `hub_start.bat`). Binnen een uur (eerste ingest):
   * Paper Trading -> tab **Shadow accounts**: `v98:plus_coinbase_short`, `v98:venue_sleeve_coinbase`, `v98:venue_sleeve_coinbase_upbit` `v98:venue_coinbase_plus_futures_delisting` **`v99cand:all`** (het nieuwe 'beste portfolio': alles samen) en `v99cand:all_plus_add` (ALL + Binance-'Add'-short, R34).
   * Performance -> Source **Paper** -> kies die accounts naast paper:v98.
