@@ -1,0 +1,14 @@
+{
+ "current (static 1/sd fit 2010-22)": [
+  1.459,
+  1.451,
+  1.218
+ ],
+ "point-in-time equal risk (PV5)": [
+  1.262,
+  1.279,
+  1.089
+ ],
+ "pass": false,
+ "corr of daily returns": 0.908
+}
