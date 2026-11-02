@@ -1,0 +1,7 @@
+{"id": "v99-R50", "date": "2026-11-02", "registered": "after counting the titles (139 'Binance Will List ...' 2021-06..2026-09), before any return was computed",
+ "why": "a Binance SPOT listing of a coin that already trades as a Binance perp is a pure sell-the-news / unlock-of-supply moment (new spot buyers met by early holders); never tested (grep 'Will List': 0 in the logs). More independent events also address R48's concentration problem",
+ "events": "titles starting 'Binance Will List' (catalogs 48 / 49 / 157 / 93), tickers in parentheses; only coins whose Binance USDT perp is >= 7 days old at the announcement (otherwise it is a v9.8 listing-short coin) and that have a Bybit perp at entry (R45); T = release.ceil('h') - 1 h as in R34",
+ "rule": "R16 A rules (short 5% from the close of T + 1 h, 7 days, +30% stop, 10 bp, funding), one trade per coin per 7 days, as a separate sleeve",
+ "checks": "placebo +-60 days; overlap with the add / HODLer events",
+ "judge": "on top of the best candidate (R45 Bybit-filtered ALL + add + HODLer, capped; per-event rebuild 3.540 [2.686, 4.133, 3.376]): capped book >= 3.590 and no period lower; >= 30 trades",
+ "trials_added": 1}
