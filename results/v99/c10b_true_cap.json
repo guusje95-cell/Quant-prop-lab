@@ -1,0 +1,63 @@
+{
+ "bf2.7 (Weiss half, no cap)": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "bf2.7 Weiss half, capped 4x": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "bf2.7 + ensembles (Weiss half, capped 4x)": [
+  2.977,
+  [
+   1.817,
+   4.101,
+   2.456
+  ]
+ ],
+ "C9 Weiss full, TRUE cap 4x": [
+  3.03,
+  [
+   1.806,
+   4.175,
+   2.507
+  ]
+ ],
+ "C10 bf2.8 Weiss full + ensembles, TRUE cap 4x": [
+  3.064,
+  [
+   1.88,
+   4.201,
+   2.533
+  ]
+ ],
+ "bf2.8 TRUE cap 5x (the firm's 1:5 limit)": [
+  3.073,
+  [
+   1.88,
+   4.219,
+   2.533
+  ]
+ ],
+ "bf2.8 uncapped (not tradable)": [
+  3.083,
+  [
+   1.88,
+   4.237,
+   2.533
+  ]
+ ],
+ "risk at 1.5, bf2.8 true cap 4x": {
+  "worst day %": -4.92,
+  "max DD %": -13.13,
+  "days < -2.5%": 24
+ }
+}

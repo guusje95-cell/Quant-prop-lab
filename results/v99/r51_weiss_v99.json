@@ -1,0 +1,28 @@
+{
+ "v9.9 candidate (Weiss half)": [
+  3.54,
+  [
+   2.686,
+   4.133,
+   3.376
+  ]
+ ],
+ "Weiss full, uncapped": [
+  3.564,
+  [
+   2.751,
+   4.21,
+   3.295
+  ]
+ ],
+ "Weiss full, gross capped 1.9x": [
+  3.564,
+  [
+   2.751,
+   4.21,
+   3.295
+  ]
+ ],
+ "Weiss gross max at full weight (x equity, risk 1.5)": 9.14,
+ "pass": false
+}
