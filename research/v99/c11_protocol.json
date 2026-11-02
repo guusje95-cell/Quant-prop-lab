@@ -1,0 +1,4 @@
+{"id": "C11", "date": "2026-11-02", "registered": "before computing", "trials_added": 1,
+ "why": "C9 showed the CFD book is under-weighting a low-correlation sleeve (Weiss); equal-risk-contribution weights (Gen338 C: shrunk covariance, risk budgets) account for correlations explicitly. In crypto ERC was a near miss (3.146 vs 3.110, HOLD lower); the CFD book has more low-correlation sleeves (Weiss, indices, rc6)",
+ "change": "bf2.8 (C10, true Weiss cap 4x after weighting) with the monthly sleeve weights from Gen338's erc_weights (trailing 365 days, covariance shrunk 50% to its diagonal, equal risk budgets incl. Weiss = 1.0 as in bf2.8) instead of inverse-vol; level / 30-day vol targeting unchanged",
+ "judge": "book >= 3.064 + 0.05 and no period lower than bf2.8 [1.880, 4.201, 2.533]"}
