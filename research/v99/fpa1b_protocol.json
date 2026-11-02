@@ -1,0 +1,14 @@
+{
+ "id": "FPA-1b",
+ "date": "2026-11-02",
+ "registered": "after FPA-1 (P5 passed), before any check below",
+ "checks": {
+  "control": "unconditional 30-minute opening-range breakout (no NR filter): does the NR7 condition add anything?",
+  "placebo": "NR7 days replaced by randomly drawn days at the same frequency (20 draws, seed 7): distribution of the judge Sharpe",
+  "neighbourhood": "NR4 / NR5 / NR6 / NR8 / NR10 with the 30-minute range; NR7 with 15 / 45 / 60-minute ranges",
+  "costs": "2x costs (2 bp per side)",
+  "book": "P5 as an entrant of the futures book (scripts/fbook.judge; the sleeve is 0 before 2018) and as a stand-alone intraday book"
+ },
+ "judge": "P5 is a candidate only if: NR7 beats the unconditional ORB on judge, the actual judge Sharpe is above the 90th percentile of the placebo draws, at least 6 of the 8 neighbours have judge >= 0.3, 2x costs keep judge >= 0.3. Otherwise it is recorded as a likely fluke",
+ "trials_added": 0
+}

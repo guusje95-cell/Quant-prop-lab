@@ -1,0 +1,67 @@
+{
+ "P1": {
+  "trades": 4055,
+  "win rate": 0.472,
+  "mean R (per 0.25% risk)": -0.089,
+  "Sharpe dev 2018-22": -1.963,
+  "Sharpe judge 2023-26": -1.138,
+  "per market judge": {
+   "US500": -0.949,
+   "US100": -0.841,
+   "US30": -0.682
+  },
+  "pass": false
+ },
+ "P2": {
+  "trades": 500,
+  "win rate": 0.346,
+  "mean R (per 0.25% risk)": 0.248,
+  "Sharpe dev 2018-22": 0.837,
+  "Sharpe judge 2023-26": 0.362,
+  "per market judge": {
+   "US500": 0.466,
+   "US100": 0.302,
+   "US30": -0.163
+  },
+  "pass": false
+ },
+ "P3": {
+  "trades": 3888,
+  "win rate": 0.335,
+  "mean R (per 0.25% risk)": -0.154,
+  "Sharpe dev 2018-22": -1.514,
+  "Sharpe judge 2023-26": -2.035,
+  "per market judge": {
+   "US500": -1.679,
+   "US100": -0.981,
+   "US30": -1.29
+  },
+  "pass": false
+ },
+ "P4": {
+  "trades": 907,
+  "win rate": 0.427,
+  "mean R (per 0.25% risk)": -0.09,
+  "Sharpe dev 2018-22": -1.105,
+  "Sharpe judge 2023-26": -0.383,
+  "per market judge": {
+   "US500": -0.935,
+   "US100": 0.155,
+   "US30": -0.181
+  },
+  "pass": false
+ },
+ "P5": {
+  "trades": 1038,
+  "win rate": 0.475,
+  "mean R (per 0.25% risk)": 0.077,
+  "Sharpe dev 2018-22": 0.517,
+  "Sharpe judge 2023-26": 0.635,
+  "per market judge": {
+   "US500": 0.565,
+   "US100": 0.749,
+   "US30": -0.027
+  },
+  "pass": true
+ }
+}
