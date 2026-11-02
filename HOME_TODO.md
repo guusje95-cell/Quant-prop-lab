@@ -20,6 +20,12 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
+## Nieuw (2-11 avond): MT5-koppeling voor het CFD-boek (bf2.7) in DRY-RUN
+- Open MT5 en log in op je BrightFunded-account (trial / challenge). Dubbelklik **`bot_bf27_mt5_dryrun.bat`** (laat open).
+  Hij bouwt elke 5 min het bf2.7-boek, rekent het om naar lots en CONTROLEERT elke order bij MT5 (order_check: margin, volume,
+  symbool) zonder iets te versturen. Log: `bot_state_mt5\orders_log.csv` (blijft lokaal). Kolom "how" toont OK / REJECTED / skipped.
+- Na een dag: plak hier een paar regels van die log (of push `paper_trading/bf27cand`), dan check ik de lot-omrekening.
+
 ## Nieuw (2-11): CFD bf2.7-kandidaat als SCHADUW naast bf2.6 (bf2.6 zelf verandert niet)
 - Alleen `git pull` en de hub herstarten (`hub_start.bat`). De nieuwe hub-job **cfdx_paper** berekent elk uur relative crowding + de
   diversifier basket als BrightFunded-CFD's (gebruikt alleen de v9.8-data, read-only). Vanaf 3-11 00:00 UTC.

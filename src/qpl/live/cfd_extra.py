@@ -38,19 +38,28 @@ def cfd_pnl(pos: pd.DataFrame, R: pd.DataFrame, cost: pd.Series) -> pd.Series:
     return (p * R).sum(axis=1) - p.diff().abs().fillna(p.abs()).mul(cost.reindex(R.columns), axis=1).sum(axis=1)
 
 
-def sleeves(index: pd.DatetimeIndex) -> dict[str, pd.Series]:
-    """both CFD sleeves on `index` (must start early enough for the basket's 2022-24 scaling, e.g. 2021-01-01)."""
+def positions(index: pd.DatetimeIndex) -> dict[str, pd.DataFrame]:
+    """hourly per-coin positions (fraction of equity at sleeve level) of both CFD sleeves, held during each hour of `index`
+    (decided from data known before the hour; must start early enough for the basket's 2022-24 scaling, e.g. 2021-01-01)."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import basket_live as BL
+    C6 = list(BL.C6)
+    _, W = BL.basket(index)
+    bw = sum(w.reindex(columns=C6).fillna(0.0) for w in W.values())
+    days = bw.index.append(pd.DatetimeIndex([bw.index[-1] + pd.Timedelta(days=1)]))       # row d (decided at the close of d) is held on d + 1
+    bpos = bw.reindex(days).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0)
+    return {"rc6 CFD": BL.rc_positions(index).reindex(columns=C6).fillna(0.0), "basket CFD": bpos}
+
+
+def sleeves(index: pd.DatetimeIndex, pos: dict | None = None) -> dict[str, pd.Series]:
+    """both CFD sleeves' hourly P&L on `index`."""
     sys.path.insert(0, str(ROOT / "scripts"))
     import basket_live as BL
     from qpl.lab import binance_pack as B
     C6 = list(BL.C6); cost = costs(C6)
     R = B.panel("close", "1h", C6).pct_change(fill_method=None).reindex(index).fillna(0.0)
-    rc = cfd_pnl(BL.rc_positions(index), R, cost)
-    _, W = BL.basket(index)
-    bw = sum(w.reindex(columns=C6).fillna(0.0) for w in W.values())
-    days = bw.index.append(pd.DatetimeIndex([bw.index[-1] + pd.Timedelta(days=1)]))       # row d (decided at the close of d) is held on d + 1
-    bpos = bw.reindex(days).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0)
-    return {"rc6 CFD": rc, "basket CFD": cfd_pnl(bpos, R, cost)}
+    P = pos or positions(index)
+    return {k: cfd_pnl(v.reindex(index), R, cost) for k, v in P.items()}
 
 
 def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
@@ -58,7 +67,8 @@ def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
     last = cutoff - pd.Timedelta(hours=1)
     if last < START:
         return {"status": f"waiting: first hour {START}"}
-    S = sleeves(pd.date_range("2021-01-01", last, freq="h"))
+    ix = pd.date_range("2021-01-01", cutoff, freq="h")                  # includes the running hour `cutoff` for its positions
+    P = positions(ix); S = sleeves(ix, P)
     res = {}
     for col, d in OUT.items():
         d.mkdir(parents=True, exist_ok=True); f = d / "ledger_hourly.csv"
@@ -72,6 +82,9 @@ def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
         if rows:
             L = pd.concat([L, pd.DataFrame(rows)], ignore_index=True); tmp = f.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(f)
         res[col] = len(rows)
+        row = P[col].loc[cutoff]                                         # positions during the running hour (bf2.7 dry-run book)
+        (d / "open_positions.json").write_text(json.dumps({"for_hour_utc": str(cutoff), "made_at_utc": str(now), "sleeve": col,
+                                                           "positions": {c: round(float(v), 6) for c, v in row.items() if abs(v) > 1e-9}}, indent=1))
     return {"cutoff": str(cutoff), "hours_written": res}
 
 

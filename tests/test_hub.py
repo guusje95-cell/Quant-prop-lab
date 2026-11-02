@@ -442,11 +442,14 @@ def test_cfd_extra_pnl_and_frozen_ledger(tmp_path, monkeypatch):
     assert np.allclose(got.to_numpy(), exp)
     assert set(X.costs(["BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"]).index) == {"BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"}
     out = {"rc6 CFD": tmp_path / "rc6cfd", "basket CFD": tmp_path / "basketcfd"}; monkeypatch.setattr(X, "OUT", out)
-    monkeypatch.setattr(X, "sleeves", lambda index: {k: pd.Series(0.001, index=index) for k in out})
+    monkeypatch.setattr(X, "positions", lambda index: {k: pd.DataFrame({"BTC": 0.1}, index=index) for k in out})
+    monkeypatch.setattr(X, "sleeves", lambda index, pos=None: {k: pd.Series(0.001, index=index) for k in out})
     X._compute(pd.Timestamp("2026-11-03 03:00"), pd.Timestamp("2026-11-03 03:05"))
+    op = json.loads((out["rc6 CFD"] / "open_positions.json").read_text())
+    assert op["for_hour_utc"] == "2026-11-03 03:00:00" and op["positions"] == {"BTC": 0.1}           # positions for the running hour
     first = pd.read_csv(out["rc6 CFD"] / "ledger_hourly.csv")
     assert list(first["hour"]) == ["2026-11-03 00:00:00", "2026-11-03 01:00:00", "2026-11-03 02:00:00"]   # only completed hours >= START
-    monkeypatch.setattr(X, "sleeves", lambda index: {k: pd.Series(0.009, index=index) for k in out})     # later revisions never rewrite
+    monkeypatch.setattr(X, "sleeves", lambda index, pos=None: {k: pd.Series(0.009, index=index) for k in out})     # later revisions never rewrite
     X._compute(pd.Timestamp("2026-11-03 05:00"), pd.Timestamp("2026-11-03 05:05"))
     L = pd.read_csv(out["basket CFD"] / "ledger_hourly.csv")
     assert len(L) == 5 and np.allclose(L["port"].iloc[:3], 0.001) and np.allclose(L["port"].iloc[3:], 0.009)

@@ -77,3 +77,4 @@ hub_worker.log
 results/v99/netpos*.parquet
 results/v99/book_charged.parquet
 bot_state_v99cand/
+bot_state_mt5/
