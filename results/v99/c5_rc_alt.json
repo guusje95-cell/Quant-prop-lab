@@ -1,0 +1,33 @@
+{
+ "reference bf2.7 candidate": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "sleeve rc alt CFD": [
+  -0.203,
+  [
+   -0.594,
+   0.703,
+   -1.669
+  ]
+ ],
+ "book with it": [
+  2.681,
+  [
+   1.409,
+   3.951,
+   2.077
+  ]
+ ],
+ "pass": false,
+ "corr vs rc6 CFD": 0.041,
+ "corr vs crypto v9.8": 0.047,
+ "gross median / p99": [
+  0.473,
+  0.962
+ ]
+}
