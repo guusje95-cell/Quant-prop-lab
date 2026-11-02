@@ -25,7 +25,8 @@
   "reconciliation": "recompute the period with the final data: hourly portfolio P&L correlation >= 0.99 and |cumulative difference| <= 0.5% of the account; otherwise find and fix the cause before going further",
   "operations": "late or missed hours <= 5% of hours; no data errors",
   "performance": "z = (paper mean daily return - backtest mean) / (backtest daily sd / sqrt(days)), backtest = v9.7 2023-01..2026-09 at the same risk. GO if z > -1; EXTEND to 112 days if -2 <= z <= -1; STOP if z < -2 or the paper drawdown is worse than -12%",
-  "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises."
+  "honesty_note": "56 days cannot prove the edge (one standard error is about the whole expected return). The paper test mainly proves that the pipeline runs live without look-ahead, data gaps or execution surprises.",
+  "clean_period_rule": "v9.8.1: only paper hours after the relative-crowding fix count toward the 56-day validation (see changes 2026-11-02); the earlier hours are reported separately as 'affected (pre-fix)'"
  },
  "changes": [
   {
@@ -66,6 +67,27 @@
     "src/qpl/bot/runner.py"
    ],
    "approved_by": "user 2026-10-30 ('doe alle 4')"
+  },
+  {
+   "date": "2026-11-02",
+   "version": "v9.8.1 (implementation fix; strategy v9.8 unchanged)",
+   "what": "relative crowding 6 data / timing fix. (1) scripts/basket_live.py: the daily position calendar now reaches the day of the hour being positioned (_days_for). Before, DAYS ended at the day of END (= last completed hour), so the 00:00 UTC book of each new day set the daily and 3-day versions (4 of 6) to 0 for that hour and re-opened them at 01:00: a daily round trip (~$190k notional a day at $200k / risk 2.0, ~0.057% of equity a day in costs) that the frozen ledger did not show (it is computed an hour later with the full calendar). (2) src/qpl/live/binance_public.py: update_ratios drops duplicate timestamps per endpoint (Binance repeats bars across pages; the column merge raised 'cannot reindex on an axis with duplicate labels' on every run since 2026-10-27, so the live long/short ratios were never updated and the daily signal ran on stale values carried forward from the research pack's last day); ratio_status() added. (3) scripts/paper_v5.py: logs RC_DATA (newest ratio timestamp per coin) and DATA_STALE (> 2 h old or missing) every run. Monitoring only.",
+   "unchanged": "strategy logic, parameters, sizing, risk model, frozen settings and scale; research book identical (relative crowding sleeve max |difference| 1.7e-18 on 2021-12..2026-09; v9.8 3.211)",
+   "no_lookahead": "positions for day D still come from the weight row decided at the close of D-1 (tests/test_v98_rc_fix.py: a value known only at the close of D does not change D's positions; a run at cutoff 00:00 now equals the full-data run)",
+   "tests": "tests/test_v98_rc_fix.py: duplicate timestamps (fails on the old updater exactly as on the PC), missing data, stale data, the 00:00 transition, look-ahead, calendar unchanged inside the research range",
+   "files": [
+    "scripts/basket_live.py",
+    "src/qpl/live/binance_public.py",
+    "scripts/paper_v5.py",
+    "tests/test_v98_rc_fix.py"
+   ],
+   "affected_period": {
+    "from": "2026-10-30 16:00 UTC (paper start)",
+    "to": "the first paper hour computed with this fix on the PC (recorded by the first RC_DATA event in paper_trading/v98/events.jsonl)",
+    "effect": "relative crowding 6: 00:00 orders flattened 4/6 of the sleeve and 01:00 orders rebuilt it (orders / execution only); daily signal on stale ratios (since 2026-10-01 in the October recompute as well). The frozen ledger P&L of this period is NOT reset or edited; it is flagged as 'affected (pre-fix)'"
+   },
+   "validation_clock": "the 56-day gate is counted twice from now: (a) the full history since 2026-10-30 (kept, flagged), (b) the CLEAN period starting at the first post-fix hour; v9.8 counts as fully validated only after 56 clean days (user requirement 2026-11-02)",
+   "approved_by": "user 2026-11-02 ('Yes, approved. Fix the Relative Crowding 6 data issue', with conditions 1-7 + clean 56-day gate)"
   }
  ]
 }

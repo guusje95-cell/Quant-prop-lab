@@ -369,6 +369,24 @@ def status_text(L: pd.DataFrame, Dd: pd.DataFrame, risk: float) -> str:
               f"- Gate (config/paper_{VER}.json): **{verdict}**", "",
               "Sleeve P&L so far (sum of hourly returns, unit size): " +
               ", ".join(f"{s} {L[s].sum():+.2%}" for s in SLEEVES)]
+    if VER == "v98":                                       # v9.8.1 (2026-11-02): clean validation period after the relative-crowding fix
+        ev = OUT / "events.jsonl"; fix = None
+        if ev.exists():
+            for line in ev.read_text().splitlines():
+                if '"RC_DATA"' in line:
+                    fix = pd.Timestamp(json.loads(line)["wall_utc"]); break
+        lines[-3] = lines[-3].replace("- Gate", "- Gate on ALL days (incl. the affected pre-fix period)")
+        if fix is None:
+            lines += ["", "**Clean validation period (v9.8.1, after the relative-crowding fix): not started yet** - every hour so far is "
+                      "'affected (pre-fix)'; the 56-day gate counts clean days only (config/paper_v98.json, changes 2026-11-02)."]
+        else:
+            first_day = fix.normalize() + pd.Timedelta(days=1)          # first full UTC day computed with the fix
+            C = Dd[pd.to_datetime(Dd["day"]) >= first_day]; nc = len(C)
+            lines += ["", f"**Clean validation period (v9.8.1)**: fix active from {fix:%Y-%m-%d %H:%M} UTC; clean days from {first_day:%Y-%m-%d}: "
+                      f"**{nc} of 56**" + ("" if nc == 0 else
+                      f"; daily mean {C['ret'].mean():+.3%} (z = {(C['ret'].mean() - btd.mean()) / (btd.std() / np.sqrt(nc)):+.2f}), "
+                      f"cumulative {(1 + C['ret']).prod() - 1:+.2%}"),
+                      f"- Clean gate: **{'too early' if nc < 56 else 'evaluate (see gate rules)'}**; days before {first_day:%Y-%m-%d} are kept and flagged 'affected (pre-fix)'."]
     return "\n".join(lines)
 
 
@@ -400,6 +418,13 @@ def cmd_run(a):
                 BP.update_ratios(DATA, ["BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"], now=utcnow())
             except Exception as e:
                 log_event("DATA_PARTIAL", msg=f"long/short ratios not updated: {e}")
+            try:                                           # v9.8 fix 2026-11-02: monitoring of the relative-crowding inputs (no effect on positions)
+                st = BP.ratio_status(DATA, ["BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"], utcnow())
+                log_event("RC_DATA", status=st)
+                if any(v["stale"] for v in st.values()):
+                    log_event("DATA_STALE", msg="relative crowding 6: long/short ratios stale or missing", coins=[c for c, v in st.items() if v["stale"]])
+            except Exception as e:
+                log_event("DATA_PARTIAL", msg=f"ratio status check failed: {e}")
             from qpl.live import coinbase_public as CB2
             try:
                 CB2.update("USDT-USD", out=DATA / "coinbase", base=ROOT / "research_data/coinbase/USDT-USD_1h.parquet")

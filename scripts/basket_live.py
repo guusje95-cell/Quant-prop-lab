@@ -158,12 +158,22 @@ def _hourly_ret(c, index):
     return r, f
 
 
+def _days_for(index) -> pd.DatetimeIndex:
+    """v9.8 fix 2026-11-02 (approved): the daily calendar must reach the day of the hours being positioned. DAYS ends at the day of END
+    (= the last COMPLETED hour), so for the 00:00 hour of a new day the shifted daily row (decided at the previous close, i.e. known)
+    fell outside DAYS and the daily / 3-day versions were set to 0 for that one hour (a daily round trip in the paper book). Extending
+    the calendar only adds that row; the positions still come from weights decided at earlier closes (no look-ahead, identical to the
+    research run that has the full calendar)."""
+    last = pd.DatetimeIndex(index).max().normalize()
+    return DAYS if last <= DAYS[-1] else DAYS.append(pd.date_range(DAYS[-1] + pd.Timedelta(days=1), last))
+
+
 def rc_positions(index, RW=None):
     """hourly per-coin positions of the relative crowding sleeve (mean of the three versions, each the mean of two metrics)."""
-    RW = RW or rc_weights(); pos = pd.DataFrame(0.0, index=index, columns=list(C6))
+    RW = RW or rc_weights(); pos = pd.DataFrame(0.0, index=index, columns=list(C6)); days = _days_for(index)
     for kind in ("daily", "smooth"):
         for w in RW[kind].values():
-            pos += w.reindex(DAYS).fillna(0.0).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0) / 6
+            pos += w.reindex(days).fillna(0.0).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0) / 6
     for w in RW["h8"].values():
         p = w.copy(); p.index = p.index + pd.Timedelta(hours=8)
         pos += p.reindex(index, method="ffill").fillna(0.0) / 6
@@ -179,9 +189,10 @@ def rc_pnl(index):
         for c in C6:
             p = pos[c]; r, f = R[c]; x = x + p * r - p * f - p.diff().abs().fillna(0.0) * 5 / 1e4
         return x
+    days = _days_for(index)
     for kind in ("daily", "smooth"):
         for w in RW[kind].values():
-            out = out + one(w.reindex(DAYS).fillna(0.0).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0)) / 6
+            out = out + one(w.reindex(days).fillna(0.0).shift(1).reindex(index.floor("D")).set_axis(index).fillna(0.0)) / 6
     for w in RW["h8"].values():
         p = w.copy(); p.index = p.index + pd.Timedelta(hours=8); out = out + one(p.reindex(index, method="ffill").fillna(0.0)) / 6
     return out, RW

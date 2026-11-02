@@ -220,12 +220,26 @@ def update_ratios(live: Path, coins: list[str], now: pd.Timestamp | None = None,
                     break
                 t0 = int(d[-1]["timestamp"]) + 1
             if rows:
-                cols[col] = pd.Series([float(x[field]) for x in rows], index=pd.to_datetime([int(x["timestamp"]) for x in rows], unit="ms"))
+                sr = pd.Series([float(x[field]) for x in rows], index=pd.to_datetime([int(x["timestamp"]) for x in rows], unit="ms"))
+                cols[col] = sr[~sr.index.duplicated(keep="last")].sort_index()     # v9.8 fix 2026-11-02: Binance repeats timestamps across pages
         if cols:
             df = pd.DataFrame(cols); df = df[df.index <= now]; df.index.name = "time"
             total += _append(f, df)
     log(f"  long/short ratios: {total} new rows")
     return total
+
+
+def ratio_status(live: Path, coins: list[str], now: pd.Timestamp, stale_h: float = 2.0) -> dict:
+    """v9.8 fix 2026-11-02 (monitoring only, no effect on positions): per coin the newest live long/short-ratio timestamp, its age in
+    hours, duplicates in the file and whether it is stale (> stale_h hours old or missing)."""
+    out = {}
+    for coin in coins:
+        f = Path(live) / f"{coin}USDT_ratios.parquet"
+        if not f.exists():
+            out[coin] = {"last": None, "age_h": None, "duplicates": 0, "stale": True}; continue
+        idx = pd.DatetimeIndex(pd.read_parquet(f).index); last = idx.max(); age = (pd.Timestamp(now) - last).total_seconds() / 3600
+        out[coin] = {"last": str(last), "age_h": round(age, 2), "duplicates": int(idx.duplicated().sum()), "stale": bool(age > stale_h)}
+    return out
 
 
 def update_extra(pack: Path, live: Path, coins: list[str], now: pd.Timestamp | None = None, log=print) -> dict:
