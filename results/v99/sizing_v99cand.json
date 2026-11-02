@@ -1,0 +1,77 @@
+{
+ "doc": "S2: risk choice for the v9.9 candidate ALL+add+HODLer with the total low-cap cap (cap binds harder at higher risk); HyroTrader Two-Step $200k, 2 years, 300 paths, conservative scenario",
+ "rows": [
+  {
+   "risk": 1.0,
+   "capped backtest Sharpe at this risk": 3.67,
+   "live Sharpe": 1.6,
+   "2y EUR mean": 32343,
+   "p10": -2862,
+   "P(loss)": 0.13,
+   "yr2 month": 1803
+  },
+  {
+   "risk": 1.0,
+   "capped backtest Sharpe at this risk": 3.67,
+   "live Sharpe": 1.85,
+   "2y EUR mean": 35872,
+   "p10": -1879,
+   "P(loss)": 0.11,
+   "yr2 month": 2009
+  },
+  {
+   "risk": 1.5,
+   "capped backtest Sharpe at this risk": 3.6,
+   "live Sharpe": 1.6,
+   "2y EUR mean": 45105,
+   "p10": -5919,
+   "P(loss)": 0.15,
+   "yr2 month": 2082
+  },
+  {
+   "risk": 1.5,
+   "capped backtest Sharpe at this risk": 3.6,
+   "live Sharpe": 1.85,
+   "2y EUR mean": 55698,
+   "p10": 2681,
+   "P(loss)": 0.08,
+   "yr2 month": 2593
+  },
+  {
+   "risk": 2.0,
+   "capped backtest Sharpe at this risk": 3.56,
+   "live Sharpe": 1.6,
+   "2y EUR mean": 44479,
+   "p10": -6025,
+   "P(loss)": 0.27,
+   "yr2 month": 1409
+  },
+  {
+   "risk": 2.0,
+   "capped backtest Sharpe at this risk": 3.56,
+   "live Sharpe": 1.85,
+   "2y EUR mean": 57172,
+   "p10": -6025,
+   "P(loss)": 0.22,
+   "yr2 month": 1983
+  },
+  {
+   "risk": 2.5,
+   "capped backtest Sharpe at this risk": 3.537,
+   "live Sharpe": 1.6,
+   "2y EUR mean": 24911,
+   "p10": -6025,
+   "P(loss)": 0.39,
+   "yr2 month": 196
+  },
+  {
+   "risk": 2.5,
+   "capped backtest Sharpe at this risk": 3.537,
+   "live Sharpe": 1.85,
+   "2y EUR mean": 35783,
+   "p10": -6025,
+   "P(loss)": 0.29,
+   "yr2 month": 295
+  }
+ ]
+}
