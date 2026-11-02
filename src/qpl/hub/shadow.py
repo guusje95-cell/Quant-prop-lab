@@ -136,6 +136,9 @@ def _composite(c, cfg: dict, P: pd.DataFrame) -> pd.Series:
         X = pd.read_parquet(pre).drop(columns=["port"], errors="ignore")
         X = X[X.index < P.index[0]].reindex(columns=P.columns).fillna(0.0)
         H = pd.concat([X, P])
+    for k, m in (s.get("multipliers") or {}).items():                     # e.g. drop a source sleeve (0.0) before the book rule
+        if k in H:
+            H[k] = H[k] * m
     for x in s.get("extra", []):
         col = _account_hourly(c, x["account"])
         if x.get("prefix"):
@@ -237,4 +240,11 @@ def ensure_cfd_defaults(c: sqlite3.Connection, source: str = "paper:bf26") -> li
             define(c, "bf26:index_cfds", source, "sleeve", {"sleeve": "vol-managed indices", "vol_target": 0.15}, risk=1.0,
                    description="index CFDs alone (US100 / US500 / US30; P6 + R1 + P1) at 15% vol: forward test of a separate index-CFD account", actor="system"),
             define(c, "bf26:crypto_cfds_only", source, "reweighted", {"multipliers": {"vol-managed indices": 0.0, "premium carry": 0.0, "premium carry BF": 0.0}}, risk=2.0,
-                   description="crypto CFDs only, without carry and without indices (what remains of bf2.6 next to the crypto book)", actor="system")]
+                   description="crypto CFDs only, without carry and without indices (what remains of bf2.6 next to the crypto book)", actor="system")] + (
+        [define(c, "bf27cand:honest_plus_rc6_basket", source, "composite",
+                {"multipliers": {"premium carry": 0.0, "premium carry BF": 0.0},
+                 "extra": [{"account": "paper:rc6cfd", "name": "rc6 CFD", "prefix": "results/v99/rc6cfd_sleeve_prefix.parquet"},
+                           {"account": "paper:basketcfd", "name": "basket CFD", "prefix": "results/v99/basketcfd_sleeve_prefix.parquet"}]}, risk=2.0,
+                description="bf2.7 candidate (C1, user-approved shadow 2026-11-02): bf2.6 without carry + v9.8's relative crowding 6 and diversifier "
+                            "basket as BrightFunded CFDs (backtest 2.94 [1.73, 4.08, 2.43] vs honest bf 2.30); bf2.6 itself unchanged", actor="system")]
+        if all(c.execute("SELECT 1 FROM paper_accounts WHERE key=?", (k_,)).fetchone() for k_ in ("paper:rc6cfd", "paper:basketcfd")) else [])

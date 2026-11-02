@@ -20,6 +20,13 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
+## Nieuw (2-11): CFD bf2.7-kandidaat als SCHADUW naast bf2.6 (bf2.6 zelf verandert niet)
+- Alleen `git pull` en de hub herstarten (`hub_start.bat`). De nieuwe hub-job **cfdx_paper** berekent elk uur relative crowding + de
+  diversifier basket als BrightFunded-CFD's (gebruikt alleen de v9.8-data, read-only). Vanaf 3-11 00:00 UTC.
+- Dashboard -> Paper Trading -> Shadow accounts: **`bf27cand:honest_plus_rc6_basket`** naast `bf26:without_carry`.
+- Optioneel (beter niveau van de schaduw, 5-20 min): dubbelklik **`oos_october_bf26.bat`** (rekent bf2.6 door tot zijn paper-start, pusht zelf).
+- Af en toe meepushen: `git add paper_trading/rc6cfd paper_trading/basketcfd` -> commit -> push.
+
 ## Nieuw (2-11): v9.9-kandidaat bot in DRY-RUN (optie a) - los van v9.8, GEEN paper-account
 - Na `git pull`: dubbelklik **`bot_v99_dryrun.bat`** (laat open staan, naast `paper_v98_start.bat` en de hub). Geen sleutel, geen orders.
   Hij bouwt elk uur `paper_trading/v99cand/book_next_hour.json` (v9.8-boek herwogen + de 4 event-sleeves) en logt de orders die hij

@@ -1,0 +1,16 @@
+{
+ "name": "Paper sleeve (bf2.7 candidate, C1): v9.8 relative crowding 6 (BTC ETH SOL XRP BNB DOGE, market-neutral) as BrightFunded CFDs",
+ "registered": "2026-11-02, before the first paper hour (2026-11-03 00:00 UTC)",
+ "what": "qpl.live.cfd_extra (hub job 'cfdx_paper', hourly): unchanged basket_live signals on the v9.8 paper's live data (read-only, cutoff = the last hour v9.8 has frozen); swap-free (no funding), half the measured BrightFunded spread + 1.2 bp per side. Frozen hourly ledger paper_trading/rc6cfd/ledger_hourly.csv",
+ "frozen": {
+  "account": 200000,
+  "risk": 1.0,
+  "start_after": "2026-11-03",
+  "risk_note": "'port' = sleeve P&L as a fraction of equity; the hub shadow bf27cand:honest_plus_rc6_basket combines it with bf2.6 (no carry)"
+ },
+ "reference": {
+  "backtest": "C1 (results/v99/c1_cfd_port.json); live code reproduces it exactly; point-in-time selftest PASSED (results/v99/c1_selftest.json)"
+ },
+ "gate": "judged together with the bf2.6 paper gate; a shadow only - nothing changes in bf2.6 or v9.8",
+ "changes": []
+}

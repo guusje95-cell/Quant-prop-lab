@@ -373,6 +373,10 @@ def test_composite_shadow_adds_a_sleeve_with_the_book_rule(c, tmp_path, monkeypa
     assert np.abs(plus.to_numpy() - refp.to_numpy()).max() < 1e-12 and not np.allclose(plus, same)   # 4th sleeve enters via the same rule
     with pytest.raises(ValueError):
         shadow.define(c, "tt:bad", "paper:tt", "composite", {"extra": [{"name": "x", "account": "engine:missing"}]})
+    shadow.define(c, "tt:dropB", "paper:tt", "composite", {"prefix": rel, "scale": 1.0, "multipliers": {"B": 0.0}, "extra": [{"name": "new", "account": "engine:new"}]}, risk=1.0)
+    drop = shadow.returns(c, "shadow:tt:dropB")                                            # bf2.7 style: a source sleeve dropped, an extra added
+    refd = CS.portfolio_v5(Hp.assign(B=0.0), start="2024-01-01")[0].reindex(P.index)
+    assert np.abs(drop.to_numpy() - refd.to_numpy()).max() < 1e-12
 
 
 def test_plus_shadow_adds_extra_sleeve_through_its_weight(c):
@@ -425,3 +429,24 @@ def test_futures_delisting_parser(tmp_path, monkeypatch):
     (d / "catalog_161.json").write_text(_j.dumps({"articles": arts}), encoding="utf-8")
     monkeypatch.setattr(CB, "ROOT", tmp_path)
     assert CB.futures_delistings() == [("FOO", pd.Timestamp("2026-11-03 10:00"))]          # entry = close of the 11:00 bar
+
+
+def test_cfd_extra_pnl_and_frozen_ledger(tmp_path, monkeypatch):
+    from qpl.live import cfd_extra as X
+    ix = pd.date_range("2026-11-03", periods=4, freq="h")
+    R = pd.DataFrame({"BTC": [0.01, -0.02, 0.0, 0.01], "DOGE": [0.0, 0.0, 0.05, 0.0]}, index=ix)
+    pos = pd.DataFrame({"BTC": [0.5, 0.5, 0.0, 0.0], "DOGE": [0.0, -0.2, -0.2, -0.2]}, index=ix)
+    cost = pd.Series({"BTC": 1e-4, "DOGE": 1e-3})
+    got = X.cfd_pnl(pos, R, cost)
+    exp = [0.5 * 0.01 - 0.5 * 1e-4, 0.5 * -0.02 - 0.2 * 1e-3, -0.2 * 0.05 - 0.5 * 1e-4, 0.0]          # no funding (swap-free)
+    assert np.allclose(got.to_numpy(), exp)
+    assert set(X.costs(["BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"]).index) == {"BTC", "ETH", "SOL", "XRP", "BNB", "DOGE"}
+    out = {"rc6 CFD": tmp_path / "rc6cfd", "basket CFD": tmp_path / "basketcfd"}; monkeypatch.setattr(X, "OUT", out)
+    monkeypatch.setattr(X, "sleeves", lambda index: {k: pd.Series(0.001, index=index) for k in out})
+    X._compute(pd.Timestamp("2026-11-03 03:00"), pd.Timestamp("2026-11-03 03:05"))
+    first = pd.read_csv(out["rc6 CFD"] / "ledger_hourly.csv")
+    assert list(first["hour"]) == ["2026-11-03 00:00:00", "2026-11-03 01:00:00", "2026-11-03 02:00:00"]   # only completed hours >= START
+    monkeypatch.setattr(X, "sleeves", lambda index: {k: pd.Series(0.009, index=index) for k in out})     # later revisions never rewrite
+    X._compute(pd.Timestamp("2026-11-03 05:00"), pd.Timestamp("2026-11-03 05:05"))
+    L = pd.read_csv(out["basket CFD"] / "ledger_hourly.csv")
+    assert len(L) == 5 and np.allclose(L["port"].iloc[:3], 0.001) and np.allclose(L["port"].iloc[3:], 0.009)
