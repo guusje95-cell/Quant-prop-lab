@@ -10,7 +10,7 @@ MKTS = ["US500", "US100", "US30"]; COST = 1e-4; RISK = 0.0025; LEV = 4.0
 
 
 def load(s):
-    x = pd.read_parquet(ROOT / f"research_data/dukascopy/{s}_5m.parquet")[["open", "high", "low", "close"]].astype(float)
+    x = pd.read_parquet(ROOT / f"research_data/dukascopy/{s}_5m.parquet")[["open", "high", "low", "close", "volume"]].astype(float)
     x = x[x.close > 0]; t = x.index.tz_localize("UTC").tz_convert("America/New_York").tz_localize(None)
     x.index = t; return x[~x.index.duplicated()].sort_index()
 
@@ -65,13 +65,13 @@ def run(x):
                         r = trade(R.loc[t + pd.Timedelta(minutes=5):], 1, b.close, b.low, mid)
                         if r is not None: out["P3"][d] = r
                         break
-            # P4 VWAP pullback on trend days (volume-free VWAP proxy: typical-price running mean; Dukascopy volume is tick volume)
+            # P4 VWAP pullback on trend days (session VWAP weighted by Dukascopy tick volume)
             H1 = R.between_time("09:30", "10:25")
             mv = H1.close.iloc[-1] / o - 1
             if abs(mv) > 0.4 * atr:
                 dside = np.sign(mv); midH = (H1.high.max() + H1.low.min()) / 2
                 if (H1.close.iloc[-1] - midH) * dside > 0:
-                    tp = (R.high + R.low + R.close) / 3; vw = tp.expanding().mean()
+                    tp = (R.high + R.low + R.close) / 3; vol = R.volume.clip(lower=1e-9); vw = (tp * vol).cumsum() / vol.cumsum()
                     for t, b in R.between_time("10:30", "13:55").iterrows():
                         if (dside > 0 and b.low <= vw.loc[t]) or (dside < 0 and b.high >= vw.loc[t]):
                             stop = H1.low.min() if dside > 0 else H1.high.max()
