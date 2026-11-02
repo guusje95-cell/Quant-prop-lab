@@ -1,0 +1,52 @@
+{
+ "Q1": {
+  "trades": 622,
+  "win rate": 0.465,
+  "Sharpe dev / judge": [
+   0.679,
+   -0.254
+  ],
+  "per market judge": {
+   "US500": -0.201,
+   "US100": -0.194,
+   "US30": -0.112
+  },
+  "pass": false
+ },
+ "Q2": {
+  "trades": 3838,
+  "win rate": 0.378,
+  "Sharpe dev / judge": [
+   -0.432,
+   -0.535
+  ],
+  "per market judge": {
+   "US500": -0.236,
+   "US100": -0.715,
+   "US30": -0.326
+  },
+  "pass": false
+ },
+ "Q3": {
+  "trades": 530,
+  "win rate": 0.423,
+  "Sharpe dev / judge": [
+   0.827,
+   -0.277
+  ],
+  "per market judge": {
+   "US500": 0.386,
+   "US100": -0.128,
+   "US30": -1.299
+  },
+  "pass": false
+ },
+ "Q4 DE40 replication of P5": {
+  "trades": 324,
+  "Sharpe dev / judge": [
+   -0.593,
+   0.016
+  ],
+  "pass": false
+ }
+}
