@@ -1,0 +1,12 @@
+{"id": "v99-M1", "date": "2026-11-02", "registered": "before building the venue series or running the joint simulation",
+ "why": "the v9.9 candidate's ~2 planning Sharpe was computed for HyroTrader (Bybit coins, 4.5% low-cap cap). Income scales with the number of firms; each firm has its own venue, coins and rules. 0 alpha trials: only venue filters and firm rules change, never the strategy",
+ "venue_series": {
+   "A Bybit capped (HyroTrader)": "R45 Bybit-filtered ALL + add + HODLer, 4.5% total low-cap cap at risk 1.5 (r48_stress per-event rebuild)",
+   "B Bybit uncapped (CFT Bybit route; no low-cap rule known: FLAGGED assumption)": "same, without the low-cap cap",
+   "C Hyperliquid (Propr)": "every Bybit availability filter replaced by Hyperliquid availability (research_data/hyperliquid_listings: first funding hour; the launch batch of 2023-05-12 counted as available from the start = counterfactual for 2022; 'k' prefix = 1000x); no low-cap cap",
+   "D bf2.7 (BrightFunded CFDs)": "C1 candidate"},
+ "planning_levels": "each crypto variant: its backtest Sharpe minus the SAME absolute deduction that takes A to 1.95 (A 3.550 -> 1.95: luck haircut 1.582, execution deltas +0.166, and the R48 concentration discount between the 2.08 rule value and the 1.86 bootstrap reading); D: 1.36 (C6)",
+ "accounts": "HyroTrader Two-Step $200k (A, risk 1.5, stop 0.5); CFT 2-Phase $200k (B, risk 1.5, stop 0.5); Propr 2-Step 3 x $100k (C, trailing 8%, risk 1.0, stop 0.6); BrightFunded Two-Step Classic $200k swap-free (D, risk 1.5, stop 0.5). MyFundedPerps left out (3% daily limit). Gen332 machinery: one joint block bootstrap (20 days) over 2025-01..2026-09, 400 paths, 2 years, 5 challenge budget each",
+ "report": "per account and stacked in the order Hyro -> BF -> CFT -> Propr: 2-year net USD mean / p10 / P(loss); fees; P(every account loses); outcome correlation",
+ "caveats": "firm rules from published pages / reviews (partly unconfirmed); EEA / Netherlands access to Bybit (HyroTrader via the Hyro platform, CFT Bybit route) is an open legal / access question; Propr's coin list from the public HL API",
+ "trials_added": 0}
