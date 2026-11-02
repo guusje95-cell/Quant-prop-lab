@@ -1,0 +1,30 @@
+{
+ "hodler coins also in the add events": 21,
+ "hodler coins": 59,
+ "corr hodler vs add sleeve (daily)": 0.506,
+ "corr hodler vs event short (daily)": 0.167,
+ "ALL + add capped": [
+  3.544,
+  [
+   2.625,
+   4.217,
+   3.342
+  ]
+ ],
+ "ALL + add + hodler capped": [
+  3.6,
+  [
+   2.625,
+   4.217,
+   3.482
+  ]
+ ],
+ "v9.8 capped": [
+  3.061,
+  [
+   2.465,
+   3.87,
+   2.592
+  ]
+ ]
+}
