@@ -1,0 +1,5 @@
+{"id": "v99-R7b", "date": "2026-11-02", "registered": "while the unlock download runs, before any return around unlocks was computed",
+ "data": "DefiLlama public dataset bucket (defillama-datasets.llama.fi/emissions/<protocol>; the data of the free defillama.com/unlocks pages), cliff unlock events, circulating proxy = cumulative unlocked supply (excluding non-circulating categories) just before the event; protocol -> ticker through the CoinGecko id or exact name match, kept only if the coin has a Binance USDT perp trading 7 days before the unlock",
+ "trials": {"A (= R7 as registered on 2026-10-31)": "unlocks >= 1% of the circulating proxy; short 0.05 from 00:00 UTC 7 days before until 00:00 UTC 3 days after, 30% stop, merged into the event short (its 0.5 gross cap), event-short costs; judged vs v9.8",
+            "B separate sleeve (FLAGGED: R30 lesson)": "the same shorts as a separate sleeve; judged vs v9.8; also reported on top of ALL + add + HODLer"},
+ "checks": "placebo +-60 days for B", "judge": "book >= 3.211 + 0.05 and no period lower", "trials_added": 2}
