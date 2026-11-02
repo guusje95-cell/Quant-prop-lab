@@ -33,5 +33,32 @@
    "status": "planned"
   }
  ],
- "status": "PARKED 2026-10-30 by the user's decision: focus on crypto and CFD. Futures keeps paper trading (futures_paper_update.bat) as a bonus / diversifier; no further research spend. Reason: results/hub_research/income_futures.json (3 x 50k futures accounts add about EUR 20-470 a month even at live Sharpe 0.65-1.5)."
+ "status": "PARKED 2026-10-30 by the user's decision: focus on crypto and CFD. Futures keeps paper trading (futures_paper_update.bat) as a bonus / diversifier; no further research spend. Reason: results/hub_research/income_futures.json (3 x 50k futures accounts add about EUR 20-470 a month even at live Sharpe 0.65-1.5).",
+ "queued_research": [
+  {
+   "id": "FPA",
+   "added": "2026-11-02",
+   "by": "user request: do price-action research for futures myself (different methods and strategies); PARKED until crypto (HyroTrader) and CFD (BrightFunded) are live, because that is where most value is",
+   "markets": [
+    "NQ (US100 5m 2018-26 Dukascopy proxy)",
+    "ES (Databento 1m + US500 5m)",
+    "YM (US30 5m)",
+    "GC (XAUUSD 5m: user to push research_data/dukascopy/XAUUSD_5m.parquet)",
+    "SI (5m to download from Dukascopy, free)"
+   ],
+   "methods_to_cover": [
+    "session structure: opening range (5/15/30 min) breakout and failure, initial balance, overnight high / low",
+    "levels: PDH/PDL, PWH/PWL, overnight range, round numbers, VWAP and its bands",
+    "liquidity: sweep-and-reclaim of session / day levels, failed breakouts",
+    "trend-day vs range-day classification (first-hour range vs ATR) with continuation or fade",
+    "pullbacks to VWAP / EMA in trend, gap fill / gap-and-go at the cash open",
+    "volatility contraction (inside days, NR4/NR7) breakouts",
+    "time-of-day exits (end of session, fixed hold) vs fixed R targets vs trailing"
+   ],
+   "protocol": "every family pre-registered before any result; dev 2018-22, judge 2023-26 once; realistic futures costs (1 tick slippage + commission per side); count every trial; strict rule for a book (+0.05, no period lower); placebo / neighbourhood checks for passes; the user's own rules (template in chat 2026-11-02) are tested first as a separate pre-registered set",
+   "lessons_carried_over": "crypto R8-R12: generic level / session / FVG entries had no directional information and tight stops lose to costs; prefer wider (session-based) stops and conditions with a mechanism (opening auction, overnight inventory, VWAP benchmarking by institutions)",
+   "target": "an intraday futures book suitable for intraday prop firms (no overnight), judged on its own and as a diversifier of the crypto / CFD accounts",
+   "start": "after the crypto challenge is running and the CFD paper gate (mid-December 2026) is decided"
+  }
+ ]
 }

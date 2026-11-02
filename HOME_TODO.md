@@ -39,6 +39,9 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 
 Daarna tegen Claude zeggen: "thuis gedaan".
 
+## Later (futures price-action onderzoek, geparkeerd tot na crypto + CFD)
+- Push een keer `research_data/dukascopy/XAUUSD_5m.parquet` (goud 5-minuten) als je toch pusht; nodig voor het futures-price-action-onderzoek later.
+
 ## Nog open vragen / beslissingen
 - Mails aan HyroTrader / CFT over bots + Nederland (`research/SUPPORT_EMAILS.md`) als die nog niet verstuurd zijn.
 - Hub-agenda: 'proposed' items (Weiss volle weging, fill-meting) goedkeuren of niet (`research/hub/agenda.json`).
