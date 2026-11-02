@@ -1,0 +1,4 @@
+{"id": "C10", "date": "2026-11-02", "flag": "FLAGGED post-hoc combination of C9 (passed, flagged) and C3 (near miss +0.03, every period up)", "trials_added": 1,
+ "registered": "before computing the combination",
+ "candidate bf2.8": "bf2.7 (C1) + Weiss expiry at full weight with its gross capped at 4x equity at risk 1.5 (C9) + trend 4h and alt kimchi as Gen383 neighbourhood ensembles (C3)",
+ "judge": "book >= 2.947 + 0.05 and no period lower than bf2.7; robustness (descriptive): costs x2 on the CFD sleeves, worst day / max DD at risk 1.5, Weiss cap 3.5x and 4.5x"}
