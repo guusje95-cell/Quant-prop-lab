@@ -1,0 +1,6 @@
+{"id": "v99-R43", "date": "2026-11-02", "registered": "after R7c showed that shorting vesting tokens at random dates earns as much as around unlocks; before computing any R43 return",
+ "hypothesis": "supply dilution (token inflation) factor: coins whose circulating supply grows most over the next 12 months by their published vesting schedule underperform coins with little scheduled dilution (new supply must be absorbed; insiders sell)",
+ "data": "DefiLlama public dataset (monthly cumulative unlocked supply per protocol, non-circulating categories excluded; research_data/defillama_unlocks/monthly_supply.json); vesting schedules are documented in advance (caveat: DefiLlama adds schedules after the fact, but the schedule itself was public)",
+ "signal": "at each month start m: dilution = unlocked(m + 12 months) / unlocked(m) - 1, coins mapped to a Binance USDT perp (R7b mapping) with unlocked(m) > 0 and a perp trading at m",
+ "rule": "long the lowest third, short the highest third by dilution, equal weight, dollar neutral (0.5 / 0.5), monthly; at least 9 eligible coins; 8 bp per side + Binance funding",
+ "trial": "as a separate 10th sleeve", "judge": "book >= 3.211 + 0.05 and no period lower; also reported on top of ALL + add + HODLer", "trials_added": 1}
