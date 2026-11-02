@@ -1,0 +1,5 @@
+{"id": "v99-R42", "date": "2026-11-02", "registered": "after counting the titles (68), before running r42_hodler.py",
+ "why": "Binance HODLer Airdrops hand a new token for free to BNB holders shortly before it lists; recipients sell (free supply), a forced-supply / sell-the-news mechanism like R16 / R34. Never tested (grep 'hodler': 0)",
+ "events": "titles containing 'HODLer Airdrop' with the ticker in parentheses (Binance catalogs 48 / 49 / 157 / 93), 2021-06..2026-09-23; entry at the first hour the coin's Binance USDT perp trades at or after the announcement, within 72 h (else no trade)",
+ "rule": "short 5% of the perp from the close of that first hour, 7 days, +30% stop, 10 bp, funding (R16 A rules), as a separate sleeve",
+ "checks": "placebo +-60 days; on top of ALL + Binance-add (the current best candidate)", "judge": "book >= 3.211 + 0.05 and no period lower; >= 30 trades", "trials_added": 1}
