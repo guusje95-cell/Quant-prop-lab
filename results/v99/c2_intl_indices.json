@@ -1,0 +1,41 @@
+{
+ "reference bf2.7 candidate": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "sleeve vol-managed intl indices": [
+  0.474,
+  [
+   -0.879,
+   0.936,
+   0.811
+  ]
+ ],
+ "book with it": [
+  2.765,
+  [
+   1.457,
+   3.899,
+   2.307
+  ]
+ ],
+ "pass": false,
+ "costs x2 (descriptive)": [
+  2.763,
+  [
+   1.454,
+   3.897,
+   2.305
+  ]
+ ],
+ "corr sleeve vs crypto v9.8": 0.006,
+ "corr sleeve vs US index sleeve": 0.725,
+ "corr book vs crypto v9.8: before / after": [
+  0.863,
+  0.792
+ ]
+}
