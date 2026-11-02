@@ -1,0 +1,69 @@
+{
+ "P5 NR7 / 30 min": [
+  0.556,
+  0.635
+ ],
+ "control: unconditional ORB 30": [
+  -0.172,
+  -0.105
+ ],
+ "placebo judge (20 random-day draws): p50 / p90 / max": [
+  -0.191,
+  0.176,
+  0.457
+ ],
+ "neighbourhood": {
+  "NR4 / 30": [
+   0.468,
+   0.396
+  ],
+  "NR5 / 30": [
+   0.199,
+   0.551
+  ],
+  "NR6 / 30": [
+   0.454,
+   0.825
+  ],
+  "NR8 / 30": [
+   0.337,
+   0.597
+  ],
+  "NR10 / 30": [
+   0.565,
+   0.526
+  ],
+  "NR7 / 15": [
+   0.834,
+   0.358
+  ],
+  "NR7 / 45": [
+   0.377,
+   0.313
+  ],
+  "NR7 / 60": [
+   0.403,
+   -0.082
+  ]
+ },
+ "2x costs": [
+  0.236,
+  0.21
+ ],
+ "futures book (no save)": {
+  "without": [
+   1.451,
+   1.218
+  ],
+  "with P5": [
+   1.562,
+   1.36
+  ]
+ },
+ "verdict": {
+  "NR7 beats unconditional": true,
+  "above placebo p90": true,
+  "neighbours judge >= 0.3": "7 of 8",
+  "2x costs judge >= 0.3": false
+ }
+}
