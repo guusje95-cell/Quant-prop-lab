@@ -15,8 +15,14 @@ def legs(sym):
     x = x[x > 0]; x.index = x.index.tz_localize("UTC").tz_convert("America/New_York").tz_localize(None); x = x[~x.index.duplicated()].sort_index()
     on, dy = {}, {}
     for d in pd.bdate_range("2013-01-02", "2026-09-30"):
-        a = x.get(d - pd.Timedelta(hours=7)); b = x.get(d + pd.Timedelta(hours=7)); e = x.get(d + pd.Timedelta(hours=16))   # bar starts 17:00 prev, 07:00, 16:00
-        if a is not None and b is not None and e is not None and np.isfinite([a, b, e]).all():
+        # last bar starting at or before 17:00 the evening before (the 17:00-18:00 ET maintenance break has no bar), 07:00 and 16:00 (fixed 2026-11-02
+        # before any interpretation: exact-timestamp lookups missed the absent 17:00 bar from 2018 on)
+        ts = [d - pd.Timedelta(hours=7), d + pd.Timedelta(hours=7), d + pd.Timedelta(hours=16)]
+        pos = x.index.searchsorted(ts, side="right") - 1
+        if (pos < 0).any() or any((t - x.index[i]) > pd.Timedelta(hours=3) for t, i in zip(ts, pos)):
+            continue
+        a, b, e = (x.iloc[i] for i in pos)
+        if np.isfinite([a, b, e]).all():
             on[d] = b / a - 1 - 2 * COST; dy[d] = e / b - 1
     return pd.Series(on), pd.Series(dy)
 
