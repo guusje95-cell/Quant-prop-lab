@@ -1,0 +1,212 @@
+{
+ "bf2.7 candidate": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "sleeves": {
+  "C*": {
+   "alone": [
+    1.434,
+    [
+     -0.846,
+     2.465,
+     0.696
+    ]
+   ],
+   "book without it": [
+    2.838,
+    [
+     1.93,
+     3.888,
+     2.249
+    ]
+   ],
+   "marginal": 0.109,
+   "corr with crypto v9.8": 0.386
+  },
+  "trend 4h": {
+   "alone": [
+    0.966,
+    [
+     0.709,
+     1.569,
+     0.519
+    ]
+   ],
+   "book without it": [
+    2.824,
+    [
+     1.486,
+     4.143,
+     2.246
+    ]
+   ],
+   "marginal": 0.123,
+   "corr with crypto v9.8": 0.418
+  },
+  "Weiss expiry": {
+   "alone": [
+    1.308,
+    [
+     1.266,
+     1.81,
+     0.818
+    ]
+   ],
+   "book without it": [
+    2.805,
+    [
+     1.703,
+     3.813,
+     2.37
+    ]
+   ],
+   "marginal": 0.142,
+   "corr with crypto v9.8": 0.137
+  },
+  "delev bounce": {
+   "alone": [
+    0.718,
+    [
+     0.755,
+     1.111,
+     0.662
+    ]
+   ],
+   "book without it": [
+    2.919,
+    [
+     1.664,
+     4.054,
+     2.349
+    ]
+   ],
+   "marginal": 0.028,
+   "corr with crypto v9.8": 0.251
+  },
+  "coinbase premium": {
+   "alone": [
+    0.964,
+    [
+     0.924,
+     1.331,
+     0.693
+    ]
+   ],
+   "book without it": [
+    2.977,
+    [
+     1.863,
+     4.164,
+     2.399
+    ]
+   ],
+   "marginal": -0.03,
+   "corr with crypto v9.8": 0.347
+  },
+  "ridge ML": {
+   "alone": [
+    1.221,
+    [
+     -0.033,
+     1.855,
+     1.669
+    ]
+   ],
+   "book without it": [
+    3.004,
+    [
+     1.993,
+     4.18,
+     2.338
+    ]
+   ],
+   "marginal": -0.057,
+   "corr with crypto v9.8": 0.457
+  },
+  "vol-managed indices": {
+   "alone": [
+    0.888,
+    [
+     -0.631,
+     1.694,
+     1.07
+    ]
+   ],
+   "book without it": [
+    2.905,
+    [
+     2.093,
+     3.841,
+     2.372
+    ]
+   ],
+   "marginal": 0.042,
+   "corr with crypto v9.8": 0.025
+  },
+  "alt kimchi": {
+   "alone": [
+    0.695,
+    [
+     0.127,
+     1.146,
+     0.646
+    ]
+   ],
+   "book without it": [
+    2.944,
+    [
+     1.739,
+     3.943,
+     2.562
+    ]
+   ],
+   "marginal": 0.003,
+   "corr with crypto v9.8": 0.264
+  },
+  "rc6 CFD": {
+   "alone": [
+    1.459,
+    [
+     1.322,
+     1.505,
+     1.583
+    ]
+   ],
+   "book without it": [
+    2.632,
+    [
+     1.052,
+     3.87,
+     2.278
+    ]
+   ],
+   "marginal": 0.315,
+   "corr with crypto v9.8": 0.285
+  },
+  "basket CFD": {
+   "alone": [
+    2.832,
+    [
+     3.543,
+     3.453,
+     1.699
+    ]
+   ],
+   "book without it": [
+    2.72,
+    [
+     1.208,
+     3.95,
+     2.361
+    ]
+   ],
+   "marginal": 0.227,
+   "corr with crypto v9.8": 0.577
+  }
+ }
+}

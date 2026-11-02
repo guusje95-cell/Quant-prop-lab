@@ -1,0 +1,5 @@
+{"id": "v99-C5", "date": "2026-11-02", "registered": "before computing the sleeve",
+ "why": "C4 (leave-one-out): relative crowding is the largest contributor of the CFD candidate (+0.32). The same unchanged rule on a DISJOINT universe is both a new sleeve and an out-of-sample test of the mechanism. Prior caution: Gen397 / Gen398 point-in-time top-6 / top-10 versions were weaker (0.66-0.70 in 2022)",
+ "sleeve": "'rc alt CFD': basket_live relative crowding (daily / 3-day / 8-hourly versions, two Binance ratio metrics, 90-day z, cross-sectional demeaning, clip 2) unchanged, on the 12 BrightFunded crypto CFDs with Binance metrics that are NOT in the 6-coin sleeve: AAVE ADA AVAX BCH DOT ETC FIL LINK LTC NEAR UNI XLM; CFD costs (half measured spread + 1.2 bp), no funding",
+ "reference": "bf2.7 candidate 2.947 [1.751, 4.077, 2.432]",
+ "judge": "book >= 2.997 and no period lower", "trials_added": 1}

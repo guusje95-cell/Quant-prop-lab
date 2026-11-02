@@ -1,0 +1,77 @@
+{
+ "reproduction": {
+  "trend 4h max abs diff vs dump": 0.0,
+  "alt kimchi max abs diff vs dump": 0.0
+ },
+ "reference bf2.7 candidate": [
+  2.947,
+  [
+   1.751,
+   4.077,
+   2.432
+  ]
+ ],
+ "sleeves single / ensemble": {
+  "trend 4h": [
+   [
+    0.966,
+    [
+     0.709,
+     1.569,
+     0.519
+    ]
+   ],
+   [
+    1.008,
+    [
+     0.763,
+     1.615,
+     0.55
+    ]
+   ]
+  ],
+  "alt kimchi": [
+   [
+    0.695,
+    [
+     0.127,
+     1.146,
+     0.646
+    ]
+   ],
+   [
+    0.698,
+    [
+     0.174,
+     1.13,
+     0.652
+    ]
+   ]
+  ]
+ },
+ "trend ensemble only": [
+  2.966,
+  [
+   1.803,
+   4.079,
+   2.456
+  ]
+ ],
+ "alt kimchi ensemble only": [
+  2.958,
+  [
+   1.763,
+   4.1,
+   2.433
+  ]
+ ],
+ "both (the registered change)": [
+  2.977,
+  [
+   1.817,
+   4.101,
+   2.456
+  ]
+ ],
+ "pass": false
+}
