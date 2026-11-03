@@ -22,7 +22,7 @@ if len(sys.argv) > 1 and sys.argv[1] == "child":
 sys.path.insert(0, str(ROOT / "scripts/v99")); sys.argv.append("--research")
 import dailyflat_positions as DP
 pos = DP.session_positions(); EQ = DP.EQ8
-Q = pd.read_parquet(ROOT / "results/v99/df1_sleeves.parquet")[EQ]; Q = Q[Q.index.weekday < 5].loc["2010-06-01":"2026-09-30"].fillna(0.0)
+Q = pd.read_parquet(ROOT / ("results/v99/df7_sleeves.parquet" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/df1_sleeves.parquet"))[EQ]; Q = Q[Q.index.weekday < 5].loc["2010-06-01":"2026-09-30"].fillna(0.0)
 T = Q.loc[:"2022-12-31"]; w = (1 / T.std()).where(T.mean() / T.std() > 0, 0.0); w = w / w.sum()
 raw = (Q * w).sum(axis=1); lvl = (0.10 / (raw.rolling(60, min_periods=40).std() * np.sqrt(252))).clip(upper=3).shift(1)
 out, worst = {}, 0.0
@@ -42,4 +42,4 @@ for s in SESS:
     worst = max(worst, diff if np.isfinite(diff) else 9.0); out[s] = {"point-in-time": live, "full data": ref, "max abs diff": diff}
     print(s, out[s], flush=True)
 out["PASS"] = bool(worst < 1e-4)
-(ROOT / "results/v99/dailyflat_targets_selftest.json").write_text(json.dumps(out, indent=1)); print("PASS", out["PASS"])
+(ROOT / ("results/v99/dailyflat_targets_selftest_cfd1655.json" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/dailyflat_targets_selftest.json")).write_text(json.dumps(out, indent=1)); print("PASS", out["PASS"])

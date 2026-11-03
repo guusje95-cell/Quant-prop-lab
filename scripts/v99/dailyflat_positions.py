@@ -53,7 +53,7 @@ def session_positions() -> dict[str, pd.DataFrame]:
         d0 = gg.index[-6]; mtd = (1 + gg.loc[:d0]).prod() - 1
         W.loc[gg.index[-5:]] = (-1.0 if mtd.ES > mtd.ZN else 1.0) * 0.15 / VK.loc[d0]
     out["K3"] = pd.DataFrame({"ES": W, "NQ": 0.0})
-    p1 = {}
+    p1, p1raw = {}, {}
     for r in MK:
         f = F.front(r); t = F.ny(f.index); pz = (1 + f.r.fillna(0.0)).cumprod(); wk = (t.wd < 5).to_numpy()
         m = wk & (t.h == 15).to_numpy(); c = pz[m].groupby(t.date[m]).last()
@@ -61,7 +61,8 @@ def session_positions() -> dict[str, pd.DataFrame]:
         hi = np.maximum(pz[rth].groupby(t.date[rth]).max().reindex(c.index), c); lo = np.minimum(pz[rth].groupby(t.date[rth]).min().reindex(c.index), c)
         w1 = 0.5 * (((c - lo) / (hi - lo)) < 0.3).astype(float).where(hi > lo, 0.0)
         p1[r] = _ext(w1).shift(1)                                                                        # decided on the previous day
-    out["P1"] = pd.DataFrame(p1).fillna(0.0)
+        p1raw[r] = w1
+    out["P1"] = pd.DataFrame(p1).fillna(0.0); out["P1 decided 16:00"] = pd.DataFrame(p1raw).fillna(0.0)
     g155 = _ns("gen155_r1_refine.py", "SN = {r: snaps")
     r1 = {}
     for r in MK4:
@@ -75,23 +76,28 @@ def session_positions() -> dict[str, pd.DataFrame]:
 
 
 def hourly(pos: dict) -> dict[str, pd.DataFrame]:
-    """hourly position per sleeve on the patched front bars (bar-start label), flat 16:00-18:00 ET and when the market is closed"""
+    """hourly position per sleeve on the patched front bars (bar-start label). Calendar sleeves and K3 by CME trade date (as the
+    research's daily_book); P1 and R1 by their decision time (P1: 16:00 ET, R1: 14:00 ET), holding the latest decision made at or
+    before the bar's start. Bars the patch zeroes (16:00 ET bar unless QPL_FLAT_FROM=17, closures) carry no P&L either way."""
     H = {}
     for r in MK4:
         f = F.front(r); t = F.ny(f.index); td = F.trade_date(f.index)
+        et = pd.DatetimeIndex(f.index).tz_localize("UTC").tz_convert("America/New_York").tz_localize(None)
         for n, P in pos.items():
-            if n.startswith("R1") or r not in P:
+            if n.startswith("R1") or n.startswith("P1") or r not in P:
                 continue
             H.setdefault(n, {})[r] = pd.Series(P[r].reindex(td).fillna(0.0).to_numpy(), index=f.index)
-        a = pos["R1 until 14:00"][r].reindex(td).fillna(0.0).to_numpy(); b = pos["R1 from 14:00"][r].reindex(td).fillna(0.0).to_numpy()
-        after = (t.h.to_numpy() >= 14) & (t.h.to_numpy() < 16)
-        H.setdefault("R1", {})[r] = pd.Series(np.where(after, b, a), index=f.index)
+        for n, key, hh in (("P1", "P1 decided 16:00", 16), ("R1", "R1 from 14:00", 14)):
+            if r not in pos[key]:
+                continue
+            w = pos[key][r]; dec = pd.Series(w.to_numpy(), index=pd.DatetimeIndex(w.index) + pd.Timedelta(hours=hh)).sort_index()
+            H.setdefault(n, {})[r] = pd.Series(dec.reindex(et, method="ffill").fillna(0.0).to_numpy(), index=f.index)
     return {n: pd.DataFrame(v).fillna(0.0) for n, v in H.items()}
 
 
 def selftest() -> dict:
     pos = session_positions(); H = hourly(pos)
-    Q = pd.read_parquet(ROOT / "results/v99/df1_sleeves.parquet")
+    Q = pd.read_parquet(ROOT / ("results/v99/df7_sleeves.parquet" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/df1_sleeves.parquet"))
     out = {}
     for n, Hp in H.items():
         g = sum(Hp[r].dropna().pipe(lambda p: (p * F.front(r).r.reindex(p.index).fillna(0.0)).groupby(F.trade_date(p.index)).sum()) for r in Hp.columns)

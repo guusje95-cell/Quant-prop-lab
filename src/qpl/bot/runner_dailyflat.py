@@ -32,11 +32,15 @@ def _et(now_utc: pd.Timestamp) -> pd.Timestamp:
     return now_utc.tz_convert("America/New_York").tz_localize(None)
 
 
-def flat_window(now_et: pd.Timestamp) -> bool:
+FLAT_FROM = 15 * 60 + 55                                                     # futures firms; CFD firms (swap at 17:00 ET): 16 * 60 + 55
+
+
+def flat_window(now_et: pd.Timestamp, flat_from: int | None = None) -> bool:
+    ff = FLAT_FROM if flat_from is None else flat_from
     m = now_et.hour * 60 + now_et.minute; wd = now_et.weekday()
-    if wd == 5 or (wd == 6 and m < 18 * 60) or (wd == 4 and m >= 15 * 60 + 55):
+    if wd == 5 or (wd == 6 and m < 18 * 60) or (wd == 4 and m >= ff):
         return True
-    return 15 * 60 + 55 <= m < 18 * 60
+    return ff <= m < 18 * 60
 
 
 def session_of(now_et: pd.Timestamp) -> pd.Timestamp:
@@ -46,11 +50,13 @@ def session_of(now_et: pd.Timestamp) -> pd.Timestamp:
     return d
 
 
-def current_targets(tj: dict, now_utc: pd.Timestamp) -> dict | None:
+def current_targets(tj: dict, now_utc: pd.Timestamp, flat_from: int | None = None) -> dict | None:
     """fractions of equity per index CFD for now; {} when the bot must be flat; None when the targets file is not for this session"""
     et = _et(now_utc)
-    if flat_window(et):
+    if flat_window(et, flat_from):
         return {}
+    if et.hour == 16:                                                     # only reached when flat_from is after 16:00 (CFD firms)
+        return tj.get("targets_1600_1655et") or {} if tj.get("block_date") == str(et.date()) else {}
     s = session_of(et)
     if tj.get("session") != str(s.date()):
         return None
@@ -60,7 +66,7 @@ def current_targets(tj: dict, now_utc: pd.Timestamp) -> dict | None:
     return tj["targets_before_14et"]
 
 
-def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Timestamp | None = None) -> dict:
+def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Timestamp | None = None, flat_from: int | None = None) -> dict:
     from qpl.bot.venue_mt5 import MT5DryRun, symbol_map
     now = now or pd.Timestamp.now("UTC"); s = load_state(sdir)
     ad = MT5DryRun(mt5, s, rules.initial_balance, {k: v for k, v in symbol_map(mt5).items() if k in INDEX})
@@ -73,7 +79,7 @@ def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Ti
             log_orders(sdir, [dict(r, time=str(now), reason="daily stop") for r in ad.flatten()])
         res["action"] = "daily stop: flat until the next day"
     else:
-        fr = current_targets(tj, now)
+        fr = current_targets(tj, now, flat_from)
         if fr is None:
             res["action"] = f"no targets for this session (file is for {tj.get('session')}): holding flat"
             fr = {}
@@ -83,7 +89,7 @@ def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Ti
             f = ad.place_market(o["coin"], o["usd"]); fills.append(dict(o, **f, time=str(now), session=tj.get("session")))
         log_orders(sdir, fills)
         s["positions"] = {k: v for k, v in s["positions"].items() if abs(v) >= rules.min_order_usd}   # lot-rounding dust (a live close is by ticket)
-        res.setdefault("action", f"{len(orders)} orders" + (" (flat window)" if flat_window(_et(now)) else ""))
+        res.setdefault("action", f"{len(orders)} orders" + (" (flat window)" if flat_window(_et(now), flat_from) else ""))
         res.update(orders=len(orders), rejected=sum("REJECTED" in f.get("how", "") for f in fills), gross_after=round(sum(abs(v) for v in ad.positions().values())))
     save_state(sdir, s); return res
 
@@ -93,13 +99,15 @@ def refresh(max_cost: float, log=print):
     if max_cost > 0:
         r = subprocess.run([sys.executable, "-m", "qpl.live.databento_update", "--max-cost", str(max_cost)], cwd=ROOT, capture_output=True, text=True)
         log({"databento_update": r.stdout.strip().splitlines()[-1:] if r.stdout else r.stderr[-300:]})
-    r = subprocess.run([sys.executable, str(ROOT / "scripts/v99/dailyflat_targets.py")], cwd=ROOT, capture_output=True, text=True)
+    import os
+    r = subprocess.run([sys.executable, str(ROOT / "scripts/v99/dailyflat_targets.py")], cwd=ROOT, capture_output=True, text=True, env=dict(os.environ))
     log({"targets": "ok" if r.returncode == 0 else r.stderr[-500:]})
 
 
 def main():
     a = argparse.ArgumentParser(); a.add_argument("--loop", action="store_true"); a.add_argument("--risk", type=float, default=1.0)
     a.add_argument("--account", type=float, default=100_000.0); a.add_argument("--max-cost", type=float, default=0.0)
+    a.add_argument("--cfd-1655", action="store_true", help="CFD firms: hold until 16:55 ET (swap at 17:00), flat 16:55-18:00")
     a.add_argument("--targets", default=str(TARGETS)); a.add_argument("--state", default=str(STATE)); x = a.parse_args()
     import MetaTrader5 as mt5
     if not mt5.initialize():
@@ -109,10 +117,10 @@ def main():
     try:
         while True:
             try:
-                et = _et(pd.Timestamp.now("UTC")); key = (str(et.date()), "1405" if et.hour == 14 else "1630" if (et.hour == 16 and et.minute >= 30) else "")
+                et = _et(pd.Timestamp.now("UTC")); key = (str(et.date()), "1405" if (et.hour == 14 and et.minute >= 5) else "1605" if (et.hour == 16 and et.minute >= 5) else "")
                 if key[1] and key not in done and et.weekday() < 5:
                     refresh(x.max_cost); done.add(key)
-                print(one_pass(mt5, Path(x.targets), x.risk, rules, Path(x.state)), flush=True)
+                print(one_pass(mt5, Path(x.targets), x.risk, rules, Path(x.state), flat_from=16 * 60 + 55 if x.cfd_1655 else None), flush=True)
             except Exception as e:                                       # noqa: BLE001 - keep the loop alive
                 print({"error": str(e)}, flush=True)
             if not x.loop:

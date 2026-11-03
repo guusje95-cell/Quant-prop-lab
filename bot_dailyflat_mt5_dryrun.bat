@@ -11,6 +11,9 @@ if "%DATABENTO_API_KEY%"=="" set /p DATABENTO_API_KEY=Paste your Databento API k
 set /p MAXC=Maximum dollars per Databento top-up (e.g. 0.5; 0 = none): 
 set /p ACC=Account size in USD (e.g. 100000): 
 set /p RISK=Book risk (1.0 = 10%% vol; 1.4 = 14%%): 
+set /p CFDM=CFD firm (hold until 16:55 ET, swap at 17:00)? y/n: 
+set EXTRA=
+if /i "%CFDM%"=="y" (set QPL_FLAT_FROM=17& set EXTRA=--cfd-1655)
 python scripts\v99\dailyflat_targets.py
-python -m qpl.bot.runner_dailyflat --loop --account %ACC% --risk %RISK% --max-cost %MAXC%
+python -m qpl.bot.runner_dailyflat --loop --account %ACC% --risk %RISK% --max-cost %MAXC% %EXTRA%
 pause

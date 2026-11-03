@@ -31,3 +31,13 @@ def test_one_pass_dry_run(tmp_path):
     st = json.loads((tmp_path / "st/state.json").read_text()); assert set(st["positions"]) == {"US500", "US100"}
     r2 = R.one_pass(mt5, p, 1.0, rules, tmp_path / "st", now=u("2026-11-04 15:57"))
     st = json.loads((tmp_path / "st/state.json").read_text()); assert st["positions"] == {} and r2["orders"] == 2
+
+
+def test_cfd_1655_schedule():
+    tj = dict(TJ, block_date="2026-11-04", targets_1600_1655et={"US500": 0.3, "US100": 0.1, "US2000": 0.0, "US30": 0.0})
+    ff = 16 * 60 + 55
+    assert R.current_targets(tj, u("2026-11-04 15:58"), ff) == TJ["targets_after_14et"]     # futures schedule would be flat here
+    assert R.current_targets(tj, u("2026-11-04 16:10"), ff) == tj["targets_1600_1655et"]
+    assert R.current_targets(tj, u("2026-11-04 16:56"), ff) == {}
+    assert R.current_targets(dict(tj, block_date="2026-11-03"), u("2026-11-04 16:10"), ff) == {}   # stale block -> flat
+    assert R.current_targets(tj, u("2026-11-04 16:10")) == {}                                    # default (futures firms): flat

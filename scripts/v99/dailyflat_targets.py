@@ -85,14 +85,17 @@ def build(now_utc: pd.Timestamp | None = None, write: bool = True) -> dict:
     pos = DP.session_positions()
     EQ = DP.EQ8
     # book weights: fbook rule on the research sleeves (fixed: fit 2010-22)
-    Q = pd.read_parquet(ROOT / "results/v99/df1_sleeves.parquet")[EQ]; Q = Q[Q.index.weekday < 5].loc["2010-06-01":RESEARCH_END].fillna(0.0)
+    SL = "results/v99/df7_sleeves.parquet" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/df1_sleeves.parquet"
+    Q = pd.read_parquet(ROOT / SL)[EQ]; Q = Q[Q.index.weekday < 5].loc["2010-06-01":RESEARCH_END].fillna(0.0)
     T = Q.loc[:"2022-12-31"]; w = (1 / T.std()).where(T.mean() / T.std() > 0, 0.0); w = w / w.sum()
     # daily sleeve P&L after the research end: positions x patched bars - own turnover x cost (as DF-4, per sleeve)
     H = DP.hourly(pos); live = {}
     for n in EQ:
         tot = 0.0
         for r in H[n].columns:
-            f = F.front(r); idx = f.index; et = F.ny(idx); p = H[n][r].reindex(idx).fillna(0.0).copy(); p[(et.h == 16).to_numpy()] = 0.0
+            f = F.front(r); idx = f.index; et = F.ny(idx); p = H[n][r].reindex(idx).fillna(0.0).copy()
+            if os.environ.get("QPL_FLAT_FROM", "16") == "16":
+                p[(et.h == 16).to_numpy()] = 0.0
             tot = tot + (p * f.r.fillna(0.0) - p.diff().abs().fillna(p.abs()) * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum()
         live[n] = tot
     L = pd.DataFrame(live); L = L[(L.index > RESEARCH_END) & (L.index < session) & (L.index.weekday < 5)]
@@ -110,11 +113,22 @@ def build(now_utc: pd.Timestamp | None = None, write: bool = True) -> dict:
             out[CFD[r]] = round(v, 6)
         return out
     after_known = session in pos["R1 from 14:00"].index and now_et >= session + pd.Timedelta(hours=14)
+    block, d0 = None, now_et.normalize()                                    # CFD firms (QPL_FLAT_FROM=17): the 16:00-16:55 ET hour of today
+    if now_et.hour >= 16 and d0.weekday() < 5 and d0 in pos["P1 decided 16:00"].index:
+        block = {}
+        for r in DP.MK4:
+            v = 0.0
+            for n in EQ:
+                P = pos["P1 decided 16:00"] if n == "P1" else pos["R1 from 14:00"] if n == "R1" else pos[n]
+                if r in P and d0 in P.index:
+                    v += w[n] * lvl * float(P.loc[d0, r])
+            block[CFD[r]] = round(v, 6)
     res = {"session": str(session.date()), "made_at_utc": str(now_utc.floor("s")), "level": round(lvl, 4),
            "weights": {k: round(float(v), 4) for k, v in w.items()},
            "targets_before_14et": tgt("before"), "targets_after_14et": tgt("after") if after_known else None,
+           "block_date": str(d0.date()) if block is not None else None, "targets_1600_1655et": block,
            "markets": CFD, "units": "fraction of equity at book risk 1 (10% vol target); account notional = fraction x equity x account risk",
-           "schedule_et": {"flat": "15:55-18:00 and Fri 15:55 -> Sun 18:00", "enter": "18:00 open (or the first bar after)", "r1_switch": "14:00"},
+           "schedule_et": {"flat": "15:55-18:00 (CFD firms: 16:55-18:00, then targets_1600_1655et from 16:00) and Fri -> Sun 18:00", "enter": "18:00 open (or the first bar after)", "r1_switch": "14:00"},
            "note": "DRY-RUN target book (DF-3 / DF-4); not a paper account; no order is sent"}
     if write:
         OUT.parent.mkdir(parents=True, exist_ok=True); tmp = OUT.with_suffix(".tmp"); tmp.write_text(json.dumps(res, indent=1)); tmp.replace(OUT)
