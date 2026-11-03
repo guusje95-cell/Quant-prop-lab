@@ -1,0 +1,5 @@
+{"id": "R53b", "date": "2026-11-03", "registered": "after R53 passed, before any check below", "trials_added": 0,
+ "checks": {"neighbourhood": "covariance shrink 0.25 and 0.75 (registered 0.5)", "generality": "ERC on the v9.8 capped book (3.061 [2.465, 3.870, 2.592])",
+            "concentration": "R48 S1: drop the best 10% of events of each new sleeve, inverse-vol vs ERC", "risk": "worst day, max drawdown, days below -2.5% at risk 1.5 (crypto_sleeves portfolio scaled like the book)",
+            "weights": "mean ERC weight share by sleeve vs inverse-vol (2022-26)"},
+ "judge": "robust if both neighbours keep >= +0.05 with no period lower, the drop-10% ERC book is not below the drop-10% inverse-vol book, and worst day / max DD are not worse by more than 10% relative"}
