@@ -1,0 +1,5 @@
+{"id": "F-CX5", "date": "2026-11-03", "registered": "before computing any CME number of the basket", "trials_added": 1,
+ "why": "v9.8's diversifier basket (8 demand / positioning members: USDT premium, mint shock, option flow, kimchi, top-trader crowding, leverage build-up, stablecoin impulse, fee pressure) trades ONLY BTC and ETH (checked: mean |w| SOL / XRP / BNB / DOGE = 0), daily. It ported to the CFD book (C1). On CME it needs no proxy: real CME BTC / ETH front futures",
+ "change": "sleeve 'CXB' = basket_live.basket daily BTC / ETH weights (unchanged code; row d held on d + 1, Gen137 d2h) executed on CME BTC / ETH with Gen137 execute() variant (a) (weekend-hold, CME costs + roll), daily with Saturday / Sunday on Monday, added to the futures + CX4 book (F-CX4) as a separate sleeve; fbook rule",
+ "judge": "2023-26 >= 1.565 + 0.05 and 2018-22 not lower than 1.679; robustness judged with it: at 2x CME costs 2023-26 must still be >= 1.615",
+ "flag": "the basket's members were selected (Gen391) on crypto data up to 2025, so the 2023-26 judge is partly in-sample for the member choice (not for the CME execution)"}
