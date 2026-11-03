@@ -68,6 +68,21 @@ def _ref_stats(name: str) -> tuple[float, float] | None:
     return None
 
 
+def attribution(d: Path, ref_file: str | None) -> list[dict]:
+    """per-sleeve contribution (weight x sleeve P&L) over the paper period vs its expectation from the research series' 2023-26 mean
+    (paper weights x backtest mean per hour; sd from the backtest hourly sd, no autocorrelation): which sleeve drives a deviation"""
+    if not ref_file or not (ROOT / ref_file).exists():
+        return []
+    L = pd.read_csv(d / "ledger_hourly.csv"); R = pd.read_parquet(ROOT / ref_file).loc["2023-01-01":"2026-09-30"]; out = []
+    for c in [c for c in L.columns if f"w {c}" in L.columns]:
+        w, p = L[f"w {c}"].astype(float), L[c].astype(float); act = float((w * p).sum())
+        if c not in R:
+            continue
+        m, sd1 = float(R[c].mean()), float(R[c].std()); exp = float((w * m).sum()); sd = float(np.sqrt((w ** 2).sum()) * sd1)
+        out.append({"sleeve": c, "actual": round(act, 5), "expected": round(exp, 5), "z": round((act - exp) / sd, 2) if sd > 0 else None})
+    return sorted(out, key=lambda x: x["actual"])
+
+
 def paper_accounts(now: pd.Timestamp) -> list[dict]:
     rows = []
     for d in sorted(p for p in PT.iterdir() if p.is_dir() and (p / "ledger_hourly.csv").exists()):
@@ -87,7 +102,8 @@ def paper_accounts(now: pd.Timestamp) -> list[dict]:
         status = "ALERT" if (stale or (z is not None and z < -2)) else "WATCH" if (z is not None and z < -1) else "OK"
         rows.append({"account": name, "label": REFS[name][3], "days": n, "last_data": str(last), "age_h": round(age_h, 1),
                      "cum": round(float((1 + s).prod() - 1), 4), "sharpe_live": None if sh is None else round(sh, 2),
-                     "backtest_daily_mean": None if not ref else ref[0], "z": None if z is None else round(z, 2), "stale": bool(stale), "status": status})
+                     "backtest_daily_mean": None if not ref else ref[0], "z": None if z is None else round(z, 2), "stale": bool(stale), "status": status,
+                     "sleeves": attribution(d, REFS[name][0])})
     return rows
 
 
@@ -148,6 +164,10 @@ def _md(rep: dict) -> str:
          "", "## Paper-accounts (vs backtest 2023-26)", "", "| account | dagen | laatste data | cum. | Sharpe live | z | status |", "|---|---|---|---|---|---|---|"]
     for a in rep["paper"]:
         L.append(f"| {a['label']} | {a['days']} | {a['last_data']} ({a['age_h']} u) | {a['cum']:+.2%} | {a['sharpe_live']} | {a['z']} | **{a['status']}** |")
+    for a in rep["paper"]:
+        if a.get("sleeves"):
+            L += ["", f"Per sleeve, {a['label']} (bijdrage aan het account, vs verwachting):", "", "| sleeve | werkelijk | verwacht | z |", "|---|---|---|---|"]
+            L += [f"| {x['sleeve']} | {x['actual']:+.3%} | {x['expected']:+.3%} | {x['z']} |" for x in a["sleeves"]]
     L += ["", "Let op: met weinig dagen zegt de Sharpe live bijna niets (1 standaardfout ~ 2 Sharpe bij 60 dagen); z is de eerlijke maat.",
           "", "## Schaduwen (alleen uren na definitie)", "", "| schaduw | dagen | cum. | Sharpe |", "|---|---|---|---|"]
     for s in rep["shadows"]:
