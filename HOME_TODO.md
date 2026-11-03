@@ -20,6 +20,12 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
+## Nieuw (3-11): koppelingen (allemaal DRY-RUN, er gaat nergens een order uit)
+- **HyroTrader:** dubbelklik `hyro_probe.bat` (maak in HyroTrader een READ-ONLY agent token; plak URL + token alleen in dat venster).
+  Hij schrijft alleen de lijst met MCP-tools naar `paper_trading/hyro_probe/tools.json` -> push die, dan bouw ik de echte adapter.
+- **Propr:** `bot_propr_dryrun.bat` (vraagt optioneel je Propr API-key, alleen in dat venster; leest alleen). Log: `bot_state_propr\orders_log.csv`.
+- **BrightFunded/MT5:** `bot_bf27_mt5_dryrun.bat` (zie hieronder) + eenmalig `export_mt5_ticks.bat` (ticks voor het CFD-uitvoeringsonderzoek).
+
 ## Nieuw (3-11): nieuwe-informatie-collectors (hub-job collect_listings, elk uur)
 - Alleen `git pull` + hub herstarten. Verzamelt OKX-, Bitget-, Bybit- en Hyperliquid-listings (openbare API's, geen sleutel) in
   `research_data/collect/`. Over een paar maanden kunnen we daar nieuwe event-tests op doen. Af en toe meepushen:
