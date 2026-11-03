@@ -1,0 +1,3 @@
+{"id": "F-CXc", "date": "2026-11-03", "registered": "before computing", "trials_added": 0,
+ "checks": ["weekend-FLAT variant (b) in the book (the pre-May-2026 CME reality: flat before closures)", "BTC leg only (ETH CME starts 2021)", "ETH leg only", "CX lagged one extra day (signal decay check)", "by-year sleeve Sharpe"],
+ "reading": "F-CX counts as robust if the book 2023-26 stays >= 1.218 + 0.05 in at least 3 of the 4 variants"}
