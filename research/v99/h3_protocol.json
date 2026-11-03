@@ -1,0 +1,2 @@
+{"id": "H3", "date": "2026-11-03", "registered": "before running", "trials_added": 0,
+ "what": "HyroTrader deployment for v9.9e (R53 ERC, capped series via r53b_checks.capped_series) at an assumed live Sharpe 2.0 (and 1.65 / 2.25), risk 1.0-2.5, stop 0.5, one account; same simulator and rule as H1 (P(loss) <= 0.20, highest mean)"}
