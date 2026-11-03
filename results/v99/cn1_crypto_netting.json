@@ -1,0 +1,32 @@
+{
+ "position check (corr daily gross vs v9.8 sleeve P&L)": {
+  "C*": 0.951,
+  "trend 4h": 1.0,
+  "Weiss expiry": 0.991,
+  "delev bounce": 1.0,
+  "ridge ML": 0.856,
+  "alt kimchi": 1.0,
+  "diversifier basket": 0.847,
+  "relative crowding 6": 1.0
+ },
+ "annual cost, per-member accounting (book units)": 0.0714,
+ "annual cost, net execution": 0.0511,
+ "v9.8 book Sharpe 2022-26 research / with the net-execution saving": [
+  3.217,
+  3.338
+ ],
+ "by period [research, net]": {
+  "2022-2022": [
+   3.016,
+   3.092
+  ],
+  "2023-2024": [
+   3.825,
+   3.961
+  ],
+  "2025-2026": [
+   2.719,
+   2.851
+  ]
+ }
+}
