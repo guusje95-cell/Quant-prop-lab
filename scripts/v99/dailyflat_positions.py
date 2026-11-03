@@ -23,7 +23,10 @@ os.environ["QPL_DAILY_FLAT"] = "1"
 sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "scripts/v99"))
 import dailyflat  # noqa: E402
 
-F = dailyflat.patch()
+if os.environ.get("QPL_DF_SIGNALS") == "true":                              # DF-1c: signals on TRUE prices (no patch); P&L patched later
+    import futures_db as F  # noqa: E402
+else:
+    F = dailyflat.patch()
 EQ8 = ["P1", "R1", "T1", "T2", "FC", "MM", "OIL", "K3"]
 MK = ["ES", "NQ"]
 MK4 = ["ES", "NQ", "RTY", "YM"]                                           # R1 trades all four indices (Gen155 EQ)
