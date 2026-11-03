@@ -1,0 +1,40 @@
+{
+ "bf2.8 research (per-member costs)": [
+  3.083,
+  [
+   1.88,
+   4.237,
+   2.533
+  ]
+ ],
+ "net execution (CN-2)": [
+  3.149,
+  [
+   1.928,
+   4.31,
+   2.601
+  ]
+ ],
+ "net + $1,000 band, risk 1.75": [
+  3.173,
+  [
+   1.986,
+   4.33,
+   2.608
+  ]
+ ],
+ "annual cost with band, risk 1.75": 0.0386,
+ "net + $1,000 band, risk 2.0": [
+  3.163,
+  [
+   1.977,
+   4.336,
+   2.581
+  ]
+ ],
+ "annual cost with band, risk 2.0": 0.0392,
+ "annual cost per-member / net": [
+  0.0517,
+  0.0416
+ ]
+}
