@@ -1,0 +1,20 @@
+{
+ "reference": [
+  1.459,
+  1.451,
+  1.218
+ ],
+ "with CX": [
+  1.459,
+  1.555,
+  1.345
+ ],
+ "CX stand-alone (daily, weekdays)": [
+  NaN,
+  0.79,
+  0.757
+ ],
+ "max |corr| CX vs sleeves since 2018": 0.19,
+ "corr CX vs reference book": 0.13,
+ "pass": true
+}
