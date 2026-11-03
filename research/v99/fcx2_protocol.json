@@ -1,0 +1,4 @@
+{"id": "F-CX2", "date": "2026-11-03", "registered": "before computing the book (stand-alone Gen137 numbers seen: FLAGGED)", "trials_added": 1,
+ "why": "after F-CX: the only other Gen137 CME sleeve positive in all three Gen137 periods on weekend-hold (a) is the deleveraging bounce (0.23 / 0.84 / 0.43); forced-flow mechanism, unrelated to trend",
+ "change": "sleeve 'CXD' = Gen137 variant (a) hourly P&L of 'S2 deleveraging bounce' on CME BTC / ETH, daily sum with Saturday / Sunday booked on Monday (the F-CXb fix), added to the futures book WITH the corrected CX sleeve; fbook.build",
+ "judge": "reference = book with CX (F-CXb): 2023-26 >= 1.414 + 0.05 and 2018-22 not lower than 1.600"}
