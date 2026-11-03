@@ -1,0 +1,3 @@
+{"id": "DF-4", "date": "2026-11-03", "registered": "before computing", "trials_added": 0,
+ "what": "execution, not alpha: the live bot trades the NET book position per market (sum over sleeves of book weight x level x sleeve position), so offsetting sleeve trades cost nothing. Hourly net positions from scripts/v99/dailyflat_positions.py (flat in the 16:00 ET bar and closures), turnover x futures_db.cost_frac per side, on the patched bars. Compared with the research book (each sleeve pays its own costs) for the 8 equity-index sleeves, fbook weights and level taken from the research book",
+ "reading": "descriptive; if the net-execution book is higher in every period it replaces the research book as the deployment estimate"}
