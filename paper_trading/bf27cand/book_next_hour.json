@@ -1,38 +1,38 @@
 {
- "for_hour_utc": "2026-11-03 15:00:00",
- "made_at_utc": "2026-11-03 16:11:20.700879",
- "built_at_utc": "2026-11-03 16:23:58.039454",
- "equity": 191221.47,
+ "for_hour_utc": "2026-11-03 17:00:00",
+ "made_at_utc": "2026-11-03 17:11:14.424362",
+ "built_at_utc": "2026-11-03 17:13:06.862269",
+ "equity": 190560.22,
  "risk": 2.0,
  "candidate": "bf27cand:honest_plus_rc6_basket",
  "target_notional_usd": {
-  "ETH": -19716.12,
-  "SOL": -14021.12,
-  "BTC": -5721.71,
-  "DOGE": 3958.4,
-  "US100": 55218.74,
-  "US500": 87269.41
+  "ETH": -19647.93,
+  "SOL": -13961.69,
+  "BTC": -5701.91,
+  "DOGE": 3944.72,
+  "US100": 55027.8,
+  "US500": 86967.63
  },
  "by_sleeve_usd": {
   "BTC": {
-   "coinbase premium": -24390.49,
-   "ridge ML": 18668.78
+   "coinbase premium": -24306.14,
+   "ridge ML": 18604.23
   },
   "DOGE": {
-   "alt kimchi": 3958.4
+   "alt kimchi": 3944.72
   },
   "ETH": {
-   "coinbase premium": -24390.49,
-   "ridge ML": 4674.37
+   "coinbase premium": -24306.14,
+   "ridge ML": 4658.21
   },
   "SOL": {
-   "trend 4h": -14021.12
+   "trend 4h": -13961.69
   },
   "US100": {
-   "vol-managed indices": 55218.74
+   "vol-managed indices": 55027.8
   },
   "US500": {
-   "vol-managed indices": 87269.41
+   "vol-managed indices": 86967.63
   }
  },
  "sleeve_multipliers": {
@@ -60,10 +60,13 @@
   "premium carry BF": 0.3244
  },
  "cascade_limit_orders": [],
- "event_positions_stale": [],
+ "event_positions_stale": [
+  "rc6 CFD",
+  "basket CFD"
+ ],
  "warnings": [
-  "rc6 CFD: no open_positions.json yet (hub job cfdx_paper) - treated as flat",
-  "basket CFD: no open_positions.json yet (hub job cfdx_paper) - treated as flat"
+  "rc6 CFD: positions are for 2026-11-03 16:00:00, book is for 2026-11-03 17:00:00 - treated as flat",
+  "basket CFD: positions are for 2026-11-03 16:00:00, book is for 2026-11-03 17:00:00 - treated as flat"
  ],
  "note": "bf2.7 CANDIDATE, DRY-RUN ONLY - not a paper account, no order is sent anywhere; bf2.6 paper validation is separate"
 }

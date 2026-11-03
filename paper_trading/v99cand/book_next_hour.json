@@ -1,51 +1,51 @@
 {
- "for_hour_utc": "2026-11-03 16:00:00",
- "made_at_utc": "2026-11-03 16:11:44.923476",
- "built_at_utc": "2026-11-03 16:13:44.280261",
- "data_cutoff_utc": "2026-11-03 16:00:00",
- "equity": 200448.97,
+ "for_hour_utc": "2026-11-03 17:00:00",
+ "made_at_utc": "2026-11-03 17:11:53.072669",
+ "built_at_utc": "2026-11-03 17:13:03.453834",
+ "data_cutoff_utc": "2026-11-03 17:00:00",
+ "equity": 200480.68,
  "risk": 2.0,
  "candidate": "v99cand:all_plus_add_hodler",
  "target_notional_usd": {
-  "BTC": -90320.25,
-  "SOL": -83251.8,
-  "ETH": -43299.73,
-  "BNB": -26857.87,
-  "PREDICT": -4505.23,
-  "LINK": 1594.69,
-  "XRP": 63272.89,
-  "DOGE": 70140.93
+  "BTC": -90327.79,
+  "SOL": -83243.28,
+  "ETH": -43329.49,
+  "BNB": -26804.77,
+  "PREDICT": -4505.93,
+  "LINK": 1594.94,
+  "XRP": 63248.77,
+  "DOGE": 70161.82
  },
  "by_sleeve_usd": {
   "BNB": {
-   "relative crowding 6": -26857.87
+   "relative crowding 6": -26804.77
   },
   "BTC": {
-   "ridge ML": -4695.13,
-   "diversifier basket": -21008.68,
-   "relative crowding 6": -64616.44
+   "ridge ML": -4695.87,
+   "diversifier basket": -21012.0,
+   "relative crowding 6": -64619.92
   },
   "DOGE": {
-   "alt kimchi": 3189.38,
-   "relative crowding 6": 66951.55
+   "alt kimchi": 3189.88,
+   "relative crowding 6": 66971.94
   },
   "ETH": {
-   "ridge ML": -30066.24,
-   "diversifier basket": -32819.16,
-   "relative crowding 6": 19585.67
+   "ridge ML": -30071.01,
+   "diversifier basket": -32824.35,
+   "relative crowding 6": 19565.87
   },
   "LINK": {
-   "alt kimchi": 1594.69
+   "alt kimchi": 1594.94
   },
   "PREDICT": {
-   "listing short": -4505.23
+   "listing short": -4505.93
   },
   "SOL": {
-   "trend 4h": -18199.28,
-   "relative crowding 6": -65052.52
+   "trend 4h": -18202.17,
+   "relative crowding 6": -65041.11
   },
   "XRP": {
-   "relative crowding 6": 63272.89
+   "relative crowding 6": 63248.77
   }
  },
  "sleeve_multipliers": {

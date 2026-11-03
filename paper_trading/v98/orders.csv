@@ -264,3 +264,4 @@ hour_utc,coin,side,usd,from_usd,to_usd,type,because
 2026-11-03 16:00:00,ETH,BUY,5201.23,-50382.1,-45180.87,rebalance,"relative crowding 6 +5,005, diversifier basket +102, ridge ML +94"
 2026-11-03 16:00:00,SOL,BUY,2163.71,-89035.7,-86871.99,rebalance,"relative crowding 6 +2,092, trend 4h +72"
 2026-11-03 16:00:00,XRP,BUY,1364.45,64658.74,66023.19,rebalance,"relative crowding 6 +1,364"
+2026-11-03 17:00:00,BNB,BUY,55.41,-28025.31,-27969.9,rebalance,relative crowding 6 +55

@@ -1,0 +1,9 @@
+{
+ "data_end": "2026-11-02 23:00:00",
+ "appended": 23,
+ "ledger_days": 23,
+ "stale": false,
+ "paper Sharpe (ann.)": -2.18,
+ "paper cum": -0.0231,
+ "z vs backtest": -1.71
+}
