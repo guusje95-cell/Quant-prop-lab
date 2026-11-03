@@ -1,0 +1,4 @@
+{"id": "C13", "date": "2026-11-03", "registered": "before computing (the DF equity book's own numbers are seen; its correlation with bf's index sleeve is not)", "trials_added": 1,
+ "why": "bf's index sleeve (P6 vol-managed + R1 + P1 on US100 / US500 / US30, held overnight) pays BrightFunded index swap unless the swap-free add-on covers indices (unverified; the MT5 export showed US100 long -910 points per lot per day). The daily-flat equity book (DF-3) is flat over the 17:00 ET rollover, so it never pays swap, and it holds 8 sleeves instead of 3",
+ "change": "bf2.8 with 'vol-managed indices' REPLACED by the daily-flat equity-index book (8 sleeves, fbook rule, futures proxy with futures costs), daily P&L booked at 21:00 UTC (as C7); everything else as C10b (Weiss full, true cap 4x)",
+ "judge": "strict: book >= 3.064 + 0.05 and no period (2022 / 2023-24 / 2025-26) lower than bf2.8 [1.880, 4.201, 2.533]"}
