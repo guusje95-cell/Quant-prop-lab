@@ -1,0 +1,16 @@
+{
+ "futures + CX4 + CXB (live code)": [
+  1.459,
+  1.768,
+  1.824
+ ],
+ "proxy corr daily": 0.833,
+ "Sharpe cme / proxy 2020-22": [
+  0.969,
+  -0.375
+ ],
+ "Sharpe cme / proxy 2023-26": [
+  1.347,
+  1.76
+ ]
+}

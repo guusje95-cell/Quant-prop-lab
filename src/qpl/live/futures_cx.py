@@ -28,6 +28,8 @@ OUT = ROOT / "paper_trading/futcx"
 OUT4 = ROOT / "paper_trading/futcx4"                                       # F-CX4: + C* SOL / XRP legs (CME micros since 2025; proxy)
 PREFIX4 = ROOT / "results/v99/cx_solxrp_prefix.parquet"
 LEGS4 = {"SOL": 6.0, "XRP": 2.5}                                           # bp per side (one CME micro tick + commission)
+OUT5 = ROOT / "paper_trading/futcx5"                                       # F-CX5: + v9.8's diversifier basket (BTC / ETH) as sleeve CXB
+PREFIX5 = ROOT / "results/v99/cxb_sleeve_prefix.parquet"
 FUT = ROOT / "paper_trading/futures/ledger_hourly.csv"
 V98 = ROOT / "paper_trading/v98"
 PREFIX = ROOT / "results/v99/cx_sleeve_prefix.parquet"
@@ -87,8 +89,14 @@ def _compute(cutoff: pd.Timestamp) -> dict:
     cut = lambda h: daily(h.loc[RESEARCH_END + pd.Timedelta(days=1):last_full + pd.Timedelta(hours=23)])
     d = cut(proxy_hourly(pos[["BTC", "ETH"]], px[["BTC", "ETH"]], fund))
     d4 = cut(proxy_hourly(pos[list(LEGS4)], px[list(LEGS4)], fund, cost=lambda c, p: LEGS4[c] / 1e4))
-    return {"cx": {str(k.date()): float(v) for k, v in d.items()}, "cx_solxrp": {str(k.date()): float(v) for k, v in d4.items()},
-            "last_full_day": str(last_full.date())}
+    import basket_live as BL
+    _, BW = BL.basket(pd.date_range("2021-01-01", cutoff, freq="h"))                     # 2021 start: the basket's 2022-24 scaling
+    bw = sum(x.reindex(columns=["BTC", "ETH"]).fillna(0.0) for x in BW.values())
+    bw = bw.reindex(bw.index.append(pd.DatetimeIndex([bw.index[-1] + pd.Timedelta(days=1)]))).shift(1)
+    bpos = bw.reindex(px.index.floor("D")).set_axis(px.index).fillna(0.0)
+    d5 = cut(proxy_hourly(bpos, px[["BTC", "ETH"]], fund))
+    f = lambda x: {str(k.date()): float(v) for k, v in x.items()}
+    return {"cx": f(d), "cx_solxrp": f(d4), "cxb": f(d5), "last_full_day": str(last_full.date())}
 
 
 def step(log=print, cx_live: dict | None = None) -> dict:
@@ -109,17 +117,22 @@ def step(log=print, cx_live: dict | None = None) -> dict:
     ser = lambda d: pd.Series({pd.Timestamp(k): v for k, v in (d or {}).items()}, dtype=float)
     cx = pd.read_parquet(PREFIX)["CX"].loc[:RESEARCH_END]; live = ser(cx_live["cx"])
     cx = pd.concat([cx, live[live.index > RESEARCH_END]])
-    res = {"futcx": _write(OUT, cx, last_full)}
+    res = {"futcx": _write(OUT, {"CX": cx}, last_full)}
     if PREFIX4.exists():
         lg = pd.read_parquet(PREFIX4)["legs"].loc[:RESEARCH_END]; l4 = ser(cx_live.get("cx_solxrp"))
         lg = pd.concat([lg, l4[l4.index > RESEARCH_END]])
         cx4 = cx.add(lg, fill_value=0.0)
-        res["futcx4"] = _write(OUT4, cx4, last_full)
+        res["futcx4"] = _write(OUT4, {"CX": cx4}, last_full)
+        if PREFIX5.exists():
+            cb = pd.read_parquet(PREFIX5)["CXB"].loc[:RESEARCH_END]; l5 = ser(cx_live.get("cxb"))
+            res["futcx5"] = _write(OUT5, {"CX": cx4, "CXB": pd.concat([cb, l5[l5.index > RESEARCH_END]])}, last_full)
     return res
 
 
-def _write(out: Path, cx: pd.Series, last_full: pd.Timestamp) -> dict:
-    P = futures_sleeves(); P["CX"] = cx.reindex(P.index).fillna(0.0)
+def _write(out: Path, extra: dict, last_full: pd.Timestamp) -> dict:
+    P = futures_sleeves()
+    for k, v in extra.items():
+        P[k] = v.reindex(P.index).fillna(0.0)
     b, W = book(P)
     out.mkdir(parents=True, exist_ok=True); f = out / "ledger_hourly.csv"
     L = pd.read_csv(f) if f.exists() else pd.DataFrame(); have = set(L["hour"].astype(str)) if len(L) else set()

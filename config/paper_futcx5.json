@@ -1,0 +1,16 @@
+{
+ "name": "SHADOW of the futures paper run (F-CX5): futures book + CX4 + CXB (v9.8's diversifier basket, BTC / ETH) as 16th and 17th sleeves",
+ "registered": "2026-11-03, after F-CX5 (research/v99/fcx5_protocol.json; FLAGGED: basket members selected on 2022-24)",
+ "what": "qpl.live.futures_cx (hub job 'futcx_paper', hourly): the 15 futures sleeves from the frozen futures paper ledger + CX, fbook rule (static 1/sd on 2010-22, 10% vol target). Each futures paper day is written once to paper_trading/futcx/ledger_hourly.csv",
+ "frozen": {
+  "account": 50000,
+  "risk": 1.0,
+  "start_after": "2026-09-30",
+  "cx_source": "research: CME BTC / ETH front futures (results/v99/cx_sleeve_prefix.parquet); forward: PROXY on Binance BTC / ETH perps (CME micro costs, Binance funding for the basis; corr with CME 0.89 on 2020-26, results/v99/cx_proxy_check.json); SOL / XRP legs: Binance perp proxy at 6 / 2.5 bp per side (results/v99/cx_solxrp_prefix.parquet); CXB: research = CME BTC / ETH (results/v99/cxb_sleeve_prefix.parquet), forward = Binance proxy (corr 0.83, results/v99/cxb_proxy_check.json)"
+ },
+ "reference": {
+  "backtest": "F-CX5: 1.459 / 1.768 / 1.824; out of sample for the basket members (2025-01..2026-09) 1.287 vs 1.225 without CXB; live code reproduces it"
+ },
+ "gate": "as futcx; deployment also needs CME micro SOL / XRP at the futures firm",
+ "changes": []
+}
