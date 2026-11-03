@@ -1,0 +1,6 @@
+{"id": "DF-1", "date": "2026-11-03", "registered": "before computing any exact daily-flat number", "trials_added": 1,
+ "why": "the user wants a futures book for the many daily-flat firms (Topstep, Apex, Lucid, MFFU, Tradeify: flat around 16:10 ET and over the weekend, overnight Globex session from 18:00 ET allowed). The earlier daily-flat book (0.36 / 0.72 / 0.84) only charged an extra round trip and still earned the 16:00-18:00 ET and weekend gaps",
+ "method": "scripts/v99/dailyflat.py patches futures_db: bar starting 16:00 ET -> 0, first bar after any gap (18:00 open, Sunday open) -> open-to-close; QPL_DAILY_FLAT=1 adds one round trip per held day. The 15 sleeves are rebuilt by futures_book_build.py (unchanged). Crypto: CX4 / CXB on CME BTC / ETH with Gen137 execute variant (c) (flat in the 16:00 ET bar and before closures) on the patched bars; SOL / XRP legs (Binance proxy) flat 16:00-18:00 ET and Fri 16:00 -> Sun 18:00 ET, turnover at their bp costs",
+ "descriptive (0 trials)": "exact daily-flat book of the 15 sleeves (fbook rule) and every sleeve's 2023-26 Sharpe",
+ "candidate": "fbook rule over the 15 daily-flat sleeves + CX4 (daily-flat) + CXB (daily-flat)",
+ "judge": "vs the exact daily-flat 15-sleeve book: 2023-26 >= ref + 0.05 and 2018-22 not lower"}
