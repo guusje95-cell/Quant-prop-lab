@@ -1,0 +1,180 @@
+{
+ "crypto v9.9e (2022-26)": {
+  "days": 1734,
+  "Sharpe": 3.61,
+  "Lo-adjusted Sharpe": 3.41,
+  "skew / kurtosis": [
+   1.76,
+   14.4
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   2.96,
+   3.63,
+   4.3
+  ],
+  "P(bootstrap Sharpe < 0)": 0.0,
+  "DSR at N = 2,038": 1.0,
+  "planning (SR - E[max of N nulls])": 2.02,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.039,
+   -0.064
+  ],
+  "MC P(max DD < -10%)": 0.001,
+  "MC P(1-yr return < 0)": 0.0,
+  "MC at planning Sharpe 2.05: max DD median / p95": [
+   -0.058,
+   -0.102
+  ],
+  "MC at planning: P(max DD < -10%) / P(1-yr return < 0)": [
+   0.056,
+   0.029
+  ]
+ },
+ "CFD bf2.8 (2022-26)": {
+  "days": 1734,
+  "Sharpe": 3.06,
+  "Lo-adjusted Sharpe": 2.8,
+  "skew / kurtosis": [
+   1.95,
+   15.3
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   2.34,
+   3.06,
+   3.77
+  ],
+  "P(bootstrap Sharpe < 0)": 0.0,
+  "DSR at N = 2,038": 1.0,
+  "planning (SR - E[max of N nulls])": 1.48,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.042,
+   -0.072
+  ],
+  "MC P(max DD < -10%)": 0.004,
+  "MC P(1-yr return < 0)": 0.001,
+  "MC at planning Sharpe 1.55: max DD median / p95": [
+   -0.065,
+   -0.118
+  ],
+  "MC at planning: P(max DD < -10%) / P(1-yr return < 0)": [
+   0.115,
+   0.078
+  ]
+ },
+ "futures swing + CX4 (2010-26)": {
+  "days": 4185,
+  "Sharpe": 1.55,
+  "Lo-adjusted Sharpe": 2.02,
+  "skew / kurtosis": [
+   -0.15,
+   10.4
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   1.19,
+   1.54,
+   1.9
+  ],
+  "P(bootstrap Sharpe < 0)": 0.0,
+  "DSR at N = 2,038": 0.997,
+  "planning (SR - E[max of N nulls])": 0.7,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.061,
+   -0.103
+  ],
+  "MC P(max DD < -10%)": 0.058,
+  "MC P(1-yr return < 0)": 0.033,
+  "DSR at N = 450 (this family's own trials)": 0.999,
+  "planning at N = 450": 0.81,
+  "MC at planning Sharpe 0.9: max DD median / p95": [
+   -0.07,
+   -0.127
+  ],
+  "MC at planning: P(max DD < -10%) / P(1-yr return < 0)": [
+   0.162,
+   0.148
+  ]
+ },
+ "futures swing + CX4 (2023-26, out of sample)": {
+  "days": 971,
+  "Sharpe": 1.57,
+  "Lo-adjusted Sharpe": 2.18,
+  "skew / kurtosis": [
+   -0.09,
+   5.7
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   0.91,
+   1.58,
+   2.25
+  ],
+  "P(bootstrap Sharpe < 0)": 0.0,
+  "DSR at N = 2,038": 0.354,
+  "planning (SR - E[max of N nulls])": -0.19,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.056,
+   -0.093
+  ],
+  "MC P(max DD < -10%)": 0.034,
+  "MC P(1-yr return < 0)": 0.026,
+  "DSR at N = 450 (this family's own trials)": 0.52,
+  "planning at N = 450": 0.03
+ },
+ "futures daily-flat DF-1c (2010-26)": {
+  "days": 4183,
+  "Sharpe": 0.78,
+  "Lo-adjusted Sharpe": 1.04,
+  "skew / kurtosis": [
+   0.27,
+   14.5
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   0.46,
+   0.79,
+   1.12
+  ],
+  "P(bootstrap Sharpe < 0)": 0.0,
+  "DSR at N = 2,038": 0.393,
+  "planning (SR - E[max of N nulls])": -0.07,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.07,
+   -0.135
+  ],
+  "MC P(max DD < -10%)": 0.18,
+  "MC P(1-yr return < 0)": 0.179,
+  "DSR at N = 450 (this family's own trials)": 0.564,
+  "planning at N = 450": 0.04,
+  "MC at planning Sharpe 0.5: max DD median / p95": [
+   -0.077,
+   -0.144
+  ],
+  "MC at planning: P(max DD < -10%) / P(1-yr return < 0)": [
+   0.262,
+   0.284
+  ]
+ },
+ "futures daily-flat DF-1c (2023-26)": {
+  "days": 971,
+  "Sharpe": 1.11,
+  "Lo-adjusted Sharpe": 1.53,
+  "skew / kurtosis": [
+   0.2,
+   13.4
+  ],
+  "bootstrap Sharpe 5% / 50% / 95%": [
+   0.49,
+   1.11,
+   1.75
+  ],
+  "P(bootstrap Sharpe < 0)": 0.002,
+  "DSR at N = 2,038": 0.101,
+  "planning (SR - E[max of N nulls])": -0.65,
+  "MC 1 yr at 10% vol: max DD median / p95": [
+   -0.058,
+   -0.113
+  ],
+  "MC P(max DD < -10%)": 0.094,
+  "MC P(1-yr return < 0)": 0.078,
+  "DSR at N = 450 (this family's own trials)": 0.199,
+  "planning at N = 450": -0.43
+ }
+}
