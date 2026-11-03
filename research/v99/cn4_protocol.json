@@ -1,0 +1,4 @@
+{"id": "CN-4", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "the book multiplier (level x 30-day vol target) changes every day, so every coin's position is re-scaled daily: turnover without new information. A band on the multiplier (update only when it moved > 10% from the value in use) removes most of it",
+ "change": "bf2.8 net execution with the $1,000 coin band at risk 1.75 (CN-3) + the multiplier band (10%) applied to the daily multiplier before positions are formed",
+ "judge": "vs CN-3 (3.173 [1.986, 4.330, 2.608]): >= +0.05 and no period lower; the same rule is then reported for crypto v9.8 (CN-1 setting) without a separate judge"}
