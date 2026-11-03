@@ -282,7 +282,8 @@ def test_shadow_accounts_derive_exactly_from_the_source(c):
     shadow.define(c, "t:cstar", "paper:v86", "sleeve", {"sleeve": "C*", "vol_target": 0.15})
     shadow.define(c, "t:noridge", "paper:v86", "reweighted", {"multipliers": {"ridge ML": 0.0}}, risk=2.0)
     r = shadow.recompute(c)
-    assert r["shadow:t:same"]["hours"] == 46 and r["shadow:t:same"]["forward_hours"] == 0          # defined after the run: all retroactive
+    n = len(pd.read_csv(ROOT / "paper_trading/v86/ledger_hourly.csv").drop_duplicates("hour"))      # the paper ledger's own length (it grows)
+    assert r["shadow:t:same"]["hours"] == n and r["shadow:t:same"]["forward_hours"] == 0          # defined after the run: all retroactive
     src = pd.read_sql_query("SELECT ts, ret FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='paper:v86' ORDER BY ts", c)
     sh = pd.read_sql_query("SELECT ts, ret, retro FROM paper_equity e JOIN paper_accounts a ON a.id=e.account_id WHERE a.key='shadow:t:same' ORDER BY ts", c)
     assert np.abs(src["ret"].to_numpy() - sh["ret"].to_numpy()).max() < 1e-15 and sh["retro"].all()  # neutral shadow == the paper book
@@ -387,7 +388,8 @@ def test_plus_shadow_adds_extra_sleeve_through_its_weight(c):
     r = shadow.recompute(c)
     a = pd.read_sql_query("SELECT ret FROM paper_equity e JOIN paper_accounts p ON p.id=e.account_id WHERE p.key='shadow:t:plus_missing' ORDER BY ts", c)["ret"]
     b = pd.read_sql_query("SELECT ret FROM paper_equity e JOIN paper_accounts p ON p.id=e.account_id WHERE p.key='shadow:t:same2' ORDER BY ts", c)["ret"]
-    assert r["shadow:t:plus_missing"]["hours"] == 46 and np.abs(a.to_numpy() - b.to_numpy()).max() < 1e-15   # no extra account yet: = the book
+    n = len(pd.read_csv(ROOT / "paper_trading/v86/ledger_hourly.csv").drop_duplicates("hour"))
+    assert r["shadow:t:plus_missing"]["hours"] == n and np.abs(a.to_numpy() - b.to_numpy()).max() < 1e-15   # no extra account yet: = the book
 
 
 def test_coinbase_short_trade_rules():
