@@ -1,0 +1,5 @@
+{"id": "DF-P3", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "at trailing-drawdown futures firms (Topstep-like: $2,000 end-of-day trailing on $50K) an account is lost when the buffer is gone; scaling the position with the remaining buffer keeps a losing account alive longer and is a standard prop-risk rule",
+ "rule": "daily size multiplier = clip(buffer / $2,000, 0.25, 1.0), buffer = end-of-day balance - max-loss line (known before the day), in the Combine and the Express Funded stage",
+ "evaluation": "scripts/v99/df_prop2.py rules and bootstrap (same seeds), daily-flat equity-index book (DF-3) at 10 / 14 / 18% annual vol; metric = edge value (full edge minus zero-edge control) and the full-edge mean / P(net > 0)",
+ "judge": "adopt for deployment if the edge value is higher at 2 of the 3 vols AND the full-edge P(net > 0) is not lower at any vol"}
