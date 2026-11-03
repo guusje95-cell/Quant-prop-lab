@@ -46,26 +46,29 @@ def next_session(now_et: pd.Timestamp) -> pd.Timestamp:
     return d
 
 
-def _placeholder(F, session: pd.Timestamp):
-    """append one bar (return 0) at the 18:00 ET open of `session` so date-based sleeves know it"""
-    prev = session - pd.Timedelta(days=1)
-    while prev.weekday() >= 5:
-        prev -= pd.Timedelta(days=1)
-    open_utc = pd.Timestamp(prev + pd.Timedelta(hours=18)).tz_localize("America/New_York").tz_convert("UTC").tz_localize(None)
+def _placeholder(F, session: pd.Timestamp, days_ahead: int = 45):
+    """append placeholder bars (return 0) at the 18:00 ET open of `session` and of the following trading days (US federal holidays
+    skipped): calendar sleeves need the future trading calendar (month starts, pre-holiday days, FOMC weeks, the last days of a month),
+    which is known in advance; price-based signals only use bars up to now"""
+    from functools import lru_cache
+    from pandas.tseries.holiday import USFederalHolidayCalendar
+    days = pd.date_range(session, session + pd.Timedelta(days=days_ahead), freq=pd.offsets.CustomBusinessDay(calendar=USFederalHolidayCalendar()))
+    days = days.union(pd.DatetimeIndex([session]))
+    opens = pd.DatetimeIndex([pd.Timestamp(d - pd.Timedelta(days=1) + pd.Timedelta(hours=18)).tz_localize("America/New_York").tz_convert("UTC").tz_localize(None)
+                              for d in days])                              # the session opens at 18:00 ET the calendar day before
     for name in ("front", "second"):
         cached = getattr(F, name)
 
         def wrap(root, _c=cached):
-            f = _c(root)
-            if open_utc in f.index or f.index[-1] >= open_utc:
+            f = _c(root); add = opens[opens > f.index[-1]]
+            if not len(add):
                 return f
-            row = f.iloc[[-1]].copy(); row.index = pd.DatetimeIndex([open_utc]); row["r"] = 0.0
-            if "roll" in row:
-                row["roll"] = 0
-            if "open" in row:
-                row["open"] = row["close"]
-            return pd.concat([f, row])
-        from functools import lru_cache
+            rows = pd.concat([f.iloc[[-1]]] * len(add)); rows.index = add; rows["r"] = 0.0
+            if "roll" in rows:
+                rows["roll"] = 0
+            if "open" in rows:
+                rows["open"] = rows["close"]
+            return pd.concat([f, rows])
         setattr(F, name, lru_cache(maxsize=None)(wrap))
 
 
@@ -93,7 +96,7 @@ def build(now_utc: pd.Timestamp | None = None, write: bool = True) -> dict:
             tot = tot + (p * f.r.fillna(0.0) - p.diff().abs().fillna(p.abs()) * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum()
         live[n] = tot
     L = pd.DataFrame(live); L = L[(L.index > RESEARCH_END) & (L.index < session) & (L.index.weekday < 5)]
-    S = pd.concat([Q, L]).fillna(0.0)
+    S = pd.concat([Q, L]).fillna(0.0); S = S[S.index < session]                    # point in time: only sessions before this one
     raw = (S * w).sum(axis=1); vol = raw.rolling(60, min_periods=40).std().iloc[-1] * np.sqrt(252)
     lvl = float(min(3.0, 0.10 / vol)) if vol > 0 else 0.0
     def tgt(key_r1):
