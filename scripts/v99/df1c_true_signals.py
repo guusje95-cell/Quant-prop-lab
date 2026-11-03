@@ -23,7 +23,7 @@ for n in EQ:
         p[(et.h == 16).to_numpy()] = 0.0
         gap = np.r_[True, np.diff(idx.asi8) / 3.6e12 > 1.01]
         turn = p.diff().abs().fillna(p.abs()); turn[gap] = (p.abs() + p.shift(1).abs().fillna(0.0))[gap]
-        tot = tot + (p * f.r.fillna(0.0) - turn * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum()
+        tot = (tot if isinstance(tot, pd.Series) else pd.Series(dtype=float)).add((p * f.r.fillna(0.0) - turn * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum(), fill_value=0.0)   # markets start at different dates (RTY 2017): no NaN days
     per_sleeve[n] = tot
 Q = pd.DataFrame(per_sleeve); Q = Q[Q.index.weekday < 5].loc["2010-06-01":"2026-09-30"].fillna(0.0)
 Q.to_parquet(ROOT / "results/v99/df1c_sleeves.parquet")

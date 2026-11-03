@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "scripts")); sys.path.insert(0, str(ROOT / "script
 OUT = Path(os.environ.get("QPL_DF_TARGETS", ROOT / "paper_trading/futuresdf/targets_session.json"))
 CFD = {"ES": "US500", "NQ": "US100", "RTY": "US2000", "YM": "US30"}
 RESEARCH_END = pd.Timestamp("2026-09-30")
+os.environ.setdefault("QPL_DF_SIGNALS", "true")                            # DF-1c: signals on TRUE prices (the patched bars only model the P&L)
 
 
 def _setup(now_utc: pd.Timestamp):
@@ -31,7 +32,7 @@ def _setup(now_utc: pd.Timestamp):
         except Exception:                                                    # noqa: BLE001 - research data only
             pass
     import dailyflat
-    F = dailyflat.patch()
+    F = dailyflat.patch() if os.environ.get("QPL_DF_SIGNALS") != "true" else __import__("futures_db")
     F.END = str(now_utc.floor("h"))
     return F
 
@@ -85,7 +86,7 @@ def build(now_utc: pd.Timestamp | None = None, write: bool = True) -> dict:
     pos = DP.session_positions()
     EQ = DP.EQ8
     # book weights: fbook rule on the research sleeves (fixed: fit 2010-22)
-    SL = "results/v99/df7_sleeves.parquet" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/df1_sleeves.parquet"
+    SL = "results/v99/df1c_sleeves.parquet"                                   # DF-1c corrected sleeves (true-price signals); weights fit 2010-22
     Q = pd.read_parquet(ROOT / SL)[EQ]; Q = Q[Q.index.weekday < 5].loc["2010-06-01":RESEARCH_END].fillna(0.0)
     T = Q.loc[:"2022-12-31"]; w = (1 / T.std()).where(T.mean() / T.std() > 0, 0.0); w = w / w.sum()
     # daily sleeve P&L after the research end: positions x patched bars - own turnover x cost (as DF-4, per sleeve)
@@ -96,7 +97,7 @@ def build(now_utc: pd.Timestamp | None = None, write: bool = True) -> dict:
             f = F.front(r); idx = f.index; et = F.ny(idx); p = H[n][r].reindex(idx).fillna(0.0).copy()
             if os.environ.get("QPL_FLAT_FROM", "16") == "16":
                 p[(et.h == 16).to_numpy()] = 0.0
-            tot = tot + (p * f.r.fillna(0.0) - p.diff().abs().fillna(p.abs()) * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum()
+            tot = (tot if isinstance(tot, pd.Series) else pd.Series(dtype=float)).add((p * f.r.fillna(0.0) - p.diff().abs().fillna(p.abs()) * F.cost_frac(r, f.close)).groupby(F.trade_date(idx)).sum(), fill_value=0.0)   # markets start at different dates (RTY 2017): no NaN days
         live[n] = tot
     L = pd.DataFrame(live); L = L[(L.index > RESEARCH_END) & (L.index < session) & (L.index.weekday < 5)]
     S = pd.concat([Q, L]).fillna(0.0); S = S[S.index < session]                    # point in time: only sessions before this one

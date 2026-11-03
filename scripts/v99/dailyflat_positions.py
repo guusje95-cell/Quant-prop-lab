@@ -103,7 +103,7 @@ def selftest() -> dict:
     Q = pd.read_parquet(ROOT / ("results/v99/df7_sleeves.parquet" if os.environ.get("QPL_FLAT_FROM") == "17" else "results/v99/df1_sleeves.parquet"))
     out = {}
     for n, Hp in H.items():
-        g = sum(Hp[r].dropna().pipe(lambda p: (p * F.front(r).r.reindex(p.index).fillna(0.0)).groupby(F.trade_date(p.index)).sum()) for r in Hp.columns)
+        g = pd.concat([(Hp[r] * F.front(r).r.reindex(Hp.index).fillna(0.0)).groupby(F.trade_date(Hp.index)).sum() for r in Hp.columns], axis=1).fillna(0.0).sum(axis=1)
         d = g[g.index.weekday < 5]
         x = pd.concat([d, Q[n]], axis=1, keys=["gross from positions", "sleeve"]).loc["2011":"2026-09-30"].dropna()
         out[n] = {"corr": round(float(x.corr().iloc[0, 1]), 4), "monthly corr": round(float(x.resample("ME").sum().corr().iloc[0, 1]), 4), "mean gross - sleeve (bp/day)": round(float((x.iloc[:, 0] - x.iloc[:, 1]).mean() * 1e4), 3)}
