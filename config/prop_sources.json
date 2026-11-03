@@ -1,5 +1,5 @@
 {
- "_doc": "Official rule pages the hub snapshots (get_prop_rules.bat on the PC: python -m qpl.hub.prop_snapshots). Add URLs as you find them. Snapshots are saved, never interpreted automatically: a fact becomes 'verified' only when a person records the quote via the dashboard. 2026-10-30: added FundedNext, The5ers, SizeProp, Breakout pages, HyroTrader platform / coin / weekend pages (URLs inferred from the FAQ slug pattern; a 404 is recorded, not fatal) and the BloFin API docs (blocked from the cloud).",
+ "_doc": "Official rule pages the hub snapshots (get_prop_rules.bat on the PC: python -m qpl.hub.prop_snapshots). Add URLs as you find them. Snapshots are saved, never interpreted automatically: a fact becomes 'verified' only when a person records the quote via the dashboard. 2026-10-30: added FundedNext, The5ers, SizeProp, Breakout pages, HyroTrader platform / coin / weekend pages (URLs inferred from the FAQ slug pattern; a 404 is recorded, not fatal) and the BloFin API docs (blocked from the cloud). 2026-11-03: futures daily-flat firms (Topstep help articles incl. TopstepX API / prohibited conduct / eligibility, Tradeify guidelines + permitted times, Lucid, FundedNext Futures, Apex support) for the intraday futures book.",
  "hyrotrader": [
   "https://docs.hyrotrader.com/",
   "https://www.hyrotrader.com/",
@@ -51,6 +51,19 @@
  ],
  "topstep": [
   "https://help.topstep.com/",
+  "https://help.topstep.com/en/articles/10296582",
+  "https://help.topstep.com/en/articles/10305426",
+  "https://help.topstep.com/en/articles/10657969-live-funded-account-parameters",
+  "https://help.topstep.com/en/articles/11187768",
+  "https://help.topstep.com/en/articles/8284099-topstep-program-overview",
+  "https://help.topstep.com/en/articles/8284103",
+  "https://help.topstep.com/en/articles/8284116-eligibility-faq",
+  "https://help.topstep.com/en/articles/8284197-trading-combine-parameters",
+  "https://help.topstep.com/en/articles/8284208-consistency-at-topstep",
+  "https://help.topstep.com/en/articles/8284215-express-funded-account-parameters",
+  "https://help.topstep.com/en/articles/8284233-topstep-payout-policy",
+  "https://help.topstep.com/en/collections/19404054-topstepx",
+  "https://help.topstep.com/en/collections/5836605-topstep-faqs",
   "https://www.topstep.com/"
  ],
  "breakout": [
@@ -59,7 +72,9 @@
   "https://help.breakoutprop.com/"
  ],
  "apex": [
-  "https://apextraderfunding.com/help-center/"
+  "https://apextraderfunding.com/",
+  "https://apextraderfunding.com/help-center/",
+  "https://support.apextraderfunding.com/hc/en-us"
  ],
  "fundednext": [
   "https://fundednext.com/faq",
@@ -76,5 +91,22 @@
  ],
  "blofin_api": [
   "https://docs.blofin.com/index.html"
+ ],
+ "tradeify": [
+  "https://help.tradeify.co/en/articles/10468318-guidelines-for-simulated-funded-traders",
+  "https://intercom.help/tradeify/en/articles/10468318-guidelines-for-traders",
+  "https://intercom.help/tradeify/en/articles/10495876-rules-permitted-times-to-trade",
+  "https://help.tradeify.co/",
+  "https://tradeify.co/"
+ ],
+ "lucid": [
+  "https://lucidtrading.com/",
+  "https://lucidtrading.com/?p=1558076",
+  "https://lucidtrading.com/faq/",
+  "https://support.lucidtrading.com/"
+ ],
+ "fundednext_futures": [
+  "https://fundednext.com/futures",
+  "https://help.fundednext.com/"
  ]
 }
