@@ -1,0 +1,36 @@
+{
+ "bf2.8 (reference)": [
+  3.064,
+  [
+   1.88,
+   4.201,
+   2.533
+  ]
+ ],
+ "C13 bf2.8 with the daily-flat index book": [
+  3.123,
+  [
+   2.107,
+   4.126,
+   2.629
+  ]
+ ],
+ "sleeve (daily-flat index book)": [
+  0.906,
+  [
+   0.164,
+   1.163,
+   1.187
+  ]
+ ],
+ "old index sleeve": [
+  0.888,
+  [
+   -0.631,
+   1.694,
+   1.07
+  ]
+ ],
+ "corr new vs old index sleeve 2022-26": 0.771,
+ "pass": false
+}
