@@ -1,0 +1,4 @@
+{"id": "DF-8", "date": "2026-11-03", "registered": "before computing (DF-2 A, R1 overnight replacing R1, was seen: FLAGGED)", "trials_added": 1,
+ "why": "the dip-buying edge of R1 is spread over the 24 h after the 14:00 ET signal; on daily-flat bars the 24 h version (R1) and the overnight version (18:00 -> 10:00 ET) were strong in different periods (DF-2 A: 0.471 / 0.821 / 0.945 vs 0.290 / 0.774 / 0.978). An equal mix of the two hold windows diversifies the timing without choosing one",
+ "change": "in the exact daily-flat book (all 15 sleeves, DF-1 reference) and in the equity-index book (8 sleeves, DF-3 reference), R1 := 0.5 x R1 (24 h) + 0.5 x R1 overnight, both on the patched bars",
+ "judge": "the equity-index book is the deployment book: 2023-26 >= 1.164 + 0.05 and 2018-22 not lower than 0.785 (all-15 book reported)"}
