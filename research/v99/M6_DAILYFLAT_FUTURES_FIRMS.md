@@ -38,3 +38,10 @@ Prop economics v2 (`scripts/v99/df_prop2.py`, `results/v99/df_prop2.json`, Topst
 The zero-edge control is still positive at high vol: part of the simulated income is the structure of the program (cheap resets,
 convex payouts), not our edge, and real frictions (scaling plans, payout reviews, rule changes, the firm's discretion) are missing.
 Plan with the edge value only.
+
+## Index-CFD firms for the same daily-flat equity book (DF-3)
+The 8 equity sleeves trade only ES / NQ (R1 also RTY / YM). On index CFDs (US500 / US100 / US2000 / US30) at CFD prop firms the book is
+flat over the 17:00 ET rollover, so it pays NO swap and needs no swap-free account. Candidates (EAs allowed, third-party sources):
+FTMO (EAs on MT4 / MT5 / cTrader without approval; "each account must run independently, no cross-account copying"), FundedNext,
+The5ers, BrightFunded (index CFDs listed; already used for bf), Funded Trading Plus, FundingPips. FTMO-like $100K economics: DF-3.
+Index CFD costs (spread, usually no commission) must stay near the futures cost of the backtest (DF-3c: the book is cost-sensitive).
