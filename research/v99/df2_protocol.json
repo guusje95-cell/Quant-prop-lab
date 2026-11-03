@@ -1,0 +1,5 @@
+{"id": "DF-2", "date": "2026-11-03", "registered": "before computing either candidate on the exact daily-flat bars", "trials_added": 2,
+ "why": "sleeves that live in the overnight Globex session fit flat-by-close firms natively (no extra round trip, no gap)",
+ "A": "replace R1 (24 h hold) by R1 overnight: signal at the 16:00 ET close (unchanged R1 rule), entry 18:00 ET, exit 10:00 ET next day, ES + NQ (scripts/r1_overnight_dailyflat.py r1_on, on the EXACT patched bars so Sunday entries do not earn the weekend gap). FLAGGED: window found on ES/NQ in Gen148",
+ "B": "add Gen142 night drift (ES / NQ / RTY / YM long 20:00 -> 09:00 ET, Gen142 code unchanged on the patched bars). FLAGGED: stand-alone numbers seen (2023-26 0.32)",
+ "judge": "each vs the exact daily-flat book (DF-1: 0.290 / 0.774 / 0.978): 2023-26 >= 1.028 and 2018-22 not lower than 0.774"}
