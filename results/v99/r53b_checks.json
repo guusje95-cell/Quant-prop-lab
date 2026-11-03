@@ -1,0 +1,114 @@
+{
+ "inverse-vol": [
+  3.54,
+  [
+   2.686,
+   4.133,
+   3.376
+  ]
+ ],
+ "ERC shrink 0.25": [
+  3.342,
+  [
+   2.688,
+   3.655,
+   3.362
+  ]
+ ],
+ "ERC shrink 0.5": [
+  3.605,
+  [
+   2.696,
+   4.23,
+   3.43
+  ]
+ ],
+ "ERC shrink 0.75": [
+  3.592,
+  [
+   2.707,
+   4.222,
+   3.394
+  ]
+ ],
+ "v9.8 capped: inverse-vol / ERC": [
+  [
+   3.061,
+   [
+    2.465,
+    3.87,
+    2.592
+   ]
+  ],
+  [
+   3.153,
+   [
+    2.512,
+    3.985,
+    2.672
+   ]
+  ]
+ ],
+ "drop best 10% events: inverse-vol / ERC": [
+  [
+   3.06,
+   [
+    2.688,
+    3.946,
+    2.288
+   ]
+  ],
+  [
+   3.135,
+   [
+    2.717,
+    4.006,
+    2.396
+   ]
+  ]
+ ],
+ "risk at 1.5: inverse-vol / ERC": [
+  {
+   "worst day %": -6.19,
+   "max DD %": -11.42,
+   "days < -2.5%": 15
+  },
+  {
+   "worst day %": -6.15,
+   "max DD %": -11.3,
+   "days < -2.5%": 17
+  }
+ ],
+ "mean weight share % (2022-26): inverse-vol / ERC": [
+  {
+   "C*": 5.5,
+   "trend 4h": 8.7,
+   "Weiss expiry": 13.0,
+   "delev bounce": 3.4,
+   "ridge ML": 1.5,
+   "alt kimchi": 1.0,
+   "diversifier basket": 4.7,
+   "relative crowding 6": 11.9,
+   "listing short": 4.4,
+   "venue listing short": 28.8,
+   "binance add short": 5.4,
+   "hodler short": 4.4,
+   "futures-delisting short": 7.3
+  },
+  {
+   "C*": 5.0,
+   "trend 4h": 8.2,
+   "Weiss expiry": 17.3,
+   "delev bounce": 3.3,
+   "ridge ML": 1.2,
+   "alt kimchi": 1.0,
+   "diversifier basket": 3.8,
+   "relative crowding 6": 11.5,
+   "listing short": 4.5,
+   "venue listing short": 28.2,
+   "binance add short": 4.7,
+   "hodler short": 4.2,
+   "futures-delisting short": 6.9
+  }
+ ]
+}
