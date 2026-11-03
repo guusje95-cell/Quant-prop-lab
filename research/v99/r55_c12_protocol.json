@@ -1,0 +1,4 @@
+{"id": "R55 / C12", "date": "2026-11-03", "registered": "before computing", "trials_added": 2, "flag": "FLAGGED post-hoc combinations of results already seen (R53 pass, R54 near miss +0.025, C10 pass)",
+ "R55": "v9.9 candidate (capped) with ERC weights (shrink 0.5) AND Weiss as the R54 6-point ensemble; judge vs v9.9e (ERC, 3.605 [2.696, 4.230, 3.430]): >= +0.05 or, as a robustness upgrade, every period not lower",
+ "C12": "bf2.8 (true Weiss cap 4x) with Weiss as the R54 6-point ensemble (BTC / ETH at CFD costs: the Weiss legs keep cfd_book's Weiss cost convention via the same function at 5 bp, conservative for BTC / ETH CFD spreads); judge vs bf2.8 3.064 [1.880, 4.201, 2.533]: >= +0.05 and no period lower",
+ "note": "a combination that only matches its parent on every period is recorded as a robustness upgrade (less parameter dependence), not as an improvement"}
