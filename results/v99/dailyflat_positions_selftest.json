@@ -1,0 +1,42 @@
+{
+ "T1": {
+  "corr": 0.9995,
+  "monthly corr": 0.9991,
+  "mean gross - sleeve (bp/day)": 0.774
+ },
+ "T2": {
+  "corr": 0.9987,
+  "monthly corr": 0.9987,
+  "mean gross - sleeve (bp/day)": 0.242
+ },
+ "FC": {
+  "corr": 0.9995,
+  "monthly corr": 0.997,
+  "mean gross - sleeve (bp/day)": 1.251
+ },
+ "MM": {
+  "corr": 0.9993,
+  "monthly corr": 0.9987,
+  "mean gross - sleeve (bp/day)": 0.54
+ },
+ "OIL": {
+  "corr": 0.9996,
+  "monthly corr": 0.9929,
+  "mean gross - sleeve (bp/day)": 1.515
+ },
+ "K3": {
+  "corr": 0.9988,
+  "monthly corr": 0.9976,
+  "mean gross - sleeve (bp/day)": 1.132
+ },
+ "P1": {
+  "corr": 0.9891,
+  "monthly corr": 0.989,
+  "mean gross - sleeve (bp/day)": 1.811
+ },
+ "R1": {
+  "corr": 0.7408,
+  "monthly corr": 0.9731,
+  "mean gross - sleeve (bp/day)": 0.833
+ }
+}
