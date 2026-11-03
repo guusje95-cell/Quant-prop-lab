@@ -1,0 +1,4 @@
+{"id": "DF-5", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "in the daily-flat book costs eat about a third of the gross Sharpe; inverse-vol weights ignore how much of each sleeve's edge survives its daily round trips. Gen140 chose Sharpe-weighted construction for the swing book on 2010-22",
+ "change": "weights proportional to (1 / sd) x max(0, net Sharpe 2010-22) instead of 1 / sd over positive-Sharpe sleeves, for the 8 daily-flat equity-index sleeves; level as fbook",
+ "judge": "2023-26 >= 1.164 + 0.05 and 2018-22 not lower than 0.785 (2018-22 is in the fit window: reported, protective only)"}
