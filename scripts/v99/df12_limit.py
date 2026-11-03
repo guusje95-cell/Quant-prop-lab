@@ -39,4 +39,4 @@ def study(root):
 
 out = {r: study(r) for r in ("ES", "NQ")}
 out["mean implied multiplier"] = round(float(np.mean([out[r]["implied cost multiplier"] for r in ("ES", "NQ")])), 3)
-print(json.dumps(out, indent=1)); (ROOT / "results/v99/df12_limit.json").write_text(json.dumps(out, indent=1))
+print(json.dumps(out, indent=1, default=float)); (ROOT / "results/v99/df12_limit.json").write_text(json.dumps(out, indent=1, default=float))

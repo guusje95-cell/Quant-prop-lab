@@ -1,0 +1,77 @@
+{
+ "ES": {
+  "entry 18:00": {
+   "n": 2260,
+   "fill rate buy / sell": [
+    0.871,
+    0.886
+   ],
+   "mean cost ticks buy / sell (market = +1)": [
+    1.401,
+    1.201
+   ],
+   "median": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "exit 15:50": {
+   "n": 2180,
+   "fill rate buy / sell": [
+    0.909,
+    0.921
+   ],
+   "mean cost ticks buy / sell (market = +1)": [
+    2.345,
+    1.875
+   ],
+   "median": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "per-side cost bp: market / limit (2023-26 prices)": [
+   0.734000027179718,
+   1.042
+  ],
+  "implied cost multiplier": 1.42
+ },
+ "NQ": {
+  "entry 18:00": {
+   "n": 2259,
+   "fill rate buy / sell": [
+    0.915,
+    0.911
+   ],
+   "mean cost ticks buy / sell (market = +1)": [
+    7.295,
+    6.186
+   ],
+   "median": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "exit 15:50": {
+   "n": 2180,
+   "fill rate buy / sell": [
+    0.941,
+    0.95
+   ],
+   "mean cost ticks buy / sell (market = +1)": [
+    8.609,
+    6.43
+   ],
+   "median": [
+    -1.0,
+    -1.0
+   ]
+  },
+  "per-side cost bp: market / limit (2023-26 prices)": [
+   0.32899999618530273,
+   1.076
+  ],
+  "implied cost multiplier": 3.27
+ },
+ "mean implied multiplier": 2.345
+}
