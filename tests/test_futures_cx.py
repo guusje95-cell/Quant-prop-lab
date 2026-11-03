@@ -20,10 +20,12 @@ def test_proxy_hourly_costs_and_funding():
 
 
 def test_step_appends_once(tmp_path, monkeypatch):
-    monkeypatch.setattr(FX, "OUT", tmp_path / "futcx")
+    monkeypatch.setattr(FX, "OUT", tmp_path / "futcx"); monkeypatch.setattr(FX, "OUT4", tmp_path / "futcx4")
     days = pd.bdate_range("2026-10-01", "2026-10-09")
-    cx = {"cx": {str(d.date()): 0.001 for d in days}, "last_full_day": "2026-10-08"}
+    cx = {"cx": {str(d.date()): 0.001 for d in days}, "cx_solxrp": {str(d.date()): 0.0005 for d in days}, "last_full_day": "2026-10-08"}
     r1 = FX.step(cx_live=cx); r2 = FX.step(cx_live=cx)
     L = pd.read_csv(tmp_path / "futcx/ledger_hourly.csv")
-    assert r1["appended"] > 0 and r2["appended"] == 0 and L["hour"].max() <= "2026-10-08 21:00:00"
+    assert r1["futcx"]["appended"] > 0 and r2["futcx"]["appended"] == 0 and r1["futcx4"]["appended"] == r1["futcx"]["appended"] and r2["futcx4"]["appended"] == 0 and L["hour"].max() <= "2026-10-08 21:00:00"
     assert "CX" in L.columns and "w CX" in L.columns and L["port"].notna().all()
+    L4 = pd.read_csv(tmp_path / "futcx4/ledger_hourly.csv")
+    assert np.allclose(L4["CX"] - L["CX"], 0.0005)

@@ -25,6 +25,9 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "paper_trading/futcx"
+OUT4 = ROOT / "paper_trading/futcx4"                                       # F-CX4: + C* SOL / XRP legs (CME micros since 2025; proxy)
+PREFIX4 = ROOT / "results/v99/cx_solxrp_prefix.parquet"
+LEGS4 = {"SOL": 6.0, "XRP": 2.5}                                           # bp per side (one CME micro tick + commission)
 FUT = ROOT / "paper_trading/futures/ledger_hourly.csv"
 V98 = ROOT / "paper_trading/v98"
 PREFIX = ROOT / "results/v99/cx_sleeve_prefix.parquet"
@@ -46,7 +49,7 @@ def cme_cost(coin: str, price):
 def proxy_hourly(pos: pd.DataFrame, px: pd.DataFrame, fund: pd.DataFrame, cost=cme_cost) -> pd.Series:
     """positions (held during hour h) x Binance hourly returns of hour h - funding - turnover x CME micro cost per side"""
     out = []
-    for c in ("BTC", "ETH"):
+    for c in pos.columns:
         p = pos[c].reindex(px.index).fillna(0.0); r = px[c].pct_change(fill_method=None).fillna(0.0)
         f = fund[c].reindex(px.index).fillna(0.0) if c in fund else 0.0
         out.append(p * r - p * f - p.diff().abs().fillna(p.abs()) * cost(c, px[c].ffill()))
@@ -74,16 +77,18 @@ def _compute(cutoff: pd.Timestamp) -> dict:
     sys.path.insert(0, str(ROOT / "scripts"))
     import crypto_sleeves as CS
     from qpl.lab import binance_pack as B
-    px = B.panel("close", "1h", ["BTC", "ETH"]).loc[:cutoff - pd.Timedelta(hours=1)]
-    w = CS.cstar_weights()[["BTC", "ETH"]]
+    coins = ["BTC", "ETH", *LEGS4]
+    px = B.panel("close", "1h", coins).loc[:cutoff - pd.Timedelta(hours=1)]
+    w = CS.cstar_weights()[coins]
     w = w.reindex(w.index.append(pd.DatetimeIndex([w.index[-1] + pd.Timedelta(days=1)]))).shift(1)      # row d held on d + 1
     pos = w.reindex(px.index.floor("D")).set_axis(px.index).fillna(0.0)
-    h = proxy_hourly(pos, px, CS._funding_hourly(["BTC", "ETH"], px.index))
-    h = h.loc[RESEARCH_END + pd.Timedelta(days=1):]
+    fund = CS._funding_hourly(coins, px.index)
     last_full = cutoff.floor("D") - pd.Timedelta(days=1)                                     # complete UTC days only
-    h = h.loc[:last_full + pd.Timedelta(hours=23)]
-    d = daily(h)
-    return {"cx": {str(k.date()): float(v) for k, v in d.items()}, "last_full_day": str(last_full.date())}
+    cut = lambda h: daily(h.loc[RESEARCH_END + pd.Timedelta(days=1):last_full + pd.Timedelta(hours=23)])
+    d = cut(proxy_hourly(pos[["BTC", "ETH"]], px[["BTC", "ETH"]], fund))
+    d4 = cut(proxy_hourly(pos[list(LEGS4)], px[list(LEGS4)], fund, cost=lambda c, p: LEGS4[c] / 1e4))
+    return {"cx": {str(k.date()): float(v) for k, v in d.items()}, "cx_solxrp": {str(k.date()): float(v) for k, v in d4.items()},
+            "last_full_day": str(last_full.date())}
 
 
 def step(log=print, cx_live: dict | None = None) -> dict:
@@ -101,12 +106,22 @@ def step(log=print, cx_live: dict | None = None) -> dict:
             return {"status": "failed", "stderr": r.stderr[-1500:]}
         cx_live = json.loads(r.stdout.strip().splitlines()[-1])
     last_full = pd.Timestamp(cx_live["last_full_day"])
-    cx = pd.read_parquet(PREFIX)["CX"].loc[:RESEARCH_END]
-    live = pd.Series({pd.Timestamp(k): v for k, v in cx_live["cx"].items()}, dtype=float)
+    ser = lambda d: pd.Series({pd.Timestamp(k): v for k, v in (d or {}).items()}, dtype=float)
+    cx = pd.read_parquet(PREFIX)["CX"].loc[:RESEARCH_END]; live = ser(cx_live["cx"])
     cx = pd.concat([cx, live[live.index > RESEARCH_END]])
+    res = {"futcx": _write(OUT, cx, last_full)}
+    if PREFIX4.exists():
+        lg = pd.read_parquet(PREFIX4)["legs"].loc[:RESEARCH_END]; l4 = ser(cx_live.get("cx_solxrp"))
+        lg = pd.concat([lg, l4[l4.index > RESEARCH_END]])
+        cx4 = cx.add(lg, fill_value=0.0)
+        res["futcx4"] = _write(OUT4, cx4, last_full)
+    return res
+
+
+def _write(out: Path, cx: pd.Series, last_full: pd.Timestamp) -> dict:
     P = futures_sleeves(); P["CX"] = cx.reindex(P.index).fillna(0.0)
     b, W = book(P)
-    OUT.mkdir(parents=True, exist_ok=True); f = OUT / "ledger_hourly.csv"
+    out.mkdir(parents=True, exist_ok=True); f = out / "ledger_hourly.csv"
     L = pd.read_csv(f) if f.exists() else pd.DataFrame(); have = set(L["hour"].astype(str)) if len(L) else set()
     now = pd.Timestamp.now(tz="UTC").tz_localize(None); rows = []
     for d in b.index[(b.index > RESEARCH_END) & (b.index <= last_full)]:
@@ -122,7 +137,6 @@ def step(log=print, cx_live: dict | None = None) -> dict:
     if rows:
         L = pd.concat([L, pd.DataFrame(rows)], ignore_index=True); tmp = f.with_suffix(".tmp"); L.to_csv(tmp, index=False); tmp.replace(f)
     return {"appended": len(rows), "ledger_days": len(L), "last_full_cx_day": str(last_full.date())}
-
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "_compute":
