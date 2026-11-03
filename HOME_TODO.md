@@ -132,3 +132,8 @@ Then tell Claude: "data is pushed".
 - **Orderboek-logs** (`book_logger_start.bat` + pushen): bevestigt de netting-besparing en de kosten van de crypto-bot.
 - **Officiële regels** (`get_prop_rules.bat`): Topstep / Lucid / FundedNext Futures / FTMO -> juiste risico-instelling per firm.
 - **Topstep commissies voor micro's (MES / MNQ)** uit je dashboard of hun prijspagina: het dagelijks-vlakke boek is kostengevoelig (DF-3c).
+
+## Nieuw (3-11): weekrapport
+- De hub maakt elke week `paper_trading/reports/weekly_<datum>.md`: paper vs backtest (z-score), schaduwen, en de gezondheid van
+  alle dry-run-bots (heartbeat, fouten, geweigerde orders, veiligheids-sluitingen). Handmatig: `weekly_report.bat`.
+  Push `paper_trading/reports` mee, dan lees ik het en meld ik afwijkingen.
