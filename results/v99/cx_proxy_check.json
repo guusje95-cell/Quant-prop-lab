@@ -1,0 +1,12 @@
+{
+ "corr daily": 0.894,
+ "Sharpe cme / proxy 2020-22": [
+  1.215,
+  0.582
+ ],
+ "Sharpe cme / proxy 2023-26": [
+  0.975,
+  1.046
+ ],
+ "mean daily diff (proxy - cme), bp": -0.177
+}

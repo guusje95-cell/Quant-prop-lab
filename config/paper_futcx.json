@@ -1,0 +1,14 @@
+{
+ "name": "SHADOW of the futures paper run (F-CX, user-approved 2026-11-03): futures book + CX (C* BTC / ETH legs) as a 16th sleeve",
+ "registered": "2026-11-03, after F-CX / F-CXb / F-CXc; the futures paper run (paper_trading/futures) is unchanged",
+ "what": "qpl.live.futures_cx (hub job 'futcx_paper', hourly): the 15 futures sleeves from the frozen futures paper ledger + CX, fbook rule (static 1/sd on 2010-22, 10% vol target). Each futures paper day is written once to paper_trading/futcx/ledger_hourly.csv",
+ "frozen": {
+  "account": 50000,
+  "risk": 1.0,
+  "start_after": "2026-09-30",
+  "cx_source": "research: CME BTC / ETH front futures (results/v99/cx_sleeve_prefix.parquet); forward: PROXY on Binance BTC / ETH perps (CME micro costs, Binance funding for the basis; corr with CME 0.89 on 2020-26, results/v99/cx_proxy_check.json)"
+ },
+ "reference": {"backtest": "F-CXb: 1.459 / 1.600 / 1.414 (2010-17 / 2018-22 / 2023-26); live code reproduces it exactly (research series)"},
+ "gate": "judged together with the futures paper gate; deployment needs a futures firm with MBT / MET, overnight + weekend holds and bots",
+ "changes": []
+}
