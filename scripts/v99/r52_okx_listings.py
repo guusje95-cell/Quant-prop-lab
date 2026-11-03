@@ -14,13 +14,13 @@ import r48_stress as S
 
 
 def events():
+    """listing time = OKX instruments listTime (research_data/okx_listings/instruments.json, as Gen432); the 1h files are not listing windows"""
+    ins = json.loads((ROOT / "research_data/okx_listings/instruments.json").read_text()); ins = ins.get("data", ins) if isinstance(ins, dict) else ins
     ev = []
-    for f in sorted((ROOT / "research_data/okx_listings").glob("*-USDT-SWAP_1h.parquet")):
-        coin = f.name.split("-USDT")[0]
-        x = pd.read_parquet(f)
-        if not len(x):
+    for r in ins:
+        if not str(r.get("instId", "")).endswith("-USDT-SWAP") or not r.get("listTime"):
             continue
-        t0 = pd.DatetimeIndex(x.index).min() if not isinstance(x.index, pd.RangeIndex) else pd.to_datetime(x.iloc[:, 0]).min()
+        coin = r["instId"].split("-USDT")[0]; t0 = pd.to_datetime(int(r["listTime"]), unit="ms")
         if not (pd.Timestamp("2022-01-01") <= t0 <= pd.Timestamp("2026-09-23")):
             continue
         for c in (coin, "1000" + coin):
