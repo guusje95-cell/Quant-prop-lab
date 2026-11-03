@@ -43,6 +43,7 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 - Dashboard -> Paper Trading -> Shadow accounts: **`bf27cand:honest_plus_rc6_basket`** naast `bf26:without_carry`.
 - Optioneel (beter niveau van de schaduw, 5-20 min): dubbelklik **`oos_october_bf26.bat`** (rekent bf2.6 door tot zijn paper-start, pusht zelf).
 - Af en toe meepushen: `git add paper_trading/rc6cfd paper_trading/basketcfd paper_trading/trendcfd paper_trading/altkcfd` -> commit -> push.
+- NIEUW (3-11): crypto-schaduw **`v99cand:all_plus_add_hodler_erc`** (v9.9 + ERC-weging, R53). Alleen hub herstarten.
 - NIEUW (2-11 laat): ook schaduw **`bf28cand:weiss_full_ensembles`** (bf2.8: + Weiss vol gewicht + ensembles; backtest 3,06). Alleen hub herstarten na `git pull`.
 
 ## Nieuw (2-11): v9.9-kandidaat bot in DRY-RUN (optie a) - los van v9.8, GEEN paper-account

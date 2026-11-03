@@ -484,3 +484,27 @@ def test_listing_collector_merge_is_append_only(tmp_path):
     assert LC._merge(f, [{"id": "1", "t": "x"}, {"id": "2", "t": "y"}], "id") == 2
     assert LC._merge(f, [{"id": "2", "t": "CHANGED"}, {"id": "3", "t": "z"}], "id") == 1
     d = json.loads(f.read_text()); assert set(d) == {"1", "2", "3"} and d["2"]["t"] == "y"      # first record kept, never overwritten
+
+
+def test_composite_erc_weights(c, tmp_path, monkeypatch):
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import crypto_sleeves as CS
+    from qpl.hub import shadow
+    from qpl.hub.db import now, tx
+    from qpl.lab.erc import erc_weights
+    rng = np.random.default_rng(11); idx = pd.date_range("2024-01-01", "2026-03-31 23:00", freq="h"); paper_from = pd.Timestamp("2026-01-01")
+    H = pd.DataFrame({s: rng.normal(0.00003, 0.002, len(idx)) for s in ("A", "B", "Weiss expiry")}, index=idx)
+    (tmp_path / "pre.parquet").write_bytes(b""); H[H.index < paper_from].to_parquet(tmp_path / "pre.parquet"); P = H[H.index >= paper_from]
+    with tx(c):
+        src = c.execute("INSERT INTO paper_accounts (key, source_dir, initial_capital, status, created_at) VALUES ('paper:ee','x',1,'running',?)", (now(),)).lastrowid
+        c.executemany("INSERT INTO paper_sleeve_pnl VALUES (?,?,?,?,?)", [(src, str(t), s, float(v), 0.0) for s in P.columns for t, v in P[s].items()])
+    monkeypatch.setattr(shadow, "ROOT", tmp_path)
+    shadow.define(c, "ee:erc", "paper:ee", "composite", {"prefix": "pre.parquet", "scale": 1.0, "weights": "erc", "shrink": 0.5}, risk=1.0)
+    got = shadow.returns(c, "shadow:ee:erc"); orig = CS.v5_weights
+    CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: erc_weights(D, sleeves, weiss_scale, 0.5)
+    try:
+        ref = CS.portfolio_v5(H, start="2024-01-01")[0].reindex(P.index)
+    finally:
+        CS.v5_weights = orig
+    assert np.abs(got.to_numpy() - ref.to_numpy()).max() < 1e-12 and CS.v5_weights is orig

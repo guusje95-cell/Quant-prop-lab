@@ -149,13 +149,17 @@ def _composite(c, cfg: dict, P: pd.DataFrame) -> pd.Series:
         pc = ROOT / f"config/paper_{ver}.json"
         scale = json.loads(pc.read_text())["frozen"].get(f"{ver}_scale", 1.0) if pc.exists() else 1.0
     ws = s.get("weiss_scale")                                          # bf2.8 (C10): Weiss expiry at full weight (default: the book's half)
-    if ws is not None:
-        orig = CS.v5_weights; CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: orig(D, sleeves, weiss_scale=ws)
+    erc = s.get("weights") == "erc"                                    # v9.9e (R53): equal-risk-contribution weights
+    orig = CS.v5_weights
+    if erc:
+        from qpl.lab.erc import erc_weights
+        CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: erc_weights(D, sleeves, ws if ws is not None else weiss_scale, s.get("shrink", 0.5))
+    elif ws is not None:
+        CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: orig(D, sleeves, weiss_scale=ws)
     try:
         ph, _, _ = CS.portfolio_v5(H, start=str(H.index[0].date()))
     finally:
-        if ws is not None:
-            CS.v5_weights = orig
+        CS.v5_weights = orig
     return (ph * scale).reindex(P.index).fillna(0.0)
 
 
@@ -233,6 +237,15 @@ def ensure_defaults(c: sqlite3.Connection, source: str = "paper:v98") -> list[in
                                      {"account": "paper:hodlershort", "name": "hodler short", "prefix": "results/v99/hodlershort_sleeve_prefix.parquet"}]},
                           description="v9.9 candidate ALL + Binance add (R34) + HODLer-airdrop short (R42) (backtest 3.71; capped 3.60 vs 3.54); "
                                       "R34 / R42 are 2025-26 'young coins' evidence and correlated (0.51)", actor="system"))
+        ids.append(define(c, "v99cand:all_plus_add_hodler_erc", source, "composite",
+                          {"weights": "erc", "shrink": 0.5,
+                           "extra": [{"account": "paper:venueshort", "name": "venue listing short", "prefix": "results/v99/venueshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:fdshort", "name": "futures-delisting short", "prefix": "results/v99/fdshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:addshort", "name": "binance add short", "prefix": "results/v99/addshort_sleeve_prefix.parquet"},
+                                     {"account": "paper:hodlershort", "name": "hodler short", "prefix": "results/v99/hodlershort_sleeve_prefix.parquet"}]},
+                          description="v9.9e candidate (R53, flagged; user-approved shadow 2026-11-03): the same book with equal-risk-contribution "
+                                      "weights (shrunk covariance 0.5) instead of inverse-vol (capped backtest 3.605 vs 3.540, every period up; "
+                                      "R53b: also +0.09 on v9.8, less event concentration; the shrink-0.25 neighbour fails)", actor="system"))
     if c.execute("SELECT 1 FROM paper_accounts WHERE key='paper:bf26'").fetchone():
         ids += ensure_cfd_defaults(c)
     return ids
