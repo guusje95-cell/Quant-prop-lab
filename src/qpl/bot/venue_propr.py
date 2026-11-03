@@ -27,7 +27,8 @@ from qpl.bot.adapters import Adapter
 from qpl.bot.planner import plan_orders, scaled_targets
 from qpl.bot.risk import Guard
 from qpl.bot.rules import Rules
-from qpl.bot.runner import load_state, log_orders, save_state
+from qpl.bot.runner import log_orders
+from qpl.bot.safety import MAX_STALE_HOURS, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
 from qpl.bot.runner_v99 import cap_lowcap
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -134,11 +135,21 @@ class ProprDryRun(Adapter):
         return None
 
     def flatten(self):
-        return [self.place_market(c, -v) for c, v in list(self.s["positions"].items())]
+        """close everything; the virtual position is removed in full (a live close uses reduce-only for the whole size)"""
+        out = [self.place_market(c, -v) for c, v in list(self.s["positions"].items())]
+        self.s["positions"] = {}
+        return out
 
 
 def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, now: pd.Timestamp | None = None) -> dict:
-    now = now or pd.Timestamp.now("UTC"); s = load_state(sdir); book = json.loads(book_path.read_text())
+    now = now or pd.Timestamp.now("UTC"); s = load_state(sdir); book = read_json(book_path)
+    if book is None:                                                        # missing / truncated book file
+        res = {'time': str(now), 'action': 'book unreadable: holding'}
+        ad0 = ProprDryRun(reader, s, meta, rules.initial_balance)
+        if (Path(sdir) / 'STOP').exists() or stale_flatten_due(s.get('last_good_book_utc'), now, bool(ad0.positions())):
+            log_orders(sdir, [dict(r, time=str(now), reason='kill or book unreadable > {} h'.format(MAX_STALE_HOURS)) for r in ad0.flatten()]); res['action'] = 'kill switch / book unreadable too long: flatten'
+        save_state(sdir, s); return res
+    s['last_good_book_utc'] = book.get('made_at_utc')
     ad = ProprDryRun(reader, s, meta, rules.initial_balance)
     s["equity"] = float(book["equity"]) * rules.initial_balance / 200_000.0
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "venue": "propr dry-run"}
@@ -153,8 +164,10 @@ def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, no
         res["action"] = "no new book"
     elif g.book_stale(book, now):
         res["action"] = f"book from {book['made_at_utc']} is stale: skipped"; s["last_book"] = bid
+        if stale_flatten_due(book.get("made_at_utc"), now, bool(ad.positions())):
+            log_orders(sdir, [dict(r, time=str(now), reason="book stale > 6 h") for r in ad.flatten()]); res["action"] += "; stale > 6 h: flatten"
     else:
-        tg = scaled_targets(book, eq, 1.0)                                              # Propr: risk 1.0 (trailing drawdown)
+        tg, bad = sanitize_targets(scaled_targets(book, eq, 1.0)); res["dropped_non_finite"] = bad    # Propr: risk 1.0 (trailing drawdown)
         tg = {c: max(-max_lev(limits, hl_name(c)) * eq * 0.95, min(max_lev(limits, hl_name(c)) * eq * 0.95, v)) for c, v in tg.items()}
         tg = cap_lowcap(tg, book, rules.lowcap_cap_frac * rules.initial_balance, rules.lowcap_total_frac * rules.initial_balance)
         orders = plan_orders(tg, ad.positions(), rules.band_usd * 0.5, rules.min_order_usd); fills = []      # $100k account: half the band
@@ -180,9 +193,9 @@ def main():
             from qpl.bot import runner_v99
             runner_v99.refresh_book()
             limits = reader.leverage_limits() if reader else requests.get(API + "/leverage-limits/effective", timeout=30).json()
-            print(one_pass(reader, hl_meta(), limits, Path(x.book), rules, Path(x.state)), flush=True)
+            r = one_pass(reader, hl_meta(), limits, Path(x.book), rules, Path(x.state)); heartbeat(Path(x.state), r); print(r, flush=True)
         except Exception as e:                                           # noqa: BLE001
-            print({"error": str(e)}, flush=True)
+            heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
         if not x.loop:
             break
         time.sleep(300)

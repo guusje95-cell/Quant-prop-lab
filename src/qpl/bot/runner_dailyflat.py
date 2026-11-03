@@ -19,7 +19,9 @@ import pandas as pd
 from qpl.bot.planner import plan_orders
 from qpl.bot.risk import Guard
 from qpl.bot.rules import Rules
-from qpl.bot.runner import load_state, log_orders, save_state
+from qpl.bot.runner import log_orders
+from qpl.bot.safety import MAX_STALE_HOURS, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
+from qpl.bot.safety import gross_cap
 
 ROOT = Path(__file__).resolve().parents[3]
 TARGETS = ROOT / "paper_trading/futuresdf/targets_session.json"
@@ -71,7 +73,7 @@ def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Ti
     now = now or pd.Timestamp.now("UTC"); s = load_state(sdir)
     ad = MT5DryRun(mt5, s, rules.initial_balance, {k: v for k, v in symbol_map(mt5).items() if k in INDEX})
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "et": str(_et(now)), "venue": "mt5 dry-run (daily-flat index book)"}
-    tj = json.loads(tpath.read_text()) if tpath.exists() else {}
+    tj = read_json(tpath) or {}                                             # missing / truncated targets: flat (current_targets -> None -> {})
     if g.killed():
         res["action"] = "kill switch: flatten"; log_orders(sdir, [dict(r, time=str(now), reason="kill") for r in ad.flatten()])
     elif g.daily_stop_hit(eq):
@@ -83,7 +85,9 @@ def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Ti
         if fr is None:
             res["action"] = f"no targets for this session (file is for {tj.get('session')}): holding flat"
             fr = {}
-        tg = {c: float(v) * eq * risk for c, v in fr.items()}
+        fr, bad = sanitize_targets(fr); res["dropped_non_finite"] = bad
+        tg, capped = gross_cap({c: v * eq * risk for c, v in fr.items()}, 3.0 * eq * risk)   # sanity: the book's gross never needs > 3x equity x risk
+        res["gross_capped"] = capped
         orders = plan_orders(tg, ad.positions(), rules.band_usd, rules.min_order_usd); fills = []
         for o in orders:
             f = ad.place_market(o["coin"], o["usd"]); fills.append(dict(o, **f, time=str(now), session=tj.get("session")))
@@ -120,9 +124,10 @@ def main():
                 et = _et(pd.Timestamp.now("UTC")); key = (str(et.date()), "1405" if (et.hour == 14 and et.minute >= 5) else "1605" if (et.hour == 16 and et.minute >= 5) else "")
                 if key[1] and key not in done and et.weekday() < 5:
                     refresh(x.max_cost); done.add(key)
-                print(one_pass(mt5, Path(x.targets), x.risk, rules, Path(x.state), flat_from=16 * 60 + 55 if x.cfd_1655 else None), flush=True)
+                r = one_pass(mt5, Path(x.targets), x.risk, rules, Path(x.state), flat_from=16 * 60 + 55 if x.cfd_1655 else None)
+                heartbeat(Path(x.state), r); print(r, flush=True)
             except Exception as e:                                       # noqa: BLE001 - keep the loop alive
-                print({"error": str(e)}, flush=True)
+                heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
             if not x.loop:
                 break
             time.sleep(300)
