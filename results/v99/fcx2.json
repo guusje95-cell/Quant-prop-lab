@@ -1,0 +1,19 @@
+{
+ "reference (with CX)": [
+  1.459,
+  1.6,
+  1.414
+ ],
+ "with CX + CXD": [
+  1.459,
+  1.564,
+  1.478
+ ],
+ "CXD sleeve": [
+  NaN,
+  0.179,
+  0.614
+ ],
+ "corr CXD vs CX since 2020": 0.042,
+ "pass": false
+}
