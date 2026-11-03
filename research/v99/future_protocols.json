@@ -1,0 +1,15 @@
+{"registered": "2026-11-03, BEFORE any of the collected data (research_data/collect, hub job collect_listings since 2026-11-03) has been looked at",
+ "note": "pre-registration of the tests that will run on data that does not exist yet; nothing here may be changed after the first look at the data (a changed test gets a new id and counts as a new, FLAGGED trial). Reference book for every judge: the then-current v9.9 candidate (capped, Bybit filter) with its strict rule (book >= ref + 0.05, no period lower), periods = calendar halves of the collection window",
+ "tests": {
+  "FX1": {"what": "Hyperliquid new perp listings (hl_first_seen.json, first-seen hour) on coins that ALSO have a Bybit USDT perp at that hour: short 0.05 of equity from the first full hour after first-seen, hold 168 h, 30% stop on a close (the R16 rule), Bybit hourly closes, 5.5 bp + funding",
+          "minimum": "40 qualifying events", "trials": 1, "judge": "separate sleeve in the v9.9 book (equal-risk construction), strict rule; plus mean trade > 0 in both halves"},
+  "FX2": {"what": "Bitget coin-listing announcements (bitget_announcements.json, annType coin_listings, publish time) for coins with a >= 7-day Bybit perp: short 0.05 from the first full hour after the announcement, 168 h, 30% stop",
+          "minimum": "40 qualifying events", "trials": 1, "judge": "as FX1"},
+  "FX3": {"what": "OKX delisting announcements (okx_announcements.json, delistings) for coins with a Bybit perp: short 0.05 from the first full hour after publication, 14 days, 30% stop (the R32 rule)",
+          "minimum": "25 qualifying events", "trials": 1, "judge": "as FX1"},
+  "FX4": {"what": "first 72 h after a Hyperliquid listing (hl_new candles): does the HL perp price fall vs its first-hour close (mean and median, t-stat)? DESCRIPTIVE only, no trading rule, 0 trials",
+          "minimum": "30 listings", "trials": 0}},
+ "sleeve_replacement_rule": {"what": "when a v9.8 / v9.9 sleeve is replaced (watch list: trend 4h, C*, relative crowding 6)",
+   "trigger": "BOTH (a) its paper contribution z (weekly report attribution) < -2 over >= 90 paper days AND (b) its research-series Sharpe over the trailing 12 months < 0",
+   "action": "the sleeve's weight is halved (not dropped) and a replacement is searched with a NEW pre-registered protocol judged against the book WITHOUT the sleeve; one trigger check per month, no ad-hoc removal",
+   "status_2026-11-03": "not triggered (VAL-2 / VAL-3: both still add to the book; 2025-26 C* 0.08 / 1.01, trend 4h -0.28 / 0.96)"}}
