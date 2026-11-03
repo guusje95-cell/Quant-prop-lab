@@ -71,6 +71,17 @@ def in_blackout(now: pd.Timestamp, path: Path = ROOT / "config/news_blackouts.js
     return any(abs((now - t).total_seconds()) <= minutes * 60 for t in ts)
 
 
+def filling_mode(mt5, info) -> int:
+    """the filling mode this symbol accepts (brokers differ: 'Unsupported filling mode' otherwise). symbol_info.filling_mode is a
+    bitmask: 1 = FOK allowed, 2 = IOC allowed; neither -> RETURN (market execution)"""
+    fm = int(getattr(info, "filling_mode", 0) or 0)
+    if fm & 1:
+        return getattr(mt5, "ORDER_FILLING_FOK", 0)
+    if fm & 2:
+        return getattr(mt5, "ORDER_FILLING_IOC", 1)
+    return getattr(mt5, "ORDER_FILLING_RETURN", 2)
+
+
 class MT5DryRun(Adapter):
     """prices / specs / order_check from the logged-in MT5 terminal; positions virtual (state); never sends an order"""
     name = "mt5-dryrun"
@@ -96,7 +107,7 @@ class MT5DryRun(Adapter):
         if v == 0:
             return {"coin": coin, "symbol": sym, "usd": usd, "filled_usd": 0.0, "how": "below the minimum volume: skipped"}
         req = {"action": self.m.TRADE_ACTION_DEAL, "symbol": sym, "volume": abs(v), "type": self.m.ORDER_TYPE_BUY if v > 0 else self.m.ORDER_TYPE_SELL,
-               "price": price, "deviation": 20, "magic": 270227, "comment": f"bf27 dry-run {kind}", "type_filling": self.m.ORDER_FILLING_IOC}
+               "price": price, "deviation": 20, "magic": 270227, "comment": f"bf27 dry-run {kind}", "type_filling": filling_mode(self.m, i)}
         chk = self.m.order_check(req)
         ok = chk is not None and chk.retcode in (0, getattr(self.m, "TRADE_RETCODE_DONE", 10009))
         filled = math.copysign(abs(v) * price * i.trade_contract_size, usd) if ok else 0.0

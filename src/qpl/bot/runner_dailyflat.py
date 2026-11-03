@@ -72,6 +72,7 @@ def one_pass(mt5, tpath: Path, risk: float, rules: Rules, sdir: Path, now: pd.Ti
     from qpl.bot.venue_mt5 import MT5DryRun, symbol_map
     now = now or pd.Timestamp.now("UTC"); s = load_state(sdir)
     ad = MT5DryRun(mt5, s, rules.initial_balance, {k: v for k, v in symbol_map(mt5).items() if k in INDEX})
+    s["equity"] = float(rules.initial_balance)                                 # dry-run: size on the account you entered, not the demo balance
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "et": str(_et(now)), "venue": "mt5 dry-run (daily-flat index book)"}
     tj = read_json(tpath) or {}                                             # missing / truncated targets: flat (current_targets -> None -> {})
     if g.killed():

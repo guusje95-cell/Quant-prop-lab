@@ -102,7 +102,7 @@ def test_dailyflat_kill_dst_and_runaway_target(tmp_path):
     u = lambda et: pd.Timestamp(et).tz_localize("America/New_York").tz_convert("UTC")
     r = RD.one_pass(mt5, p, 1.0, rules, st, now=u("2026-11-04 10:00"))
     pos = json.loads((st / "state.json").read_text())["positions"]
-    assert r["gross_capped"] and sum(abs(v) for v in pos.values()) <= 3.0 * 200_000 * 1.0 + 1          # 50x equity capped to 3x (MT5 equity 200k)
+    assert r["gross_capped"] and sum(abs(v) for v in pos.values()) <= 3.0 * 100_000 * 1.0 + 1          # 50x equity capped to 3x (entered account 100k)
     assert "US100" not in pos and mt5.sent == []                                                        # inf dropped
     (st / "STOP").write_text("x")
     r = RD.one_pass(mt5, p, 1.0, rules, st, now=u("2026-11-04 10:05"))
@@ -123,3 +123,10 @@ def test_sanitize_and_cap_helpers():
     g, bad = S.sanitize_targets({"A": 1.0, "B": float("nan"), "C": "x", "D": -2.0})
     assert g == {"A": 1.0, "D": -2.0} and set(bad) == {"B", "C"}
     t, c = S.gross_cap({"A": 300.0, "B": -100.0}, 200.0); assert c and math.isclose(sum(abs(v) for v in t.values()), 200.0)
+
+
+def test_mt5_filling_mode_per_symbol():
+    from types import SimpleNamespace as NS
+    m = NS(ORDER_FILLING_FOK=0, ORDER_FILLING_IOC=1, ORDER_FILLING_RETURN=2)
+    assert V.filling_mode(m, NS(filling_mode=1)) == 0 and V.filling_mode(m, NS(filling_mode=2)) == 1
+    assert V.filling_mode(m, NS(filling_mode=3)) == 0 and V.filling_mode(m, NS(filling_mode=0)) == 2 and V.filling_mode(m, NS()) == 2
