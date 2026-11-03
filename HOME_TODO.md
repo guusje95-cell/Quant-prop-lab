@@ -126,3 +126,9 @@ Then tell Claude: "data is pushed".
   Tradeify, Lucid, FundedNext Futures en Apex vast. Daarna check ik de regels (zie `research/v99/M6_DAILYFLAT_FUTURES_FIRMS.md`).
 - **Check zelf op help.topstep.com (Eligibility FAQ)** of Nederland toegestaan is voor Express Funded én Live Funded.
 - `futures_paper_update.bat` draait nu ook de dagelijks-vlakke paper (`paper_trading/futuresdf`); push die map mee.
+
+## Data voor later (verbeteringen hangen hiervan af; geen haast, wel nuttig)
+- **MT5-ticks** (`export_mt5_ticks.bat`): echte spreads per uur voor US500 / US100 / crypto-CFD's -> limit-orders en beste handelsuur (CFD-kosten).
+- **Orderboek-logs** (`book_logger_start.bat` + pushen): bevestigt de netting-besparing en de kosten van de crypto-bot.
+- **Officiële regels** (`get_prop_rules.bat`): Topstep / Lucid / FundedNext Futures / FTMO -> juiste risico-instelling per firm.
+- **Topstep commissies voor micro's (MES / MNQ)** uit je dashboard of hun prijspagina: het dagelijks-vlakke boek is kostengevoelig (DF-3c).
