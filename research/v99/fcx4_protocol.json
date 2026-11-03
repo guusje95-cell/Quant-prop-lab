@@ -1,0 +1,5 @@
+{"id": "F-CX4", "date": "2026-11-03", "registered": "before computing any SOL / XRP number in this setting", "trials_added": 1,
+ "why": "CME lists (micro) SOL and XRP futures since 2025; the C* trend legs of SOL and XRP are the same mechanism as CX and add breadth. No CME history before 2025, so the legs are proxied on Binance perps (validated for BTC / ETH: corr 0.89 with CME, results/v99/cx_proxy_check.json)",
+ "change": "CX4 = CX (CME BTC / ETH, unchanged F-CXb series) + the C* SOL and XRP legs (crypto_sleeves.cstar_weights, row d held on d + 1) on Binance perp hourly returns, Binance funding as the basis stand-in, cost per side SOL 6 bp / XRP 2.5 bp (one CME micro tick + $0.85 commission at typical prices), daily with weekends on Monday; CX4 REPLACES CX as one sleeve in the futures book (fbook rule)",
+ "judge": "2023-26 >= 1.414 + 0.05 and 2018-22 not lower than 1.600",
+ "robustness (pre-registered, judged with it)": "at 2x the SOL / XRP costs the 2023-26 book must still be >= 1.414 + 0.05"}
