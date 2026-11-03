@@ -1,0 +1,3 @@
+{"id": "F-CX3b", "date": "2026-11-03", "registered": "before computing", "trials_added": 0,
+ "checks": ["weekend-flat (b)", "BTC only", "ETH only", "lagged 24 h", "2x CME costs", "book by year (with CX + CXK vs with CX)", "Coinbase-premium part only / Korean part only (diagnostic)"],
+ "reading": "F-CX3 counts as robust if the book 2023-26 stays >= 1.414 + 0.05 in at least 3 of the 5 variants (weekend-flat, BTC only, ETH only, lagged, 2x costs) AND no single calendar year 2023-26 is more than 0.3 lower than with CX alone"}
