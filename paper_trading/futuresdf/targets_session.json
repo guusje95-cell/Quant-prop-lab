@@ -1,0 +1,37 @@
+{
+ "session": "2026-11-03",
+ "made_at_utc": "2026-11-03 16:18:55",
+ "level": 3.0,
+ "weights": {
+  "P1": 0.0785,
+  "R1": 0.1597,
+  "T1": 0.1062,
+  "T2": 0.2712,
+  "FC": 0.0814,
+  "MM": 0.1239,
+  "OIL": 0.0632,
+  "K3": 0.1157
+ },
+ "targets_before_14et": {
+  "US500": 0.311865,
+  "US100": 0.401535,
+  "US2000": 0.033544,
+  "US30": 0.036876
+ },
+ "targets_after_14et": null,
+ "block_date": null,
+ "targets_1600_1655et": null,
+ "markets": {
+  "ES": "US500",
+  "NQ": "US100",
+  "RTY": "US2000",
+  "YM": "US30"
+ },
+ "units": "fraction of equity at book risk 1 (10% vol target); account notional = fraction x equity x account risk",
+ "schedule_et": {
+  "flat": "15:55-18:00 (CFD firms: 16:55-18:00, then targets_1600_1655et from 16:00) and Fri -> Sun 18:00",
+  "enter": "18:00 open (or the first bar after)",
+  "r1_switch": "14:00"
+ },
+ "note": "DRY-RUN target book (DF-3 / DF-4); not a paper account; no order is sent"
+}

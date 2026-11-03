@@ -1,0 +1,942 @@
+{
+"BTC": {
+"first_seen_utc": null,
+"maxLeverage": 40
+},
+"ETH": {
+"first_seen_utc": null,
+"maxLeverage": 25
+},
+"ATOM": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"MATIC": {
+"first_seen_utc": null,
+"maxLeverage": 20
+},
+"DYDX": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"SOL": {
+"first_seen_utc": null,
+"maxLeverage": 20
+},
+"AVAX": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"BNB": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"APE": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"OP": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"LTC": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"ARB": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"DOGE": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"INJ": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"SUI": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"kPEPE": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"CRV": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"LDO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"LINK": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"STX": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"RNDR": {
+"first_seen_utc": null,
+"maxLeverage": 20
+},
+"CFX": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"FTM": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"GMX": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SNX": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"XRP": {
+"first_seen_utc": null,
+"maxLeverage": 20
+},
+"BCH": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"APT": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"AAVE": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"COMP": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"MKR": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"WLD": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"FXS": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"HPOS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"RLB": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"UNIBOT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"YGG": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"TRX": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"kSHIB": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"UNI": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"SEI": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"RUNE": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"OX": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"FRIEND": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SHIA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"CYBER": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZRO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"BLZ": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"DOT": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"BANANA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"TRB": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"FTT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"LOOM": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"OGN": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"RDNT": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"ARK": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BNT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"CANTO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"REQ": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BIGTIME": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"KAS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ORBS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BLUR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"TIA": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"BSV": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ADA": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"TON": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"MINA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"POLYX": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GAS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PENDLE": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"STG": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"FET": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"STRAX": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"NEAR": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"MEME": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ORDI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BADGER": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"NEO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"ZEN": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"FIL": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"PYTH": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"SUSHI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ILV": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"IMX": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"kBONK": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"GMT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SUPER": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"USTC": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"NFTI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"JUP": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"kLUNC": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"RSR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GALA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"JTO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"NTRN": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ACE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MAV": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"WIF": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"CAKE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PEOPLE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ENS": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"ETC": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"XAI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MANTA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"UMA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ONDO": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"ALT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZETA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"DYM": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MAVIA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"W": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"PANDORA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"STRK": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"PIXEL": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"AI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"TAO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"AR": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"MYRO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"kFLOKI": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"BOME": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ETHFI": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"ENA": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"MNT": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"TNSR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SAGA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MERL": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"HBAR": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"POPCAT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"OMNI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"EIGEN": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"REZ": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"NOT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"TURBO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BRETT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"IO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZK": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"BLAST": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"LISTA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MEW": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"RENDER": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"kDOGS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"POL": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"CATI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"CELO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"HMSTR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SCR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"NEIROETH": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"kNEIRO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GOAT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MOODENG": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GRASS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PURR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PNUT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"XLM": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"CHILLGUY": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SAND": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"IOTA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ALGO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"HYPE": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"ME": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MOVE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"VIRTUAL": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"PENGU": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"USUAL": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"FARTCOIN": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"AI16Z": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"AIXBT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZEREBRO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BIO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GRIFFAIN": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SPX": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"S": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"MORPHO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"TRUMP": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"MELANIA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ANIME": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"VINE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"VVV": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"JELLY": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BERA": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"TST": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"LAYER": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"IP": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"OM": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"KAITO": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"NIL": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PAXG": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"PROMPT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"BABY": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"WCT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"HYPER": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZORA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"INIT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"DOOD": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"LAUNCHCOIN": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"NXPC": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SOPH": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"RESOLV": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SYRUP": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PUMP": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"PROVE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"YZY": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"XPL": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"WLFI": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"LINEA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"SKY": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ASTER": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"AVNT": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"STBL": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"0G": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"HEMI": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"APEX": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"2Z": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ZEC": {
+"first_seen_utc": null,
+"maxLeverage": 10
+},
+"MON": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"MET": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"MEGA": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"CC": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"ICP": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"AERO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"STABLE": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"FOGO": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"LIT": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"XMR": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"AXS": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"DASH": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"SKR": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"AZTEC": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"CHIP": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"GRAM": {
+"first_seen_utc": null,
+"maxLeverage": 5
+},
+"CASHCAT": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"PONS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"USELESS": {
+"first_seen_utc": null,
+"maxLeverage": 3
+},
+"XTEN": {
+"first_seen_utc": null,
+"maxLeverage": 3
+}
+}

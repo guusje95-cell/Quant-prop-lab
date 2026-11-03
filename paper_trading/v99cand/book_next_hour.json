@@ -1,0 +1,89 @@
+{
+ "for_hour_utc": "2026-11-03 16:00:00",
+ "made_at_utc": "2026-11-03 16:11:44.923476",
+ "built_at_utc": "2026-11-03 16:13:44.280261",
+ "data_cutoff_utc": "2026-11-03 16:00:00",
+ "equity": 200448.97,
+ "risk": 2.0,
+ "candidate": "v99cand:all_plus_add_hodler",
+ "target_notional_usd": {
+  "BTC": -90320.25,
+  "SOL": -83251.8,
+  "ETH": -43299.73,
+  "BNB": -26857.87,
+  "PREDICT": -4505.23,
+  "LINK": 1594.69,
+  "XRP": 63272.89,
+  "DOGE": 70140.93
+ },
+ "by_sleeve_usd": {
+  "BNB": {
+   "relative crowding 6": -26857.87
+  },
+  "BTC": {
+   "ridge ML": -4695.13,
+   "diversifier basket": -21008.68,
+   "relative crowding 6": -64616.44
+  },
+  "DOGE": {
+   "alt kimchi": 3189.38,
+   "relative crowding 6": 66951.55
+  },
+  "ETH": {
+   "ridge ML": -30066.24,
+   "diversifier basket": -32819.16,
+   "relative crowding 6": 19585.67
+  },
+  "LINK": {
+   "alt kimchi": 1594.69
+  },
+  "PREDICT": {
+   "listing short": -4505.23
+  },
+  "SOL": {
+   "trend 4h": -18199.28,
+   "relative crowding 6": -65052.52
+  },
+  "XRP": {
+   "relative crowding 6": 63272.89
+  }
+ },
+ "sleeve_multipliers": {
+  "C*": 0.5706,
+  "trend 4h": 0.7053,
+  "Weiss expiry": 1.3371,
+  "delev bounce": 0.3832,
+  "ridge ML": 0.1894,
+  "alt kimchi": 0.1194,
+  "diversifier basket": 0.4825,
+  "relative crowding 6": 1.4748,
+  "listing short": 0.2248,
+  "venue listing short": 0.7398,
+  "futures-delisting short": 0.0,
+  "binance add short": 0.8976,
+  "hodler short": 0.948
+ },
+ "v98_sleeve_multipliers": {
+  "C*": 0.5954,
+  "trend 4h": 0.736,
+  "Weiss expiry": 1.3518,
+  "delev bounce": 0.3999,
+  "ridge ML": 0.1977,
+  "alt kimchi": 0.124,
+  "diversifier basket": 0.5034,
+  "relative crowding 6": 1.5389,
+  "listing short": 0.2344
+ },
+ "lowcap_sleeves": [
+  "listing short",
+  "venue listing short",
+  "futures-delisting short",
+  "binance add short",
+  "hodler short"
+ ],
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "event_positions_stale": [],
+ "warnings": [],
+ "note": "v9.9 CANDIDATE, DRY-RUN ONLY - not a paper account, no order is sent anywhere; v9.8 paper validation is separate"
+}

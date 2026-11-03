@@ -144,3 +144,123 @@ hour_utc,coin,side,usd,from_usd,to_usd,type,because
 2026-11-02 07:00:00,DOGE,BUY,50.12,23073.56,23123.68,rebalance,relative crowding 6 +50
 2026-11-02 07:00:00,ETH,SELL,144.84,-66694.11,-66838.95,rebalance,"ridge ML -85, relative crowding 6 -37, diversifier basket -22"
 2026-11-02 07:00:00,SOL,SELL,103.68,-47739.44,-47843.12,rebalance,"relative crowding 6 -59, trend 4h -41, alt kimchi -4"
+2026-11-02 09:00:00,DOGE,SELL,57.48,23127.66,23070.18,rebalance,relative crowding 6 -57
+2026-11-02 09:00:00,ETH,BUY,166.17,-66850.48,-66684.31,rebalance,"ridge ML +98, relative crowding 6 +43, diversifier basket +26"
+2026-11-02 09:00:00,SOL,BUY,118.85,-47812.87,-47694.02,rebalance,"relative crowding 6 +68, trend 4h +47, alt kimchi +4"
+2026-11-02 10:00:00,ETH,SELL,121.1,-66684.31,-66805.41,rebalance,"ridge ML -71, relative crowding 6 -31, diversifier basket -19"
+2026-11-02 10:00:00,SOL,SELL,86.61,-47694.02,-47780.63,rebalance,"relative crowding 6 -49, trend 4h -34, alt kimchi -3"
+2026-11-02 11:00:00,ETH,SELL,55.8,-66805.41,-66861.21,rebalance,"ridge ML -33, relative crowding 6 -14, diversifier basket -9"
+2026-11-02 12:00:00,SOL,BUY,60.02,-47820.54,-47760.52,rebalance,"trend 4h +64, relative crowding 6 -4"
+2026-11-02 14:00:00,ETH,BUY,68.4,-66864.26,-66795.86,rebalance,"ridge ML +40, relative crowding 6 +18, diversifier basket +10"
+2026-11-02 15:00:00,ETH,BUY,58.13,-66795.86,-66737.73,rebalance,"ridge ML +34, relative crowding 6 +15, diversifier basket +9"
+2026-11-02 16:00:00,BNB,BUY,87.61,17740.27,17827.88,rebalance,relative crowding 6 +88
+2026-11-02 16:00:00,BTC,SELL,10351.13,-17963.68,-28314.81,rebalance,"trend 4h -10,212, ridge ML -157, diversifier basket +12, relative crowding 6 +6"
+2026-11-02 16:00:00,DOGE,BUY,114.03,23088.65,23202.68,rebalance,relative crowding 6 +114
+2026-11-02 16:00:00,ETH,SELL,329.58,-66737.73,-67067.31,rebalance,"ridge ML -194, relative crowding 6 -85, diversifier basket -51"
+2026-11-02 16:00:00,SOL,SELL,235.7,-47665.21,-47900.91,rebalance,"relative crowding 6 -134, trend 4h -94, alt kimchi -8"
+2026-11-02 17:00:00,ETH,SELL,89.36,-67067.31,-67156.67,rebalance,"ridge ML -53, relative crowding 6 -23, diversifier basket -14"
+2026-11-02 17:00:00,SOL,SELL,63.82,-47900.91,-47964.73,rebalance,"relative crowding 6 -36, trend 4h -25, alt kimchi -2"
+2026-11-02 18:00:00,BNB,BUY,72.87,17851.63,17924.5,rebalance,relative crowding 6 +73
+2026-11-02 18:00:00,BTC,SELL,115.72,-28352.54,-28468.26,rebalance,"ridge ML -131, diversifier basket +10, relative crowding 6 +5"
+2026-11-02 18:00:00,DOGE,BUY,94.83,23233.59,23328.42,rebalance,relative crowding 6 +95
+2026-11-02 18:00:00,ETH,SELL,274.1,-67156.67,-67430.77,rebalance,"ridge ML -161, relative crowding 6 -71, diversifier basket -42"
+2026-11-02 18:00:00,SOL,SELL,195.77,-47964.73,-48160.5,rebalance,"relative crowding 6 -111, trend 4h -78, alt kimchi -7"
+2026-11-02 18:00:00,BNB,SELL,16759.46,17924.5,1165.04,rebalance,"relative crowding 6 -16,759"
+2026-11-02 18:00:00,BTC,SELL,16603.32,-28468.26,-45071.58,rebalance,"relative crowding 6 -16,604"
+2026-11-02 18:00:00,DOGE,BUY,27595.01,23328.42,50923.43,rebalance,"relative crowding 6 +27,595"
+2026-11-02 18:00:00,ETH,BUY,17098.82,-67430.77,-50331.95,rebalance,"relative crowding 6 +17,098"
+2026-11-02 18:00:00,SOL,SELL,30878.49,-48160.5,-79038.99,rebalance,"relative crowding 6 -30,879"
+2026-11-02 18:00:00,XRP,BUY,20441.59,631.67,21073.26,rebalance,"relative crowding 6 +20,442"
+2026-11-02 20:00:00,BTC,SELL,103.8,-45087.55,-45191.35,rebalance,"ridge ML -74, relative crowding 6 -35, diversifier basket +6"
+2026-11-02 20:00:00,DOGE,BUY,117.28,50941.47,51058.75,rebalance,relative crowding 6 +117
+2026-11-02 20:00:00,ETH,SELL,115.92,-50349.78,-50465.7,rebalance,"ridge ML -91, diversifier basket -24"
+2026-11-02 20:00:00,SOL,SELL,181.1,-79067.0,-79248.1,rebalance,"relative crowding 6 -134, trend 4h -43, alt kimchi -4"
+2026-11-02 21:00:00,BTC,SELL,106.92,-45191.35,-45298.27,rebalance,"ridge ML -76, relative crowding 6 -36, diversifier basket +6"
+2026-11-02 21:00:00,DOGE,BUY,120.8,51058.75,51179.55,rebalance,relative crowding 6 +121
+2026-11-02 21:00:00,ETH,SELL,119.39,-50465.7,-50585.09,rebalance,"ridge ML -94, diversifier basket -25"
+2026-11-02 21:00:00,SOL,SELL,187.5,-79248.1,-79435.6,rebalance,"relative crowding 6 -138, trend 4h -45, alt kimchi -4"
+2026-11-02 22:00:00,BTC,BUY,110.39,-45298.27,-45187.88,rebalance,"ridge ML +79, relative crowding 6 +38, diversifier basket -6"
+2026-11-02 22:00:00,DOGE,SELL,124.72,51179.55,51054.83,rebalance,relative crowding 6 -125
+2026-11-02 22:00:00,ETH,BUY,123.26,-50585.09,-50461.83,rebalance,"ridge ML +97, diversifier basket +25"
+2026-11-02 22:00:00,SOL,BUY,193.57,-79435.6,-79242.03,rebalance,"relative crowding 6 +143, trend 4h +47, alt kimchi +4"
+2026-11-02 22:00:00,XRP,SELL,51.61,21179.25,21127.64,rebalance,"relative crowding 6 -56, alt kimchi +4"
+2026-11-03 00:00:00,AAVE,BUY,1662.48,-1662.48,0.0,rebalance,"alt kimchi +1,662"
+2026-11-03 00:00:00,ADA,BUY,3324.97,-3324.97,0.0,rebalance,"alt kimchi +3,325"
+2026-11-03 00:00:00,BNB,SELL,26161.59,1168.08,-24993.51,rebalance,"relative crowding 6 -26,162"
+2026-11-03 00:00:00,BTC,SELL,41117.68,-45189.2,-86306.88,rebalance,"relative crowding 6 -44,594, ridge ML +27,952, diversifier basket -24,476"
+2026-11-03 00:00:00,DOGE,BUY,24464.05,51056.32,75520.37,rebalance,"relative crowding 6 +21,134, alt kimchi +3,330"
+2026-11-03 00:00:00,ETC,BUY,1662.48,-1662.48,0.0,rebalance,"alt kimchi +1,662"
+2026-11-03 00:00:00,ETH,BUY,3108.51,-50463.29,-47354.78,rebalance,"diversifier basket -24,030, relative crowding 6 +18,296, ridge ML +8,843"
+2026-11-03 00:00:00,LINK,BUY,3327.38,-1662.48,1664.9,rebalance,"alt kimchi +3,327"
+2026-11-03 00:00:00,NEAR,BUY,1662.48,-1662.48,0.0,rebalance,"alt kimchi +1,662"
+2026-11-03 00:00:00,SOL,SELL,15604.45,-79244.33,-94848.78,rebalance,"relative crowding 6 -17,370, alt kimchi +1,662, trend 4h +104"
+2026-11-03 00:00:00,UNI,BUY,1662.48,-1662.48,0.0,rebalance,"alt kimchi +1,662"
+2026-11-03 00:00:00,XLM,BUY,3324.97,-3324.97,0.0,rebalance,"alt kimchi +3,325"
+2026-11-03 00:00:00,XRP,BUY,43092.11,21128.26,64220.37,rebalance,"relative crowding 6 +41,430, alt kimchi +1,662"
+2026-11-03 01:00:00,BNB,BUY,117.51,-24993.51,-24876.0,rebalance,relative crowding 6 +118
+2026-11-03 01:00:00,BTC,BUY,396.89,-86306.88,-85909.99,rebalance,"relative crowding 6 +289, diversifier basket +90, ridge ML +18"
+2026-11-03 01:00:00,DOGE,SELL,316.61,75520.37,75203.76,rebalance,"relative crowding 6 -303, alt kimchi -14"
+2026-11-03 01:00:00,ETH,BUY,202.1,-47354.78,-47152.68,rebalance,"diversifier basket +141, ridge ML +127, relative crowding 6 -66"
+2026-11-03 01:00:00,SOL,BUY,375.72,-94848.78,-94473.06,rebalance,"relative crowding 6 +297, trend 4h +78"
+2026-11-03 01:00:00,XRP,SELL,298.07,64220.37,63922.3,rebalance,relative crowding 6 -298
+2026-11-03 02:00:00,BTC,SELL,625.13,-85909.99,-86535.12,rebalance,"ridge ML -616, relative crowding 6 -7, diversifier basket -3"
+2026-11-03 02:00:00,ETH,SELL,620.71,-47152.68,-47773.39,rebalance,"ridge ML -619, diversifier basket -4, relative crowding 6 +2"
+2026-11-03 03:00:00,BNB,SELL,89.06,-24878.84,-24967.9,rebalance,relative crowding 6 -89
+2026-11-03 03:00:00,BTC,SELL,309.77,-86535.12,-86844.89,rebalance,"relative crowding 6 -214, diversifier basket -79, ridge ML -18"
+2026-11-03 03:00:00,DOGE,BUY,269.24,75212.35,75481.59,rebalance,"relative crowding 6 +257, alt kimchi +12"
+2026-11-03 03:00:00,ETH,SELL,171.01,-47773.39,-47944.4,rebalance,"diversifier basket -123, ridge ML -112, relative crowding 6 +64"
+2026-11-03 03:00:00,SOL,SELL,338.22,-94483.85,-94822.07,rebalance,"relative crowding 6 -270, trend 4h -68"
+2026-11-03 03:00:00,XRP,BUY,228.85,63929.6,64158.45,rebalance,relative crowding 6 +229
+2026-11-03 04:00:00,BTC,BUY,119.33,-86844.89,-86725.56,rebalance,"relative crowding 6 +82, diversifier basket +30, ridge ML +7"
+2026-11-03 04:00:00,DOGE,SELL,103.72,75481.59,75377.87,rebalance,"relative crowding 6 -99, alt kimchi -5"
+2026-11-03 04:00:00,ETH,BUY,65.88,-47944.4,-47878.52,rebalance,"diversifier basket +47, ridge ML +43, relative crowding 6 -25"
+2026-11-03 04:00:00,SOL,BUY,136.19,-94822.07,-94685.88,rebalance,"relative crowding 6 +104, trend 4h +32"
+2026-11-03 04:00:00,XRP,SELL,88.16,64158.45,64070.29,rebalance,relative crowding 6 -88
+2026-11-03 06:00:00,BNB,SELL,89.88,-24928.85,-25018.73,rebalance,relative crowding 6 -90
+2026-11-03 06:00:00,BTC,SELL,312.63,-86709.05,-87021.68,rebalance,"relative crowding 6 -216, diversifier basket -79, ridge ML -18"
+2026-11-03 06:00:00,DOGE,BUY,271.73,75363.52,75635.25,rebalance,"relative crowding 6 +260, alt kimchi +12"
+2026-11-03 06:00:00,ETH,SELL,172.59,-47869.41,-48042.0,rebalance,"diversifier basket -124, ridge ML -113, relative crowding 6 +65"
+2026-11-03 06:00:00,SOL,SELL,341.32,-94667.87,-95009.19,rebalance,"relative crowding 6 -273, trend 4h -69"
+2026-11-03 06:00:00,XRP,BUY,230.96,64058.1,64289.06,rebalance,relative crowding 6 +231
+2026-11-03 07:00:00,BTC,SELL,55.21,-87021.68,-87076.89,rebalance,"relative crowding 6 -38, diversifier basket -14, ridge ML -3"
+2026-11-03 07:00:00,SOL,SELL,60.27,-95009.19,-95069.46,rebalance,"relative crowding 6 -48, trend 4h -12"
+2026-11-03 08:00:00,BNB,BUY,1096.43,-25034.6,-23938.17,rebalance,"relative crowding 6 +1,096"
+2026-11-03 08:00:00,BTC,SELL,6906.9,-87076.89,-93983.79,rebalance,"relative crowding 6 -6,992, diversifier basket +70, ridge ML +16"
+2026-11-03 08:00:00,DOGE,BUY,1242.32,75683.23,76925.55,rebalance,"relative crowding 6 +1,253, alt kimchi -11"
+2026-11-03 08:00:00,ETH,SELL,2370.97,-48072.48,-50443.45,rebalance,"relative crowding 6 -2,579, diversifier basket +109, ridge ML +100"
+2026-11-03 08:00:00,SOL,BUY,5972.53,-95069.46,-89096.93,rebalance,"relative crowding 6 +5,962, trend 4h +10"
+2026-11-03 08:00:00,XRP,BUY,380.68,64329.84,64710.52,rebalance,relative crowding 6 +381
+2026-11-03 09:00:00,BTC,SELL,83.82,-93983.79,-94067.61,rebalance,"relative crowding 6 -56, diversifier basket -23, ridge ML -5"
+2026-11-03 09:00:00,DOGE,BUY,66.68,76925.55,76992.23,rebalance,"relative crowding 6 +63, alt kimchi +4"
+2026-11-03 09:00:00,ETH,SELL,51.1,-50443.45,-50494.55,rebalance,"diversifier basket -36, ridge ML -33, relative crowding 6 +18"
+2026-11-03 09:00:00,SOL,SELL,128.96,-89096.93,-89225.89,rebalance,"relative crowding 6 -109, trend 4h -20"
+2026-11-03 09:00:00,XRP,BUY,92.54,64710.52,64803.06,rebalance,relative crowding 6 +93
+2026-11-03 10:00:00,BNB,BUY,106.69,-23967.61,-23860.92,rebalance,relative crowding 6 +107
+2026-11-03 10:00:00,BTC,BUY,418.75,-94067.61,-93648.86,rebalance,"relative crowding 6 +299, diversifier basket +98, ridge ML +22"
+2026-11-03 10:00:00,DOGE,SELL,342.74,76992.23,76649.49,rebalance,"relative crowding 6 -328, alt kimchi -15"
+2026-11-03 10:00:00,ETH,BUY,224.78,-50494.55,-50269.77,rebalance,"diversifier basket +153, ridge ML +140, relative crowding 6 -69"
+2026-11-03 10:00:00,SOL,BUY,397.2,-89225.89,-88828.69,rebalance,"relative crowding 6 +312, trend 4h +85"
+2026-11-03 10:00:00,XRP,SELL,288.48,64803.06,64514.58,rebalance,relative crowding 6 -288
+2026-11-03 12:00:00,BTC,SELL,121.28,-93696.46,-93817.74,rebalance,"relative crowding 6 -87, diversifier basket -28, ridge ML -6"
+2026-11-03 12:00:00,DOGE,BUY,99.27,76688.45,76787.72,rebalance,"relative crowding 6 +95, alt kimchi +4"
+2026-11-03 12:00:00,ETH,SELL,65.1,-50295.32,-50360.42,rebalance,"diversifier basket -44, ridge ML -41, relative crowding 6 +20"
+2026-11-03 12:00:00,SOL,SELL,123.55,-88873.84,-88997.39,rebalance,"relative crowding 6 -90, trend 4h -33"
+2026-11-03 12:00:00,XRP,BUY,83.55,64547.37,64630.92,rebalance,relative crowding 6 +84
+2026-11-03 13:00:00,BNB,SELL,68.2,-23903.95,-23972.15,rebalance,relative crowding 6 -68
+2026-11-03 13:00:00,BTC,SELL,267.67,-93817.74,-94085.41,rebalance,"relative crowding 6 -191, diversifier basket -63, ridge ML -14"
+2026-11-03 13:00:00,DOGE,BUY,219.08,76787.72,77006.8,rebalance,"relative crowding 6 +210, alt kimchi +9"
+2026-11-03 13:00:00,ETH,SELL,143.68,-50360.42,-50504.1,rebalance,"diversifier basket -98, ridge ML -90, relative crowding 6 +44"
+2026-11-03 13:00:00,SOL,SELL,253.92,-88997.39,-89251.31,rebalance,"relative crowding 6 -200, trend 4h -54"
+2026-11-03 13:00:00,XRP,BUY,184.4,64630.92,64815.32,rebalance,relative crowding 6 +184
+2026-11-03 15:00:00,BNB,BUY,62.75,-23976.99,-23914.24,rebalance,relative crowding 6 +63
+2026-11-03 15:00:00,BTC,BUY,246.27,-94104.4,-93858.13,rebalance,"relative crowding 6 +176, diversifier basket +58, ridge ML +13"
+2026-11-03 15:00:00,DOGE,SELL,201.57,77022.34,76820.77,rebalance,"relative crowding 6 -193, alt kimchi -9"
+2026-11-03 15:00:00,ETH,BUY,132.19,-50514.29,-50382.1,rebalance,"diversifier basket +90, ridge ML +83, relative crowding 6 -40"
+2026-11-03 15:00:00,SOL,BUY,233.62,-89269.32,-89035.7,rebalance,"relative crowding 6 +184, trend 4h +50"
+2026-11-03 15:00:00,XRP,SELL,169.66,64828.4,64658.74,rebalance,relative crowding 6 -170
+2026-11-03 16:00:00,BNB,SELL,4111.07,-23914.24,-28025.31,rebalance,"relative crowding 6 -4,111"
+2026-11-03 16:00:00,BTC,SELL,385.07,-93858.13,-94243.2,rebalance,"relative crowding 6 -465, diversifier basket +65, ridge ML +15"
+2026-11-03 16:00:00,DOGE,SELL,3646.08,76820.77,73174.69,rebalance,"relative crowding 6 -3,636, alt kimchi -10"
+2026-11-03 16:00:00,ETH,BUY,5201.23,-50382.1,-45180.87,rebalance,"relative crowding 6 +5,005, diversifier basket +102, ridge ML +94"
+2026-11-03 16:00:00,SOL,BUY,2163.71,-89035.7,-86871.99,rebalance,"relative crowding 6 +2,092, trend 4h +72"
+2026-11-03 16:00:00,XRP,BUY,1364.45,64658.74,66023.19,rebalance,"relative crowding 6 +1,364"

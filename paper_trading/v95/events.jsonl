@@ -1,0 +1,9 @@
+{"wall_utc": "2026-10-26 14:22:13.177331", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-26 14:30:30.440883", "event": "START", "first_hour": "2026-10-26 14:00:00", "cutoff": "2026-10-26 14:00:00"}
+{"wall_utc": "2026-10-26 14:30:31.110683", "event": "RUN", "cutoff": "2026-10-26 14:00:00", "new_hours": 0, "seconds": 57.1}
+{"wall_utc": "2026-10-26 15:09:27.480733", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-26 15:11:28.234427", "event": "RUN", "cutoff": "2026-10-26 15:00:00", "new_hours": 1, "seconds": 100.8}
+{"wall_utc": "2026-10-26 16:09:40.527878", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-26 16:12:14.527546", "event": "RUN", "cutoff": "2026-10-26 16:00:00", "new_hours": 1, "seconds": 126.2}
+{"wall_utc": "2026-10-26 17:09:59.243154", "event": "DATA_PARTIAL", "msg": "long/short ratios not updated: cannot reindex on an axis with duplicate labels"}
+{"wall_utc": "2026-10-26 17:13:16.028103", "event": "RUN", "cutoff": "2026-10-26 17:00:00", "new_hours": 1, "seconds": 155.1}

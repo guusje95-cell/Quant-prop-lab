@@ -1,0 +1,388 @@
+{
+ "date": "2026-11-03",
+ "made_at_utc": "2026-11-03 16:13:22",
+ "paper": [
+  {
+   "account": "bf26",
+   "label": "CFD bf2.6 (paper)",
+   "days": 14,
+   "last_data": "2026-11-03 14:00:00",
+   "age_h": 2.2,
+   "cum": -0.0241,
+   "sharpe_live": -3.81,
+   "backtest_daily_mean": 0.001420256922481157,
+   "z": -1.52,
+   "stale": false,
+   "status": "WATCH",
+   "sleeves": [
+    {
+     "sleeve": "trend 4h",
+     "actual": -0.01082,
+     "expected": 0.00189,
+     "z": -1.35
+    },
+    {
+     "sleeve": "Weiss expiry",
+     "actual": -0.00684,
+     "expected": 0.00152,
+     "z": -1.57
+    },
+    {
+     "sleeve": "premium carry BF",
+     "actual": -0.00519,
+     "expected": 0.0041,
+     "z": -0.72
+    },
+    {
+     "sleeve": "C*",
+     "actual": -0.0039,
+     "expected": 0.00568,
+     "z": -0.51
+    },
+    {
+     "sleeve": "premium carry",
+     "actual": -0.00368,
+     "expected": 0.00335,
+     "z": -0.47
+    },
+    {
+     "sleeve": "ridge ML",
+     "actual": -0.00284,
+     "expected": 0.0039,
+     "z": -0.59
+    },
+    {
+     "sleeve": "vol-managed indices",
+     "actual": -0.00167,
+     "expected": 0.00297,
+     "z": -0.41
+    },
+    {
+     "sleeve": "delev bounce",
+     "actual": 0.0,
+     "expected": 0.00123,
+     "z": -0.15
+    },
+    {
+     "sleeve": "coinbase premium",
+     "actual": 0.00414,
+     "expected": 0.00176,
+     "z": 0.26
+    },
+    {
+     "sleeve": "alt kimchi",
+     "actual": 0.00673,
+     "expected": 0.00193,
+     "z": 0.39
+    }
+   ]
+  },
+  {
+   "account": "futcx",
+   "label": "futures + CX (shadow ledger)",
+   "days": 21,
+   "last_data": "2026-10-29 21:00:00",
+   "age_h": 115.2,
+   "cum": -0.0146,
+   "sharpe_live": -3.66,
+   "backtest_daily_mean": 0.0002980009247604774,
+   "z": -1.36,
+   "stale": true,
+   "status": "ALERT",
+   "sleeves": []
+  },
+  {
+   "account": "futcx4",
+   "label": "futures + CX4 (shadow ledger)",
+   "days": 21,
+   "last_data": "2026-10-29 21:00:00",
+   "age_h": 115.2,
+   "cum": -0.016,
+   "sharpe_live": -3.74,
+   "backtest_daily_mean": 0.000352715331512535,
+   "z": -1.43,
+   "stale": true,
+   "status": "ALERT",
+   "sleeves": []
+  },
+  {
+   "account": "futcx5",
+   "label": "futures + CX4 + basket (shadow ledger)",
+   "days": 21,
+   "last_data": "2026-10-29 21:00:00",
+   "age_h": 115.2,
+   "cum": -0.0166,
+   "sharpe_live": -4.06,
+   "backtest_daily_mean": 0.0004271677910249261,
+   "z": -1.5,
+   "stale": true,
+   "status": "ALERT",
+   "sleeves": []
+  },
+  {
+   "account": "futures",
+   "label": "futures swing book (paper)",
+   "days": 21,
+   "last_data": "2026-10-29 21:00:00",
+   "age_h": 115.2,
+   "cum": -0.0145,
+   "sharpe_live": -3.12,
+   "backtest_daily_mean": 0.000271414,
+   "z": -1.24,
+   "stale": true,
+   "status": "ALERT",
+   "sleeves": []
+  },
+  {
+   "account": "v98",
+   "label": "crypto v9.8 (paper)",
+   "days": 5,
+   "last_data": "2026-11-03 15:00:00",
+   "age_h": 1.2,
+   "cum": 0.0012,
+   "sharpe_live": 1.5,
+   "backtest_daily_mean": 0.001355610072763589,
+   "z": -0.31,
+   "stale": false,
+   "status": "OK",
+   "sleeves": [
+    {
+     "sleeve": "diversifier basket",
+     "actual": -0.00265,
+     "expected": 0.00172,
+     "z": -0.6
+    },
+    {
+     "sleeve": "trend 4h",
+     "actual": -0.00202,
+     "expected": 0.00058,
+     "z": -0.46
+    },
+    {
+     "sleeve": "ridge ML",
+     "actual": -0.00023,
+     "expected": 0.00134,
+     "z": -0.22
+    },
+    {
+     "sleeve": "C*",
+     "actual": 0.0,
+     "expected": 0.00149,
+     "z": -0.15
+    },
+    {
+     "sleeve": "Weiss expiry",
+     "actual": 0.0,
+     "expected": 0.00042,
+     "z": -0.12
+    },
+    {
+     "sleeve": "delev bounce",
+     "actual": 0.0,
+     "expected": 0.00039,
+     "z": -0.08
+    },
+    {
+     "sleeve": "listing short",
+     "actual": 0.00043,
+     "expected": 0.00067,
+     "z": -0.03
+    },
+    {
+     "sleeve": "alt kimchi",
+     "actual": 0.00235,
+     "expected": 0.00075,
+     "z": 0.2
+    },
+    {
+     "sleeve": "relative crowding 6",
+     "actual": 0.00332,
+     "expected": 0.00166,
+     "z": 0.16
+    }
+   ]
+  }
+ ],
+ "shadows": [
+  {
+   "shadow": "shadow:v98:cstar",
+   "forward_days": 5,
+   "cum": 0.0,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:trend_4h",
+   "forward_days": 5,
+   "cum": -0.0084,
+   "sharpe": -15.02,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:weiss_expiry",
+   "forward_days": 5,
+   "cum": 0.0,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:delev_bounce",
+   "forward_days": 5,
+   "cum": 0.0,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:ridge_ml",
+   "forward_days": 5,
+   "cum": -0.0011,
+   "sharpe": -0.75,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:alt_kimchi",
+   "forward_days": 5,
+   "cum": 0.009,
+   "sharpe": 9.71,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:diversifier_basket",
+   "forward_days": 5,
+   "cum": -0.009,
+   "sharpe": -10.24,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:relative_crowding_6",
+   "forward_days": 5,
+   "cum": 0.0074,
+   "sharpe": 12.24,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:listing_short",
+   "forward_days": 5,
+   "cum": 0.0004,
+   "sharpe": 2.96,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:event_vol_regime",
+   "forward_days": 5,
+   "cum": 0.0023,
+   "sharpe": 1.99,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:without_ridge",
+   "forward_days": 5,
+   "cum": 0.0028,
+   "sharpe": 4.48,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:bf26:without_carry",
+   "forward_days": 5,
+   "cum": -0.0022,
+   "sharpe": -3.18,
+   "last": "2026-11-03 14:00:00"
+  },
+  {
+   "shadow": "shadow:bf26:index_cfds",
+   "forward_days": 5,
+   "cum": -0.0028,
+   "sharpe": -2.17,
+   "last": "2026-11-03 14:00:00"
+  },
+  {
+   "shadow": "shadow:bf26:crypto_cfds_only",
+   "forward_days": 5,
+   "cum": 0.0001,
+   "sharpe": 0.14,
+   "last": "2026-11-03 14:00:00"
+  },
+  {
+   "shadow": "shadow:v98:plus_coinbase_short",
+   "forward_days": 3,
+   "cum": 0.0033,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:venue_sleeve_coinbase",
+   "forward_days": 3,
+   "cum": 0.0037,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:venue_sleeve_coinbase_upbit",
+   "forward_days": 3,
+   "cum": 0.0037,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v98:venue_coinbase_plus_futures_delisting",
+   "forward_days": 2,
+   "cum": 0.0065,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v99cand:all",
+   "forward_days": 2,
+   "cum": 0.0066,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v99cand:all_plus_add",
+   "forward_days": 2,
+   "cum": 0.0063,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:v99cand:all_plus_add_hodler",
+   "forward_days": 2,
+   "cum": 0.0055,
+   "sharpe": null,
+   "last": "2026-11-03 15:00:00"
+  },
+  {
+   "shadow": "shadow:bf27cand:honest_plus_rc6_basket",
+   "forward_days": 1,
+   "cum": -0.001,
+   "sharpe": null,
+   "last": "2026-11-03 14:00:00"
+  },
+  {
+   "shadow": "shadow:v99cand:all_plus_add_hodler_erc",
+   "forward_days": 0
+  }
+ ],
+ "bots": [
+  {
+   "bot": "bot_state_v99cand",
+   "last_pass": null,
+   "consecutive_errors": null,
+   "last_error": null,
+   "gross_usd": 291857,
+   "positions": 8,
+   "orders_7d": 36,
+   "turnover_7d_usd": 376293,
+   "skipped_7d": 0,
+   "rejected_7d": 0,
+   "safety_closes_7d": 0,
+   "status": "NO HEARTBEAT"
+  }
+ ],
+ "alerts": [
+  "paper futcx: ALERT (z -1.36, data 115.2 u oud)",
+  "paper futcx4: ALERT (z -1.43, data 115.2 u oud)",
+  "paper futcx5: ALERT (z -1.5, data 115.2 u oud)",
+  "paper futures: ALERT (z -1.24, data 115.2 u oud)"
+ ]
+}

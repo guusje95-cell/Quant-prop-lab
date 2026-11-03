@@ -1,0 +1,13 @@
+hour_utc,coin,side,usd,from_usd,to_usd,type,because
+2026-10-26 14:00:00,BNB,BUY,13656.87,0.0,13656.87,initial position,"relative crowding 6 +13,657"
+2026-10-26 14:00:00,BTC,SELL,39317.28,0.0,-39317.28,initial position,"ridge ML -33,881, trend 4h -21,314, diversifier basket +13,464, relative crowding 6 +2,413"
+2026-10-26 14:00:00,DOGE,BUY,20412.57,0.0,20412.57,initial position,"relative crowding 6 +20,413"
+2026-10-26 14:00:00,ETH,SELL,22643.43,0.0,-22643.43,initial position,"ridge ML +29,562, trend 4h -20,434, relative crowding 6 -17,077, diversifier basket -14,693"
+2026-10-26 14:00:00,SOL,SELL,39562.72,0.0,-39562.72,initial position,"relative crowding 6 -20,917, trend 4h -18,646"
+2026-10-26 14:00:00,XRP,BUY,1511.86,0.0,1511.86,initial position,"relative crowding 6 +1,512"
+2026-10-26 15:00:00,BTC,BUY,124.4,-39317.28,-39192.88,rebalance,"ridge ML +107, trend 4h +67, diversifier basket -43, relative crowding 6 -8"
+2026-10-26 15:00:00,DOGE,SELL,64.59,20412.57,20347.98,rebalance,relative crowding 6 -65
+2026-10-26 15:00:00,ETH,BUY,71.65,-22643.43,-22571.78,rebalance,"ridge ML -94, trend 4h +65, relative crowding 6 +54, diversifier basket +46"
+2026-10-26 15:00:00,SOL,BUY,125.18,-39562.72,-39437.54,rebalance,"relative crowding 6 +66, trend 4h +59"
+2026-10-26 17:00:00,BTC,SELL,59.09,-39157.24,-39216.33,rebalance,"ridge ML -51, trend 4h -32, diversifier basket +20, relative crowding 6 +4"
+2026-10-26 17:00:00,SOL,SELL,59.45,-39399.26,-39458.71,rebalance,"relative crowding 6 -31, trend 4h -28"

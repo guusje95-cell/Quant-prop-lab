@@ -1,283 +1,282 @@
 {
- "for_hour_utc": "2026-10-23 13:00:00",
- "made_at_utc": "2026-10-23 13:23:18.006616",
- "data_cutoff_utc": "2026-10-23 13:00:00",
- "equity": 193589.2,
+ "for_hour_utc": "2026-10-26 14:00:00",
+ "made_at_utc": "2026-10-26 14:10:55.145740",
+ "data_cutoff_utc": "2026-10-26 14:00:00",
+ "equity": 189907.58,
  "risk": 2.0,
  "target_notional_usd": {
-  "BTC": -51209.67,
-  "ETH": -43428.42,
-  "BNB": -38345.3,
-  "NEAR": -7716.01,
-  "ENJ": -6344.77,
-  "COMP": -6335.05,
-  "THETA": -5709.34,
-  "XTZ": -5506.8,
-  "CRV": -5326.55,
-  "SUSHI": -5244.05,
-  "DYDX": -4968.3,
-  "APE": -4943.03,
-  "ZEC": -4904.46,
-  "AVAX": -4711.81,
-  "INJ": -3999.52,
-  "ICP": -3924.21,
-  "DASH": -3666.62,
-  "UNI": -3596.16,
-  "IMX": -3533.36,
-  "LDO": -3422.86,
-  "NEO": -2113.65,
-  "WLD": -1922.62,
-  "HBAR": -1863.02,
-  "SUI": -1838.74,
-  "AXS": -1638.59,
-  "YFI": -1338.65,
-  "1000PEPE": -1233.17,
-  "RUNE": -1220.06,
-  "DOGE": -1126.28,
-  "1000SHIB": -1100.26,
-  "CHZ": 1345.23,
-  "GRT": 1660.85,
-  "EGLD": 1770.58,
-  "ALGO": 2013.47,
-  "TIA": 2118.47,
-  "SAND": 2422.9,
-  "1INCH": 3495.77,
-  "OP": 3796.19,
-  "TRX": 3847.78,
-  "FIL": 3943.44,
-  "GALA": 3944.42,
-  "SNX": 4390.25,
-  "BCH": 4399.51,
-  "ZIL": 4655.92,
-  "IOTA": 4739.47,
-  "ARB": 5055.13,
-  "STX": 5204.37,
-  "ADA": 5338.59,
-  "AAVE": 5413.1,
-  "LINK": 5880.59,
-  "MANA": 6057.62,
-  "KSM": 6973.11,
-  "SOL": 7700.87,
-  "ETC": 8879.61,
-  "LTC": 12490.16,
-  "XRP": 12958.01,
-  "ATOM": 14785.72,
-  "DOT": 15529.06,
-  "XLM": 18757.49
+  "BTC": -81563.85,
+  "BNB": -34397.0,
+  "SOL": -17082.54,
+  "TRX": -8658.16,
+  "NEAR": -7411.21,
+  "1000SHIB": -7375.73,
+  "XTZ": -6228.62,
+  "ETH": -5732.35,
+  "ENJ": -5724.58,
+  "THETA": -5335.29,
+  "COMP": -4974.26,
+  "SUSHI": -4828.08,
+  "CRV": -4739.6,
+  "ETC": -4736.18,
+  "APE": -4591.73,
+  "YFI": -4589.95,
+  "ZEC": -4512.27,
+  "RUNE": -4447.92,
+  "1000PEPE": -4289.73,
+  "LDO": -3967.17,
+  "DOGE": -3081.25,
+  "WLD": -2737.62,
+  "DASH": -2067.24,
+  "INJ": -2038.18,
+  "LINK": -1613.84,
+  "IMX": -1318.63,
+  "ICP": -1317.8,
+  "SUI": -1212.02,
+  "UNI": -1138.8,
+  "NEO": -874.45,
+  "DYDX": -727.74,
+  "GRT": 355.85,
+  "1INCH": 709.6,
+  "APT": 850.87,
+  "AXS": 872.41,
+  "AAVE": 1985.49,
+  "AVAX": 2341.3,
+  "SAND": 2550.57,
+  "XRP": 2894.15,
+  "TIA": 3642.24,
+  "OP": 4156.66,
+  "GALA": 4440.18,
+  "SNX": 4679.95,
+  "STX": 5020.3,
+  "ARB": 5160.22,
+  "ZIL": 5201.23,
+  "EGLD": 5496.29,
+  "IOTA": 5665.11,
+  "CHZ": 5967.12,
+  "MANA": 6493.4,
+  "ALGO": 6542.15,
+  "KSM": 7679.4,
+  "FIL": 9351.23,
+  "BCH": 10535.07,
+  "ADA": 15450.25,
+  "LTC": 16145.44,
+  "ATOM": 16425.09,
+  "DOT": 17464.16,
+  "XLM": 21829.83
  },
  "by_sleeve_usd": {
   "1000PEPE": {
-   "premium carry 60": -1233.17
+   "premium carry 60": -4289.73
   },
   "1000SHIB": {
-   "premium carry 60": -1100.26
+   "premium carry 60": -7375.73
   },
   "1INCH": {
-   "premium carry 60": 3495.77
+   "premium carry 60": 709.6
   },
   "AAVE": {
-   "premium carry": 3907.74,
-   "premium carry 60": 1505.36
+   "premium carry": 1985.49
   },
   "ADA": {
-   "premium carry": 4010.35,
-   "premium carry 60": 1328.24
+   "premium carry": 10781.15,
+   "premium carry 60": 4669.11
   },
   "ALGO": {
-   "premium carry 60": 2013.47
+   "premium carry 60": 6542.15
   },
   "APE": {
-   "premium carry 60": -4943.03
+   "premium carry 60": -4591.73
   },
-  "APT": {},
+  "APT": {
+   "premium carry 60": 850.87
+  },
   "ARB": {
-   "premium carry 60": 5055.13
+   "premium carry 60": 5160.22
   },
   "ATOM": {
-   "premium carry": 9064.24,
-   "premium carry 60": 5721.48
+   "premium carry": 10168.1,
+   "premium carry 60": 6256.99
   },
   "AVAX": {
-   "premium carry": -5795.55,
-   "premium carry 60": 1083.74
+   "premium carry": -902.99,
+   "premium carry 60": 3244.29
   },
   "AXS": {
-   "premium carry 60": -1638.59
+   "premium carry 60": 872.41
   },
   "BCH": {
-   "premium carry": 2486.7,
-   "premium carry 60": 1912.81
+   "premium carry": 7624.14,
+   "premium carry 60": 2910.93
   },
   "BNB": {
-   "premium carry": -22847.21,
-   "premium carry 60": -15498.09
+   "premium carry": -19648.96,
+   "premium carry 60": -14748.04
   },
   "BTC": {
-   "premium carry": -13643.54,
-   "ridge ML": -34689.61,
-   "premium carry 60": -2876.52
+   "premium carry": -18017.63,
+   "trend 4h": -29289.99,
+   "ridge ML": -24429.24,
+   "premium carry 60": -9826.99
   },
   "CHZ": {
-   "premium carry 60": 1345.23
+   "premium carry 60": 5967.12
   },
   "COMP": {
-   "premium carry 60": -6335.05
+   "premium carry 60": -4974.26
   },
   "CRV": {
-   "premium carry 60": -5326.55
+   "premium carry 60": -4739.6
   },
   "DASH": {
-   "premium carry 60": -3666.62
+   "premium carry 60": -2067.24
   },
   "DOGE": {
-   "premium carry": -1126.28
+   "premium carry": -3081.25
   },
   "DOT": {
-   "premium carry": 9518.27,
-   "premium carry 60": 6010.8
+   "premium carry": 10801.7,
+   "premium carry 60": 6662.46
   },
   "DYDX": {
-   "premium carry 60": -4968.3
+   "premium carry 60": -727.74
   },
   "EGLD": {
-   "premium carry 60": 1770.58
+   "premium carry 60": 5496.29
   },
   "ENJ": {
-   "premium carry 60": -6344.77
+   "premium carry 60": -5724.58
   },
   "ETC": {
-   "premium carry": 6076.71,
-   "premium carry 60": 2802.89
+   "premium carry": -3373.43,
+   "premium carry 60": -1362.74
   },
   "ETH": {
-   "premium carry": -11559.38,
-   "ridge ML": -33315.0,
-   "premium carry 60": 1445.96
+   "premium carry": -17444.54,
+   "trend 4h": -18721.15,
+   "ridge ML": 36114.71,
+   "premium carry 60": -5681.36
   },
   "FIL": {
-   "premium carry": 2401.59,
-   "premium carry 60": 1541.85
+   "premium carry": 6924.75,
+   "premium carry 60": 2426.48
   },
   "GALA": {
-   "premium carry 60": 3944.42
+   "premium carry 60": 4440.18
   },
   "GRT": {
-   "premium carry 60": 1660.85
+   "premium carry 60": 355.85
   },
-  "HBAR": {
-   "premium carry 60": -1863.02
-  },
+  "HBAR": {},
   "ICP": {
-   "premium carry 60": -3924.21
+   "premium carry 60": -1317.8
   },
   "IMX": {
-   "premium carry 60": -3533.36
+   "premium carry 60": -1318.63
   },
   "INJ": {
-   "premium carry 60": -3999.52
+   "premium carry 60": -2038.18
   },
   "IOTA": {
-   "premium carry 60": 4739.47
+   "premium carry 60": 5665.11
   },
   "KSM": {
-   "premium carry 60": 6973.11
+   "premium carry 60": 7679.4
   },
   "LDO": {
-   "premium carry 60": -3422.86
+   "premium carry 60": -3967.17
   },
   "LINK": {
-   "premium carry": 3319.79,
-   "premium carry 60": 2560.8
+   "premium carry": -1613.84
   },
   "LTC": {
-   "premium carry": 7939.25,
-   "premium carry 60": 4550.91
+   "premium carry": 10247.64,
+   "premium carry 60": 5897.8
   },
   "MANA": {
-   "premium carry 60": 6057.62
+   "premium carry 60": 6493.4
   },
   "NEAR": {
-   "premium carry": -4903.28,
-   "premium carry 60": -2812.73
+   "premium carry": -4226.97,
+   "premium carry 60": -3184.24
   },
   "NEO": {
-   "premium carry 60": -2113.65
+   "premium carry 60": -874.45
   },
   "OP": {
-   "premium carry 60": 3796.19
+   "premium carry 60": 4156.66
   },
   "RUNE": {
-   "premium carry 60": -1220.06
+   "premium carry 60": -4447.92
   },
   "SAND": {
-   "premium carry 60": 2422.9
+   "premium carry 60": 2550.57
   },
   "SNX": {
-   "premium carry 60": 4390.25
+   "premium carry 60": 4679.95
   },
   "SOL": {
-   "premium carry": -7640.09,
-   "trend 4h": 15340.96
+   "trend 4h": -17082.54
   },
   "STX": {
-   "premium carry 60": 5204.37
+   "premium carry 60": 5020.3
   },
   "SUI": {
-   "premium carry 60": -1838.74
+   "premium carry 60": -1212.02
   },
   "SUSHI": {
-   "premium carry 60": -5244.05
+   "premium carry 60": -4828.08
   },
   "THETA": {
-   "premium carry 60": -5709.34
+   "premium carry 60": -5335.29
   },
   "TIA": {
-   "premium carry 60": 2118.47
+   "premium carry 60": 3642.24
   },
   "TRX": {
-   "premium carry": 3647.52,
-   "premium carry 60": 200.26
+   "premium carry": -3588.23,
+   "premium carry 60": -5069.93
   },
   "UNI": {
-   "premium carry": -3596.16
+   "premium carry": -1138.8
   },
   "WLD": {
-   "premium carry 60": -1922.62
+   "premium carry 60": -2737.62
   },
   "XLM": {
-   "premium carry": 11513.86,
-   "premium carry 60": 7243.63
+   "premium carry": 13478.94,
+   "premium carry 60": 8350.89
   },
   "XRP": {
-   "premium carry": 7225.47,
-   "premium carry 60": 5732.54
+   "premium carry": 1024.73,
+   "premium carry 60": 1869.42
   },
   "XTZ": {
-   "premium carry 60": -5506.8
+   "premium carry 60": -6228.62
   },
   "YFI": {
-   "premium carry 60": -1338.65
+   "premium carry 60": -4589.95
   },
   "ZEC": {
-   "premium carry 60": -4904.46
+   "premium carry 60": -4512.27
   },
   "ZIL": {
-   "premium carry 60": 4655.92
+   "premium carry 60": 5201.23
   }
  },
  "cascade_limit_orders": [],
  "cascade_open_trades": [],
  "weiss": null,
  "sleeve_multipliers": {
-  "C*": 0.5727,
-  "premium carry": 0.2401,
-  "cascade limit strict": 0.3359,
-  "trend 4h": 0.6274,
-  "Weiss expiry": 1.3039,
-  "delev bounce": 0.3411,
-  "ridge ML": 0.1792,
-  "alt kimchi": 0.0925,
-  "premium carry 60": 0.345
+  "C*": 0.6078,
+  "premium carry": 0.2548,
+  "cascade limit strict": 0.3564,
+  "trend 4h": 0.6658,
+  "Weiss expiry": 1.3838,
+  "delev bounce": 0.362,
+  "ridge ML": 0.1902,
+  "alt kimchi": 0.0982,
+  "premium carry 60": 0.3662
  },
  "note": "simulation only - no order is sent anywhere"
 }

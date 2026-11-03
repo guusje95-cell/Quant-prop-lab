@@ -1,0 +1,111 @@
+{
+ "for_hour_utc": "2026-10-26 17:00:00",
+ "made_at_utc": "2026-10-26 17:13:14.017458",
+ "data_cutoff_utc": "2026-10-26 17:00:00",
+ "equity": 199678.54,
+ "risk": 2.0,
+ "target_notional_usd": {
+  "SOL": -39458.71,
+  "BTC": -39216.33,
+  "ETH": -22572.9,
+  "XRP": 1509.43,
+  "BNB": 13634.92,
+  "DOGE": 20379.76
+ },
+ "by_sleeve_usd": {
+  "1000PEPE": {},
+  "1000SHIB": {},
+  "1INCH": {},
+  "AAVE": {},
+  "ADA": {},
+  "ALGO": {},
+  "APE": {},
+  "APT": {},
+  "ARB": {},
+  "ATOM": {},
+  "AVAX": {},
+  "AXS": {},
+  "BCH": {},
+  "BNB": {
+   "relative crowding 6": 13634.92
+  },
+  "BTC": {
+   "trend 4h": -21241.68,
+   "ridge ML": -33826.11,
+   "diversifier basket": 13442.61,
+   "relative crowding 6": 2408.85
+  },
+  "CHZ": {},
+  "COMP": {},
+  "CRV": {},
+  "DASH": {},
+  "DOGE": {
+   "relative crowding 6": 20379.76
+  },
+  "DOT": {},
+  "DYDX": {},
+  "EGLD": {},
+  "ENJ": {},
+  "ETC": {},
+  "ETH": {
+   "trend 4h": -20367.48,
+   "ridge ML": 29514.15,
+   "diversifier basket": -14669.81,
+   "relative crowding 6": -17049.75
+  },
+  "FIL": {},
+  "GALA": {},
+  "GRT": {},
+  "HBAR": {},
+  "ICP": {},
+  "IMX": {},
+  "INJ": {},
+  "IOTA": {},
+  "KSM": {},
+  "LDO": {},
+  "LINK": {},
+  "LTC": {},
+  "MANA": {},
+  "NEAR": {},
+  "NEO": {},
+  "OP": {},
+  "RUNE": {},
+  "SAND": {},
+  "SNX": {},
+  "SOL": {
+   "trend 4h": -18575.5,
+   "relative crowding 6": -20883.21
+  },
+  "STX": {},
+  "SUI": {},
+  "SUSHI": {},
+  "THETA": {},
+  "TIA": {},
+  "TRX": {},
+  "UNI": {},
+  "WLD": {},
+  "XLM": {},
+  "XRP": {
+   "relative crowding 6": 1509.43
+  },
+  "XTZ": {},
+  "YFI": {},
+  "ZEC": {},
+  "ZIL": {}
+ },
+ "cascade_limit_orders": [],
+ "cascade_open_trades": [],
+ "weiss": null,
+ "sleeve_multipliers": {
+  "C*": 0.5491,
+  "cascade limit strict": 0.3557,
+  "trend 4h": 0.6901,
+  "Weiss expiry": 1.3809,
+  "delev bounce": 0.3612,
+  "ridge ML": 0.1935,
+  "alt kimchi": 0.0992,
+  "diversifier basket": 0.4695,
+  "relative crowding 6": 1.2799
+ },
+ "note": "simulation only - no order is sent anywhere"
+}
