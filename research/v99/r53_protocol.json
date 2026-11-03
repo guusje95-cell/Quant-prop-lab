@@ -1,0 +1,4 @@
+{"id": "R53", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "Gen338 C (ERC with shrunk covariance) was a near miss on v8.6 (3.146 vs 3.110, HOLD lower); the v9.9 candidate has 13 sleeves, four of them low-correlation event shorts, where correlation-aware weights matter more",
+ "change": "v9.9 candidate (R45 Bybit-filtered ALL + add + HODLer, per-event rebuild, 4.5% total low-cap cap at risk 1.5) with Gen338's erc_weights (trailing 365 days, covariance shrunk 50%, equal risk budgets, Weiss 0.5) instead of inverse-vol",
+ "judge": ">= 3.590 and no period lower than [2.686, 4.133, 3.376]"}
