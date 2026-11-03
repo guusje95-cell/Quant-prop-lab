@@ -1,0 +1,75 @@
+{
+ "vol 10%": {
+  "constant": {
+   "full": {
+    "mean": 4211,
+    "P(net>0)": 0.898
+   },
+   "zero": {
+    "mean": 277,
+    "P(net>0)": 0.434
+   },
+   "edge value": 3934
+  },
+  "buffer-scaled": {
+   "full": {
+    "mean": 1521,
+    "P(net>0)": 0.667
+   },
+   "zero": {
+    "mean": -749,
+    "P(net>0)": 0.153
+   },
+   "edge value": 2270
+  }
+ },
+ "vol 14%": {
+  "constant": {
+   "full": {
+    "mean": 7147,
+    "P(net>0)": 0.957
+   },
+   "zero": {
+    "mean": 1363,
+    "P(net>0)": 0.603
+   },
+   "edge value": 5784
+  },
+  "buffer-scaled": {
+   "full": {
+    "mean": 3034,
+    "P(net>0)": 0.819
+   },
+   "zero": {
+    "mean": -264,
+    "P(net>0)": 0.296
+   },
+   "edge value": 3298
+  }
+ },
+ "vol 18%": {
+  "constant": {
+   "full": {
+    "mean": 10259,
+    "P(net>0)": 0.983
+   },
+   "zero": {
+    "mean": 2734,
+    "P(net>0)": 0.741
+   },
+   "edge value": 7525
+  },
+  "buffer-scaled": {
+   "full": {
+    "mean": 4918,
+    "P(net>0)": 0.902
+   },
+   "zero": {
+    "mean": 352,
+    "P(net>0)": 0.438
+   },
+   "edge value": 4566
+  }
+ },
+ "pass": false
+}

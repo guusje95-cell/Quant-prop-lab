@@ -1,0 +1,17 @@
+{
+ "DF-3 equity book (8, F5 omitted)": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "corrected: + F5 (all ES/NQ-only sleeves)": [
+  0.192,
+  0.712,
+  1.035
+ ],
+ "F5 daily-flat sleeve": [
+  0.103,
+  0.251,
+  0.682
+ ]
+}

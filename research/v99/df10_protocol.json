@@ -1,0 +1,4 @@
+{"id": "DF-10", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "P1 (IBS < 0.3 at the 16:00 ET close -> long the next session) is a generic equity-index mean-reversion effect, but the book runs it on ES + NQ only while R1 (the other dip sleeve) uses all four index futures. Spreading P1 over ES / NQ / RTY / YM (micros: M2K, MYM; CFDs: US2000, US30) diversifies the same signal",
+ "change": "P1 on ES, NQ, RTY, YM at 0.25 each (was ES, NQ at 0.5 each), unchanged rule (p1_exec_check.snap(16)), exact daily-flat bars",
+ "judge": "daily-flat equity-index book (8 sleeves): 2023-26 >= 1.164 + 0.05 and 2018-22 not lower than 0.785"}
