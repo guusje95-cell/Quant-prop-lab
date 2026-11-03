@@ -1,0 +1,4 @@
+{"id": "F-CX3", "date": "2026-11-03", "registered": "before computing (stand-alone Binance numbers of the composite seen in Gen275: 1.17 / 1.29 / 1.06; CME version never computed): FLAGGED", "trials_added": 1,
+ "why": "the Gen105 demand composite (Coinbase premium + Korean premium z-scores, BTC / ETH, +-0.5 daily) failed in the crypto books only because the ridge already holds the same information; the futures book holds none of it, and it is daily (fits CME execution better than the hourly Coinbase-premium sleeve S3 of Gen137) and nearly uncorrelated with C* (0.04)",
+ "change": "sleeve 'CXK' = the Gen105 weights (unchanged code, row d held on d + 1) executed on CME BTC / ETH with the Gen137 execute() variant (a) (weekend-hold, CME costs + roll), daily with Saturday / Sunday on Monday, added to the futures book WITH CX (F-CXb)",
+ "judge": "2023-26 >= 1.414 + 0.05 and 2018-22 not lower than 1.600"}
