@@ -1,0 +1,29 @@
+{
+ "swing equity book, no swap (futures)": [
+  1.131,
+  0.959,
+  1.223
+ ],
+ "daily-flat equity book (DF-3)": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "net execution daily-flat (DF-4)": [
+  0.208,
+  0.895,
+  1.205
+ ],
+ "average gross exposure (x equity)": 0.497,
+ "average net long (x equity)": 0.432,
+ "swing on CFDs, swap 6% long / 1% short": [
+  0.756,
+  0.71,
+  0.888
+ ],
+ "swing on CFDs, swap 8% long / 2% short": [
+  0.628,
+  0.625,
+  0.775
+ ]
+}

@@ -4,6 +4,7 @@ Tradeify 16:45, Apex 16:59; reopen at 18:00 ET) and over the weekend. Patches fu
   - the first bar after a gap (18:00 ET session open, Sunday 18:00 after the weekend): return open -> close only (the gap is not earned)
 Costs: set QPL_DAILY_FLAT=1 as well (the sleeves then charge one extra round trip per held day). Use: import dailyflat; dailyflat.patch()
 BEFORE any sleeve code runs (futures_db.front / second are cached)."""
+import os
 from functools import lru_cache
 
 import numpy as np
@@ -18,7 +19,8 @@ def _fix(f):
     oc = (f["close"] / f["open"] - 1).where((f["open"] > 0) & (f["close"] > 0), 0.0)
     r = f["r"].copy()
     r[first.to_numpy()] = oc[first.to_numpy()]
-    r[(et.hour == 16)] = 0.0
+    if os.environ.get("QPL_FLAT_FROM", "16") == "16":
+        r[(et.hour == 16)] = 0.0                                                # futures firms: flat from 16:00 ET (CFD firms: QPL_FLAT_FROM=17)
     f["r"] = r.fillna(0.0)
     return f
 
