@@ -1,0 +1,38 @@
+{
+ "reference (with CX)": [
+  1.459,
+  1.6,
+  1.414
+ ],
+ "CX4 registered": [
+  1.459,
+  1.679,
+  1.565
+ ],
+ "CX4 registered sleeve": [
+  NaN,
+  1.285,
+  1.402
+ ],
+ "CX4 at 2x SOL / XRP costs": [
+  1.459,
+  1.677,
+  1.557
+ ],
+ "CX4 at 2x SOL / XRP costs sleeve": [
+  NaN,
+  1.275,
+  1.377
+ ],
+ "SOL+XRP legs alone by year": {
+  "2020": 1.42,
+  "2021": 3.57,
+  "2022": -1.43,
+  "2023": 3.02,
+  "2024": 2.31,
+  "2025": 0.45,
+  "2026": 1.54
+ },
+ "corr legs vs CX (daily, 2021+)": 0.47,
+ "pass": true
+}
