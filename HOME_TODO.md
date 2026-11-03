@@ -120,3 +120,9 @@ Then tell Claude: "data is pushed".
   Vereist dat `futures_paper_update.bat` (futures paper) en de v9.8 paper draaien. Push `paper_trading/futcx` samen met futures.
 - **Mail PropShopTrader** (de enige futures-firm die volgens reviews overnight + weekend + bots toelaat), zie `research/v99/M5_FUTURES_CX_FIRMS.md`:
   (1) zijn Micro Bitcoin / Micro Ether (MBT / MET) verhandelbaar op Swing-accounts, (2) bots/API toegestaan, (3) MBT/MET over het weekend houden, (4) contractlimieten micro's.
+
+## Nieuw (3-11 nacht): dagelijks-vlak futures / index-CFD's voor meerdere firms
+- **`get_prop_rules.bat`** opnieuw draaien: legt nu ook de officiële pagina's van Topstep (incl. API, verboden gedrag, landen),
+  Tradeify, Lucid, FundedNext Futures en Apex vast. Daarna check ik de regels (zie `research/v99/M6_DAILYFLAT_FUTURES_FIRMS.md`).
+- **Check zelf op help.topstep.com (Eligibility FAQ)** of Nederland toegestaan is voor Express Funded én Live Funded.
+- `futures_paper_update.bat` draait nu ook de dagelijks-vlakke paper (`paper_trading/futuresdf`); push die map mee.
