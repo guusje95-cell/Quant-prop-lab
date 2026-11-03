@@ -20,6 +20,11 @@ Volgorde aanhouden. Alles is papier / simulatie: er worden nergens orders geplaa
 11. Na een paar dagen: **`paper_v98_share.bat`** en **`paper_bf26_share.bat`**, en voor futures + logger:
     `git add paper_trading/futures paper_trading/book_logs research_data/databento_live` -> commit -> push.
 
+## Nieuw (3-11): nieuwe-informatie-collectors (hub-job collect_listings, elk uur)
+- Alleen `git pull` + hub herstarten. Verzamelt OKX-, Bitget-, Bybit- en Hyperliquid-listings (openbare API's, geen sleutel) in
+  `research_data/collect/`. Over een paar maanden kunnen we daar nieuwe event-tests op doen. Af en toe meepushen:
+  `git add research_data/collect` -> commit -> push.
+
 ## Nieuw (2-11 avond): MT5-koppeling voor het CFD-boek (bf2.7) in DRY-RUN
 - Open MT5 en log in op je BrightFunded-account (trial / challenge). Dubbelklik **`bot_bf27_mt5_dryrun.bat`** (laat open).
   Hij bouwt elke 5 min het bf2.7-boek, rekent het om naar lots en CONTROLEERT elke order bij MT5 (order_check: margin, volume,

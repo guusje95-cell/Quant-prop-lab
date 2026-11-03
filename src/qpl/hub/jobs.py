@@ -91,6 +91,7 @@ DEFAULT_SCHEDULES = [  # name, kind, payload, every_minutes, priority
     ("daily_summary", "daily_summary", {}, 1440, 8), ("paper_engine", "paper_engine", {}, 15, 1), ("agent", "agent_step", {}, 720, 9), ("integrity", "data_integrity", {}, 1440, 6),
     ("hl_snapshot", "hl_snapshot", {}, 60, 5), ("cbshort_paper", "cbshort_paper", {}, 60, 4),
     ("cfdx_paper", "cfdx_paper", {}, 60, 4),
+    ("collect_listings", "collect_listings", {}, 60, 6),
 ]
 
 

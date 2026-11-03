@@ -476,3 +476,11 @@ def test_composite_weiss_scale(c, tmp_path, monkeypatch):
     finally:
         CS.v5_weights = orig
     assert np.abs(got.to_numpy() - ref.to_numpy()).max() < 1e-12 and CS.v5_weights is orig
+
+
+def test_listing_collector_merge_is_append_only(tmp_path):
+    from qpl.live import listing_collectors as LC
+    f = tmp_path / "a.json"
+    assert LC._merge(f, [{"id": "1", "t": "x"}, {"id": "2", "t": "y"}], "id") == 2
+    assert LC._merge(f, [{"id": "2", "t": "CHANGED"}, {"id": "3", "t": "z"}], "id") == 1
+    d = json.loads(f.read_text()); assert set(d) == {"1", "2", "3"} and d["2"]["t"] == "y"      # first record kept, never overwritten
