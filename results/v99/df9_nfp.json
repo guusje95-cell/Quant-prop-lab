@@ -1,0 +1,20 @@
+{
+ "NFP days in data": 195,
+ "NFP sleeve": [
+  -0.278,
+  -0.263,
+  0.084
+ ],
+ "NFP-day mean ES+NQ return (bp)": -2.81,
+ "equity book ref": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "equity book + NFP": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "pass": false
+}
