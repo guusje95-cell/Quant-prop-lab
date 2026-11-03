@@ -33,7 +33,8 @@ BOOK = ROOT / "paper_trading/bf27cand/book_next_hour.json"
 STATE = ROOT / "bot_state_mt5"
 ALIAS = {"XDG": "DOGE"}
 FIAT = {"EUR", "GBP", "AUD", "NZD", "CAD", "CHF", "JPY", "USD", "HKD", "SGD", "MXN", "NOK", "SEK", "PLN", "ZAR", "DKK", "TRY", "XAU", "XAG", "XPT", "XPD"}
-INDEX = {"US100": ("US100.cash", "USTEC", "NAS100"), "US500": ("US500.cash", "US500", "SPX500"), "US30": ("US30.cash", "US30", "DJ30")}
+INDEX = {"US100": ("US100.cash", "USTEC", "NAS100"), "US500": ("US500.cash", "US500", "SPX500"), "US30": ("US30.cash", "US30", "DJ30"),
+         "US2000": ("US2000.cash", "US2000", "RUS2000", "US2000Cash")}
 CRYPTO_LEVERAGE = 5.0
 
 
