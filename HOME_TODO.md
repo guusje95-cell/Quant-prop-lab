@@ -113,3 +113,10 @@ Then tell Claude: "data is pushed".
    - FundedNext: swap-free add-on;
    - FTMO and BrightFunded: ask support.
 3. **Databento futures trial:** yes or no. It is optional and has a cost, so check that first.
+
+## Nieuw (3-11 avond): futures + CX schaduw
+- Alleen `git pull` + hub herstarten. De hub-job `futcx_paper` schrijft elk uur `paper_trading/futcx/ledger_hourly.csv`:
+  het futures-boek + de crypto-trend-sleeve CX (C* BTC/ETH). Live met Binance-prijzen als benadering (geen extra Databento-kosten).
+  Vereist dat `futures_paper_update.bat` (futures paper) en de v9.8 paper draaien. Push `paper_trading/futcx` samen met futures.
+- **Mail PropShopTrader** (de enige futures-firm die volgens reviews overnight + weekend + bots toelaat), zie `research/v99/M5_FUTURES_CX_FIRMS.md`:
+  (1) zijn Micro Bitcoin / Micro Ether (MBT / MET) verhandelbaar op Swing-accounts, (2) bots/API toegestaan, (3) MBT/MET over het weekend houden, (4) contractlimieten micro's.
