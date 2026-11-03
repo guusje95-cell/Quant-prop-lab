@@ -1,0 +1,1026 @@
+{
+ "choice": {
+  "one account": {
+   "risk": 1.75,
+   "stop": 0.5,
+   "at 1.48": {
+    "net_2y_mean": 54357,
+    "p10": -4325,
+    "P_loss": 0.158
+   },
+   "at 1.2": {
+    "net_2y_mean": 40020,
+    "p10": -4325,
+    "P_loss": 0.273
+   },
+   "at 1.7": {
+    "net_2y_mean": 68710,
+    "p10": -2352,
+    "P_loss": 0.122
+   },
+   "risk 1.5 / 0.5 at 1.48": {
+    "net_2y_mean": 50394,
+    "p10": -4325,
+    "P_loss": 0.133
+   }
+  },
+  "two accounts (+180 d)": {
+   "risk": 1.75,
+   "stop": 0.5,
+   "at 1.48": {
+    "net_2y_mean": 105399,
+    "p10": -6428,
+    "P_loss": 0.17
+   },
+   "at 1.2": {
+    "net_2y_mean": 80873,
+    "p10": -6428,
+    "P_loss": 0.225
+   },
+   "at 1.7": {
+    "net_2y_mean": 124534,
+    "p10": -6428,
+    "P_loss": 0.14
+   },
+   "risk 1.5 / 0.5 at 1.48": {
+    "net_2y_mean": 94534,
+    "p10": -6428,
+    "P_loss": 0.138
+   }
+  }
+ },
+ "grid": [
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 25196,
+   "p10": -4325,
+   "P_loss": 0.207
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 28733,
+   "p10": -2718,
+   "P_loss": 0.13
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 28405,
+   "p10": -3624,
+   "P_loss": 0.16
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 34183,
+   "p10": -4325,
+   "P_loss": 0.188
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 26610,
+   "p10": -4325,
+   "P_loss": 0.225
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 28774,
+   "p10": -4325,
+   "P_loss": 0.23
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 40334,
+   "p10": -4325,
+   "P_loss": 0.205
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 39114,
+   "p10": -4325,
+   "P_loss": 0.215
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 30517,
+   "p10": -4325,
+   "P_loss": 0.263
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 35123,
+   "p10": -4325,
+   "P_loss": 0.23
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 40020,
+   "p10": -4325,
+   "P_loss": 0.273
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 36749,
+   "p10": -4325,
+   "P_loss": 0.26
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 36366,
+   "p10": -4325,
+   "P_loss": 0.3
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 30199,
+   "p10": -4325,
+   "P_loss": 0.385
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 38628,
+   "p10": -4325,
+   "P_loss": 0.292
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 25871,
+   "p10": -4325,
+   "P_loss": 0.46
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 23943,
+   "p10": -4325,
+   "P_loss": 0.455
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 16947,
+   "p10": -4325,
+   "P_loss": 0.502
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 41947,
+   "p10": -5727,
+   "P_loss": 0.185
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 55222,
+   "p10": -5026,
+   "P_loss": 0.13
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 49360,
+   "p10": -5026,
+   "P_loss": 0.16
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 66202,
+   "p10": -6428,
+   "P_loss": 0.16
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 50500,
+   "p10": -6428,
+   "P_loss": 0.228
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 53097,
+   "p10": -6428,
+   "P_loss": 0.207
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 73060,
+   "p10": -6428,
+   "P_loss": 0.205
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 73438,
+   "p10": -6428,
+   "P_loss": 0.21
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 52999,
+   "p10": -6428,
+   "P_loss": 0.307
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 62031,
+   "p10": -6428,
+   "P_loss": 0.292
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 80873,
+   "p10": -6428,
+   "P_loss": 0.225
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 66089,
+   "p10": -6428,
+   "P_loss": 0.295
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 60184,
+   "p10": -6428,
+   "P_loss": 0.32
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 57875,
+   "p10": -6428,
+   "P_loss": 0.37
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 69696,
+   "p10": -6428,
+   "P_loss": 0.335
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 50150,
+   "p10": -6428,
+   "P_loss": 0.438
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 52279,
+   "p10": -6428,
+   "P_loss": 0.415
+  },
+  {
+   "sharpe": 1.2,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 40413,
+   "p10": -6428,
+   "P_loss": 0.455
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 32048,
+   "p10": -3414,
+   "P_loss": 0.147
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 36735,
+   "p10": -1174,
+   "P_loss": 0.11
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 35247,
+   "p10": -413,
+   "P_loss": 0.105
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 43961,
+   "p10": -3295,
+   "P_loss": 0.135
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 36236,
+   "p10": -4325,
+   "P_loss": 0.175
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 40643,
+   "p10": -4325,
+   "P_loss": 0.158
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 54001,
+   "p10": -4325,
+   "P_loss": 0.133
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 50394,
+   "p10": -4325,
+   "P_loss": 0.133
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 40977,
+   "p10": -4325,
+   "P_loss": 0.182
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 47185,
+   "p10": -4325,
+   "P_loss": 0.182
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 54357,
+   "p10": -4325,
+   "P_loss": 0.158
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 48393,
+   "p10": -4325,
+   "P_loss": 0.195
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 46020,
+   "p10": -4325,
+   "P_loss": 0.26
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 40599,
+   "p10": -4325,
+   "P_loss": 0.27
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 47807,
+   "p10": -4325,
+   "P_loss": 0.253
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 31077,
+   "p10": -4325,
+   "P_loss": 0.407
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 34045,
+   "p10": -4325,
+   "P_loss": 0.328
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 27698,
+   "p10": -4325,
+   "P_loss": 0.395
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 58518,
+   "p10": -2430,
+   "P_loss": 0.122
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 66627,
+   "p10": 2927,
+   "P_loss": 0.083
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 68294,
+   "p10": 1366,
+   "P_loss": 0.083
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 79449,
+   "p10": 162,
+   "P_loss": 0.1
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 69873,
+   "p10": -5096,
+   "P_loss": 0.135
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 76205,
+   "p10": -6428,
+   "P_loss": 0.135
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 102230,
+   "p10": -4723,
+   "P_loss": 0.122
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 94534,
+   "p10": -6428,
+   "P_loss": 0.138
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 80262,
+   "p10": -6428,
+   "P_loss": 0.19
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 93103,
+   "p10": -6428,
+   "P_loss": 0.155
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 105399,
+   "p10": -6428,
+   "P_loss": 0.17
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 92452,
+   "p10": -6428,
+   "P_loss": 0.207
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 93410,
+   "p10": -6428,
+   "P_loss": 0.225
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 83774,
+   "p10": -6428,
+   "P_loss": 0.27
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 96449,
+   "p10": -6428,
+   "P_loss": 0.235
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 75420,
+   "p10": -6428,
+   "P_loss": 0.31
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 58712,
+   "p10": -6428,
+   "P_loss": 0.385
+  },
+  {
+   "sharpe": 1.48,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 61131,
+   "p10": -6428,
+   "P_loss": 0.355
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 38453,
+   "p10": 628,
+   "P_loss": 0.095
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 42296,
+   "p10": 6709,
+   "P_loss": 0.062
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 42041,
+   "p10": 1865,
+   "P_loss": 0.085
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 54415,
+   "p10": 6649,
+   "P_loss": 0.06
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 46512,
+   "p10": -2941,
+   "P_loss": 0.122
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 48024,
+   "p10": -2048,
+   "P_loss": 0.115
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 62650,
+   "p10": 2303,
+   "P_loss": 0.095
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 60893,
+   "p10": -3011,
+   "P_loss": 0.115
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 50505,
+   "p10": -4325,
+   "P_loss": 0.15
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 61289,
+   "p10": -4325,
+   "P_loss": 0.163
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 68710,
+   "p10": -2352,
+   "P_loss": 0.122
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 65855,
+   "p10": -4325,
+   "P_loss": 0.12
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 54729,
+   "p10": -4325,
+   "P_loss": 0.19
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 52497,
+   "p10": -4325,
+   "P_loss": 0.193
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 61875,
+   "p10": -4325,
+   "P_loss": 0.185
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 44919,
+   "p10": -4325,
+   "P_loss": 0.31
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 38890,
+   "p10": -4325,
+   "P_loss": 0.338
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "one account",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 33510,
+   "p10": -4325,
+   "P_loss": 0.333
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.4,
+   "net_2y_mean": 68590,
+   "p10": 2377,
+   "P_loss": 0.087
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.5,
+   "net_2y_mean": 79830,
+   "p10": 5664,
+   "P_loss": 0.072
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.0,
+   "stop": 0.6,
+   "net_2y_mean": 81085,
+   "p10": 7612,
+   "P_loss": 0.085
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.4,
+   "net_2y_mean": 99155,
+   "p10": 4436,
+   "P_loss": 0.077
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.5,
+   "net_2y_mean": 86925,
+   "p10": 453,
+   "P_loss": 0.1
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.25,
+   "stop": 0.6,
+   "net_2y_mean": 93109,
+   "p10": -2189,
+   "P_loss": 0.107
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.4,
+   "net_2y_mean": 116686,
+   "p10": 356,
+   "P_loss": 0.1
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.5,
+   "net_2y_mean": 115885,
+   "p10": 4598,
+   "P_loss": 0.09
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.5,
+   "stop": 0.6,
+   "net_2y_mean": 100881,
+   "p10": -6428,
+   "P_loss": 0.138
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.4,
+   "net_2y_mean": 115550,
+   "p10": -6428,
+   "P_loss": 0.133
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.5,
+   "net_2y_mean": 124534,
+   "p10": -6428,
+   "P_loss": 0.14
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 1.75,
+   "stop": 0.6,
+   "net_2y_mean": 118658,
+   "p10": -6428,
+   "P_loss": 0.11
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.4,
+   "net_2y_mean": 103410,
+   "p10": -6428,
+   "P_loss": 0.198
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.5,
+   "net_2y_mean": 113864,
+   "p10": -6428,
+   "P_loss": 0.212
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.0,
+   "stop": 0.6,
+   "net_2y_mean": 120192,
+   "p10": -6428,
+   "P_loss": 0.198
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.4,
+   "net_2y_mean": 87516,
+   "p10": -6428,
+   "P_loss": 0.282
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.5,
+   "net_2y_mean": 79206,
+   "p10": -6428,
+   "P_loss": 0.318
+  },
+  {
+   "sharpe": 1.7,
+   "plan": "two accounts (+180 d)",
+   "risk": 2.5,
+   "stop": 0.6,
+   "net_2y_mean": 68678,
+   "p10": -6428,
+   "P_loss": 0.315
+  }
+ ]
+}
