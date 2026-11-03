@@ -1,0 +1,28 @@
+{
+ "name": "Paper trading of the DAILY-FLAT futures book (DF-1): the same 15 sleeves on exact flat-by-close bars, for Topstep / Lucid / Tradeify / Apex / MFFU",
+ "registered": "2026-11-03 (DF-1), before any daily-flat paper day; backfill from 2026-10-01 is unseen data",
+ "what": "scripts/futures_paper_dailyflat.py = scripts/futures_paper.py (unchanged) on scripts/v99/dailyflat.py bars + QPL_DAILY_FLAT=1 -> paper_trading/futuresdf/ledger_hourly.csv (run by futures_paper_update.bat)",
+ "frozen": {
+  "account": 50000,
+  "ledger_frequency": "daily",
+  "risk": 1.0,
+  "risk_note": "ledger 'port' = the book's daily return in its own units (10% vol target, realised about 5.6% a year in 2023-26 because the 3x cap binds); prop sizing (Gen191) is decided separately",
+  "start_after": "2026-09-30",
+  "costs": "futures_db.cost_frac: one tick + commission on the micro contract per side (as in the research)",
+  "execution": "flat from 16:00 ET until the 18:00 ET reopen and over the weekend (session-open gaps not earned), one extra round trip per held day",
+  "data": "Databento GLBX.MDP3 ohlcv-1h, .v.0 and .v.1 continuous contracts, 26 markets"
+ },
+ "reference": {
+  "source": "DF-1 exact daily-flat book 2023-01..2026-09 (results/v99/df1.json)",
+  "sharpe": 0.978,
+  "note": "z in status.json still uses the swing reference (futures_paper.py unchanged); the hub computes its own stats"
+ },
+ "gate": {
+  "minimum": "63 trading days",
+  "operations": "no missing trading days; late rows (computed > 30 h after the close) only for the initial backfill or a reported outage",
+  "reconciliation": "--reconcile after each data top-up: correlation >= 0.99 between the frozen ledger and a fresh recompute",
+  "performance": "z = (paper mean - backtest mean) / (backtest sd / sqrt(days)): GO z > -1, EXTEND to 126 days if -2 <= z <= -1, STOP z < -2 or drawdown worse than -8% (book units)",
+  "honesty_note": "63 days cannot prove a 0.6-1.2 Sharpe edge (one standard error of the annualised Sharpe is about 2). The test mainly proves the pipeline and costs; the edge needs many months."
+ },
+ "changes": []
+}

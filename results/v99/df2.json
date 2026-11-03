@@ -1,0 +1,29 @@
+{
+ "reference (DF-1 exact daily-flat)": [
+  0.29,
+  0.774,
+  0.978
+ ],
+ "A: R1 overnight sleeve": [
+  0.825,
+  0.614,
+  0.347
+ ],
+ "A: book": [
+  0.471,
+  0.821,
+  0.945
+ ],
+ "B: night drift sleeve": [
+  -0.304,
+  0.455,
+  0.315
+ ],
+ "B: book": [
+  0.2,
+  0.727,
+  0.933
+ ],
+ "A pass": false,
+ "B pass": false
+}

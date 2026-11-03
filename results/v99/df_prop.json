@@ -1,0 +1,91 @@
+{
+ "book Sharpe 2023-26 (daily-flat / swing)": [
+  0.98,
+  1.22
+ ],
+ "daily-flat vol 10%": {
+  "full": {
+   "mean": 3180,
+   "p10": -1523,
+   "P(net>0)": 0.72
+  },
+  "half-mean": {
+   "mean": 1179,
+   "p10": -1623,
+   "P(net>0)": 0.5
+  },
+  "ZERO edge (control)": {
+   "mean": -241,
+   "p10": -1670,
+   "P(net>0)": 0.28
+  }
+ },
+ "daily-flat vol 18%": {
+  "full": {
+   "mean": 9401,
+   "p10": 631,
+   "P(net>0)": 0.92
+  },
+  "half-mean": {
+   "mean": 4822,
+   "p10": -1759,
+   "P(net>0)": 0.77
+  },
+  "ZERO edge (control)": {
+   "mean": 1820,
+   "p10": -2460,
+   "P(net>0)": 0.57
+  }
+ },
+ "daily-flat vol 24%": {
+  "full": {
+   "mean": 14884,
+   "p10": 3190,
+   "P(net>0)": 0.97
+  },
+  "half-mean": {
+   "mean": 9403,
+   "p10": 234,
+   "P(net>0)": 0.91
+  },
+  "ZERO edge (control)": {
+   "mean": 5057,
+   "p10": -2163,
+   "P(net>0)": 0.76
+  }
+ },
+ "daily-flat vol 30%": {
+  "full": {
+   "mean": 21130,
+   "p10": 6992,
+   "P(net>0)": 0.99
+  },
+  "half-mean": {
+   "mean": 14457,
+   "p10": 2445,
+   "P(net>0)": 0.95
+  },
+  "ZERO edge (control)": {
+   "mean": 8608,
+   "p10": -844,
+   "P(net>0)": 0.87
+  }
+ },
+ "daily-flat vol 40%": {
+  "full": {
+   "mean": 33670,
+   "p10": 14075,
+   "P(net>0)": 1.0
+  },
+  "half-mean": {
+   "mean": 23649,
+   "p10": 7343,
+   "P(net>0)": 0.98
+  },
+  "ZERO edge (control)": {
+   "mean": 15682,
+   "p10": 1615,
+   "P(net>0)": 0.93
+  }
+ }
+}

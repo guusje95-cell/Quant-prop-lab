@@ -14,6 +14,7 @@ set /p MAXC=Download if the TOTAL is at most how many dollars? (0 = do not downl
 python -m qpl.live.databento_update --max-cost %MAXC%
 echo.
 python scripts\futures_paper.py
+python scripts\futures_paper_dailyflat.py
 echo.
-echo Share the result with Claude / the hub:  git add paper_trading/futures research_data/databento_live  then commit and push
+echo Share the result with Claude / the hub:  git add paper_trading/futures paper_trading/futuresdf research_data/databento_live  then commit and push
 pause
