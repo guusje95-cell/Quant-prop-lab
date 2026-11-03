@@ -1,0 +1,31 @@
+{
+ "position check (daily corr vs bf2.8 sleeve P&L)": {
+  "C*": 1.0,
+  "trend 4h": 1.0,
+  "Weiss expiry": 0.997,
+  "delev bounce": 1.0,
+  "coinbase premium": 1.0,
+  "ridge ML": 0.862,
+  "alt kimchi": 1.0,
+  "rc6 CFD": 1.0,
+  "basket CFD": 1.0
+ },
+ "annual cost of these sleeves, per-member (book units)": 0.0517,
+ "annual cost, net execution": 0.0416,
+ "bf2.8 (uncapped) research": [
+  3.083,
+  [
+   1.88,
+   4.237,
+   2.533
+  ]
+ ],
+ "bf2.8 with the net-execution saving": [
+  3.149,
+  [
+   1.928,
+   4.31,
+   2.601
+  ]
+ ]
+}
