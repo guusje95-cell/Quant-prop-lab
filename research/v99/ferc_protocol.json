@@ -1,0 +1,3 @@
+{"id": "F-ERC", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "change": "futures book with monthly equal-risk-contribution weights (qpl.lab.erc, trailing 252 trading days, shrink 0.5, sleeves with >= 20 active days), book level 10% vol on the trailing 252 days and the futures book's 60-day vol target (cap 3x), all lagged",
+ "judge": "2023-26 >= 1.218 + 0.05 and 2018-22 not lower than 1.451 (2010-17 reported; the reference's static weights are in-sample there)"}
