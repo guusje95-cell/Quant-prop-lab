@@ -1,0 +1,5 @@
+{"id": "R54", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "Weiss expiry gained weight in every recent improvement (C9 / C10 CFD, R53 ERC 13% -> 17% of the crypto book) but was never in the Gen335 luck audit; a lucky setting would make those gains fragile",
+ "grid": "signal window (06:00-08:00 or 07:00-08:00 UTC move, faded at 08:00) x exit (09:00 / 10:00 / 11:00 UTC) = 6 points incl. the chosen 07-08 / 10:00; same costs (5 bp per side), BTC + ETH, last Friday of the month",
+ "audit": "percentile of the chosen setting among the 6 books (v9.9 candidate, capped, inverse-vol) and grid median minus chosen (as Gen335)",
+ "trial": "Weiss as the mean of the 6 grid points (neighbourhood ensemble) in the v9.9 candidate: >= 3.590 and no period lower than [2.686, 4.133, 3.376]"}
