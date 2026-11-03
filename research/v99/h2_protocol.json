@@ -1,13 +1,5 @@
-{
- "id": "v99-HL1", "date": "2026-10-31", "registered": "before any Hyperliquid open-interest history exists (the hub started logging on 2026-10-30)",
- "data": "research_data/hyperliquid_live/*.csv (hub job hl_snapshot: hourly open interest, funding, premium, mark price, volume of ~180 Hyperliquid perps)",
- "universe": "coins with at least 30 days of snapshots and a Bybit USDT perp (research_data/bybit_listings/instruments.json, plus the live list)",
- "trials": {
-  "HL1-A crowding build-up fade": "each day at 00:00 UTC rank coins by their 7-day open-interest change (in coins); short the top fifth, long the bottom fifth, equal weight, held one day (market neutral)",
-  "HL1-B squeeze setup": "long coins whose open interest rose > 20% over 3 days while the price fell (shorts piling in), held 3 days; equal weight"
- },
- "costs": "6 bp per side + Hyperliquid funding from the snapshots",
- "when": "run once at least 90 days of snapshots exist (about end of January 2027); before that the script only reports how many days are available",
- "decision": "a trial becomes an inclusion candidate if its net Sharpe over the sample >= 1.0 AND its daily correlation with the v9.8 paper ledger < 0.3; inclusion itself then follows the usual strict rule on the forward data",
- "trials_added": 2
-}
+{"id": "H2", "date": "2026-11-03", "registered": "before running", "trials_added": 0,
+ "why": "C6 chose risk 1.5 / stop 0.5 for bf2.7 at BrightFunded; bf2.8 (C10, true Weiss cap 4x) has a different profile",
+ "returns": "bf2.8 hourly book (c10b_true_cap.book, Weiss full, cap 4x) saved to results/v99/bf28_series.parquet, shifted to an assumed live Sharpe (qpl.hub.income.simulate, 400 paths, 2 years)",
+ "firm": "BrightFunded Two-Step Classic $200k", "grid": {"live Sharpe": [1.2, 1.48, 1.7], "risk": [1.0, 1.25, 1.5, 1.75, 2.0, 2.5], "daily stop": [0.4, 0.5, 0.6], "plan": ["one account", "two accounts (+180 d)"]},
+ "decision_rule": "as C6: at 1.48 the highest 2-year mean net among cells with P(loss) <= 0.25, positive mean at 1.2; second account only if the p10 does not fall"}
