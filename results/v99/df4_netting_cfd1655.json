@@ -1,0 +1,18 @@
+{
+ "research book (each sleeve pays its own costs)": [
+  0.34,
+  0.868,
+  1.197
+ ],
+ "net execution book": [
+  0.178,
+  0.933,
+  1.191
+ ],
+ "net execution, gross (no costs)": [
+  0.451,
+  1.187,
+  1.401
+ ],
+ "annual cost drag research vs net (book units, 2023-26)": null
+}
