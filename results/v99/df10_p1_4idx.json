@@ -1,0 +1,24 @@
+{
+ "P1 check (rebuilt ES+NQ vs saved, corr)": 1.0,
+ "P1 ES+NQ": [
+  0.172,
+  0.726,
+  1.056
+ ],
+ "P1 4 indices": [
+  0.202,
+  0.546,
+  0.947
+ ],
+ "equity book ref": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "equity book with P1 on 4 indices": [
+  0.269,
+  0.736,
+  1.126
+ ],
+ "pass": false
+}
