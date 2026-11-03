@@ -1,0 +1,31 @@
+[
+ {
+  "url": "https://help.tradeify.co/en/articles/10468318-guidelines-for-simulated-funded-traders",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ {
+  "url": "https://intercom.help/tradeify/en/articles/10468318-guidelines-for-traders",
+  "status": 200,
+  "bytes": 106588,
+  "sha256": "ded9faa257918c4da49d59c5dde25ce0c301b771d8746098043379aaa9045100",
+  "file": "1.html"
+ },
+ {
+  "url": "https://intercom.help/tradeify/en/articles/10495876-rules-permitted-times-to-trade",
+  "status": 200,
+  "bytes": 112309,
+  "sha256": "461862c0684406b89d4e3f21332cc00b7e75830194012a3bafb464d7b2892da9",
+  "file": "2.html"
+ },
+ {
+  "url": "https://help.tradeify.co/",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ {
+  "url": "https://tradeify.co/",
+  "status": 200,
+  "bytes": 413099,
+  "sha256": "cdbc3a632a8f90ad200f9095b99fdb835b49b291d47cc1dd3a97f644e496ad1d",
+  "file": "4.html"
+ }
+]

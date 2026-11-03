@@ -1,0 +1,13 @@
+[
+ {
+  "url": "https://sizeprop.com/faq",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "url": "https://sizeprop.com/",
+  "status": 200,
+  "bytes": 211376,
+  "sha256": "fc4a6438011ed06cca70dd724a55e12729e47a2dbaf1de2eb3ffe8cc0a68c4a4",
+  "file": "1.html"
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "url": "https://fundednext.com/faq",
+  "status": 200,
+  "bytes": 115046,
+  "sha256": "d9f66e2b8fadf4effff377526d8fdd04e732d75c40e6233f7417f9e80375f1d5",
+  "file": "0.html"
+ },
+ {
+  "url": "https://help.fundednext.com/",
+  "status": 200,
+  "bytes": 115046,
+  "sha256": "dea43b58288ed161a5d8477e37dbdbf6b6dfdadb02fca1729a542570b770fa26",
+  "file": "1.html"
+ },
+ {
+  "url": "https://fundednext.com/",
+  "status": 200,
+  "bytes": 1229797,
+  "sha256": "16652a1563a63c13cc86c2bc97e352977a1740b9fedd76e4d5f824a918a8698b",
+  "file": "2.html"
+ }
+]

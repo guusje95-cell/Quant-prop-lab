@@ -1,0 +1,21 @@
+[
+ {
+  "url": "https://lucidtrading.com/",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ {
+  "url": "https://lucidtrading.com/?p=1558076",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ {
+  "url": "https://lucidtrading.com/faq/",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ {
+  "url": "https://support.lucidtrading.com/",
+  "status": 200,
+  "bytes": 89345,
+  "sha256": "f692e648c3f56d73ea28c9dda92a528cffb0ecd7be4d205a737ad7ead4f92825",
+  "file": "3.html"
+ }
+]

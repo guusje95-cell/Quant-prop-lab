@@ -1,0 +1,16 @@
+[
+ {
+  "url": "https://fundednext.com/futures",
+  "status": 200,
+  "bytes": 1431974,
+  "sha256": "026e10747af78585ac30a380178e8e08d77461dada6e93af7d5b963550bf6ace",
+  "file": "0.html"
+ },
+ {
+  "url": "https://help.fundednext.com/",
+  "status": 200,
+  "bytes": 115046,
+  "sha256": "b24cb6cc744d12fae8774ed02937082b88cb2c9d3936aa087df2e5c3abb159aa",
+  "file": "1.html"
+ }
+]

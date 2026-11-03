@@ -1,0 +1,104 @@
+[
+ {
+  "url": "https://help.topstep.com/",
+  "status": 200,
+  "bytes": 94416,
+  "sha256": "f5cf0e9acdb4191564db3fb8e6aabee5f12a1b984a9b8552ccebbb3025e1c145",
+  "file": "0.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/10296582",
+  "status": 200,
+  "bytes": 123781,
+  "sha256": "854d04fcb799079f0e573f50f8ae08117d1f27f4144fb1bc7bbd0d4d5c030b04",
+  "file": "1.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/10305426",
+  "status": 200,
+  "bytes": 109147,
+  "sha256": "b153082cc5abc4ce92502549af25437f768dea0350d247b58269b1174078f79d",
+  "file": "2.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/10657969-live-funded-account-parameters",
+  "status": 200,
+  "bytes": 149876,
+  "sha256": "a90edb070a80c4c8fdd2c97d58fbc789591d0620bb883a162c881a152e6b8844",
+  "file": "3.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/11187768",
+  "status": 200,
+  "bytes": 153351,
+  "sha256": "52e8cecff88874e07be991b1106bc408d6cf98924abe8eeb7d509c3cdae148a1",
+  "file": "4.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284099-topstep-program-overview",
+  "status": 200,
+  "bytes": 115721,
+  "sha256": "cfb30953c90598847a778f3a3d35f6595af6a85eb859707ecbc1b6730103741c",
+  "file": "5.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284103",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284116-eligibility-faq",
+  "status": 200,
+  "bytes": 132647,
+  "sha256": "9fde71f2418734a441d7564aaad71671f8b412af7d42736d79763a52b60c1427",
+  "file": "7.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284197-trading-combine-parameters",
+  "status": 200,
+  "bytes": 129949,
+  "sha256": "2408550132cf4d3907a408c566a2a56ecfe872f51797c4a41759e46dd7453b1d",
+  "file": "8.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284208-consistency-at-topstep",
+  "status": 200,
+  "bytes": 122139,
+  "sha256": "57812ce58b8edcd4fe1a2007d992f2a64e5d06b23347bcd96fd325d8f3270fa2",
+  "file": "9.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284215-express-funded-account-parameters",
+  "status": 200,
+  "bytes": 143460,
+  "sha256": "60a39d2b9d11caf3d92bc23056753d52c7131d22b1522988966ff1ebf41f15fc",
+  "file": "10.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/articles/8284233-topstep-payout-policy",
+  "status": 200,
+  "bytes": 191098,
+  "sha256": "65657d62a56ee5ea0301e83726ad66f44860cfee818861f3952b99d28b1f3b51",
+  "file": "11.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/collections/19404054-topstepx",
+  "status": 200,
+  "bytes": 93074,
+  "sha256": "72c6d795c733e2bd0e219930db53c68c02193ff3273098ba5e92388749b44572",
+  "file": "12.html"
+ },
+ {
+  "url": "https://help.topstep.com/en/collections/5836605-topstep-faqs",
+  "status": 200,
+  "bytes": 101134,
+  "sha256": "df1d38bfafe5f189825138d8436358f91d9af9175559585775f4d163cf7574ec",
+  "file": "13.html"
+ },
+ {
+  "url": "https://www.topstep.com/",
+  "status": 200,
+  "bytes": 236133,
+  "sha256": "05e20dafcd1341b595c19bb70acf9ff194b446d05825196ddbaf2e0ac8486205",
+  "file": "14.html"
+ }
+]

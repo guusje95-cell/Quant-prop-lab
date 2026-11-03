@@ -1,0 +1,20 @@
+[
+ {
+  "url": "https://www.breakoutprop.com/faq",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "url": "https://www.breakoutprop.com/",
+  "status": 200,
+  "bytes": 122948,
+  "sha256": "2e108da24907544d34eb308ea599450a8cf80e2a37426b4e5c97daac192bf137",
+  "file": "1.html"
+ },
+ {
+  "url": "https://help.breakoutprop.com/",
+  "status": 200,
+  "bytes": 122948,
+  "sha256": "a15fc7b3663701f0900e11ab239cefbc34040a33177a9614db130fc0ac94eea6",
+  "file": "2.html"
+ }
+]
