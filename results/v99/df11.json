@@ -1,0 +1,14 @@
+{
+ "share of days below the 200-day MA": 0.209,
+ "equity book ref": [
+  0.258,
+  0.785,
+  1.164
+ ],
+ "with the trend filter": [
+  0.292,
+  0.762,
+  1.23
+ ],
+ "pass": false
+}

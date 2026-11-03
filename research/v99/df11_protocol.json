@@ -1,0 +1,4 @@
+{"id": "DF-11", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
+ "why": "the daily-flat equity book is long-biased (calendar windows, dip buying R1 / P1, OIL): these premia are documented to be stronger in up-trends (Connors' RSI-2 dip buying uses a 200-day trend filter; calendar effects shrink in bear markets). R1 / P1 have no trend filter",
+ "change": "sleeves P1, R1, T1, T2, FC, MM, OIL scaled x0.5 on days when ES's previous daily close is below its 200-day moving average (K3, which is long or short, unchanged); applied to the daily sleeve P&L (positions and turnover scale with it)",
+ "judge": "daily-flat equity-index book: 2023-26 >= 1.164 + 0.05 and 2018-22 not lower than 0.785"}
