@@ -1,0 +1,30 @@
+{
+ "v9.9 (13 sleeves, uncapped events)": {
+  "books": 601,
+  "PBO": 0.071,
+  "IS winner: mean IS / OOS Sharpe": [
+   3.83,
+   3.29
+  ],
+  "OOS median of the family": 2.83,
+  "full book: mean OOS percentile in the family": 0.965,
+  "full book: full-sample Sharpe / rank": [
+   3.634,
+   7
+  ]
+ },
+ "bf2.8 (12 sleeves, Weiss full)": {
+  "books": 601,
+  "PBO": 0.335,
+  "IS winner: mean IS / OOS Sharpe": [
+   3.43,
+   2.63
+  ],
+  "OOS median of the family": 2.54,
+  "full book: mean OOS percentile in the family": 0.914,
+  "full book: full-sample Sharpe / rank": [
+   3.083,
+   14
+  ]
+ }
+}
