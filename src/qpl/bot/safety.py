@@ -93,3 +93,25 @@ def heartbeat(d: Path, res: dict | None = None, error: str | None = None):
          "last_ok_utc": now if error is None else old.get("last_ok_utc")}
     tmp = d / "status.json.tmp"; tmp.write_text(json.dumps(s, indent=1)); os.replace(tmp, f)
     return s
+
+
+def reconcile(bot_positions: dict, venue_positions: dict, tol_usd: float, tol_frac: float = 0.02) -> dict:
+    """compare the bot's own position book with what the venue reports (live mode). A mismatch per coin = |bot - venue| above
+    max(tol_usd, tol_frac x |bot|). Unknown venue positions (not in the bot's book) always count. Returns {"ok", "mismatches", "gross_gap_usd"};
+    the runner must STOP (kill file) on a mismatch it cannot explain, never trade on top of an unknown position."""
+    out = []
+    for c in sorted(set(bot_positions) | set(venue_positions)):
+        b, v = float(bot_positions.get(c, 0.0)), float(venue_positions.get(c, 0.0))
+        lim = max(tol_usd, tol_frac * abs(b))
+        if abs(b - v) > lim or (c not in bot_positions and abs(v) > tol_usd):
+            out.append({"coin": c, "bot_usd": round(b, 2), "venue_usd": round(v, 2), "gap_usd": round(v - b, 2)})
+    return {"ok": not out, "mismatches": out, "gross_gap_usd": round(sum(abs(m["gap_usd"]) for m in out), 2)}
+
+
+def partial_fill(target_usd: float, filled_usd: float, min_order_usd: float) -> dict:
+    """classify an order result: 'filled' (within the minimum order size of the target), 'partial' (the rest is >= the minimum and
+    must be re-sent next pass, never assumed filled), 'none'"""
+    rest = target_usd - filled_usd
+    if abs(filled_usd) < 1e-9:
+        return {"status": "none", "rest_usd": round(target_usd, 2)}
+    return {"status": "filled" if abs(rest) < min_order_usd else "partial", "rest_usd": round(rest, 2)}

@@ -130,3 +130,15 @@ def test_mt5_filling_mode_per_symbol():
     m = NS(ORDER_FILLING_FOK=0, ORDER_FILLING_IOC=1, ORDER_FILLING_RETURN=2)
     assert V.filling_mode(m, NS(filling_mode=1)) == 0 and V.filling_mode(m, NS(filling_mode=2)) == 1
     assert V.filling_mode(m, NS(filling_mode=3)) == 0 and V.filling_mode(m, NS(filling_mode=0)) == 2 and V.filling_mode(m, NS()) == 2
+
+
+def test_reconcile_and_partial_fill():
+    r = S.reconcile({"BTC": 10000.0, "ETH": -5000.0}, {"BTC": 10050.0, "ETH": -5000.0}, tol_usd=100.0)
+    assert r["ok"]                                                                     # within tolerance (rounding / price moves)
+    r = S.reconcile({"BTC": 10000.0}, {"BTC": 10000.0, "SOL": 3000.0}, tol_usd=100.0)
+    assert not r["ok"] and r["mismatches"][0]["coin"] == "SOL"                        # unknown position on the account
+    r = S.reconcile({"BTC": 10000.0}, {"BTC": 4000.0}, tol_usd=100.0)
+    assert not r["ok"] and r["gross_gap_usd"] == 6000.0                               # missing size (e.g. a liquidation or a manual close)
+    assert S.partial_fill(1000.0, 1000.0, 50.0)["status"] == "filled"
+    assert S.partial_fill(1000.0, 400.0, 50.0) == {"status": "partial", "rest_usd": 600.0}
+    assert S.partial_fill(-1000.0, 0.0, 50.0)["status"] == "none"
