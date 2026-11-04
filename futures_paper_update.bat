@@ -16,5 +16,5 @@ echo.
 python scripts\futures_paper.py
 python scripts\futures_paper_dailyflat.py
 echo.
-echo Share the result with Claude / the hub:  git add paper_trading/futures paper_trading/futuresdf research_data/databento_live  then commit and push
+echo Share the result with Claude / the hub:  git add paper_trading/futures paper_trading/futuresdf2 research_data/databento_live  then commit and push
 pause

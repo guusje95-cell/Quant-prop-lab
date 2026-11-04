@@ -28,7 +28,7 @@ OUT = PT / "reports"
 REFS = {"v98": ("results/v98_oct_oos.parquet", "port", 6, "crypto v9.8 (paper)"),
         "bf26": ("results/bf26_paper_sleeves.parquet", "port", 6, "CFD bf2.6 (paper)"),
         "futures": (None, None, 96, "futures swing book (paper)"),
-        "futuresdf": (None, None, 96, "futures daily-flat book (paper)"),
+        "futuresdf2": (None, None, 96, "futures daily-flat equity book (paper, DF-1c)"),
         "futcx": (None, None, 96, "futures + CX (shadow ledger)"), "futcx4": (None, None, 96, "futures + CX4 (shadow ledger)"),
         "futcx5": (None, None, 96, "futures + CX4 + basket (shadow ledger)")}
 FUT_REF = {"futures": (0.000271414, 0.003537979)}                  # config/paper_futures.json reference (2023-01..2026-09)
@@ -45,11 +45,11 @@ def _ref_stats(name: str) -> tuple[float, float] | None:
     if f and (ROOT / f).exists():
         x = pd.read_parquet(ROOT / f)[col]; d = _daily(x).loc["2023-01-01":"2026-09-30"]
         return float(d.mean()), float(d.std())
-    if name == "futuresdf":
+    if name == "futuresdf2":
         try:
             import sys
             sys.path.insert(0, str(ROOT / "scripts")); import fbook
-            Q = pd.read_parquet(ROOT / "results/v99/df1_sleeves.parquet").drop(columns=["CX4", "CXB"], errors="ignore")
+            Q = pd.read_parquet(ROOT / "results/v99/df1c_sleeves.parquet")
             b = fbook.build(Q).loc["2023-01-01":"2026-09-30"]; return float(b.mean()), float(b.std())
         except Exception:                                                   # noqa: BLE001
             return None

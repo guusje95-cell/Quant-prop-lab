@@ -32,7 +32,7 @@ for r in DP.MK4:
     turn = net.diff().abs().fillna(net.abs())
     gap = np.r_[True, np.diff(idx.asi8) / 3.6e12 > 1.01]                   # first bar after a closure: exit the old position + enter the new one
     turn[gap] = (net.abs() + net.shift(1).abs().fillna(0.0))[gap]
-    out_g = out_g + gross.groupby(td).sum(); out_n = out_n + (gross - turn * c).groupby(td).sum()
+    z0 = pd.Series(dtype=float); out_g = (out_g if isinstance(out_g, pd.Series) else z0).add(gross.groupby(td).sum(), fill_value=0.0); out_n = (out_n if isinstance(out_n, pd.Series) else z0).add((gross - turn * c).groupby(td).sum(), fill_value=0.0)
 per = lambda b: [round(F.sharpe(b, *s), 3) for s in F.SPLITS]
 netb = out_n.reindex(ref.index).fillna(0.0)
 res = {"research book (each sleeve pays its own costs)": per(ref), "net execution book": per(netb),

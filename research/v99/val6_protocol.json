@@ -1,0 +1,3 @@
+{"id": "VAL-6", "date": "2026-11-04", "registered": "before computing", "trials_added": 0,
+ "what": "probability of backtest overfitting (PBO, CSCV: 16 blocks, 2,000 splits) of the sleeve SELECTION of the two candidate books, as A1 did for v9.8: the family = the full book plus 600 random sleeve subsets (>= 3 sleeves) built with the same construction (portfolio_v5; v9.9: its 13 sleeves, Weiss at half; bf2.8: its 12 sleeves, Weiss at full). Reported: PBO, the in-sample winner's IS / OOS Sharpe decay, the OOS median of all books, and the full book's rank in the family",
+ "reading": "PBO < 0.25 = the selection generalises; the full book near the top of the family out of sample = adding sleeves was not a lucky pick"}
