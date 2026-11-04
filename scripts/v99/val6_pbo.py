@@ -32,7 +32,8 @@ def family(H, weiss_scale, n=600):
 def pbo(M: pd.DataFrame) -> dict:
     X = M.to_numpy(); T, nb = X.shape; S = 16; blocks = np.array_split(np.arange(T), S); combos = list(itertools.combinations(range(S), S // 2))
     pick = [combos[i] for i in rng.choice(len(combos), size=2000, replace=False)]
-    srf = lambda A: A.mean(0) / A.std(0, ddof=1) * np.sqrt(365)
+    def srf(A):                                                      # nan-safe: a book flat in a split gets Sharpe 0, never "best" by NaN
+        sd = A.std(0, ddof=1); return np.where(sd > 0, A.mean(0) / np.where(sd > 0, sd, 1.0), 0.0) * np.sqrt(365)
     lg, isb, oob, med, full_oos_rank = [], [], [], [], []
     for c in pick:
         tr = np.concatenate([blocks[i] for i in c]); te = np.concatenate([blocks[i] for i in range(S) if i not in c])
@@ -48,7 +49,9 @@ import r48_stress as R
 Ev = R.per_event(); idx = R.idx; H9 = R.V8.copy()
 for k, L in Ev.items():
     H9[R.NAMES[k]] = sum((h for _, _, h, _ in L), pd.Series(0.0, index=idx))
-out = {"v9.9 (13 sleeves, uncapped events)": pbo(family(H9, 0.5))}
+cache = ROOT / "results/v99/val6_family_v99.parquet"
+F9 = pd.read_parquet(cache) if cache.exists() else family(H9, 0.5); F9.to_parquet(cache)
+out = {"v9.9 (13 sleeves, uncapped events)": pbo(F9)}
 import c1_cfd_port as C, c3_ensembles as E, cfd_book as CB
 from qpl.live import cfd_extra as X
 CB.measured_costs()
@@ -56,5 +59,7 @@ BH = pd.read_parquet(ROOT / "results/v99/bf26_sleeves_dump.parquet").drop(column
 Rr = CB.hourly_returns(bidx[-1]).reindex(bidx).fillna(0.0); S2 = X.sleeves(pd.date_range("2021-01-01", bidx[-1], freq="h"))
 b27 = BH.drop(columns=["premium carry", "premium carry BF"]).assign(**{k: v.reindex(bidx).fillna(0.0) for k, v in S2.items()})
 b28 = b27.assign(**{"trend 4h": E.trend(Rr, (15, 20, 30)), "alt kimchi": E.altk(Rr, (0.75, 1.0, 1.25))})
-out["bf2.8 (12 sleeves, Weiss full)"] = pbo(family(b28, 1.0))
+cache2 = ROOT / "results/v99/val6_family_bf28.parquet"
+F8 = pd.read_parquet(cache2) if cache2.exists() else family(b28, 1.0); F8.to_parquet(cache2)
+out["bf2.8 (12 sleeves, Weiss full)"] = pbo(F8)
 print(json.dumps(out, indent=1)); (ROOT / "results/v99/val6_pbo.json").write_text(json.dumps(out, indent=1))
