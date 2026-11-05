@@ -1,0 +1,59 @@
+{
+ "risk 2.0": {
+  "daily mean %": 0.267,
+  "daily sd %": 1.65,
+  "positive days": 0.526,
+  "days >= +4.6%": 36,
+  "days <= -4.6%": 4,
+  "days": 1734,
+  "stop hits": 59,
+  "loss at stop median %": -2.84,
+  "loss at stop worst %": -4.83,
+  "stop days worse than -3.5%": 6,
+  "firm 5% breaches": 0
+ },
+ "risk 1.75": {
+  "daily mean %": 0.234,
+  "daily sd %": 1.44,
+  "positive days": 0.526,
+  "days >= +4.6%": 26,
+  "days <= -4.6%": 2,
+  "days": 1734,
+  "stop hits": 45,
+  "loss at stop median %": -2.76,
+  "loss at stop worst %": -4.24,
+  "stop days worse than -3.5%": 3,
+  "firm 5% breaches": 0
+ },
+ "risk 1.5": {
+  "daily mean %": 0.2,
+  "daily sd %": 1.24,
+  "positive days": 0.526,
+  "days >= +4.6%": 21,
+  "days <= -4.6%": 2,
+  "days": 1734,
+  "stop hits": 25,
+  "loss at stop median %": -2.81,
+  "loss at stop worst %": -4.75,
+  "stop days worse than -3.5%": 4,
+  "firm 5% breaches": 0
+ },
+ "what N paper days can tell (risk 2)": {
+  "7": {
+   "t of the backtest mean": 0.43,
+   "P(negative period with the edge intact)": 0.345
+  },
+  "56": {
+   "t of the backtest mean": 1.21,
+   "P(negative period with the edge intact)": 0.106
+  },
+  "112": {
+   "t of the backtest mean": 1.71,
+   "P(negative period with the edge intact)": 0.034
+  },
+  "365": {
+   "t of the backtest mean": 3.09,
+   "P(negative period with the edge intact)": 0.001
+  }
+ }
+}
