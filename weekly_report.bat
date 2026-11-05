@@ -6,5 +6,5 @@ if exist .venv\Scripts\activate.bat call .venv\Scripts\activate.bat
 set PYTHONPATH=%~dp0src
 python -m qpl.hub.weekly
 echo.
-echo Share with Claude: git add paper_trading/reports  then commit and push
+echo Share with Claude: git add paper_trading  then commit and push  (reports\shadows_daily.csv = every shadow day by day)
 pause

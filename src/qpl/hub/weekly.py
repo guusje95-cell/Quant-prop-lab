@@ -107,7 +107,8 @@ def paper_accounts(now: pd.Timestamp) -> list[dict]:
     return rows
 
 
-def shadows(now: pd.Timestamp) -> list[dict]:
+def shadows(now: pd.Timestamp, daily: dict | None = None) -> list[dict]:
+    """per shadow: forward days, cum, Sharpe; fills `daily` (key -> daily return series) when given"""
     db = Path(os.environ.get("QPL_HUB_DB", ROOT / "hub_data" / "hub.sqlite"))
     if not db.exists():
         return []
@@ -117,6 +118,8 @@ def shadows(now: pd.Timestamp) -> list[dict]:
         if E.empty:
             out.append({"shadow": a["key"], "forward_days": 0}); continue
         s = pd.Series(E["ret"].to_numpy(), index=pd.to_datetime(E["ts"])); dd = _daily(s)
+        if daily is not None:
+            daily[a["key"]] = dd
         out.append({"shadow": a["key"], "forward_days": len(dd), "cum": round(float((1 + s).prod() - 1), 4),
                     "sharpe": round(float(dd.mean() / dd.std() * np.sqrt(365)), 2) if len(dd) >= 5 and dd.std() > 0 else None,
                     "last": str(s.index[-1])})
@@ -186,7 +189,8 @@ def _md(rep: dict) -> str:
 
 def build(now: pd.Timestamp | None = None, write: bool = True) -> dict:
     now = now or pd.Timestamp.now(tz="UTC").tz_localize(None)
-    rep = {"date": str(now.date()), "made_at_utc": str(now.floor("s")), "paper": paper_accounts(now), "shadows": shadows(now), "bots": bots(now)}
+    sd: dict = {}
+    rep = {"date": str(now.date()), "made_at_utc": str(now.floor("s")), "paper": paper_accounts(now), "shadows": shadows(now, sd), "bots": bots(now)}
     rep["alerts"] = ([f"paper {a['account']}: {a['status']} (z {a['z']}, data {a['age_h']} u oud)" for a in rep["paper"] if a["status"] == "ALERT"]
                      + [f"bot {b['bot']}: {b.get('consecutive_errors')} fouten op rij, laatste ronde {b.get('pass_age_min')} min geleden, "
                         f"geweigerd {b.get('rejected_7d')}" for b in rep["bots"] if b["status"] == "ALERT"])
@@ -194,6 +198,8 @@ def build(now: pd.Timestamp | None = None, write: bool = True) -> dict:
         OUT.mkdir(parents=True, exist_ok=True)
         (OUT / f"weekly_{rep['date']}.json").write_text(json.dumps(rep, indent=1, default=str))
         (OUT / f"weekly_{rep['date']}.md").write_text(_md(rep))
+        if sd:                                                                     # day-by-day shadow returns (the hub database stays local)
+            pd.DataFrame(sd).sort_index().rename_axis("day").to_csv(OUT / "shadows_daily.csv", float_format="%.6g")
     return rep
 
 
