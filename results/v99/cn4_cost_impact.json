@@ -1,0 +1,115 @@
+{
+ "source per coin": {
+  "AAVE": "ticks",
+  "ADA": "ticks",
+  "AVAX": "ticks",
+  "BCH": "ticks",
+  "BNB": "ticks",
+  "BTC": "ticks",
+  "DOGE": "ticks",
+  "DOT": "ticks",
+  "ETC": "ticks",
+  "ETH": "ticks",
+  "FIL": "ticks",
+  "LINK": "ticks",
+  "LTC": "ticks",
+  "NEAR": "ticks",
+  "SOL": "ticks",
+  "UNI": "ticks",
+  "XLM": "ticks",
+  "XRP": "ticks"
+ },
+ "annual netted cost, snapshot model (CN-2)": 0.0416,
+ "annual netted cost, tick spreads": 0.0434,
+ "bf2.8 net, snapshot model (CN-2)": [
+  3.149,
+  [
+   1.928,
+   4.31,
+   2.601
+  ]
+ ],
+ "bf2.8 net, tick spreads": [
+  3.137,
+  [
+   1.913,
+   4.298,
+   2.59
+  ]
+ ],
+ "share of turnover at 23:00-00:59 UTC": 0.497,
+ "annual cost by coin (bp of book), model vs ticks": {
+  "ETH": {
+   "model": 149.3,
+   "ticks": 124.5
+  },
+  "BTC": {
+   "model": 49.6,
+   "ticks": 57.2
+  },
+  "DOGE": {
+   "model": 55.5,
+   "ticks": 53.5
+  },
+  "SOL": {
+   "model": 17.5,
+   "ticks": 25.6
+  },
+  "BNB": {
+   "model": 8.9,
+   "ticks": 25.0
+  },
+  "DOT": {
+   "model": 21.7,
+   "ticks": 21.8
+  },
+  "ADA": {
+   "model": 5.2,
+   "ticks": 19.1
+  },
+  "BCH": {
+   "model": 12.0,
+   "ticks": 12.3
+  },
+  "XRP": {
+   "model": 11.2,
+   "ticks": 11.4
+  },
+  "ETC": {
+   "model": 8.7,
+   "ticks": 9.0
+  },
+  "AVAX": {
+   "model": 6.6,
+   "ticks": 8.6
+  },
+  "XLM": {
+   "model": 11.9,
+   "ticks": 6.8
+  },
+  "FIL": {
+   "model": 3.0,
+   "ticks": 3.0
+  },
+  "LINK": {
+   "model": 2.8,
+   "ticks": 2.9
+  },
+  "NEAR": {
+   "model": 2.6,
+   "ticks": 2.8
+  },
+  "AAVE": {
+   "model": 3.3,
+   "ticks": 2.5
+  },
+  "UNI": {
+   "model": 0.8,
+   "ticks": 0.8
+  },
+  "LTC": {
+   "model": 0.0,
+   "ticks": 0.0
+  }
+ }
+}
