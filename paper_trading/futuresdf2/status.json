@@ -1,0 +1,9 @@
+{
+ "data_end": "2026-11-04 23:00:00",
+ "appended": 25,
+ "ledger_days": 25,
+ "method": "DF-1c (true-price signals, daily-flat P&L)",
+ "paper Sharpe (ann.)": -0.74,
+ "paper cum": -0.0079,
+ "z vs backtest": -0.61
+}

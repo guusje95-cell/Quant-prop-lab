@@ -1,89 +1,89 @@
 {
- "for_hour_utc": "2026-11-05 16:00:00",
- "made_at_utc": "2026-11-05 16:12:52.077109",
- "data_cutoff_utc": "2026-11-05 16:00:00",
- "equity": 207214.09,
+ "for_hour_utc": "2026-11-05 20:00:00",
+ "made_at_utc": "2026-11-05 20:12:13.833088",
+ "data_cutoff_utc": "2026-11-05 20:00:00",
+ "equity": 205805.94,
  "risk": 2.0,
  "target_notional_usd": {
-  "BTC": -85090.64,
-  "SOL": -77209.85,
-  "BNB": -47569.89,
-  "ETH": -16300.49,
-  "AVAX": -5222.83,
-  "ATOM": -5222.83,
-  "AAVE": -5222.83,
-  "ADA": -5222.83,
-  "LINK": -5222.83,
-  "BCH": -5222.83,
-  "FIL": -5222.83,
-  "ETC": -5222.83,
-  "XLM": -5222.83,
-  "UNI": -5222.83,
-  "PREDICT": -4938.04,
-  "DOT": -3481.88,
-  "NEAR": -3481.88,
-  "TRX": -1740.94,
-  "DOGE": 41559.88,
-  "XRP": 65157.33
+  "BTC": -87101.63,
+  "SOL": -76698.16,
+  "BNB": -47289.01,
+  "ETH": -17414.76,
+  "AVAX": -5187.33,
+  "ATOM": -5187.33,
+  "AAVE": -5187.33,
+  "ADA": -5187.33,
+  "LINK": -5187.33,
+  "BCH": -5187.33,
+  "FIL": -5187.33,
+  "ETC": -5187.33,
+  "XLM": -5187.33,
+  "UNI": -5187.33,
+  "PREDICT": -4904.48,
+  "DOT": -3458.22,
+  "NEAR": -3458.22,
+  "TRX": -1729.11,
+  "DOGE": 41264.94,
+  "XRP": 64543.67
  },
  "by_sleeve_usd": {
   "1000PEPE": {},
   "1000SHIB": {},
   "1INCH": {},
   "AAVE": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "ADA": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "ALGO": {},
   "APE": {},
   "APT": {},
   "ARB": {},
   "ATOM": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "AVAX": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "AXS": {},
   "BCH": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "BNB": {
-   "relative crowding 6": -47569.89
+   "relative crowding 6": -47289.01
   },
   "BTC": {
-   "trend 4h": 20516.1,
-   "ridge ML": -7717.75,
-   "diversifier basket": -39633.6,
-   "relative crowding 6": -58255.38
+   "trend 4h": 17783.77,
+   "ridge ML": -7665.3,
+   "diversifier basket": -39364.27,
+   "relative crowding 6": -57855.84
   },
   "CHZ": {},
   "COMP": {},
   "CRV": {},
   "DASH": {},
   "DOGE": {
-   "alt kimchi": -5222.83,
-   "relative crowding 6": 46782.7
+   "alt kimchi": -5187.33,
+   "relative crowding 6": 46452.28
   },
   "DOT": {
-   "alt kimchi": -3481.88
+   "alt kimchi": -3458.22
   },
   "DYDX": {},
   "EGLD": {},
   "ENJ": {},
   "ETC": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "ETH": {
-   "trend 4h": 13735.75,
-   "ridge ML": -41639.62,
-   "diversifier basket": -45328.74,
-   "relative crowding 6": 56932.12
+   "trend 4h": 12292.63,
+   "ridge ML": -41356.66,
+   "diversifier basket": -45020.71,
+   "relative crowding 6": 56669.98
   },
   "FIL": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "GALA": {},
   "GRT": {},
@@ -95,24 +95,24 @@
   "KSM": {},
   "LDO": {},
   "LINK": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "LTC": {},
   "MANA": {},
   "NEAR": {
-   "alt kimchi": -3481.88
+   "alt kimchi": -3458.22
   },
   "NEO": {},
   "OP": {},
   "PREDICT": {
-   "listing short": -4938.04
+   "listing short": -4904.48
   },
   "RUNE": {},
   "SAND": {},
   "SNX": {},
   "SOL": {
-   "alt kimchi": -5222.83,
-   "relative crowding 6": -71987.03
+   "alt kimchi": -5187.33,
+   "relative crowding 6": -71510.83
   },
   "STX": {},
   "SUI": {},
@@ -120,18 +120,18 @@
   "THETA": {},
   "TIA": {},
   "TRX": {
-   "alt kimchi": -1740.94
+   "alt kimchi": -1729.11
   },
   "UNI": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "WLD": {},
   "XLM": {
-   "alt kimchi": -5222.83
+   "alt kimchi": -5187.33
   },
   "XRP": {
-   "alt kimchi": -5222.83,
-   "relative crowding 6": 70380.16
+   "alt kimchi": -5187.33,
+   "relative crowding 6": 69731.01
   },
   "XTZ": {},
   "YFI": {},

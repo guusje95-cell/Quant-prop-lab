@@ -1,183 +1,187 @@
 {
- "for_hour_utc": "2026-11-05 15:00:00",
- "made_at_utc": "2026-11-05 16:12:36.667979",
- "data_cutoff_utc": "2026-11-05 15:00:00",
- "equity": 187771.69,
+ "for_hour_utc": "2026-11-05 20:00:00",
+ "made_at_utc": "2026-11-05 20:11:14.542839",
+ "data_cutoff_utc": "2026-11-05 20:00:00",
+ "equity": 191645.14,
  "risk": 2.0,
  "target_notional_usd": {
-  "XRP": -50276.34,
-  "LINK": -28646.11,
-  "LTC": -22151.15,
-  "SOL": -21849.67,
-  "BNB": -15819.46,
-  "ETC": -11559.34,
-  "UNI": -8788.25,
-  "NEAR": -8779.35,
-  "RUNE": -8683.52,
-  "BTC": -8198.65,
-  "DOGE": -6475.8,
-  "ICP": -6279.78,
-  "XTZ": -5774.74,
-  "SNX": -4753.39,
-  "COMP": -2760.35,
-  "FIL": -2429.19,
-  "AAVE": -1503.63,
-  "HBAR": 1789.5,
-  "DASH": 1824.9,
-  "ARB": 2446.56,
-  "SAND": 5226.18,
-  "INJ": 6187.86,
-  "AVAX": 6996.58,
-  "CRV": 7131.04,
-  "APT": 7469.62,
-  "XLM": 9393.66,
-  "EGLD": 9452.81,
-  "MANA": 10091.83,
-  "GRT": 11031.69,
-  "ALGO": 11645.44,
-  "ETH": 11875.44,
-  "BCH": 12023.84,
-  "ADA": 18518.94,
-  "DOT": 26472.71,
-  "US100": 38129.75,
-  "US500": 66260.22
+  "XRP": -51313.46,
+  "LINK": -29237.04,
+  "LTC": -22608.1,
+  "SOL": -22300.4,
+  "BNB": -16145.79,
+  "ETC": -11797.79,
+  "BTC": -11564.09,
+  "UNI": -8969.54,
+  "NEAR": -8960.45,
+  "RUNE": -8862.65,
+  "DOGE": -6609.38,
+  "ICP": -6409.32,
+  "XTZ": -5893.87,
+  "SNX": -4851.45,
+  "COMP": -2817.29,
+  "FIL": -2479.31,
+  "AAVE": -1534.65,
+  "HBAR": 1826.41,
+  "DASH": 1862.55,
+  "ARB": 2497.03,
+  "SAND": 5333.99,
+  "INJ": 6315.5,
+  "AVAX": 7140.91,
+  "CRV": 7278.14,
+  "APT": 7623.71,
+  "XLM": 9587.43,
+  "EGLD": 9647.81,
+  "MANA": 10300.01,
+  "ETH": 10405.36,
+  "GRT": 11259.26,
+  "US30": 11566.56,
+  "ALGO": 11885.67,
+  "BCH": 12271.88,
+  "ADA": 18900.96,
+  "DOT": 27018.8,
+  "US100": 56266.16,
+  "US500": 79193.64
  },
  "by_sleeve_usd": {
   "AAVE": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": 3154.9
+   "alt kimchi": -4754.62,
+   "premium carry BF": 3219.98
   },
   "ADA": {
-   "premium carry": 20018.84,
-   "alt kimchi": -4658.53,
-   "premium carry BF": 3158.63
+   "premium carry": 20431.8,
+   "alt kimchi": -4754.62,
+   "premium carry BF": 3223.78
   },
   "ALGO": {
-   "premium carry BF": 11645.44
+   "premium carry BF": 11885.67
   },
   "APT": {
-   "premium carry BF": 7469.62
+   "premium carry BF": 7623.71
   },
   "ARB": {
-   "premium carry BF": 2446.56
+   "premium carry BF": 2497.03
   },
   "AVAX": {
-   "premium carry": 10009.42,
-   "alt kimchi": -4658.53,
-   "premium carry BF": 1645.69
+   "premium carry": 10215.9,
+   "alt kimchi": -4754.62,
+   "premium carry BF": 1679.64
   },
   "BCH": {
-   "premium carry": 16682.37,
-   "alt kimchi": -4658.53
+   "premium carry": 17026.5,
+   "alt kimchi": -4754.62
   },
   "BNB": {
-   "premium carry BF": -15819.46
+   "premium carry BF": -16145.79
   },
   "BTC": {
-   "premium carry": -22243.16,
-   "trend 4h": 25286.3,
-   "ridge ML": 3862.13,
-   "premium carry BF": -15103.93
+   "premium carry": -22702.0,
+   "trend 4h": 22611.6,
+   "ridge ML": 3941.8,
+   "premium carry BF": -15415.5
   },
   "COMP": {
-   "premium carry BF": -2760.35
+   "premium carry BF": -2817.29
   },
   "CRV": {
-   "premium carry BF": 7131.04
+   "premium carry BF": 7278.14
   },
   "DASH": {
-   "premium carry BF": 1824.9
+   "premium carry BF": 1862.55
   },
   "DOGE": {
-   "premium carry": 3336.47,
-   "alt kimchi": -4658.53,
-   "premium carry BF": -5153.75
+   "premium carry": 3405.3,
+   "alt kimchi": -4754.62,
+   "premium carry BF": -5260.06
   },
   "DOT": {
-   "premium carry": 23355.32,
-   "alt kimchi": -4658.53,
-   "premium carry BF": 7775.92
+   "premium carry": 23837.1,
+   "alt kimchi": -4754.62,
+   "premium carry BF": 7936.32
   },
   "EGLD": {
-   "premium carry BF": 9452.81
+   "premium carry BF": 9647.81
   },
   "ETC": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": -6900.81
+   "alt kimchi": -4754.62,
+   "premium carry BF": -7043.16
   },
   "ETH": {
-   "premium carry": 20018.84,
-   "trend 4h": 16994.25,
-   "ridge ML": -36073.44,
-   "premium carry BF": 10935.79
+   "premium carry": 20431.8,
+   "trend 4h": 15629.76,
+   "ridge ML": -36817.58,
+   "premium carry BF": 11161.38
   },
   "FIL": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": 2229.33
+   "alt kimchi": -4754.62,
+   "premium carry BF": 2275.32
   },
   "GRT": {
-   "premium carry BF": 11031.69
+   "premium carry BF": 11259.26
   },
   "HBAR": {
-   "premium carry BF": 1789.5
+   "premium carry BF": 1826.41
   },
   "ICP": {
-   "premium carry BF": -6279.78
+   "premium carry BF": -6409.32
   },
   "INJ": {
-   "premium carry BF": 6187.86
+   "premium carry BF": 6315.5
   },
   "LINK": {
-   "premium carry": -17794.53,
-   "alt kimchi": -4658.53,
-   "premium carry BF": -6193.06
+   "premium carry": -18161.6,
+   "alt kimchi": -4754.62,
+   "premium carry BF": -6320.81
   },
   "LTC": {
-   "premium carry": -13345.89,
-   "premium carry BF": -8805.26
+   "premium carry": -13621.2,
+   "premium carry BF": -8986.9
   },
   "MANA": {
-   "premium carry BF": 10091.83
+   "premium carry BF": 10300.01
   },
   "NEAR": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": -4120.82
+   "alt kimchi": -4754.62,
+   "premium carry BF": -4205.83
   },
   "RUNE": {
-   "premium carry BF": -8683.52
+   "premium carry BF": -8862.65
   },
   "SAND": {
-   "premium carry BF": 5226.18
+   "premium carry BF": 5333.99
   },
   "SNX": {
-   "premium carry BF": -4753.39
+   "premium carry BF": -4851.45
   },
   "SOL": {
-   "premium carry": -8897.26,
-   "alt kimchi": -4658.53,
-   "premium carry BF": -8293.88
+   "premium carry": -9080.8,
+   "alt kimchi": -4754.62,
+   "premium carry BF": -8464.97
   },
   "UNI": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": -4129.72
+   "alt kimchi": -4754.62,
+   "premium carry BF": -4214.91
   },
   "US100": {
-   "vol-managed indices": 38129.75
+   "vol-managed indices": 56266.16
+  },
+  "US30": {
+   "vol-managed indices": 11566.56
   },
   "US500": {
-   "vol-managed indices": 66260.22
+   "vol-managed indices": 79193.64
   },
   "XLM": {
-   "alt kimchi": -4658.53,
-   "premium carry BF": 14052.18
+   "alt kimchi": -4754.62,
+   "premium carry BF": 14342.06
   },
   "XRP": {
-   "premium carry": -31140.42,
-   "alt kimchi": -4658.53,
-   "premium carry BF": -14477.39
+   "premium carry": -31782.8,
+   "alt kimchi": -4754.62,
+   "premium carry BF": -14776.04
   },
   "XTZ": {
-   "premium carry BF": -5774.74
+   "premium carry BF": -5893.87
   }
  },
  "cascade_limit_orders": [],
