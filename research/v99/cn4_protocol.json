@@ -1,4 +1,16 @@
-{"id": "CN-4", "date": "2026-11-03", "registered": "before computing", "trials_added": 1,
- "why": "the book multiplier (level x 30-day vol target) changes every day, so every coin's position is re-scaled daily: turnover without new information. A band on the multiplier (update only when it moved > 10% from the value in use) removes most of it",
- "change": "bf2.8 net execution with the $1,000 coin band at risk 1.75 (CN-3) + the multiplier band (10%) applied to the daily multiplier before positions are formed",
- "judge": "vs CN-3 (3.173 [1.986, 4.330, 2.608]): >= +0.05 and no period lower; the same rule is then reported for crypto v9.8 (CN-1 setting) without a separate judge"}
+{
+ "id": "CN-4",
+ "registered": "2026-11-05, before any spread statistic from the 30-day BrightFunded tick export was computed",
+ "kind": "execution measurement, 0 alpha trials",
+ "question": "Does bf2.8's cost model (half the BrightFunded MT5 spread snapshot of 2026-10-21, median of 10 samples, + 1.2 bp commission per side) match the spreads actually quoted at the times the book trades?",
+ "data": "research_data/firm_ticks/BrightFunded_Ltd (MT5 COPY_TICKS_INFO, 2026-10-04..2026-11-04; server timestamps verified = UTC by matching BTC mid to Binance 1-minute closes: corr 0.987 at offset 0 h); BTC / ETH full days, other crypto CFDs and indices 23:00-02:00 UTC only",
+ "method": {
+  "spread": "per tick (ask - bid) / mid in bp; per day and window the median",
+  "trade window": "hh:05-hh:15 UTC (the MT5 bridge runs about 10 minutes after the hourly book)",
+  "per coin / hour": "median over days of the window medians; weekday and weekend separately",
+  "hours without ticks (altcoins outside 23-02 UTC)": "the coin's median over its 23:00-02:00 windows excluding 23:55-00:15 ('normal' level)",
+  "cost impact": "rebuild bf2.8's net positions exactly as CN-2; per coin and hour cost = half the tick spread + 1.2 bp; book Sharpe 2022-26 with the CN-2 netted cost replaced by the tick-based netted cost; index CFDs unchanged (1 bp per side)"
+ },
+ "descriptive extras (no adoption)": "spread in 00:15-00:25 / 00:30-00:40 / 01:05-01:15 windows for the 00:00 UTC rebalance (would a later rebalance be cheaper?); any change of the rebalance time needs its own protocol",
+ "decision": "tick-based Sharpe within 0.03 of CN-2's 3.149: the cost model stands. Lower by more: the CFD planning level is cut by the difference and the measured per-coin spreads replace the snapshot in the live cost tables (a coin whose 00:00 spread exceeds 50 bp is flagged for the exclusion rule). Higher: no change to planning (one month of ticks, conservative side)."
+}
