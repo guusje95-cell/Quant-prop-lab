@@ -1,0 +1,14 @@
+{
+ "id": "EX-1b",
+ "registered": "2026-11-10, after EX-1's results (follow-up, FLAGGED as such), before the scenarios below were computed",
+ "kind": "execution design, 0 alpha trials (no signal or parameter changes)",
+ "finding that motivates it": "EX-1: a 15-minute fill delay costs v9.8 2.5% and bf2.8 2.8% of book a year (-0.15 / -0.16 Sharpe); Weiss expiry (1.2 / 1.7%) and trend 4h (0.55 / 0.41%) carry most of it; both decide at FIXED clock times from a few BTC / ETH / SOL prices, so a bot can compute them itself at the hour without the paper run",
+ "scenarios": {
+  "now": "every sleeve filled 15 minutes late (live pipeline: paper run starts ~hh:10, bot pass every 5 minutes)",
+  "fast path": "Weiss expiry and trend 4h filled 5 minutes late (bot computes them itself from exchange prices at the hour; 5 minutes is the coarsest bound the 5-minute data allows), every other sleeve 15 minutes late",
+  "fast path + ridge": "as fast path, plus ridge ML 5 minutes late (it decides once a day at 00:00 UTC)",
+  "all 5 min": "every sleeve 5 minutes late (reference)"
+ },
+ "method": "EX-1 code, per sleeve its own delay (sum of the per-sleeve delay P&L, which equals the net-position delay P&L only when sleeves do not net against each other; the netting error is reported as the 'all 15 min' per-sleeve sum vs EX-1's net figure)",
+ "decision": "fast path gains >= 0.05 Sharpe on BOTH books: build it into the bots (Weiss timer + trend 4h at the 4-hour marks), dry-run first; planning uses the fast-path number only after the dry-run logs show fills within 5 minutes"
+}
