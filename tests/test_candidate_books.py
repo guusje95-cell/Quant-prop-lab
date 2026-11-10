@@ -18,3 +18,13 @@ def test_bf28_book_definition_matches_shadow():
 
 def test_v99_book_uses_erc():
     assert V99.WEIGHTS == "erc" and V99.CANDIDATE.endswith("_erc") and V99.SHRINK == 0.5
+
+
+def test_news_blackout_times_follow_new_york_dst(tmp_path):
+    from qpl.live import news_blackouts as NB
+    html = "2027 FOMC Meetings <div class='fomc-meeting__month'>March</div><div class='fomc-meeting__date'>16-17</div>"
+    t = NB.fomc_times(html)
+    import pandas as pd
+    assert t == [pd.Timestamp("2027-03-17 18:00"), pd.Timestamp("2027-03-17 18:30")]       # EDT after 2027-03-14
+    f = tmp_path / "nb.json"; f.write_text('["2026-12-09 19:00:00"]')
+    assert V.in_blackout(pd.Timestamp("2026-12-09 19:05"), path=f) and not V.in_blackout(pd.Timestamp("2026-12-09 19:10"), path=f)

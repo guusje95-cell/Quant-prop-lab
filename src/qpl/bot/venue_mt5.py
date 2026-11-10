@@ -190,9 +190,13 @@ def main():
     rules = Rules(initial_balance=x.account)
     import importlib
     builder = importlib.import_module(f"qpl.live.{BOOKS[x.candidate][0]}"); x.book = x.book or str(BOOKS[x.candidate][1])
+    from qpl.live import news_blackouts as NB                            # audit A-3: the blackout list did not exist (guard was inactive)
+    nb_at = None
     try:
         while True:
             try:
+                if nb_at is None or pd.Timestamp.now() - nb_at > pd.Timedelta(days=7):
+                    print({"news_blackouts": NB.build()}, flush=True); nb_at = pd.Timestamp.now()
                 builder.build()
                 r = one_pass(mt5, Path(x.book), x.phase, rules, Path(x.state)); heartbeat(Path(x.state), r); print(r, flush=True)
             except Exception as e:                                       # noqa: BLE001 - keep the loop alive

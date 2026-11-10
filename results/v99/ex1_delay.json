@@ -1,0 +1,119 @@
+{
+ "crypto v9.8 (8 non-event sleeves)": {
+  "turnover share with 5-minute data": 1.0,
+  "coins without 5-minute data": [],
+  "base (CN net)": [
+   3.338,
+   [
+    3.092,
+    3.961,
+    2.851
+   ]
+  ],
+  "delay 5 min": [
+   3.247,
+   [
+    3.086,
+    3.875,
+    2.715
+   ]
+  ],
+  "delay 5 min: cost, % of book a year": 1.534,
+  "delay 10 min": [
+   3.198,
+   [
+    3.064,
+    3.812,
+    2.667
+   ]
+  ],
+  "delay 10 min: cost, % of book a year": 2.39,
+  "delay 15 min": [
+   3.186,
+   [
+    3.062,
+    3.758,
+    2.705
+   ]
+  ],
+  "delay 15 min: cost, % of book a year": 2.469,
+  "delay 30 min": [
+   3.165,
+   [
+    3.04,
+    3.708,
+    2.708
+   ]
+  ],
+  "delay 30 min: cost, % of book a year": 3.233,
+  "15 min cost by sleeve (% of book a year, + = cost)": {
+   "C*": 0.134,
+   "trend 4h": 0.547,
+   "Weiss expiry": 1.173,
+   "delev bounce": 0.079,
+   "ridge ML": 0.247,
+   "alt kimchi": 0.023,
+   "diversifier basket": 0.139,
+   "relative crowding 6": 0.127
+  }
+ },
+ "CFD bf2.8 (crypto-CFD sleeves)": {
+  "turnover share with 5-minute data": 1.0,
+  "coins without 5-minute data": [],
+  "base (CN net)": [
+   3.149,
+   [
+    1.928,
+    4.31,
+    2.601
+   ]
+  ],
+  "delay 5 min": [
+   3.045,
+   [
+    1.918,
+    4.237,
+    2.431
+   ]
+  ],
+  "delay 5 min: cost, % of book a year": 1.767,
+  "delay 10 min": [
+   2.991,
+   [
+    1.872,
+    4.157,
+    2.394
+   ]
+  ],
+  "delay 10 min: cost, % of book a year": 2.664,
+  "delay 15 min": [
+   2.985,
+   [
+    1.855,
+    4.104,
+    2.461
+   ]
+  ],
+  "delay 15 min: cost, % of book a year": 2.788,
+  "delay 30 min": [
+   2.964,
+   [
+    1.791,
+    4.066,
+    2.488
+   ]
+  ],
+  "delay 30 min: cost, % of book a year": 3.605,
+  "15 min cost by sleeve (% of book a year, + = cost)": {
+   "C*": 0.088,
+   "trend 4h": 0.412,
+   "Weiss expiry": 1.713,
+   "delev bounce": 0.001,
+   "coinbase premium": 0.002,
+   "ridge ML": 0.219,
+   "alt kimchi": 0.068,
+   "rc6 CFD": 0.17,
+   "basket CFD": 0.116
+  }
+ }
+}
