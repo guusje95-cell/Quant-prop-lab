@@ -1,0 +1,8 @@
+{
+ "id": "VAL-8",
+ "registered": "2026-11-10, before computing; prompted by WS-1 (the research checks the daily stop on hourly closes only)",
+ "kind": "validation, descriptive, 0 trials",
+ "question": "How do the daily stop (flat for the day at -2.5% of the account) and the firm's 5% daily limit behave when equity is watched every 5 minutes instead of every hour? (more stop-outs at intrahour lows that later recover; breaches between hourly closes)",
+ "method": "net positions per coin and hour exactly as CN-1 (crypto v9.8, 8 non-event sleeves, x v98_scale, risk 1.5 and 2.0) and CN-2 (bf2.8 crypto-CFD sleeves, risk 1.75); gross account P&L per 5-minute bar = position of the hour x Binance perp 5-minute close-to-close return (no costs / funding: only the path matters, both monitoring rules see the same P&L); day = UTC; rule A: stop checked on hourly closes; rule B: on 5-minute closes; after a stop the day's remaining P&L is zero, exit 10 bp on the gross. Reported: Sharpe of the daily returns, annual return, stop days, worst day, days with a 5-minute close at or below -5% (firm breach) with and without the stop, and the same using each bar's adverse extreme per coin (upper bound, extremes are not simultaneous).",
+ "use": "if rule B is worse than rule A by more than 0.05 Sharpe or shows breach days that A does not: the prop simulations (H2 / H3) are re-run on the 5-minute path before any challenge is bought, and the stop level is reviewed in a separate pre-registered test; otherwise recorded as checked"
+}
