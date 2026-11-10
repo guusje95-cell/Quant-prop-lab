@@ -1,0 +1,15 @@
+{
+ "id": "WS-1",
+ "registered": "2026-11-10, after a first descriptive look at the Weiss trades' 1-minute paths (EX-1c data: at today's multipliers the Weiss legs are ~2.8x equity at HyroTrader risk 1.5 and ~3.6x at BrightFunded risk 1.75; intratrade the legs alone were below -2.5% of the account on 6 / 11 of 57 days and below -5% on 0 / 2). FLAGGED: risk design after seeing those counts; the grid and the rule below were fixed before any book-level number was computed.",
+ "kind": "risk sizing under the firms' daily-loss rule; counts as 6 trials (cap grid)",
+ "gap": "the research books the whole Weiss trade (both legs, both fees) in the 10:00 UTC bar, so the hourly daily-stop logic (flat for the day at -2.5% of the account; firm limit 5% on equity incl. floating P&L) never sees the path between 08:00 and 10:00. Live, the bots check equity every few minutes, so a mean-reverting trade of 3-4x equity is stopped at its low and the firm's 5% limit can be hit inside the trade.",
+ "books": {
+  "HyroTrader": "v9.9e (13 sleeves, ERC shrink 0.5, v98_scale) at risk 1.5",
+  "BrightFunded": "bf2.8 (CN-2 construction, Weiss full weight) at risk 1.75, research cap 4x on the Weiss gross"
+ },
+ "method": "daily account path 2022-01..2026-09: hourly non-Weiss P&L (book minus the Weiss term) with the 2.5% daily stop on hourly closes (as the research); on the 57 Weiss days the hours 08-10 UTC are replaced by the 1-minute path of the Weiss legs (entry 08:01 open = the timer, exit 10:00 open; Hyro 5 bp per side, BrightFunded BTC 1.6 / ETH 3.9 bp per side from CN-4) plus the non-Weiss P&L interpolated linearly; daily stop checked every 1 minute (primary; 5 and 60 minutes shown), stop exit 10 bp on the Weiss gross + 1.5x equity; firm breach = equity incl. the bars' adverse extremes <= -5% before the stop. Weiss exposure E (x equity) = weight x multiplier x scale x risk, capped at K.",
+ "grid": "K = research (no cap for Hyro, 4.0 for BrightFunded), 3.0, 2.5, 2.0, 1.5, 1.0, 0.5, 0 (no Weiss)",
+ "metrics": "Sharpe of the daily account returns 2022-26 and by period, annual return, worst day, stop days, breach days, worst intraday equity; reference row: the research view (Weiss booked at 10:00, hourly stop)",
+ "decision": "per book: K* = the cap with the highest full-period Sharpe at 1-minute monitoring among the caps with zero breach days and worst intraday equity above -4%; if the next smaller cap is within 0.03 Sharpe, take the smaller. K* goes into the Weiss timer of the bots (cap in x equity at the account's risk) and the planning levels use the K* row. If K* = research, nothing changes.",
+ "descriptive extra (no adoption)": "a Weiss-only stop (legs closed at -1.25% of the account, book continues) at the research size and at K*"
+}
