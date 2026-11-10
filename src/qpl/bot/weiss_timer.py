@@ -13,8 +13,9 @@ import pandas as pd
 WEISS = "Weiss expiry"
 COINS = ("BTC", "ETH")
 WAITING = "waiting for the 08:00 prices"
-CAP_X_EQUITY = {"hyro": 1.5, "bf": 2.5, "propr": 1.5}   # WS-1 (2026-11-10): cap on the Weiss gross in x account equity (the sleeve's
-                                                          # vol-target multiplier let it reach 6.4x equity in 2022-26); Propr: Hyro's value
+CAP_X_EQUITY = {"hyro": 1.0, "bf": 1.0, "propr": 1.0}   # cap on the Weiss gross in x account equity. WS-1 (2022-26): 1.5x / 2.5x cost no
+                                                          # Sharpe; WS-1b (unseen 2020-21 days): at 1.5x one day fell through the 5% daily
+                                                          # limit inside a minute despite the emergency stop, at 1.0x none -> 1.0x for all
 ENTRY_MAX_MIN = 30                       # later than 08:30 the timer leaves the trade to the hourly book (no late chase)
 
 
