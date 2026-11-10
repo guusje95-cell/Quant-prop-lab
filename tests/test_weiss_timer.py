@@ -64,3 +64,13 @@ def test_mt5_prices_need_the_current_bar():
     assert f("BTC") == (100.0, 101.0)
     m.copy_rates_from_pos = lambda s, tf, a, n: [{"time": t7 - 3600, "open": 99.0}, {"time": t7, "open": 100.0}]   # 08:00 bar not there yet
     assert f("BTC") is None
+
+
+def test_propr_bot_uses_the_timer(tmp_path):
+    from qpl.bot import venue_propr as P
+    p = tmp_path / "b.json"; p.write_text(json.dumps(_book({"SOL": 20000.0})))
+    meta = {"BTC": {"sz": 5, "px": 60000.0}, "ETH": {"sz": 4, "px": 3000.0}, "SOL": {"sz": 2, "px": 150.0}}
+    lim = {"defaults": {"crypto": 2}, "overrides": {"BTC": 10, "ETH": 10, "SOL": 10}}
+    px = {"BTC": (100.0, 99.0), "ETH": (50.0, 51.0)}
+    r = P.one_pass(None, meta, lim, p, Rules(initial_balance=100_000.0), tmp_path / "st", now=pd.Timestamp("2026-11-27 08:00:04", tz="UTC"), prices=px.get)
+    assert r["weiss_timer"]["side"] == {"BTC": 1.0, "ETH": -1.0}

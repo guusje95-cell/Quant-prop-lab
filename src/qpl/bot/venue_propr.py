@@ -23,6 +23,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+from qpl.bot import weiss_timer as WT
 from qpl.bot.adapters import Adapter
 from qpl.bot.planner import plan_orders, scaled_targets
 from qpl.bot.risk import Guard
@@ -141,7 +142,20 @@ class ProprDryRun(Adapter):
         return out
 
 
-def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, now: pd.Timestamp | None = None) -> dict:
+def hl_weiss_prices(coin: str):
+    """(open of the 07:00 UTC 1h candle, open of the 08:00 UTC 1h candle) on Hyperliquid (public info endpoint, no key); None if missing"""
+    try:
+        end = pd.Timestamp.now(tz="UTC").floor("h"); st = end - pd.Timedelta(hours=1)
+        r = requests.post("https://api.hyperliquid.xyz/info", json={"type": "candleSnapshot", "req": {"coin": coin, "interval": "1h",
+                          "startTime": int(st.timestamp() * 1000), "endTime": int(end.timestamp() * 1000) + 1}}, timeout=10).json()
+        c = {pd.Timestamp(int(x["t"]), unit="ms"): float(x["o"]) for x in r}
+        t8 = end.tz_localize(None); t7 = t8 - pd.Timedelta(hours=1)
+        return (c[t7], c[t8]) if t8.hour == 8 and t7 in c and t8 in c else None
+    except Exception:                                                    # noqa: BLE001 - no timer; the book still carries Weiss
+        return None
+
+
+def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, now: pd.Timestamp | None = None, prices=hl_weiss_prices) -> dict:
     now = now or pd.Timestamp.now("UTC"); s = load_state(sdir); book = read_json(book_path)
     if book is None:                                                        # missing / truncated book file
         res = {'time': str(now), 'action': 'book unreadable: holding'}
@@ -153,7 +167,11 @@ def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, no
     ad = ProprDryRun(reader, s, meta, rules.initial_balance)
     s["equity"] = float(book["equity"]) * rules.initial_balance / 200_000.0
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "venue": "propr dry-run"}
-    bid = f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}"
+    if prices is not None:                                                  # EX-1c Weiss timer (08:00:0x / 10:00:0x UTC, market)
+        book, winfo = WT.apply(book, now, prices, s)
+        if winfo:
+            res["weiss_timer"] = winfo
+    bid = f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}|weiss:{book.get('weiss_overlay')}"
     if g.killed():
         res["action"] = "kill switch: flatten"; log_orders(sdir, [dict(r, time=str(now), reason="kill") for r in ad.flatten()])
     elif g.daily_stop_hit(eq):
@@ -173,7 +191,8 @@ def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, no
         orders = plan_orders(tg, ad.positions(), rules.band_usd * 0.5, rules.min_order_usd); fills = []      # $100k account: half the band
         lim = rules.limit_minutes_daily if pd.Timestamp(book["for_hour_utc"]).hour == 0 else rules.limit_minutes
         for o in orders:
-            f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, lim)
+            urgent = bool(book.get("weiss_overlay")) and o["coin"] in WT.COINS
+            f = ad.place_market(o["coin"], o["usd"]) if (o["close"] or urgent) else ad.place_limit(o["coin"], o["usd"], None, lim)
             fills.append(dict(o, **f, time=str(now), for_hour=book["for_hour_utc"]))
         log_orders(sdir, fills); s["last_book"] = bid
         res.update(action=f"{len(orders)} orders", orders=len(orders), skipped=sum("skipped" in f.get("how", "") for f in fills),
@@ -198,7 +217,7 @@ def main():
             heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
         if not x.loop:
             break
-        time.sleep(300)
+        time.sleep(WT.sleep_seconds(pd.Timestamp.now(tz="UTC")))
 
 
 if __name__ == "__main__":
