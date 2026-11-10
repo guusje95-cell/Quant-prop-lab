@@ -93,3 +93,22 @@ def test_weiss_legs_trade_even_when_the_hourly_book_is_old(tmp_path):
     pos = json.loads((st / "state.json").read_text())["positions"]; assert pos["BTC"] < 0 and pos["ETH"] < 0
     r = RV.one_pass(p, "challenge", Rules(), st, now=pd.Timestamp("2026-11-27 10:00:03", tz="UTC"), prices=px.get)   # exit, book 3 h old
     pos = json.loads((st / "state.json").read_text())["positions"]; assert abs(pos.get("BTC", 0)) < 1 and abs(pos.get("ETH", 0)) < 1
+
+
+def test_cap_on_the_weiss_gross():
+    assert WT.cap_factor(2.0, 1.5, 1.5) == 0.5 and WT.cap_factor(0.8, 1.5, 1.5) == 1.0 and WT.cap_factor(2.0, None, 1.5) == 1.0
+    px = {"BTC": (100.0, 101.0), "ETH": (50.0, 51.0)}
+    b, info = WT.apply(_book({}, m=2.0), pd.Timestamp("2026-11-27 08:00:03"), px.get, {}, account_risk=1.5, cap_x_equity=1.5)
+    full = 2.0 * 200000.0 * 2.0 / 2
+    assert info["cap"] == 0.5 and np.isclose(b["target_notional_usd"]["BTC"], -full * 0.5)
+    # at the account: |BTC| + |ETH| scaled to equity x risk 1.5 = 1.5 x equity
+    k = (100000.0 * 1.5) / (200000.0 * 2.0); gross = sum(abs(v) for v in b["target_notional_usd"].values()) * k
+    assert np.isclose(gross, 1.5 * 100000.0)
+    # timer missed: the hourly book's own Weiss part is capped too
+    bk = _book({"BTC": -full, "ETH": -full}, by={"BTC": {"Weiss expiry": -full}, "ETH": {"Weiss expiry": -full}}, m=2.0, hour="2026-11-27 08:00:00")
+    b2, i2 = WT.apply(bk, pd.Timestamp("2026-11-27 08:40"), px.get, {}, account_risk=1.5, cap_x_equity=1.5)
+    assert np.isclose(b2["target_notional_usd"]["BTC"], -full * 0.5) and i2["cap"] == 0.5
+
+
+def test_loop_checks_every_30s_while_the_legs_are_open():
+    assert WT.sleep_after({}, pd.Timestamp("2026-11-27 08:30")) == 30.0 and WT.sleep_after({}, pd.Timestamp("2026-11-27 12:30")) == 300.0

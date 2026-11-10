@@ -1,0 +1,74 @@
+{
+ "C*": {
+  "cost 15 min %/yr": 0.136,
+  "t(15 min cost)": 1.37,
+  "gain 15->3 %/yr": -0.065,
+  "t(gain 15->3)": -0.69,
+  "gain 15->1 %/yr": -0.016,
+  "t(gain 15->1)": -0.17
+ },
+ "trend 4h": {
+  "cost 15 min %/yr": 0.546,
+  "t(15 min cost)": 3.04,
+  "gain 15->3 %/yr": -0.067,
+  "t(gain 15->3)": -0.41,
+  "gain 15->1 %/yr": 0.194,
+  "t(gain 15->1)": 1.23
+ },
+ "Weiss expiry": {
+  "cost 15 min %/yr": 1.174,
+  "t(15 min cost)": 2.4,
+  "gain 15->3 %/yr": 0.295,
+  "t(gain 15->3)": 0.75,
+  "gain 15->1 %/yr": 0.769,
+  "t(gain 15->1)": 1.78
+ },
+ "delev bounce": {
+  "cost 15 min %/yr": 0.079,
+  "t(15 min cost)": 0.18,
+  "gain 15->3 %/yr": 0.078,
+  "t(gain 15->3)": 0.21,
+  "gain 15->1 %/yr": 0.103,
+  "t(gain 15->1)": 0.22
+ },
+ "ridge ML": {
+  "cost 15 min %/yr": 0.246,
+  "t(15 min cost)": 1.36,
+  "gain 15->3 %/yr": 0.147,
+  "t(gain 15->3)": 0.85,
+  "gain 15->1 %/yr": 0.163,
+  "t(gain 15->1)": 0.92
+ },
+ "alt kimchi": {
+  "cost 15 min %/yr": 0.014,
+  "t(15 min cost)": 0.07,
+  "gain 15->3 %/yr": 0.354,
+  "t(gain 15->3)": 2.1,
+  "gain 15->1 %/yr": 0.238,
+  "t(gain 15->1)": 1.21
+ },
+ "diversifier basket": {
+  "cost 15 min %/yr": 0.139,
+  "t(15 min cost)": 1.61,
+  "gain 15->3 %/yr": 0.209,
+  "t(gain 15->3)": 2.68,
+  "gain 15->1 %/yr": 0.156,
+  "t(gain 15->1)": 1.91
+ },
+ "relative crowding 6": {
+  "cost 15 min %/yr": 0.131,
+  "t(15 min cost)": 1.02,
+  "gain 15->3 %/yr": 0.059,
+  "t(gain 15->3)": 0.5,
+  "gain 15->1 %/yr": 0.043,
+  "t(gain 15->1)": 0.34
+ },
+ "ALL non-Weiss, 15 -> 3 min": {
+  "gain %/yr": 0.716,
+  "t": 1.28
+ },
+ "NET book 15 min cost": {
+  "%/yr": 2.465,
+  "t": 3.04
+ }
+}

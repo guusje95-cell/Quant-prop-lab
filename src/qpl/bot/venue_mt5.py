@@ -169,7 +169,8 @@ def one_pass(mt5, book_path: Path, phase: str, rules: Rules, sdir: Path, now: pd
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "venue": "mt5 dry-run"}
     winfo = None
     if weiss:                                                                # EX-1c: Weiss trade at 08:00:0x / 10:00:0x UTC, not with the book
-        book, winfo = WT.apply(book, now, mt5_weiss_prices(mt5, symbol_map(mt5), now), s)
+        book, winfo = WT.apply(book, now, mt5_weiss_prices(mt5, symbol_map(mt5), now), s,
+                               account_risk=rules.risk_challenge if phase == "challenge" else rules.risk_funded, cap_x_equity=WT.CAP_X_EQUITY["bf"])
         if winfo:
             res["weiss_timer"] = winfo
     bid = f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}|weiss:{book.get('weiss_overlay')}"

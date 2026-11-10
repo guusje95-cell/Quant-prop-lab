@@ -108,7 +108,8 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
     s["equity"] = float(book["equity"]) * rules.initial_balance / 200_000.0          # dry-run equity follows the v9.8 paper account
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "book": "v99cand"}
     if prices is not None:                                                  # EX-1c: Weiss legs at 08:00:0x / 10:00:0x UTC
-        book, winfo = WT.apply(book, now, prices, s)
+        book, winfo = WT.apply(book, now, prices, s, account_risk=rules.risk_challenge if phase == "challenge" else rules.risk_funded,
+                               cap_x_equity=WT.CAP_X_EQUITY["hyro"])
         if winfo:
             res["weiss_timer"] = winfo
     if g.killed():

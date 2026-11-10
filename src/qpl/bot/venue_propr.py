@@ -168,7 +168,7 @@ def one_pass(reader, meta, limits, book_path: Path, rules: Rules, sdir: Path, no
     s["equity"] = float(book["equity"]) * rules.initial_balance / 200_000.0
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "venue": "propr dry-run"}
     if prices is not None:                                                  # EX-1c Weiss timer (08:00:0x / 10:00:0x UTC, market)
-        book, winfo = WT.apply(book, now, prices, s)
+        book, winfo = WT.apply(book, now, prices, s, account_risk=1.0, cap_x_equity=WT.CAP_X_EQUITY["propr"])
         if winfo:
             res["weiss_timer"] = winfo
     bid = f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}|weiss:{book.get('weiss_overlay')}"

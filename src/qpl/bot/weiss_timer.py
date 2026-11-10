@@ -13,6 +13,8 @@ import pandas as pd
 WEISS = "Weiss expiry"
 COINS = ("BTC", "ETH")
 WAITING = "waiting for the 08:00 prices"
+CAP_X_EQUITY = {"hyro": 1.5, "bf": 2.5, "propr": 1.5}   # WS-1 (2026-11-10): cap on the Weiss gross in x account equity (the sleeve's
+                                                          # vol-target multiplier let it reach 6.4x equity in 2022-26); Propr: Hyro's value
 ENTRY_MAX_MIN = 30                       # later than 08:30 the timer leaves the trade to the hourly book (no late chase)
 
 
@@ -67,13 +69,23 @@ def active(book: dict) -> bool:
 
 
 def sleep_after(res: dict | None, now: pd.Timestamp, default: float = 300.0) -> float:
-    """loop sleep: 5 s while the timer waits for the 08:00 prices, else until the next Weiss event or the default interval"""
+    """loop sleep: 5 s while the timer waits for the 08:00 prices; 30 s while the Weiss legs are open (WS-1: the daily stop must be
+    watched inside the trade); else until the next Weiss event or the default interval"""
     if isinstance(res, dict) and (res.get("weiss_timer") or {}).get("weiss") == WAITING:
         return 5.0
+    if phase(now) == "hold":
+        return min(30.0, sleep_seconds(now, default))
     return sleep_seconds(now, default)
 
 
-def apply(book: dict, now: pd.Timestamp, prices, state: dict) -> tuple[dict, dict | None]:
+def cap_factor(m: float, account_risk: float | None, cap_x_equity: float | None) -> float:
+    """scale for the Weiss part so that its gross (|m| x account risk, in x equity) stays <= the cap"""
+    if not cap_x_equity or not account_risk or not m:
+        return 1.0
+    return float(min(1.0, cap_x_equity / (abs(float(m)) * float(account_risk))))
+
+
+def apply(book: dict, now: pd.Timestamp, prices, state: dict, account_risk: float | None = None, cap_x_equity: float | None = None) -> tuple[dict, dict | None]:
     """book with its Weiss part replaced by the timer's (state['weiss'] keeps the sides for the day). Returns (book, info or None).
     prices(coin) -> (open_0700, price_0800) or None."""
     ph = phase(now)
@@ -84,7 +96,14 @@ def apply(book: dict, now: pd.Timestamp, prices, state: dict) -> tuple[dict, dic
     w = state.get("weiss") if (state.get("weiss") or {}).get("day") == day else None
     if ph == "hold" and w is None:
         if n - n.normalize() > pd.Timedelta(hours=8, minutes=ENTRY_MAX_MIN):
-            return book, {"weiss": "entry window missed: left to the hourly book"}
+            f = cap_factor(m, account_risk, cap_x_equity)               # no timer entry: the hourly book's Weiss part, but capped
+            tgt = dict(book.get("target_notional_usd") or {}); by = book.get("by_sleeve_usd") or {}
+            for c in COINS:
+                cur = float((by.get(c) or {}).get(WEISS, 0.0))
+                if cur and f < 1.0:
+                    tgt[c] = round(tgt.get(c, 0.0) - cur * (1.0 - f), 2)
+            b2 = dict(book, target_notional_usd=tgt, weiss_overlay={"phase": "book", "cap": round(f, 4)}) if f < 1.0 else book
+            return b2, {"weiss": "entry window missed: left to the hourly book", "cap": round(f, 4)}
         side = {}
         for c in COINS:
             p = prices(c)
@@ -95,14 +114,14 @@ def apply(book: dict, now: pd.Timestamp, prices, state: dict) -> tuple[dict, dic
         w = {"day": day, "side": side, "entry_utc": str(n)}; state["weiss"] = w
     if w is None:                                             # exit phase without a timer entry today: nothing to override
         return book, None
-    eqr = float(book["equity"]) * float(book["risk"])
+    eqr = float(book["equity"]) * float(book["risk"]); f = cap_factor(m, account_risk, cap_x_equity)
     tgt = dict(book.get("target_notional_usd") or {}); by = book.get("by_sleeve_usd") or {}
     for c in COINS:
         cur = float((by.get(c) or {}).get(WEISS, 0.0))
-        new = (w["side"].get(c, 0.0) / len(COINS)) * float(m) * eqr if ph == "hold" else 0.0
+        new = (w["side"].get(c, 0.0) / len(COINS)) * float(m) * f * eqr if ph == "hold" else 0.0
         v = tgt.get(c, 0.0) - cur + new
         if abs(v) > 1e-6:
             tgt[c] = round(v, 2)
         else:
             tgt.pop(c, None)
-    return dict(book, target_notional_usd=tgt, weiss_overlay={"phase": ph, "side": w["side"]}), {"weiss": ph, "side": w["side"]}
+    return dict(book, target_notional_usd=tgt, weiss_overlay={"phase": ph, "side": w["side"], "cap": round(f, 4)}), {"weiss": ph, "side": w["side"], "cap": round(f, 4)}
