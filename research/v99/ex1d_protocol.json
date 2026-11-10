@@ -1,0 +1,8 @@
+{
+ "id": "EX-1d",
+ "registered": "2026-11-10, before computing; extends EX-1 to the index CFD sleeve that EX-1 left out (FLAGGED follow-up)",
+ "kind": "execution measurement, 0 alpha trials",
+ "question": "bf2.8's 'vol-managed indices' sleeve (P6 at the day boundary, R1 entered after the 13:00 ET bar = 14:00 ET, P1 after the 15:00 ET bar = 16:00 ET) is filled at the hour in research but reaches the MT5 bridge ~15 minutes later. What does that cost bf2.8?",
+ "method": "positions from scripts/index_sleeve.sleeve on the research index (2021-06..2026-09), scaled by bf2.8's sleeve multiplier (CN-2's portfolio_v5 run, Weiss full); delayed fill = Dukascopy 5-minute BID close d minutes after the hour (d = 5, 15, 30); extra P&L = -dp x (P(t+d) / P(t) - 1); added to the CN-2 net book (crypto delay not included, so the effect is isolated)",
+ "decision": "15-minute cost > 0.03 Sharpe: the MT5 bridge gets an index timer (R1 / P1 orders computed from the terminal's own bars at 14:00:0x / 16:00:0x ET); otherwise no change"
+}
