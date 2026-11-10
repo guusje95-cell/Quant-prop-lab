@@ -35,11 +35,13 @@ Alles wat hier staat is voor het moment dat een paper-gate geslaagd is EN jij ak
 
 ## 1. HyroTrader (crypto v9.9e) - prioriteit 1
 - Account: Two-Step $200K (Hyro-platform; live Bybit-data, geen Bybit-account nodig).
-- Risico **1.75**, daily stop **0.5** van de 5%-limiet (bot: 2,5% van het startsaldo) - H1/H3.
+- Risico **1.5** (H3: met ERC-weging is 1,5 de robuuste keuze; 1,75 alleen bij een duidelijk betere start), daily stop **0.5** van de
+  5%-limiet (bot: 2,5% van het startsaldo).
 - Regels om op te letten: low-cap/Innovation-coins samen <= 4,5% van het startsaldo (de bot capt dit al), funded notional <= 2x
   (bot: 1,9x), 5% daily / 10% max loss.
 - Bot: `bot_v99_dryrun.bat` nu; live pas met de echte Hyro-adapter (wacht op jouw `tools.json` van `hyro_probe.bat`).
-- Verwachting (planning ~2,05): ~EUR 86-89k gemiddeld over 2 jaar, kans op verlies ~6% (simulatie, geen garantie).
+- Verwachting (planning ~2,05 in de backtest; **~1,9 met de echte live-vertraging, ~1,95 met de Weiss-timer**, EX-1/EX-1c):
+  ~EUR 80-86k gemiddeld over 2 jaar, kans op verlies ~6-7% (simulatie, geen garantie).
 
 ## 2. Propr (crypto, Hyperliquid) - prioriteit 2
 - Account: $100K; risico **1.0** (trailing drawdown!).
@@ -53,8 +55,20 @@ Alles wat hier staat is voor het moment dat een paper-gate geslaagd is EN jij ak
 - Risico **1.75**, daily stop **0.5** (H2).
 - Regels: crypto-CFD hefboom 1:5 (bot capt), geen orders binnen +-6 min rond rood nieuws (`config/news_blackouts.json` bijhouden),
   weekend aanhouden toegestaan.
-- Bot: `bot_bf27_mt5_dryrun.bat` (MT5 ingelogd laten). Kosten: netto handelen + band ($1.000) zitten erin.
-- Verwachting (planning ~1,55): ~EUR 50-55k over 2 jaar per account, kans op verlies ~13-16%.
+- Bot: `bot_bf27_mt5_dryrun.bat` (MT5 ingelogd laten; handelt sinds 2026-11-10 het **bf2.8**-boek). Kosten: netto handelen + band
+  ($1.000) en de echte BrightFunded-spreads (CN-4) zitten erin.
+- Verwachting (planning ~1,55 in de backtest; **~1,4 met de live-vertraging, ~1,45 met de Weiss-timer**): ~EUR 45-50k over 2 jaar
+  per account, kans op verlies ~15-18%.
+
+## Audit 2026-11-10: nieuwe punten
+- [ ] **Weiss-timer** (laatste vrijdag van de maand, 08:00:0x en 10:00:0x UTC, marktorders): in de dry-run-logs controleren dat de
+      orders binnen ~1 minuut na 08:00 en 10:00 staan (`weiss_timer` in de bot-uitvoer). De eerstvolgende: vrijdag 27 november 2026.
+- [ ] **Nieuwsblokkades**: `config/news_blackouts.json` wordt nu automatisch gevuld met FOMC (14:00 en 14:30 ET). CPI en
+      banencijfers (08:30 ET) met de hand toevoegen in `config/news_manual.json` vanuit de BrightFunded-nieuwskalender.
+- [ ] **Snellere live-boekbouwer** (open): de paper-run start om hh:06 en het boek is er pas rond hh:12-15. Elk kwartier
+      vertraging kost ~0,15 Sharpe (EX-1), waarvan de Weiss-timer ~0,05-0,07 terugwint. Een live-boekbouwer die om hh:00:30 rekent,
+      zou nog ~0,06 per boek winnen. Bouwen vóór de eerste live-maand, eerst naast de paper valideren.
+- [x] Bots handelen de juiste kandidaten: MT5 = bf2.8, Hyro/Propr = v9.9e met ERC-weging (was bf2.7 en inverse-vol).
 
 ## Later en klein: dagelijks-vlak index-boek (Topstep / FTMO / FundedNext / The5ers)
 - Pas na 2-3 maanden dry-run (`bot_dailyflat_mt5_dryrun.bat`, op een MT5-demo).
