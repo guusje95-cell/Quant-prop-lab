@@ -1,0 +1,66 @@
+"""EX-1c Weiss timer: day / phase logic, sizing like the paper book, override of the book's Weiss part, entry window, bot integration."""
+import json
+from types import SimpleNamespace as NS
+
+import numpy as np
+import pandas as pd
+
+from qpl.bot import runner_v99 as RV
+from qpl.bot import venue_mt5 as V
+from qpl.bot import weiss_timer as WT
+from qpl.bot.rules import Rules
+from tests.test_mt5_bridge import FakeMT5
+
+
+def _book(tg, by=None, m=2.0, hour="2026-11-27 07:00:00", made="2026-11-27 07:12:00"):
+    return {"for_hour_utc": hour, "made_at_utc": made, "equity": 200000.0, "risk": 2.0, "target_notional_usd": tg,
+            "by_sleeve_usd": by or {}, "sleeve_multipliers": {"Weiss expiry": m}, "lowcap_sleeves": []}
+
+
+def test_days_and_phases():
+    assert WT.is_weiss_day(pd.Timestamp("2026-11-27")) and not WT.is_weiss_day(pd.Timestamp("2026-11-20"))
+    assert WT.phase(pd.Timestamp("2026-11-27 08:00:03")) == "hold" and WT.phase(pd.Timestamp("2026-11-27 10:00:03")) == "exit"
+    assert WT.phase(pd.Timestamp("2026-11-27 07:59")) is None and WT.phase(pd.Timestamp("2026-11-26 08:30")) is None
+    assert WT.next_event(pd.Timestamp("2026-11-10 12:00")) == pd.Timestamp("2026-11-27 08:00")
+    assert WT.sleep_seconds(pd.Timestamp("2026-11-27 07:58:00")) == 123.0 and WT.sleep_seconds(pd.Timestamp("2026-11-10")) == 300.0
+
+
+def test_entry_override_and_exit():
+    st = {}
+    px = {"BTC": (100.0, 101.0), "ETH": (50.0, 49.0)}                       # BTC up -> short, ETH down -> long
+    b, info = WT.apply(_book({"BTC": 1000.0}), pd.Timestamp("2026-11-27 08:00:03"), px.get, st)
+    k = 2.0 * 200000.0 * 2.0 / 2                                             # multiplier x equity x risk x 1/2 per coin
+    assert info["side"] == {"BTC": -1.0, "ETH": 1.0} and np.isclose(b["target_notional_usd"]["BTC"], 1000.0 - k)
+    assert np.isclose(b["target_notional_usd"]["ETH"], k)
+    # the hourly book arrives with the Weiss part already in it: replaced, not doubled
+    bk = _book({"BTC": 1000.0 - k, "ETH": k}, by={"BTC": {"Weiss expiry": -k}, "ETH": {"Weiss expiry": k}}, hour="2026-11-27 08:00:00")
+    b2, _ = WT.apply(bk, pd.Timestamp("2026-11-27 08:15"), lambda c: None, st)
+    assert np.isclose(b2["target_notional_usd"]["BTC"], 1000.0 - k) and np.isclose(b2["target_notional_usd"]["ETH"], k)
+    b3, i3 = WT.apply(bk, pd.Timestamp("2026-11-27 10:00:03"), lambda c: None, st)       # exit: Weiss part to zero at once
+    assert i3["weiss"] == "exit" and np.isclose(b3["target_notional_usd"]["BTC"], 1000.0) and "ETH" not in b3["target_notional_usd"]
+
+
+def test_late_start_leaves_it_to_the_book():
+    b, info = WT.apply(_book({"BTC": 5.0}), pd.Timestamp("2026-11-27 08:45"), lambda c: (1.0, 2.0), {})
+    assert info["weiss"].startswith("entry window missed") and b["target_notional_usd"] == {"BTC": 5.0}
+
+
+def test_runner_sends_weiss_at_market(tmp_path):
+    p = tmp_path / "b.json"; p.write_text(json.dumps(_book({"SOL": 20000.0})))
+    st = tmp_path / "st"; px = {"BTC": (100.0, 101.0), "ETH": (50.0, 51.0)}
+    r = RV.one_pass(p, "challenge", Rules(), st, now=pd.Timestamp("2026-11-27 08:00:03", tz="UTC"), prices=px.get)
+    assert r["weiss_timer"]["side"] == {"BTC": -1.0, "ETH": -1.0}
+    import csv
+    rows = list(csv.DictReader(open(st / "orders_log.csv")))
+    assert {x["coin"] for x in rows if "market" in x.get("how", "").lower()} >= {"BTC", "ETH"}
+
+
+def test_mt5_prices_need_the_current_bar():
+    m = FakeMT5(); m.TIMEFRAME_H1 = 16385
+    t8, t7 = int(pd.Timestamp("2026-11-27 08:00").timestamp()), int(pd.Timestamp("2026-11-27 07:00").timestamp())
+    m.copy_rates_from_pos = lambda s, tf, a, n: [{"time": t7, "open": 100.0}, {"time": t8, "open": 101.0}]
+    m.symbol_info_tick = lambda s: NS(bid=1, ask=1, time=t8 + 3)
+    f = V.mt5_weiss_prices(m, {"BTC": "BTC/USD"}, pd.Timestamp("2026-11-27 08:00:03"))
+    assert f("BTC") == (100.0, 101.0)
+    m.copy_rates_from_pos = lambda s, tf, a, n: [{"time": t7 - 3600, "open": 99.0}, {"time": t7, "open": 100.0}]   # 08:00 bar not there yet
+    assert f("BTC") is None

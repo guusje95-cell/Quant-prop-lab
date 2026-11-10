@@ -21,6 +21,7 @@ from pathlib import Path
 import pandas as pd
 
 from qpl.bot import adapters
+from qpl.bot import weiss_timer as WT
 from qpl.bot.planner import apply_cap, plan_orders, scaled_targets
 from qpl.bot.risk import Guard
 from qpl.bot.rules import Rules
@@ -49,7 +50,7 @@ def cap_lowcap(targets: dict[str, float], book: dict, per_coin_usd: float, total
 
 
 def book_id(book: dict) -> str:
-    return f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}"
+    return f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}|weiss:{book.get('weiss_overlay')}"
 
 
 def refresh_book(log=print) -> dict | None:
@@ -77,7 +78,21 @@ def refresh_book(log=print) -> dict | None:
     return VB.build()
 
 
-def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name: str = "dryrun", now: pd.Timestamp | None = None) -> dict:
+def bybit_weiss_prices(coin: str):
+    """(open of the 07:00 1h bar, open of the 08:00 1h bar) of the Bybit USDT perp (public market data, no key); None if not available"""
+    import urllib.request
+    try:
+        u = f"https://api.bybit.com/v5/market/kline?category=linear&symbol={coin}USDT&interval=60&limit=2"
+        rows = json.loads(urllib.request.urlopen(u, timeout=10).read())["result"]["list"]           # newest first
+        if pd.Timestamp(int(rows[0][0]), unit="ms").hour != 8:
+            return None
+        return float(rows[1][1]), float(rows[0][1])
+    except Exception:                                                    # noqa: BLE001 - no timer this time; the book still has Weiss
+        return None
+
+
+def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name: str = "dryrun", now: pd.Timestamp | None = None,
+             prices=bybit_weiss_prices) -> dict:
     if adapter_name != "dryrun":
         raise SystemExit("v9.9 candidate: dry-run only (no live adapter until the user approves v9.9)")
     now = now or pd.Timestamp.now("UTC"); s = load_state(sdir)
@@ -92,6 +107,10 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
     ad = adapters.DryRun(s, rules.initial_balance)
     s["equity"] = float(book["equity"]) * rules.initial_balance / 200_000.0          # dry-run equity follows the v9.8 paper account
     g = Guard(rules, s, sdir / "STOP"); eq = ad.equity(); g.new_day(now, eq); res = {"time": str(now), "equity": eq, "book": "v99cand"}
+    if prices is not None:                                                  # EX-1c: Weiss legs at 08:00:0x / 10:00:0x UTC
+        book, winfo = WT.apply(book, now, prices, s)
+        if winfo:
+            res["weiss_timer"] = winfo
     if g.killed():
         res["action"] = "kill switch: flatten"; log_orders(sdir, [dict(r, time=str(now), reason="kill") for r in ad.flatten()])
     elif g.daily_stop_hit(eq):
@@ -113,7 +132,8 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
         orders = plan_orders(tg, ad.positions(), rules.band_usd, rules.min_order_usd); fills = []
         lim = rules.limit_minutes_daily if pd.Timestamp(book["for_hour_utc"]).hour == 0 else rules.limit_minutes
         for o in orders:
-            f = ad.place_market(o["coin"], o["usd"]) if o["close"] else ad.place_limit(o["coin"], o["usd"], None, lim)
+            urgent = bool(book.get("weiss_overlay")) and o["coin"] in WT.COINS
+            f = ad.place_market(o["coin"], o["usd"]) if (o["close"] or urgent) else ad.place_limit(o["coin"], o["usd"], None, lim)
             fills.append(dict(o, **f, time=str(now), for_hour=book["for_hour_utc"], book="v99cand"))
         log_orders(sdir, fills); s["last_book"] = book_id(book)
         lc = lowcap_coins(book)
@@ -135,7 +155,7 @@ def main():
             heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
         if not x.loop:
             break
-        time.sleep(300)
+        time.sleep(WT.sleep_seconds(pd.Timestamp.now(tz="UTC")))
 
 
 if __name__ == "__main__":
