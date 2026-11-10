@@ -1,0 +1,15 @@
+{
+ "id": "STOP-1",
+ "registered": "2026-11-10, after VAL-8 (5-minute monitoring costs 0.11-0.17 Sharpe vs the hourly stop of the research), before any prop simulation on the 5-minute path was run",
+ "kind": "risk design under the firm rules (not an alpha test); counts as 6 trials (stop grid)",
+ "question": "Which daily-stop design gives the best prop outcome when the bot watches equity continuously, and how far are the published deployment numbers (H2 / H3, hourly stop) from the 5-minute reality?",
+ "path": "5-minute account path = the book's research hourly return (HyroTrader: results/v99/v99e_series.parquet; BrightFunded: results/v99/bf28_series.parquet; costs, funding, event sleeves included) with each hour's return distributed over its twelve 5-minute bars as: position-implied 5-minute P&L (CN-1 / CN-2 net positions x Binance 5-minute returns) + the hour's residual spread evenly; the hourly sums equal the research series exactly",
+ "simulator": "qpl.hub.income.simulate unchanged (firm rule engine, 20-day block bootstrap 2022-01..2026-09, 400 paths, 3 challenge budget, 2 years, base scenario), series shifted to the planning Sharpe; daily (net, worst, best) built from the 5-minute path by the stop design",
+ "settings": {"HyroTrader Two-Step $200k": {"risk": 1.5, "planning Sharpe": 1.9, "also at": 1.6}, "BrightFunded Two-Step Classic $200k": {"risk": 1.75, "planning Sharpe": 1.45, "also at": 1.15}},
+ "designs": {
+  "reference": "2.5% on hourly closes of the hourly path (H2 / H3 as published)",
+  "grid on the 5-minute path": "stop at 2.0, 2.5, 3.0, 3.5, 4.0% of the account, checked on every 5-minute close (exit 0.1%)",
+  "hybrid": "2.5% checked on the hour marks only + an emergency stop at 3.75% on every 5-minute close"
+ },
+ "decision": "per firm: the design with the highest mean 2-year net at the planning Sharpe among those with P(net loss) <= 0.20; it replaces the 2.5% continuous stop only if its mean net is more than 3% above the 2.5% / 5-minute design at BOTH Sharpe levels; otherwise 2.5% stays. The planning tables (business plan) are restated with the 5-minute numbers of the chosen design."
+}
