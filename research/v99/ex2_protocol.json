@@ -1,0 +1,15 @@
+{
+ "id": "EX-2",
+ "registered": "2026-11-10, before any 1-minute data beyond the Weiss days (EX-1c) was downloaded",
+ "kind": "execution measurement, 0 alpha trials",
+ "question": "EX-1 showed that most of the 15-minute delay cost falls inside the first 5 minutes, below the resolution of 5-minute data. What is the delay curve of the WHOLE book at 1-minute resolution, per sleeve, and what would a fast live book (orders at ~hh:01-hh:03 instead of ~hh:15) recover?",
+ "data": "Binance USDT-M perp 1-minute klines, monthly archives of data.binance.vision, 2022-01..2026-09, the 20 coins of the CN-1 / CN-2 positions; kept: the OPEN of the minute bars at offsets 0..16 of every hour (local cache, not committed: ~1.7 GB download)",
+ "method": "positions exactly as EX-1 (CN-1 crypto v9.8 8 non-event sleeves, CN-2 CFD bf2.8 crypto sleeves); delayed fill = open of the minute bar at t+d, reference = open of the bar at t; d = 1, 2, 3, 5, 10, 15 minutes; book Sharpe with the CN net costs; per-sleeve cost at every d; cross-check: d = 5 / 10 / 15 must be close to EX-1 (5-minute closes)",
+ "scenarios (per-sleeve delays, as EX-1b)": {
+  "now + Weiss timer": "Weiss 1 min, every other sleeve 15 min",
+  "fast book 3 min": "Weiss 1 min, every other sleeve 3 min",
+  "fast book 2 min": "Weiss 1 min, every other sleeve 2 min",
+  "trend timer": "Weiss 1 min, trend 4h 1 min, the rest 15 min"
+ },
+ "decision": "'fast book 3 min' beats 'now + Weiss timer' by >= 0.05 Sharpe on both books: a fast live book builder is designed and built (separate process, the frozen paper code untouched, validated against the paper book hour by hour before any bot reads it). 'trend timer' beats 'now + Weiss timer' by >= 0.03 on both: a trend timer is added to the bots. Otherwise neither is built."
+}
