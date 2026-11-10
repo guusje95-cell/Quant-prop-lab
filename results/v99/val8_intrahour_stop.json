@@ -1,0 +1,113 @@
+{
+ "crypto v9.8 non-event sleeves, risk 1.5": {
+  "no stop": {
+   "sharpe (gross)": 3.2,
+   "worst day %": -5.32,
+   "days with a 5-min close <= -2.5% / <= -5%": [
+    20,
+    2
+   ],
+   "days ending <= -2.5%": 10
+  },
+  "A: stop on hourly closes (research)": {
+   "sharpe (gross)": 3.043,
+   "periods": [
+    2.167,
+    3.952,
+    2.558
+   ],
+   "annual return %": 59.6,
+   "stop days": 17,
+   "worst day %": -5.22,
+   "breach days (5-min close <= -5% before the stop)": 1,
+   "breach days (adverse extremes, upper bound)": 2
+  },
+  "B: stop on 5-minute closes (live)": {
+   "sharpe (gross)": 2.931,
+   "periods": [
+    2.179,
+    4.063,
+    2.204
+   ],
+   "annual return %": 57.7,
+   "stop days": 20,
+   "worst day %": -4.66,
+   "breach days (5-min close <= -5% before the stop)": 0,
+   "breach days (adverse extremes, upper bound)": 1
+  }
+ },
+ "crypto v9.8 non-event sleeves, risk 2.0": {
+  "no stop": {
+   "sharpe (gross)": 3.2,
+   "worst day %": -7.09,
+   "days with a 5-min close <= -2.5% / <= -5%": [
+    50,
+    8
+   ],
+   "days ending <= -2.5%": 20
+  },
+  "A: stop on hourly closes (research)": {
+   "sharpe (gross)": 2.899,
+   "periods": [
+    1.918,
+    3.905,
+    2.389
+   ],
+   "annual return %": 75.4,
+   "stop days": 38,
+   "worst day %": -4.63,
+   "breach days (5-min close <= -5% before the stop)": 2,
+   "breach days (adverse extremes, upper bound)": 9
+  },
+  "B: stop on 5-minute closes (live)": {
+   "sharpe (gross)": 2.735,
+   "periods": [
+    2.086,
+    3.618,
+    2.15
+   ],
+   "annual return %": 70.5,
+   "stop days": 50,
+   "worst day %": -6.21,
+   "breach days (5-min close <= -5% before the stop)": 1,
+   "breach days (adverse extremes, upper bound)": 6
+  }
+ },
+ "CFD bf2.8 crypto sleeves, risk 1.75": {
+  "no stop": {
+   "sharpe (gross)": 3.338,
+   "worst day %": -4.85,
+   "days with a 5-min close <= -2.5% / <= -5%": [
+    49,
+    4
+   ],
+   "days ending <= -2.5%": 25
+  },
+  "A: stop on hourly closes (research)": {
+   "sharpe (gross)": 3.282,
+   "periods": [
+    2.571,
+    4.32,
+    2.561
+   ],
+   "annual return %": 83.5,
+   "stop days": 37,
+   "worst day %": -4.74,
+   "breach days (5-min close <= -5% before the stop)": 0,
+   "breach days (adverse extremes, upper bound)": 6
+  },
+  "B: stop on 5-minute closes (live)": {
+   "sharpe (gross)": 3.112,
+   "periods": [
+    2.57,
+    4.168,
+    2.274
+   ],
+   "annual return %": 79.7,
+   "stop days": 49,
+   "worst day %": -3.98,
+   "breach days (5-min close <= -5% before the stop)": 0,
+   "breach days (adverse extremes, upper bound)": 5
+  }
+ }
+}
