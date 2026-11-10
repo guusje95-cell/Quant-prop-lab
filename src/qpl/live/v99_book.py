@@ -1,6 +1,7 @@
 """v9.9 candidate DRY-RUN target book (task 70, user-approved 2026-11-02 as 'option a': prepare the bot; NOT activated in any paper account).
 
-Builds paper_trading/v99cand/book_next_hour.json for the best candidate 'v99cand:all_plus_add_hodler' = v9.8 + four separate event
+Builds paper_trading/v99cand/book_next_hour.json for the candidate v9.9e 'v99cand:all_plus_add_hodler_erc' (ERC weights; until
+2026-11-10 the inverse-vol 'v99cand:all_plus_add_hodler') = v9.8 + four separate event
 sleeves (Coinbase/Upbit sell-the-news, Binance futures-delisting, Binance 'add', HODLer airdrop), combined with exactly the composite
 rule of the hub shadow (qpl.hub.shadow._composite: crypto_sleeves.portfolio_v5 over the v9.8 paper ledger + the event ledgers, each with
 its research prefix, times the v9.8 scale). It only READS the v9.8 paper files; v9.8 and its paper validation are untouched.
@@ -24,7 +25,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[3]
 SRC = ROOT / "paper_trading/v98"
 OUT = ROOT / "paper_trading/v99cand"
-CANDIDATE = "v99cand:all_plus_add_hodler"
+CANDIDATE = "v99cand:all_plus_add_hodler_erc"          # 2026-11-10 (audit A-2): v9.9e = equal-risk-contribution weights (R53, the HyroTrader
+WEIGHTS = "erc"; SHRINK = 0.5                           # plan, H3); before this the dry-run book used inverse-vol ('v99cand:all_plus_add_hodler')
 EVENT = {"venue listing short": ("venueshort", "results/v99/venueshort_sleeve_prefix.parquet"),
          "futures-delisting short": ("fdshort", "results/v99/fdshort_sleeve_prefix.parquet"),
          "binance add short": ("addshort", "results/v99/addshort_sleeve_prefix.parquet"),
@@ -61,7 +63,14 @@ def multipliers(H: pd.DataFrame, h1: pd.Timestamp, scale: float) -> pd.Series:
     sys.path.insert(0, str(ROOT / "scripts"))
     import crypto_sleeves as CS
     Hx = pd.concat([H.loc[:h1 - pd.Timedelta(hours=1)], pd.DataFrame(0.0, index=[h1], columns=H.columns)])
-    _, W, mult = CS.portfolio_v5(Hx, start=str(Hx.index[0].date()))
+    orig = CS.v5_weights
+    if WEIGHTS == "erc":                                    # exactly the hub shadow's ERC option (qpl.hub.shadow._composite)
+        from qpl.lab.erc import erc_weights
+        CS.v5_weights = lambda D, sleeves, weiss_scale=0.5: erc_weights(D, sleeves, weiss_scale, SHRINK)
+    try:
+        _, W, mult = CS.portfolio_v5(Hx, start=str(Hx.index[0].date()))
+    finally:
+        CS.v5_weights = orig
     d = h1.floor("D")
     return W.loc[d] * mult.get(d, np.nan) * scale if d in W.index else pd.Series(np.nan, index=H.columns)
 

@@ -1,8 +1,8 @@
 """MT5 bridge for the CFD book (BrightFunded and other MT5 prop firms). DRY-RUN ONLY (task B1, 2026-11-02).
 
 Runs on the user's Windows PC next to an MT5 terminal that is open and logged in (e.g. a BrightFunded trial / challenge account),
-using the official MetaTrader5 Python package. Each pass: read the target book (default paper_trading/bf27cand/book_next_hour.json,
-built by qpl.live.bf27_book), scale to this account (equity x risk), cap gross crypto exposure at the 1:5 crypto leverage, apply the
+using the official MetaTrader5 Python package. Each pass: read the target book (default paper_trading/bf28cand/book_next_hour.json,
+built by qpl.live.bf28_book; --candidate bf27 for the older book), scale to this account (equity x risk), cap gross crypto exposure at the 1:5 crypto leverage, apply the
 no-trade band, convert USD targets to lots with the symbol's contract size / volume step, and VALIDATE every order with
 mt5.order_check (margin, volume, symbol, market open) - nothing is sent. Positions are kept virtually in the state file, so the
 dry-run behaves like a live account would. Guards: kill switch file, daily stop (2.5% of the initial balance from the day's start
@@ -30,7 +30,8 @@ from qpl.bot.runner import log_orders
 from qpl.bot.safety import MAX_STALE_HOURS, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
 
 ROOT = Path(__file__).resolve().parents[3]
-BOOK = ROOT / "paper_trading/bf27cand/book_next_hour.json"
+BOOK = ROOT / "paper_trading/bf28cand/book_next_hour.json"          # 2026-11-10 (audit A-1): the bf2.8 candidate (was bf2.7)
+BOOKS = {"bf28": ("bf28_book", ROOT / "paper_trading/bf28cand/book_next_hour.json"), "bf27": ("bf27_book", ROOT / "paper_trading/bf27cand/book_next_hour.json")}
 STATE = ROOT / "bot_state_mt5"
 ALIAS = {"XDG": "DOGE"}
 FIAT = {"EUR", "GBP", "AUD", "NZD", "CAD", "CHF", "JPY", "USD", "HKD", "SGD", "MXN", "NOK", "SEK", "PLN", "ZAR", "DKK", "TRY", "XAU", "XAG", "XPT", "XPD"}
@@ -180,17 +181,19 @@ def one_pass(mt5, book_path: Path, phase: str, rules: Rules, sdir: Path, now: pd
 
 def main():
     a = argparse.ArgumentParser(); a.add_argument("--phase", choices=["challenge", "funded"], default="challenge")
-    a.add_argument("--book", default=str(BOOK)); a.add_argument("--state", default=str(STATE)); a.add_argument("--loop", action="store_true")
+    a.add_argument("--candidate", choices=list(BOOKS), default="bf28"); a.add_argument("--book", default=None)
+    a.add_argument("--state", default=str(STATE)); a.add_argument("--loop", action="store_true")
     a.add_argument("--account", type=float, default=200_000.0); x = a.parse_args()
     import MetaTrader5 as mt5
     if not mt5.initialize():
         raise SystemExit(f"Could not connect to MT5 ({mt5.last_error()}): open MT5 and log in first")
     rules = Rules(initial_balance=x.account)
+    import importlib
+    builder = importlib.import_module(f"qpl.live.{BOOKS[x.candidate][0]}"); x.book = x.book or str(BOOKS[x.candidate][1])
     try:
         while True:
             try:
-                from qpl.live import bf27_book
-                bf27_book.build()
+                builder.build()
                 r = one_pass(mt5, Path(x.book), x.phase, rules, Path(x.state)); heartbeat(Path(x.state), r); print(r, flush=True)
             except Exception as e:                                       # noqa: BLE001 - keep the loop alive
                 heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)

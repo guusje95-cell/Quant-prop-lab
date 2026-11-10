@@ -63,7 +63,7 @@ def sleeves(index: pd.DatetimeIndex, pos: dict | None = None) -> dict[str, pd.Se
     return {k: cfd_pnl(v.reindex(index), R, cost) for k, v in P.items()}
 
 
-def ensembles(index: pd.DatetimeIndex) -> dict[str, pd.Series]:
+def ensembles(index: pd.DatetimeIndex, with_positions: bool = False):
     """bf2.8 (C10, user-approved shadow 2026-11-02): the Gen383 neighbourhood ensembles as BrightFunded CFD sleeves, exactly the C3 code:
     trend 4h = mean of Donchian 15 / 20 / 30 positions on the CFD coins (cfd_book costs); alt kimchi = mean of thresholds 0.75 / 1.0 / 1.25
     on the altcoin CFDs (measured spread + 1.2 bp); no funding."""
@@ -83,7 +83,11 @@ def ensembles(index: pd.DatetimeIndex) -> dict[str, pd.Series]:
     p_ = ap.reindex(index.floor("D")).set_axis(index).fillna(0.0)
     acost = pd.Series({c: CB.ALT_SPREAD[c] + CB.COMM for c in ac}) / 1e4
     altk = (p_ * ar).sum(axis=1) - p_.diff().abs().fillna(p_.abs()).mul(acost, axis=1).sum(axis=1)
-    return {"trend 4h ens CFD": trend.reindex(index).fillna(0.0), "alt kimchi ens CFD": altk.reindex(index).fillna(0.0)}
+    S = {"trend 4h ens CFD": trend.reindex(index).fillna(0.0), "alt kimchi ens CFD": altk.reindex(index).fillna(0.0)}
+    if not with_positions:
+        return S
+    tp = tpos.reindex(columns=CB.CFD).fillna(0.0).reindex(index).fillna(0.0)       # positions held during each hour (incl. the running one)
+    return S, {"trend 4h ens CFD": tp, "alt kimchi ens CFD": p_}
 
 
 def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
@@ -92,7 +96,8 @@ def _compute(cutoff: pd.Timestamp, now: pd.Timestamp) -> dict:
     if last < START:
         return {"status": f"waiting: first hour {START}"}
     ix = pd.date_range("2021-01-01", cutoff, freq="h")                  # includes the running hour `cutoff` for its positions
-    P = positions(ix); S = sleeves(ix, P); S.update(ensembles(ix))
+    P = positions(ix); S = sleeves(ix, P); es, ep = ensembles(ix, with_positions=True); S.update(es); P.update(ep)   # 2026-11-10: ensemble
+                                                                                                                      # positions for the bf2.8 book
     res = {}
     for col, d in OUT.items():
         d.mkdir(parents=True, exist_ok=True); f = d / "ledger_hourly.csv"
