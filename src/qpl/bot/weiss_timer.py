@@ -12,6 +12,7 @@ import pandas as pd
 
 WEISS = "Weiss expiry"
 COINS = ("BTC", "ETH")
+WAITING = "waiting for the 08:00 prices"
 ENTRY_MAX_MIN = 30                       # later than 08:30 the timer leaves the trade to the hourly book (no late chase)
 
 
@@ -59,6 +60,19 @@ def sleep_seconds(now: pd.Timestamp, default: float = 300.0, lag: float = 3.0) -
     return max(1.0, min(default, s))
 
 
+def active(book: dict) -> bool:
+    """True while the timer has changed this book (the bots then skip the stale-book check: the Weiss legs do not depend on the hourly
+    book's age, and every other target is unchanged from the book the bot already holds)"""
+    return bool(book.get("weiss_overlay"))
+
+
+def sleep_after(res: dict | None, now: pd.Timestamp, default: float = 300.0) -> float:
+    """loop sleep: 5 s while the timer waits for the 08:00 prices, else until the next Weiss event or the default interval"""
+    if isinstance(res, dict) and (res.get("weiss_timer") or {}).get("weiss") == WAITING:
+        return 5.0
+    return sleep_seconds(now, default)
+
+
 def apply(book: dict, now: pd.Timestamp, prices, state: dict) -> tuple[dict, dict | None]:
     """book with its Weiss part replaced by the timer's (state['weiss'] keeps the sides for the day). Returns (book, info or None).
     prices(coin) -> (open_0700, price_0800) or None."""
@@ -74,8 +88,10 @@ def apply(book: dict, now: pd.Timestamp, prices, state: dict) -> tuple[dict, dic
         side = {}
         for c in COINS:
             p = prices(c)
-            if p and p[0] and p[1] and p[1] != p[0] and np.isfinite(p[0]) and np.isfinite(p[1]):
+            if p and p[0] and p[1] and np.isfinite(p[0]) and np.isfinite(p[1]):
                 side[c] = float(-np.sign(p[1] / p[0] - 1))
+        if len(side) < len(COINS):                            # a price is not there yet (the 08:00 bar can lag a few seconds): nothing is
+            return book, {"weiss": WAITING}                   # stored, the bot retries in a few seconds (until the entry window closes)
         w = {"day": day, "side": side, "entry_utc": str(n)}; state["weiss"] = w
     if w is None:                                             # exit phase without a timer entry today: nothing to override
         return book, None

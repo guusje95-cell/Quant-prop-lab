@@ -119,7 +119,7 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
         res["action"] = "daily stop: flat until the next UTC day"
     elif book_id(book) == s.get("last_book"):
         res["action"] = "no new book"
-    elif g.book_stale(book, now):
+    elif g.book_stale(book, now) and not (WT.active(book) and not stale_flatten_due(book.get("made_at_utc"), now, True)):
         res["action"] = f"book from {book['made_at_utc']} is stale: skipped"; s["last_book"] = book_id(book)
         if stale_flatten_due(book.get("made_at_utc"), now, bool(ad.positions())):
             log_orders(sdir, [dict(r, time=str(now), reason="book stale > 6 h") for r in ad.flatten()]); res["action"] += "; stale > 6 h: flatten"
@@ -147,6 +147,7 @@ def main():
     a.add_argument("--state", default=str(STATE)); a.add_argument("--loop", action="store_true"); a.add_argument("--account", type=float, default=200_000.0)
     x = a.parse_args(); rules = Rules(initial_balance=x.account)
     while True:
+        r = None
         try:
             b = refresh_book()
             r = one_pass(BOOK, x.phase, rules, Path(x.state)) if b else {"action": "waiting for the v9.8 paper book"}
@@ -155,7 +156,7 @@ def main():
             heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
         if not x.loop:
             break
-        time.sleep(WT.sleep_seconds(pd.Timestamp.now(tz="UTC")))
+        time.sleep(WT.sleep_after(r, pd.Timestamp.now(tz="UTC")))
 
 
 if __name__ == "__main__":

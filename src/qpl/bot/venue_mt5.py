@@ -181,7 +181,7 @@ def one_pass(mt5, book_path: Path, phase: str, rules: Rules, sdir: Path, now: pd
         res["action"] = "daily stop: flat until the next UTC day"
     elif bid == s.get("last_book"):
         res["action"] = "no new book"
-    elif g.book_stale(book, now):
+    elif g.book_stale(book, now) and not (WT.active(book) and not stale_flatten_due(book.get("made_at_utc"), now, True)):
         res["action"] = f"book from {book['made_at_utc']} is stale: skipped"; s["last_book"] = bid
         if stale_flatten_due(book.get("made_at_utc"), now, bool(ad.positions())):
             log_orders(sdir, [dict(r, time=str(now), reason="book stale > 6 h") for r in ad.flatten()]); res["action"] += "; stale > 6 h: flatten"
@@ -219,6 +219,7 @@ def main():
     nb_at = None
     try:
         while True:
+            r = None
             try:
                 if nb_at is None or pd.Timestamp.now() - nb_at > pd.Timedelta(days=7):
                     print({"news_blackouts": NB.build()}, flush=True); nb_at = pd.Timestamp.now()
@@ -228,7 +229,7 @@ def main():
                 heartbeat(Path(x.state), None, str(e)); print({"error": str(e)}, flush=True)
             if not x.loop:
                 break
-            time.sleep(WT.sleep_seconds(pd.Timestamp.now(tz="UTC")))           # wakes at 08:00:03 / 10:00:03 on Weiss days
+            time.sleep(WT.sleep_after(r, pd.Timestamp.now(tz="UTC")))           # wakes at 08:00:03 / 10:00:03 on Weiss days
     finally:
         mt5.shutdown()
 

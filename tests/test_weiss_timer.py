@@ -74,3 +74,22 @@ def test_propr_bot_uses_the_timer(tmp_path):
     px = {"BTC": (100.0, 99.0), "ETH": (50.0, 51.0)}
     r = P.one_pass(None, meta, lim, p, Rules(initial_balance=100_000.0), tmp_path / "st", now=pd.Timestamp("2026-11-27 08:00:04", tz="UTC"), prices=px.get)
     assert r["weiss_timer"]["side"] == {"BTC": 1.0, "ETH": -1.0}
+
+
+def test_missing_price_is_retried_not_stored():
+    st = {}
+    b, info = WT.apply(_book({"BTC": 1000.0}), pd.Timestamp("2026-11-27 08:00:03"), {"BTC": (100.0, 101.0)}.get, st)
+    assert info == {"weiss": WT.WAITING} and "weiss" not in st and b["target_notional_usd"] == {"BTC": 1000.0}
+    assert WT.sleep_after({"weiss_timer": info}, pd.Timestamp("2026-11-27 08:00:03")) == 5.0
+    b, info = WT.apply(_book({"BTC": 1000.0}), pd.Timestamp("2026-11-27 08:00:09"), {"BTC": (100.0, 101.0), "ETH": (50.0, 50.5)}.get, st)
+    assert info["side"] == {"BTC": -1.0, "ETH": -1.0} and st["weiss"]["day"] == "2026-11-27"
+
+
+def test_weiss_legs_trade_even_when_the_hourly_book_is_old(tmp_path):
+    p = tmp_path / "b.json"; p.write_text(json.dumps(_book({"SOL": 20000.0}, made="2026-11-27 07:05:00")))     # 55 min old at 08:00
+    st = tmp_path / "st"; px = {"BTC": (100.0, 101.0), "ETH": (50.0, 51.0)}
+    r = RV.one_pass(p, "challenge", Rules(), st, now=pd.Timestamp("2026-11-27 08:00:03", tz="UTC"), prices=px.get)
+    assert "orders" in r["action"] and "stale" not in r["action"]
+    pos = json.loads((st / "state.json").read_text())["positions"]; assert pos["BTC"] < 0 and pos["ETH"] < 0
+    r = RV.one_pass(p, "challenge", Rules(), st, now=pd.Timestamp("2026-11-27 10:00:03", tz="UTC"), prices=px.get)   # exit, book 3 h old
+    pos = json.loads((st / "state.json").read_text())["positions"]; assert abs(pos.get("BTC", 0)) < 1 and abs(pos.get("ETH", 0)) < 1
