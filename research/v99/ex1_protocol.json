@@ -1,0 +1,13 @@
+{
+ "id": "EX-1",
+ "registered": "2026-11-10, before any delay statistic was computed",
+ "kind": "execution measurement, 0 alpha trials",
+ "question": "The research books fill every trade at the hour mark (hh:00). Live, the paper trader / bots build the hourly book after the bar closes and need ~100-120 s (run logs), so orders go out at about hh:02-hh:15. How much Sharpe does that delay cost?",
+ "books": {
+  "crypto": "v9.8's 8 non-event sleeves, net positions per coin exactly as CN-1 (scripts/v99/cn1_crypto_netting.py, code run unchanged up to the net position)",
+  "CFD": "bf2.8's crypto-CFD sleeves, net positions exactly as CN-2 (scripts/v99/cn2_cfd_netting.py)",
+  "not covered": "event shorts (entries at announcement hours; R16b already showed entry 1 h later), index CFD sleeve (entries at fixed ET times by design)"
+ },
+ "method": "position p_t is held over hour t and, in research, traded at time t at the close of the 5-minute bar ending at t. Delayed fill at t+d uses the close of the 5-minute bar ending at t+d (Binance perp 5-minute data, research_data/binance, 20 coins; coins without 5-minute data keep the hh:00 fill and are reported). Extra P&L = -sum_c dp_{t,c} x (P_c(t+d) / P_c(t) - 1). Delays d = 5, 10, 15, 30 minutes. Book Sharpe 2022-26 with the CN-1 / CN-2 netted cost, plus per-sleeve attribution of the delay cost.",
+ "decision": "15-minute delay costs <= 0.03 Sharpe: no change. More than 0.03: planning levels are cut by the 15-minute cost, and the live pipeline is changed so the hourly book is computed from data up to hh:00 and sent within the first ~2 minutes (an infrastructure change, no strategy change); the sleeves that carry the cost are named."
+}
