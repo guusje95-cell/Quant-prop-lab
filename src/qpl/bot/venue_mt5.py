@@ -28,7 +28,7 @@ from qpl.bot import weiss_timer as WT
 from qpl.bot.risk import Guard
 from qpl.bot.rules import Rules
 from qpl.bot.runner import log_orders
-from qpl.bot.safety import MAX_STALE_HOURS, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
+from qpl.bot.safety import MAX_STALE_HOURS, hybrid_daily_stop, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
 
 ROOT = Path(__file__).resolve().parents[3]
 BOOK = ROOT / "paper_trading/bf28cand/book_next_hour.json"          # 2026-11-10 (audit A-1): the bf2.8 candidate (was bf2.7)
@@ -176,7 +176,7 @@ def one_pass(mt5, book_path: Path, phase: str, rules: Rules, sdir: Path, now: pd
     bid = f"{book.get('made_at_utc')}|stale:{','.join(book.get('event_positions_stale') or [])}|weiss:{book.get('weiss_overlay')}"
     if g.killed():
         res["action"] = "kill switch: flatten"; log_orders(sdir, [dict(r, time=str(now), reason="kill") for r in ad.flatten()])
-    elif g.daily_stop_hit(eq):
+    elif hybrid_daily_stop(s, eq, now, rules.initial_balance, rules.daily_stop_frac):
         if ad.positions():
             log_orders(sdir, [dict(r, time=str(now), reason="daily stop") for r in ad.flatten()])
         res["action"] = "daily stop: flat until the next UTC day"

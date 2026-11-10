@@ -142,3 +142,14 @@ def test_reconcile_and_partial_fill():
     assert S.partial_fill(1000.0, 1000.0, 50.0)["status"] == "filled"
     assert S.partial_fill(1000.0, 400.0, 50.0) == {"status": "partial", "rest_usd": 600.0}
     assert S.partial_fill(-1000.0, 0.0, 50.0)["status"] == "none"
+
+
+def test_hybrid_daily_stop_hourly_level_and_emergency():
+    st = {"day_start_equity": 200000.0, "stopped": False}; ib = 200000.0
+    t = lambda x: pd.Timestamp(x, tz="UTC")
+    assert not S.hybrid_daily_stop(st, 199000.0, t("2026-11-03 10:02"), ib, 0.025)          # first pass of the hour: above -2.5%
+    assert not S.hybrid_daily_stop(st, 194500.0, t("2026-11-03 10:07"), ib, 0.025)          # -2.75% inside the hour: no stop (may recover)
+    assert not S.hybrid_daily_stop(st, 196000.0, t("2026-11-03 11:01"), ib, 0.025)          # recovered by the hour mark
+    assert S.hybrid_daily_stop(dict(st), 192400.0, t("2026-11-03 11:20"), ib, 0.025)        # -3.8% at any time: emergency
+    assert S.hybrid_daily_stop(st, 194900.0, t("2026-11-03 12:03"), ib, 0.025) and st["stop_kind"] == "hourly"
+    assert S.hybrid_daily_stop(st, 200000.0, t("2026-11-03 13:00"), ib, 0.025)              # stays flat for the day

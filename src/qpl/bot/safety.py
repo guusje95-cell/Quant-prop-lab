@@ -115,3 +115,25 @@ def partial_fill(target_usd: float, filled_usd: float, min_order_usd: float) -> 
     if abs(filled_usd) < 1e-9:
         return {"status": "none", "rest_usd": round(target_usd, 2)}
     return {"status": "filled" if abs(rest) < min_order_usd else "partial", "rest_usd": round(rest, 2)}
+
+
+EMERGENCY_STOP_FRAC = 0.0375            # STOP-1 (2026-11-10): emergency level between the 2.5% stop and the firms' 5% daily limit
+
+
+def hybrid_daily_stop(state: dict, equity: float, now: pd.Timestamp, initial_balance: float, stop_frac: float,
+                      emergency_frac: float = EMERGENCY_STOP_FRAC) -> bool:
+    """STOP-1 daily stop for bots that watch equity continuously. The research (and the firm simulations) check the 2.5% stop on
+    hourly closes; checking it on every pass sells intrahour lows that recover (VAL-8: -0.11 to -0.17 Sharpe). So: the regular level
+    is tested once per hour (the first pass after each hour mark), and an emergency level (3.75% of the initial balance) on EVERY
+    pass. Uses the Guard's state keys (day_start_equity / stopped, reset by Guard.new_day). True = flat for the rest of the day."""
+    if state.get("stopped"):
+        return True
+    start = float(state["day_start_equity"]); n = now.tz_convert("UTC").tz_localize(None) if now.tzinfo else now
+    if equity <= start - emergency_frac * initial_balance:
+        state.update(stopped=True, stop_kind="emergency"); return True
+    mark = str(n.floor("h"))
+    if state.get("stop_mark") != mark:
+        state["stop_mark"] = mark
+        if equity <= start - stop_frac * initial_balance:
+            state.update(stopped=True, stop_kind="hourly"); return True
+    return False

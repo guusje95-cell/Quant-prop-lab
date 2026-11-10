@@ -26,7 +26,7 @@ from qpl.bot.planner import apply_cap, plan_orders, scaled_targets
 from qpl.bot.risk import Guard
 from qpl.bot.rules import Rules
 from qpl.bot.runner import log_orders
-from qpl.bot.safety import MAX_STALE_HOURS, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
+from qpl.bot.safety import MAX_STALE_HOURS, hybrid_daily_stop, heartbeat, load_state, read_json, sanitize_targets, save_state, stale_flatten_due
 
 ROOT = Path(__file__).resolve().parents[3]
 BOOK = ROOT / "paper_trading/v99cand/book_next_hour.json"
@@ -114,7 +114,7 @@ def one_pass(book_path: Path, phase: str, rules: Rules, sdir: Path, adapter_name
             res["weiss_timer"] = winfo
     if g.killed():
         res["action"] = "kill switch: flatten"; log_orders(sdir, [dict(r, time=str(now), reason="kill") for r in ad.flatten()])
-    elif g.daily_stop_hit(eq):
+    elif hybrid_daily_stop(s, eq, now, rules.initial_balance, rules.daily_stop_frac):
         if ad.positions():
             log_orders(sdir, [dict(r, time=str(now), reason="daily stop") for r in ad.flatten()])
         res["action"] = "daily stop: flat until the next UTC day"

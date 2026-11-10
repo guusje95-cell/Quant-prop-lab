@@ -1,0 +1,158 @@
+{
+ "HyroTrader": {
+  "risk": 1.5,
+  "check: max |hourly sum - research| ": 6.938893903907228e-18,
+  "Sharpe 1.9": {
+   "reference: 2.5% on hourly closes (as published)": {
+    "net_2y_mean_eur": 78636,
+    "p10": 8692,
+    "P_loss": 0.062
+   },
+   "5-min stop 2.0%": {
+    "net_2y_mean_eur": 72010,
+    "p10": 10156,
+    "P_loss": 0.06
+   },
+   "5-min stop 2.5%": {
+    "net_2y_mean_eur": 75090,
+    "p10": 9313,
+    "P_loss": 0.062
+   },
+   "5-min stop 3.0%": {
+    "net_2y_mean_eur": 74366,
+    "p10": 9193,
+    "P_loss": 0.055
+   },
+   "5-min stop 3.5%": {
+    "net_2y_mean_eur": 77510,
+    "p10": 12493,
+    "P_loss": 0.06
+   },
+   "5-min stop 4.0%": {
+    "net_2y_mean_eur": 75861,
+    "p10": 10844,
+    "P_loss": 0.048
+   },
+   "hybrid: 2.5% hourly + 3.75% emergency": {
+    "net_2y_mean_eur": 77841,
+    "p10": 7136,
+    "P_loss": 0.072
+   }
+  },
+  "Sharpe 1.6": {
+   "reference: 2.5% on hourly closes (as published)": {
+    "net_2y_mean_eur": 64776,
+    "p10": 2807,
+    "P_loss": 0.08
+   },
+   "5-min stop 2.0%": {
+    "net_2y_mean_eur": 57460,
+    "p10": 398,
+    "P_loss": 0.098
+   },
+   "5-min stop 2.5%": {
+    "net_2y_mean_eur": 59208,
+    "p10": -822,
+    "P_loss": 0.105
+   },
+   "5-min stop 3.0%": {
+    "net_2y_mean_eur": 57549,
+    "p10": -3028,
+    "P_loss": 0.117
+   },
+   "5-min stop 3.5%": {
+    "net_2y_mean_eur": 61540,
+    "p10": 427,
+    "P_loss": 0.098
+   },
+   "5-min stop 4.0%": {
+    "net_2y_mean_eur": 57243,
+    "p10": -2544,
+    "P_loss": 0.115
+   },
+   "hybrid: 2.5% hourly + 3.75% emergency": {
+    "net_2y_mean_eur": 62953,
+    "p10": 1626,
+    "P_loss": 0.095
+   }
+  }
+ },
+ "BrightFunded": {
+  "risk": 1.75,
+  "check: max |hourly sum - research| ": 3.469446951953614e-18,
+  "Sharpe 1.45": {
+   "reference: 2.5% on hourly closes (as published)": {
+    "net_2y_mean_eur": 56035,
+    "p10": -4325,
+    "P_loss": 0.182
+   },
+   "5-min stop 2.0%": {
+    "net_2y_mean_eur": 46187,
+    "p10": -4325,
+    "P_loss": 0.23
+   },
+   "5-min stop 2.5%": {
+    "net_2y_mean_eur": 48922,
+    "p10": -4325,
+    "P_loss": 0.22
+   },
+   "5-min stop 3.0%": {
+    "net_2y_mean_eur": 41332,
+    "p10": -4325,
+    "P_loss": 0.215
+   },
+   "5-min stop 3.5%": {
+    "net_2y_mean_eur": 44594,
+    "p10": -4325,
+    "P_loss": 0.215
+   },
+   "5-min stop 4.0%": {
+    "net_2y_mean_eur": 39870,
+    "p10": -4325,
+    "P_loss": 0.253
+   },
+   "hybrid: 2.5% hourly + 3.75% emergency": {
+    "net_2y_mean_eur": 47374,
+    "p10": -4325,
+    "P_loss": 0.193
+   }
+  },
+  "Sharpe 1.15": {
+   "reference: 2.5% on hourly closes (as published)": {
+    "net_2y_mean_eur": 37944,
+    "p10": -4325,
+    "P_loss": 0.255
+   },
+   "5-min stop 2.0%": {
+    "net_2y_mean_eur": 30550,
+    "p10": -4325,
+    "P_loss": 0.315
+   },
+   "5-min stop 2.5%": {
+    "net_2y_mean_eur": 33997,
+    "p10": -4325,
+    "P_loss": 0.305
+   },
+   "5-min stop 3.0%": {
+    "net_2y_mean_eur": 29777,
+    "p10": -4325,
+    "P_loss": 0.355
+   },
+   "5-min stop 3.5%": {
+    "net_2y_mean_eur": 33002,
+    "p10": -4325,
+    "P_loss": 0.312
+   },
+   "5-min stop 4.0%": {
+    "net_2y_mean_eur": 31348,
+    "p10": -4325,
+    "P_loss": 0.312
+   },
+   "hybrid: 2.5% hourly + 3.75% emergency": {
+    "net_2y_mean_eur": 35426,
+    "p10": -4325,
+    "P_loss": 0.275
+   }
+  }
+ }
+}
