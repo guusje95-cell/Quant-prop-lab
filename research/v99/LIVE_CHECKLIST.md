@@ -40,8 +40,8 @@ Alles wat hier staat is voor het moment dat een paper-gate geslaagd is EN jij ak
 - Regels om op te letten: low-cap/Innovation-coins samen <= 4,5% van het startsaldo (de bot capt dit al), funded notional <= 2x
   (bot: 1,9x), 5% daily / 10% max loss.
 - Bot: `bot_v99_dryrun.bat` nu; live pas met de echte Hyro-adapter (wacht op jouw `tools.json` van `hyro_probe.bat`).
-- Verwachting (planning ~2,05 in de backtest; **~1,9 met de echte live-vertraging, ~1,95 met de Weiss-timer**, EX-1/EX-1c):
-  ~EUR 80-86k gemiddeld over 2 jaar, kans op verlies ~6-7% (simulatie, geen garantie).
+- Verwachting (planning ~1,9 met live-vertraging en Weiss-timer; 5-minutenpad met hybride stop, H4): **~EUR 78k** gemiddeld
+  over 2 jaar, slechte 10% ~EUR 7k, kans op verlies ~7% (simulatie, geen garantie).
 
 ## 2. Propr (crypto, Hyperliquid) - prioriteit 2
 - Account: $100K; risico **1.0** (trailing drawdown!).
@@ -57,18 +57,24 @@ Alles wat hier staat is voor het moment dat een paper-gate geslaagd is EN jij ak
   weekend aanhouden toegestaan.
 - Bot: `bot_bf27_mt5_dryrun.bat` (MT5 ingelogd laten; handelt sinds 2026-11-10 het **bf2.8**-boek). Kosten: netto handelen + band
   ($1.000) en de echte BrightFunded-spreads (CN-4) zitten erin.
-- Verwachting (planning ~1,55 in de backtest; **~1,4 met de live-vertraging, ~1,45 met de Weiss-timer**): ~EUR 45-50k over 2 jaar
-  per account, kans op verlies ~15-18%.
+- Verwachting (planning ~1,4; 5-minutenpad met hybride stop, H4): **~EUR 45-47k** over 2 jaar per account, kans op verlies
+  **~19-20%** (bij Sharpe 1,15: ~28%). Daarom pas na de eerste Hyro-uitbetaling.
 
-## Audit 2026-11-10: nieuwe punten
-- [ ] **Weiss-timer** (laatste vrijdag van de maand, 08:00:0x en 10:00:0x UTC, marktorders): in de dry-run-logs controleren dat de
-      orders binnen ~1 minuut na 08:00 en 10:00 staan (`weiss_timer` in de bot-uitvoer). De eerstvolgende: vrijdag 27 november 2026.
-- [ ] **Nieuwsblokkades**: `config/news_blackouts.json` wordt nu automatisch gevuld met FOMC (14:00 en 14:30 ET). CPI en
-      banencijfers (08:30 ET) met de hand toevoegen in `config/news_manual.json` vanuit de BrightFunded-nieuwskalender.
-- [ ] **Snellere live-boekbouwer** (open): de paper-run start om hh:06 en het boek is er pas rond hh:12-15. Elk kwartier
-      vertraging kost ~0,15 Sharpe (EX-1), waarvan de Weiss-timer ~0,05-0,07 terugwint. Een live-boekbouwer die om hh:00:30 rekent,
-      zou nog ~0,06 per boek winnen. Bouwen vóór de eerste live-maand, eerst naast de paper valideren.
+## Audit 2026-11-10: nieuwe punten (bots opnieuw starten na `git pull`)
 - [x] Bots handelen de juiste kandidaten: MT5 = bf2.8, Hyro/Propr = v9.9e met ERC-weging (was bf2.7 en inverse-vol).
+- [x] **Weiss-timer** in alle drie de crypto-bots: instap 08:00:0x UTC, uitstap 10:00:0x, marktorders, **plafond 1,0x het account**
+      (WS-1b), elke 30 s controle zolang de positie openstaat. Te controleren in de dry-run-logs van **vrijdag 27 november 2026**:
+      staat er `weiss_timer` met `hold` binnen ~1 minuut na 08:00 en `exit` na 10:00?
+- [x] **Hybride dagstop** (STOP-1): 2,5% wordt 1x per uur getest (eerste ronde na het hele uur), een noodstop op 3,75% elke ronde.
+- [x] **Nieuwsblokkades**: `config/news_blackouts.json` wordt automatisch gevuld met FOMC (14:00 en 14:30 ET).
+- [ ] CPI en banencijfers (08:30 ET) met de hand in `config/news_manual.json` zetten vanuit de BrightFunded-nieuwskalender.
+- [ ] **Vragen aan BrightFunded-support** (vóór aankoop): (1) op welk tijdstip en in welke tijdzone reset de daglimiet, en telt
+      balans, equity of de hoogste van de twee? (onze bot rekent per UTC-dag: bij een andere reset moet de bot-dag mee);
+      (2) dekt de swap-free add-on ook US100/US500/US30? (3) geldt de 5-minuten-nieuwsregel ook voor crypto-CFD's?
+- [ ] **Snellere uur-run** (na de crypto-gate): de run van hh:06 naar ~hh:01 verplaatsen en op echte fills meten (EX-2: het
+      restant van de vertraging kost nog ~0,06, maar het bewijs is zwak, t = 1,3; niet tijdens de paper-validatie).
+- HyroTrader-regel officieel nagelezen (FAQ, 2026-11-10): daglimiet = equity bij dagstart (00:00 UTC) min 5% van het startsaldo,
+  vaste vloer, open posities en fees tellen mee. Dat is precies wat de bot en de simulaties aannemen.
 
 ## Later en klein: dagelijks-vlak index-boek (Topstep / FTMO / FundedNext / The5ers)
 - Pas na 2-3 maanden dry-run (`bot_dailyflat_mt5_dryrun.bat`, op een MT5-demo).

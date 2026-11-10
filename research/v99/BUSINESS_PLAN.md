@@ -28,12 +28,27 @@ De accounts hangen samen (crypto vs CFD ~0,75): een slechte crypto-periode is me
 Monte Carlo (VAL-5, 1 jaar bij 10% volatiliteit, met het planning-rendement): crypto mediaan max drawdown -5,8% (1 op 20: -10%),
 kans op een verliesjaar 3%; CFD -6,5% (1 op 20: -12%), verliesjaar 8%.
 
-## Update 2026-11-10 (audit): live-vertraging meegerekend
-De backtests vullen elke order precies op het hele uur; live staat een order er pas ~12-20 minuten later (de paper-run start om
-hh:06). Dat kost **~0,15 Sharpe per boek** (EX-1). De nieuwe Weiss-timer in de bots wint daarvan ~0,05-0,07 terug (EX-1c).
-Realistische planning dus: **crypto v9.9e ~1,95** (was 2,0), **CFD bf2.8 ~1,45** (was ~1,55). De bedragen in tabel 2 zakken
-daardoor met ruwweg 5-10%. Een snellere live-boekbouwer (rekenen om hh:00:30) zou nog ~0,06 per boek kunnen opleveren
-(live-checklist). HyroTrader-risico: **1,5** (H3, met ERC-weging robuuster dan 1,75).
+## Update 2026-11-10 (grote audit): wat de cijfers ECHT zijn als een bot live handelt
+De tabel in sectie 2 kwam uit simulaties die drie dingen te mooi voorstelden. Alle drie zijn gemeten en verwerkt:
+
+| Aanname in de backtest | Werkelijkheid | Effect | Wat eraan gedaan is |
+|---|---|---|---|
+| Elke order precies op het hele uur | Order ~12-20 min later (paper-run start hh:06) | ~-0,15 Sharpe per boek (EX-1 / EX-2) | Weiss-timer in de bots wint ~0,05 terug; de rest blijft |
+| Dagstop alleen op hele uren bekeken | Bot kijkt continu en verkoopt dips die herstellen | -0,11 tot -0,17 Sharpe (VAL-8) | Hybride stop: 2,5% op het hele uur + noodstop 3,75% continu (STOP-1) |
+| Weiss-trade pas om 10:00 geboekt, grootte onbeperkt | Positie liep op tot 6,4x het account; in 2020-21 zou 1,5x al eens door de 5%-limiet zijn gegaan | staart-risico (WS-1 / WS-1b) | Plafond 1,0x het account in de bots |
+
+**Nieuwe verwachting per account over 2 jaar** (firm-regels, 5-minutenpad, hybride stop; simulaties, geen belofte):
+
+| Account | Risico | Planning-Sharpe | Gemiddeld netto | Slechte 10% | Kans op verlies | Bron |
+|---|---|---|---|---|---|---|
+| HyroTrader $200K (v9.9e) | **1,5** | ~1,9 | **~EUR 78k** | ~EUR 7k | ~7% | H4 |
+| idem bij tegenvaller | 1,5 | 1,6 | ~EUR 63k | ~EUR 2k | ~10% | H4 |
+| BrightFunded $200K (bf2.8) | 1,75 | ~1,4 | **~EUR 45-47k** | ~EUR -4k | ~19-20% | H4 (Weiss-plafond kost nog ~0,05) |
+| idem bij tegenvaller | 1,75 | 1,15 | ~EUR 35k | ~EUR -4k | ~28% | H4 |
+
+Gevolgen: HyroTrader blijft duidelijk nummer 1 (risico 1,5; 2,0 is op het echte pad duidelijk slechter). BrightFunded is
+zwakker dan eerder gedacht (1 op 5 kans op netto verlies): pas ná de eerste Hyro-uitbetaling en alleen als de CFD-gate slaagt.
+De Weiss-strategie zelf heeft bescheiden bewijs (2020-26: t = 1,55 over 82 dagen; 2025-26 zwak): hij blijft erin, maar klein.
 
 ## 3. Kosten en geld dat je moet vrijhouden
 
