@@ -1,0 +1,9 @@
+{
+ "id": "WE-1",
+ "registered": "2026-11-10. FLAGGED post hoc: on the 2022-01..2026-09 Weiss days (114 trades, EX-1c data) an entry a few minutes BEFORE 08:00 UTC with the sign known at that minute looked better than the 08:00 entry (per trade net: -5 min 32.1 bp, -3 min 32.9, -2 min 30.8, -1 min 22.5, 0 min 21.6, +1 min 17.5). Registered before any 1-minute data of 2020-2021 or October 2026 was downloaded: those days are unseen for this question.",
+ "mechanism": "Deribit settles the monthly expiry on the average of its index over 07:30-08:00 UTC; hedging / pinning pressure acts inside that window and fades before it ends, so the reversal that the Weiss sleeve trades starts before 08:00",
+ "trial": "1 trial: entry at 07:57 UTC (open of the 07:57 minute bar), side = -sign(open 07:57 / open 07:00 - 1), exit at the 10:00 open, 5 bp per side; reference = the frozen rule (entry at the 08:00 open, sign from open 08:00 / open 07:00)",
+ "unseen sample": "last Friday of each month 2020-01..2021-12 (24 days, BTC and ETH perps; Binance USDT-M 1-minute archive) plus 2026-10-30",
+ "judge": "paired difference per trade (07:57 entry minus 08:00 entry). PASS if, on the unseen sample, the mean paired difference is > 0 AND the 07:57 entry's own mean is > 0; and on all days together (2020-2026) the paired t-statistic is >= 2. Reported too: -5 / -2 / -1 minute entries (plateau), by year.",
+ "if PASS": "the Weiss TIMER in the bots enters at 07:57:0x UTC with the 07:57 sign (the bots already compute the trade themselves); the frozen v9.8 paper and the research sleeve stay as they are (they keep booking the 08:00 trade), so the paper comparison of this sleeve becomes bot-vs-paper by design; counted as 1 trial in the haircut. If FAIL: nothing changes."
+}
