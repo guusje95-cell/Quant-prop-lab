@@ -1,0 +1,78 @@
+{
+ "crypto v9.8 (8 non-event sleeves)": {
+  "netting check: per-sleeve sum at 15 min vs net, cost % a year": [
+   2.469,
+   2.469
+  ],
+  "now": [
+   3.186,
+   [
+    3.062,
+    3.758,
+    2.705
+   ]
+  ],
+  "fast path": [
+   3.202,
+   [
+    3.053,
+    3.824,
+    2.683
+   ]
+  ],
+  "fast path + ridge": [
+   3.214,
+   [
+    3.048,
+    3.846,
+    2.694
+   ]
+  ],
+  "all 5 min": [
+   3.247,
+   [
+    3.086,
+    3.875,
+    2.715
+   ]
+  ]
+ },
+ "CFD bf2.8 (crypto-CFD sleeves)": {
+  "netting check: per-sleeve sum at 15 min vs net, cost % a year": [
+   2.788,
+   2.788
+  ],
+  "now": [
+   2.985,
+   [
+    1.855,
+    4.104,
+    2.461
+   ]
+  ],
+  "fast path": [
+   3.0,
+   [
+    1.86,
+    4.178,
+    2.416
+   ]
+  ],
+  "fast path + ridge": [
+   3.012,
+   [
+    1.859,
+    4.201,
+    2.424
+   ]
+  ],
+  "all 5 min": [
+   3.045,
+   [
+    1.918,
+    4.237,
+    2.431
+   ]
+  ]
+ }
+}

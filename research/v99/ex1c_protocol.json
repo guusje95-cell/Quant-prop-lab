@@ -1,0 +1,9 @@
+{
+ "id": "EX-1c",
+ "registered": "2026-11-10, after EX-1b (follow-up, FLAGGED), before any 1-minute data was downloaded",
+ "kind": "execution measurement, 0 alpha trials",
+ "question": "EX-1b: a 5-minute fast path recovers only +0.016 (most of the delay cost falls inside the first 5 minutes, mainly Weiss expiry). How much of Weiss expiry's per-trade edge survives a fill 0-5 minutes after 08:00 UTC?",
+ "data": "Binance USDT-M perp 1-minute klines (fapi public, BTCUSDT / ETHUSDT) 07:00-10:05 UTC on every Weiss day (last Friday of the month) 2022-01..2026-09",
+ "method": "the frozen rule: side = -sign(open 08:00 / open 07:00 - 1); exit at the 10:00 open; entry at the open of the 08:00+d minute bar for d = 0, 1, 2, 3, 5, 10, 15; 5 bp per side; per-trade mean (bp) and t-stat, both coins, plus d = 0 vs the research sleeve (check)",
+ "decision": "if d = 1 keeps >= 70% of the d = 0 mean: build a Weiss timer in the bots (order at 08:00:00-08:00:30 UTC from live prices, exit at 10:00) and planning uses the 1-minute number; if not: Weiss's planning value is cut to its 15-minute number and its book weight is reviewed in a separate protocol"
+}
