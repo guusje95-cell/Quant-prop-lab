@@ -28,6 +28,13 @@ De accounts hangen samen (crypto vs CFD ~0,75): een slechte crypto-periode is me
 Monte Carlo (VAL-5, 1 jaar bij 10% volatiliteit, met het planning-rendement): crypto mediaan max drawdown -5,8% (1 op 20: -10%),
 kans op een verliesjaar 3%; CFD -6,5% (1 op 20: -12%), verliesjaar 8%.
 
+## Update 2026-11-10 (audit): live-vertraging meegerekend
+De backtests vullen elke order precies op het hele uur; live staat een order er pas ~12-20 minuten later (de paper-run start om
+hh:06). Dat kost **~0,15 Sharpe per boek** (EX-1). De nieuwe Weiss-timer in de bots wint daarvan ~0,05-0,07 terug (EX-1c).
+Realistische planning dus: **crypto v9.9e ~1,95** (was 2,0), **CFD bf2.8 ~1,45** (was ~1,55). De bedragen in tabel 2 zakken
+daardoor met ruwweg 5-10%. Een snellere live-boekbouwer (rekenen om hh:00:30) zou nog ~0,06 per boek kunnen opleveren
+(live-checklist). HyroTrader-risico: **1,5** (H3, met ERC-weging robuuster dan 1,75).
+
 ## 3. Kosten en geld dat je moet vrijhouden
 
 | Post | Bedrag | Opmerking |
