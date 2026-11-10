@@ -1,0 +1,9 @@
+{
+ "id": "H4",
+ "registered": "2026-11-10, after STOP-1, before any risk grid on the 5-minute path was run",
+ "kind": "deployment (0 alpha trials; rule pre-set as in H1-H3)",
+ "question": "H2 / H3 chose the account risk on the hourly-stop path. Which risk is best on the 5-minute path with the hybrid stop (STOP-1) and the planning levels that include the live fill delay (EX-1 / EX-2)?",
+ "method": "scripts/v99/stop1_design functions (same 5-minute paths, same firm rule engine, 400 paths, one account, 3 challenge budget, 2 years); risk grid 1.0 / 1.25 / 1.5 / 1.75 / 2.0; hybrid stop at 2.5% / 3.75% of the account for every risk",
+ "levels": {"HyroTrader Two-Step $200k (v9.9e)": [1.9, 1.6], "BrightFunded Two-Step Classic $200k (bf2.8)": [1.45, 1.15]},
+ "rule": "risk* = highest mean 2-year net at the planning level among risks with P(net loss) <= 0.20; if a LOWER risk is within 5% of that mean at the planning level, or beats it at the lower Sharpe level, the lower risk is taken (robust choice, as H3)"
+}
